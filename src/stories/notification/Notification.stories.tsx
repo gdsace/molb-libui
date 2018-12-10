@@ -1,10 +1,10 @@
 import React from "react";
 
-import { wInfo } from "../utils";
-import { notification, ToastContainer } from "../../components/notification";
-import { storiesOf } from "@storybook/react";
 import { Button } from "@src/components";
 import { NotificationTheme } from "@src/components/EnumValues";
+import { storiesOf } from "@storybook/react";
+import { notification, ToastContainer } from "../../components/notification";
+import { wInfo } from "../utils";
 
 (storiesOf("Components", module) as any).addWithJSX(
   "Notification",

@@ -1,10 +1,10 @@
 import React from "react";
 
+import { Input } from "@src/components";
 import { InputType, Size } from "@src/components/EnumValues";
-import { wInfo } from "../utils";
 import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
-import { Input } from "@src/components";
+import { wInfo } from "../utils";
 
 const placeholder = "this is placeholder";
 const errorMsg = "this is error msg";

@@ -1,10 +1,10 @@
 import React from "react";
 
-import { wInfo } from "../utils";
 import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
 import { Dropdown } from "../../components/dropdown/Dropdown";
 import { PremiseDropdown } from "../../components/dropdown/PremiseDropdown";
+import { wInfo } from "../utils";
 
 const mockOptions = [
   {

@@ -1,8 +1,8 @@
 import React from "react";
 
-import { wInfo } from "../utils";
-import { storiesOf } from "@storybook/react";
 import { Button } from "@src/components";
+import { storiesOf } from "@storybook/react";
+import { wInfo } from "../utils";
 
 import { Size, Theme } from "@src/components/EnumValues";
 import { action } from "@storybook/addon-actions";

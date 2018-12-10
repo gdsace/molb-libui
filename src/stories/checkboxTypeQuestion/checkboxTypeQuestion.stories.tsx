@@ -1,9 +1,9 @@
 import React from "react";
 
-import { CheckboxTypeQuestion } from "@src/components";
-import { wInfo } from "../utils";
 import { State, Store } from "@sambego/storybook-state";
+import { CheckboxTypeQuestion } from "@src/components";
 import { storiesOf } from "@storybook/react";
+import { wInfo } from "../utils";
 
 const store = new Store({
   checked: false

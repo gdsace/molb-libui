@@ -1,11 +1,11 @@
 import React from "react";
 
+import { storiesOf } from "@storybook/react";
 import {
   IOption,
   RadioCardTypeQuestion
 } from "../../components/radioCardTypeQuestion/RadioCardTypeQuestion";
 import { wInfo } from "../utils";
-import { storiesOf } from "@storybook/react";
 
 const radioCardTypeQuestionStyle = {
   marginBottom: "60px",

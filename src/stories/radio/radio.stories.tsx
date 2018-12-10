@@ -1,9 +1,9 @@
 import React from "react";
 
-import { wInfo } from "../utils";
 import { State, Store } from "@sambego/storybook-state";
 import { storiesOf } from "@storybook/react";
 import { IOptionValue, IRadioProps, Radio } from "../../components/radio/Radio";
+import { wInfo } from "../utils";
 
 const valueChangeHanlder = (value: string) => {
   store.set({ value });

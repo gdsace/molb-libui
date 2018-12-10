@@ -2,10 +2,9 @@ import React from "react";
 
 import { storiesOf } from "@storybook/react";
 
-import { wInfo } from "../utils";
 import { State, Store } from "@sambego/storybook-state";
-import { Indicator } from "@src/components";
-import { Sidebar } from "@src/components";
+import { Indicator, Sidebar } from "@src/components";
+import { wInfo } from "../utils";
 
 const store1 = new Store({
   activeIndex: 1

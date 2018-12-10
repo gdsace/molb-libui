@@ -1,9 +1,8 @@
 import React from "react";
 
-import { wInfo } from "../utils";
+import { PremiseDropdown, Tab } from "@src/components";
 import { storiesOf } from "@storybook/react";
-import { PremiseDropdown } from "@src/components";
-import { Tab } from "@src/components";
+import { wInfo } from "../utils";
 
 const list = [
   {

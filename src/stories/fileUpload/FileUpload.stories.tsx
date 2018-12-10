@@ -1,10 +1,10 @@
 import React from "react";
 
-import { wInfo } from "../utils";
+import { FileUpload } from "@src/components";
+import { documentTypes } from "@src/components/fileUpload/__tests__/__mocks__/documentTypes";
 import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
-import { documentTypes } from "@src/components/fileUpload/__tests__/__mocks__/documentTypes";
-import { FileUpload } from "@src/components";
+import { wInfo } from "../utils";
 
 (storiesOf("Components", module) as any).addWithJSX(
   "FileUpload",

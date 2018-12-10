@@ -1,12 +1,11 @@
 import React from "react";
 
+import { Card, Link } from "@src/components";
 import { storiesOf } from "@storybook/react";
-import { Card } from "@src/components";
 
 import { CardStatus, CardTheme } from "@src/components/EnumValues";
-import { Link } from "@src/components";
-import { wInfo } from "../utils";
 import { action } from "@storybook/addon-actions";
+import { wInfo } from "../utils";
 
 const description = (
   <div>

@@ -1,9 +1,9 @@
 import React from "react";
 
-import { ListcardStatus } from "@src/components/EnumValues";
-import { wInfo } from "../utils";
-import { storiesOf } from "@storybook/react";
 import { Listcard } from "@src/components";
+import { ListcardStatus } from "@src/components/EnumValues";
+import { storiesOf } from "@storybook/react";
+import { wInfo } from "../utils";
 
 (storiesOf("Components", module) as any).addWithJSX(
   "Listcard",

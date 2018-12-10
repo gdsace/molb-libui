@@ -1,8 +1,8 @@
 import React from "react";
 
-import { wInfo } from "../utils";
-import { storiesOf } from "@storybook/react";
 import { Table } from "@src/components";
+import { storiesOf } from "@storybook/react";
+import { wInfo } from "../utils";
 
 export const tableColumns = [
   {

@@ -1,9 +1,9 @@
 import React from "react";
 
-import { wInfo } from "../utils";
+import { ActionSection } from "@src/components";
 import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
-import { ActionSection } from "@src/components";
+import { wInfo } from "../utils";
 
 const styles = require("./actionSection.stories.scss");
 

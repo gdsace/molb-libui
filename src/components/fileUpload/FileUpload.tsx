@@ -2,9 +2,9 @@ import _ from "lodash";
 import qs from "qs";
 import * as React from "react";
 
-import { IDocument, IDocumentType } from "../types";
 import classNames from "classnames";
 import Dropzone, { DropzoneProps } from "react-dropzone";
+import { IDocument, IDocumentType } from "../types";
 import { DefaultFileUploadChild } from "./DefaultFileUploadChild";
 import { SubjectType } from "./subjectTypes";
 

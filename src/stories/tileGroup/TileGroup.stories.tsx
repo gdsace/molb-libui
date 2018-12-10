@@ -1,11 +1,11 @@
 import React from "react";
 
-import { TileTheme } from "@src/components/EnumValues";
-import { TileGroup } from "@src/components";
-import { Tile } from "@src/components/tileGroup/tile";
-import { wInfo } from "../utils";
 import { State, Store } from "@sambego/storybook-state";
+import { TileGroup } from "@src/components";
+import { TileTheme } from "@src/components/EnumValues";
+import { Tile } from "@src/components/tileGroup/tile";
 import { storiesOf } from "@storybook/react";
+import { wInfo } from "../utils";
 
 const tileOptions = [
   {

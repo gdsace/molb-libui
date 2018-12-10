@@ -1,9 +1,9 @@
 import React from "react";
 
-import { wInfo } from "../utils";
-import { TagTheme } from "@src/components/EnumValues";
 import { Tag } from "@src/components";
+import { TagTheme } from "@src/components/EnumValues";
 import { storiesOf } from "@storybook/react";
+import { wInfo } from "../utils";
 
 const rowStyles = {
   padding: "20px 0",

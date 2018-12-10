@@ -1,9 +1,9 @@
 import React from "react";
 
-import { wInfo } from "../utils";
+import { Link } from "@src/components";
 import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
-import { Link } from "@src/components";
+import { wInfo } from "../utils";
 
 const rowStyles = {
   padding: "20px 0",
