@@ -1,4 +1,4 @@
-import { CardStatus, CardTheme } from "@libui/components/EnumValues";
+import { CardTheme, TagTheme } from "@libui/components/EnumValues";
 import * as React from "react";
 export interface ICardProps {
     title: string;
@@ -6,7 +6,8 @@ export interface ICardProps {
     subtitle: string;
     supportingText?: string;
     description?: React.ReactNode;
-    status?: CardStatus;
+    status?: string;
+    statusTheme?: TagTheme;
     actionField?: React.ReactNode;
     theme?: CardTheme;
     className?: string;
