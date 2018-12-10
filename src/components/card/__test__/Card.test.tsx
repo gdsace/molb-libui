@@ -1,5 +1,6 @@
 import { Card } from "@libui/components/card/Card";
-import { CardStatus, CardTheme } from "@libui/components/EnumValues";
+import { CardTheme, TagTheme } from "@libui/components/EnumValues";
+import { Tag } from "@src/components";
 import { mount } from "enzyme";
 import * as React from "react";
 
@@ -25,7 +26,7 @@ describe("Card", () => {
         description={Description}
         theme={CardTheme.Normal}
         supportingText={price}
-        status={CardStatus.Processing}
+        status={"In Processing"}
         actionField={ActionField}
       />
     );
@@ -51,6 +52,22 @@ describe("Card", () => {
     );
     wrapper.find(".card").simulate("click", {});
 
+    expect(wrapper.find(Tag)).toHaveLength(0);
     expect(onClickMock).toBeCalled();
+  });
+
+  it("should render Tag when have status in props", () => {
+    const onClickMock = jest.fn();
+    const wrapper = mount(
+      <Card
+        title={title}
+        subtitle={subtitle}
+        status={"Pending Payment"}
+        statusTheme={TagTheme.Green}
+        theme={CardTheme.Clickable}
+        onClick={onClickMock}
+      />
+    );
+    expect(wrapper.find(Tag)).toHaveLength(1);
   });
 });
