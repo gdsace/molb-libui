@@ -60,6 +60,7 @@ export class Dropdown<T> extends React.Component<IDropdownProps<T>, {}> {
     const dropdown = (
       <div
         className={`${styles.field} ${styles[this.props.size || Size.Large]}`}
+        data-scrollpoint={true}
       >
         <BaseDropdown
           components={{
@@ -93,7 +94,7 @@ export class Dropdown<T> extends React.Component<IDropdownProps<T>, {}> {
     // Todo: use a common Label component
     if (this.props.label) {
       return (
-        <label>
+        <label data-scrollpoint={true}>
           <div className={styles.label}>
             {this.props.label}
             {/* <Icon type="help" /> */}

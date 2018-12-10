@@ -61,7 +61,10 @@ export class TextArea extends React.Component<ITextAreaPros, any> {
     const textareaValidation =
       (this.props.overwrite && this.state.isOverwrite) || this.props.showError;
     return (
-      <div className={textareaValidation ? styles.textarea_validation : theme}>
+      <div
+        className={textareaValidation ? styles.textarea_validation : theme}
+        data-scrollpoint={true}
+      >
         <div className={styles.header}>
           <label className={styles.title}>{this.props.title}</label>
           <div

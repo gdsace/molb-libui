@@ -1,6 +1,7 @@
 import { InputType, Size } from "@libui/components/EnumValues";
 import * as React from "react";
 import { Icon } from "../icons";
+import { addLocatedErrorClassname } from "../utils";
 
 const styles = require("./input.scss");
 
@@ -38,7 +39,10 @@ export class Input extends React.Component<IInputProps, {}> {
   public render() {
     const size = styles[`${this.props.size}`];
     return (
-      <div className={styles.input}>
+      <div
+        className={styles.input}
+        data-scrollpoint={this.props.label ? true : false}
+      >
         {this.props.label && (
           <div className={styles.label}>
             <p>{this.props.label}</p>
@@ -72,7 +76,9 @@ export class Input extends React.Component<IInputProps, {}> {
         </div>
         <label
           className={`${
-            this.props.showError ? styles.errorMsg : styles.helperMsg
+            this.props.showError
+              ? addLocatedErrorClassname(styles.errorMsg)
+              : styles.helperMsg
           } ${styles.isEmpty}`}
         >
           {this.props.showError ? this.props.errorMsg : this.props.helperMsg}
