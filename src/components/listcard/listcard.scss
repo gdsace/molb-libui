@@ -1,0 +1,169 @@
+@import "../styles/utils";
+
+@mixin font-style($size, $weight, $style, $stretch, $lineHeight) {
+  font-size: $size;
+  font-weight: $weight;
+  font-style: $style;
+  font-stretch: $stretch;
+  line-height: $lineHeight;
+}
+
+@mixin gridWidth($i) {
+  @include col($i);
+
+  @include for-phone-only {
+    @include col(12);
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 5px;
+  box-shadow:
+    0 4px 12px 0 rgba(0, 0, 0, 0.03),
+    0 7px 25px 0 rgba(0, 0, 0, 0.03),
+    0 0 0 1px rgba(0, 0, 0, 0.03);
+  background-color: #fff;
+  padding: $space-4;
+  // max-width: 1076px;
+  // To be discussed with UX about the max-width;
+  min-height: 82px;
+
+  @include for-phone-only {
+    min-width: 236px;
+    flex-direction: column;
+  }
+
+  &:hover {
+    box-shadow:
+      0 4px 12px 0 rgba(0, 0, 0, 0.03),
+      0 7px 25px 0 rgba(0, 0, 0, 0.03),
+      0 0 0 1px rgba(0, 0, 0, 0.03),
+      0 4px 25px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .titleContainer {
+    display: flex;
+
+    @include gridWidth(4);
+
+    flex-direction: column;
+  }
+
+  .tagContainer {
+    display: flex;
+
+    @include gridWidth(3);
+
+    flex-direction: column;
+  }
+
+  .labelContainer {
+    display: flex;
+
+    @include gridWidth(2);
+
+    flex-direction: column;
+  }
+
+  .buttonContainer {
+    display: flex;
+
+    @include gridWidth(2);
+
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .title {
+    @include font-style($x-large, $weight-semibold, normal, normal, $line-height-medium);
+
+    font-family: $font-family;
+    letter-spacing: normal;
+    color: $text-color-3;
+  }
+
+  .subTitle {
+    @include font-style($medium, normal, normal, normal, $line-height-large);
+
+    font-family: $font-family;
+    letter-spacing: normal;
+    color: $text-color;
+    margin-top: $space-0;
+  }
+
+  .label {
+    @include font-style($small, bold, normal, normal, $line-height-large);
+
+    font-family: $font-family;
+    letter-spacing: normal;
+    color: $text-color;
+
+    @include for-phone-only {
+      display: none;
+    }
+  }
+
+  .description {
+    @include font-style($medium, normal, normal, normal, $line-height-large);
+
+    font-family: $font-family;
+    letter-spacing: normal;
+    color: $text-color-2;
+    margin-top: $space-2;
+  }
+
+  .tag {
+    margin-top: $space-1;
+
+    @include for-phone-only {
+      margin-top: $space-3;
+      text-align: left;
+    }
+
+    .tagText {
+      @include font-style($small, $weight-medium, normal, normal, $line-height-large);
+
+      padding: 2px $space-1;
+      font-family: $font-family;
+      letter-spacing: normal;
+      text-align: center;
+      border-radius: 3px;
+    }
+
+    .normal {
+      color: $support-blue;
+      background-color: $light-blue;
+    }
+
+    .expries {
+      background-color: $ui-color-6;
+      color: $support-red;
+    }
+  }
+
+  .supportingText {
+    @include font-style($large, normal, normal, normal, $line-height-large);
+
+    @include for-phone-only {
+      margin-top: $space-3;
+    }
+
+    font-family: $font-family;
+    letter-spacing: normal;
+    color: $text-color-2;
+    margin-top: $space-1;
+  }
+
+  .button {
+    width: 134px;
+    height: 40px;
+
+    @include for-phone-only {
+      margin-top: $space-3;
+      width: 250px;
+    }
+  }
+}

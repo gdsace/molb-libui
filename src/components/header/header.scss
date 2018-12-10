@@ -1,0 +1,22 @@
+@import "~@libui/components/styles/utils";
+
+$header-height: 80px;
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-height: $header-height;
+  padding: $body-padding;
+  line-height: 1;
+  vertical-align: middle;
+  justify-content: space-between;
+
+  @include for-phone-only {
+    padding: $molb-body-padding;
+  }
+
+  .childLeft {
+    flex-direction: row-reverse;
+  }
+}

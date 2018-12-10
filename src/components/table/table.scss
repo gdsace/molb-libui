@@ -1,0 +1,46 @@
+@import "~@libui/components/styles/utils";
+
+.tableContainer {
+  table {
+    border-radius: 5px;
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.03), 0 7px 25px 0 rgba(0, 0, 0, 0.03), 0 0 0 1px rgba(0, 0, 0, 0.03);
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    thead {
+      background-color: $ui-color;
+    }
+
+    tbody {
+      tr {
+        height: $space-10;
+        width: 100%;
+        padding: $space-0;
+      }
+
+      tr:nth-child(2n+1) {
+        background-color: $ui-color-1;
+      }
+
+      tr:nth-child(2n) {
+        background-color: $ui-color;
+      }
+    }
+
+    th,
+    td {
+      padding: $space-4;
+      text-align: left;
+    }
+
+    th {
+      color: $text-color;
+      text-transform: uppercase;
+      font-size: $small;
+      letter-spacing: normal;
+    }
+  }
+}

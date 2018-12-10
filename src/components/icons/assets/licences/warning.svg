@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>C4BE474A-69C5-44F7-A6FA-4A4CC05A5D76</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <path d="M30.88,28.526 L16.88,2.526 C16.531,1.879 15.468,1.879 15.119,2.526 L1.119,28.526 C0.951496941,28.8359137 0.959605846,29.2111404 1.14034116,29.5135284 C1.32107648,29.8159165 1.64771715,30.0007589 2,30 L30,30 C30.3521046,30.0004057 30.6784217,29.8154228 30.8589141,29.513098 C31.0394065,29.2107731 31.0474175,28.8357567 30.88,28.526 Z M17.714,11 L17,21 L15,21 L14.286,11 L17.714,11 Z M16,27 C15.0180377,27 14.222,26.2039623 14.222,25.222 C14.222,24.2400377 15.0180377,23.444 16,23.444 C16.9819623,23.444 17.7779999,24.2400377 17.7779999,25.222 C17.7779999,26.2039623 16.9819623,27 16,27 Z" id="path-1"></path>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Components/Icon/32x/Alert">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Mask" fill="currentColor" fill-rule="nonzero" xlink:href="#path-1"></use>
+            <g id="Colour/Primary/Indigo" mask="url(#mask-2)" fill="transparent">
+                <path d="M3,0 L29,0 C30.6568542,-3.04359188e-16 32,1.34314575 32,3 L32,29 C32,30.6568542 30.6568542,32 29,32 L3,32 C1.34314575,32 2.02906125e-16,30.6568542 0,29 L0,3 C-2.02906125e-16,1.34314575 1.34314575,3.04359188e-16 3,0 Z" id="Rectangle"></path>
+            </g>
+        </g>
+    </g>
+</svg>

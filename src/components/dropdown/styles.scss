@@ -1,0 +1,233 @@
+// We cannot split this file up because importing styles from another file will
+// create duplicates
+
+@import "~@libui/components/styles/utils";
+
+.dropdownIcon {
+  width: 32px; /* Fix for IE11, Safari icon not showing */
+}
+
+.dropdownControl {
+  height: 100% !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  user-select: none;
+
+  &:hover {
+    .addressLabel,
+    .dropdownIndicator {
+      transition: none !important;
+      color: $indigo !important;
+    }
+  }
+}
+
+.menuList {
+  padding: 0 !important;
+  overflow-x: hidden;
+  max-height: 265px !important;
+}
+
+.option {
+  color: $text-color-2 !important;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  &:hover {
+    background-color: $ui-color-1 !important;
+  }
+}
+
+.errorMessage {
+  margin-top: $space-1;
+  font-size: $small;
+  font-weight: $weight-regular;
+  color: $support-red;
+}
+
+.label {
+  margin-bottom: $space-1;
+}
+
+.small {
+  width: 130px;
+}
+
+/* Dropdown input field styling */
+.field {
+  .dropdown {
+    height: 48px !important;
+  }
+
+  .dropdownControl {
+    border-radius: 3px;
+    border: solid 1px $ui-color-2;
+
+    &:hover {
+      border: solid 1px $text-color;
+    }
+  }
+
+  .option {
+    padding: $space-2 !important;
+  }
+
+  .menu {
+    border-radius: 0 0 3px 3px;
+    border-right: solid 1px $indigo;
+    border-left: solid 1px $indigo;
+    border-bottom: solid 1px $indigo;
+    margin: 0 0 0 -1px !important;
+    box-sizing: unset !important;
+    box-shadow: none !important;
+  }
+
+  .menuList {
+    border-top: solid 1px $ui-color-2;
+  }
+
+  .valueContainer {
+    padding: 0;
+  }
+
+  .singleValue {
+    padding: 0 !important;
+    margin: 0 0 0 $space-2 !important;
+    width: 100% !important;
+    border: none !important;
+
+    &:focus {
+      border: none !important;
+    }
+
+    @include target-ie11 {
+      flex: 1; // IE11 vertical center fix
+    }
+  }
+
+  .placeholder {
+    margin: 0 $space-2 !important;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+    user-select: none;
+  }
+}
+
+/* Premise dropdown specific styles */
+.premise {
+  max-width: 100%;
+  min-width: 250px;
+
+  @include target-ie11 {
+    flex-grow: 1; // IE11 flexbox not growing fix
+  }
+
+  @include for-phone-only {
+    width: 100%;
+  }
+
+  .option {
+    padding: unset !important;
+  }
+
+  /* stylelint-disable */
+  .addressLabel {
+    display: flex;
+
+    .addressText {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .addressPostal {
+      align-self: flex-end;
+    }
+  }
+  /* stylelint-enable */
+
+  .dropdown {
+    height: $display-x-large;
+    // This is bugged because the mobile breakpoint is too narrow
+    // On more narrow widths this will create a scrollbar
+    // To confirm with UX team
+    max-width: 560px;
+
+    // prevent svg from appearing on top of this
+    z-index: $z-index-3 !important;
+
+    @include for-phone-only {
+      max-width: 320px;
+      // when the device screen is narrow(iphone 5s),
+      // the wrapper will broken. so it goes 320px;
+      width: 100%;
+    }
+
+    // Hack to make sure value is vertically centered and not affected by hidden input
+    input {
+      position: fixed !important;
+    }
+  }
+
+  .premiseLabel {
+    padding: $space-2 $space-3;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    user-select: none;
+  }
+
+  .value {
+    font-size: $x-large !important;
+    font-weight: $weight-semibold;
+    padding: 0 !important;
+    position: unset !important; // Move arrow next to text
+    margin-right: $space-6 !important; // Add some space for text to breathe
+    transform: none !important;
+
+    @include target-ie11 {
+      flex: 1; // IE11 vertical center fix
+    }
+
+    @include for-phone-only {
+      margin-right: 0 !important;
+    }
+
+    > .premiseLabel {
+      padding: 0;
+    }
+
+    &:active {
+      background-color: transparent !important;
+    }
+  }
+
+  .valueContainer {
+    padding: 0;
+  }
+
+  .menu {
+    // 16px between text baseline and menu top
+    margin: -8px 0 !important;
+    border-radius: 5px !important;
+    box-shadow:
+      0 4px 12px 0 rgba(0, 0, 0, 0.03),
+      0 7px 25px 0 rgba(0, 0, 0, 0.03),
+      0 0 0 1px rgba(0, 0, 0, 0.03) !important;
+    width: unset !important;
+    max-width: 560px !important;
+
+    @include for-phone-only {
+      max-width: calc(100vw - 60px) !important;
+    }
+  }
+
+  .placeholder {
+    font-size: $x-large !important;
+    font-weight: $weight-semibold;
+    user-select: none;
+  }
+}

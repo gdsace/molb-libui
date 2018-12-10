@@ -1,0 +1,87 @@
+@import "~@libui/components/styles/utils";
+
+.radioWrapper {
+  position: relative;
+
+  input[type="radio"] {
+    display: none;
+  }
+
+  span,
+  label {
+    display: flex;
+  }
+
+  .radioText {
+    font-weight: $weight-semibold;
+    font-size: $x-large;
+    display: inline-block;
+    margin-top: $space-8;
+  }
+
+  .radioLabel {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+
+    @include for-phone-only {
+      flex-direction: column;
+    }
+  }
+
+  .optionText {
+    padding: 0 $space-2;
+    font-size: $large;
+    font-weight: $weight-semibold;
+    line-height: $line-height-large;
+  }
+
+  .radioContentDisabled {
+    color: $ui-color-4;
+  }
+
+  .checkBoxIcon {
+    width: 16.7%;
+
+    &.widthDisabled {
+      width: 100%;
+    }
+
+    padding-left: $space-2;
+    margin-top: $space-3;
+
+    &.radioWrapperDisabled svg {
+      color: $ui-color-2;
+    }
+
+    &.radioWrapperSelected svg {
+      color: $lavender-indigo;
+    }
+
+    &.radioWrapperUnselected svg {
+      color: $ui-color-2;
+    }
+
+    &.radioWrapperDisabled {
+      &.radioWrapperSelected svg {
+        color: $ui-color-5;
+      }
+    }
+
+    &.radioWrapperUnselected {
+      &.radioWrapperEnable svg:hover {
+        color: $lavender-indigo;
+      }
+    }
+  }
+
+  .errorMsg {
+    color: $support-red;
+    font-size: $medium;
+    line-height: $line-height-medium;
+    margin-top: $space-1;
+    position: absolute;
+    left: 0;
+    top: 100%;
+  }
+}

@@ -1,0 +1,109 @@
+@import "../styles/utils";
+
+.button {
+  outline: none;
+  border-radius: 3px;
+  font-weight: $weight-semibold;
+  font-family: $font-family;
+  white-space: nowrap;
+  width: fit-content;
+  padding: 0;
+  cursor: pointer;
+  border: none;
+}
+
+.buttonContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .leftIcon {
+    margin-right: $space-2;
+  }
+
+  .rightIcon {
+    margin-left: $space-2;
+  }
+}
+
+.simple {
+  color: $primary-color;
+  background-color: $primary-color-2;
+}
+
+.primary {
+  color: $primary-color-2;
+  background-color: $primary-color;
+
+  &:focus {
+    background-color: $secondary-color-8;
+  }
+
+  &:hover {
+    background-color: $secondary-color;
+  }
+}
+
+.secondary {
+  color: $primary-color;
+  background-color: $secondary-color-6;
+  border: solid 1px $secondary-color-7;
+
+  &:focus {
+    border-color: $field-color-3;
+  }
+
+  &:hover {
+    background-color: $text-color-4;
+  }
+}
+
+.ghost {
+  color: $primary-color;
+  background-color: $primary-color-2;
+  border: solid 1px $primary-color;
+
+  &:focus {
+    background-color: $secondary-color-6;
+  }
+
+  &:hover {
+    color: $primary-color-2;
+    background-color: $primary-color;
+  }
+}
+
+.disabled {
+  color: $primary-color-2;
+  background-color: $ui-color-2;
+}
+
+.small {
+  height: 32px;
+  font-size: $small;
+  min-width: 90px;
+  padding: 0 $space-2;
+
+  @include for-phone-only {
+    min-width: 70px;
+  }
+}
+
+.medium {
+  height: 40px;
+  font-size: $medium;
+  min-width: 110px;
+  padding: 0 20px;
+
+  @include for-phone-only {
+    height: 48px;
+    font-size: $large;
+  }
+}
+
+.large {
+  height: 48px;
+  font-size: $large;
+  min-width: 140px;
+  padding: 0 $space-3;
+}

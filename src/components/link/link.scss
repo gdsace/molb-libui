@@ -1,0 +1,68 @@
+@import "../styles/utils";
+
+.link {
+  font-weight: $weight-semibold;
+  line-height: $line-height-large;
+  cursor: pointer;
+
+  svg {
+    vertical-align: text-top;
+  }
+}
+
+.enable {
+  color: $primary-color;
+
+  &:focus {
+    text-decoration-line: underline;
+  }
+
+  &:hover {
+    color: $secondary-color;
+    text-decoration-line: underline;
+  }
+}
+
+.disabled {
+  color: $ui-color-2;
+}
+
+.icon {
+  padding-left: $space-1;
+}
+
+.small {
+  font-size: $small;
+}
+
+.medium {
+  font-size: $medium;
+}
+
+.large {
+  font-size: $large;
+}
+
+.warning {
+  color: $support-yellow;
+
+  &:hover {
+    color: $support-yellow-70;
+  }
+}
+
+.error {
+  color: $support-red;
+
+  &:hover {
+    color: $support-red-70;
+  }
+}
+
+.success {
+  color: $support-green;
+
+  &:hover {
+    color: $support-green-70;
+  }
+}

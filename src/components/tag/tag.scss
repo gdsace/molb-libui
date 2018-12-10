@@ -1,0 +1,40 @@
+@import "~@libui/components/styles/utils";
+
+.tag {
+  font-size: $small;
+  line-height: $line-height-large;
+  font-weight: $weight-medium;
+  padding: 0 $space-1;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.blue {
+  background-color: $light-blue;
+  color: $support-blue;
+}
+
+.green {
+  background-color: $panache;
+  color: $support-green;
+}
+
+.orange {
+  background-color: $ui-color-7;
+  color: $marigold;
+}
+
+.red {
+  background-color: $ui-color-6;
+  color: $support-red;
+}
+
+.purple {
+  background-color: $selago-light;
+  color: $indigo;
+}
+
+.grey {
+  background-color: $porcelain;
+  color: $text-color;
+}

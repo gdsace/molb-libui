@@ -1,0 +1,21 @@
+@import "~@libui/components/styles/utils";
+
+.section {
+  margin-top: $space-8;
+}
+
+.nextButton {
+  margin-left: auto;
+}
+
+.actionSectionRow {
+  justify-content: space-between;
+}
+
+.onlyPrevious {
+  justify-content: flex-start;
+}
+
+.onlyNext {
+  justify-content: flex-end;
+}

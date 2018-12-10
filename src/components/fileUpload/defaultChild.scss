@@ -1,0 +1,115 @@
+@import "~@libui/components/styles/utils";
+
+.root {
+  font-size: $medium;
+  line-height: $line-height-large;
+  padding: $space-3;
+  user-select: none;
+  cursor: pointer;
+  border-radius: 5px;
+  border: dashed 1px $ui-color-2;
+  background-color: $field-color;
+  height: calc(100% - 50px); // 100% - padding
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.03), 0 7px 25px 0 rgba(0, 0, 0, 0.03), 0 0 0 1px rgba(0, 0, 0, 0.03);
+
+  &:hover {
+    border-style: solid;
+    border-color: $lavender-indigo;
+  }
+}
+
+.rowTitle {
+  width: calc(100% - 32px);
+  margin-bottom: $space-1;
+  display: flex;
+}
+
+.textTitle {
+  font-weight: $weight-semibold;
+  flex: 1;
+}
+
+.icon {
+  color: $indigo;
+  position: absolute;
+  top: $space-3;
+  right: $space-3;
+  width: $space-3;
+  height: $space-3;
+}
+
+.textDescription {
+  color: $text-color;
+}
+
+.textFilename {
+  margin-top: $space-1;
+  color: $text-color;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.textError {
+  margin-top: $space-1;
+  font-size: $small;
+  color: $support-red;
+}
+
+.textFilesize {
+  margin-top: $space-1;
+  font-size: $small;
+  color: $text-color-2;
+}
+
+.textOptional {
+  font-size: $small;
+  font-weight: $weight-regular;
+}
+
+.iconError {
+  color: $support-red;
+}
+
+.iconDelete {
+  color: $indigo;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotateZ(0deg);
+  }
+
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+.iconUploading {
+  animation: 2s rotate linear infinite;
+  color: $indigo;
+}
+
+.hasFile {
+  border-style: solid;
+  border-color: $indigo;
+
+  &:hover {
+    border-color: $indigo;
+    background-color: $secondary-color-6;
+  }
+}
+
+.hasError {
+  border-style: solid;
+  border-color: $support-red;
+
+  &:hover {
+    border-color: $support-red;
+    background-color: $ui-color-6;
+  }
+}
+
+.uploading {
+  background-color: $secondary-color-6;
+}

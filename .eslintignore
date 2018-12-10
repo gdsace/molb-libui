@@ -1,0 +1,6 @@
+coverage/
+dist/
+build/
+yarn-error.log
+node_modules/
+storybook-static/

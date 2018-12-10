@@ -1,0 +1,79 @@
+@import "~@libui/components/styles/utils";
+$checkbox-size: 24px;
+$checkbox-inner-tick-width: $checkbox-size / 14 * 4;
+$checkbox-inner-tick-height: $checkbox-size / 14 * 7;
+$position-left: ($checkbox-size - $checkbox-inner-tick-width) / 2;
+$position-top: ($checkbox-size - $checkbox-inner-tick-height) / 2 - 1.5 * ($checkbox-size / 14);
+
+.checkboxWrapper {
+  .checkbox {
+    display: inline-block;
+    line-height: 0;
+    position: relative;
+    width: $checkbox-size;
+    height: $checkbox-size;
+  }
+
+  .checkboxInput {
+    appearance: none;
+    width: $checkbox-size;
+    height: $checkbox-size;
+    margin: 0;
+    border: $ui-color-2 solid 1px;
+    border-radius: 3px;
+    position: absolute;
+    outline: none;
+    background-color: $ui-color;
+
+    &:hover {
+      border-color: $lavender-indigo;
+    }
+  }
+
+  .inner {
+    display: none;
+    background: $lavender-indigo;
+    width: $checkbox-size;
+    height: $checkbox-size;
+    left: 0;
+    top: 0;
+    border-radius: 3px;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      border-bottom: 2px solid $ui-color;
+      border-right: 2px solid $ui-color;
+      width: $checkbox-inner-tick-width;
+      height: $checkbox-inner-tick-height;
+      left: $position-left;
+      top: $position-top;
+      transform: rotate(45deg);
+      box-sizing: border-box;
+    }
+  }
+
+  .checkboxInput:checked {
+    opacity: 0;
+    z-index: 1;
+  }
+
+  .checkboxInput:checked + .inner {
+    display: inline-block;
+  }
+
+  .checkboxInput:disabled {
+    border-color: $ui-color-2;
+    background-color: $ui-color-1;
+  }
+
+  .checkboxInput:disabled + .inner {
+    background-color: $ui-color-4;
+  }
+
+  .checkboxInput:disabled:checked + .inner {
+    display: inline-block;
+    background-color: $ui-color-4;
+  }
+}

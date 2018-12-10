@@ -1,0 +1,69 @@
+@import "~@libui/components/styles/utils";
+
+$index-icon-size: 22px;
+$index-icon-margin: 16px;
+
+@mixin indexSize {
+  height: $index-icon-size;
+  width: $index-icon-size;
+}
+
+.navLabel {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  white-space: nowrap;
+
+  .label {
+    font-size: $medium;
+    font-weight: $weight-semibold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .index {
+    @include indexSize;
+
+    display: inline-block;
+    border-radius: 50%;
+    font-size: $x-small;
+    line-height: $index-icon-size+2; // + border width
+    margin-right: $index-icon-margin;
+  }
+}
+
+.enabled {
+  .label {
+    color: $text-color-2;
+  }
+
+  .index {
+    border: solid 1px $text-color-2;
+  }
+}
+
+.active {
+  .label {
+    color: $primary-color;
+  }
+
+  .index {
+    color: $primary-color-2;
+    border: solid 1px $secondary-color;
+    background-color: $secondary-color;
+  }
+}
+
+.disabled {
+  .label {
+    color: $text-color;
+  }
+
+  .index {
+    color: $ui-color-4;
+    border: solid 1px $field-color-2;
+  }
+}

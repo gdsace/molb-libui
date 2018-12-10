@@ -1,0 +1,11 @@
+@import "~@libui/components/styles/utils";
+
+.tileGroup {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+
+  @include for-phone-only {
+    margin: 0 -7.5px;
+  }
+}

@@ -1,0 +1,80 @@
+@import "~@libui/components/styles/utils";
+
+.notificationContainer {
+  width: fit-content;
+}
+
+.toastContainer {
+  padding: $large;
+  max-width: 300px;
+  border-radius: 5px;
+  min-height: 78px;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.1) !important;
+  margin-bottom: $space-2;
+
+  @include for-phone-only {
+    top: $space-3;
+    margin-left: -160px !important;
+    left: 50% !important;
+  }
+
+  &.success {
+    // the important here is to overwrite the origin css
+    // of react-toastify lib.
+    background-color: $panache !important;
+    border: 1px solid $support-green-20;
+  }
+
+  &.error {
+    background-color: $ui-color-6 !important;
+    border: 1px solid $support-red-20;
+  }
+
+  &.informational {
+    background-color: $selago-light !important;
+    border: 1px solid $lavender-indigo-20;
+  }
+
+  &.warning {
+    background-color: $ui-color-7 !important;
+    border: 1px solid $support-yellow-20;
+  }
+}
+
+.notificationContentContainer {
+  display: flex;
+  flex-direction: row;
+
+  .iconContainer {
+    margin-right: $space-1;
+  }
+
+  header {
+    font-weight: $weight-semibold;
+    font-size: $medium;
+    line-height: 1.5;
+    margin-bottom: $space-0;
+  }
+
+  span {
+    line-height: 1.5;
+    font-size: $small;
+    color: $text-color-3;
+  }
+
+  &.success {
+    color: $support-green;
+  }
+
+  &.error {
+    color: $support-red;
+  }
+
+  &.informational {
+    color: $indigo;
+  }
+
+  &.warning {
+    color: $support-yellow;
+  }
+}

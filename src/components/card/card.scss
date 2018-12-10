@@ -1,0 +1,150 @@
+@import "../styles/utils";
+
+$content-space-padding: 32px;
+
+@mixin overflowEllipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cursorClick {
+  cursor: pointer;
+}
+
+.card {
+  padding: $content-space-padding;
+  border-radius: 5px;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.03), 0 7px 25px 0 rgba(0, 0, 0, 0.03), 0 0 0 1px rgba(0, 0, 0, 0.03);
+  background-color: $primary-color-2;
+  overflow: hidden;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    line-height: $line-height-medium;
+
+    .title {
+      font-weight: $weight-semibold;
+      word-break: break-word;
+    }
+
+    .supportingText {
+      padding-left: $content-space-padding;
+      font-weight: $weight-light;
+      max-width: 160px;
+
+      @include for-phone-only {
+        display: none;
+      }
+    }
+  }
+
+  .subtitle {
+    font-size: $medium;
+    color: $text-color;
+    margin-top: $space-1;
+  }
+
+  .description {
+    font-size: $medium;
+    margin-top: $space-2;
+    line-height: $line-height-large;
+  }
+
+  .date {
+    font-weight: $weight-semibold;
+    font-size: $medium;
+    margin-top: $space-2;
+    margin-bottom: $space-3;
+  }
+
+  .statusWrapper {
+    margin-top: $space-3;
+    text-transform: capitalize;
+
+    .status {
+      font-size: $small;
+      font-weight: $weight-medium;
+      border-radius: 3px;
+      padding: 2px $space-1;
+    }
+  }
+
+  .processing {
+    background-color: $light-blue;
+    color: $support-blue;
+  }
+
+  .expired {
+    background-color: $ui-color-6;
+    color: $support-red;
+  }
+
+  .active {
+    background-color: $panache;
+    color: $support-green;
+  }
+
+  .actionField {
+    margin-top: $space-3;
+  }
+}
+
+.normal {
+  background-color: $primary-color-2;
+  border: solid 1px $primary-color-2;
+
+  &:hover {
+    border: solid 1px $indigo;
+    cursor: pointer;
+  }
+}
+
+.warning {
+  background-color: $ui-color-7;
+  border: solid 1px $barley-white;
+
+  &:hover {
+    transform: translate(0, -1px);
+    box-shadow:
+      0 4px 12px 0 rgba(0, 0, 0, 0.03),
+      0 7px 25px 0 rgba(0, 0, 0, 0.03),
+      0 0 0 1px rgba(0, 0, 0, 0.03),
+      0 4px 25px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .actionField {
+    color: $support-yellow;
+  }
+}
+
+.titleWrapper {
+  display: flex;
+  align-items: flex-start;
+
+  h6 {
+    margin-right: $space-1;
+  }
+}
+
+.purple {
+  background-color: $selago-light;
+  border: solid 1px $selago;
+}
+
+.green {
+  background-color: $panache;
+  border: solid 1px $zanah;
+}
+
+.clickable {
+  &:hover {
+    transform: translate(0, -1px);
+    box-shadow:
+      0 4px 12px 0 rgba(0, 0, 0, 0.03),
+      0 7px 25px 0 rgba(0, 0, 0, 0.03),
+      0 0 0 1px rgba(0, 0, 0, 0.03),
+      0 4px 25px 0 rgba(0, 0, 0, 0.1);
+  }
+}

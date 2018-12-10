@@ -1,0 +1,116 @@
+@import "../styles/utils";
+
+.modal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: $z-index-9;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  .modalContent {
+    z-index: $z-index-9;
+    position: absolute;
+    background: white;
+    width: 720px;
+    max-width: 100vw;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -80%);
+    border-radius: 5px;
+
+    .header {
+      position: relative;
+      height: 80px;
+      font-size: $xx-large;
+      color: $primary-color;
+    }
+
+    .close {
+      position: absolute;
+      top: $space-2;
+      right: $space-2;
+      color: $ui-color-4;
+      cursor: pointer;
+    }
+
+    //class name here is
+    // for management class
+    .flexEnd {
+      @extend %flex-end;
+    }
+
+    .flexStart {
+      @extend %flex-start;
+    }
+
+    .flexBetween {
+      @extend %flex-between;
+    }
+
+    .content {
+      @extend %flex-center;
+
+      @include for-phone-only {
+        position: relative;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    @include for-phone-only {
+      width: 100%;
+      height: 100%;
+      transform: translate(-50%, -50%);
+      border-radius: 0;
+    }
+  }
+}
+
+.modal.largeTheme {
+  .modalContent {
+    max-width: 980px;
+    min-height: 600px;
+    width: auto;
+    transform: translate(-50%, 0);
+    top: $space-5;
+    margin-bottom: $space-5;
+
+    @include for-phone-only {
+      top: 0;
+      width: 100%;
+      height: 100%;
+      margin-bottom: 0;
+      overflow-y: auto;
+    }
+
+    .header {
+      height: $space-5;
+      padding: 0 $space-5;
+    }
+
+    .content {
+      @include for-phone-only {
+        position: relative;
+        transform: none;
+        top: auto;
+        left: auto;
+      }
+    }
+  }
+}
+
+.block {
+  display: block;
+}
+
+.none {
+  display: none;
+}

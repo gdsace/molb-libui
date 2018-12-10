@@ -1,0 +1,34 @@
+@import "~@libui/components/styles/utils";
+
+.inlineNotification {
+  display: flex;
+  margin-bottom: 12px;
+  align-items: center;
+
+  &.warning {
+    background-color: $ui-color-7;
+  }
+
+  &.error {
+    background-color: $ui-color-6;
+  }
+
+  .inlineNotificationIcon {
+    margin: $space-2 0 $space-2 $space-2;
+
+    &.error {
+      color: $support-red;
+    }
+
+    &.warning {
+      color: $support-yellow;
+    }
+  }
+
+  .inlineNotificationText {
+    margin: $space-2 $space-4 $space-2 $space-2;
+    font-size: $small;
+    font-weight: normal;
+    line-height: $line-height-medium;
+  }
+}

@@ -1,0 +1,61 @@
+@import "utils";
+
+/* Global HTML rules */
+html,
+body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: $font-family;
+  color: $primary-color-1;
+  font-size: $small;
+  font-weight: $weight-regular;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: $weight-semibold;
+  line-height: $line-height-medium;
+}
+
+h1 {
+  font-size: 40px;
+
+  @include for-phone-only {
+    font-size: 32px;
+  }
+}
+
+h2 {
+  font-size: 36px;
+}
+
+h3 {
+  font-size: 32px;
+}
+
+h4 {
+  font-size: 28px;
+}
+
+h5 {
+  font-size: 24px;
+}
+
+h6 {
+  font-size: 20px;
+  font-weight: 300;
+}
+
+ul,
+li,
+p {
+  padding: 0;
+  margin: 0;
+}

@@ -1,0 +1,14 @@
+@import "~@libui/components/styles/utils";
+
+.panel {
+  background-color: $ui-color-1;
+  padding: $space-10 105px;
+
+  @include for-phone-only {
+    padding: $space-5 30px;
+  }
+}
+
+.panel:not(:first-child) {
+  border-top: solid 1px $ui-color-2;
+}

@@ -1,0 +1,25 @@
+@import "~@libui/components/styles/utils";
+
+.dropdown__indicator-separator {
+  display: none;
+}
+
+.dropdown__option--is-focused {
+  color: $indigo !important;
+  background-color: $field-color-1 !important;
+}
+
+.dropdown__option--is-selected {
+  color: $indigo !important;
+  background-color: transparent !important;
+}
+
+.dropdown__option {
+  padding: unset !important;
+}
+
+.dropdown__value-container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}

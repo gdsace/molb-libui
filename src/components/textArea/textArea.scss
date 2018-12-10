@@ -1,0 +1,152 @@
+@import "~@libui/components/styles/utils";
+
+@mixin title($color) {
+  font-size: $medium;
+  margin-top: 2px;
+  font-weight: $weight-semibold;
+  line-height: $line-height-large;
+  color: $color;
+  float: left;
+}
+
+@mixin input {
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: $space-1;
+  margin-bottom: $space-1;
+  border-radius: $space-0;
+  border: solid 1px $ui-color-2;
+  padding: $medium $space-2;
+  font-size: $medium;
+  line-height: $line-height-large;
+  color: $text-color;
+  min-height: $space-10;
+}
+
+@mixin bottomMsg($color) {
+  line-height: $line-height-medium;
+  font-size: $small;
+  color: $color;
+}
+
+@mixin input-hover {
+  &:hover {
+    border: solid 1px $text-color;
+  }
+}
+
+@mixin input-focus {
+  &:focus {
+    outline: none;
+    border: solid 1px $lavender-indigo;
+    color: $text-color-2;
+  }
+}
+
+.textarea_disable {
+  width: 100%;
+
+  .title {
+    @include title($ui-color-4);
+  }
+
+  .input {
+    @include input;
+
+    background-color: $field-color-1;
+  }
+
+  .helperMsg {
+    @include bottomMsg($ui-color-4);
+
+    word-break: break-word;
+    margin-right: $space-0;
+  }
+
+  .countMsg {
+    @include bottomMsg($ui-color-4);
+  }
+
+  .onhover {
+    float: left;
+    padding: 0;
+  }
+}
+
+.textarea {
+  width: 100%;
+
+  .title {
+    @include title($text-color-2);
+  }
+
+  .input {
+    @include input;
+    @include input-hover;
+    @include input-focus;
+  }
+
+  .helperMsg {
+    @include bottomMsg($text-color-2);
+
+    word-break: break-word;
+    margin-right: $space-0;
+  }
+
+  .countMsg {
+    @include bottomMsg($text-color-2);
+  }
+
+  .onhover {
+    cursor: pointer;
+    float: left;
+    padding: 0;
+  }
+}
+
+.textarea_validation {
+  width: 100%;
+
+  .title {
+    @include title($text-color-2);
+  }
+
+  .input {
+    @include input;
+    @include input-focus;
+
+    border: solid 1px $support-red;
+  }
+
+  .helperMsg {
+    @include bottomMsg($support-red);
+
+    word-break: break-word;
+    margin-right: $space-0;
+  }
+
+  .countMsg {
+    @include bottomMsg($support-red);
+  }
+
+  .onhover {
+    cursor: pointer;
+    float: left;
+    padding: 0;
+    height: $space-3;
+  }
+}
+
+.bottomContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header {
+  width: 100%;
+}
+
+.content {
+  width: 100%;
+}

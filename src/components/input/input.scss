@@ -1,0 +1,123 @@
+@import "~@libui/components/styles/utils";
+
+$input-hover-border: solid 1px $text-color;
+$input-focus-border: solid 1px $lavender-indigo;
+
+.input {
+  position: relative;
+
+  .inline {
+    display: flex;
+    align-items: center;
+  }
+
+  .field {
+    border-radius: 3px;
+    border: solid 1px $ui-color-2;
+    background-color: $primary-color-2;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: HK Nova, sans-serif;
+  }
+
+  .errorField {
+    border-color: $support-red;
+  }
+
+  .errorIcon {
+    position: absolute;
+    right: $small;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    appearance: none;
+    margin: 0;
+  }
+
+  input:hover {
+    border: $input-hover-border;
+  }
+
+  input:focus {
+    border: $input-focus-border;
+  }
+
+  .error {
+    border-color: $support-red !important;
+  }
+
+  input:disabled {
+    background-color: $ui-color-1;
+    border: solid 1px $ui-color-2;
+  }
+
+  .label {
+    font-size: $medium;
+    font-weight: $weight-medium;
+    margin-bottom: 7px;
+    display: flex;
+    align-items: center;
+    color: $text-color-2;
+  }
+
+  .hideMsg {
+    display: none;
+  }
+
+  .errorMsg {
+    margin-top: $space-1;
+    display: inline-block;
+    color: $support-red;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    font-size: $small;
+  }
+
+  .helperMsg {
+    color: $text-color-2;
+    font-size: $small;
+  }
+
+  .suffix {
+    font-size: $medium;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: $line-height-large;
+    letter-spacing: normal;
+    color: $text-color;
+    position: absolute;
+    right: $small;
+  }
+}
+
+.small {
+  width: 95%;
+  padding: 5px 3%;
+  height: 22px;
+  font-size: $small;
+  min-width: 90px;
+}
+
+.medium {
+  width: 95%;
+  padding: $space-1 0 $space-1 $x-small;
+  height: $space-3;
+  font-size: $medium;
+
+  @include for-phone-only {
+    height: $space-4;
+    font-size: $large;
+  }
+}
+
+.large {
+  width: 90%;
+  padding: $space-1 $space-2;
+  height: $space-6;
+  font-size: $large;
+  min-width: 90px;
+}

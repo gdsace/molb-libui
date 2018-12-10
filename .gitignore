@@ -1,0 +1,14 @@
+.DS_Store
+.idea/
+.vscode/
+config.json
+coverage/
+node_modules/
+npm-debug.log*
+package-lock.json
+yarn-debug.log*
+yarn-error.log*
+
+build
+storybook-static/
+.out/

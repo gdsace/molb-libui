@@ -1,0 +1,48 @@
+@import "~@libui/components/styles/utils";
+
+.headerSection {
+  &.large {
+    margin-bottom: $space-8;
+  }
+
+  &.zero {
+    margin-bottom: 0;
+  }
+
+  &.normal {
+    margin-bottom: $space-3;
+  }
+
+  > h6 {
+    margin-top: $space-1;
+  }
+}
+
+.section:not(:first-child) {
+  margin-top: $space-6;
+  padding-top: $space-6;
+  border-top: solid 1px $ui-color-2;
+}
+
+.caption {
+  color: $primary-color;
+  font-size: $small;
+  font-weight: bold;
+  margin-bottom: $space-1;
+}
+
+.header {
+  font-size: $xxx-large;
+  font-weight: $weight-semibold;
+  letter-spacing: normal;
+  line-height: $line-height-medium;
+  color: $text-color-3;
+}
+
+.subheader {
+  font-size: $large;
+  font-weight: normal;
+  line-height: $line-height-large;
+  letter-spacing: normal;
+  color: $text-color-6;
+}

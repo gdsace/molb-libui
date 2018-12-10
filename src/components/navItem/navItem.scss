@@ -1,0 +1,18 @@
+@import "~@libui/components/styles/utils";
+
+.navLabel {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+
+  label {
+    cursor: pointer;
+    font-size: $medium;
+    font-weight: $weight-semibold;
+    margin-left: $space-2;
+  }
+}

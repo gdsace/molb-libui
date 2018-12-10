@@ -1,0 +1,34 @@
+@import "~@libui/components/styles/utils";
+
+.default {
+  min-width: 290px;
+  min-height: 165px;
+}
+
+.uploading {
+  background-color: $secondary-color-6;
+
+  > * {
+    border-color: $lavender-indigo;
+  }
+}
+
+.hover,
+.dropHover {
+  > * {
+    border-color: $lavender-indigo;
+  }
+}
+
+.error,
+.dropReject {
+  > * {
+    border-color: $support-red;
+  }
+}
+
+.dropReject {
+  > * {
+    background-color: $ui-color-6;
+  }
+}

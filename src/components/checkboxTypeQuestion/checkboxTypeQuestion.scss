@@ -1,0 +1,39 @@
+@import "~@libui/components/styles/utils";
+
+.checkboxWrapper {
+  line-height: 0;
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  margin-left: $space-2;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.question {
+  font-size: $large;
+  line-height: $line-height-large;
+  font-weight: $weight-semibold;
+}
+
+.description {
+  font-size: $medium;
+  line-height: $line-height-large;
+  color: $text-color-2;
+  margin-top: $space-0;
+  font-weight: $weight-regular;
+}
+
+.disabled {
+  .question {
+    color: $ui-color-4;
+  }
+
+  .description {
+    color: $ui-color-4;
+  }
+}

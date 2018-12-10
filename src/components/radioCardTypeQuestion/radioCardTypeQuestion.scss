@@ -1,0 +1,24 @@
+@import "~@libui/components/styles/utils";
+
+.questionWrapper {
+  position: relative;
+}
+
+.tileWrapper {
+  margin: 15px;
+  height: 143px;
+}
+
+.tileGroupWrapper {
+  margin: -15px;
+}
+
+.errorMsg {
+  color: $support-red;
+  font-size: $medium;
+  line-height: $line-height-medium;
+  margin-top: $space-1;
+  position: absolute;
+  left: 0;
+  top: 100%;
+}

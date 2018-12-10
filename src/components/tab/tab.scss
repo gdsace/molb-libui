@@ -1,0 +1,87 @@
+@import "~@libui/components/styles/utils";
+
+.tab {
+  width: 100%;
+  height: 100%;
+
+  .tabContainer {
+    display: flex;
+    border-bottom: 1px solid $ui-color-2;
+
+    @include for-phone-only {
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  .leftComponent {
+    height: $display-x-large;
+    display: flex;
+    align-items: center;
+
+    @include for-phone-only {
+      justify-content: center;
+      padding: $molb-body-padding !important;
+    }
+  }
+
+  .tabItems {
+    width: 100%;
+    height: $display-x-large;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    justify-content: flex-end;
+
+    @include for-phone-only {
+      justify-content: center;
+      padding-right: 0 !important;
+
+      .spaceItem {
+        width: 0;
+      }
+    }
+
+    .item {
+      height: 100%;
+      max-width: 100px;
+      color: $text-color-2;
+      cursor: pointer;
+      vertical-align: middle;
+      text-align: center;
+      align-items: center;
+      display: flex;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-left: $space-3;
+
+      &:nth-child(1) {
+        // the first child have no margin-left child.
+        margin-left: 0;
+      }
+
+      label {
+        width: 100%;
+        cursor: pointer;
+        line-height: 24px;
+        font-size: $large;
+        font-weight: $weight-semibold;
+      }
+    }
+
+    .item:hover {
+      color: $indigo;
+      overflow: visible;
+    }
+
+    .activeItem {
+      color: $indigo;
+      border-bottom: 3px solid $indigo;
+    }
+  }
+
+  .tabPanel {
+    width: 100%;
+    height: 100%;
+  }
+}

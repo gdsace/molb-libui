@@ -1,0 +1,43 @@
+@import "~@libui/components/styles/utils";
+
+.rootContainer {
+  margin-top: $space-8;
+}
+
+.headerSection {
+  .zero {
+    margin-bottom: 0;
+  }
+
+  .normal {
+    margin-bottom: $space-3;
+  }
+}
+
+.titleContainer {
+  // ...
+}
+
+.title {
+  font-size: $x-large;
+  font-weight: $weight-semibold;
+  line-height: $line-height-medium;
+  color: $black;
+}
+
+.optional {
+  font-family: $font-family;
+  font-size: $medium;
+  font-weight: $weight-regular;
+  line-height: $line-height-medium;
+  color: $text-color-2;
+  margin-left: $space-1;
+}
+
+.subTitle {
+  font-size: $medium;
+  font-weight: $weight-regular;
+  line-height: $line-height-large;
+  color: $text-color-2;
+  margin-top: $space-1;
+}
