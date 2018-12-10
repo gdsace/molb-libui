@@ -8,7 +8,6 @@ function getDefaultConfig(baseConfig, defaultConfig) {
     const extraLoader = [// Mostly for tests, but legacy JS in source too
         {
             test: /\.css$/,
-            exclude: /\/node_modules\//,
             use: ['style-loader', 'css-loader']
         },
         {
@@ -20,9 +19,7 @@ function getDefaultConfig(baseConfig, defaultConfig) {
         {
             test: /\.scss$/,
             exclude: /node_modules/,
-            include: [
-                path.resolve(__dirname, "../src")
-            ],
+            include: path.resolve(__dirname, "../src"),
             loaders: [
                 "style-loader",
                 {
@@ -47,14 +44,14 @@ function getDefaultConfig(baseConfig, defaultConfig) {
         {
             test: /\.svg$/,
             loader: "svg-sprite-loader",
-            include: [path.resolve(__dirname, "../src/components/icons")],
+            include: path.resolve(__dirname, "../src/components/icons"),
             options: {
                 runtimeCompat: true
             }
         },
         {
             test: /\.(jpg|png|gif|mp4|webm|mp3|ogg|svg)$/,
-            exclude: [path.resolve(__dirname, "../src/components/icons")],
+            exclude: path.resolve(__dirname, "../src/components/icons"),
             loader: "file-loader",
             options: {
                 name: "./f/[hash:16].[ext]"
@@ -63,6 +60,7 @@ function getDefaultConfig(baseConfig, defaultConfig) {
         {
             test: /\.(woff|woff2|eot|ttf|otf)$/,
             loader: "file-loader",
+            include: path.resolve(__dirname, "../src"),
             options: {
                 name: "./f/[name].[ext]"
             }
@@ -95,16 +93,15 @@ function getDefaultConfig(baseConfig, defaultConfig) {
         // Vanilla CSS, need to use in notification component.
     ];
 
-    defaultConfig.module.rules.push(...extraLoader);
+    defaultConfig.module.rules = [...extraLoader];
 
     defaultConfig.resolve = {
         extensions: [".js", ".jsx", ".ts", ".tsx"],
         modules: ["node_modules", path.resolve(__dirname, "../src")],
         alias: {
-            "@cfg": path.resolve(__dirname, "../config"),
-            "@libui": path.resolve(__dirname, "../src"),
-            "@src": path.resolve(__dirname, "../src"),
-            "@test": path.resolve(__dirname, "../test")
+            "@libui": path.resolve(__dirname, "..", "src"),
+            "@src": path.resolve(__dirname, "..", "src"),
+            "@test": path.resolve(__dirname, "..", "test")
         }
     };
     return defaultConfig;
