@@ -20,13 +20,13 @@ yarn build:production
 
 Recommend use commit hash as version before we decide to add tag to a commit.
 
-usage in the `package.json` in `molb-web`
+usage in the `package.json`
 
 ```
-yarn add ssh://git@github.com/gdsace/molb-libui.git#commithash
+yarn add git+https://git@github.com/gdsace/molb-libui.git#commithash
 ``` 
 
-When you we decide to add a tag as release verison
+When you we decide to add a tag as release version
 
 ```
 git tag -a v0.0.11 9fceb02 -m "Message here"
