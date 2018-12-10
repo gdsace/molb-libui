@@ -122,7 +122,20 @@ export class FileUpload extends React.Component<
             );
           });
         }}
-        onDropRejected={this.props.onError || _.noop}
+        onDropRejected={err => {
+          if (this.props.onError) {
+            this.props.onError(err);
+            if (err && err[0] && err[0].size) {
+              const errorFile = err[0];
+              this.setState({
+                fileInfo: {
+                  name: errorFile.name,
+                  fileSize: errorFile.size
+                }
+              });
+            }
+          }
+        }}
         {...forDropzone}
       >
         {this.props.children || (

@@ -12,7 +12,7 @@ describe("DefaultFileUploadChild", () => {
     expect(wrapper.text()).toEqual("somename");
   });
 
-  it("shows file info if given ", () => {
+  it("shows file info if given", () => {
     const wrapper = mount(
       <DefaultFileUploadChild
         documentType={documentTypes.required}
