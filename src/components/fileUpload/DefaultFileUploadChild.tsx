@@ -46,14 +46,14 @@ const getIcon = (
 
 export interface IFileUploadChildProps
   extends Pick<
-      IFileUploadProps,
-      | "document"
-      | "documentType"
-      | "error"
-      | "onCompleteIconClick"
-      | "onDefaultIconClick"
-      | "onProgressIconClick"
-    > {
+    IFileUploadProps,
+    | "document"
+    | "documentType"
+    | "error"
+    | "onCompleteIconClick"
+    | "onDefaultIconClick"
+    | "onProgressIconClick"
+  > {
   uploadState?: FileUploadState;
 }
 
@@ -93,13 +93,12 @@ export const DefaultFileUploadChild = (props: IFileUploadChildProps) => {
       <div className={styles.rowTitle}>
         <div className={styles.textTitle}>
           <span>{props.documentType && props.documentType.name}</span>
-          {props.documentType &&
-            props.documentType.optional && (
-              <>
-                {" "}
-                <span className={styles.textOptional}>(Optional)</span>
-              </>
-            )}
+          {props.documentType && props.documentType.optional && (
+            <>
+              {" "}
+              <span className={styles.textOptional}>(Optional)</span>
+            </>
+          )}
         </div>
 
         {getIcon(

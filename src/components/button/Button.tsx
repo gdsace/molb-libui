@@ -58,23 +58,21 @@ export class Button extends React.Component<IButtonProps, {}> {
     ) : (
       <span className={styles.buttonContent}>
         {this.props.children}
-        {this.props.icon &&
-          isLeftIcon && (
-            <Icon
-              className={styles.leftIcon}
-              type={this.props.icon}
-              size={iconSize}
-            />
-          )}
+        {this.props.icon && isLeftIcon && (
+          <Icon
+            className={styles.leftIcon}
+            type={this.props.icon}
+            size={iconSize}
+          />
+        )}
         <span>{this.props.label}</span>
-        {this.props.icon &&
-          !isLeftIcon && (
-            <Icon
-              className={styles.rightIcon}
-              type={this.props.icon}
-              size={iconSize}
-            />
-          )}
+        {this.props.icon && !isLeftIcon && (
+          <Icon
+            className={styles.rightIcon}
+            type={this.props.icon}
+            size={iconSize}
+          />
+        )}
       </span>
     );
   }
