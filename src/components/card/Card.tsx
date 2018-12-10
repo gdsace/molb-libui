@@ -1,6 +1,6 @@
-import { CardStatus, CardTheme } from "@libui/components/EnumValues";
+import { CardTheme, TagTheme } from "@libui/components/EnumValues";
+import { Tag } from "@src/components";
 import classnames from "classnames";
-import _ from "lodash";
 import * as React from "react";
 
 const styles = require("./card.scss");
@@ -11,7 +11,8 @@ export interface ICardProps {
   subtitle: string;
   supportingText?: string;
   description?: React.ReactNode;
-  status?: CardStatus;
+  status?: string;
+  statusTheme?: TagTheme;
   actionField?: React.ReactNode;
   theme?: CardTheme;
   className?: string;
@@ -32,11 +33,6 @@ export class Card extends React.Component<ICardProps> {
       {
         [styles.cursorClick]: !!this.props.onClick
       }
-    );
-
-    const statusClass = classnames(
-      styles.status,
-      styles[`${_.toLower(this.props.status)}`]
     );
 
     return (
@@ -61,7 +57,7 @@ export class Card extends React.Component<ICardProps> {
         )}
         {this.props.status && (
           <div className={styles.statusWrapper}>
-            <span className={statusClass}>{this.props.status}</span>
+            <Tag label={this.props.status} theme={this.props.statusTheme} />
           </div>
         )}
         {this.props.actionField && (

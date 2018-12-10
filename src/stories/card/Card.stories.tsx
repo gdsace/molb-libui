@@ -1,9 +1,9 @@
 import React from "react";
 
-import { Card, Link } from "@src/components";
 import { storiesOf } from "@storybook/react";
 
-import { CardStatus, CardTheme } from "@src/components/EnumValues";
+import { Card, Link } from "@src/components";
+import { CardTheme, TagTheme } from "@src/components/EnumValues";
 import { action } from "@storybook/addon-actions";
 import { wInfo } from "../utils";
 
@@ -42,7 +42,8 @@ const rowStyles = {
           description={description}
           theme={CardTheme.Normal}
           supportingText={price}
-          status={CardStatus.Processing}
+          status={"In Processing"}
+          statusTheme={TagTheme.Blue}
         />
         <Card
           title={title}
@@ -69,7 +70,18 @@ const rowStyles = {
           description={description}
           theme={CardTheme.Normal}
           supportingText={price}
-          status={CardStatus.Active}
+          status={"Pending Payment"}
+          statusTheme={TagTheme.Green}
+          date={date}
+        />
+        <Card
+          title={title}
+          subtitle={subtitle}
+          description={description}
+          theme={CardTheme.Normal}
+          supportingText={price}
+          status={"Draft"}
+          statusTheme={TagTheme.Grey}
           date={date}
         />
       </div>
