@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import * as React from "react";
 import { Icon } from "../icons";
+import { addLocatedErrorClassname } from "../utils";
 
 const style = require("./inlineNotification.scss");
 
@@ -18,11 +19,14 @@ export const InlineNotification = (props: IInlineNotificationProps) => {
 
   const inlineNotificationClassName = classNames(
     style.inlineNotification,
-    typeClass
+    typeClass,
+    {
+      [addLocatedErrorClassname("")]: props.type === "error"
+    }
   );
 
   return (
-    <div className={inlineNotificationClassName}>
+    <div className={inlineNotificationClassName} data-scrollpoint={true}>
       <div className={iconClassName}>
         <Icon type="alert" size="24" />
       </div>

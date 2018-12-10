@@ -17,7 +17,7 @@ export class Checkbox extends React.Component<ICheckboxProps, {}> {
   public render() {
     const { checked, disabled } = this.props;
     return (
-      <div className={styles.checkboxWrapper}>
+      <div className={styles.checkboxWrapper} data-scrollpoint={true}>
         <span className={styles.checkbox}>
           <input
             type="checkbox"

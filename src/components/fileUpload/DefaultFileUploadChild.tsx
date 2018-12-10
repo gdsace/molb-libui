@@ -3,6 +3,7 @@ import * as React from "react";
 
 import { FileUploadState, IFileUploadProps } from ".";
 import { Icon } from "../icons";
+import { addLocatedErrorClassname } from "../utils";
 
 const styles = require("./defaultChild.scss");
 
@@ -92,6 +93,7 @@ export const DefaultFileUploadChild = (props: IFileUploadChildProps) => {
           props.error || props.uploadState === FileUploadState.Error,
         [styles.uploading]: props.uploadState === FileUploadState.Uploading
       })}
+      data-scrollpoint={true}
     >
       <div className={styles.rowTitle}>
         <div className={styles.textTitle}>
@@ -130,7 +132,11 @@ export const DefaultFileUploadChild = (props: IFileUploadChildProps) => {
         )
       )}
 
-      {props.error && <div className={styles.textError}>{props.error}</div>}
+      {props.error && (
+        <div className={addLocatedErrorClassname(styles.textError)}>
+          {props.error}
+        </div>
+      )}
     </div>
   );
 };
