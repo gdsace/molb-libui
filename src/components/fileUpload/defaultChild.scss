@@ -38,6 +38,10 @@
   height: $space-3;
 }
 
+.iconClickThrough {
+  pointer-events: none;
+}
+
 .textDescription {
   color: $text-color;
 }

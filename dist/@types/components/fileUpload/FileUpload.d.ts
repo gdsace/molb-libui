@@ -1,6 +1,6 @@
 import * as React from "react";
-import { IDocument, IDocumentType } from "../types";
 import { DropzoneProps } from "react-dropzone";
+import { IDocument, IDocumentType } from "../types";
 export interface IFileUploadProps extends DropzoneProps {
     baseUrl: string;
     document?: Partial<IDocument>;

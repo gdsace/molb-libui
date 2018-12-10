@@ -23,20 +23,23 @@ const getIcon = (
     [FileUploadState.Error]: "upload"
   };
 
-  const onIconClick: { [k in FileUploadState]: any } = {
+  const onIconClickMap: { [k in FileUploadState]: any } = {
     [FileUploadState.Uploading]: onProgressIconClick || noop,
     [FileUploadState.Complete]: onCompleteIconClick || noop,
     [FileUploadState.Unstarted]: onDefaultIconClick || noop,
     [FileUploadState.Error]: onDefaultIconClick || noop
   };
 
+  const onIconClick = onIconClickMap[state || FileUploadState.Unstarted];
+
   return (
-    <div onClick={onIconClick[state || FileUploadState.Unstarted]}>
+    <div onClick={onIconClick}>
       <Icon
         className={classNames(styles.icon, {
           [styles.iconError]: state === FileUploadState.Error,
           [styles.iconUploading]: state === FileUploadState.Uploading,
-          [styles.iconDelete]: state === FileUploadState.Complete
+          [styles.iconDelete]: state === FileUploadState.Complete,
+          [styles.iconClickThrough]: onIconClick === noop
         })}
         type={icons[state || FileUploadState.Unstarted]}
       />
