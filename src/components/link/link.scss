@@ -5,8 +5,18 @@
   line-height: $line-height-large;
   cursor: pointer;
 
+  a {
+    text-decoration: none;
+  }
+
   svg {
     vertical-align: text-top;
+  }
+}
+
+.disabled {
+  a {
+    color: $ui-color-2;
   }
 }
 
@@ -14,17 +24,17 @@
   color: $primary-color;
 
   &:focus {
-    text-decoration-line: underline;
+    a {
+      text-decoration-line: underline;
+    }
   }
 
   &:hover {
-    color: $secondary-color;
-    text-decoration-line: underline;
+    a {
+      color: $secondary-color;
+      text-decoration-line: underline;
+    }
   }
-}
-
-.disabled {
-  color: $ui-color-2;
 }
 
 .icon {
