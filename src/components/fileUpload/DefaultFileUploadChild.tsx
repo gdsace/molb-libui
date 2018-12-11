@@ -104,6 +104,12 @@ export const DefaultFileUploadChild = (props: IFileUploadChildProps) => {
               <span className={styles.textOptional}>(Optional)</span>
             </>
           )}
+          {props.documentType && props.documentType.submitUponRequest && (
+            <>
+              {" "}
+              <span className={styles.textOptional}>(Submit Later)</span>
+            </>
+          )}
         </div>
 
         {getIcon(
