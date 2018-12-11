@@ -3,41 +3,16 @@
 
 node: 10.10.0
 
-Common UI library for MOLB.
-
-Right now, this is kept inside the frontend repository for ease of development. We will split this out when needed in the future, so please avoid creating direct dependencies between this and the main application.
+UI library.
 
 ```
 yarn install
 ```
 
-after changing source code, run build again and push `dist`
+after changing source code, run build again
 ```
 yarn build:production
 ```
-
-## Version control
-
-Recommend use commit hash as version before we decide to add tag to a commit.
-
-usage in the `package.json`
-
-```
-yarn add git+https://git@github.com/gdsace/molb-libui.git#commithash
-``` 
-
-When you we decide to add a tag as release version
-
-```
-git tag -a v0.0.11 9fceb02 -m "Message here"
-```
-
-Then push the tag
-
-```
-git push origin <tag_name>
-```
-
 
 ## Storybook For libui
 
@@ -78,28 +53,6 @@ If you meet some lint error, you can try fix srcipt.
 yarn lint:fix
 ```
 
-## Source Direcotory
-
-```
-├── .storybook
-│   ├── addons.js                   //  Location to define storybook addons
-│   ├── config.js                   //  configs of ways to import components
-│   ├── utils.js                    //  import utils like withInfo, with which you can write markdown.
-│   ├── webpack.config.js           //  webpack config file for libui
-│   └── welcomeStory.tes            //  welcome story in the start page
-├── src
-│────── components
-│       └── button
-│           ├── __test__
-│           ├── Button.stoies.tsx   //  story description for a component.
-│           ├── Button.tsx
-│           └── index.ts
-├── storybook-static
-│   └── static
-├── test
-│   └── helpers
-└── types                           // Location for custom typing.
-```
 
 ## Write a story
 
