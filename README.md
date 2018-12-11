@@ -1,7 +1,7 @@
 
 # molb-libui
 
-node: 10.10.0
+[![Build Status](https://travis-ci.com/gdsace/molb-libui.svg?branch=master)](https://travis-ci.com/gdsace/molb-libui)
 
 UI library.
 
