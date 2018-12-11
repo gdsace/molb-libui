@@ -5,14 +5,23 @@ import * as React from "react";
 
 const styles = require("./link.scss");
 
+export enum LinkTarget {
+  Self = "_self",
+  Blank = "_blank",
+  Parent = "_parent",
+  Top = "_top"
+}
+
 export interface ILinkProps {
-  onClick: () => any;
+  onClick?: () => any;
   label: string;
   disabled?: boolean;
   className?: string;
   size?: Size;
   icon?: string;
   status?: LinkStatus;
+  link?: string;
+  target?: LinkTarget;
 }
 
 export class Link extends React.Component<ILinkProps, {}> {
@@ -20,7 +29,9 @@ export class Link extends React.Component<ILinkProps, {}> {
     className: "",
     disabled: false,
     size: Size.Small,
-    status: LinkStatus.Normal
+    status: LinkStatus.Normal,
+    target: LinkTarget.Self,
+    link: "#"
   };
 
   public render() {
@@ -34,18 +45,23 @@ export class Link extends React.Component<ILinkProps, {}> {
 
     return (
       <span className={linkClassName} onClick={this.handleOnClick}>
-        <span>{this.props.label}</span>
-        {this.props.icon && (
-          <Icon className={styles.icon} type={this.props.icon} size={"16"} />
-        )}
+        <a href={this.props.link} target={this.props.target}>
+          <span>{this.props.label}</span>
+          {this.props.icon && (
+            <Icon className={styles.icon} type={this.props.icon} size={"16"} />
+          )}
+        </a>
       </span>
     );
   }
 
   private handleOnClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    e.preventDefault();
-    if (!this.props.disabled && this.props.onClick) {
+    if (this.props.disabled) {
+      e.preventDefault();
+      return;
+    }
+
+    if (this.props.onClick) {
       this.props.onClick();
     }
   };

@@ -27,6 +27,21 @@ describe("Link", () => {
     const wrapper = mount(<Link label="test" onClick={noop} icon="close" />);
     const link = wrapper.find(".link");
     expect(link.childAt(0).text()).toEqual("test");
-    expect(link.childAt(1).is(Icon)).toBeTruthy();
+    expect(wrapper.find(Icon)).toBeTruthy();
+  });
+
+  it("render the a tag with target", () => {
+    const wrapper = mount(
+      <Link
+        label="test"
+        onClick={noop}
+        icon="close"
+        link="https://www.google.com"
+      />
+    );
+
+    expect(wrapper.find("a").length).toBe(1);
+    expect(wrapper.find("a").props().href).toBe("https://www.google.com");
+    expect(wrapper.find("a").props().target).toBe("_self");
   });
 });
