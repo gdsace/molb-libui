@@ -23,7 +23,7 @@ export interface INotificationProps {
 // @ts-ignore
 const CloseButton = ({ closeToast }) => {
   return (
-    <div onClick={closeToast}>
+    <div onClick={closeToast} className={styles.close}>
       <Icon type="close" size={"16"} />
     </div>
   );

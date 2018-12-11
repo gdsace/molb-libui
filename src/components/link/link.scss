@@ -21,7 +21,9 @@
 }
 
 .enable {
-  color: $primary-color;
+  a {
+    color: $primary-color;
+  }
 
   &:focus {
     a {

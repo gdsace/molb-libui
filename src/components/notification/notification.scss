@@ -8,14 +8,20 @@
   padding: $large;
   max-width: 300px;
   border-radius: 5px;
-  min-height: 78px;
+  min-height: 76px;
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.1) !important;
   margin-bottom: $space-2;
+  cursor: default;
+  font-family: $font-family;
 
   @include for-phone-only {
     top: $space-3;
     margin-left: -160px !important;
     left: 50% !important;
+  }
+
+  .close {
+    cursor: pointer;
   }
 
   &.success {
@@ -47,6 +53,8 @@
 
   .iconContainer {
     margin-right: $space-1;
+    width: 24px;
+    height: 24px;
   }
 
   header {
@@ -57,9 +65,9 @@
   }
 
   span {
-    line-height: 1.5;
+    line-height: 1.25;
     font-size: $small;
-    color: $text-color-3;
+    color: $text-color-2;
   }
 
   &.success {
