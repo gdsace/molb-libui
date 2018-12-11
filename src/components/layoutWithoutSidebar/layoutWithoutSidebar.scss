@@ -19,9 +19,3 @@
   width: 100%;
   box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.03), 0 0 2px 0 rgba(0, 0, 0, 0.1);
 }
-
-@include for-phone-only {
-  .sidebar {
-    display: none;
-  }
-}
