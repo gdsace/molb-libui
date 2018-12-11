@@ -3,6 +3,7 @@ import _ from "lodash";
 import React from "react";
 import { Props } from "react-select/lib/Select";
 import { Input } from "../input";
+import { addLocatedErrorClassname } from "../utils";
 import { baseComponents, BaseDropdown } from "./BaseDropdown";
 
 const styles = require("./styles.scss");
@@ -60,7 +61,6 @@ export class Dropdown<T> extends React.Component<IDropdownProps<T>, {}> {
     const dropdown = (
       <div
         className={`${styles.field} ${styles[this.props.size || Size.Large]}`}
-        data-scrollpoint={true}
       >
         <BaseDropdown
           components={{
@@ -70,7 +70,9 @@ export class Dropdown<T> extends React.Component<IDropdownProps<T>, {}> {
           {...this.props}
         />
         {this.props.error && (
-          <p className={styles.errorMessage}>{this.props.error}</p>
+          <p className={addLocatedErrorClassname(styles.errorMessage)}>
+            {this.props.error}
+          </p>
         )}
       </div>
     );
