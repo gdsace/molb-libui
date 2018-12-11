@@ -1,7 +1,7 @@
+import _ from "lodash";
 import * as React from "react";
 
 import { Icon } from "@libui/components/icons";
-import { omit } from "lodash";
 const styles = require("./textArea.scss");
 
 export type HTMLTextareaProps = React.TextareaHTMLAttributes<
@@ -36,7 +36,7 @@ export class TextArea extends React.Component<ITextAreaPros, any> {
     this.handleIconMouseOut = this.handleIconMouseOut.bind(this);
     this.handleIconClick = this.handleIconClick.bind(this);
     this.state = {
-      characterCount: 0,
+      characterCount: (this.props.value || "").toString().length,
       isOverwrite: false
     };
   }
@@ -47,7 +47,7 @@ export class TextArea extends React.Component<ITextAreaPros, any> {
       : styles.textarea;
     const maxLength = this.props.overwrite ? undefined : this.props.maxLength;
     const props = this.props;
-    const otherProps = omit(props, [
+    const otherProps = _.omit(props, [
       "title",
       "helperText",
       "overwrite",
