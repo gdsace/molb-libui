@@ -59,9 +59,15 @@ const activeTag = (
 export const dataSource = [
   {
     key: "1",
-    name: "John Brown",
+    name:
+      "John Brown is a long text.John Brown is a long text.John Brown is a long text.",
     age: 32,
-    address: <span style={style.textStyle2}>"New York No. 1 Lake Park"</span>,
+    address: (
+      <span style={style.textStyle2}>
+        "New York No. 1 Lake Park.New York No. 1 Lake Park.New York No. 1 Lake
+        Park.New York No. 1 Lake Park"
+      </span>
+    ),
     tags: activeTag
   },
   {

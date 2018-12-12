@@ -1,5 +1,19 @@
 @import "~@libui/components/styles/utils";
 
+@mixin responsible-for-table {
+  tr td:not(:first-child),
+  tr th:not(:first-child) {
+    background-color:red;
+    width: percentage(2/9);
+  }
+
+  tr td:first-child,
+  tr th:first-child {
+    background-color:green;
+    width: percentage(3/9);
+  }
+}
+
 .tableContainer {
   table {
     border-radius: 5px;
@@ -9,6 +23,31 @@
     padding: 0;
     border-collapse: collapse;
     border-spacing: 0;
+
+    th {
+      color: $text-color;
+      text-transform: uppercase;
+      font-size: $small;
+      letter-spacing: normal;
+    }
+
+    tr td,
+    tr th {
+      padding: $space-4;
+      text-align: left;
+      width: percentage(3/12);
+      // background-color:blue;
+    }
+
+    // TODO: for now, for the phone device should be other components,
+    // to be fixed.
+    @include for-tablet {
+      @include responsible-for-table
+    }
+
+    @include for-phone-only {
+      @include responsible-for-table
+    }
 
     thead {
       background-color: $ui-color;
@@ -28,19 +67,6 @@
       tr:nth-child(2n) {
         background-color: $ui-color;
       }
-    }
-
-    th,
-    td {
-      padding: $space-4;
-      text-align: left;
-    }
-
-    th {
-      color: $text-color;
-      text-transform: uppercase;
-      font-size: $small;
-      letter-spacing: normal;
     }
   }
 }
