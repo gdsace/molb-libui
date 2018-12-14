@@ -1,0 +1,67 @@
+@import "~@libui/components/styles/utils";
+
+@mixin title($color) {
+  font-size: $medium;
+  font-weight: $weight-medium;
+  line-height: $line-height-large;
+  color: $color;
+}
+
+@mixin input {
+  box-sizing: border-box;
+  margin-top: $space-1;
+  margin-bottom: $space-1;
+  border-radius: $space-0;
+  border: solid 1px $ui-color-2;
+  padding: $medium $space-2;
+  font-size: $medium;
+  line-height: $line-height-large;
+  color: $text-color;
+  min-height: $space-10;
+}
+
+@mixin footerMsg($color) {
+  line-height: $line-height-medium;
+  font-size: $small;
+  font-weight: $weight-regular;
+  color: $color;
+}
+
+.rootContainer {
+  display: flex;
+  flex-direction: column;
+
+  .headerSection {
+    margin-bottom: $space-0;
+  }
+
+  .content {
+    display: flex;
+  }
+
+  .antdTimePicker {
+    flex: 1;
+    border-radius: $border-radius-3;
+  }
+
+  .antdTimePickerPopup {
+    border-radius: $border-radius-3;
+  }
+
+  .footerSection {
+    display: flex;
+    justify-content: space-between;
+    margin-top: $space-1;
+  }
+
+  .title {
+    @include title($text-color-2);
+  }
+
+  .footerMessage {
+    @include footerMsg($support-red);
+
+    word-break: break-word;
+    margin-right: $space-0;
+  }
+}
