@@ -1,14 +1,16 @@
+@import "~@libui/components/styles/utils";
+
 $prefixClass: "rc-time-picker";
 
 .#{$prefixClass}-panel-select {
   float: left;
-  font-size: 12px;
-  border: 1px solid #e9e9e9;
+  font-size: $small;
+  border: 1px solid $ui-color-2;
   border-width: 0 1px;
   margin-left: -1px;
   box-sizing: border-box;
-  width: 56px;
-  max-height: 144px;
+  width: 88px;
+  max-height: 225px;
   overflow-y: auto;
   position: relative; // Fix chrome weird render bug
 
@@ -37,13 +39,18 @@ $prefixClass: "rc-time-picker";
     list-style: none;
     box-sizing: content-box;
     margin: 0;
-    padding: 0 0 0 16px;
     width: 100%;
-    height: 24px;
-    line-height: 24px;
+    height: 45px;
+    line-height: $line-height-large;
     text-align: left;
     cursor: pointer;
     user-select: none;
+    font-size: $medium;
+    font-weight: $weight-regular;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
 
     &:hover {
       background: #edfaff;
@@ -51,12 +58,12 @@ $prefixClass: "rc-time-picker";
   }
 
   #{&}-option-selected {
-    background: #f7f7f7;
+    background: $ui-color-1;
     font-weight: bold;
   }
 
   #{&}-option-disabled {
-    color: #ccc;
+    color: $ui-color-2;
 
     &:hover {
       background: transparent;

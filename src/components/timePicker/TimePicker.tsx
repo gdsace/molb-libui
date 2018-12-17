@@ -1,10 +1,11 @@
 import moment from "moment";
 import Trigger from "rc-trigger";
 import React, { RefObject } from "react";
+
+import { Icon } from "@src/components";
+import "./assets/index.scss";
 import Panel from "./Panel";
 import placements from "./placements";
-
-import "./assets/index.scss";
 
 function noop() {
   return;
@@ -133,6 +134,7 @@ export class TimePicker extends React.Component<
 
   public onPanelChange = (value: any) => {
     this.setValue(value);
+    this.focus();
   };
 
   public onPanelClear = () => {
@@ -258,9 +260,9 @@ export class TimePicker extends React.Component<
     } = this.props;
     let popupClassName = this.props.popupClassName;
     // Keep it for old compatibility
-    if ((!showHour || !showMinute || !showSecond) && !use12Hours) {
-      popupClassName += ` ${prefixCls}-panel-narrow`;
-    }
+    // if ((!showHour || !showMinute || !showSecond) && !use12Hours) {
+    //   popupClassName += ` ${prefixCls}-panel-narrow`;
+    // }
     let selectColumnCount = 0;
     if (showHour) {
       selectColumnCount += 1;
@@ -294,6 +296,7 @@ export class TimePicker extends React.Component<
         }
       }
     }
+    this.focus();
   }
 
   public focus() {
@@ -363,7 +366,9 @@ export class TimePicker extends React.Component<
             readOnly={inputReadOnly}
             id={id}
           />
-          {inputIcon || <span className={`${prefixCls}-icon`} />}
+          {inputIcon || (
+            <Icon type="time" size="16" className={`${prefixCls}-input-icon`} />
+          )}
         </span>
       </Trigger>
     );

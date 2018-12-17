@@ -1,3 +1,5 @@
+@import "~@libui/components/styles/utils";
+
 $prefixClass: "rc-time-picker";
 
 .#{$prefixClass}-panel {
@@ -6,7 +8,7 @@ $prefixClass: "rc-time-picker";
     padding: 0;
     width: 100%;
     cursor: auto;
-    line-height: 1.5;
+    line-height: $line-height-large;
     outline: 0;
     border: 1px solid transparent;
 

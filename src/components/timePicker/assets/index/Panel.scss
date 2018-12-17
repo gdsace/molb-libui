@@ -1,8 +1,10 @@
+@import "~@libui/components/styles/utils";
+
 $prefixClass: "rc-time-picker";
 
 .#{$prefixClass}-panel {
-  z-index: 1070;
-  width: 170px;
+  z-index: $z-index-9;
+  width: 266px;
   position: absolute;
   box-sizing: border-box;
 
@@ -15,14 +17,17 @@ $prefixClass: "rc-time-picker";
     position: relative;
     outline: none;
     list-style: none;
-    font-size: 12px;
+    font-size: $small;
     text-align: left;
-    background-color: #fff;
-    border-radius: 4px;
-    box-shadow: 0 1px 5px #ccc;
+    background-color: $ui-color;
+    border-radius: $border-radius-3;
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.03), 0 7px 25px 0 rgba(0, 0, 0, 0.03), 0 0 0 1px rgba(0, 0, 0, 0.03);
     background-clip: padding-box;
-    border: 1px solid #ccc;
-    line-height: 1.5;
+    line-height: $line-height-large;
+  }
+
+  &-combobox {
+    display: flex;
   }
 
   &-narrow {

@@ -51,20 +51,30 @@ const onValueChange = (value: moment.Moment) => {
         </div>
         <div className={styles.itemsContainer}>
           <div className={styles.box}>
-            <p className={styles.notes}>Enabled</p>
+            <p className={styles.notes}>Enabled: ({format})</p>
             <TimePicker
               showSecond={false}
-              defaultValue={moment()}
-              className="xxx"
+              placeholder="Select Time"
               format={format}
               use12Hours
               inputReadOnly
             />
           </div>
           <div className={styles.box}>
-            <p className={styles.notes}>Enabled: Small</p>
+            <p className={styles.notes}>Enabled: With default-value</p>
+            <TimePicker
+              showSecond={false}
+              defaultValue={moment()}
+              format={format}
+              minuteStep={15}
+              use12Hours
+              inputReadOnly
+            />
+          </div>
+          <div className={styles.box}>
+            <p className={styles.notes}>Enabled: Large Size, (HH:mm:ss)</p>
             <div className={styles.boxSmall}>
-              <TimePicker />
+              <TimePicker placeholder="Select Time" />
             </div>
           </div>
           <div className={styles.box}>

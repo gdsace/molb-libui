@@ -4,6 +4,8 @@
   .#{$prefixClass} {
     display: flex;
     box-sizing: border-box;
+    position: relative;
+    align-items: center;
 
     * {
       box-sizing: border-box;
