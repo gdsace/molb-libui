@@ -3,6 +3,7 @@ import Trigger from "rc-trigger";
 import React, { RefObject } from "react";
 
 import { Icon } from "@src/components";
+import classNames from "classnames";
 import "./assets/index.scss";
 import Panel from "./Panel";
 import placements from "./placements";
@@ -60,6 +61,7 @@ interface ITimePickerProps {
   id?: string;
   inputIcon?: React.ReactNode;
   clearIcon?: React.ReactNode;
+  showError?: boolean;
 }
 
 interface ITimePickerState {
@@ -99,7 +101,8 @@ export class TimePicker extends React.Component<
     addon: noop,
     use12Hours: false,
     focusOnOpen: false,
-    onKeyDown: noop
+    onKeyDown: noop,
+    showError: false
   };
   private readonly saveInputRef: RefObject<HTMLInputElement>;
   private readonly savePanelRef: RefObject<Panel>;
@@ -296,7 +299,6 @@ export class TimePicker extends React.Component<
         }
       }
     }
-    this.focus();
   }
 
   public focus() {
@@ -329,10 +331,14 @@ export class TimePicker extends React.Component<
       onBlur,
       autoFocus,
       inputReadOnly,
-      inputIcon
+      inputIcon,
+      showError
     } = this.props;
     const { open, value } = this.state;
     const popupClassName = this.getPopupClassName();
+    const textInputClassName = classNames(`${prefixCls}-input`, {
+      [`${prefixCls}-error`]: showError
+    });
     return (
       <Trigger
         prefixCls={`${prefixCls}-panel`}
@@ -341,7 +347,7 @@ export class TimePicker extends React.Component<
         popupAlign={align}
         builtinPlacements={placements}
         popupPlacement={placement}
-        action={disabled ? [] : ["click"]}
+        action={disabled ? [] : ["click", "focus"]}
         destroyPopupOnHide
         getPopupContainer={getPopupContainer}
         popupTransitionName={transitionName}
@@ -350,7 +356,7 @@ export class TimePicker extends React.Component<
       >
         <span className={`${prefixCls} ${className}`} style={style}>
           <input
-            className={`${prefixCls}-input`}
+            className={textInputClassName}
             ref={this.saveInputRef}
             type="text"
             placeholder={placeholder}

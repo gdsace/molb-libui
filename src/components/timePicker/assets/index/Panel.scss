@@ -4,7 +4,7 @@ $prefixClass: "rc-time-picker";
 
 .#{$prefixClass}-panel {
   z-index: $z-index-9;
-  width: 266px;
+  max-width: 266px;
   position: absolute;
   box-sizing: border-box;
 

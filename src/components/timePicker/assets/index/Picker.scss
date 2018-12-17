@@ -3,6 +3,10 @@
 $prefixClass: "rc-time-picker";
 
 .#{$prefixClass} {
+  &-error {
+    border-color: $support-red !important;
+  }
+
   &-input {
     width: 100%;
     position: relative;

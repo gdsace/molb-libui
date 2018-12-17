@@ -7,7 +7,7 @@ import { wInfo } from "../utils";
 
 const styles = require("./timePicker.stories.scss");
 
-const format = "HH:mm A";
+const format = "hh:mm A";
 const now = moment()
   .hour(14)
   .minute(30);
@@ -55,6 +55,7 @@ const onValueChange = (value: moment.Moment) => {
             <TimePicker
               showSecond={false}
               placeholder="Select Time"
+              defaultValue={moment()}
               format={format}
               use12Hours
               inputReadOnly
@@ -112,13 +113,9 @@ const onValueChange = (value: moment.Moment) => {
             <p className={styles.notes}>Validation: with Error</p>
             <TimePicker
               defaultValue={moment("13:30:56", "HH:mm:ss")}
-              // showError={true}
+              showError={true}
               // errorMsg="Some validation message"
             />
-          </div>
-          <div className={styles.box}>
-            <p className={styles.notes}>Focus/Open</p>
-            <TimePicker defaultValue={moment("13:30:56", "HH:mm:ss")} />
           </div>
         </div>
       </div>
