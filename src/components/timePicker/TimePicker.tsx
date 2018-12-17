@@ -292,6 +292,7 @@ export class TimePicker extends React.Component<
         this.setState({ open });
       }
       if (open) {
+        this.focus();
         if (onOpen) {
           onOpen({ open });
         }
