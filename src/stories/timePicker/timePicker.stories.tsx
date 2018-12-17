@@ -53,6 +53,7 @@ const onValueChange = (value: moment.Moment) => {
           <div className={styles.box}>
             <p className={styles.notes}>Enabled: ({format})</p>
             <TimePicker
+              title="Time Picker Label"
               showSecond={false}
               placeholder="Select Time"
               defaultValue={moment()}
@@ -62,8 +63,22 @@ const onValueChange = (value: moment.Moment) => {
             />
           </div>
           <div className={styles.box}>
-            <p className={styles.notes}>Enabled: With default-value</p>
+            <p className={styles.notes}>Enabled: Without Label</p>
             <TimePicker
+              showSecond={false}
+              placeholder="Select Time"
+              defaultValue={moment()}
+              format={format}
+              use12Hours
+              inputReadOnly
+            />
+          </div>
+          <div className={styles.box}>
+            <p className={styles.notes}>
+              Enabled: Minute steps, & default-value
+            </p>
+            <TimePicker
+              title="Time Picker Label"
               showSecond={false}
               defaultValue={moment()}
               format={format}
@@ -75,12 +90,13 @@ const onValueChange = (value: moment.Moment) => {
           <div className={styles.box}>
             <p className={styles.notes}>Enabled: Large Size, (HH:mm:ss)</p>
             <div className={styles.boxSmall}>
-              <TimePicker placeholder="Select Time" />
+              <TimePicker title="Time Picker Label" placeholder="Select Time" />
             </div>
           </div>
           <div className={styles.box}>
             <p className={styles.notes}>Disabled</p>
             <TimePicker
+              title="Time Picker Label"
               showSecond={false}
               format="h:mm A"
               use12Hours
@@ -92,6 +108,7 @@ const onValueChange = (value: moment.Moment) => {
           <div className={styles.box}>
             <p className={styles.notes}>Disabled: Options</p>
             <TimePicker
+              title="Time Picker Label"
               showSecond={false}
               defaultValue={now}
               className="xxx"
@@ -103,16 +120,24 @@ const onValueChange = (value: moment.Moment) => {
           </div>
           <div className={styles.box}>
             <p className={styles.notes}>Selected</p>
-            <TimePicker defaultValue={moment("13:30:56", "HH:mm:ss")} />
+            <TimePicker
+              title="Time Picker Label"
+              defaultValue={moment("13:30:56", "HH:mm:ss")}
+            />
           </div>
           <div className={styles.box}>
             <p className={styles.notes}>Hover</p>
-            <TimePicker defaultValue={moment("13:30:56", "HH:mm:ss")} />
+            <TimePicker
+              title="Time Picker Label"
+              defaultValue={moment("13:30:56", "HH:mm:ss")}
+            />
           </div>
           <div className={styles.box}>
             <p className={styles.notes}>Validation: with Error</p>
             <TimePicker
               defaultValue={moment("13:30:56", "HH:mm:ss")}
+              title="Time Picker Label"
+              errorMsg="Validation error message"
               showError={true}
               // errorMsg="Some validation message"
             />

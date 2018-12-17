@@ -61,6 +61,8 @@ interface ITimePickerProps {
   id?: string;
   inputIcon?: React.ReactNode;
   clearIcon?: React.ReactNode;
+  title?: string;
+  errorMsg?: string;
   showError?: boolean;
 }
 
@@ -332,6 +334,8 @@ export class TimePicker extends React.Component<
       autoFocus,
       inputReadOnly,
       inputIcon,
+      title,
+      errorMsg,
       showError
     } = this.props;
     const { open, value } = this.state;
@@ -340,43 +344,59 @@ export class TimePicker extends React.Component<
       [`${prefixCls}-error`]: showError
     });
     return (
-      <Trigger
-        prefixCls={`${prefixCls}-panel`}
-        popupClassName={popupClassName}
-        popup={this.getPanelElement()}
-        popupAlign={align}
-        builtinPlacements={placements}
-        popupPlacement={placement}
-        action={disabled ? [] : ["click", "focus"]}
-        destroyPopupOnHide
-        getPopupContainer={getPopupContainer}
-        popupTransitionName={transitionName}
-        popupVisible={open}
-        onPopupVisibleChange={this.onVisibleChange}
-      >
-        <span className={`${prefixCls} ${className}`} style={style}>
-          <input
-            className={textInputClassName}
-            ref={this.saveInputRef}
-            type="text"
-            placeholder={placeholder}
-            name={name}
-            onKeyDown={this.onKeyDown}
-            disabled={disabled}
-            value={(value && value.format(this.getFormat())) || ""}
-            autoComplete={autoComplete}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            autoFocus={autoFocus}
-            onChange={noop}
-            readOnly={inputReadOnly}
-            id={id}
-          />
-          {inputIcon || (
-            <Icon type="time" size="16" className={`${prefixCls}-input-icon`} />
-          )}
-        </span>
-      </Trigger>
+      <div className={`${prefixCls}-root-container`} data-scrollpoint={true}>
+        {title && (
+          <div className={`${prefixCls}-header-section`}>
+            <label className={`${prefixCls}-title`}>{title}</label>
+          </div>
+        )}
+        <Trigger
+          prefixCls={`${prefixCls}-panel`}
+          popupClassName={popupClassName}
+          popup={this.getPanelElement()}
+          popupAlign={align}
+          builtinPlacements={placements}
+          popupPlacement={placement}
+          action={disabled ? [] : ["click", "focus"]}
+          destroyPopupOnHide
+          getPopupContainer={getPopupContainer}
+          popupTransitionName={transitionName}
+          popupVisible={open}
+          onPopupVisibleChange={this.onVisibleChange}
+        >
+          <span className={`${prefixCls} ${className}`} style={style}>
+            <input
+              className={textInputClassName}
+              ref={this.saveInputRef}
+              type="text"
+              placeholder={placeholder}
+              name={name}
+              onKeyDown={this.onKeyDown}
+              disabled={disabled}
+              value={(value && value.format(this.getFormat())) || ""}
+              autoComplete={autoComplete}
+              onFocus={onFocus}
+              onBlur={onBlur}
+              autoFocus={autoFocus}
+              onChange={noop}
+              readOnly={inputReadOnly}
+              id={id}
+            />
+            {inputIcon || (
+              <Icon
+                type="time"
+                size="16"
+                className={`${prefixCls}-input-icon`}
+              />
+            )}
+          </span>
+        </Trigger>
+        {showError && (
+          <div className={`${prefixCls}-footer-section`}>
+            <div className={`${prefixCls}-footer-message`}>{errorMsg}</div>
+          </div>
+        )}
+      </div>
     );
   }
 }

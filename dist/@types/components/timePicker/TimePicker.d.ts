@@ -47,6 +47,9 @@ interface ITimePickerProps {
     id?: string;
     inputIcon?: React.ReactNode;
     clearIcon?: React.ReactNode;
+    title?: string;
+    errorMsg?: string;
+    showError?: boolean;
 }
 interface ITimePickerState {
     value: any;
@@ -82,6 +85,7 @@ export declare class TimePicker extends React.Component<ITimePickerProps, ITimeP
         use12Hours: boolean;
         focusOnOpen: boolean;
         onKeyDown: typeof noop;
+        showError: boolean;
     };
     private readonly saveInputRef;
     private readonly savePanelRef;

@@ -1,4 +1,6 @@
 :global {
+  @import "~@libui/components/styles/utils";
+
   $prefixClass: "rc-time-picker";
 
   .#{$prefixClass} {
@@ -10,6 +12,37 @@
     * {
       box-sizing: border-box;
     }
+  }
+
+  .#{$prefixClass}-root-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .#{$prefixClass}-header-section {
+    margin-bottom: $space-0;
+  }
+
+  .#{$prefixClass}-title {
+    font-size: $medium;
+    font-weight: $weight-medium;
+    line-height: $line-height-large;
+    color: $text-color-2;
+  }
+
+  .#{$prefixClass}-footer-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: $space-1;
+  }
+
+  .#{$prefixClass}-footer-message {
+    font-size: $small;
+    font-weight: $weight-regular;
+    line-height: $line-height-medium;
+    color: $support-red;
+    word-break: break-word;
+    margin-right: $space-0;
   }
 
   @import "./index/Picker";
