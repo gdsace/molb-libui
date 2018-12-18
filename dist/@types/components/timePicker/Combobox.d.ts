@@ -2,9 +2,9 @@ import moment from "moment";
 import { Component } from "react";
 interface IComboboxProps {
     format: string;
-    defaultOpenValue?: moment.Moment;
+    defaultOpenValue: moment.Moment;
     prefixCls: string;
-    value: moment.Moment;
+    value?: moment.Moment;
     onChange: (...args: any[]) => any;
     showHour?: boolean;
     showMinute?: boolean;

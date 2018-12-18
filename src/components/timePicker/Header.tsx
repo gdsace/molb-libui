@@ -7,7 +7,8 @@ interface IHeaderProps {
   disabledDate?: (...args: any[]) => any;
   placeholder?: string;
   clearText?: string;
-  value: moment.Moment;
+  defaultOpenValue: moment.Moment;
+  value?: moment.Moment;
   inputReadOnly?: boolean;
   hourOptions: any[];
   minuteOptions: any[];
@@ -19,7 +20,6 @@ interface IHeaderProps {
   onClear?: (...args: any[]) => any;
   onEsc?: (...args: any[]) => any;
   allowEmpty?: boolean;
-  defaultOpenValue?: moment.Moment;
   currentSelectPanel?: string;
   focusOnOpen?: boolean;
   onKeyDown?: (...args: any[]) => any;
@@ -47,6 +47,7 @@ export class Header extends Component<IHeaderProps, IHeaderState> {
       invalid: false
     };
   }
+
   public componentDidMount() {
     if (this.props.focusOnOpen) {
       // Wait one frame for the panel to be positioned before focusing
@@ -60,6 +61,7 @@ export class Header extends Component<IHeaderProps, IHeaderState> {
       });
     }
   }
+
   public componentWillReceiveProps(nextProps: IHeaderProps) {
     const { value, format } = nextProps;
     this.setState({
@@ -67,6 +69,7 @@ export class Header extends Component<IHeaderProps, IHeaderState> {
       invalid: false
     });
   }
+
   public onInputChange = (event: any) => {
     const str = event.target.value;
     this.setState({
@@ -161,6 +164,7 @@ export class Header extends Component<IHeaderProps, IHeaderState> {
       invalid: false
     });
   };
+
   public onKeyDown = (e: any) => {
     const { onEsc, onKeyDown } = this.props;
     if (e.keyCode === 27) {
@@ -172,12 +176,14 @@ export class Header extends Component<IHeaderProps, IHeaderState> {
       onKeyDown(e);
     }
   };
+
   public onClear = () => {
     this.setState({ str: "" });
     if (this.props.onClear) {
       this.props.onClear();
     }
   };
+
   public getClearButton() {
     const { prefixCls, allowEmpty, clearIcon } = this.props;
     if (!allowEmpty) {
@@ -194,9 +200,11 @@ export class Header extends Component<IHeaderProps, IHeaderState> {
       </a>
     );
   }
+
   public getProtoValue() {
     return this.props.value || this.props.defaultOpenValue;
   }
+
   public getInput() {
     const { prefixCls, placeholder, inputReadOnly } = this.props;
     const { invalid, str } = this.state;
@@ -213,6 +221,7 @@ export class Header extends Component<IHeaderProps, IHeaderState> {
       />
     );
   }
+
   public render() {
     const { prefixCls } = this.props;
     return (

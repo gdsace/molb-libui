@@ -19,8 +19,8 @@ function noop() {
 interface ITimePickerProps {
   prefixCls?: string;
   clearText?: string;
+  defaultOpenValue: moment.Moment;
   value?: moment.Moment;
-  defaultOpenValue?: moment.Moment;
   inputReadOnly?: boolean;
   disabled?: boolean;
   allowEmpty?: boolean;
@@ -67,7 +67,7 @@ interface ITimePickerProps {
 }
 
 interface ITimePickerState {
-  value: any;
+  value?: moment.Moment;
   open: any;
 }
 

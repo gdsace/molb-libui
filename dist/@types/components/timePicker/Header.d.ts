@@ -6,7 +6,8 @@ interface IHeaderProps {
     disabledDate?: (...args: any[]) => any;
     placeholder?: string;
     clearText?: string;
-    value: moment.Moment;
+    defaultOpenValue: moment.Moment;
+    value?: moment.Moment;
     inputReadOnly?: boolean;
     hourOptions: any[];
     minuteOptions: any[];
@@ -18,7 +19,6 @@ interface IHeaderProps {
     onClear?: (...args: any[]) => any;
     onEsc?: (...args: any[]) => any;
     allowEmpty?: boolean;
-    defaultOpenValue?: moment.Moment;
     currentSelectPanel?: string;
     focusOnOpen?: boolean;
     onKeyDown?: (...args: any[]) => any;
