@@ -85,7 +85,9 @@ export class TimePicker extends React.Component<
     popupClassName: "",
     id: "",
     align: {},
-    defaultOpenValue: moment(),
+    defaultOpenValue: moment()
+      .hour(0)
+      .minute(0),
     allowEmpty: true,
     showHour: true,
     showMinute: true,
@@ -226,7 +228,7 @@ export class TimePicker extends React.Component<
         clearText={clearText}
         prefixCls={`${prefixCls}-panel`}
         ref={this.savePanelRef}
-        value={this.state.value}
+        value={this.state.value && moment(this.state.value)}
         inputReadOnly={inputReadOnly}
         onChange={this.onPanelChange}
         onClear={this.onPanelClear}

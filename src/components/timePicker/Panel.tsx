@@ -72,7 +72,9 @@ export class Panel extends Component<IPanelProps, IPanelState> {
     disabledHours: noop,
     disabledMinutes: noop,
     disabledSeconds: noop,
-    defaultOpenValue: moment(),
+    defaultOpenValue: moment()
+      .hour(0)
+      .minute(0),
     use12Hours: false,
     addon: noop,
     onKeyDown: noop,
