@@ -19,9 +19,9 @@ const formatOption = (option: any, disabledOptions: any) => {
 
 interface IComboboxProps {
   format: string;
-  defaultOpenValue?: moment.Moment;
+  defaultOpenValue: moment.Moment;
   prefixCls: string;
-  value: moment.Moment;
+  value?: moment.Moment;
   onChange: (...args: any[]) => any;
   showHour?: boolean;
   showMinute?: boolean;

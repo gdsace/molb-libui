@@ -5,8 +5,8 @@ declare function noop(): void;
 interface ITimePickerProps {
     prefixCls?: string;
     clearText?: string;
+    defaultOpenValue: moment.Moment;
     value?: moment.Moment;
-    defaultOpenValue?: moment.Moment;
     inputReadOnly?: boolean;
     disabled?: boolean;
     allowEmpty?: boolean;
@@ -52,8 +52,8 @@ interface ITimePickerProps {
     showError?: boolean;
 }
 interface ITimePickerState {
-    value: any;
-    open: any;
+    value?: moment.Moment;
+    open?: boolean;
 }
 export declare class TimePicker extends React.Component<ITimePickerProps, ITimePickerState> {
     static defaultProps: {

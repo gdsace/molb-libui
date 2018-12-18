@@ -19,8 +19,8 @@ function noop() {
 interface ITimePickerProps {
   prefixCls?: string;
   clearText?: string;
+  defaultOpenValue: moment.Moment;
   value?: moment.Moment;
-  defaultOpenValue?: moment.Moment;
   inputReadOnly?: boolean;
   disabled?: boolean;
   allowEmpty?: boolean;
@@ -67,8 +67,8 @@ interface ITimePickerProps {
 }
 
 interface ITimePickerState {
-  value: any;
-  open: any;
+  value?: moment.Moment;
+  open?: boolean;
 }
 
 export class TimePicker extends React.Component<
@@ -85,7 +85,9 @@ export class TimePicker extends React.Component<
     popupClassName: "",
     id: "",
     align: {},
-    defaultOpenValue: moment(),
+    defaultOpenValue: moment()
+      .hour(0)
+      .minute(0),
     allowEmpty: true,
     showHour: true,
     showMinute: true,
@@ -226,7 +228,7 @@ export class TimePicker extends React.Component<
         clearText={clearText}
         prefixCls={`${prefixCls}-panel`}
         ref={this.savePanelRef}
-        value={this.state.value}
+        value={this.state.value && moment(this.state.value)}
         inputReadOnly={inputReadOnly}
         onChange={this.onPanelChange}
         onClear={this.onPanelClear}
@@ -374,7 +376,7 @@ export class TimePicker extends React.Component<
               name={name}
               onKeyDown={this.onKeyDown}
               disabled={disabled}
-              value={(value && value.format(this.getFormat())) || ""}
+              value={(value && moment(value).format(this.getFormat())) || ""}
               autoComplete={autoComplete}
               onFocus={onFocus}
               onBlur={onBlur}

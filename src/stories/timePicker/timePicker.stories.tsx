@@ -56,7 +56,6 @@ const onValueChange = (value: moment.Moment) => {
               title="Time Picker Label"
               showSecond={false}
               placeholder="Select Time"
-              defaultValue={moment()}
               format={format}
               use12Hours
               inputReadOnly

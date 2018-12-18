@@ -31,8 +31,8 @@ interface IPanelProps {
   clearText?: string;
   prefixCls: string;
   className?: string;
-  defaultOpenValue?: moment.Moment;
-  value: moment.Moment;
+  defaultOpenValue: moment.Moment;
+  value?: moment.Moment;
   placeholder?: string;
   format: string;
   inputReadOnly?: boolean;
@@ -59,7 +59,7 @@ interface IPanelProps {
 }
 
 interface IPanelState {
-  value: moment.Moment;
+  value?: moment.Moment;
   currentSelectPanel: string;
   selectionRange: undefined[];
 }
@@ -72,7 +72,9 @@ export class Panel extends Component<IPanelProps, IPanelState> {
     disabledHours: noop,
     disabledMinutes: noop,
     disabledSeconds: noop,
-    defaultOpenValue: moment(),
+    defaultOpenValue: moment()
+      .hour(0)
+      .minute(0),
     use12Hours: false,
     addon: noop,
     onKeyDown: noop,
