@@ -68,7 +68,7 @@ interface ITimePickerProps {
 
 interface ITimePickerState {
   value?: moment.Moment;
-  open: any;
+  open?: boolean;
 }
 
 export class TimePicker extends React.Component<
