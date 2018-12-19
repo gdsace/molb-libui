@@ -1,152 +1,124 @@
 @import "~@libui/components/styles/utils";
 
-@mixin title($color) {
-  font-size: $medium;
-  margin-top: 2px;
-  font-weight: $weight-semibold;
-  line-height: $line-height-large;
-  color: $color;
-  float: left;
+.headerSection {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-@mixin input {
-  box-sizing: border-box;
-  width: 100%;
+.content {
+  display: flex;
+  margin-top: $space-0;
+}
+
+.bottomSection {
+  display: flex;
+  justify-content: space-between;
   margin-top: $space-1;
-  margin-bottom: $space-1;
-  border-radius: $space-0;
-  border: solid 1px $ui-color-2;
-  padding: $medium $space-2;
-  font-size: $medium;
-  line-height: $line-height-large;
-  color: $text-color;
-  min-height: $space-10;
-}
-
-@mixin bottomMsg($color) {
-  line-height: $line-height-medium;
-  font-size: $small;
-  color: $color;
-}
-
-@mixin input-hover {
-  &:hover {
-    border: solid 1px $text-color;
-  }
-}
-
-@mixin input-focus {
-  &:focus {
-    outline: none;
-    border: solid 1px $lavender-indigo;
-    color: $text-color-2;
-  }
-}
-
-.textarea_disable {
-  width: 100%;
-
-  .title {
-    @include title($ui-color-4);
-  }
-
-  .input {
-    @include input;
-
-    background-color: $field-color-1;
-  }
-
-  .helperMsg {
-    @include bottomMsg($ui-color-4);
-
-    word-break: break-word;
-    margin-right: $space-0;
-  }
-
-  .countMsg {
-    @include bottomMsg($ui-color-4);
-  }
-
-  .onhover {
-    float: left;
-    padding: 0;
-  }
 }
 
 .textarea {
   width: 100%;
 
   .title {
-    @include title($text-color-2);
+    font-size: $medium;
+    font-weight: $weight-medium;
+    line-height: $line-height-large;
+    color: $text-color-2;
+  }
+
+  .infoIcon {
+    padding: 0;
+    margin-left: $space-0;
+    display: flex;
+    color: $text-color-2;
+    cursor: pointer;
   }
 
   .input {
-    @include input;
-    @include input-hover;
-    @include input-focus;
+    box-sizing: border-box;
+    flex: 1;
+    border-radius: $border-radius-3;
+    border: solid 1px $ui-color-2;
+    padding: $medium $space-2;
+    font-size: $medium;
+    font-weight: $weight-regular;
+    line-height: $line-height-large;
+    color: $text-color;
+    min-height: $space-10;
+
+    &:not(:placeholder-shown) {
+      border-color: $field-color-2;
+    }
+
+    &:hover {
+      border: solid 1px $text-color;
+    }
+
+    &:focus {
+      outline: none;
+      border: solid 1px $lavender-indigo;
+      color: $text-color-2;
+    }
   }
 
   .helperMsg {
-    @include bottomMsg($text-color-2);
-
     word-break: break-word;
     margin-right: $space-0;
+    line-height: $line-height-medium;
+    font-size: $small;
+    color: $text-color-2;
   }
 
   .countMsg {
-    @include bottomMsg($text-color-2);
+    line-height: $line-height-medium;
+    font-size: $small;
+    color: $text-color-2;
   }
 
-  .onhover {
-    cursor: pointer;
-    float: left;
-    padding: 0;
-  }
-}
+  &.validation {
+    .title {
+      color: $text-color-2;
+    }
 
-.textarea_validation {
-  width: 100%;
+    .input {
+      border: solid 1px $support-red;
 
-  .title {
-    @include title($text-color-2);
-  }
+      &:hover {
+        border: solid 1px $support-red;
+      }
+    }
 
-  .input {
-    @include input;
-    @include input-focus;
-
-    border: solid 1px $support-red;
+    .helperMsg {
+      color: $support-red;
+    }
   }
 
-  .helperMsg {
-    @include bottomMsg($support-red);
+  /* stylelint-disable */
+  // disable css block here, because lint requires the `.disabled input:hover` to be placed before
+  // `.validation input`, which will make this css file not very easy to understand/maintain.
+  &.disabled {
+    .input {
+      background-color: $field-color-1;
+      cursor: not-allowed;
 
-    word-break: break-word;
-    margin-right: $space-0;
+      &:hover {
+        border: solid 1px $ui-color-2;
+      }
+    }
+
+    .helperMsg {
+      color: $ui-color-4;
+    }
+
+    .countMsg {
+      color: $ui-color-4;
+    }
+
+    .infoIcon {
+      color: $ui-color-4;
+      cursor: default;
+    }
   }
-
-  .countMsg {
-    @include bottomMsg($support-red);
-  }
-
-  .onhover {
-    cursor: pointer;
-    float: left;
-    padding: 0;
-    height: $space-3;
-  }
-}
-
-.bottomContainer {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-
-.header {
-  width: 100%;
-}
-
-.content {
-  width: 100%;
+  /* stylelint-enable */
 }
