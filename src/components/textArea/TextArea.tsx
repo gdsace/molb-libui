@@ -3,6 +3,8 @@ import * as React from "react";
 
 import { Icon } from "@libui/components/icons";
 import classnames from "classnames";
+import { addLocatedErrorClassname } from "../utils";
+
 const styles = require("./textArea.scss");
 
 export type HTMLTextareaProps = React.TextareaHTMLAttributes<
@@ -49,6 +51,9 @@ export class TextArea extends React.Component<ITextAreaPros, any> {
       [styles[`disabled`]]: this.props.disabled,
       [styles[`validation`]]: textareaValidation
     });
+    const helperMsgClassname = textareaValidation
+      ? addLocatedErrorClassname(styles.helperMsg)
+      : styles.helperMsg;
     const maxLength = this.props.overwrite ? undefined : this.props.maxLength;
     const props = this.props;
     const otherProps = _.omit(props, [
@@ -91,7 +96,7 @@ export class TextArea extends React.Component<ITextAreaPros, any> {
           />
         </div>
         <div className={styles.bottomSection}>
-          <div className={styles.helperMsg}>
+          <div className={helperMsgClassname}>
             {textareaValidation ? this.props.errorMsg : this.props.helperText}
           </div>
           {this.props.maxLength && (
