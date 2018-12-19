@@ -1,0 +1,32 @@
+@import "~@libui/components/styles/utils";
+
+.rootContainer {
+  margin: 30px;
+}
+
+.itemsContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.box {
+  border: solid 0 #828282;
+  flex-basis: 210px;
+  margin: 24px 24px 0 0;
+}
+
+.boxSmall {
+  width: 320px;
+}
+
+.notes {
+  color: #bcc4cd;
+}
+
+.content {
+  background-color: lightsalmon;
+}
+
+.styles {
+  margin: 36px;
+}
