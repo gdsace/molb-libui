@@ -83,7 +83,7 @@ export class TextArea extends React.Component<ITextAreaPros, any> {
             placeholder={this.props.placeholder}
             maxLength={maxLength}
             onChange={this.handleTextareaChange}
-            disabled={this.props.disabled ? true : false}
+            disabled={!!this.props.disabled}
           />
           <div className={styles.bottomContainer}>
             <div className={styles.helperMsg}>

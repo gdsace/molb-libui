@@ -34,4 +34,5 @@ export * from "./textArea";
 export * from "./textView";
 export * from "./tileGroup/tile";
 export * from "./tileGroup";
+export * from "./timePicker";
 export * from "./EnumValues";
