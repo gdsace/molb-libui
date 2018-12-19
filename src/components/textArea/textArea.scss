@@ -1,8 +1,5 @@
 @import "~@libui/components/styles/utils";
 
-@mixin bottomMsg($color) {
-}
-
 .headerSection {
   display: flex;
   flex-direction: row;
@@ -84,7 +81,6 @@
       color: $text-color-2;
     }
 
-    //noinspection Stylelint
     .input {
       border: solid 1px $support-red;
 
@@ -98,8 +94,10 @@
     }
   }
 
+  /* stylelint-disable */
+  // disable css block here, because lint requires the `.disabled input:hover` to be placed before
+  // `.validation input`, which will make this css file not very easy to understand/maintain.
   &.disabled {
-    //noinspection Stylelint
     .input {
       background-color: $field-color-1;
       cursor: not-allowed;
@@ -122,4 +120,5 @@
       cursor: default;
     }
   }
+  /* stylelint-enable */
 }
