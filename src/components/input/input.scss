@@ -3,7 +3,7 @@
 $input-hover-border: solid 1px $text-color;
 $input-focus-border: solid 1px $lavender-indigo;
 
-.input {
+.rootContainer {
   position: relative;
 
   .inline {
@@ -20,10 +20,6 @@ $input-focus-border: solid 1px $lavender-indigo;
     box-sizing: border-box;
     font-family: HK Nova, sans-serif;
     color: $text-color-2;
-
-    &:not(:placeholder-shown) {
-      border-color: $field-color-2;
-    }
   }
 
   .errorField {
@@ -42,6 +38,10 @@ $input-focus-border: solid 1px $lavender-indigo;
     margin: 0;
   }
 
+  input:not(:placeholder-shown) {
+    border-color: $field-color-2;
+  }
+
   input:hover {
     border: $input-hover-border;
   }
@@ -50,14 +50,14 @@ $input-focus-border: solid 1px $lavender-indigo;
     border: $input-focus-border;
   }
 
-  .error {
-    border-color: $support-red !important;
-  }
-
   input:disabled {
     background-color: $ui-color-1;
     border: solid 1px $ui-color-2;
     color: $text-color;
+  }
+
+  .error {
+    border-color: $support-red !important;
   }
 
   .label {
@@ -72,6 +72,7 @@ $input-focus-border: solid 1px $lavender-indigo;
 
   .labelIcon {
     margin-left: $space-0;
+    cursor: pointer;
   }
 
   .hideMsg {
@@ -80,19 +81,28 @@ $input-focus-border: solid 1px $lavender-indigo;
 
   .footerSection {
     margin-top: $space-1;
-  }
-
-  .errorMsg {
-    display: inline-block;
-    color: $support-red;
-    top: 100%;
-    left: 0;
-    font-size: $small;
+    display: flex;
+    justify-content: space-between;
   }
 
   .helperMsg {
     color: $text-color-2;
     font-size: $small;
+    font-weight: $weight-regular;
+    line-height: $line-height-medium;
+  }
+
+  .redMsg {
+    color: $support-red;
+    font-size: $small;
+    font-weight: $weight-regular;
+    line-height: $line-height-medium;
+  }
+
+  .countMsg {
+    font-size: $small;
+    font-weight: $weight-regular;
+    line-height: $line-height-medium;
   }
 
   .suffix {
@@ -105,6 +115,19 @@ $input-focus-border: solid 1px $lavender-indigo;
     color: $text-color;
     position: absolute;
     right: $small;
+  }
+
+  &.validationError {
+    .countMsg {
+      color: $support-red;
+    }
+  }
+
+  &.disabled {
+    .helperMsg,
+    .countMsg {
+      color: $ui-color-4;
+    }
   }
 }
 

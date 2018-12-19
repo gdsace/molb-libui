@@ -1,4 +1,5 @@
 import { InputType, Size } from "@libui/components/EnumValues";
+import classnames from "classnames";
 import * as React from "react";
 import { Icon } from "../icons";
 import { addLocatedErrorClassname } from "../utils";
@@ -23,24 +24,37 @@ export interface IInputProps {
   helperMsg?: string;
   showTooltip?: boolean;
   suffix?: string;
+  showCharacterCount?: boolean;
 }
 
-export class Input extends React.Component<IInputProps, {}> {
+export class Input extends React.Component<IInputProps, any> {
   public static defaultProps: Partial<IInputProps> = {
     className: "",
     disabled: false,
-    maxLength: 255,
-    minLength: 255,
+    maxLength: 30,
+    minLength: 30,
     placeholder: "",
     size: Size.Medium,
-    type: InputType.Text
+    type: InputType.Text,
+    showCharacterCount: false
   };
+
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      characterCount: (this.props.value || "").toString().length
+    };
+  }
 
   public render() {
     const size = styles[`${this.props.size}`];
+    const rootContainerClassname = classnames(styles.rootContainer, {
+      [styles[`disabled`]]: this.props.disabled,
+      [styles[`validationError`]]: this.props.showError
+    });
     return (
       <div
-        className={styles.input}
+        className={rootContainerClassname}
         data-scrollpoint={this.props.label ? true : false}
       >
         {this.props.label && (
@@ -80,12 +94,17 @@ export class Input extends React.Component<IInputProps, {}> {
           <label
             className={`${
               this.props.showError
-                ? addLocatedErrorClassname(styles.errorMsg)
+                ? addLocatedErrorClassname(styles.redMsg)
                 : styles.helperMsg
             } ${styles.isEmpty}`}
           >
             {this.props.showError ? this.props.errorMsg : this.props.helperMsg}
           </label>
+          {this.props.showCharacterCount && (
+            <div className={styles.countMsg}>
+              {`${this.state.characterCount}/${this.props.maxLength}`}
+            </div>
+          )}
         </div>
       </div>
     );
@@ -93,12 +112,13 @@ export class Input extends React.Component<IInputProps, {}> {
 
   public handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value;
-    if (
-      this.props.disabled ||
-      newValue.length > (this.props.maxLength || 255)
-    ) {
+    if (this.props.disabled || newValue.length > (this.props.maxLength || 30)) {
       return;
     }
+
     this.props.onChange(event);
+    this.setState({
+      characterCount: event.target.value.length
+    });
   };
 }

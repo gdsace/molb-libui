@@ -26,7 +26,7 @@ const errorMsg = "Validation error message";
             placeholder={placeholder}
             type={InputType.Text}
             label={"Large"}
-            size={Size.Small}
+            size={Size.Large}
           />
         </div>
         <div className={styles.box}>
@@ -44,7 +44,7 @@ const errorMsg = "Validation error message";
             placeholder={placeholder}
             type={InputType.Text}
             label={"Small"}
-            size={Size.Large}
+            size={Size.Small}
           />
         </div>
       </div>
@@ -65,10 +65,9 @@ const errorMsg = "Validation error message";
         <div className={styles.box}>
           <Input
             onChange={action("value")}
-            placeholder="this is text input"
+            placeholder={placeholder}
             type={InputType.Text}
             label={"Text"}
-            value=""
             size={Size.Large}
           />
         </div>
@@ -87,6 +86,20 @@ const errorMsg = "Validation error message";
             label={"Normal"}
             value=""
             size={Size.Large}
+            showCharacterCount={true}
+          />
+        </div>
+        <div className={styles.box}>
+          <Input
+            onChange={action("value")}
+            placeholder={placeholder}
+            type={InputType.Text}
+            label={"Normal: Helper"}
+            size={Size.Large}
+            showHelper={true}
+            value="Text input with helper text"
+            helperMsg={helperMsg}
+            showCharacterCount={true}
           />
         </div>
         <div className={styles.box}>
@@ -97,6 +110,8 @@ const errorMsg = "Validation error message";
             size={Size.Large}
             value="Text input disabled"
             disabled={true}
+            helperMsg={helperMsg}
+            showCharacterCount={true}
           />
         </div>
         <div className={styles.box}>
@@ -109,18 +124,7 @@ const errorMsg = "Validation error message";
             showError={true}
             value="Text input with error"
             errorMsg={errorMsg}
-          />
-        </div>
-        <div className={styles.box}>
-          <Input
-            onChange={action("value")}
-            placeholder={placeholder}
-            type={InputType.Text}
-            label={"Helper"}
-            size={Size.Large}
-            showHelper={true}
-            value="Text input with helper text"
-            helperMsg={helperMsg}
+            showCharacterCount={true}
           />
         </div>
         <div className={styles.box}>
@@ -141,7 +145,6 @@ const errorMsg = "Validation error message";
             type={InputType.Text}
             label={"Suffix"}
             size={Size.Large}
-            value=""
             suffix={"suffix"}
           />
         </div>
@@ -158,7 +161,6 @@ const errorMsg = "Validation error message";
             placeholder={placeholder}
             label={"Text MaxLength=10"}
             size={Size.Large}
-            value=""
             maxLength={10}
           />
         </div>
@@ -166,9 +168,10 @@ const errorMsg = "Validation error message";
           <Input
             onChange={action("value")}
             type={InputType.Number}
+            placeholder={placeholder}
             label={"Number MaxLength=10"}
             size={Size.Large}
-            value=""
+            value="123"
             maxLength={10}
           />
         </div>

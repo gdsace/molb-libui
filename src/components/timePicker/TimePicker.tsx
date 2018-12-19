@@ -399,7 +399,7 @@ export class TimePicker extends React.Component<
         {showError && (
           <div
             className={`${addLocatedErrorClassname(
-              `${prefixCls}-footer-section)`
+              `${prefixCls}-footer-section`
             )}`}
           >
             <div className={`${prefixCls}-footer-message`}>{errorMsg}</div>
