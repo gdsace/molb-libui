@@ -27,7 +27,6 @@ const styles = {
               maxLength={300}
               overwrite={true}
               errorMsg="Please reduce the number of characters"
-              value={"First line\nSecond line"}
             />
           </div>
         </div>
