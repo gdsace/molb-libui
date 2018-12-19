@@ -46,7 +46,9 @@ export class Input extends React.Component<IInputProps, {}> {
         {this.props.label && (
           <div className={styles.label}>
             <p>{this.props.label}</p>
-            {this.props.showTooltip && <Icon type="help" />}
+            {this.props.showTooltip && (
+              <Icon type="help" size="16" className={styles.labelIcon} />
+            )}
           </div>
         )}
         <div className={styles.inline}>
@@ -67,22 +69,24 @@ export class Input extends React.Component<IInputProps, {}> {
             placeholder={this.props.placeholder}
           />
           {this.props.showError ? (
-            <Icon className={styles.errorIcon} type="error" />
+            <Icon className={styles.errorIcon} size="16" type="error" />
           ) : (
             this.props.suffix && (
               <span className={styles.suffix}>{this.props.suffix}</span>
             )
           )}
         </div>
-        <label
-          className={`${
-            this.props.showError
-              ? addLocatedErrorClassname(styles.errorMsg)
-              : styles.helperMsg
-          } ${styles.isEmpty}`}
-        >
-          {this.props.showError ? this.props.errorMsg : this.props.helperMsg}
-        </label>
+        <div className={styles.footerSection}>
+          <label
+            className={`${
+              this.props.showError
+                ? addLocatedErrorClassname(styles.errorMsg)
+                : styles.helperMsg
+            } ${styles.isEmpty}`}
+          >
+            {this.props.showError ? this.props.errorMsg : this.props.helperMsg}
+          </label>
+        </div>
       </div>
     );
   }

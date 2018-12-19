@@ -19,6 +19,11 @@ $input-focus-border: solid 1px $lavender-indigo;
     width: 100%;
     box-sizing: border-box;
     font-family: HK Nova, sans-serif;
+    color: $text-color-2;
+
+    &:not(:placeholder-shown) {
+      border-color: $field-color-2;
+    }
   }
 
   .errorField {
@@ -28,6 +33,7 @@ $input-focus-border: solid 1px $lavender-indigo;
   .errorIcon {
     position: absolute;
     right: $small;
+    color: $support-red;
   }
 
   input::-webkit-outer-spin-button,
@@ -51,26 +57,34 @@ $input-focus-border: solid 1px $lavender-indigo;
   input:disabled {
     background-color: $ui-color-1;
     border: solid 1px $ui-color-2;
+    color: $text-color;
   }
 
   .label {
     font-size: $medium;
     font-weight: $weight-medium;
-    margin-bottom: 7px;
+    line-height: $line-height-large;
+    margin-bottom: $space-0;
     display: flex;
     align-items: center;
     color: $text-color-2;
+  }
+
+  .labelIcon {
+    margin-left: $space-0;
   }
 
   .hideMsg {
     display: none;
   }
 
-  .errorMsg {
+  .footerSection {
     margin-top: $space-1;
+  }
+
+  .errorMsg {
     display: inline-block;
     color: $support-red;
-    position: absolute;
     top: 100%;
     left: 0;
     font-size: $small;
