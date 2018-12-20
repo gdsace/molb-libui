@@ -3,10 +3,12 @@ import Trigger from "rc-trigger";
 import React, { RefObject } from "react";
 
 import { Icon } from "@src/components";
+import { addLocatedErrorClassname } from "@src/components/utils";
 import classNames from "classnames";
-import "./assets/index.scss";
 import Panel from "./Panel";
 import placements from "./placements";
+
+import "./assets/index.scss";
 
 function noop() {
   return;
@@ -395,7 +397,11 @@ export class TimePicker extends React.Component<
           </span>
         </Trigger>
         {showError && (
-          <div className={`${prefixCls}-footer-section`}>
+          <div
+            className={`${addLocatedErrorClassname(
+              `${prefixCls}-footer-section`
+            )}`}
+          >
             <div className={`${prefixCls}-footer-message`}>{errorMsg}</div>
           </div>
         )}

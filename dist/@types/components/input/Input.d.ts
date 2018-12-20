@@ -18,9 +18,11 @@ export interface IInputProps {
     helperMsg?: string;
     showTooltip?: boolean;
     suffix?: string;
+    showCharacterCount?: boolean;
 }
-export declare class Input extends React.Component<IInputProps, {}> {
+export declare class Input extends React.Component<IInputProps, any> {
     static defaultProps: Partial<IInputProps>;
+    constructor(props: any);
     render(): JSX.Element;
     handleOnChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
