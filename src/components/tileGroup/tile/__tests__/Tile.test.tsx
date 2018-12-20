@@ -73,14 +73,14 @@ describe("Tile", () => {
   it("should render medium-tile (mediumTile)", () => {
     const wrapper = shallow(
       <Tile
-        icon="48-px-store"
+        imgSrc={"http:xxxxx"}
         content="Restaurant"
         description="Some description"
         theme={TileTheme.MediumTile}
       />
     );
 
-    expect(wrapper.find(".tileIcon")).toHaveLength(0);
+    expect(wrapper.find(".imgWrapper")).toHaveLength(1);
     expect(wrapper.find(".tileHeader")).toHaveLength(1);
     expect(wrapper.find(".tileDescription")).toHaveLength(1);
   });
