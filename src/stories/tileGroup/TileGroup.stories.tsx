@@ -162,9 +162,9 @@ const valueChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
         <div className={styles.box}>
           <p className={styles.notes}>Unselectable tileGroup:</p>
           <TileGroup
-              onChange={valueChangeHandler}
-              deselectable={true}
-              value={selectedTileValue.key}
+            onChange={valueChangeHandler}
+            deselectable={true}
+            value={selectedTileValue.key}
           >
             {tileOptions.map((item, index) => {
               return (
@@ -185,9 +185,9 @@ const valueChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
         <div className={styles.box}>
           <p className={styles.notes}>Image source tileGroup:</p>
           <TileGroup
-              onChange={valueChangeHandler}
-              deselectable={true}
-              value={selectedTileValue.key}
+            onChange={valueChangeHandler}
+            deselectable={true}
+            value={selectedTileValue.key}
           >
             {creditCarOptions.map((item, index) => {
               return (
