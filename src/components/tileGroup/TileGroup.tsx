@@ -8,7 +8,7 @@ interface ITileGroupProps {
   children: React.ReactNode;
   value?: string;
   className?: string;
-  unselectable?: boolean;
+  deselectable?: boolean;
 }
 
 interface ITileGroupState {
@@ -30,7 +30,7 @@ export class TileGroup extends React.Component<
   ITileGroupState
 > {
   public static defaultProps: Partial<ITileGroupProps> = {
-    unselectable: false
+    deselectable: false
   };
 
   constructor(props: ITileGroupProps) {
@@ -45,7 +45,7 @@ export class TileGroup extends React.Component<
   public onSelectionChanged = (ev: React.ChangeEvent<HTMLInputElement>) => {
     const lastValue = this.state.value;
     const value = ev.target.value;
-    if (this.props.unselectable && lastValue === value) {
+    if (this.props.deselectable && lastValue === value) {
       this.setState({ value: "" });
       if (this.props.onChange) {
         this.props.onChange(ev);
@@ -67,7 +67,7 @@ export class TileGroup extends React.Component<
         if (React.isValidElement<ITileProps>(child)) {
           return React.cloneElement<ITileProps>(child, {
             ...child.props,
-            unselectable: this.props.unselectable,
+            deselectable: this.props.deselectable,
             onChange: this.onSelectionChanged,
             checked: child.props.value === this.state.value
           });

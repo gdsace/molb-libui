@@ -17,7 +17,7 @@ export interface ITileProps {
   value?: string;
   theme?: TileTheme;
   containerStyle?: string;
-  unselectable?: boolean;
+  deselectable?: boolean;
   imgSrc?: string;
   imgAlt?: string;
 }
@@ -46,8 +46,8 @@ export const Tile = (props: ITileProps) => {
           <input
             type="radio"
             value={props.value}
-            onChange={!props.unselectable ? props.onChange : _.noop}
-            onClick={props.unselectable ? props.onChange : _.noop}
+            onChange={!props.deselectable ? props.onChange : _.noop}
+            onClick={props.deselectable ? props.onChange : _.noop}
             checked={props.checked}
             disabled={props.disabled}
           />
