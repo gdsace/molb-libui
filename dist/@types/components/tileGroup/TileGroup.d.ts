@@ -4,7 +4,7 @@ interface ITileGroupProps {
     children: React.ReactNode;
     value?: string;
     className?: string;
-    unselectable?: boolean;
+    deselectable?: boolean;
 }
 interface ITileGroupState {
     value: any;
