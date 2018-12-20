@@ -41,9 +41,6 @@ export enum FileUploadState {
 }
 
 export const COMMON_ALLOWED_EXTENSIONS = [
-  ".pdf",
-  ".doc",
-  ".png",
   ".jpg",
   ".jpeg"
 ].join(",");
