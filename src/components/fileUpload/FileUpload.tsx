@@ -40,10 +40,7 @@ export enum FileUploadState {
   Uploading = "uploading"
 }
 
-export const COMMON_ALLOWED_EXTENSIONS = [
-  ".jpg",
-  ".jpeg"
-].join(",");
+export const COMMON_ALLOWED_EXTENSIONS = [".jpg", ".jpeg"].join(",");
 
 export class FileUpload extends React.Component<
   IFileUploadProps,
