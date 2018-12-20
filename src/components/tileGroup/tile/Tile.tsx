@@ -2,11 +2,12 @@ import { TileTheme } from "@libui/components/EnumValues";
 import classNames from "classnames";
 import * as React from "react";
 import { Icon } from "../../icons/index";
+import _ from "lodash";
 
 const styles = require("./tile.scss");
 
 export interface ITileProps {
-  icon: string;
+  icon?: string;
   content: string;
   description?: string;
   checked?: boolean;
@@ -15,6 +16,7 @@ export interface ITileProps {
   value?: string;
   theme?: TileTheme;
   containerStyle?: string;
+  unselectable?: boolean;
 }
 
 export const Tile = (props: ITileProps) => {
@@ -41,7 +43,8 @@ export const Tile = (props: ITileProps) => {
           <input
             type="radio"
             value={props.value}
-            onChange={props.onChange}
+            onChange={!props.unselectable ? props.onChange : _.noop}
+            onClick={props.unselectable ? props.onChange : _.noop}
             checked={props.checked}
             disabled={props.disabled}
           />
@@ -49,7 +52,7 @@ export const Tile = (props: ITileProps) => {
         <div className={`${styles.itemsContent}`}>
           {props.theme !== TileTheme.MediumTile &&
             props.theme !== TileTheme.BasicTile && (
-              <Icon className={styles.tileIcon} type={props.icon} size="48" />
+              props.icon && <Icon className={styles.tileIcon} type={props.icon} size="48" />
             )}
           {props.theme !== TileTheme.BasicTile && (
             <span className={styles.tileHeader}>{props.content}</span>

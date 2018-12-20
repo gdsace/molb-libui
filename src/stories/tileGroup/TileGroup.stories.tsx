@@ -149,6 +149,30 @@ const valueChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
             })}
           </TileGroup>
         </div>
+
+        <div className={styles.box}>
+          <p className={styles.notes}>Unselectable tileGroup:</p>
+          <TileGroup
+              onChange={valueChangeHandler}
+              unselectable={true}
+              value={selectedTileValue.key}
+          >
+            {tileOptions.map((item, index) => {
+              return (
+                  <Tile
+                      key={index}
+                      icon="48-px-store"
+                      content={item.name}
+                      description={item.description}
+                      value={item.key}
+                      theme={TileTheme.LargeTile}
+                      containerStyle={styles.tileContainerStyle}
+                  />
+              );
+            })}
+          </TileGroup>
+        </div>
+
       </div>
     </div>
   ))
