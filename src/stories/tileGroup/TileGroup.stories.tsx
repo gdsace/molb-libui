@@ -32,6 +32,18 @@ const tileOptions = [
 ];
 const selectedTileValue = tileOptions[1];
 
+const creditCarOptions = [
+  {
+    key: "uniqueNumberIdentifier",
+    content: "cardholer name ",
+    subContent: "xxxx xxxx xxxx 333",
+    description: "Expiry date.",
+    imgSrc:
+      "https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox",
+    imgAlt: "Visa"
+  }
+];
+
 /**
  * Here define store, we can define our state here.
  */
@@ -59,9 +71,6 @@ const valueChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
   "TileGroup",
   wInfo(``)(() => (
     <div className={styles.rootContainer}>
-      <div>
-        <h6>TimePicker: ...</h6>
-      </div>
       <div className={styles.itemsContainer}>
         <div className={styles.box}>
           <p className={styles.notes}>SmallTile:</p>
@@ -143,6 +152,54 @@ const valueChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
                   description={item.description}
                   value={item.key}
                   theme={TileTheme.LargeTile}
+                  containerStyle={styles.tileContainerStyle}
+                />
+              );
+            })}
+          </TileGroup>
+        </div>
+
+        <div className={styles.box}>
+          <p className={styles.notes}>Unselectable tileGroup:</p>
+          <TileGroup
+            onChange={valueChangeHandler}
+            deselectable={true}
+            value={selectedTileValue.key}
+          >
+            {tileOptions.map((item, index) => {
+              return (
+                <Tile
+                  key={index}
+                  icon="48-px-store"
+                  content={item.name}
+                  description={item.description}
+                  value={item.key}
+                  theme={TileTheme.LargeTile}
+                  containerStyle={styles.tileContainerStyle}
+                />
+              );
+            })}
+          </TileGroup>
+        </div>
+
+        <div className={styles.box}>
+          <p className={styles.notes}>Image source tileGroup:</p>
+          <TileGroup
+            onChange={valueChangeHandler}
+            deselectable={true}
+            value={selectedTileValue.key}
+          >
+            {creditCarOptions.map((item, index) => {
+              return (
+                <Tile
+                  key={index}
+                  imgSrc={item.imgSrc}
+                  imgAlt={item.imgAlt}
+                  content={item.content}
+                  subContent={item.subContent}
+                  description={item.description}
+                  value={item.key}
+                  theme={TileTheme.MediumTile}
                   containerStyle={styles.tileContainerStyle}
                 />
               );
