@@ -155,6 +155,14 @@ $large-tile-width-mobile: 100%;
   text-align: left;
 }
 
+.subContent {
+  margin-top: $space-1;
+  font-size: $medium;
+  font-weight: $weight-semibold;
+  line-height: $line-height-large;
+  word-break: break-word;
+}
+
 .mediumTile {
   max-height: $medium-tile-height-max;
   min-width: $medium-tile-width-min;

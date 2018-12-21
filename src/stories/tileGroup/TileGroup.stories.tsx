@@ -83,7 +83,7 @@ const valueChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
                 return (
                   <Tile
                     key={index}
-                    icon="48-px-store"
+                    icon="store"
                     content={item.name}
                     description={item.description}
                     value={item.key}
@@ -105,7 +105,7 @@ const valueChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
               return (
                 <Tile
                   key={index}
-                  icon="48-px-store"
+                  icon="store"
                   content={item.name}
                   description={item.description}
                   value={item.key}
@@ -126,7 +126,7 @@ const valueChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
               return (
                 <Tile
                   key={index}
-                  icon="48-px-store"
+                  icon="store"
                   content={item.name}
                   description={item.description}
                   value={item.key}
@@ -147,7 +147,7 @@ const valueChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
               return (
                 <Tile
                   key={index}
-                  icon="48-px-store"
+                  icon="store"
                   content={item.name}
                   description={item.description}
                   value={item.key}
@@ -170,7 +170,7 @@ const valueChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
               return (
                 <Tile
                   key={index}
-                  icon="48-px-store"
+                  icon="store"
                   content={item.name}
                   description={item.description}
                   value={item.key}
