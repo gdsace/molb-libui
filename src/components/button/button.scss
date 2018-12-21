@@ -17,6 +17,21 @@
   align-items: center;
   justify-content: center;
 
+  @keyframes rotate {
+    from {
+      transform: rotateZ(0deg);
+    }
+
+    to {
+      transform: rotateZ(360deg);
+    }
+  }
+
+  .loading {
+    animation: rotate 2s linear infinite;
+    color: $indigo;
+  }
+
   .leftIcon {
     margin-right: $space-2;
   }

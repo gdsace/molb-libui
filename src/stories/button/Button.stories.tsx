@@ -63,6 +63,12 @@ const rowStyles = {
           onClick={action("button-click")}
           theme={Theme.Secondary}
         />
+        <Button
+          label="secondary"
+          onClick={action("button-click")}
+          theme={Theme.Secondary}
+          loading={true}
+        />
       </div>
     </div>
   ))
