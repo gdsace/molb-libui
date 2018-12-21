@@ -66,3 +66,8 @@ export declare enum NotificationTheme {
     Informational = "informational",
     Warning = "warning"
 }
+export declare enum TooltipsLocationTheme {
+    BottomLeft = "bottom left",
+    BottomCenter = "bottom center",
+    BottomRight = "bottom right"
+}
