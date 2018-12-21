@@ -37,11 +37,13 @@ const store = new Store({
                 error: "something wrong"
               });
             }}
+            key="file-upload"
           />
           <Button
             label="clear error"
             onClick={() => store.set({ error: undefined })}
             size={Size.Small}
+            key="button"
           />
         </State>
       </div>
