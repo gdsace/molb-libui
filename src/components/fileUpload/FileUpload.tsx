@@ -80,10 +80,18 @@ export class FileUpload extends React.Component<
 
   public render() {
     const {
+      baseUrl,
       documentType,
+      document,
+      token,
       error,
+      value,
+      subjectId,
+      onSuccess,
       onError,
+      onProgressIconClick,
       onCompleteIconClick,
+      onDefaultIconClick,
       children,
       ...forDropzone
     } = this.props;
