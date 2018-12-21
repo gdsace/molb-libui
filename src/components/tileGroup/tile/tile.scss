@@ -163,6 +163,7 @@ $large-tile-width-mobile: 100%;
   @include for-phone-only {
     height: $medium-tile-height-mobile;
     width: $medium-tile-width-mobile;
+    max-width: $medium-tile-width-mobile;
   }
 
   .tileContent {
