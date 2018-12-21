@@ -27,6 +27,7 @@ export declare enum FileUploadState {
 export declare const COMMON_ALLOWED_EXTENSIONS: string;
 export declare class FileUpload extends React.Component<IFileUploadProps, IFileUploadState> {
     constructor(props: IFileUploadProps);
+    componentWillReceiveProps(nextProps: IFileUploadProps): void;
     render(): JSX.Element;
     private uploadFile;
 }
