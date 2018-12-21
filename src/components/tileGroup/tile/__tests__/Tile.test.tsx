@@ -6,7 +6,7 @@ import { Tile } from "../index";
 
 describe("Tile", () => {
   it("should render tile which status is not checked and enabled", () => {
-    const wrapper = shallow(<Tile icon="48-px-store" content="Restaurant" />);
+    const wrapper = shallow(<Tile icon="store" content="Restaurant" />);
 
     expect(wrapper.find(Icon)).toHaveLength(2);
     expect(
@@ -25,9 +25,7 @@ describe("Tile", () => {
   });
 
   it("should render tile which status is checked and enabled", () => {
-    const wrapper = shallow(
-      <Tile icon="48-px-store" checked content="Restaurant" />
-    );
+    const wrapper = shallow(<Tile icon="store" checked content="Restaurant" />);
 
     expect(wrapper.find(Icon)).toHaveLength(2);
     expect(
@@ -41,7 +39,7 @@ describe("Tile", () => {
 
   it("should render tile which status is checked and disabled", () => {
     const wrapper = shallow(
-      <Tile icon="48-px-store" checked content="Restaurant" disabled />
+      <Tile icon="store" checked content="Restaurant" disabled />
     );
 
     expect(wrapper.find(Icon)).toHaveLength(2);
@@ -58,7 +56,7 @@ describe("Tile", () => {
   it("should render small-tile (smallTile)", () => {
     const wrapper = shallow(
       <Tile
-        icon="48-px-store"
+        icon="store"
         content="Restaurant"
         description="Some description"
         theme={TileTheme.SmallTile}
@@ -88,7 +86,7 @@ describe("Tile", () => {
   it("should render large-tile (largeTile)", () => {
     const wrapper = shallow(
       <Tile
-        icon="48-px-store"
+        icon="store"
         content="Restaurant"
         description="Some description"
         theme={TileTheme.LargeTile}

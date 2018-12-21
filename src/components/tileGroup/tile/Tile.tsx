@@ -70,7 +70,7 @@ export const Tile = (props: ITileProps) => {
           )}
           {props.theme !== TileTheme.BasicTile &&
             (props.subContent && (
-              <span className={styles.tileHeader}>{props.subContent}</span>
+              <span className={styles.subContent}>{props.subContent}</span>
             ))}
           {props.theme !== TileTheme.SmallTile && (
             <span className={styles.tileDescription}>{props.description}</span>
