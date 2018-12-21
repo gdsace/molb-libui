@@ -7,9 +7,9 @@ describe("TileGroup", () => {
   it("should render ui-component correctly", () => {
     const wrapper = shallow(
       <TileGroup>
-        <Tile icon="48-px-store" content="Restaurant" />
-        <Tile icon="48-px-store" content="Restaurant" />
-        <Tile icon="48-px-store" content="Restaurant" />
+        <Tile icon="store" content="Restaurant" />
+        <Tile icon="store" content="Restaurant" />
+        <Tile icon="store" content="Restaurant" />
       </TileGroup>
     );
 
@@ -20,9 +20,9 @@ describe("TileGroup", () => {
     const onChange = jest.fn();
     const wrapper = shallow(
       <TileGroup onChange={onChange}>
-        <Tile icon="48-px-store" content="Restaurant" />
-        <Tile icon="48-px-store" content="Restaurant" />
-        <Tile icon="48-px-store" content="Restaurant" />
+        <Tile icon="store" content="Restaurant" />
+        <Tile icon="store" content="Restaurant" />
+        <Tile icon="store" content="Restaurant" />
       </TileGroup>
     );
 
@@ -40,9 +40,9 @@ describe("TileGroup", () => {
   it("should not throw error when there is no onChange fun provided and tile triggered change event", () => {
     const wrapper = shallow(
       <TileGroup>
-        <Tile icon="48-px-store" content="Restaurant" />
-        <Tile icon="48-px-store" content="Restaurant" />
-        <Tile icon="48-px-store" content="Restaurant" />
+        <Tile icon="store" content="Restaurant" />
+        <Tile icon="store" content="Restaurant" />
+        <Tile icon="store" content="Restaurant" />
       </TileGroup>
     );
 
@@ -60,14 +60,9 @@ describe("TileGroup", () => {
     const onChange = jest.fn();
     const wrapper = shallow(
       <TileGroup onChange={onChange}>
-        <Tile
-          icon="48-px-store"
-          content="Restaurant"
-          checked
-          value="restaurant"
-        />
-        <Tile icon="48-px-store" content="Restaurant" value="restaurant1" />
-        <Tile icon="48-px-store" content="Restaurant" value="restaurant2" />
+        <Tile icon="store" content="Restaurant" checked value="restaurant" />
+        <Tile icon="store" content="Restaurant" value="restaurant1" />
+        <Tile icon="store" content="Restaurant" value="restaurant2" />
       </TileGroup>
     );
 
@@ -85,9 +80,9 @@ describe("TileGroup", () => {
   it("should make the Tile checked when Tile value equals TileGroup value", () => {
     const wrapper = shallow(
       <TileGroup value="restaurant1">
-        <Tile icon="48-px-store" content="Restaurant" value="restaurant1" />
-        <Tile icon="48-px-store" content="Restaurant" value="restaurant2" />
-        <Tile icon="48-px-store" content="Restaurant" value="restaurant2" />
+        <Tile icon="store" content="Restaurant" value="restaurant1" />
+        <Tile icon="store" content="Restaurant" value="restaurant2" />
+        <Tile icon="store" content="Restaurant" value="restaurant2" />
       </TileGroup>
     );
 
@@ -102,14 +97,9 @@ describe("TileGroup", () => {
   it("should TileGroup value in state equals the tile which checked", () => {
     const wrapper = shallow(
       <TileGroup>
-        <Tile
-          icon="48-px-store"
-          content="Restaurant"
-          value="restaurant1"
-          checked
-        />
-        <Tile icon="48-px-store" content="Restaurant" value="restaurant2" />
-        <Tile icon="48-px-store" content="Restaurant" value="restaurant2" />
+        <Tile icon="store" content="Restaurant" value="restaurant1" checked />
+        <Tile icon="store" content="Restaurant" value="restaurant2" />
+        <Tile icon="store" content="Restaurant" value="restaurant2" />
       </TileGroup>
     );
 
