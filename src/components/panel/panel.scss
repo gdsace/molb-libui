@@ -1,14 +1,21 @@
 @import "~@libui/components/styles/utils";
 
+.panelContainer {
+  display: flex;
+}
+
+.panelContainer:not(:first-child) {
+  border-top: solid 1px $ui-color-2;
+}
+
 .panel {
   background-color: $ui-color-1;
   padding: $space-10 105px;
+  margin: 0 auto;
+  flex: 1;
+  max-width: 1140px;
 
   @include for-phone-only {
     padding: $space-5 30px;
   }
-}
-
-.panel:not(:first-child) {
-  border-top: solid 1px $ui-color-2;
 }
