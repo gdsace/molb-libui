@@ -2,20 +2,36 @@
 
 .panelContainer {
   display: flex;
-}
 
-.panelContainer:not(:first-child) {
-  border-top: solid 1px $ui-color-2;
-}
+  .panel {
+    background-color: $ui-color-1;
+    padding: $space-10 105px;
+    margin: 0 auto;
+    flex: 1;
+    max-width: 1140px;
 
-.panel {
-  background-color: $ui-color-1;
-  padding: $space-10 105px;
-  margin: 0 auto;
-  flex: 1;
-  max-width: 1140px;
+    @include for-phone-only {
+      padding: $space-5 30px;
+    }
+  }
 
-  @include for-phone-only {
-    padding: $space-5 30px;
+  &:not(:first-child) {
+    border-top: solid 1px $ui-color-2;
+  }
+
+  &.bottomless {
+    border-bottom: none;
+
+    .panel {
+      padding-bottom: 0;
+    }
+  }
+
+  &.topless {
+    border-top: none;
+
+    .panel {
+      padding-top: 0;
+    }
   }
 }

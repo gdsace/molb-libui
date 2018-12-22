@@ -5,6 +5,12 @@ export enum Theme {
   Secondary = "secondary"
 }
 
+export enum PanelTheme {
+  Normal = "normal",
+  Bottomless = "bottomless",
+  Topless = "topless"
+}
+
 export enum TileTheme {
   SmallTile = "smallTile",
   MediumTile = "mediumTile",
