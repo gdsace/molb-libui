@@ -1,31 +1,33 @@
 @import "~@libui/components/styles/utils";
 
+.onepagePanel {
+  background-color: $ui-color;
+  padding: $space-8 150px;
+  margin: 0 auto;
+  flex: 1;
+  box-sizing: border-box;
+  max-width: 1440px;
+
+  @include for-phone-only {
+    padding: $space-5 30px;
+  }
+}
+
+.sidebaredPanel {
+  background-color: $ui-color-1;
+  padding: $space-10 105px;
+  margin: 0 auto;
+  flex: 1;
+  box-sizing: border-box;
+  max-width: 1140px;
+
+  @include for-phone-only {
+    padding: $space-5 30px;
+  }
+}
+
 .panelContainer {
   display: flex;
-
-  .onepagePanel {
-    background-color: $ui-color;
-    padding: $space-8 150px;
-    margin: 0 auto;
-    flex: 1;
-    max-width: 1440px;
-
-    @include for-phone-only {
-      padding: $space-5 30px;
-    }
-  }
-
-  .sidebaredPanel {
-    background-color: $ui-color-1;
-    padding: $space-10 105px;
-    margin: 0 auto;
-    flex: 1;
-    max-width: 1140px;
-
-    @include for-phone-only {
-      padding: $space-5 30px;
-    }
-  }
 
   &:not(:first-child) {
     border-top: solid 1px $ui-color-2;
@@ -47,7 +49,7 @@
     border-top: none;
 
     .onepagePanel {
-      padding-bottom: 0;
+      padding-top: 0;
     }
 
     .sidebaredPanel {

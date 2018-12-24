@@ -1,17 +1,27 @@
 @import "~@libui/components/styles/utils";
 
+.tabsBarContent {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  padding: 0 $space-specific-150;
+  margin: 0 auto;
+  box-sizing: border-box;
+  max-width: 1440px;
+
+  @include for-phone-only {
+    padding: 0 $space-specific-30;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
 .tab {
   width: 100%;
-  height: 100%;
 
-  .tabContainer {
+  .tabsBarContainer {
     display: flex;
     border-bottom: 1px solid $ui-color-2;
-
-    @include for-phone-only {
-      flex-direction: column;
-      justify-content: center;
-    }
   }
 
   .leftComponent {
@@ -26,9 +36,9 @@
   }
 
   .tabItems {
-    width: 100%;
     height: $display-x-large;
     display: flex;
+    flex: 1;
     flex-flow: row nowrap;
     align-items: flex-start;
     justify-content: flex-end;

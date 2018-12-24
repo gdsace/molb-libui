@@ -1,8 +1,8 @@
 import * as Enzyme from "enzyme";
 import * as React from "react";
-import { Tab } from "../Tab";
+import { Tabs } from "../Tabs";
 
-describe("Tab", () => {
+describe("Tabs", () => {
   it("should show tab item with label prop", () => {
     const list = [
       {
@@ -10,7 +10,7 @@ describe("Tab", () => {
         tabPanel: <div />
       }
     ];
-    const wrapper = Enzyme.shallow(<Tab list={list} />);
+    const wrapper = Enzyme.shallow(<Tabs list={list} />);
     const label = wrapper
       .find(".tab .item label")
       .at(0)
@@ -29,7 +29,7 @@ describe("Tab", () => {
         tabPanel: <div />
       }
     ];
-    const wrapper = Enzyme.mount(<Tab list={list} />);
+    const wrapper = Enzyme.mount(<Tabs list={list} />);
     wrapper
       .find(".tab .item")
       .at(1)
@@ -61,7 +61,7 @@ describe("Tab", () => {
         )
       }
     ];
-    const wrapper = Enzyme.mount(<Tab list={list} />);
+    const wrapper = Enzyme.mount(<Tabs list={list} />);
     wrapper
       .find(".tab .item")
       .at(1)

@@ -27,7 +27,7 @@ export * from "./radio";
 export * from "./radioCardTypeQuestion";
 export * from "./sidebar";
 export * from "./subFormSection";
-export * from "./tab";
+export * from "./tabs";
 export * from "./table";
 export * from "./tag";
 export * from "./textArea";
