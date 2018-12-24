@@ -6,13 +6,12 @@ export interface ITabNode {
 export interface ITabProps {
     list: ITabNode[];
     leftNode?: React.ReactNode;
-    spacing?: number;
-    panePadding?: number;
+    tabsBarContentStyle?: string;
 }
 export interface ITabState {
     currentIndex?: number;
 }
-export declare class Tab extends React.Component<ITabProps, ITabState> {
+export declare class Tabs extends React.Component<ITabProps, ITabState> {
     constructor(props: ITabProps);
     render(): JSX.Element;
     private getLeftComponent;

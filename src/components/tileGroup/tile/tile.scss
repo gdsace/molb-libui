@@ -9,8 +9,7 @@ $small-tile-height-mobile: 146px;
 $small-tile-width-mobile: 150px;
 
 $medium-tile-height-max: 161px;
-$medium-tile-width-max: 300px;
-$medium-tile-width-min: 290px;
+$medium-tile-width: 290px;
 $medium-tile-height-mobile: 160px;
 $medium-tile-width-mobile: 100%;
 
@@ -165,13 +164,11 @@ $large-tile-width-mobile: 100%;
 
 .mediumTile {
   max-height: $medium-tile-height-max;
-  min-width: $medium-tile-width-min;
-  max-width: $medium-tile-width-max;
+  width: $medium-tile-width;
 
   @include for-phone-only {
     height: $medium-tile-height-mobile;
     width: $medium-tile-width-mobile;
-    max-width: $medium-tile-width-mobile;
   }
 
   .tileContent {

@@ -52,6 +52,10 @@ export class Input extends React.Component<IInputProps, any> {
       [styles[`disabled`]]: this.props.disabled,
       [styles[`validationError`]]: this.props.showError
     });
+    const showFooterSection =
+      this.props.showError ||
+      this.props.helperMsg ||
+      this.props.showCharacterCount;
     return (
       <div
         className={rootContainerClassname}
@@ -90,22 +94,26 @@ export class Input extends React.Component<IInputProps, any> {
             )
           )}
         </div>
-        <div className={styles.footerSection}>
-          <label
-            className={`${
-              this.props.showError
-                ? addLocatedErrorClassname(styles.redMsg)
-                : styles.helperMsg
-            } ${styles.isEmpty}`}
-          >
-            {this.props.showError ? this.props.errorMsg : this.props.helperMsg}
-          </label>
-          {this.props.showCharacterCount && (
-            <div className={styles.countMsg}>
-              {`${this.state.characterCount}/${this.props.maxLength}`}
-            </div>
-          )}
-        </div>
+        {showFooterSection && (
+          <div className={styles.footerSection}>
+            <label
+              className={`${
+                this.props.showError
+                  ? addLocatedErrorClassname(styles.redMsg)
+                  : styles.helperMsg
+              } ${styles.isEmpty}`}
+            >
+              {this.props.showError
+                ? this.props.errorMsg
+                : this.props.helperMsg}
+            </label>
+            {this.props.showCharacterCount && (
+              <div className={styles.countMsg}>
+                {`${this.state.characterCount}/${this.props.maxLength}`}
+              </div>
+            )}
+          </div>
+        )}
       </div>
     );
   }

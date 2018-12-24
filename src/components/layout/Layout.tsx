@@ -7,15 +7,17 @@ const styles = require("./layout.scss");
 export interface ILayoutProps {
   hasNotifications?: boolean;
   header?: React.ReactNode;
+  showSideBar?: boolean;
   sidebar?: React.ReactNode;
-  mainContent?: React.ReactNode;
   sideBarStyle?: string;
+  mainContent?: React.ReactNode;
   mainContentStyle?: string;
 }
 
 export class Layout extends React.Component<ILayoutProps, {}> {
   public static defaultProps: Partial<ILayoutProps> = {
-    hasNotifications: false
+    hasNotifications: false,
+    showSideBar: true
   };
 
   public render() {
@@ -24,9 +26,13 @@ export class Layout extends React.Component<ILayoutProps, {}> {
         {this.props.hasNotifications && <ToastContainer newestOnTop />}
         {this.props.header}
         <div className={styles.content}>
-          <div className={classnames(styles.sidebar, this.props.sideBarStyle)}>
-            {this.props.sidebar}
-          </div>
+          {this.props.showSideBar && (
+            <div
+              className={classnames(styles.sidebar, this.props.sideBarStyle)}
+            >
+              {this.props.sidebar}
+            </div>
+          )}
           <div
             className={classnames(
               styles.mainContent,
