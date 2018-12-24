@@ -15,7 +15,6 @@ export * from "./indicator";
 export * from "./inlineNotification";
 export * from "./input";
 export * from "./layout";
-export * from "./layoutWithoutSidebar";
 export * from "./link";
 export * from "./listcard";
 export * from "./modal";
