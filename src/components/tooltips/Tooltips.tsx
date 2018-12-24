@@ -1,4 +1,3 @@
-import { action } from "@storybook/addon-actions";
 import classnames from "classnames";
 import * as React from "react";
 import Popup from "reactjs-popup";
@@ -121,7 +120,9 @@ export class Tooltips extends React.Component<ITooltipsProps, ITooltipsState> {
           <Link
             label={linkLabel}
             icon={linkIcon || "arrowNext"}
-            onClick={action("link-click")}
+            onClick={() => {
+              return;
+            }}
             link={linkUrl}
             target={linkTarget}
           />
