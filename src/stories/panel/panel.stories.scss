@@ -1,0 +1,32 @@
+@import "~@libui/components/styles/utils";
+
+.rootContainer {
+  margin: 30px;
+}
+
+.groupHeader {
+  margin-top: $space-10;
+  color: grey;
+}
+
+.itemsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.box {
+  border: solid 0 #828282;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 24px 0 0 0;
+}
+
+.content {
+  background-color: lightgreen;
+}
+
+.containerStyle {
+  background-color: lightblue;
+}

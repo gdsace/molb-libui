@@ -3,7 +3,19 @@
 .panelContainer {
   display: flex;
 
-  .panel {
+  .onepagePanel {
+    background-color: $ui-color;
+    padding: $space-8 150px;
+    margin: 0 auto;
+    flex: 1;
+    max-width: 1440px;
+
+    @include for-phone-only {
+      padding: $space-5 30px;
+    }
+  }
+
+  .sidebaredPanel {
     background-color: $ui-color-1;
     padding: $space-10 105px;
     margin: 0 auto;
@@ -22,7 +34,11 @@
   &.bottomless {
     border-bottom: none;
 
-    .panel {
+    .onepagePanel {
+      padding-bottom: 0;
+    }
+
+    .sidebaredPanel {
       padding-bottom: 0;
     }
   }
@@ -30,8 +46,26 @@
   &.topless {
     border-top: none;
 
-    .panel {
+    .onepagePanel {
+      padding-bottom: 0;
+    }
+
+    .sidebaredPanel {
       padding-top: 0;
+    }
+  }
+
+  &.holing {
+    border-top: none;
+
+    .onepagePanel {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    .sidebaredPanel {
+      padding-top: 0;
+      padding-bottom: 0;
     }
   }
 }

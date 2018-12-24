@@ -5,10 +5,16 @@ export enum Theme {
   Secondary = "secondary"
 }
 
+export enum PanelType {
+  Onepage = "onepagePanel",
+  Sidebared = "sidebaredPanel"
+}
+
 export enum PanelTheme {
   Normal = "normal",
   Bottomless = "bottomless",
-  Topless = "topless"
+  Topless = "topless",
+  Holing = "holing"
 }
 
 export enum TileTheme {
