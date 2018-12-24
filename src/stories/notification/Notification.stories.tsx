@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Button } from "@src/components";
+import { Button, InlineNotification } from "@src/components";
 import { NotificationTheme } from "@src/components/EnumValues";
 import { storiesOf } from "@storybook/react";
 import { notification, ToastContainer } from "../../components/notification";
@@ -32,16 +32,44 @@ import { wInfo } from "../utils";
     };
 
     return (
-      <div style={{ padding: "10px" }}>
-        <Button label={"success"} onClick={() => notification(successOption)} />
-        <Button label={"error"} onClick={() => notification(errorOption)} />
-        <Button
-          label={"infomational"}
-          onClick={() => notification(infomationalOption)}
-        />
-        <Button label={"warning"} onClick={() => notification(warningOption)} />
-        {/* Important: in one page, ToastContainer can only have one component */}
-        <ToastContainer newestOnTop />
+      <div>
+        <h1>Notification</h1>
+        <div style={{ padding: "10px" }}>
+          <Button
+            label={"success"}
+            onClick={() => notification(successOption)}
+          />
+          <Button label={"error"} onClick={() => notification(errorOption)} />
+          <Button
+            label={"infomational"}
+            onClick={() => notification(infomationalOption)}
+          />
+          <Button
+            label={"warning"}
+            onClick={() => notification(warningOption)}
+          />
+          {/* Important: in one page, ToastContainer can only have one component */}
+          <ToastContainer newestOnTop />
+        </div>
+        <h1>InlineNotification</h1>
+        <div style={{ padding: "10px" }}>
+          <InlineNotification
+            text={"Normal Notification"}
+            theme={NotificationTheme.Informational}
+          />
+          <InlineNotification
+            text={"Success Notification"}
+            theme={NotificationTheme.Success}
+          />
+          <InlineNotification
+            text={"Warning Notification"}
+            theme={NotificationTheme.Warning}
+          />
+          <InlineNotification
+            text={"Error Notification"}
+            theme={NotificationTheme.Error}
+          />
+        </div>
       </div>
     );
   })
