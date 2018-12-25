@@ -10,7 +10,7 @@ export interface ITooltipsProps {
     arrowStyle?: object;
     width?: number;
     height?: number;
-    trigger: JSX.Element;
+    trigger: any;
     children: JSX.Element;
     position: TooltipsLocationTheme;
     linkLabel?: string;

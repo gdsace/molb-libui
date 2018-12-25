@@ -136,6 +136,7 @@ const errorMsg = "Validation error message";
             size={Size.Large}
             value="Text input with toolTip"
             showTooltip={true}
+            toolTipsContent={"Something need to show..."}
           />
         </div>
         <div className={styles.box}>

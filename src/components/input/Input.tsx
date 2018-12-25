@@ -1,4 +1,9 @@
-import { InputType, Size } from "@libui/components/EnumValues";
+import {
+  InputType,
+  Size,
+  TooltipsLocationTheme
+} from "@libui/components/EnumValues";
+import { Tooltips } from "@src/components";
 import classnames from "classnames";
 import * as React from "react";
 import { Icon } from "../icons";
@@ -25,6 +30,8 @@ export interface IInputProps {
   showTooltip?: boolean;
   suffix?: string;
   showCharacterCount?: boolean;
+  toolTipsContent?: string;
+  toolTipsPosition?: TooltipsLocationTheme;
 }
 
 export class Input extends React.Component<IInputProps, any> {
@@ -36,7 +43,8 @@ export class Input extends React.Component<IInputProps, any> {
     placeholder: "",
     size: Size.Medium,
     type: InputType.Text,
-    showCharacterCount: false
+    showCharacterCount: false,
+    showTooltip: false
   };
 
   constructor(props: any) {
@@ -65,7 +73,30 @@ export class Input extends React.Component<IInputProps, any> {
           <div className={styles.label}>
             <p>{this.props.label}</p>
             {this.props.showTooltip && (
-              <Icon type="help" size="16" className={styles.labelIcon} />
+              <div className={styles.tooltipWrapper}>
+                <Tooltips
+                  trigger={(open: boolean) => (
+                    <Icon
+                      type="help"
+                      size="16"
+                      className={classnames(
+                        styles.labelIcon,
+                        open && styles.openTooltip
+                      )}
+                    />
+                  )}
+                  position={
+                    this.props.toolTipsPosition
+                      ? this.props.toolTipsPosition
+                      : TooltipsLocationTheme.BottomLeft
+                  }
+                  specializedPosition={true}
+                  width={256}
+                  height={86}
+                >
+                  <div>{this.props.toolTipsContent}</div>
+                </Tooltips>
+              </div>
             )}
           </div>
         )}
