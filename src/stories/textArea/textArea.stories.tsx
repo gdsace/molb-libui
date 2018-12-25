@@ -65,6 +65,19 @@ const styles = require("./textArea.stories.scss");
             />
           </div>
           <div className={styles.box}>
+            <p className={styles.notes}>Disabled: shown placeholder</p>
+            <TextArea
+              title="Description"
+              placeholder="What is your brand concept? What kind of food do you sell?"
+              maxLength={300}
+              overwrite={true}
+              iconType="help"
+              disabled={true}
+              helperText="Optional helper text here; if message is more than one line text should wrap (~100 character count maximum)"
+              errorMsg="Please reduce the number of characters"
+            />
+          </div>
+          <div className={styles.box}>
             <p className={styles.notes}>Validation Error:</p>
             <TextArea
               title="Description"
