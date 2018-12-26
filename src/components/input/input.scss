@@ -73,6 +73,16 @@ $input-focus-border: solid 1px $lavender-indigo;
   .labelIcon {
     margin-left: $space-0;
     cursor: pointer;
+    color: $text-color;
+  }
+
+  .tooltipWrapper {
+    position: relative;
+    top: $space-0;
+  }
+
+  .openTooltip {
+    color: $lavender-indigo;
   }
 
   .hideMsg {

@@ -19,7 +19,7 @@ const rowStyles = {
       <br />
       <div style={rowStyles}>
         <Tooltips
-          trigger={<Icon type={"help"} />}
+          trigger={<Icon type={"help"} size={"16"} />}
           position={TooltipsLocationTheme.BottomLeft}
           specializedPosition={true}
         >
@@ -30,7 +30,7 @@ const rowStyles = {
       </div>
       <div style={rowStyles}>
         <Tooltips
-          trigger={<Icon type={"help"} />}
+          trigger={<Icon type={"help"} size={"16"} />}
           position={TooltipsLocationTheme.BottomCenter}
           specializedPosition={true}
         >
@@ -39,7 +39,7 @@ const rowStyles = {
       </div>
       <div style={rowStyles}>
         <Tooltips
-          trigger={<Icon type={"help"} />}
+          trigger={<Icon type={"help"} size={"16"} />}
           position={TooltipsLocationTheme.BottomRight}
           specializedPosition={true}
         >
@@ -50,7 +50,7 @@ const rowStyles = {
       </div>
       <div style={rowStyles}>
         <Tooltips
-          trigger={<Icon type={"payment"} />}
+          trigger={<Icon type={"payment"} size={"16"} />}
           position={TooltipsLocationTheme.BottomLeft}
           width={250}
           height={128}
@@ -60,7 +60,7 @@ const rowStyles = {
       </div>
       <div style={rowStyles}>
         <Tooltips
-          trigger={<Icon type={"help"} />}
+          trigger={<Icon type={"help"} size={"16"} />}
           position={TooltipsLocationTheme.BottomRight}
           width={240}
           linkLabel={"Link Button"}

@@ -5,7 +5,7 @@ import { TooltipsLocationTheme } from "..";
 import { Link, LinkTarget } from "../link";
 
 const styles = require("./tooltips.scss");
-const OFFSET = 8;
+const OFFSET = 11;
 const ARROW_OFFSET = "20px";
 const TEXT_COLOR_2 = "#313840";
 
@@ -18,7 +18,7 @@ export interface ITooltipsProps {
   arrowStyle?: object;
   width?: number;
   height?: number;
-  trigger: JSX.Element;
+  trigger: any;
   children: JSX.Element;
   position: TooltipsLocationTheme;
   linkLabel?: string;

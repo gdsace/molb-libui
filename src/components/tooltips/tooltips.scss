@@ -4,15 +4,21 @@
   .childrenContainer {
     background: $text-color-2;
     border-radius: 5px;
-    min-height: $space-6;
+    min-height: 81px;
     max-height: 128px;
     min-width: 96px;
     max-width: 256px;
     height: 100%;
     width: 100%;
     color: $field-color-2;
-    padding: $space-2 12px;
+    padding: 12px $space-2;
     box-sizing: border-box;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
   }
 
   .linkContainer {
