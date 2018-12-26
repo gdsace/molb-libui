@@ -119,6 +119,18 @@ const errorMsg = "Validation error message";
             onChange={action("value")}
             placeholder={placeholder}
             type={InputType.Text}
+            label={"Disable: with placeholder"}
+            size={Size.Large}
+            disabled={true}
+            helperMsg={helperMsg}
+            showCharacterCount={true}
+          />
+        </div>
+        <div className={styles.box}>
+          <Input
+            onChange={action("value")}
+            placeholder={placeholder}
+            type={InputType.Text}
             label={"Error"}
             size={Size.Large}
             showError={true}

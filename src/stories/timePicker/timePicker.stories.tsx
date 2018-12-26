@@ -105,6 +105,18 @@ const onValueChange = (value: moment.Moment) => {
             />
           </div>
           <div className={styles.box}>
+            <p className={styles.notes}>Disabled: shown placeholder</p>
+            <TimePicker
+              title="Time Picker Label"
+              showSecond={false}
+              placeholder="Select Time"
+              format="h:mm A"
+              use12Hours
+              inputReadOnly
+              disabled={true}
+            />
+          </div>
+          <div className={styles.box}>
             <p className={styles.notes}>Disabled: Options</p>
             <TimePicker
               title="Time Picker Label"
