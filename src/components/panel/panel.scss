@@ -28,6 +28,7 @@
 
 .panelContainer {
   display: flex;
+  width: 100%;
 
   &:not(:first-child) {
     border-top: solid 1px $ui-color-2;
