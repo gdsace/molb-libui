@@ -104,6 +104,7 @@
   &.disabled {
     .input {
       background-color: $field-color-1;
+      border: solid 1px $ui-color-2;
       cursor: not-allowed;
 
       &:hover {

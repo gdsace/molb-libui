@@ -70,7 +70,7 @@ const mockOptions = [
 const leftNode2: React.ReactNode = <PremiseDropdown options={mockOptions} />;
 
 (storiesOf("Components", module) as any).addWithJSX(
-  "Tab",
+  "Tabs",
   wInfo(``)(() => (
     <div className={styles.rootContainer}>
       <h6 className={styles.groupHeader}>Tabs:...</h6>
