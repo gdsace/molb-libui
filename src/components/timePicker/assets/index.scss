@@ -15,8 +15,7 @@
   }
 
   .#{$prefixClass}-root-container {
-    display: flex;
-    flex-direction: column;
+    position: relative;
   }
 
   .#{$prefixClass}-header-section {
@@ -34,6 +33,8 @@
     display: flex;
     justify-content: space-between;
     margin-top: $space-1;
+    width: 100%;
+    position: absolute;
   }
 
   .#{$prefixClass}-footer-message {
@@ -42,7 +43,6 @@
     line-height: $line-height-medium;
     color: $support-red;
     word-break: break-word;
-    margin-right: $space-0;
   }
 
   @import "./index/Picker";
