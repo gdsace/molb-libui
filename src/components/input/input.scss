@@ -93,6 +93,8 @@ $input-focus-border: solid 1px $lavender-indigo;
     margin-top: $space-1;
     display: flex;
     justify-content: space-between;
+    width: 100%;
+    position: absolute;
   }
 
   .helperMsg {

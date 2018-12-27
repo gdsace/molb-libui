@@ -29,7 +29,13 @@
 }
 
 .content {
-  background-color: lightsalmon;
+  padding: 5px;
+  background-color: lightblue;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .styles {

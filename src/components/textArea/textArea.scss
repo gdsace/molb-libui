@@ -15,10 +15,13 @@
   display: flex;
   justify-content: space-between;
   margin-top: $space-1;
+  width: 100%;
+  position: absolute;
 }
 
 .textarea {
   width: 100%;
+  position: relative;
 
   .title {
     font-size: $medium;

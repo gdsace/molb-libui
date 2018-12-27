@@ -138,6 +138,9 @@ const errorMsg = "Validation error message";
             errorMsg={errorMsg}
             showCharacterCount={true}
           />
+          <p className={styles.content}>
+            Other following contents (Input error msg should float on this)
+          </p>
         </div>
         <div className={styles.box}>
           <Input
