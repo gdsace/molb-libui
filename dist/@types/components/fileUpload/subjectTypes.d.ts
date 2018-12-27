@@ -1,3 +1,3 @@
 export declare enum SubjectType {
-    Premise = 2
+    Premise = "2"
 }
