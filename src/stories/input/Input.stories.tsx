@@ -131,22 +131,6 @@ const errorMsg = "Validation error message, blah blah blah...";
             onChange={action("value")}
             placeholder={placeholder}
             type={InputType.Text}
-            label={"Error"}
-            size={Size.Large}
-            showError={true}
-            value="Text input with error"
-            errorMsg={errorMsg}
-            showCharacterCount={true}
-          />
-          <p className={styles.content}>
-            Other following contents (Input error msg should float on this)
-          </p>
-        </div>
-        <div className={styles.box}>
-          <Input
-            onChange={action("value")}
-            placeholder={placeholder}
-            type={InputType.Text}
             label={"Tooltip"}
             size={Size.Large}
             value="Text input with toolTip"
@@ -163,6 +147,22 @@ const errorMsg = "Validation error message, blah blah blah...";
             size={Size.Large}
             suffix={"suffix"}
           />
+        </div>
+        <div className={styles.box}>
+          <Input
+            onChange={action("value")}
+            placeholder={placeholder}
+            type={InputType.Text}
+            label={"Error"}
+            size={Size.Large}
+            showError={true}
+            value="Text input with error"
+            errorMsg={errorMsg}
+            showCharacterCount={true}
+          />
+          <p className={styles.content}>
+            Other following contents (Input error msg should float on this)
+          </p>
         </div>
       </div>
 

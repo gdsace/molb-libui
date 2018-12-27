@@ -5,19 +5,20 @@
 }
 
 .groupHeader {
-  margin-top: $space-5;
+  margin: $space-8 0 $space-3 0;
   color: grey;
 }
 
 .itemsContainer {
   display: flex;
   flex-wrap: wrap;
+  margin: (-$space-5) (-$space-3) 0 0;
 }
 
 .box {
   border: solid 0 #828282;
   flex-basis: 240px;
-  margin: 24px 24px 0 0;
+  margin: $space-5 $space-3 0 0;
 }
 
 .boxSmall {

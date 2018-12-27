@@ -1,6 +1,9 @@
 @import "~@libui/components/styles/utils";
 
 .tooltipsContainer {
+  display: flex;
+  cursor: pointer;
+
   .childrenContainer {
     background: $text-color-2;
     border-radius: 5px;
