@@ -90,8 +90,6 @@ export class Input extends React.Component<IInputProps, any> {
                     : TooltipsLocationTheme.BottomLeft
                 }
                 specializedPosition={true}
-                width={256}
-                height={86}
               >
                 <div>{this.props.toolTipsContent}</div>
               </Tooltips>
