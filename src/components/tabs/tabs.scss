@@ -67,6 +67,10 @@
       text-overflow: ellipsis;
       margin-left: $space-3;
       box-sizing: border-box;
+      position: relative;
+      bottom: -1px;
+      flex-direction: column;
+      justify-content: space-between;
 
       &:nth-child(1) {
         // the first child have no margin-left child.
@@ -89,7 +93,12 @@
 
     .activeItem {
       color: $indigo;
-      border-bottom: 2px solid $indigo;
+
+      &::after {
+        content: "";
+        width: 100%;
+        border-bottom: 2px solid $indigo;
+      }
     }
   }
 
