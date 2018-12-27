@@ -36,6 +36,7 @@ export class Layout extends React.Component<ILayoutProps, {}> {
           <div
             className={classnames(
               styles.mainContent,
+              { [styles.sideBarlessMainContent]: !this.props.showSideBar },
               this.props.mainContentStyle
             )}
           >
