@@ -44,6 +44,8 @@
   font-size: $small;
   font-weight: $weight-regular;
   color: $support-red;
+  width: 100%;
+  position: absolute;
 }
 
 .label {
@@ -56,6 +58,8 @@
 
 /* Dropdown input field styling */
 .field {
+  position: relative;
+
   .dropdown {
     height: 48px !important;
   }

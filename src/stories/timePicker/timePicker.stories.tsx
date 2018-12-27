@@ -148,10 +148,13 @@ const onValueChange = (value: moment.Moment) => {
             <TimePicker
               defaultValue={moment("13:30:56", "HH:mm:ss")}
               title="Time Picker Label"
-              errorMsg="Validation error message"
+              errorMsg="Validation error message, blah blah blah..."
               showError={true}
               // errorMsg="Some validation message"
             />
+            <p className={styles.content}>
+              Other following contents (Input error msg should float on this)
+            </p>
           </div>
         </div>
       </div>
