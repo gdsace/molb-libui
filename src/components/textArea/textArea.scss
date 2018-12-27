@@ -50,7 +50,11 @@
     color: $text-color;
     min-height: $space-10;
 
-    &:not(:placeholder-shown) {
+    &::placeholder {
+      color: $text-color;
+    }
+
+    &:not([value=""]) {
       border-color: $field-color-2;
     }
 

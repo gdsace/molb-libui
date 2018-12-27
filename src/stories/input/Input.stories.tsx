@@ -8,7 +8,7 @@ import { wInfo } from "../utils";
 
 const styles = require("./input.stories.scss");
 
-const placeholder = "Input text";
+const placeholder = "Enter text";
 const helperMsg = "Helper text";
 const errorMsg = "Validation error message, blah blah blah...";
 

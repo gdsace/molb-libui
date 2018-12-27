@@ -38,7 +38,11 @@ $input-focus-border: solid 1px $lavender-indigo;
     margin: 0;
   }
 
-  input:not(:placeholder-shown) {
+  input::placeholder {
+    color: $text-color;
+  }
+
+  input:not([value=""]) {
     border-color: $field-color-2;
   }
 
