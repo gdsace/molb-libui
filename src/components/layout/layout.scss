@@ -4,6 +4,7 @@
   font-size: 1.5rem;
   display: flex;
   flex-direction: column;
+  flex: 1;
   min-height: 100%;
 }
 
@@ -29,7 +30,8 @@
 
 .mainContent {
   overflow-x: hidden;
-  width: 100%;
+  display: flex;
+  flex: 1;
   box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.03), 0 0 2px 0 rgba(0, 0, 0, 0.1);
 }
 

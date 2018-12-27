@@ -1,4 +1,4 @@
-import { InputType, Size } from "@libui/components/EnumValues";
+import { InputType, Size, TooltipsLocationTheme } from "@libui/components/EnumValues";
 import * as React from "react";
 export interface IInputProps {
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => any;
@@ -18,9 +18,13 @@ export interface IInputProps {
     helperMsg?: string;
     showTooltip?: boolean;
     suffix?: string;
+    showCharacterCount?: boolean;
+    toolTipsContent?: string;
+    toolTipsPosition?: TooltipsLocationTheme;
 }
-export declare class Input extends React.Component<IInputProps, {}> {
+export declare class Input extends React.Component<IInputProps, any> {
     static defaultProps: Partial<IInputProps>;
+    constructor(props: any);
     render(): JSX.Element;
     handleOnChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }

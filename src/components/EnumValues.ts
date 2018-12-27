@@ -5,6 +5,18 @@ export enum Theme {
   Secondary = "secondary"
 }
 
+export enum PanelType {
+  Onepage = "onepagePanel",
+  Sidebared = "sidebaredPanel"
+}
+
+export enum PanelTheme {
+  Normal = "normal",
+  Bottomless = "bottomless",
+  Topless = "topless",
+  Holing = "holing"
+}
+
 export enum TileTheme {
   SmallTile = "smallTile",
   MediumTile = "mediumTile",
@@ -76,4 +88,10 @@ export enum NotificationTheme {
   Error = "error",
   Informational = "informational",
   Warning = "warning"
+}
+
+export enum TooltipsLocationTheme {
+  BottomLeft = "bottom left",
+  BottomCenter = "bottom center",
+  BottomRight = "bottom right"
 }

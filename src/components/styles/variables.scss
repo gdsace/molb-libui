@@ -103,6 +103,11 @@ $body-padding: 0 50px;
 $molb-body-padding: 0 30px;
 $molb-footer-height: 50px;
 
+$space-specific-30: 30px;
+$space-specific-40: 40px;
+$space-specific-105: 105px;
+$space-specific-150: 150px;
+
 $space-0: 4px;
 $space-1: 8px;
 $space-2: 16px;
@@ -126,3 +131,7 @@ $primary-gradient: linear-gradient(148deg, $primary-color, $secondary-color-1);
 // line-height
 $line-height-medium: 1.25;
 $line-height-large: 1.5;
+
+// border-radius
+$border-radius-3: 3px;
+$border-radius-5: 5px;

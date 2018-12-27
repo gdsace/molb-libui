@@ -113,7 +113,7 @@ export const DefaultFileUploadChild = (props: IFileUploadChildProps) => {
         </div>
 
         {getIcon(
-          props.error ? FileUploadState.Error : props.uploadState,
+          props.uploadState,
           props.onProgressIconClick,
           props.onCompleteIconClick,
           props.onDefaultIconClick

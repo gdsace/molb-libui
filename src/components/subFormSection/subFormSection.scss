@@ -4,12 +4,14 @@
   margin-top: $space-8;
 }
 
-.headerSection {
-  .zero {
+.zero {
+  .headerSection {
     margin-bottom: 0;
   }
+}
 
-  .normal {
+.normal {
+  .headerSection {
     margin-bottom: $space-3;
   }
 }

@@ -1,10 +1,15 @@
 import React from "react";
 
-import { FileUpload } from "@src/components";
+import { State, Store } from "@sambego/storybook-state";
+import { Button, FileUpload, Size } from "@src/components";
 import { documentTypes } from "@src/components/fileUpload/__tests__/__mocks__/documentTypes";
 import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
 import { wInfo } from "../utils";
+
+const store = new Store({
+  error: "something wrong"
+});
 
 (storiesOf("Components", module) as any).addWithJSX(
   "FileUpload",
@@ -17,14 +22,31 @@ import { wInfo } from "../utils";
         </a>{" "}
         with additional props.
       </p>
-      <FileUpload
-        baseUrl=""
-        subjectId=""
-        token=""
-        documentType={documentTypes.required}
-        onSuccess={action("ok")}
-        onError={action("error")}
-      />
+      <div>
+        <State store={store}>
+          <FileUpload
+            baseUrl=""
+            subjectId=""
+            token=""
+            documentType={documentTypes.required}
+            onSuccess={action("ok")}
+            error={store.error}
+            onError={() => {
+              action("error");
+              store.set({
+                error: "something wrong"
+              });
+            }}
+            key="file-upload"
+          />
+          <Button
+            label="clear error"
+            onClick={() => store.set({ error: undefined })}
+            size={Size.Small}
+            key="button"
+          />
+        </State>
+      </div>
     </div>
   ))
 );

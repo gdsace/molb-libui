@@ -3,7 +3,7 @@
 $input-hover-border: solid 1px $text-color;
 $input-focus-border: solid 1px $lavender-indigo;
 
-.input {
+.rootContainer {
   position: relative;
 
   .inline {
@@ -19,6 +19,7 @@ $input-focus-border: solid 1px $lavender-indigo;
     width: 100%;
     box-sizing: border-box;
     font-family: HK Nova, sans-serif;
+    color: $text-color-2;
   }
 
   .errorField {
@@ -28,12 +29,17 @@ $input-focus-border: solid 1px $lavender-indigo;
   .errorIcon {
     position: absolute;
     right: $small;
+    color: $support-red;
   }
 
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
     appearance: none;
     margin: 0;
+  }
+
+  input:not(:placeholder-shown) {
+    border-color: $field-color-2;
   }
 
   input:hover {
@@ -44,41 +50,69 @@ $input-focus-border: solid 1px $lavender-indigo;
     border: $input-focus-border;
   }
 
-  .error {
-    border-color: $support-red !important;
-  }
-
   input:disabled {
     background-color: $ui-color-1;
     border: solid 1px $ui-color-2;
+    color: $text-color;
+  }
+
+  .error {
+    border-color: $support-red !important;
   }
 
   .label {
     font-size: $medium;
     font-weight: $weight-medium;
-    margin-bottom: 7px;
+    line-height: $line-height-large;
+    margin-bottom: $space-0;
     display: flex;
     align-items: center;
     color: $text-color-2;
+  }
+
+  .labelIcon {
+    margin-left: $space-0;
+    cursor: pointer;
+    color: $text-color;
+  }
+
+  .tooltipWrapper {
+    position: relative;
+    top: $space-0;
+  }
+
+  .openTooltip {
+    color: $lavender-indigo;
   }
 
   .hideMsg {
     display: none;
   }
 
-  .errorMsg {
+  .footerSection {
     margin-top: $space-1;
-    display: inline-block;
-    color: $support-red;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    font-size: $small;
+    display: flex;
+    justify-content: space-between;
   }
 
   .helperMsg {
     color: $text-color-2;
     font-size: $small;
+    font-weight: $weight-regular;
+    line-height: $line-height-medium;
+  }
+
+  .redMsg {
+    color: $support-red;
+    font-size: $small;
+    font-weight: $weight-regular;
+    line-height: $line-height-medium;
+  }
+
+  .countMsg {
+    font-size: $small;
+    font-weight: $weight-regular;
+    line-height: $line-height-medium;
   }
 
   .suffix {
@@ -91,6 +125,19 @@ $input-focus-border: solid 1px $lavender-indigo;
     color: $text-color;
     position: absolute;
     right: $small;
+  }
+
+  &.validationError {
+    .countMsg {
+      color: $support-red;
+    }
+  }
+
+  &.disabled {
+    .helperMsg,
+    .countMsg {
+      color: $ui-color-4;
+    }
   }
 }
 
