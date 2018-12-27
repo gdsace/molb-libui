@@ -69,8 +69,6 @@
       box-sizing: border-box;
       position: relative;
       bottom: -1px;
-      flex-direction: column;
-      justify-content: space-between;
 
       &:nth-child(1) {
         // the first child have no margin-left child.
@@ -98,6 +96,8 @@
         content: "";
         width: 100%;
         border-bottom: 2px solid $indigo;
+        position: absolute;
+        bottom: 0;
       }
     }
   }
