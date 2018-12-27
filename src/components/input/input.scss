@@ -18,7 +18,10 @@ $input-focus-border: solid 1px $lavender-indigo;
     outline: none;
     width: 100%;
     box-sizing: border-box;
-    font-family: HK Nova, sans-serif;
+    font-family: $font-family;
+    font-size: $medium;
+    font-weight: $weight-regular;
+    line-height: $line-height-large;
     color: $text-color-2;
   }
 

@@ -23,7 +23,6 @@ const errorMsg = "Validation error message, blah blah blah...";
         <div className={styles.box}>
           <Input
             onChange={action("value")}
-            placeholder={placeholder}
             type={InputType.Text}
             label={"Large"}
             size={Size.Large}
@@ -97,7 +96,6 @@ const errorMsg = "Validation error message, blah blah blah...";
             label={"Normal: Helper"}
             size={Size.Large}
             showHelper={true}
-            value="Text input with helper text"
             helperMsg={helperMsg}
             showCharacterCount={true}
           />
