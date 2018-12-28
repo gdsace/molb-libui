@@ -78,19 +78,28 @@
       label {
         width: 100%;
         cursor: pointer;
-        line-height: 24px;
-        font-size: $large;
+        font-size: $medium;
         font-weight: $weight-semibold;
+        line-height: $line-height-large;
       }
     }
 
     .item:hover {
-      color: $indigo;
+      color: $lavender-indigo;
       overflow: visible;
     }
 
     .activeItem {
       color: $indigo;
+      cursor: default;
+
+      label {
+        cursor: default;
+      }
+
+      &:hover {
+        color: $indigo;
+      }
 
       &::after {
         content: "";
