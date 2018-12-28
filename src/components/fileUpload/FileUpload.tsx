@@ -120,6 +120,7 @@ export class FileUpload extends React.Component<
           if (onError) {
             onError(err);
           }
+          this.setState({ uploadState: FileUploadState.Error });
         }}
         {...forDropzone}
       >
