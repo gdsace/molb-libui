@@ -99,7 +99,7 @@ export class FileUpload extends React.Component<
     const { uploadState, fileInfo } = this.state;
 
     const dropzoneClassName = classNames(styles.default, {
-      [styles.dropReject]: error || uploadState === FileUploadState.Error,
+      [styles.dropReject]: uploadState === FileUploadState.Error,
       [styles.uploading]: uploadState === FileUploadState.Uploading
     });
 
