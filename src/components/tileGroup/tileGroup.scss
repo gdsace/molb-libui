@@ -3,7 +3,6 @@
 .tileGroup {
   display: flex;
   flex-wrap: wrap;
-  flex: 1;
   margin: 0 -15px;
 
   @include for-phone-only {
