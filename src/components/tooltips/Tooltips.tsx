@@ -85,22 +85,21 @@ export class Tooltips extends React.Component<ITooltipsProps, ITooltipsState> {
     const tooltipContent = this.getTooltipContent(this.props);
     const { show } = this.state;
     return (
-      <div className={styles.tooltipsContainer}>
-        <div onClick={show ? () => this.closePopup() : () => this.openPopup()}>
-          <Popup
-            arrowStyle={arrowStyle}
-            trigger={trigger}
-            position={position}
-            children={
-              <div className={childrenClassNames}>{tooltipContent}</div>
-            }
-            open={show}
-            contentStyle={desktopContentStyle}
-            closeOnDocumentClick
-            onClose={() => this.closePopup()}
-            offsetX={specializedStyle.offsetX}
-          />
-        </div>
+      <div
+        className={styles.tooltipsContainer}
+        onClick={show ? () => this.closePopup() : () => this.openPopup()}
+      >
+        <Popup
+          arrowStyle={arrowStyle}
+          trigger={trigger}
+          position={position}
+          children={<div className={childrenClassNames}>{tooltipContent}</div>}
+          open={show}
+          contentStyle={desktopContentStyle}
+          closeOnDocumentClick
+          onClose={() => this.closePopup()}
+          offsetX={specializedStyle.offsetX}
+        />
       </div>
     );
   }

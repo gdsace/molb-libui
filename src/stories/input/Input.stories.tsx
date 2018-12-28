@@ -8,9 +8,9 @@ import { wInfo } from "../utils";
 
 const styles = require("./input.stories.scss");
 
-const placeholder = "Input text";
+const placeholder = "Enter text";
 const helperMsg = "Helper text";
-const errorMsg = "Validation error message";
+const errorMsg = "Validation error message, blah blah blah...";
 
 (storiesOf("Components", module) as any).addWithJSX(
   "Input",
@@ -23,7 +23,6 @@ const errorMsg = "Validation error message";
         <div className={styles.box}>
           <Input
             onChange={action("value")}
-            placeholder={placeholder}
             type={InputType.Text}
             label={"Large"}
             size={Size.Large}
@@ -97,7 +96,6 @@ const errorMsg = "Validation error message";
             label={"Normal: Helper"}
             size={Size.Large}
             showHelper={true}
-            value="Text input with helper text"
             helperMsg={helperMsg}
             showCharacterCount={true}
           />
@@ -131,19 +129,6 @@ const errorMsg = "Validation error message";
             onChange={action("value")}
             placeholder={placeholder}
             type={InputType.Text}
-            label={"Error"}
-            size={Size.Large}
-            showError={true}
-            value="Text input with error"
-            errorMsg={errorMsg}
-            showCharacterCount={true}
-          />
-        </div>
-        <div className={styles.box}>
-          <Input
-            onChange={action("value")}
-            placeholder={placeholder}
-            type={InputType.Text}
             label={"Tooltip"}
             size={Size.Large}
             value="Text input with toolTip"
@@ -160,6 +145,22 @@ const errorMsg = "Validation error message";
             size={Size.Large}
             suffix={"suffix"}
           />
+        </div>
+        <div className={styles.box}>
+          <Input
+            onChange={action("value")}
+            placeholder={placeholder}
+            type={InputType.Text}
+            label={"Error"}
+            size={Size.Large}
+            showError={true}
+            value="Text input with error"
+            errorMsg={errorMsg}
+            showCharacterCount={true}
+          />
+          <p className={styles.content}>
+            Other following contents (Input error msg should float on this)
+          </p>
         </div>
       </div>
 

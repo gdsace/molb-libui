@@ -73,30 +73,26 @@ export class Input extends React.Component<IInputProps, any> {
           <div className={styles.label}>
             <p>{this.props.label}</p>
             {this.props.showTooltip && (
-              <div className={styles.tooltipWrapper}>
-                <Tooltips
-                  trigger={(open: boolean) => (
-                    <Icon
-                      type="help"
-                      size="16"
-                      className={classnames(
-                        styles.labelIcon,
-                        open && styles.openTooltip
-                      )}
-                    />
-                  )}
-                  position={
-                    this.props.toolTipsPosition
-                      ? this.props.toolTipsPosition
-                      : TooltipsLocationTheme.BottomLeft
-                  }
-                  specializedPosition={true}
-                  width={256}
-                  height={86}
-                >
-                  <div>{this.props.toolTipsContent}</div>
-                </Tooltips>
-              </div>
+              <Tooltips
+                trigger={(open: boolean) => (
+                  <Icon
+                    type="help"
+                    size="16"
+                    className={classnames(
+                      styles.labelIcon,
+                      open && styles.openTooltip
+                    )}
+                  />
+                )}
+                position={
+                  this.props.toolTipsPosition
+                    ? this.props.toolTipsPosition
+                    : TooltipsLocationTheme.BottomLeft
+                }
+                specializedPosition={true}
+              >
+                <div>{this.props.toolTipsContent}</div>
+              </Tooltips>
             )}
           </div>
         )}
