@@ -43,11 +43,13 @@ export const COMMON_ALLOWED_EXTENSIONS = [".pdf", ".png", ".jpg", ".jpeg"].join(
   ","
 );
 
-export class FileUpload extends React.Component<IFileUploadProps,
-  IFileUploadState> {
+export class FileUpload extends React.Component<
+  IFileUploadProps,
+  IFileUploadState
+> {
   public constructor(props: IFileUploadProps) {
     super(props);
-    
+
     let uploadState = FileUploadState.Unstarted;
     if (props.document && props.document.id != null) {
       uploadState = FileUploadState.Complete;
@@ -55,13 +57,13 @@ export class FileUpload extends React.Component<IFileUploadProps,
     if (props.error) {
       uploadState = FileUploadState.Error;
     }
-    
+
     this.state = {
       uploadState,
       fileInfo: props.document
     };
   }
-  
+
   public componentWillReceiveProps(nextProps: IFileUploadProps) {
     // if someone clear existing error, reset status
     if (
@@ -70,12 +72,12 @@ export class FileUpload extends React.Component<IFileUploadProps,
       this.state.uploadState === FileUploadState.Error
     ) {
       this.setState({
-                      fileInfo: undefined,
-                      uploadState: FileUploadState.Unstarted
-                    });
+        fileInfo: undefined,
+        uploadState: FileUploadState.Unstarted
+      });
     }
   }
-  
+
   public render() {
     const {
       baseUrl,
@@ -93,14 +95,14 @@ export class FileUpload extends React.Component<IFileUploadProps,
       children,
       ...forDropzone
     } = this.props;
-    
+
     const { uploadState, fileInfo } = this.state;
-    
+
     const dropzoneClassName = classNames(styles.default, {
       [styles.dropReject]: uploadState === FileUploadState.Error,
       [styles.uploading]: uploadState === FileUploadState.Uploading
     });
-    
+
     return (
       <Dropzone
         className={dropzoneClassName}
@@ -130,12 +132,12 @@ export class FileUpload extends React.Component<IFileUploadProps,
             onCompleteIconClick={(e: React.MouseEvent) => {
               e.preventDefault();
               e.stopPropagation();
-              
+
               this.setState({
-                              fileInfo: undefined,
-                              uploadState: FileUploadState.Unstarted
-                            });
-              
+                fileInfo: undefined,
+                uploadState: FileUploadState.Unstarted
+              });
+
               if (onCompleteIconClick && documentType && documentType.code) {
                 onCompleteIconClick(e, documentType.code);
               }
@@ -145,7 +147,7 @@ export class FileUpload extends React.Component<IFileUploadProps,
       </Dropzone>
     );
   }
-  
+
   // This is kept here so consumers of the file upload component do not have to keep track of
   // file upload state.
   // Has to be replaced with xhr.upload.onprogress if progress is wanted
@@ -158,16 +160,16 @@ export class FileUpload extends React.Component<IFileUploadProps,
       onSuccess,
       onError
     } = this.props;
-    
+
     const queryString = qs.stringify({
-                                       documentTypeCode: documentType.code,
-                                       subjectId,
-                                       subjectType: SubjectType.Premise // Always premise, backend will handle this
-                                     });
-    
+      documentTypeCode: documentType.code,
+      subjectId,
+      subjectType: SubjectType.Premise // Always premise, backend will handle this
+    });
+
     const formdata = new FormData();
     formdata.append("file", file);
-    
+
     fetch(`${baseUrl}/api/documents/?${queryString}`, {
       method: "POST",
       headers: {
@@ -187,12 +189,12 @@ export class FileUpload extends React.Component<IFileUploadProps,
           onSuccess(res);
         }
         this.setState({
-                        uploadState: FileUploadState.Complete,
-                        fileInfo: {
-                          name: file.name,
-                          fileSize: file.size
-                        }
-                      });
+          uploadState: FileUploadState.Complete,
+          fileInfo: {
+            name: file.name,
+            fileSize: file.size
+          }
+        });
       })
       .catch(err => {
         if (onError) {
