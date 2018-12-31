@@ -76,6 +76,19 @@ export class FileUpload extends React.Component<
         uploadState: FileUploadState.Unstarted
       });
     }
+
+    // after existing being cleared, errors
+    // should set when error comes next time(in nextProps)
+    if (
+      !this.props.error &&
+      nextProps.error &&
+      this.state.uploadState === FileUploadState.Unstarted
+    ) {
+      this.setState({
+        fileInfo: undefined,
+        uploadState: FileUploadState.Error
+      });
+    }
   }
 
   public render() {
