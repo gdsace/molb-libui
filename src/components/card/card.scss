@@ -33,6 +33,7 @@ $content-space-padding: 32px;
       padding-left: $content-space-padding;
       font-weight: $weight-light;
       max-width: 160px;
+      white-space: nowrap;
 
       @include for-phone-only {
         display: none;
@@ -122,10 +123,6 @@ $content-space-padding: 32px;
 .titleWrapper {
   display: flex;
   align-items: flex-start;
-
-  h6 {
-    margin-right: $space-1;
-  }
 }
 
 .purple {
