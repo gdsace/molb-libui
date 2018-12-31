@@ -349,9 +349,12 @@ export class TimePicker extends React.Component<
       [`${prefixCls}-error`]: showError
     });
     return (
-      <div className={`${prefixCls}-root-container`} data-scrollpoint={true}>
+      <div className={`${prefixCls}-root-container`}>
         {title && (
-          <div className={`${prefixCls}-header-section`}>
+          <div
+            className={`${prefixCls}-header-section`}
+            data-scrollpoint={true}
+          >
             <label className={`${prefixCls}-title`}>{title}</label>
           </div>
         )}
