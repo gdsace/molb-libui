@@ -2,13 +2,10 @@
 
 .tableContainer {
   table {
-    border-radius: 5px;
-    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.03), 0 7px 25px 0 rgba(0, 0, 0, 0.03), 0 0 0 1px rgba(0, 0, 0, 0.03);
     width: 100%;
     margin: 0;
     padding: 0;
     border-collapse: collapse;
-    border-spacing: 0;
 
     th {
       color: $text-color;
@@ -17,22 +14,67 @@
       letter-spacing: normal;
     }
 
+    tbody {
+      color: $text-color-2;
+      font-size: 14px;
+    }
+
     tr {
-      display: flex;
       width: 100%;
       height: 100%;
-      align-items: center;
+      word-break: break-all;
     }
 
     tr td,
     tr th {
-      padding: $space-4;
+      &:not(:first-child) {
+        padding-left: $space-1;
+      }
+
+      &:not(:last-child) {
+        padding-right: $space-1;
+      }
+
       text-align: left;
-      flex: 1;
     }
 
     thead {
       background-color: $ui-color;
+    }
+  }
+
+  table.bordered {
+    border-radius: 5px;
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.03), 0 7px 25px 0 rgba(0, 0, 0, 0.03), 0 0 0 1px rgba(0, 0, 0, 0.03);
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  table.basic {
+    tr {
+      border-bottom: 1px solid $ui-color-2;
+    }
+  }
+
+  table.large {
+    tr td,
+    tr th {
+      padding-top: $space-4;
+      padding-bottom: $space-4;
+    }
+  }
+
+  table.small {
+    tr td,
+    tr th {
+      padding-top: $space-3;
+      padding-bottom: $space-3;
+    }
+  }
+
+  table.striped {
+    tr {
+      box-sizing: border-box;
     }
 
     tbody {
@@ -43,6 +85,19 @@
       tr:nth-child(2n) {
         background-color: $ui-color;
       }
+    }
+
+    tr td,
+    tr th {
+      &:first-child {
+        padding-left: $space-4;
+      }
+
+      &:last-child {
+        padding-right: $space-4;
+      }
+
+      text-align: left;
     }
   }
 }

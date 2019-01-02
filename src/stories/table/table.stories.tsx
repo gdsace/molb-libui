@@ -43,10 +43,6 @@ const style = {
   textStyle2: {
     fontSize: "14px",
     color: "#647283"
-  },
-  tableStyle: {
-    margin: "50px",
-    width: "90%"
   }
 };
 
@@ -88,11 +84,5 @@ export const dataSource = [
 
 (storiesOf("Components", module) as any).addWithJSX(
   "Table",
-  wInfo(``)(() => (
-    <Table
-      style={style.tableStyle}
-      columns={tableColumns}
-      dataSource={dataSource}
-    />
-  ))
+  wInfo(``)(() => <Table columns={tableColumns} dataSource={dataSource} />)
 );
