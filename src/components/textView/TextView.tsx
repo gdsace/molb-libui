@@ -34,7 +34,10 @@ export class TextView extends React.Component<ITextViewProps, any> {
     const scrollTop = this.textViewDiv!.scrollTop;
     const clientHeight = this.textViewDiv!.clientHeight;
     const scrollHeight = this.textViewDiv!.scrollHeight;
-    const didReachBottom = scrollTop + clientHeight === scrollHeight;
+    // when we zoom the screen, scrollHeight and scrollTop + clientHeight
+    // are not strictly equal. scrollTop will be a decimal not an integer.
+    const didReachBottom =
+      Math.abs(scrollHeight - (scrollTop + clientHeight)) <= 1;
     if (didReachBottom) {
       this.props.callbackAfterReachBottom!();
     }
