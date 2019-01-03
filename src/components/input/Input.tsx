@@ -13,10 +13,10 @@ const styles = require("./input.scss");
 
 const DEFAULT_MAX_LENGTH = 30;
 const defaultChangesFilterRegexDict: any = {
-  [InputType.Integer]: /^-?(\d*)$/,
-  [InputType.PositiveInteger]: /^(\d*)$/,
-  [InputType.Decimal]: /^-?([0-9]*|[0-9]+\.[0-9]*)$/,
-  [InputType.PositiveDecimal]: /^([0-9]*|[0-9]+\.[0-9]*)$/
+  [InputType.IntegerText]: /^-?(\d*)$/,
+  [InputType.PositiveIntegerText]: /^(\d*)$/,
+  [InputType.DecimalText]: /^-?([0-9]*|[0-9]+\.[0-9]*)$/,
+  [InputType.PositiveDecimalText]: /^([0-9]*|[0-9]+\.[0-9]*)$/
 };
 
 export interface IInputProps {

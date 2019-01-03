@@ -198,7 +198,7 @@ const errorMsg = "Validation error message, blah blah blah...";
         <div className={styles.box}>
           <Input
             onChange={action("value")}
-            type={InputType.Integer}
+            type={InputType.IntegerText}
             placeholder={placeholder}
             label={"Integer"}
             size={Size.Large}
@@ -208,7 +208,7 @@ const errorMsg = "Validation error message, blah blah blah...";
         <div className={styles.box}>
           <Input
             onChange={action("value")}
-            type={InputType.PositiveInteger}
+            type={InputType.PositiveIntegerText}
             placeholder={placeholder}
             label={"PositiveInteger"}
             size={Size.Large}
@@ -218,7 +218,7 @@ const errorMsg = "Validation error message, blah blah blah...";
         <div className={styles.box}>
           <Input
             onChange={action("value")}
-            type={InputType.Decimal}
+            type={InputType.DecimalText}
             placeholder={placeholder}
             label={"Decimal"}
             size={Size.Large}
@@ -228,7 +228,7 @@ const errorMsg = "Validation error message, blah blah blah...";
         <div className={styles.box}>
           <Input
             onChange={action("value")}
-            type={InputType.PositiveDecimal}
+            type={InputType.PositiveDecimalText}
             placeholder={placeholder}
             label={"PositiveDecimal"}
             size={Size.Large}

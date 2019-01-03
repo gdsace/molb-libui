@@ -48,22 +48,22 @@ export enum InputType {
    * Only positive & negative 0-9 allowed. EG.: -1, 0, 1
    * No `scientific-notation`
    * */
-  Integer = "integer",
+  IntegerText = "integer",
   /*
    * Only positive 0-9 allowed. EG.: 0, 1
    * No `scientific-notation`
    * */
-  PositiveInteger = "positiveInteger",
+  PositiveIntegerText = "positiveInteger",
   /*
    * Only positive & negative integer/decimal allowed. EG.: -1.1, -1, 0, 1, 1.1
    * No `scientific-notation`
    * */
-  Decimal = "decimal",
+  DecimalText = "decimal",
   /*
    * Only positive integer/decimal allowed. EG.: 0, 1, 1.1
    * No `scientific-notation`
    * */
-  PositiveDecimal = "positiveDecimal"
+  PositiveDecimalText = "positiveDecimal"
 }
 
 export enum CardTheme {
