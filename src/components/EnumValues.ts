@@ -40,7 +40,30 @@ export enum LinkStatus {
 
 export enum InputType {
   Text = "text",
-  Number = "number"
+  /*
+   * Allow `scientific-notation` and decimal
+   * */
+  Number = "number",
+  /*
+   * Only positive & negative 0-9 allowed. EG.: -1, 0, 1
+   * No `scientific-notation`
+   * */
+  Integer = "integer",
+  /*
+   * Only positive 0-9 allowed. EG.: 0, 1
+   * No `scientific-notation`
+   * */
+  PositiveInteger = "positiveInteger",
+  /*
+   * Only positive & negative integer/decimal allowed. EG.: -1.1, -1, 0, 1, 1.1
+   * No `scientific-notation`
+   * */
+  Decimal = "decimal",
+  /*
+   * Only positive integer/decimal allowed. EG.: 0, 1, 1.1
+   * No `scientific-notation`
+   * */
+  PositiveDecimal = "positiveDecimal"
 }
 
 export enum CardTheme {

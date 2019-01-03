@@ -190,6 +190,52 @@ const errorMsg = "Validation error message, blah blah blah...";
           />
         </div>
       </div>
+
+      <h6 className={styles.groupHeader}>
+        Numbers Input: Typing filter(s) samples, Integer/Decimal:
+      </h6>
+      <div className={styles.itemsContainer}>
+        <div className={styles.box}>
+          <Input
+            onChange={action("value")}
+            type={InputType.Integer}
+            placeholder={placeholder}
+            label={"Integer"}
+            size={Size.Large}
+            maxLength={10}
+          />
+        </div>
+        <div className={styles.box}>
+          <Input
+            onChange={action("value")}
+            type={InputType.PositiveInteger}
+            placeholder={placeholder}
+            label={"PositiveInteger"}
+            size={Size.Large}
+            maxLength={10}
+          />
+        </div>
+        <div className={styles.box}>
+          <Input
+            onChange={action("value")}
+            type={InputType.Decimal}
+            placeholder={placeholder}
+            label={"Decimal"}
+            size={Size.Large}
+            maxLength={10}
+          />
+        </div>
+        <div className={styles.box}>
+          <Input
+            onChange={action("value")}
+            type={InputType.PositiveDecimal}
+            placeholder={placeholder}
+            label={"PositiveDecimal"}
+            size={Size.Large}
+            maxLength={10}
+          />
+        </div>
+      </div>
     </div>
   ))
 );
