@@ -12,7 +12,7 @@ import { addLocatedErrorClassname } from "../utils";
 const styles = require("./input.scss");
 
 const DEFAULT_MAX_LENGTH = 30;
-const defaultTypingFilterRegexDict: any = {
+const defaultChangesFilterRegexDict: any = {
   [InputType.Integer]: /^-?(\d*)$/,
   [InputType.PositiveInteger]: /^(\d*)$/,
   [InputType.Decimal]: /^-?([0-9]*|[0-9]+\.[0-9]*)$/,
@@ -41,12 +41,12 @@ export interface IInputProps {
   toolTipsContent?: string;
   toolTipsPosition?: TooltipsLocationTheme;
   /*
-   * This regex is to reject the unexpected newValue (typed/pasted/...)
-   * it's different from `Result-Value-Validating-Regex`,
+   * This regex is to filter/reject the unexpected newValue changes (typed/pasted/...)
+   * it's different from `Result-Value-Validating`.
    *
-   * Accepting `newValue` change does not mean this `newValue` is valid.
+   * Note: Accepting `newValue` change does not mean this `newValue` is valid.
    * */
-  customizedTypingFilterRegex?: RegExp;
+  customizedChangesFilterRegex?: RegExp;
 }
 
 export class Input extends React.Component<IInputProps, any> {
@@ -162,16 +162,18 @@ export class Input extends React.Component<IInputProps, any> {
   }
 
   public handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { type, customizedTypingFilterRegex } = this.props;
+    const { type, customizedChangesFilterRegex } = this.props;
     const newValue = event.target.value;
-    const defaultTypingFilterRegex = type && defaultTypingFilterRegexDict[type];
+    const defaultChangesFilterRegex =
+      type && defaultChangesFilterRegexDict[type];
 
-    // first check defaultTypingFilterRegex,
-    // then check customizedTypingFilterRegex after.
+    // first check defaultChangesFilterRegex,
+    // then check customizedChangesFilterRegex after.
     if (
-      (defaultTypingFilterRegex && !defaultTypingFilterRegex.test(newValue)) ||
-      (customizedTypingFilterRegex &&
-        !customizedTypingFilterRegex.test(newValue))
+      (defaultChangesFilterRegex &&
+        !defaultChangesFilterRegex.test(newValue)) ||
+      (customizedChangesFilterRegex &&
+        !customizedChangesFilterRegex.test(newValue))
     ) {
       event.target.value = this.state.previousValue;
       return;
