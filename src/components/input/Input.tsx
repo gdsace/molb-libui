@@ -11,6 +11,14 @@ import { addLocatedErrorClassname } from "../utils";
 
 const styles = require("./input.scss");
 
+const DEFAULT_MAX_LENGTH = 30;
+const defaultChangesFilterRegexDict: any = {
+  [InputType.IntegerText]: /^-?(\d*)$/,
+  [InputType.PositiveIntegerText]: /^(\d*)$/,
+  [InputType.DecimalText]: /^-?([0-9]*|[0-9]+\.[0-9]*)$/,
+  [InputType.PositiveDecimalText]: /^([0-9]*|[0-9]+\.[0-9]*)$/
+};
+
 export interface IInputProps {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => any;
   onBlur?: () => any;
@@ -32,14 +40,21 @@ export interface IInputProps {
   showCharacterCount?: boolean;
   toolTipsContent?: string;
   toolTipsPosition?: TooltipsLocationTheme;
+  /*
+   * This regex is to filter/reject the unexpected newValue changes (typed/pasted/...)
+   * it's different from `Result-Value-Validating`.
+   *
+   * Note: Accepting `newValue` change does not mean this `newValue` is valid.
+   * */
+  customizedChangesFilterRegex?: RegExp;
 }
 
 export class Input extends React.Component<IInputProps, any> {
   public static defaultProps: Partial<IInputProps> = {
     className: "",
     disabled: false,
-    maxLength: 30,
-    minLength: 30,
+    maxLength: DEFAULT_MAX_LENGTH,
+    minLength: 0,
     placeholder: "",
     size: Size.Medium,
     type: InputType.Text,
@@ -50,7 +65,8 @@ export class Input extends React.Component<IInputProps, any> {
   constructor(props: any) {
     super(props);
     this.state = {
-      characterCount: (this.props.value || "").toString().length
+      characterCount: (this.props.value || "").toString().length,
+      previousValue: ""
     };
   }
 
@@ -103,9 +119,9 @@ export class Input extends React.Component<IInputProps, any> {
               this.props.showError ? styles.error : ""
             }`}
             value={this.props.value}
-            type={this.props.type}
+            type="text"
             maxLength={this.props.maxLength}
-            onChange={event => this.handleOnChange(event)}
+            onChange={this.handleOnChange}
             onBlur={() => {
               if (this.props.onBlur) {
                 this.props.onBlur();
@@ -146,14 +162,35 @@ export class Input extends React.Component<IInputProps, any> {
   }
 
   public handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { type, customizedChangesFilterRegex } = this.props;
     const newValue = event.target.value;
-    if (this.props.disabled || newValue.length > (this.props.maxLength || 30)) {
+    const defaultChangesFilterRegex =
+      type && defaultChangesFilterRegexDict[type];
+
+    // first check defaultChangesFilterRegex,
+    // then check customizedChangesFilterRegex after.
+    if (
+      (defaultChangesFilterRegex &&
+        !defaultChangesFilterRegex.test(newValue)) ||
+      (customizedChangesFilterRegex &&
+        !customizedChangesFilterRegex.test(newValue))
+    ) {
+      event.target.value = this.state.previousValue;
+      return;
+    }
+
+    if (
+      this.props.disabled ||
+      newValue.length > (this.props.maxLength || DEFAULT_MAX_LENGTH)
+    ) {
+      event.target.value = this.state.previousValue;
       return;
     }
 
     this.props.onChange(event);
     this.setState({
-      characterCount: event.target.value.length
+      characterCount: event.target.value.length,
+      previousValue: event.target.value
     });
   };
 }
