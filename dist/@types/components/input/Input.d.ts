@@ -21,6 +21,7 @@ export interface IInputProps {
     showCharacterCount?: boolean;
     toolTipsContent?: string;
     toolTipsPosition?: TooltipsLocationTheme;
+    customizedTypingFilterRegex?: RegExp;
 }
 export declare class Input extends React.Component<IInputProps, any> {
     static defaultProps: Partial<IInputProps>;

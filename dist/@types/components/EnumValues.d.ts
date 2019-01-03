@@ -34,7 +34,11 @@ export declare enum LinkStatus {
 }
 export declare enum InputType {
     Text = "text",
-    Number = "number"
+    Number = "number",
+    Integer = "integer",
+    PositiveInteger = "positiveInteger",
+    Decimal = "decimal",
+    PositiveDecimal = "positiveDecimal"
 }
 export declare enum CardTheme {
     Normal = "normal",
