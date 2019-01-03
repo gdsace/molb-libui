@@ -18,7 +18,6 @@ export interface ITableProps {
   columns: IColumn[];
   tableCls?: string;
   bordered?: boolean;
-  striped?: boolean;
   size?: TableSize;
   theme?: TableTheme;
 }
