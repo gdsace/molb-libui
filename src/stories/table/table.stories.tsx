@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Table } from "@src/components";
+import { Table, TableTheme } from "@src/components";
 import { storiesOf } from "@storybook/react";
 import { wInfo } from "../utils";
 
@@ -84,5 +84,25 @@ export const dataSource = [
 
 (storiesOf("Components", module) as any).addWithJSX(
   "Table",
-  wInfo(``)(() => <Table columns={tableColumns} dataSource={dataSource} />)
+  wInfo(``)(() => (
+    <div>
+      <div style={{ padding: "10px" }}>
+        stripe table with border:
+        <Table
+          columns={tableColumns}
+          dataSource={dataSource}
+          theme={TableTheme.Striped}
+          bordered={true}
+        />
+      </div>
+      <div style={{ padding: "10px" }}>
+        Basic table:
+        <Table
+          columns={tableColumns}
+          dataSource={dataSource}
+          theme={TableTheme.Basic}
+        />
+      </div>
+    </div>
+  ))
 );

@@ -1,46 +1,60 @@
 @import "~@libui/components/styles/utils";
 
+$padding-for-small: $space-3;
+$padding-for-large: $space-4;
+$title-width-for-mobile: 94px;
+$title-margin: $space-2;
+
+%tableTitle {
+  color: $text-color;
+  text-transform: uppercase;
+  font-size: $small;
+  letter-spacing: normal;
+  font-weight: $weight-bold;
+}
+
 .tableContainer {
   table {
     width: 100%;
     margin: 0;
     padding: 0;
     border-collapse: collapse;
+  }
 
-    th {
-      color: $text-color;
-      text-transform: uppercase;
-      font-size: $small;
-      letter-spacing: normal;
+  th {
+    @extend %tableTitle;
+  }
+
+  tbody {
+    color: $text-color-2;
+    font-size: 14px;
+  }
+
+  tr {
+    width: 100%;
+    height: 100%;
+    word-break: break-all;
+  }
+
+  td::before {
+    @extend %tableTitle;
+  }
+
+  td,
+  th {
+    &:not(:first-child) {
+      padding-left: $space-1;
     }
 
-    tbody {
-      color: $text-color-2;
-      font-size: 14px;
+    &:not(:last-child) {
+      padding-right: $space-1;
     }
 
-    tr {
-      width: 100%;
-      height: 100%;
-      word-break: break-all;
-    }
+    text-align: left;
+  }
 
-    tr td,
-    tr th {
-      &:not(:first-child) {
-        padding-left: $space-1;
-      }
-
-      &:not(:last-child) {
-        padding-right: $space-1;
-      }
-
-      text-align: left;
-    }
-
-    thead {
-      background-color: $ui-color;
-    }
+  thead {
+    background-color: $ui-color;
   }
 
   table.bordered {
@@ -57,38 +71,36 @@
   }
 
   table.large {
-    tr td,
-    tr th {
-      padding-top: $space-4;
-      padding-bottom: $space-4;
+    td,
+    th {
+      padding-top: $padding-for-large;
+      padding-bottom: $padding-for-large;
     }
   }
 
   table.small {
-    tr td,
-    tr th {
-      padding-top: $space-3;
-      padding-bottom: $space-3;
+    td,
+    th {
+      padding-top: $padding-for-small;
+      padding-bottom: $padding-for-small;
     }
   }
 
   table.striped {
-    tr {
+    tbody tr {
       box-sizing: border-box;
-    }
 
-    tbody {
-      tr:nth-child(2n+1) {
+      &:nth-child(2n+1) {
         background-color: $ui-color-1;
       }
 
-      tr:nth-child(2n) {
+      &:nth-child(2n) {
         background-color: $ui-color;
       }
     }
 
-    tr td,
-    tr th {
+    td,
+    th {
       &:first-child {
         padding-left: $space-4;
       }
@@ -99,5 +111,70 @@
 
       text-align: left;
     }
+  }
+}
+
+@include for-phone-only {
+  .tableContainer {
+    thead {
+      display: none;
+    }
+
+    td {
+      display: block;
+
+      &:not(:first-child) {
+        padding-left: 0;
+
+        .contentData {
+          display: inline-block;
+          width: calc(100% - #{$title-width-for-mobile + $title-margin});
+        }
+      }
+
+      &:not(:last-child) {
+        padding-right: 0;
+      }
+
+      &:not(:first-child)::before {
+        content: attr(data-title);
+        width: $title-width-for-mobile;
+        display: inline-block;
+        margin-right: $title-margin;
+        vertical-align: top;
+        word-break: break-word;
+      }
+    }
+
+    table.striped {
+      td {
+        padding-left: $space-3;
+        padding-right: $space-3;
+
+        &:first-child {
+          padding-left: $space-3;
+        }
+
+        &:last-child {
+          padding-right: $space-3;
+        }
+      }
+    }
+
+    /* stylelint-disable */
+    table.small {
+      td {
+        &:last-child {
+          padding-top: 0;
+          padding-bottom: $padding-for-small;
+        }
+
+        &:not(:first-child):not(:last-child) {
+          padding-top: 0;
+          padding-bottom: $space-2;
+        }
+      }
+    }
+    /* stylelint-enable */
   }
 }

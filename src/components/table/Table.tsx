@@ -63,13 +63,18 @@ export class Table extends React.Component<ITableProps, {}> {
     dataSource: IDateSource[]
   ): React.ReactNode {
     const keyInOrder = columns.map(column => column.key);
+    const titleInOrder = columns.map(column => column.title);
     return (
       <tbody>
         {dataSource.map(rowData => {
           return (
             <tr key={`tr-${rowData.key}`}>
-              {keyInOrder.map(key => {
-                return <td key={`td-${key}`}>{rowData[key]}</td>;
+              {keyInOrder.map((key, index) => {
+                return (
+                  <td data-title={titleInOrder[index]} key={`td-${key}`}>
+                    <div className={cx("contentData")}>{rowData[key]}</div>
+                  </td>
+                );
               })}
             </tr>
           );
