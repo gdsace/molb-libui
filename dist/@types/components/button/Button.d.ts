@@ -1,5 +1,5 @@
-import { Size, Theme } from "@src/components/EnumValues";
 import * as React from "react";
+import { Size, Theme } from "../EnumValues";
 export interface IButtonProps {
     onClick: () => any;
     label: string;

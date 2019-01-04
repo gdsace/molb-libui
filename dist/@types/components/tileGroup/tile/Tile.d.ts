@@ -1,5 +1,5 @@
 /// <reference types="react" />
-import { TileTheme } from "@libui/components/EnumValues";
+import { TileTheme } from "../../EnumValues";
 export interface ITileProps {
     icon?: string;
     content: string;

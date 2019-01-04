@@ -1,11 +1,8 @@
-import { H7 } from "@libui/components/h7";
-import {
-  IOption,
-  RadioCardTypeQuestion
-} from "@libui/components/radioCardTypeQuestion";
-import { Tile } from "@libui/components/tileGroup/tile";
 import { shallow } from "enzyme";
 import * as React from "react";
+import { H7 } from "../../h7";
+import { Tile } from "../../tileGroup/tile";
+import { IOption, RadioCardTypeQuestion } from "../RadioCardTypeQuestion";
 
 describe.only("RadioCardTypeQuestion", () => {
   const mockOptions: IOption[] = [

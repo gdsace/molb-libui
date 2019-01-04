@@ -1,8 +1,8 @@
 import * as React from "react";
 
-import { Button } from "@libui/components/button";
-import { ListcardStatus, Size, Theme } from "@libui/components/EnumValues";
 import classnames from "classnames";
+import { Button } from "../button";
+import { ListcardStatus, Size, Theme } from "../EnumValues";
 
 const styles = require("./listcard.scss");
 

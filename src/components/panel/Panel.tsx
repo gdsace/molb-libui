@@ -1,7 +1,6 @@
 import classnames from "classnames";
 import React from "react";
-
-import { PanelTheme, PanelType } from "@src/components/EnumValues";
+import { PanelTheme, PanelType } from "../EnumValues";
 
 const styles = require("./panel.scss");
 

@@ -1,7 +1,7 @@
-import { LinkStatus, Size } from "@libui/components/EnumValues";
-import { Icon } from "@libui/components/icons";
 import classNames from "classnames";
 import * as React from "react";
+import { LinkStatus, Size } from "../EnumValues";
+import { Icon } from "../icons";
 
 const styles = require("./link.scss");
 

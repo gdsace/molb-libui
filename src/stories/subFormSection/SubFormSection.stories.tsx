@@ -1,7 +1,7 @@
 import React from "react";
 
-import { SubFormSection, SubFormSectionTheme } from "@src/components";
 import { storiesOf } from "@storybook/react";
+import { SubFormSection, SubFormSectionTheme } from "../../components";
 import { wInfo } from "../utils";
 
 const styles = require("./subFormSection.stories.scss");

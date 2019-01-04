@@ -1,7 +1,7 @@
 // We cannot split this file up because importing styles from another file will
 // create duplicates
 
-@import "~@libui/components/styles/utils";
+@import "../styles/utils.scss";
 
 .dropdownIcon {
   width: 32px; /* Fix for IE11, Safari icon not showing */

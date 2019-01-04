@@ -1,5 +1,5 @@
 import React from "react";
-import { PanelTheme, PanelType } from "@src/components/EnumValues";
+import { PanelTheme, PanelType } from "../EnumValues";
 export interface IPanelProps {
     containerStyle?: string;
     contentStyle?: string;

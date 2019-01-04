@@ -1,7 +1,7 @@
-import { TileTheme } from "@libui/components/EnumValues";
 import classNames from "classnames";
 import _ from "lodash";
 import * as React from "react";
+import { TileTheme } from "../../EnumValues";
 import { Icon } from "../../icons/index";
 
 const styles = require("./tile.scss");

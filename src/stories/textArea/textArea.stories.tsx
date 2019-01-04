@@ -1,7 +1,7 @@
 import React from "react";
 
-import { TextArea } from "@src/components";
 import { storiesOf } from "@storybook/react";
+import { TextArea } from "../../components";
 import { wInfo } from "../utils";
 
 const styles = require("./textArea.stories.scss");

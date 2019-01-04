@@ -1,6 +1,6 @@
-import { ToastContainer } from "@src/components";
 import classnames from "classnames";
 import * as React from "react";
+import { ToastContainer } from "../notification";
 
 const styles = require("./layout.scss");
 

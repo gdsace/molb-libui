@@ -1,5 +1,5 @@
 /// <reference types="react" />
-import { NotificationTheme } from "@src/components";
+import { NotificationTheme } from "../EnumValues";
 interface IInlineNotificationProps {
     text: string;
     theme: NotificationTheme;

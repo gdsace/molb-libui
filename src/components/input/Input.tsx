@@ -1,12 +1,8 @@
-import {
-  InputType,
-  Size,
-  TooltipsLocationTheme
-} from "@libui/components/EnumValues";
-import { Tooltips } from "@src/components";
 import classnames from "classnames";
 import * as React from "react";
+import { InputType, Size, TooltipsLocationTheme } from "../EnumValues";
 import { Icon } from "../icons";
+import { Tooltips } from "../tooltips";
 import { addLocatedErrorClassname } from "../utils";
 
 const styles = require("./input.scss");

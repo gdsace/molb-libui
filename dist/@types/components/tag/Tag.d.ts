@@ -1,5 +1,5 @@
-import { TagTheme } from "@libui/components/EnumValues";
 import * as React from "react";
+import { TagTheme } from "../EnumValues";
 export interface ITagProps {
     label: string;
     theme?: TagTheme;

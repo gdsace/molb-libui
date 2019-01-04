@@ -1,8 +1,8 @@
 import React from "react";
 
-import { ModalContent } from "@src/components";
 import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
+import { ModalContent } from "../../components";
 import { wInfo } from "../utils";
 
 const styles = require("./modalContent.stories.scss");

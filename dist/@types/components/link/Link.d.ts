@@ -1,5 +1,5 @@
-import { LinkStatus, Size } from "@libui/components/EnumValues";
 import * as React from "react";
+import { LinkStatus, Size } from "../EnumValues";
 export declare enum LinkTarget {
     Self = "_self",
     Blank = "_blank",

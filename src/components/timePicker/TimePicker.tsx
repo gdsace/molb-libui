@@ -2,12 +2,12 @@ import moment from "moment";
 import Trigger from "rc-trigger";
 import React, { RefObject } from "react";
 
-import { Icon } from "@src/components";
-import { addLocatedErrorClassname } from "@src/components/utils";
 import classNames from "classnames";
 import Panel from "./Panel";
 import placements from "./placements";
 
+import { Icon } from "../icons";
+import { addLocatedErrorClassname } from "../utils";
 import "./assets/index.scss";
 
 function noop() {

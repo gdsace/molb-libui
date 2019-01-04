@@ -1,4 +1,4 @@
-@import "~@libui/components/styles/utils";
+@import "../styles/utils.scss";
 
 .rootContainer {
   margin-top: $space-8;
@@ -14,10 +14,6 @@
   .headerSection {
     margin-bottom: $space-3;
   }
-}
-
-.titleContainer {
-  // ...
 }
 
 .title {

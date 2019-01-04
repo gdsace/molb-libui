@@ -1,9 +1,9 @@
 import * as React from "react";
 
-import { Button } from "@libui/components/button";
-import { NotificationTheme } from "@libui/components/EnumValues";
 import { shallow } from "enzyme";
 import { ToastContainer } from "react-toastify";
+import { Button } from "../../button";
+import { NotificationTheme } from "../../EnumValues";
 import { notification } from "../Notification";
 
 describe("Notification", () => {

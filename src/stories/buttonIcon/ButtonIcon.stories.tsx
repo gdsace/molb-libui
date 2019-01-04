@@ -1,7 +1,7 @@
 import React from "react";
 
-import { ButtonIcon, Input, InputType, Size } from "@src/components";
 import { storiesOf } from "@storybook/react";
+import { ButtonIcon, Input, InputType, Size } from "../../components";
 import { wInfo } from "../utils";
 
 import { action } from "@storybook/addon-actions";

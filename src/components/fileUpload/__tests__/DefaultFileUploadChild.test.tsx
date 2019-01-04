@@ -1,8 +1,8 @@
-import { FileUploadState } from "@src/components";
 import { mount } from "enzyme";
 import * as React from "react";
 
 import { DefaultFileUploadChild, formatBytes } from "../DefaultFileUploadChild";
+import { FileUploadState } from "../FileUpload";
 import { documentTypes } from "./__mocks__/documentTypes";
 
 describe("DefaultFileUploadChild", () => {

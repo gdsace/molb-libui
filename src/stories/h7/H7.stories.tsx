@@ -1,7 +1,7 @@
 import React from "react";
 
-import { H7 } from "@src/components";
 import { storiesOf } from "@storybook/react";
+import { H7 } from "../../components";
 import { wInfo } from "../utils";
 
 (storiesOf("Components", module) as any).addWithJSX(
