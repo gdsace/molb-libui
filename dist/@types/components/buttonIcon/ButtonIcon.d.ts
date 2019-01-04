@@ -1,8 +1,8 @@
-import { IIconProps } from "@src/components/icons";
 import * as React from "react";
+import { IIconProps } from "../icons";
 export interface IButtonIconProps extends IIconProps {
     onClick: () => any;
-    disabled: boolean;
+    disabled?: boolean;
     iconClassName?: string;
 }
 export declare class ButtonIcon extends React.Component<IButtonIconProps, {}> {

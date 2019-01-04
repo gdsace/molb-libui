@@ -1,12 +1,12 @@
-import { Icon, IIconProps } from "@src/components/icons";
 import classNames from "classnames";
 import * as React from "react";
+import { Icon, IIconProps } from "../icons";
 
 const styles = require("./buttonIcon.scss");
 
 export interface IButtonIconProps extends IIconProps {
   onClick: () => any;
-  disabled: boolean;
+  disabled?: boolean;
   iconClassName?: string;
 }
 
