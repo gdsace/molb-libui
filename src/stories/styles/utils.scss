@@ -1,8 +1,0 @@
-@import "variables";
-@import "responsive";
-
-@mixin target-ie11 {
-  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-    @content;
-  }
-}
