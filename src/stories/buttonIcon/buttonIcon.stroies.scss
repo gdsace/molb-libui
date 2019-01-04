@@ -1,0 +1,20 @@
+@import "~@libui/components/styles/utils";
+
+.wrapper {
+  display: flex;
+
+  .buttonIcon {
+    // 32px here is magic space fiting for input with label
+    margin: 32px 0 auto $space-1;
+  }
+}
+
+.wrapperWithoutLabel {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  .buttonIcon {
+    margin-left: $space-1;
+  }
+}

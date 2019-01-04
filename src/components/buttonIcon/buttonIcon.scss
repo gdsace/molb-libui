@@ -1,0 +1,22 @@
+@import "../styles/utils";
+
+.buttonIconContainer {
+  cursor: pointer;
+  color: $text-color-2;
+  width: $display-medium;
+  height: $display-medium;
+  border-radius: $display-medium;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    color: $lavender-indigo;
+    background: $porcelain;
+  }
+
+  &.disabled {
+    color: $field-color-2;
+    background: transparent;
+  }
+}
