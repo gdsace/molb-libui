@@ -1,10 +1,10 @@
 import React from "react";
 
 import { State, Store } from "@sambego/storybook-state";
-import { Button, FileUpload, Size } from "@src/components";
-import { documentTypes } from "@src/components/fileUpload/__tests__/__mocks__/documentTypes";
 import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
+import { Button, FileUpload, Size } from "../../components";
+import { documentTypes } from "../../components/fileUpload/__tests__/__mocks__/documentTypes";
 import { wInfo } from "../utils";
 
 const store = new Store({

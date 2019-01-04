@@ -1,8 +1,8 @@
 import moment from "moment";
 import React from "react";
 
-import { TimePicker } from "@src/components";
 import { storiesOf } from "@storybook/react";
+import { TimePicker } from "../../components";
 import { wInfo } from "../utils";
 
 const styles = require("./timePicker.stories.scss");

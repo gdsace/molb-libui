@@ -1,10 +1,8 @@
 import React from "react";
 
 import { State, Store } from "@sambego/storybook-state";
-import { TileGroup } from "@src/components";
-import { TileTheme } from "@src/components/EnumValues";
-import { Tile } from "@src/components/tileGroup/tile";
 import { storiesOf } from "@storybook/react";
+import { Tile, TileGroup, TileTheme } from "../../components";
 import { wInfo } from "../utils";
 
 const styles = require("./tileGroup.stories.scss");

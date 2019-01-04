@@ -1,9 +1,8 @@
 import React from "react";
 
-import { Input } from "@src/components";
-import { InputType, Size } from "@src/components/EnumValues";
 import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
+import { Input, InputType, Size } from "../../components";
 import { wInfo } from "../utils";
 
 const styles = require("./input.stories.scss");

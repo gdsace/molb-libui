@@ -1,7 +1,7 @@
-import { Size } from "@libui/components/EnumValues";
 import React from "react";
 import { SelectComponentsConfig } from "react-select/lib/components";
 import { Props } from "react-select/lib/Select";
+import { Size } from "../EnumValues";
 import "./library.scss.nomangle";
 export declare const baseComponents: SelectComponentsConfig<any>;
 export interface IBaseDropdownProps<T> extends Props<T> {

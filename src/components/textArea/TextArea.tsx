@@ -1,8 +1,8 @@
 import _ from "lodash";
 import * as React from "react";
 
-import { Icon } from "@libui/components/icons";
 import classnames from "classnames";
+import { Icon } from "../icons";
 import { addLocatedErrorClassname } from "../utils";
 
 const styles = require("./textArea.scss");

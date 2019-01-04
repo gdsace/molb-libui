@@ -1,7 +1,7 @@
 import React from "react";
 
-import { Icon } from "@src/components";
 import { storiesOf } from "@storybook/react";
+import { Icon } from "../../components";
 import { wInfo } from "../utils";
 
 const styles = require("./icon.stories.scss");

@@ -1,7 +1,7 @@
 import React from "react";
 
-import { Layout } from "@src/components";
 import { storiesOf } from "@storybook/react";
+import { Layout } from "../../components";
 import { wInfo } from "../utils";
 
 const styles = require("./layout.stories.scss");

@@ -1,8 +1,9 @@
-import { Icon, Link, TooltipsLocationTheme } from "@libui/components";
-import { Tooltips } from "@libui/components/tooltips/Tooltips";
 import { shallow } from "enzyme";
 import * as React from "react";
 import Popup from "reactjs-popup";
+import { TooltipsLocationTheme } from "../../EnumValues";
+import { Icon, Link } from "../../index";
+import { Tooltips } from "../Tooltips";
 
 describe("Tooltips", () => {
   it("render ui", () => {

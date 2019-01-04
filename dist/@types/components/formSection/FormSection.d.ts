@@ -1,5 +1,5 @@
-import { FormSectionSpacing } from "@libui/components/EnumValues";
 import React from "react";
+import { FormSectionSpacing } from "../EnumValues";
 export interface IFormSectionProps {
     header?: string;
     subheader?: string;

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ListcardStatus } from "@libui/components/EnumValues";
+import { ListcardStatus } from "../EnumValues";
 export interface IListcardPros {
     title?: string;
     subTitle?: string;

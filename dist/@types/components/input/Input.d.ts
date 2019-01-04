@@ -1,5 +1,5 @@
-import { InputType, Size, TooltipsLocationTheme } from "@libui/components/EnumValues";
 import * as React from "react";
+import { InputType, Size, TooltipsLocationTheme } from "../EnumValues";
 export interface IInputProps {
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => any;
     onBlur?: () => any;

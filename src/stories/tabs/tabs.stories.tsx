@@ -1,7 +1,7 @@
 import React from "react";
 
-import { PremiseDropdown, Tabs } from "@src/components";
 import { storiesOf } from "@storybook/react";
+import { PremiseDropdown, Tabs } from "../../components";
 import { wInfo } from "../utils";
 
 const styles = require("./tabs.stories.scss");

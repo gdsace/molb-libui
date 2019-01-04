@@ -1,8 +1,8 @@
 import React from "react";
 
-import { Dropdown, PremiseDropdown } from "@src/components";
 import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
+import { Dropdown, PremiseDropdown } from "../../components";
 import { wInfo } from "../utils";
 
 const styles = require("./dropdown.stories.scss");

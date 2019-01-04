@@ -1,8 +1,8 @@
-import { Card } from "@libui/components/card/Card";
-import { CardTheme, TagTheme } from "@libui/components/EnumValues";
-import { Tag } from "@src/components";
 import { mount } from "enzyme";
 import * as React from "react";
+import { CardTheme, TagTheme } from "../../EnumValues";
+import { Tag } from "../../tag";
+import { Card } from "../Card";
 
 describe("Card", () => {
   const Description = (

@@ -1,6 +1,5 @@
 import * as React from "react";
-
-import { Icon } from "@libui/components/icons";
+import { Icon } from "../icons";
 
 const styles = require("./navItem.scss");
 

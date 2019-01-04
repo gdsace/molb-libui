@@ -1,6 +1,7 @@
-import { Icon, NotificationTheme } from "@src/components";
 import { shallow } from "enzyme";
 import * as React from "react";
+import { NotificationTheme } from "../../EnumValues";
+import { Icon } from "../../icons";
 import { InlineNotification } from "../InlineNotification";
 
 describe("Inline notification", () => {

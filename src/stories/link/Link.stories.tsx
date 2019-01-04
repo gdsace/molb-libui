@@ -1,8 +1,8 @@
 import React from "react";
 
-import { Link, LinkTarget } from "@src/components";
 import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
+import { Link, LinkTarget } from "../../components";
 import { wInfo } from "../utils";
 
 const rowStyles = {

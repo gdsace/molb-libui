@@ -1,9 +1,9 @@
-import { Size } from "@libui/components/EnumValues";
 import classNames from "classnames";
 import React from "react";
 import Select, { components } from "react-select";
 import { SelectComponentsConfig } from "react-select/lib/components";
 import { Props } from "react-select/lib/Select";
+import { Size } from "../EnumValues";
 import { Icon } from "../icons/Icon";
 
 import "./library.scss.nomangle";

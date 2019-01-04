@@ -1,8 +1,8 @@
 import * as React from "react";
 import { createPortal } from "react-dom";
 
-import { Icon } from "@libui/components/icons";
 import classNames from "classnames";
+import { Icon } from "../icons";
 
 const styles = require("./modal.scss");
 

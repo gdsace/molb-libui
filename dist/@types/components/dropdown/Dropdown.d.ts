@@ -1,6 +1,6 @@
-import { Size } from "@libui/components/EnumValues";
 import React from "react";
 import { Props } from "react-select/lib/Select";
+import { Size } from "../EnumValues";
 export interface IDropdownProps<T> extends Props<T> {
     error?: string | boolean;
     label?: string;

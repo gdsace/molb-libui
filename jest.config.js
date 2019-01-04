@@ -72,8 +72,6 @@ module.exports = {
   // A map from regular expressions to module names that allow to stub out resources with a single module
   moduleNameMapper: {
     "@cfg/(.*)": "<rootDir>/config/$1",
-    "@libui/(.*)": "<rootDir>/src/$1",
-    "@src/(.*)": "<rootDir>/src/$1",
     "@test/(.*)": "<rootDir>/test/$1",
     "\\.(scss|sass|css|less|nomangle)$": "identity-obj-proxy"
   },

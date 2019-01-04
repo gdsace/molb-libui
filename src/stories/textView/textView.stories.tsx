@@ -1,9 +1,9 @@
 import React from "react";
 
-import { TextView } from "@src/components";
-import { mockLongText } from "@src/components/textView/__tests__/mockText";
 import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
+import { TextView } from "../../components";
+import { mockLongText } from "../../components/textView/__tests__/mockText";
 import { wInfo } from "../utils";
 
 const textViewStyle = {

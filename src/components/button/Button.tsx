@@ -1,7 +1,7 @@
-import { Size, Theme } from "@src/components/EnumValues";
-import { Icon } from "@src/components/icons";
 import classNames from "classnames";
 import * as React from "react";
+import { Size, Theme } from "../EnumValues";
+import { Icon } from "../icons";
 
 const styles = require("./button.scss");
 

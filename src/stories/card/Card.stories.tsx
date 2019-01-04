@@ -2,9 +2,8 @@ import React from "react";
 
 import { storiesOf } from "@storybook/react";
 
-import { Card, Link } from "@src/components";
-import { CardTheme, TagTheme } from "@src/components/EnumValues";
 import { action } from "@storybook/addon-actions";
+import { Card, CardTheme, Link, TagTheme } from "../../components";
 import { wInfo } from "../utils";
 
 const description = (

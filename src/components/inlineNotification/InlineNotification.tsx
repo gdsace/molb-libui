@@ -1,6 +1,6 @@
-import { NotificationTheme } from "@src/components";
 import classNames from "classnames";
 import * as React from "react";
+import { NotificationTheme } from "../EnumValues";
 import { Icon } from "../icons";
 import { addLocatedErrorClassname } from "../utils";
 

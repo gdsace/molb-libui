@@ -1,7 +1,7 @@
-import { TagTheme } from "@libui/components/EnumValues";
-import { Tag } from "@libui/components/tag/Tag";
 import { mount } from "enzyme";
 import * as React from "react";
+import { TagTheme } from "../../EnumValues";
+import { Tag } from "../Tag";
 
 describe("Tag", () => {
   it("render ui", () => {

@@ -1,7 +1,7 @@
-import { CardTheme, TagTheme } from "@libui/components/EnumValues";
-import { Tag } from "@src/components";
 import classnames from "classnames";
 import * as React from "react";
+import { CardTheme, TagTheme } from "../EnumValues";
+import { Tag } from "../tag";
 
 const styles = require("./card.scss");
 

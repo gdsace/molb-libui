@@ -1,7 +1,7 @@
-import { Size } from "@libui/components/EnumValues";
 import _ from "lodash";
 import React from "react";
 import { Props } from "react-select/lib/Select";
+import { Size } from "../EnumValues";
 import { Input } from "../input";
 import { addLocatedErrorClassname } from "../utils";
 import { baseComponents, BaseDropdown } from "./BaseDropdown";

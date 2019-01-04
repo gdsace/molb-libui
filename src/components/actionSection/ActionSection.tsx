@@ -1,7 +1,7 @@
-import { Size, Theme } from "@libui/components/EnumValues";
 import classNames from "classnames";
 import React from "react";
 import { Button } from "../button";
+import { Size, Theme } from "../EnumValues";
 
 const styles = require("./actionSection.scss");
 const PREVIOUS = "Prev";

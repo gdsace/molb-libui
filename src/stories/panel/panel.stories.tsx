@@ -1,7 +1,7 @@
 import React from "react";
 
-import { Panel, PanelTheme, PanelType } from "@src/components";
 import { storiesOf } from "@storybook/react";
+import { Panel, PanelTheme, PanelType } from "../../components";
 import { wInfo } from "../utils";
 
 const styles = require("./panel.stories.scss");

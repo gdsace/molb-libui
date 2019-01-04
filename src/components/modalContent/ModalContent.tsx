@@ -1,6 +1,6 @@
-import { Button } from "@libui/components/button";
-import { Size, Theme } from "@libui/components/EnumValues";
 import * as React from "react";
+import { Button } from "../button";
+import { Size, Theme } from "../EnumValues";
 
 const styles = require("./modalContent.scss");
 

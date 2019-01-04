@@ -1,7 +1,7 @@
 import React from "react";
 
-import { Table, TableTheme } from "@src/components";
 import { storiesOf } from "@storybook/react";
+import { Table, TableTheme } from "../../components";
 import { wInfo } from "../utils";
 
 export const tableColumns = [

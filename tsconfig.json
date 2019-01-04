@@ -9,11 +9,6 @@
     "moduleResolution": "node",
     "noImplicitAny": true,
     "outDir": "./dist/",
-    "paths": {
-      "@libui/*": ["./src/*"],
-      "@src/*": ["./src/*"],
-      "@test/*": ["./test/*"]
-    },
     "noUnusedLocals": true,
     "sourceMap": true,
     "strict": true,

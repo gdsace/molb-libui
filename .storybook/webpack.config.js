@@ -97,12 +97,7 @@ function getDefaultConfig(baseConfig, defaultConfig) {
 
     defaultConfig.resolve = {
         extensions: [".js", ".jsx", ".ts", ".tsx"],
-        modules: ["node_modules", path.resolve(__dirname, "../src")],
-        alias: {
-            "@libui": path.resolve(__dirname, "..", "src"),
-            "@src": path.resolve(__dirname, "..", "src"),
-            "@test": path.resolve(__dirname, "..", "test")
-        }
+        modules: ["node_modules", path.resolve(__dirname, "../src")]
     };
     return defaultConfig;
 }

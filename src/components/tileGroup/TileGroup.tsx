@@ -1,5 +1,5 @@
-import { ITileProps } from "@libui/components/tileGroup/tile";
 import * as React from "react";
+import { ITileProps } from "./tile";
 
 const style = require("./tileGroup.scss");
 

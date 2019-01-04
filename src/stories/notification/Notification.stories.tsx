@@ -1,8 +1,12 @@
 import React from "react";
 
-import { Button, InlineNotification } from "@src/components";
-import { NotificationTheme } from "@src/components/EnumValues";
 import { storiesOf } from "@storybook/react";
+
+import {
+  Button,
+  InlineNotification,
+  NotificationTheme
+} from "../../components";
 import { notification, ToastContainer } from "../../components/notification";
 import { wInfo } from "../utils";
 

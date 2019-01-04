@@ -1,6 +1,6 @@
-import { TagTheme } from "@libui/components/EnumValues";
 import classnames from "classnames";
 import * as React from "react";
+import { TagTheme } from "../EnumValues";
 
 const styles = require("./tag.scss");
 

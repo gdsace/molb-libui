@@ -3,7 +3,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 
 import { State, Store } from "@sambego/storybook-state";
-import { Indicator, Sidebar } from "@src/components";
+import { Indicator, Sidebar } from "../../components";
 import { wInfo } from "../utils";
 
 const store1 = new Store({

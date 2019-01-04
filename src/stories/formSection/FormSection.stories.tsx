@@ -1,8 +1,7 @@
 import React from "react";
 
-import { FormSection } from "@src/components";
-import { FormSectionSpacing } from "@src/components/EnumValues";
 import { storiesOf } from "@storybook/react";
+import { FormSection, FormSectionSpacing } from "../../components";
 import { wInfo } from "../utils";
 
 const random: string =

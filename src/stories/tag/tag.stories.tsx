@@ -1,8 +1,8 @@
 import React from "react";
 
-import { Tag } from "@src/components";
-import { TagTheme } from "@src/components/EnumValues";
 import { storiesOf } from "@storybook/react";
+import { Tag } from "../../components";
+import { TagTheme } from "../../components/EnumValues";
 import { wInfo } from "../utils";
 
 const rowStyles = {

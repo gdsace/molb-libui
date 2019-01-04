@@ -1,8 +1,8 @@
 import React from "react";
 
 import { State, Store } from "@sambego/storybook-state";
-import { CheckboxTypeQuestion } from "@src/components";
 import { storiesOf } from "@storybook/react";
+import { CheckboxTypeQuestion } from "../../components";
 import { wInfo } from "../utils";
 
 const store = new Store({

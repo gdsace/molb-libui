@@ -1,7 +1,7 @@
-import { TileTheme } from "@libui/components/EnumValues";
-import { Icon } from "@libui/components/icons";
 import { shallow } from "enzyme";
 import * as React from "react";
+import { TileTheme } from "../../../EnumValues";
+import { Icon } from "../../../icons";
 import { Tile } from "../index";
 
 describe("Tile", () => {

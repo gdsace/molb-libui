@@ -1,6 +1,6 @@
-import { FormSectionSpacing } from "@libui/components/EnumValues";
 import classNames from "classnames";
 import React from "react";
+import { FormSectionSpacing } from "../EnumValues";
 
 const styles = require("./formSection.scss");
 

@@ -1,11 +1,11 @@
 import * as React from "react";
 
-import { TileTheme } from "@libui/components/EnumValues";
 import { H7 } from "../h7";
 import { TileGroup } from "../tileGroup";
 import { Tile } from "../tileGroup/tile";
 
 import { map } from "lodash";
+import { TileTheme } from "../EnumValues";
 
 const styles = require("./radioCardTypeQuestion.scss");
 
