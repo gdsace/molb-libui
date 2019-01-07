@@ -2,11 +2,11 @@ import { shallow } from "enzyme";
 import { noop } from "lodash";
 import * as React from "react";
 import { Icon } from "../../icons";
-import { ButtonIcon } from "../ButtonIcon";
+import { IconButton } from "../IconButton";
 
-describe("Button", () => {
+describe("IconButton", () => {
   it("renders profile icon", () => {
-    const wrapper = shallow(<ButtonIcon type="profile" onClick={noop} />);
+    const wrapper = shallow(<IconButton type="profile" onClick={noop} />);
     const iconContainer = wrapper.find(Icon);
     expect(iconContainer).toHaveLength(1);
     expect(iconContainer.html()).toContain("#profile");
@@ -15,11 +15,11 @@ describe("Button", () => {
   it("can click and not click when disabled", () => {
     const callbackFunc = jest.fn();
     const disabledCallbackFunc = jest.fn();
-    const wrapper = shallow(<ButtonIcon onClick={callbackFunc} />);
+    const wrapper = shallow(<IconButton onClick={callbackFunc} />);
     wrapper.simulate("click");
     expect(callbackFunc).toHaveBeenCalled();
     const disabledWrapper = shallow(
-      <ButtonIcon disabled={true} onClick={disabledCallbackFunc} />
+      <IconButton disabled={true} onClick={disabledCallbackFunc} />
     );
     disabledWrapper.simulate("click");
     expect(disabledCallbackFunc).toHaveBeenCalledTimes(0);

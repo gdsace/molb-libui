@@ -3,7 +3,7 @@
 .wrapper {
   display: flex;
 
-  .buttonIcon {
+  .iconButton {
     // 32px here is magic space fiting for input with label
     margin: 32px 0 auto $space-1;
   }
@@ -14,7 +14,7 @@
   justify-content: space-around;
   align-items: center;
 
-  .buttonIcon {
+  .iconButton {
     margin-left: $space-1;
   }
 }

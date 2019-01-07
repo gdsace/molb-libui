@@ -2,16 +2,16 @@ import classNames from "classnames";
 import * as React from "react";
 import { Icon, IIconProps } from "../icons";
 
-const styles = require("./buttonIcon.scss");
+const styles = require("./iconButton.scss");
 
-export interface IButtonIconProps extends IIconProps {
+export interface IIconButtonProps extends IIconProps {
   onClick: () => any;
   disabled?: boolean;
   iconClassName?: string;
 }
 
-export class ButtonIcon extends React.Component<IButtonIconProps, {}> {
-  public static defaultProps: Partial<IButtonIconProps> = {
+export class IconButton extends React.Component<IIconButtonProps, {}> {
+  public static defaultProps: Partial<IIconButtonProps> = {
     className: "",
     disabled: false,
     iconClassName: "",
@@ -31,8 +31,8 @@ export class ButtonIcon extends React.Component<IButtonIconProps, {}> {
       viewBox,
       onClick
     } = this.props;
-    const buttonIconClassName = classNames(
-      styles.buttonIconContainer,
+    const iconButtonClassName = classNames(
+      styles.iconButtonContainer,
       className,
       {
         [styles.disabled]: disabled
@@ -41,7 +41,7 @@ export class ButtonIcon extends React.Component<IButtonIconProps, {}> {
 
     return (
       <div
-        className={buttonIconClassName}
+        className={iconButtonClassName}
         onClick={() => this.handleOnClick(onClick)}
       >
         <Icon

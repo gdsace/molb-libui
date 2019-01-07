@@ -35,5 +35,5 @@ export * from "./tileGroup/tile";
 export * from "./tileGroup";
 export * from "./timePicker";
 export * from "./tooltips";
-export * from "./buttonIcon";
+export * from "./iconButton";
 export * from "./EnumValues";

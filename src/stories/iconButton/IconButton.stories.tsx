@@ -1,12 +1,12 @@
 import React from "react";
 
 import { storiesOf } from "@storybook/react";
-import { ButtonIcon, Input, InputType, Size } from "../../components";
+import { IconButton, Input, InputType, Size } from "../../components";
 import { wInfo } from "../utils";
 
 import { action } from "@storybook/addon-actions";
 
-const styles = require("./buttonIcon.stroies.scss");
+const styles = require("./IconButton.stroies.scss");
 
 const rowStyles = {
   padding: "20px 0",
@@ -16,19 +16,19 @@ const rowStyles = {
 };
 
 (storiesOf("Components", module) as any).addWithJSX(
-  "ButtonIcon",
+  "IconButton",
   wInfo(``)(() => (
     <div style={{ padding: "10px" }}>
-      Single ButtonIcon
+      Single iconButton
       <div style={rowStyles}>
-        <ButtonIcon type="profile" onClick={action("button-click")} />
-        <ButtonIcon
+        <IconButton type="profile" onClick={action("button-click")} />
+        <IconButton
           type="profile"
           disabled={true}
           onClick={action("button-click")}
         />
       </div>
-      ButtonIcon With Ohter Component
+      iconButton With Ohter Component
       <div style={rowStyles}>
         <div className={styles.wrapper}>
           <Input
@@ -37,9 +37,9 @@ const rowStyles = {
             label={"Number"}
             size={Size.Large}
           />
-          <ButtonIcon
+          <IconButton
             type="profile"
-            className={styles.buttonIcon}
+            className={styles.iconButton}
             onClick={action("button-click")}
           />
         </div>
@@ -49,9 +49,9 @@ const rowStyles = {
             type={InputType.Number}
             size={Size.Large}
           />
-          <ButtonIcon
+          <IconButton
             type="profile"
-            className={styles.buttonIcon}
+            className={styles.iconButton}
             onClick={action("button-click")}
           />
         </div>
@@ -61,10 +61,10 @@ const rowStyles = {
             type={InputType.Number}
             size={Size.Large}
           />
-          <ButtonIcon
+          <IconButton
             type="profile"
             disabled
-            className={styles.buttonIcon}
+            className={styles.iconButton}
             onClick={action("button-click")}
           />
         </div>
