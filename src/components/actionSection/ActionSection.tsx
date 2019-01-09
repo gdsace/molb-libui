@@ -12,6 +12,7 @@ export interface IActionSectionProps {
   onNextClick?: () => any;
   showPrevious?: boolean;
   showNext?: boolean;
+  loading?: boolean;
   history?: any;
   disableNext?: boolean;
   onPreviousLabel?: string;
@@ -58,6 +59,7 @@ export class ActionSection extends React.Component<IActionSectionProps, {}> {
               icon="arrowNext"
               iconAlign="right"
               disabled={this.props.disableNext}
+              loading={this.props.loading}
               onClick={
                 this.props.onNextClick ||
                 (() => {
