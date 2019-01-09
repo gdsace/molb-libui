@@ -39,6 +39,18 @@ const styles = require("./actionSection.stories.scss");
           onPreviousClick={action("previous-button-click")}
         />
       </div>
+      <h6>Action Section with custom Left and loading</h6>
+      <div className={styles.box}>
+        <ActionSection
+          showPrevious={true}
+          showNext={true}
+          onNextLabel="RIGHT"
+          onPreviousLabel="LEFT"
+          loading={true}
+          onNextClick={action("next-button-click")}
+          onPreviousClick={action("previous-button-click")}
+        />
+      </div>
     </div>
   ))
 );

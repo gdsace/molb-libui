@@ -4,6 +4,7 @@ export interface IActionSectionProps {
     onNextClick?: () => any;
     showPrevious?: boolean;
     showNext?: boolean;
+    loading?: boolean;
     history?: any;
     disableNext?: boolean;
     onPreviousLabel?: string;

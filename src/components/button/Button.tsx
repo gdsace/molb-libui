@@ -78,7 +78,7 @@ export class Button extends React.Component<IButtonProps, {}> {
   }
 
   private handleOnClick = (onClick: () => any) => {
-    if (!this.props.disabled) {
+    if (!this.props.disabled && !this.props.loading) {
       onClick();
     }
   };
