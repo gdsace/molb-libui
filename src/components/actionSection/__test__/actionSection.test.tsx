@@ -1,7 +1,6 @@
 import { mount } from "enzyme";
 import { noop } from "lodash";
 import * as React from "react";
-import { noop } from "react-select/lib/utils";
 import { Button } from "../../button";
 import { ActionSection } from "../ActionSection";
 
