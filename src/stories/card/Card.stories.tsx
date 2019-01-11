@@ -21,7 +21,12 @@ const longSubtitle =
 
 const price = "S$800.00";
 const actionField = (
-  <Link label="link button" icon={"arrowNext"} onClick={action("link-click")} />
+  <Link
+    label="link button"
+    icon={"arrowNext"}
+    onClick={action("link-click")}
+    link="https://www.google.com"
+  />
 );
 const date = "10 Jan 2010 to 10 Jan 2020";
 

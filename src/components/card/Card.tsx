@@ -68,8 +68,6 @@ export class Card extends React.Component<ICardProps> {
   }
 
   private handleOnClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
     if (this.props.onClick) {
       this.props.onClick();
     }
