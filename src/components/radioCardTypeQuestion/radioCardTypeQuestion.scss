@@ -1,9 +1,5 @@
 @import "../styles/utils.scss";
 
-.questionWrapper {
-  position: relative;
-}
-
 .tileWrapper {
   margin: 15px;
   height: 143px;
@@ -14,11 +10,5 @@
 }
 
 .errorMsg {
-  color: $support-red;
-  font-size: $medium;
-  line-height: $line-height-medium;
-  margin-top: $space-1;
-  position: absolute;
-  left: 0;
-  top: 100%;
+  margin: $space-3 0;
 }
