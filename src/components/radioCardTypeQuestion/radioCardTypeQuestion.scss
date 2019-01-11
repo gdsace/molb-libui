@@ -1,5 +1,10 @@
 @import "../styles/utils.scss";
 
+.questionWrapper {
+  position: relative;
+  width: 100%;
+}
+
 .tileWrapper {
   margin: 15px;
   height: 143px;
