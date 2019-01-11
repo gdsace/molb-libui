@@ -5,7 +5,8 @@ import { TileGroup } from "../tileGroup";
 import { Tile } from "../tileGroup/tile";
 
 import { map } from "lodash";
-import { TileTheme } from "../EnumValues";
+import { NotificationTheme, TileTheme } from "../EnumValues";
+import { InlineNotification } from "../inlineNotification";
 
 const styles = require("./radioCardTypeQuestion.scss");
 
@@ -38,6 +39,14 @@ export class RadioCardTypeQuestion extends React.Component<
     return (
       <div id={this.props.id} className={styles.questionWrapper}>
         <H7>{question}</H7>
+        {this.props.showError && this.props.errorMsg && (
+          <div className={styles.errorMsg}>
+            <InlineNotification
+              text={this.props.errorMsg}
+              theme={NotificationTheme.Error}
+            />
+          </div>
+        )}
         <TileGroup
           onChange={this.onChange}
           className={styles.tileGroupWrapper}
@@ -55,9 +64,6 @@ export class RadioCardTypeQuestion extends React.Component<
             />
           ))}
         </TileGroup>
-        {this.props.showError && (
-          <div className={styles.errorMsg}>{this.props.errorMsg}</div>
-        )}
       </div>
     );
   }

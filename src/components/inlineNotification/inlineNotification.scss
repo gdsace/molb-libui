@@ -3,6 +3,8 @@
 .inlineNotification {
   display: flex;
   align-items: center;
+  border-radius: 5px;
+  max-height: 55px;
 
   &.success {
     background-color: $panache;
