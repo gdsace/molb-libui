@@ -118,6 +118,10 @@ $content-space-padding: 32px;
   .actionField {
     color: $support-yellow;
   }
+
+  .header .title {
+    color: $marigold;
+  }
 }
 
 .titleWrapper {
@@ -129,11 +133,19 @@ $content-space-padding: 32px;
 .purple {
   background-color: $selago-light;
   border: solid 1px $selago;
+
+  .header .title {
+    color: $indigo;
+  }
 }
 
 .green {
   background-color: $panache;
   border: solid 1px $zanah;
+
+  .header .title {
+    color: $support-green;
+  }
 }
 
 .clickable {
