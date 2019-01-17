@@ -128,6 +128,10 @@ $content-space-padding: 32px;
   display: flex;
   align-items: flex-start;
   max-width: 398px;
+
+  &.noSupportingText {
+    max-width: 586px;
+  }
 }
 
 .purple {

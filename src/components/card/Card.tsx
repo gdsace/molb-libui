@@ -34,11 +34,14 @@ export class Card extends React.Component<ICardProps> {
         [styles.cursorClick]: !!this.props.onClick
       }
     );
+    const titleWrapperClass = classnames(styles.titleWrapper, {
+      [styles.noSupportingText]: !this.props.supportingText
+    });
 
     return (
       <div className={cardClass} onClick={this.handleOnClick}>
         <div className={styles.header}>
-          <div className={styles.titleWrapper}>
+          <div className={titleWrapperClass}>
             <h6 className={styles.title}>{this.props.title}</h6>
             {this.props.titleIcon}
           </div>
