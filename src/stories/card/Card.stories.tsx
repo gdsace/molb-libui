@@ -4,7 +4,7 @@ import { storiesOf } from "@storybook/react";
 
 import { action } from "@storybook/addon-actions";
 import { Card, CardTheme, Link, TagTheme } from "../../components";
-import { wInfo } from "../utils";
+import { CategoryName, wInfo } from "../utils";
 
 const description = (
   <div>
@@ -34,7 +34,7 @@ const rowStyles = {
   padding: "20px 0"
 };
 
-(storiesOf("Components", module) as any).addWithJSX(
+(storiesOf(CategoryName.Cards, module) as any).addWithJSX(
   "Card",
   wInfo(``)(() => (
     <div style={{ padding: "10px" }}>

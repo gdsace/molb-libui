@@ -30,3 +30,22 @@ export function wInfo(text: string): any {
     text
   });
 }
+
+export enum CategoryName {
+  Buttons = "Buttons",
+  Cards = "Cards",
+  Dropdown = "Dropdown",
+  Icons = "Icons",
+  TextFields = "Text-Fields",
+  Links = "Links",
+  Modal = "Modal",
+  Notification = "Notification",
+  Table = "Table",
+  Tabs = "Tabs",
+  Tags = "Tags",
+  Tiles = "Tiles",
+  TimePicker = "TimePicker",
+  Tooltips = "Tooltips",
+  SelectionControls = "Selection-Controls",
+  Others = "Others"
+}

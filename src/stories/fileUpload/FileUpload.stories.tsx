@@ -5,13 +5,13 @@ import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
 import { Button, FileUpload, Size } from "../../components";
 import { documentTypes } from "../../components/fileUpload/__tests__/__mocks__/documentTypes";
-import { wInfo } from "../utils";
+import { CategoryName, wInfo } from "../utils";
 
 const store = new Store({
   error: "something wrong"
 });
 
-(storiesOf("Components", module) as any).addWithJSX(
+(storiesOf(CategoryName.Others, module) as any).addWithJSX(
   "FileUpload",
   wInfo(``)(() => (
     <div>

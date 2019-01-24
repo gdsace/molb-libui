@@ -3,7 +3,7 @@ import React from "react";
 import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
 import { Dropdown, PremiseDropdown } from "../../components";
-import { wInfo } from "../utils";
+import { CategoryName, wInfo } from "../utils";
 
 const styles = require("./dropdown.stories.scss");
 
@@ -43,7 +43,7 @@ const mockOptions = [
  * Then the stateless component Dropdown get update
  * from store.get("value")
  */
-(storiesOf("Components", module) as any).addWithJSX(
+(storiesOf(CategoryName.Dropdown, module) as any).addWithJSX(
   "Dropdown",
   wInfo(``)(() => (
     <div className={styles.rootContainer}>

@@ -3,14 +3,14 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { Tag } from "../../components";
 import { TagTheme } from "../../components/EnumValues";
-import { wInfo } from "../utils";
+import { CategoryName, wInfo } from "../utils";
 
 const rowStyles = {
   padding: "20px 0",
   marginRight: "10px"
 };
 
-(storiesOf("Components", module) as any).addWithJSX(
+(storiesOf(CategoryName.Tags, module) as any).addWithJSX(
   "Tag",
   wInfo(``)(() => (
     <div style={{ padding: "10px" }}>

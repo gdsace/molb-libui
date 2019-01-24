@@ -2,7 +2,7 @@ import React from "react";
 
 import { storiesOf } from "@storybook/react";
 import { Table, TableTheme } from "../../components";
-import { wInfo } from "../utils";
+import { CategoryName, wInfo } from "../utils";
 
 export const tableColumns = [
   {
@@ -82,7 +82,7 @@ export const dataSource = [
   }
 ];
 
-(storiesOf("Components", module) as any).addWithJSX(
+(storiesOf(CategoryName.Table, module) as any).addWithJSX(
   "Table",
   wInfo(``)(() => (
     <div>

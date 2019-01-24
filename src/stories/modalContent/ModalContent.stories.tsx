@@ -3,11 +3,11 @@ import React from "react";
 import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
 import { ModalContent } from "../../components";
-import { wInfo } from "../utils";
+import { CategoryName, wInfo } from "../utils";
 
 const styles = require("./modalContent.stories.scss");
 
-(storiesOf("Components", module) as any).addWithJSX(
+(storiesOf(CategoryName.Modal, module) as any).addWithJSX(
   "ModalContent",
   wInfo(``)(() => (
     <div>

@@ -3,7 +3,7 @@ import React from "react";
 
 import { storiesOf } from "@storybook/react";
 import { TimePicker } from "../../components";
-import { wInfo } from "../utils";
+import { CategoryName, wInfo } from "../utils";
 
 const styles = require("./timePicker.stories.scss");
 
@@ -41,7 +41,7 @@ const onValueChange = (value: moment.Moment) => {
   return;
 };
 
-(storiesOf("Components", module) as any).addWithJSX(
+(storiesOf(CategoryName.TimePicker, module) as any).addWithJSX(
   "TimePicker",
   wInfo(``)(() => {
     return (

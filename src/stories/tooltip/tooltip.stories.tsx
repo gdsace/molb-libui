@@ -2,11 +2,11 @@ import React from "react";
 
 import { storiesOf } from "@storybook/react";
 import { Icon, Tooltips, TooltipsLocationTheme } from "../../components";
-import { wInfo } from "../utils";
+import { CategoryName, wInfo } from "../utils";
 
 const styles = require("./tooltip.stories.scss");
 
-(storiesOf("Components", module) as any).addWithJSX(
+(storiesOf(CategoryName.Tooltips, module) as any).addWithJSX(
   "Tooltips",
   wInfo(``)(() => (
     <div className={styles.rootContainer}>
