@@ -1,6 +1,10 @@
 @import "../styles/utils.scss";
 
 .headerSection {
+  @include for-desktop-up {
+    width: $form-contaienr-width;
+  }
+
   &.large {
     margin-bottom: $space-8;
   }
