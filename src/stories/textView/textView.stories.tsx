@@ -4,7 +4,7 @@ import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
 import { TextView } from "../../components";
 import { mockLongText } from "../../components/textView/__tests__/mockText";
-import { wInfo } from "../utils";
+import { CategoryName, wInfo } from "../utils";
 
 const textViewStyle = {
   width: 800,
@@ -15,7 +15,7 @@ const styles = {
   margin: "36px"
 };
 
-(storiesOf("Components", module) as any).addWithJSX(
+(storiesOf(CategoryName.TextFields, module) as any).addWithJSX(
   "TextView",
   wInfo(``)(() => (
     <div>

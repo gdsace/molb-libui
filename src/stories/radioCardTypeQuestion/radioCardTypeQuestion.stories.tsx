@@ -5,7 +5,7 @@ import {
   IOption,
   RadioCardTypeQuestion
 } from "../../components/radioCardTypeQuestion/RadioCardTypeQuestion";
-import { wInfo } from "../utils";
+import { CategoryName, wInfo } from "../utils";
 
 const radioCardTypeQuestionStyle = {
   marginBottom: "60px",
@@ -31,7 +31,7 @@ const onChange = (value: string) => {
 };
 const errorMsg = "this is error message";
 
-(storiesOf("Components", module) as any).addWithJSX(
+(storiesOf(CategoryName.SelectionControls, module) as any).addWithJSX(
   "RadioCardTypeQuestion",
   wInfo(``)(() => (
     <div>

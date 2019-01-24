@@ -4,7 +4,7 @@ import { storiesOf } from "@storybook/react";
 
 import { State, Store } from "@sambego/storybook-state";
 import { Indicator, Sidebar } from "../../components";
-import { wInfo } from "../utils";
+import { CategoryName, wInfo } from "../utils";
 
 const store1 = new Store({
   activeIndex: 1
@@ -66,7 +66,7 @@ const indicatorList2 = [
   }
 ];
 
-(storiesOf("Components", module) as any).addWithJSX(
+(storiesOf(CategoryName.Others, module) as any).addWithJSX(
   "Sidebar",
   wInfo(``)(() => (
     <div style={{ padding: "10px" }}>

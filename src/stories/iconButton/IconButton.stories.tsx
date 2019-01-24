@@ -2,7 +2,7 @@ import React from "react";
 
 import { storiesOf } from "@storybook/react";
 import { IconButton, Input, InputType, Size } from "../../components";
-import { wInfo } from "../utils";
+import { CategoryName, wInfo } from "../utils";
 
 import { action } from "@storybook/addon-actions";
 
@@ -15,7 +15,7 @@ const rowStyles = {
   alignItems: "center"
 };
 
-(storiesOf("Components", module) as any).addWithJSX(
+(storiesOf(CategoryName.Buttons, module) as any).addWithJSX(
   "IconButton",
   wInfo(``)(() => (
     <div style={{ padding: "10px" }}>

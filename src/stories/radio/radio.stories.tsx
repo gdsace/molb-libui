@@ -3,7 +3,7 @@ import React from "react";
 import { State, Store } from "@sambego/storybook-state";
 import { storiesOf } from "@storybook/react";
 import { IOptionValue, IRadioProps, Radio } from "../../components/radio/Radio";
-import { wInfo } from "../utils";
+import { CategoryName, wInfo } from "../utils";
 
 const valueChangeHanlder = (value: string) => {
   store.set({ value });
@@ -95,7 +95,7 @@ const store3 = new Store({
  * Then the stateless component Dropdown get update
  * from store.get("value")
  */
-(storiesOf("Components", module) as any).addWithJSX(
+(storiesOf(CategoryName.SelectionControls, module) as any).addWithJSX(
   "Radio",
   wInfo(``)(() => (
     <div>

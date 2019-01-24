@@ -2,11 +2,11 @@ import React from "react";
 
 import { storiesOf } from "@storybook/react";
 import { TextArea } from "../../components";
-import { wInfo } from "../utils";
+import { CategoryName, wInfo } from "../utils";
 
 const styles = require("./textArea.stories.scss");
 
-(storiesOf("Components", module) as any).addWithJSX(
+(storiesOf(CategoryName.TextFields, module) as any).addWithJSX(
   "TextArea",
   wInfo(``)(() => {
     return (

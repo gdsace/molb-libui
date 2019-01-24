@@ -2,7 +2,7 @@ import React from "react";
 
 import { storiesOf } from "@storybook/react";
 import { PremiseDropdown, Tabs } from "../../components";
-import { wInfo } from "../utils";
+import { CategoryName, wInfo } from "../utils";
 
 const styles = require("./tabs.stories.scss");
 
@@ -69,7 +69,7 @@ const mockOptions = [
 
 const leftNode2: React.ReactNode = <PremiseDropdown options={mockOptions} />;
 
-(storiesOf("Components", module) as any).addWithJSX(
+(storiesOf(CategoryName.Tabs, module) as any).addWithJSX(
   "Tabs",
   wInfo(``)(() => (
     <div className={styles.rootContainer}>

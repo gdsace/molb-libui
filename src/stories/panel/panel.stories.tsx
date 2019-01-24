@@ -2,11 +2,11 @@ import React from "react";
 
 import { storiesOf } from "@storybook/react";
 import { Panel, PanelTheme, PanelType } from "../../components";
-import { wInfo } from "../utils";
+import { CategoryName, wInfo } from "../utils";
 
 const styles = require("./panel.stories.scss");
 
-(storiesOf("Components", module) as any).addWithJSX(
+(storiesOf(CategoryName.Others, module) as any).addWithJSX(
   "Panel",
   wInfo(``)(() => (
     <div className={styles.rootContainer}>

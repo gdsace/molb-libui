@@ -3,7 +3,7 @@ import React from "react";
 import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
 import { Input, InputType, Size } from "../../components";
-import { wInfo } from "../utils";
+import { CategoryName, wInfo } from "../utils";
 
 const styles = require("./input.stories.scss");
 
@@ -11,7 +11,7 @@ const placeholder = "Enter text";
 const helperMsg = "Helper text";
 const errorMsg = "Validation error message, blah blah blah...";
 
-(storiesOf("Components", module) as any).addWithJSX(
+(storiesOf(CategoryName.TextFields, module) as any).addWithJSX(
   "Input",
   wInfo(``)(() => (
     <div className={styles.rootContainer}>

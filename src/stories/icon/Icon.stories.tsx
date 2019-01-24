@@ -2,7 +2,7 @@ import React from "react";
 
 import { storiesOf } from "@storybook/react";
 import { Icon } from "../../components";
-import { wInfo } from "../utils";
+import { CategoryName, wInfo } from "../utils";
 
 const styles = require("./icon.stories.scss");
 
@@ -16,7 +16,7 @@ const icons = [
   { type: "check" },
   { type: "checkbox" }
 ];
-(storiesOf("Components", module) as any).addWithJSX(
+(storiesOf(CategoryName.Icons, module) as any).addWithJSX(
   "Icon",
   wInfo(``)(() => (
     <div>

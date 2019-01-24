@@ -3,7 +3,7 @@ import React from "react";
 import { State, Store } from "@sambego/storybook-state";
 import { storiesOf } from "@storybook/react";
 import { CheckboxTypeQuestion } from "../../components";
-import { wInfo } from "../utils";
+import { CategoryName, wInfo } from "../utils";
 
 const store = new Store({
   checked: false
@@ -16,7 +16,7 @@ const onCheckboxClick = (value: string) => {
 const questionLabel = "Question label";
 const questionDescription = "This is question description";
 
-(storiesOf("Components", module) as any).addWithJSX(
+(storiesOf(CategoryName.SelectionControls, module) as any).addWithJSX(
   "CheckboxTypeQuestion",
   wInfo(``)(() => {
     return (

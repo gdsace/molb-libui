@@ -2,11 +2,11 @@ import React from "react";
 
 import { storiesOf } from "@storybook/react";
 import { Layout } from "../../components";
-import { wInfo } from "../utils";
+import { CategoryName, wInfo } from "../utils";
 
 const styles = require("./layout.stories.scss");
 
-(storiesOf("Components", module) as any).addWithJSX(
+(storiesOf(CategoryName.Others, module) as any).addWithJSX(
   "Layout",
   wInfo(``)(() => (
     <div className={styles.rootContainer}>
