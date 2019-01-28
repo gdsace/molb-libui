@@ -15,6 +15,7 @@ export interface IDropdownProps<T> extends Props<T> {
   size?: Size;
   maxLength?: number;
   onTextInputChange?: (event: React.ChangeEvent<HTMLInputElement>) => any;
+  textInputValue?: string;
 }
 
 // This Dropdown has outlining, a label and an error field over BaseDropdown
@@ -79,7 +80,7 @@ export class Dropdown<T> extends React.Component<IDropdownProps<T>, {}> {
 
     const input = (
       <Input
-        value={this.props.value || ""}
+        value={this.props.textInputValue || ""}
         size={Size.Large}
         errorMsg={`${this.props.error}`}
         showError={!!this.props.error}
