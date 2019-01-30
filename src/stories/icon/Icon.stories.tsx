@@ -7,8 +7,6 @@ import { CategoryName, wInfo } from "../utils";
 const styles = require("./icon.stories.scss");
 
 const icons = [
-  { type: "business" },
-  { type: "checkbox" },
   { type: "add" },
   { type: "alert" },
   { type: "arrowNext" },
