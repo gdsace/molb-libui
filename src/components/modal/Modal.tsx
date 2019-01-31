@@ -26,7 +26,7 @@ export class Modal extends React.Component<IModalProps, {}> {
   };
   private readonly el: HTMLElement;
   private modalRoot: HTMLElement;
-  private setUpModalContentRef: (element: HTMLElement) => any;
+  private readonly setUpModalContentRef: (element: HTMLElement) => any;
   private modalNode: HTMLElement | undefined;
 
   constructor(props: IModalProps) {
