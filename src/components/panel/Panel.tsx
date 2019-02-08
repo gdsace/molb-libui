@@ -14,7 +14,7 @@ export interface IPanelProps {
 
 export class Panel extends React.Component<IPanelProps, {}> {
   public static defaultProps: Partial<IPanelProps> = {
-    type: PanelType.Sidebared,
+    type: PanelType.Sidebar,
     theme: PanelTheme.Normal
   };
 
@@ -31,7 +31,7 @@ export class Panel extends React.Component<IPanelProps, {}> {
           className={classnames(
             {
               [styles.onepagePanel]: this.props.type === PanelType.Onepage,
-              [styles.sidebaredPanel]: this.props.type === PanelType.Sidebared
+              [styles.sidebarPanel]: this.props.type === PanelType.Sidebar
             },
             this.props.contentStyle
           )}
