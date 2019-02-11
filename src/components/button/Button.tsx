@@ -5,6 +5,8 @@ import { Icon } from "../icons";
 
 const styles = require("./button.scss");
 
+type ButtonType = "submit" | "reset" | "button";
+
 export interface IButtonProps {
   onClick: () => any;
   label: string;
@@ -12,6 +14,7 @@ export interface IButtonProps {
   className?: string;
   size?: Size;
   theme?: Theme;
+  type?: ButtonType;
   icon?: string;
   iconAlign?: "left" | "right";
   children?: React.ReactNode;
@@ -20,6 +23,7 @@ export interface IButtonProps {
 
 export class Button extends React.Component<IButtonProps, {}> {
   public static defaultProps: Partial<IButtonProps> = {
+    type: "submit",
     className: "",
     disabled: false,
     size: Size.Small,
@@ -38,6 +42,7 @@ export class Button extends React.Component<IButtonProps, {}> {
 
     return (
       <button
+        type={this.props.type}
         disabled={this.props.disabled}
         className={buttonClassName}
         onClick={() => this.handleOnClick(this.props.onClick)}
