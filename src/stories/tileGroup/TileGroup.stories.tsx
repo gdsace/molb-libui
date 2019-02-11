@@ -26,12 +26,6 @@ const tileOptions = [
     icon: "big-icon",
     name: "Food Court",
     description: "Primarily for sale of food, single operator etc."
-  },
-  {
-    key: "RESTAURANT2",
-    icon: "big-icon",
-    name: "RESTAURANT2",
-    description: "This example is to show 4 four tile in a tileGroup."
   }
 ];
 const selectedTileValue = tileOptions[1];

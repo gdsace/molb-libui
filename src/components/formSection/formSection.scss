@@ -2,7 +2,7 @@
 
 .headerSection {
   @include for-desktop-up {
-    width: $form-contaienr-width;
+    width: $sub-content-width;
   }
 
   &.large {

@@ -4,7 +4,6 @@ import { H7 } from "../h7";
 import { TileGroup } from "../tileGroup";
 import { Tile } from "../tileGroup/tile";
 
-import classNames from "classnames";
 import { map } from "lodash";
 import { NotificationTheme, TileTheme } from "../EnumValues";
 import { InlineNotification } from "../inlineNotification";
@@ -19,7 +18,6 @@ export interface IRadioCardTypeQuestionProps {
   showError?: boolean;
   errorMsg?: string;
   id?: string;
-  radioCardTypeQuestionClassname: string;
 }
 
 export interface IOption {
@@ -37,17 +35,9 @@ export class RadioCardTypeQuestion extends React.Component<
   };
 
   public render() {
-    const {
-      question,
-      options,
-      selectedAnswer,
-      radioCardTypeQuestionClassname
-    } = this.props;
-    const questionWrapperClassname = classNames(styles.questionWrapper, {
-      [`${radioCardTypeQuestionClassname}`]: radioCardTypeQuestionClassname
-    });
+    const { question, options, selectedAnswer } = this.props;
     return (
-      <div id={this.props.id} className={questionWrapperClassname}>
+      <div id={this.props.id} className={styles.questionWrapper}>
         <H7>{question}</H7>
         {this.props.showError && this.props.errorMsg && (
           <div className={styles.errorMsg}>

@@ -7,7 +7,6 @@ export interface IRadioCardTypeQuestionProps {
     showError?: boolean;
     errorMsg?: string;
     id?: string;
-    radioCardTypeQuestionClassname: string;
 }
 export interface IOption {
     label: string;
