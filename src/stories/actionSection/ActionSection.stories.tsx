@@ -51,6 +51,19 @@ const styles = require("./actionSection.stories.scss");
           onPreviousClick={action("previous-button-click")}
         />
       </div>
+
+      <h6>Action Section without right icon </h6>
+      <div className={styles.box}>
+        <ActionSection
+          showPrevious={true}
+          showNext={true}
+          showNextIcon={false}
+          onNextLabel="RIGHT"
+          onPreviousLabel="LEFT"
+          onNextClick={action("next-button-click")}
+          onPreviousClick={action("previous-button-click")}
+        />
+      </div>
     </div>
   ))
 );
