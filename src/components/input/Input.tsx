@@ -34,7 +34,7 @@ export interface IInputProps {
   showTooltip?: boolean;
   suffix?: string;
   showCharacterCount?: boolean;
-  toolTipsContent?: string;
+  toolTipsContent?: JSX.Element | string;
   toolTipsPosition?: TooltipsLocationTheme;
   /*
    * This regex is to filter/reject the unexpected newValue changes (typed/pasted/...)
@@ -76,12 +76,6 @@ export class Input extends React.Component<IInputProps, any> {
       this.props.showError ||
       this.props.helperMsg ||
       this.props.showCharacterCount;
-
-    const toolTipsContent = this.props.toolTipsContent
-      ? this.props.toolTipsContent
-          .split("\n")
-          .map((item: string, key) => <p key={key}>{item}</p>)
-      : undefined;
     return (
       <div
         className={rootContainerClassname}
@@ -109,7 +103,9 @@ export class Input extends React.Component<IInputProps, any> {
                 }
                 specializedPosition={true}
               >
-                <div className={styles.toolTipsContent}>{toolTipsContent}</div>
+                <div className={styles.toolTipsContent}>
+                  {this.props.toolTipsContent}
+                </div>
               </Tooltips>
             )}
           </div>

@@ -32,7 +32,7 @@ describe("Input", () => {
     expect(onChangeMock).not.toHaveBeenCalled();
   });
 
-  it("should render toolTipsContent with line break", () => {
+  it("should render toolTipsContent as a string when toolTipsContent is string", () => {
     const onChangeMock = jest.fn();
     const toolTipsContent =
       "Please follow this general format:\n" +
@@ -54,17 +54,27 @@ describe("Input", () => {
     const result = component
       .find("Tooltips")
       .dive()
-      .find(".toolTipsContent")
-      .find("p");
-    expect(result).toHaveLength(7);
-    expect(result.at(0).text()).toEqual("Please follow this general format:");
-    expect(result.at(1).text()).toEqual(
-      "E.g. use '01', it represents '1st floor'. In the same way:"
+      .find(".toolTipsContent");
+    expect(result.text()).toEqual(toolTipsContent);
+  });
+
+  it("should render toolTipsContent as a element when toolTipsContent is JSX Element", () => {
+    const onChangeMock = jest.fn();
+    const toolTipsContent = <div>I am a JSX.Element</div>
+    const component = Enzyme.shallow(
+      <Input
+        value="initial"
+        onChange={onChangeMock}
+        label={"label"}
+        showTooltip={true}
+        toolTipsContent={toolTipsContent}
+      />
     );
-    expect(result.at(2).text()).toEqual("02 = 2nd floor");
-    expect(result.at(3).text()).toEqual("10 = 10th floor");
-    expect(result.at(4).text()).toEqual("MEZZ = Mezzanine");
-    expect(result.at(5).text()).toEqual("RF = Roof");
-    expect(result.at(6).text()).toEqual("B1 = Basement 1");
+    const result = component
+      .find("Tooltips")
+      .dive()
+      .find(".toolTipsContent")
+      .find("div");
+    expect(result.text()).toEqual("I am a JSX.Element");
   });
 });

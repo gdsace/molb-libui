@@ -133,13 +133,34 @@ const errorMsg = "Validation error message, blah blah blah...";
             value="Text input with toolTip"
             showTooltip={true}
             toolTipsContent={
-              "Something need to show...Please follow this general format:\n" +
-              "E.g. use ’01’, it represents ‘1st floor’. In the same way:\n" +
-              "02 = 2nd floor\n" +
-              "10 = 10th floor\n" +
-              "MEZZ = Mezzanine\n" +
-              "RF = Roof\n" +
-              "B1 = Basement 1"
+              <div>
+                Something need to show like below - <br />
+                Please follow this general format:
+                <br />
+                E.g. use ’01’, it represents ‘1st floor’. In the same way:
+                <br />
+                10 = 10th floor
+                <br />
+                MEZZ = Mezzanine
+                <br />
+                RF = Roof
+                <br />
+                B1 = Basement 1<br />
+              </div>
+            }
+          />
+        </div>
+        <div className={styles.box}>
+          <Input
+            onChange={action("value")}
+            placeholder={placeholder}
+            type={InputType.Text}
+            label={"Tooltip"}
+            size={Size.Large}
+            value="Text input with toolTip"
+            showTooltip={true}
+            toolTipsContent={
+              "Please follow this general format: E.g. use ’01’, it represents ‘1st floor’. In the same way: 02 = 2nd floor, 10 = 10th floor, MEZZ = Mezzanine, RF = Roof, B1 = Basement 1"
             }
           />
         </div>
