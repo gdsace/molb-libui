@@ -34,7 +34,7 @@ export interface IInputProps {
   showTooltip?: boolean;
   suffix?: string;
   showCharacterCount?: boolean;
-  toolTipsContent?: string;
+  toolTipsContent?: JSX.Element | string;
   toolTipsPosition?: TooltipsLocationTheme;
   /*
    * This regex is to filter/reject the unexpected newValue changes (typed/pasted/...)
@@ -103,7 +103,9 @@ export class Input extends React.Component<IInputProps, any> {
                 }
                 specializedPosition={true}
               >
-                <div>{this.props.toolTipsContent}</div>
+                <div className={styles.toolTipsContent}>
+                  {this.props.toolTipsContent}
+                </div>
               </Tooltips>
             )}
           </div>
