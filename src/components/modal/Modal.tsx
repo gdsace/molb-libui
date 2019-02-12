@@ -7,8 +7,9 @@ import { Icon } from "../icons";
 const styles = require("./modal.scss");
 
 export enum ModalTheme {
-  BASIC,
-  Large
+  Basic,
+  Large,
+  Full
 }
 
 export interface IModalProps {
@@ -22,7 +23,7 @@ export interface IModalProps {
 export class Modal extends React.Component<IModalProps, {}> {
   public static defaultProps: Partial<IModalProps> = {
     show: false,
-    theme: ModalTheme.BASIC
+    theme: ModalTheme.Basic
   };
   private readonly el: HTMLElement;
   private modalRoot: HTMLElement;
@@ -32,7 +33,7 @@ export class Modal extends React.Component<IModalProps, {}> {
   constructor(props: IModalProps) {
     super(props);
     this.el = document.createElement("div");
-    this.modalRoot = document.getElementById("modal-root") as HTMLElement;
+    this.modalRoot = document.body as HTMLElement;
     this.setUpModalContentRef = (element: HTMLElement) =>
       (this.modalNode = element);
   }
@@ -50,7 +51,8 @@ export class Modal extends React.Component<IModalProps, {}> {
     const modalStyle = classNames(styles.modal, {
       [styles.block]: this.props.show,
       [styles.none]: !this.props.show,
-      [styles.largeTheme]: this.props.theme === ModalTheme.Large
+      [styles.largeTheme]: this.props.theme === ModalTheme.Large,
+      [styles.fullTheme]: this.props.theme === ModalTheme.Full
     });
 
     document.body.style.overflow = this.props.show ? "hidden" : "auto";
@@ -61,11 +63,9 @@ export class Modal extends React.Component<IModalProps, {}> {
           className={styles.modalContent}
           ref={this.setUpModalContentRef}
         >
-          <header className={styles.header}>
-            <div className={styles.close} onClick={() => this.props.onClose()}>
-              <Icon type={"close"} />
-            </div>
-          </header>
+          <div className={styles.close} onClick={() => this.props.onClose()}>
+            <Icon type={"close"} />
+          </div>
           <div className={styles.content}>{this.props.children}</div>
         </section>
       </div>

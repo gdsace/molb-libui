@@ -25,14 +25,8 @@
     transform: translate(-50%, -80%);
     border-radius: 5px;
 
-    .header {
-      position: relative;
-      height: 80px;
-      font-size: $xx-large;
-      color: $primary-color;
-    }
-
     .close {
+      font-size: $xx-large;
       position: absolute;
       top: $space-2;
       right: $space-2;
@@ -94,12 +88,45 @@
       overflow-y: auto;
     }
 
-    .header {
-      height: $space-5;
-      padding: 0 $space-5;
+    .content {
+      @include for-phone-only {
+        position: relative;
+        transform: none;
+        top: auto;
+        left: auto;
+      }
+    }
+  }
+}
+
+.modal.fullTheme {
+  .modalContent {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    background: $ui-color-1;
+    border-radius: 0;
+    overflow-y: auto;
+    transform: translate(-50%, -50%);
+
+    @include for-phone-only {
+      top: 0;
+      width: 100%;
+      height: 100%;
+      margin-bottom: 0;
+      overflow-y: auto;
     }
 
     .content {
+      @extend %flex-center;
+
+      margin: 80px auto 0;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+      width: 750px;
+
       @include for-phone-only {
         position: relative;
         transform: none;

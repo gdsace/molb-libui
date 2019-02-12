@@ -1,7 +1,8 @@
 import * as React from "react";
 export declare enum ModalTheme {
-    BASIC = 0,
-    Large = 1
+    Basic = 0,
+    Large = 1,
+    Full = 2
 }
 export interface IModalProps {
     onClose: () => void;
