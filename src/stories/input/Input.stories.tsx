@@ -132,7 +132,15 @@ const errorMsg = "Validation error message, blah blah blah...";
             size={Size.Large}
             value="Text input with toolTip"
             showTooltip={true}
-            toolTipsContent={"Something need to show..."}
+            toolTipsContent={
+              "Something need to show...Please follow this general format:\n" +
+              "E.g. use ’01’, it represents ‘1st floor’. In the same way:\n" +
+              "02 = 2nd floor\n" +
+              "10 = 10th floor\n" +
+              "MEZZ = Mezzanine\n" +
+              "RF = Roof\n" +
+              "B1 = Basement 1"
+            }
           />
         </div>
         <div className={styles.box}>

@@ -76,6 +76,12 @@ export class Input extends React.Component<IInputProps, any> {
       this.props.showError ||
       this.props.helperMsg ||
       this.props.showCharacterCount;
+
+    const toolTipsContent = this.props.toolTipsContent
+      ? this.props.toolTipsContent
+          .split("\n")
+          .map((item: string, key) => <p key={key}>{item}</p>)
+      : undefined;
     return (
       <div
         className={rootContainerClassname}
@@ -103,7 +109,7 @@ export class Input extends React.Component<IInputProps, any> {
                 }
                 specializedPosition={true}
               >
-                <div>{this.props.toolTipsContent}</div>
+                <div className={styles.toolTipsContent}>{toolTipsContent}</div>
               </Tooltips>
             )}
           </div>
