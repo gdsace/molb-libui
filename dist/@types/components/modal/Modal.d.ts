@@ -10,6 +10,7 @@ export interface IModalProps {
     header?: string;
     children?: React.ReactNode;
     theme?: ModalTheme;
+    footer?: React.ReactNode;
 }
 export declare class Modal extends React.Component<IModalProps, {}> {
     static defaultProps: Partial<IModalProps>;

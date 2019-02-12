@@ -45,4 +45,18 @@ describe("Modal", () => {
 
     expect(document.body.style.overflow).toEqual("auto");
   });
+
+  it("should render footer when given footer", () => {
+    const wrapper = mount(
+      <Modal
+        show={true}
+        onClose={noop}
+        header={"header test"}
+        footer={<div>footer component</div>}
+      >
+        <p>test content</p>
+      </Modal>
+    );
+    expect(wrapper.find(".footer")).toHaveLength(1);
+  });
 });

@@ -18,6 +18,7 @@ export interface IModalProps {
   header?: string;
   children?: React.ReactNode;
   theme?: ModalTheme;
+  footer?: React.ReactNode;
 }
 
 export class Modal extends React.Component<IModalProps, {}> {
@@ -68,6 +69,9 @@ export class Modal extends React.Component<IModalProps, {}> {
           </div>
           <div className={styles.content}>{this.props.children}</div>
         </section>
+        {this.props.footer && (
+          <div className={styles.footer}>{this.props.footer}</div>
+        )}
       </div>
     );
 
