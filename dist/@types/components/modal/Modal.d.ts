@@ -1,7 +1,8 @@
 import * as React from "react";
 export declare enum ModalTheme {
-    BASIC = 0,
-    Large = 1
+    Basic = 0,
+    Large = 1,
+    Full = 2
 }
 export interface IModalProps {
     onClose: () => void;
@@ -9,6 +10,7 @@ export interface IModalProps {
     header?: string;
     children?: React.ReactNode;
     theme?: ModalTheme;
+    footer?: React.ReactNode;
 }
 export declare class Modal extends React.Component<IModalProps, {}> {
     static defaultProps: Partial<IModalProps>;
