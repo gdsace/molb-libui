@@ -60,7 +60,7 @@ describe("Input", () => {
 
   it("should render toolTipsContent as a element when toolTipsContent is JSX Element", () => {
     const onChangeMock = jest.fn();
-    const toolTipsContent = <div>I am a JSX.Element</div>
+    const toolTipsContent = <div>I am a JSX.Element</div>;
     const component = Enzyme.shallow(
       <Input
         value="initial"
@@ -75,6 +75,6 @@ describe("Input", () => {
       .dive()
       .find(".toolTipsContent")
       .find("div");
-    expect(result.text()).toEqual("I am a JSX.Element");
+    expect(result.at(1).text()).toEqual("I am a JSX.Element");
   });
 });

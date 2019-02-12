@@ -19,7 +19,7 @@ export interface IInputProps {
     showTooltip?: boolean;
     suffix?: string;
     showCharacterCount?: boolean;
-    toolTipsContent?: string;
+    toolTipsContent?: JSX.Element | string;
     toolTipsPosition?: TooltipsLocationTheme;
     customizedChangesFilterRegex?: RegExp;
 }
