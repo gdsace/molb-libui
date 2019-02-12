@@ -131,11 +131,13 @@
     transform: translate(-50%, -50%);
 
     @include for-phone-only {
-      top: 0;
       width: 100%;
       height: 100%;
-      margin-bottom: 0;
       overflow-y: auto;
+      padding: 0;
+      background: $ui-color-1;
+      border-radius: 0;
+      transform: translate(-50%, -50%);
     }
 
     .content {
