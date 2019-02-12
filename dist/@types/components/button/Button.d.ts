@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Size, Theme } from "../EnumValues";
+declare type ButtonType = "submit" | "reset" | "button";
 export interface IButtonProps {
     onClick: () => any;
     label: string;
@@ -7,6 +8,7 @@ export interface IButtonProps {
     className?: string;
     size?: Size;
     theme?: Theme;
+    type?: ButtonType;
     icon?: string;
     iconAlign?: "left" | "right";
     children?: React.ReactNode;
@@ -18,3 +20,4 @@ export declare class Button extends React.Component<IButtonProps, {}> {
     private renderContent;
     private handleOnClick;
 }
+export {};
