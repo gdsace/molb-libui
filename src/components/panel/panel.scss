@@ -13,13 +13,14 @@
   }
 }
 
-.sidebaredPanel {
+.sidebarPanel {
   background-color: $ui-color-1;
   padding: $space-10 105px;
   margin: 0 auto;
   flex: 1;
   box-sizing: border-box;
   max-width: 1140px;
+  width: 100%;
 
   @include for-phone-only {
     padding: $space-5 30px;
@@ -41,7 +42,7 @@
       padding-bottom: 0;
     }
 
-    .sidebaredPanel {
+    .sidebarPanel {
       padding-bottom: 0;
     }
   }
@@ -53,7 +54,7 @@
       padding-top: 0;
     }
 
-    .sidebaredPanel {
+    .sidebarPanel {
       padding-top: 0;
     }
   }
@@ -66,7 +67,7 @@
       padding-bottom: 0;
     }
 
-    .sidebaredPanel {
+    .sidebarPanel {
       padding-top: 0;
       padding-bottom: 0;
     }

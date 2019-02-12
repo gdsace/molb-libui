@@ -1,10 +1,6 @@
 @import "../styles/utils.scss";
 
 .headerSection {
-  @include for-desktop-up {
-    width: $sub-content-width;
-  }
-
   &.large {
     margin-bottom: $space-8;
   }

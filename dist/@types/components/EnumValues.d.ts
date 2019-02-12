@@ -6,7 +6,7 @@ export declare enum Theme {
 }
 export declare enum PanelType {
     Onepage = "onepagePanel",
-    Sidebared = "sidebaredPanel"
+    Sidebar = "sidebarPanel"
 }
 export declare enum PanelTheme {
     Normal = "normal",
