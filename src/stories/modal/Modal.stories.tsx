@@ -99,7 +99,8 @@ const store3 = new Store({
               <h4>Something need to show </h4>
               <p>
                 abracadabra a long list.....abracadabra abracadabra abracadabra
-                abracadabra abracadabra abracadabra
+                abracadabra abracadabra abracadabra asldfk alskdfjlasdkf
+                asdalsdkfjals asldfkasldfkjalskdfjl alsdkfjalskdj
               </p>
               <p>abracadabra</p>
               <p>abracadabra</p>

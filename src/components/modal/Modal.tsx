@@ -30,6 +30,8 @@ export class Modal extends React.Component<IModalProps, {}> {
   private modalRoot: HTMLElement;
   private readonly setUpModalContentRef: (element: HTMLElement) => any;
   private modalNode: HTMLElement | undefined;
+  private readonly setFooter: (element: HTMLElement) => any;
+  private footer: HTMLElement | undefined;
 
   constructor(props: IModalProps) {
     super(props);
@@ -37,6 +39,7 @@ export class Modal extends React.Component<IModalProps, {}> {
     this.modalRoot = document.body as HTMLElement;
     this.setUpModalContentRef = (element: HTMLElement) =>
       (this.modalNode = element);
+    this.setFooter = (element: HTMLElement) => (this.footer = element);
   }
 
   public componentDidMount() {
@@ -70,7 +73,9 @@ export class Modal extends React.Component<IModalProps, {}> {
           <div className={styles.content}>{this.props.children}</div>
         </section>
         {this.props.footer && (
-          <div className={styles.footer}>{this.props.footer}</div>
+          <section ref={this.setFooter} className={styles.footer}>
+            {this.props.footer}
+          </section>
         )}
       </div>
     );
@@ -79,7 +84,10 @@ export class Modal extends React.Component<IModalProps, {}> {
   }
 
   private onClickAway = (e: any) => {
-    if (this.modalNode && this.modalNode.contains(e.target)) {
+    if (
+      (this.modalNode && this.modalNode.contains(e.target)) ||
+      (this.footer && this.footer.contains(e.target))
+    ) {
       return;
     }
     this.props.onClose();

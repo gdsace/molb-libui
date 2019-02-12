@@ -18,6 +18,8 @@ export declare class Modal extends React.Component<IModalProps, {}> {
     private modalRoot;
     private readonly setUpModalContentRef;
     private modalNode;
+    private readonly setFooter;
+    private footer;
     constructor(props: IModalProps);
     componentDidMount(): void;
     componentWillUnmount(): void;
