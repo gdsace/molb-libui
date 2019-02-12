@@ -54,13 +54,13 @@ const styles = require("./panel.stories.scss");
         </div>
       </div>
 
-      <h6 className={styles.groupHeader}>Panel type: Sidebared,</h6>
+      <h6 className={styles.groupHeader}>Panel type: Sidebar,</h6>
       <div className={styles.itemsContainer}>
         <div className={styles.box}>
           <p className={styles.notes}>Normal</p>
           <Panel
             containerStyle={styles.containerStyle}
-            type={PanelType.Sidebared}
+            type={PanelType.Sidebar}
             theme={PanelTheme.Normal}
           >
             <p className={styles.content}>Sample Content</p>
@@ -70,7 +70,7 @@ const styles = require("./panel.stories.scss");
           <p className={styles.notes}>Bottomless</p>
           <Panel
             containerStyle={styles.containerStyle}
-            type={PanelType.Sidebared}
+            type={PanelType.Sidebar}
             theme={PanelTheme.Bottomless}
           >
             <p className={styles.content}>Sample Content</p>
@@ -80,7 +80,7 @@ const styles = require("./panel.stories.scss");
           <p className={styles.notes}>Topless</p>
           <Panel
             containerStyle={styles.containerStyle}
-            type={PanelType.Sidebared}
+            type={PanelType.Sidebar}
             theme={PanelTheme.Topless}
           >
             <p className={styles.content}>Sample Content</p>
@@ -90,7 +90,7 @@ const styles = require("./panel.stories.scss");
           <p className={styles.notes}>Holing</p>
           <Panel
             containerStyle={styles.containerStyle}
-            type={PanelType.Sidebared}
+            type={PanelType.Sidebar}
             theme={PanelTheme.Holing}
           >
             <p className={styles.content}>Sample Content</p>
