@@ -85,6 +85,16 @@ $large-tile-width-mobile: 100%;
     }
   }
 
+  .checkBoxIcon {
+    height: 20px;
+    width: 20px;
+    background-color: $ui-color;
+    display: inline-block;
+    position: absolute;
+    top: $space-2;
+    right: $space-2;
+  }
+
   &.tileContentDisabled {
     color: $text-color-5;
 
@@ -105,6 +115,10 @@ $large-tile-width-mobile: 100%;
     &:hover {
       box-shadow: none;
     }
+
+    .checkBoxIcon div {
+      color: $field-color-1;
+    }
   }
 
   &.tileContentChecked.tileContentDisabled {
@@ -123,16 +137,6 @@ $large-tile-width-mobile: 100%;
 
   input[type="radio"] {
     display: none;
-  }
-
-  .checkBoxIcon {
-    height: 20px;
-    width: 20px;
-    background-color: $ui-color;
-    display: inline-block;
-    position: absolute;
-    top: $space-2;
-    right: $space-2;
   }
 }
 
