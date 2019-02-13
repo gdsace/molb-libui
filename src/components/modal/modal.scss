@@ -45,6 +45,7 @@
     border-radius: 5px;
 
     .close {
+      z-index: $z-index-9;
       font-size: $xx-large;
       position: absolute;
       top: $space-2;
