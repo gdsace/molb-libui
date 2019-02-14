@@ -17,6 +17,7 @@ export interface IInputProps {
     showHelper?: boolean;
     helperMsg?: string;
     showTooltip?: boolean;
+    inlineElement?: JSX.Element | string;
     suffix?: string;
     showCharacterCount?: boolean;
     toolTipsContent?: JSX.Element | string;
