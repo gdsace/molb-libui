@@ -56,7 +56,8 @@ export class Input extends React.Component<IInputProps, any> {
     size: Size.Medium,
     type: InputType.Text,
     showCharacterCount: false,
-    showTooltip: false
+    showTooltip: false,
+    inlineElement: ""
   };
 
   constructor(props: any) {
