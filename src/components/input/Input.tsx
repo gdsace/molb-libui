@@ -32,6 +32,7 @@ export interface IInputProps {
   showHelper?: boolean;
   helperMsg?: string;
   showTooltip?: boolean;
+  inlineElement?: JSX.Element | string;
   suffix?: string;
   showCharacterCount?: boolean;
   toolTipsContent?: JSX.Element | string;
@@ -134,6 +135,7 @@ export class Input extends React.Component<IInputProps, any> {
               <span className={styles.suffix}>{this.props.suffix}</span>
             )
           )}
+          {this.props.inlineElement}
         </div>
         {showFooterSection && (
           <div className={styles.footerSection}>
