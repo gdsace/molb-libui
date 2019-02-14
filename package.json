@@ -25,7 +25,8 @@
     "ck": "yarn test && yarn lint",
     "export": "npm run build-lib && build-storybook -c .storybook -o .out",
     "build:type": "tsc --module es6 --declaration --emitDeclarationOnly --outDir dist/@types",
-    "build:production": "rm -rf ./dist && cross-env NODE_ENV=production webpack --config webpack.config.js --mode production && yarn build:type"
+    "build:production": "rm -rf ./dist && cross-env NODE_ENV=production webpack --config webpack.config.js --mode production && yarn build:type",
+    "build:check": "yarn build:production && [ -z \"$(git status --porcelain)\" ] || { echo \"Please run 'yarn build:production' and commit the changes\" >&2 && exit 1; }"
   },
   "repository": {
     "type": "git",

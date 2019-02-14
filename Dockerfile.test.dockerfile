@@ -14,7 +14,7 @@ RUN yarn install --frozen-lockfile \
 ARG NODE_ENV=production
 COPY . /usr/src/app
 
-# Check that it builds
-RUN yarn build:production
+# Check that it builds and that there are no uncommitted changes after building
+RUN yarn build:check
 
 RUN yarn lint && yarn test:coverage
