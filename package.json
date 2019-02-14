@@ -80,7 +80,6 @@
     "eslint-plugin-prettier": "^2.3.1",
     "eslint-plugin-react": "^7.11.1",
     "file-loader": "^2.0.0",
-    "husky": "^1.2.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^22.4.4",
     "jest-transform-stub": "^1.0.0",
@@ -122,10 +121,5 @@
     "react-dropzone": "^7.0.1",
     "react-select": "^2.1.2",
     "react-toastify": "^4.4.3"
-  },
-  "husky": {
-    "hooks": {
-      "pre-push": "yarn ck"
-    }
   }
 }
