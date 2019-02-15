@@ -26,6 +26,7 @@
     position: absolute;
     bottom: 0;
     left: 0;
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.03), 0 7px 25px 0 rgba(0, 0, 0, 0.03), 0 0 0 1px rgba(0, 0, 0, 0.03);
 
     @include for-phone-only {
       height: 72px;
