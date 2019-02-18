@@ -1,5 +1,8 @@
 import * as React from "react";
 import { Checkbox } from "../checkbox";
+import { TooltipsLocationTheme } from "../EnumValues";
+import { Icon } from "../icons";
+import { Tooltips } from "../tooltips";
 
 const styles = require("./checkboxTypeQuestion.scss");
 
@@ -9,6 +12,7 @@ export interface ICheckboxTypeQuestion {
   onCheckboxClick: any;
   questionLabel: string;
   questionDescription?: string;
+  tooltip?: string;
 }
 
 export class CheckboxTypeQuestion extends React.Component<
@@ -21,7 +25,8 @@ export class CheckboxTypeQuestion extends React.Component<
       disabled,
       onCheckboxClick,
       questionLabel,
-      questionDescription
+      questionDescription,
+      tooltip
     } = this.props;
     return (
       <div className={styles.wrapper}>
@@ -36,7 +41,27 @@ export class CheckboxTypeQuestion extends React.Component<
         <div
           className={`${styles.textWrapper} ${disabled ? styles.disabled : ""}`}
         >
-          <span className={styles.question}>{questionLabel}</span>
+          <span className={styles.question}>
+            <span className={styles.label}>{questionLabel}</span>
+            {!!tooltip && (
+              <div className={styles.tooltip}>
+                <Tooltips
+                  trigger={
+                    <Icon
+                      type={"help"}
+                      size={"16"}
+                      className={styles.helpIcon}
+                    />
+                  }
+                  position={TooltipsLocationTheme.BottomLeft}
+                  specializedPosition={true}
+                >
+                  <div>{tooltip}</div>
+                </Tooltips>
+              </div>
+            )}
+          </span>
+
           <span className={styles.description}>{questionDescription}</span>
         </div>
       </div>

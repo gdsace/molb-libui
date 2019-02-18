@@ -28,6 +28,7 @@ const questionDescription = "This is question description";
             onCheckboxClick={onCheckboxClick}
             questionDescription={questionDescription}
             questionLabel={questionLabel}
+            tooltip={"this is tool tip for different questions"}
           />
         </State>
         <CheckboxTypeQuestion
