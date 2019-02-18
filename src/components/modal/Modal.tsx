@@ -15,6 +15,7 @@ export enum ModalTheme {
 export interface IModalProps {
   onClose: () => void;
   show: boolean;
+  hiddenCloseButton?: boolean;
   header?: string;
   children?: React.ReactNode;
   theme?: ModalTheme;
@@ -67,9 +68,11 @@ export class Modal extends React.Component<IModalProps, {}> {
           className={styles.modalContent}
           ref={this.setUpModalContentRef}
         >
-          <div className={styles.close} onClick={() => this.props.onClose()}>
-            <Icon type={"close"} />
-          </div>
+          {this.props.hiddenCloseButton ? null : (
+            <div className={styles.close} onClick={() => this.props.onClose()}>
+              <Icon type={"close"} />
+            </div>
+          )}
           <div className={styles.content}>{this.props.children}</div>
         </section>
         {this.props.footer && (
@@ -86,7 +89,8 @@ export class Modal extends React.Component<IModalProps, {}> {
   private onClickAway = (e: any) => {
     if (
       (this.modalNode && this.modalNode.contains(e.target)) ||
-      (this.footer && this.footer.contains(e.target))
+      (this.footer && this.footer.contains(e.target)) ||
+      this.props.hiddenCloseButton
     ) {
       return;
     }

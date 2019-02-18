@@ -7,6 +7,7 @@ export declare enum ModalTheme {
 export interface IModalProps {
     onClose: () => void;
     show: boolean;
+    hiddenCloseButton?: boolean;
     header?: string;
     children?: React.ReactNode;
     theme?: ModalTheme;
