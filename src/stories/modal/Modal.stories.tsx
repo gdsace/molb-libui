@@ -21,6 +21,10 @@ const store3 = new Store({
   show: false
 });
 
+const store4 = new Store({
+  show: false
+});
+
 (storiesOf(CategoryName.Modal, module) as any).addWithJSX(
   "Modal",
   wInfo(``)(() => (
@@ -161,6 +165,35 @@ const store3 = new Store({
           label={"Full Modal"}
           onClick={() => store3.set({ show: true })}
           key="modal-button3"
+        />
+      </div>
+
+      <div className={styles.container}>
+        <State store={store4}>
+          <Modal
+            key="modal-4"
+            theme={ModalTheme.Basic}
+            show={!!store4.get("show")}
+            onClose={() => store4.set({ show: false })}
+            hideCloseButton={true}
+          >
+            <ModalContent
+              header="This is Header of Modal Content."
+              subheader="This is Sub Header of Modal Content"
+              leftButtonLabel="close"
+              leftButtonOnClick={() => {
+                store4.set({ show: false });
+                action("left-button-click");
+              }}
+              rightButtonLabel="Right Button"
+              rightButtonOnClick={action("right-button-click")}
+            />
+          </Modal>
+        </State>
+        <Button
+          label={"Basic Modal without close icon"}
+          onClick={() => store4.set({ show: true })}
+          key="modal-button1"
         />
       </div>
     </div>
