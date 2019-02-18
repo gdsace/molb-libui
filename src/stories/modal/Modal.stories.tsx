@@ -175,7 +175,7 @@ const store4 = new Store({
             theme={ModalTheme.Basic}
             show={!!store4.get("show")}
             onClose={() => store4.set({ show: false })}
-            hiddenCloseButton={true}
+            hideCloseButton={true}
           >
             <ModalContent
               header="This is Header of Modal Content."
