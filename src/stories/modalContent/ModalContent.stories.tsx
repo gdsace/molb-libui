@@ -38,6 +38,23 @@ const styles = require("./modalContent.stories.scss");
           rightButtonOnClick={action("right-button-click")}
         />
       </div>
+      <div className={styles.box}>
+        <ModalContent
+          header="Modal subheader with link subheader"
+          subheader={
+            <p>
+              Modal subheader with link{" "}
+              <a target="_blank" href="http://google.com">
+                Sub Header
+              </a>
+            </p>
+          }
+          leftButtonLabel="Left Button"
+          leftButtonOnClick={action("left-button-click")}
+          rightButtonLabel="Right Button"
+          rightButtonOnClick={action("right-button-click")}
+        />
+      </div>
     </div>
   ))
 );
