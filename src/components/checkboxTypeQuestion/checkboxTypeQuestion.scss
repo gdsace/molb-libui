@@ -42,12 +42,10 @@
   color: $text-color;
 }
 
-.label,
 .tooltip {
   display: inline-block;
   vertical-align: middle;
-}
-
-.tooltip {
   margin-left: 4px;
+  position: relative;
+  top: -2px;
 }

@@ -42,7 +42,7 @@ export class CheckboxTypeQuestion extends React.Component<
           className={`${styles.textWrapper} ${disabled ? styles.disabled : ""}`}
         >
           <span className={styles.question}>
-            <span className={styles.label}>{questionLabel}</span>
+            {questionLabel}
             {!!tooltip && (
               <div className={styles.tooltip}>
                 <Tooltips
