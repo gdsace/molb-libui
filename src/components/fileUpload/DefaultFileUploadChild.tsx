@@ -127,7 +127,7 @@ export const DefaultFileUploadChild = (props: IFileUploadChildProps) => {
         props.document && (
           <>
             <div className={styles.textFilename}>
-              <span>{props.document.name}</span>
+              <div>{props.document.name}</div>
             </div>
 
             <div className={styles.textFilesize}>
