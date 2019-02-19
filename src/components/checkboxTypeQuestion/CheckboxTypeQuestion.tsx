@@ -53,7 +53,8 @@ export class CheckboxTypeQuestion extends React.Component<
                       className={styles.helpIcon}
                     />
                   }
-                  position={TooltipsLocationTheme.BottomLeft}
+                  width={250}
+                  position={TooltipsLocationTheme.BottomRight}
                   specializedPosition={true}
                 >
                   <div>{tooltip}</div>
