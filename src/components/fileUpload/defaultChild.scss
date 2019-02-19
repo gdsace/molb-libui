@@ -50,7 +50,7 @@
   margin-top: $space-1;
   color: $text-color;
   overflow: hidden;
-  white-space: nowrap;
+  overflow-wrap: break-word;
   text-overflow: ellipsis;
 }
 
