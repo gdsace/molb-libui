@@ -62,14 +62,55 @@ const store4 = new Store({
             show={!!store2.get("show")}
             onClose={() => store2.set({ show: false })}
           >
-            <ModalContent
-              header="This is Header of Modal Content."
-              subheader="This is Sub Header of Modal Content"
-              leftButtonLabel="Left Button"
-              leftButtonOnClick={action("left-button-click")}
-              rightButtonLabel="Right Button"
-              rightButtonOnClick={action("left-button-click")}
-            />
+            <div
+              style={{
+                width: "750px"
+              }}
+            >
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+            </div>
           </Modal>
         </State>
         <Button
