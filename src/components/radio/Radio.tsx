@@ -15,7 +15,7 @@ export interface IRadioProps {
   errorMsg?: string;
   id?: string;
   disableWidth?: boolean;
-  labelStyleOvveride?: any;
+  labelStyleOverride?: any;
 }
 
 export interface IOptionValue {
@@ -36,7 +36,7 @@ const getOptionIcon = (optionValue: IOptionValue, props: IRadioProps) => {
 };
 
 const getOptionCompoents = (props: IRadioProps) => {
-  const labelStyleOverride = props.labelStyleOvveride || {};
+  const labelStyleOverride = props.labelStyleOverride || {};
   const optionComponents = props.optionList.map(optionValue => {
     const isDisabled = props.disabled || optionValue.disabled;
     const isSelected = optionValue.value === props.value;

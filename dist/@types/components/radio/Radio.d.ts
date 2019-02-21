@@ -10,7 +10,7 @@ export interface IRadioProps {
     errorMsg?: string;
     id?: string;
     disableWidth?: boolean;
-    labelStyleOvveride?: any;
+    labelStyleOverride?: any;
 }
 export interface IOptionValue {
     value: string;
