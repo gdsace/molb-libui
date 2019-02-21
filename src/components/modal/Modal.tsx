@@ -1,6 +1,11 @@
 import * as React from "react";
 import { createPortal } from "react-dom";
 
+import {
+  clearAllBodyScrollLocks,
+  disableBodyScroll,
+  enableBodyScroll
+} from "body-scroll-lock";
 import classNames from "classnames";
 import { Icon } from "../icons";
 
@@ -43,11 +48,18 @@ export class Modal extends React.Component<IModalProps, {}> {
     this.setFooter = (element: HTMLElement) => (this.footer = element);
   }
 
+  public componentWillReceiveProps(nextProps: IModalProps) {
+    if (this.props.show !== nextProps.show) {
+      this.controlBodyScrollable(nextProps.show);
+    }
+  }
+
   public componentDidMount() {
     this.modalRoot.appendChild(this.el);
   }
 
   public componentWillUnmount() {
+    clearAllBodyScrollLocks();
     document.body.style.overflow = "auto";
     this.modalRoot.removeChild(this.el);
   }
@@ -60,8 +72,6 @@ export class Modal extends React.Component<IModalProps, {}> {
       [styles.fullTheme]: this.props.theme === ModalTheme.Full
     });
 
-    document.body.style.overflow = this.props.show ? "hidden" : "auto";
-
     const modalContent = (
       <div className={modalStyle} onClick={this.onClickAway}>
         <section
@@ -69,7 +79,7 @@ export class Modal extends React.Component<IModalProps, {}> {
           ref={this.setUpModalContentRef}
         >
           {!this.props.hideCloseButton && (
-            <div className={styles.close} onClick={() => this.props.onClose()}>
+            <div className={styles.close} onClick={this.onClose}>
               <Icon type={"close"} />
             </div>
           )}
@@ -86,6 +96,28 @@ export class Modal extends React.Component<IModalProps, {}> {
     return createPortal(modalContent, this.el);
   }
 
+  private onClose = () => {
+    clearAllBodyScrollLocks();
+    document.body.style.overflow = "auto";
+    this.props.onClose();
+  };
+
+  private controlBodyScrollable = (show: boolean) => {
+    if (show) {
+      this.disableBodyScroll();
+    } else {
+      this.enableBodyScroll();
+    }
+  };
+
+  private disableBodyScroll = () => {
+    disableBodyScroll(document.body);
+  };
+
+  private enableBodyScroll = () => {
+    enableBodyScroll(document.body);
+  };
+
   private onClickAway = (e: any) => {
     if (
       (this.modalNode && this.modalNode.contains(e.target)) ||
@@ -94,6 +126,6 @@ export class Modal extends React.Component<IModalProps, {}> {
     ) {
       return;
     }
-    this.props.onClose();
+    this.onClose();
   };
 }
