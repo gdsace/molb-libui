@@ -2,6 +2,8 @@ import * as React from "react";
 export interface IColumn {
     title: string;
     key: string;
+    width?: string;
+    textAlignRight?: string;
 }
 export interface IDateSource {
     [key: string]: any;
