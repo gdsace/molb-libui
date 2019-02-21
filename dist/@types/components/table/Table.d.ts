@@ -8,6 +8,7 @@ export interface IDateSource {
 }
 export interface ITableProps {
     dataSource: IDateSource[];
+    headerColor?: string;
     columns: IColumn[];
     tableCls?: string;
     bordered?: boolean;
@@ -26,5 +27,5 @@ export declare class Table extends React.Component<ITableProps, {}> {
     static defaultProps: Partial<ITableProps>;
     render(): JSX.Element;
     getBodyComponent(columns: IColumn[], dataSource: IDateSource[]): React.ReactNode;
-    getHeadComponent(columns: IColumn[]): React.ReactNode;
+    getHeadComponent(columns: IColumn[], headerColor?: string): React.ReactNode;
 }

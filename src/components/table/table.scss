@@ -49,12 +49,6 @@ $title-margin: $space-2;
     &:not(:last-child) {
       padding-right: $space-1;
     }
-
-    text-align: left;
-  }
-
-  thead {
-    background-color: $ui-color;
   }
 
   table.bordered {
@@ -108,9 +102,15 @@ $title-margin: $space-2;
       &:last-child {
         padding-right: $space-4;
       }
-
-      text-align: left;
     }
+  }
+
+  .alignLeft {
+    text-align: left;
+  }
+
+  .alignRight {
+    text-align: right;
   }
 }
 
