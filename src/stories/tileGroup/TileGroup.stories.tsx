@@ -25,7 +25,9 @@ const tileOptions = [
     key: "FOOD-COURT",
     icon: "big-icon",
     name: "Food Court",
-    description: "Primarily for sale of food, single operator etc."
+    description: "Primarily for sale of food, single operator etc.",
+    error:
+      "XXXXX is not compatible with XXXXXX. Return to the previous step to edit."
   }
 ];
 const selectedTileValue = tileOptions[1];
@@ -67,7 +69,8 @@ const valueChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
                 content={item.name}
                 description={item.description}
                 value={item.key}
-                theme={TileTheme.SmallTile}
+                theme={TileTheme.LargeTile}
+                error={item.error}
               />
             );
           })}

@@ -15,6 +15,7 @@ export interface ITileProps {
   value?: string;
   theme?: TileTheme;
   containerStyle?: string;
+  error?: string;
 }
 
 export const Tile = (props: ITileProps) => {
@@ -56,6 +57,12 @@ export const Tile = (props: ITileProps) => {
           )}
           {props.theme !== TileTheme.SmallTile && (
             <span className={styles.tileDescription}>{props.description}</span>
+          )}
+          {props.theme === TileTheme.LargeTile && props.error && (
+            <div className={styles.errorContent}>
+              <Icon className={styles.errorIcon} type="error" />
+              <span>{props.error}</span>
+            </div>
           )}
         </div>
       </label>

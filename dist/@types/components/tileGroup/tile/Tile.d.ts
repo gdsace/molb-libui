@@ -10,5 +10,6 @@ export interface ITileProps {
     value?: string;
     theme?: TileTheme;
     containerStyle?: string;
+    error?: string;
 }
 export declare const Tile: (props: ITileProps) => JSX.Element;
