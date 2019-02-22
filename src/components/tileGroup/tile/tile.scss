@@ -22,6 +22,7 @@ $large-tile-width-mobile: 100%;
   display: flex;
   border-radius: 5px;
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.03), 0 7px 25px 0 rgba(0, 0, 0, 0.03), 0 0 0 1px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
 }
 
 .tileContent {
@@ -210,5 +211,23 @@ $large-tile-width-mobile: 100%;
 
   .itemsContent {
     text-align: left;
+  }
+}
+
+.error {
+  display: flex;
+  color: $support-red;
+  align-items: flex-start;
+  margin: $space-3 $space-3 $space-3 0;
+
+  .errorIcon {
+    width: 16px;
+    height: 16px;
+  }
+
+  span {
+    max-width: 222px;
+    max-height: 45px;
+    word-break: break-all;
   }
 }
