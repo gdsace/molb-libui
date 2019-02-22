@@ -3,14 +3,13 @@ export interface IColumn {
     title: string;
     key: string;
     width?: string;
-    textAlignRight?: string;
+    textAlignRight?: boolean;
 }
 export interface IDateSource {
     [key: string]: any;
 }
 export interface ITableProps {
     dataSource: IDateSource[];
-    headerColor?: string;
     columns: IColumn[];
     tableCls?: string;
     bordered?: boolean;
@@ -29,5 +28,5 @@ export declare class Table extends React.Component<ITableProps, {}> {
     static defaultProps: Partial<ITableProps>;
     render(): JSX.Element;
     getBodyComponent(columns: IColumn[], dataSource: IDateSource[]): React.ReactNode;
-    getHeadComponent(columns: IColumn[], headerColor?: string): React.ReactNode;
+    getHeadComponent(columns: IColumn[]): React.ReactNode;
 }

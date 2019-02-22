@@ -8,7 +8,7 @@ export interface IColumn {
   title: string;
   key: string;
   width?: string;
-  textAlignRight?: string;
+  textAlignRight?: boolean;
 }
 
 export interface IDateSource {
@@ -17,7 +17,6 @@ export interface IDateSource {
 
 export interface ITableProps {
   dataSource: IDateSource[];
-  headerColor?: string;
   columns: IColumn[];
   tableCls?: string;
   bordered?: boolean;
@@ -44,19 +43,8 @@ export class Table extends React.Component<ITableProps, {}> {
   };
 
   public render() {
-    const {
-      headerColor,
-      columns,
-      dataSource,
-      tableCls,
-      bordered,
-      size,
-      theme
-    } = this.props;
-    const theadComponent: React.ReactNode = this.getHeadComponent(
-      columns,
-      headerColor
-    );
+    const { columns, dataSource, tableCls, bordered, size, theme } = this.props;
+    const theadComponent: React.ReactNode = this.getHeadComponent(columns);
     const tbodyComponent: React.ReactNode = this.getBodyComponent(
       columns,
       dataSource
@@ -89,9 +77,7 @@ export class Table extends React.Component<ITableProps, {}> {
                     data-title={titleInOrder[index]}
                     key={`td-${key}`}
                     className={
-                      textAlignRightInOrder[index]
-                        ? styles.alignRight
-                        : styles.alignLeft
+                      textAlignRightInOrder[index] ? styles.alignRight : ""
                     }
                   >
                     <div className={cx("contentData")}>{rowData[key]}</div>
@@ -105,22 +91,15 @@ export class Table extends React.Component<ITableProps, {}> {
     );
   }
 
-  public getHeadComponent(
-    columns: IColumn[],
-    headerColor?: string
-  ): React.ReactNode {
+  public getHeadComponent(columns: IColumn[]): React.ReactNode {
     return (
-      <thead style={{ backgroundColor: headerColor || "" }}>
+      <thead>
         <tr>
           {columns.map(column => (
             <th
               key={column.key}
-              style={{
-                width: column.width ? column.width : ""
-              }}
-              className={
-                column.textAlignRight ? styles.alignRight : styles.alignLeft
-              }
+              style={column.width ? { width: column.width } : {}}
+              className={column.textAlignRight ? styles.alignRight : ""}
             >
               {column.title}
             </th>
