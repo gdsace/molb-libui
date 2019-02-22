@@ -1,0 +1,73 @@
+@import "../../../styles/utils.scss";
+
+$prefixClass: "rc-time-picker";
+
+.#{$prefixClass} {
+  &-error {
+    border-color: $support-red !important;
+  }
+
+  &-input {
+    width: 100%;
+    position: relative;
+    display: inline-block;
+    padding: $space-0 $space-2;
+    height: 48px;
+    cursor: text;
+    font-size: $medium;
+    font-weight: $weight-regular;
+    line-height: $line-height-large;
+    color: $text-color-2;
+    background: $ui-color none;
+    border: 1px solid $ui-color-2;
+    border-radius: $border-radius-3;
+    transition:
+      border 0.2s cubic-bezier(0.645, 0.045, 0.355, 1),
+      background 0.2s cubic-bezier(0.645, 0.045, 0.355, 1),
+      box-shadow 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+    &::placeholder {
+      color: $text-color;
+    }
+
+    &[value=""] {
+      border-color: $ui-color-2;
+    }
+
+    &:not([value=""]) {
+      border-color: $field-color-2;
+    }
+
+    &[disabled] {
+      color: $text-color;
+      background: $ui-color-1;
+      border-color: $ui-color-2;
+      cursor: not-allowed;
+    }
+
+    &:hover {
+      border-color: $text-color;
+    }
+
+    &[disabled]:hover {
+      border-color: $ui-color-2;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $lavender-indigo;
+
+      & ~ * {
+        color: $lavender-indigo;
+      }
+    }
+  }
+
+  &-input-icon {
+    position: absolute;
+    color: $text-color;
+    right: 13px;
+    display: flex;
+    justify-content: right;
+  }
+}

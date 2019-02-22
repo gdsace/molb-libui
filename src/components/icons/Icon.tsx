@@ -1,12 +1,14 @@
 import * as React from "react";
 
-export const Icon = (props: {
+export interface IIconProps {
   type: string;
   category?: "licences";
   className?: string;
   size?: string;
   viewBox?: string;
-}) => {
+}
+
+export const Icon = (props: IIconProps) => {
   if (props.category) {
     require(`./assets/${props.category}/${props.type}.svg`);
   } else {

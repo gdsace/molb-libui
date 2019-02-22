@@ -1,28 +1,37 @@
-@import "~@libui/components/styles/utils";
+@import "../styles/utils.scss";
 
 .inlineNotification {
   display: flex;
-  margin-bottom: 12px;
   align-items: center;
+  border-radius: 5px;
+  max-height: 55px;
 
-  &.warning {
-    background-color: $ui-color-7;
+  &.success {
+    background-color: $panache;
+    border: 1px solid $support-green-20;
+    color: $support-green;
   }
 
   &.error {
     background-color: $ui-color-6;
+    border: 1px solid $support-red-20;
+    color: $support-red;
+  }
+
+  &.informational {
+    background-color: $selago-light;
+    border: 1px solid $lavender-indigo-20;
+    color: $indigo;
+  }
+
+  &.warning {
+    background-color: $ui-color-7;
+    border: 1px solid $support-yellow-20;
+    color: $support-yellow;
   }
 
   .inlineNotificationIcon {
     margin: $space-2 0 $space-2 $space-2;
-
-    &.error {
-      color: $support-red;
-    }
-
-    &.warning {
-      color: $support-yellow;
-    }
   }
 
   .inlineNotificationText {
@@ -30,5 +39,6 @@
     font-size: $small;
     font-weight: normal;
     line-height: $line-height-medium;
+    color: $text-color-2;
   }
 }

@@ -2,10 +2,9 @@ import React from "react";
 
 import { storiesOf } from "@storybook/react";
 
-import { Card, Link } from "@src/components";
-import { CardTheme, TagTheme } from "@src/components/EnumValues";
 import { action } from "@storybook/addon-actions";
-import { wInfo } from "../utils";
+import { Card, CardTheme, Link, TagTheme } from "../../components";
+import { CategoryName, wInfo } from "../utils";
 
 const description = (
   <div>
@@ -22,7 +21,12 @@ const longSubtitle =
 
 const price = "S$800.00";
 const actionField = (
-  <Link label="link button" icon={"arrowNext"} onClick={action("link-click")} />
+  <Link
+    label="link button"
+    icon={"arrowNext"}
+    onClick={action("link-click")}
+    link="https://www.google.com"
+  />
 );
 const date = "10 Jan 2010 to 10 Jan 2020";
 
@@ -30,7 +34,7 @@ const rowStyles = {
   padding: "20px 0"
 };
 
-(storiesOf("Components", module) as any).addWithJSX(
+(storiesOf(CategoryName.Cards, module) as any).addWithJSX(
   "Card",
   wInfo(``)(() => (
     <div style={{ padding: "10px" }}>

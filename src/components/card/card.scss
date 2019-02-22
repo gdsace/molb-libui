@@ -33,6 +33,7 @@ $content-space-padding: 32px;
       padding-left: $content-space-padding;
       font-weight: $weight-light;
       max-width: 160px;
+      white-space: nowrap;
 
       @include for-phone-only {
         display: none;
@@ -117,25 +118,38 @@ $content-space-padding: 32px;
   .actionField {
     color: $support-yellow;
   }
+
+  .header .title {
+    color: $marigold;
+  }
 }
 
 .titleWrapper {
   display: flex;
   align-items: flex-start;
+  max-width: 398px;
 
-  h6 {
-    margin-right: $space-1;
+  &.noSupportingText {
+    max-width: 586px;
   }
 }
 
 .purple {
   background-color: $selago-light;
   border: solid 1px $selago;
+
+  .header .title {
+    color: $indigo;
+  }
 }
 
 .green {
   background-color: $panache;
   border: solid 1px $zanah;
+
+  .header .title {
+    color: $support-green;
+  }
 }
 
 .clickable {

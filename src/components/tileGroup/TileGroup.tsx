@@ -1,5 +1,5 @@
-import { ITileProps } from "@libui/components/tileGroup/tile";
 import * as React from "react";
+import { ITileProps } from "./tile";
 
 const style = require("./tileGroup.scss");
 
@@ -8,6 +8,7 @@ interface ITileGroupProps {
   children: React.ReactNode;
   value?: string;
   className?: string;
+  deselectable?: boolean;
 }
 
 interface ITileGroupState {
@@ -28,6 +29,10 @@ export class TileGroup extends React.Component<
   ITileGroupProps,
   ITileGroupState
 > {
+  public static defaultProps: Partial<ITileGroupProps> = {
+    deselectable: false
+  };
+
   constructor(props: ITileGroupProps) {
     super(props);
     const value =
@@ -40,6 +45,12 @@ export class TileGroup extends React.Component<
   public onSelectionChanged = (ev: React.ChangeEvent<HTMLInputElement>) => {
     const lastValue = this.state.value;
     const value = ev.target.value;
+    if (this.props.deselectable && lastValue === value) {
+      this.setState({ value: "" });
+      if (this.props.onChange) {
+        this.props.onChange(ev);
+      }
+    }
     if (lastValue !== value) {
       this.setState({
         value
@@ -56,6 +67,7 @@ export class TileGroup extends React.Component<
         if (React.isValidElement<ITileProps>(child)) {
           return React.cloneElement<ITileProps>(child, {
             ...child.props,
+            deselectable: this.props.deselectable,
             onChange: this.onSelectionChanged,
             checked: child.props.value === this.state.value
           });

@@ -1,32 +1,47 @@
 import { mount } from "enzyme";
 import * as React from "react";
-import { DefaultFileUploadChild, formatBytes } from "../DefaultFileUploadChild";
 
+import { DefaultFileUploadChild, formatBytes } from "../DefaultFileUploadChild";
+import { FileUploadState } from "../FileUpload";
 import { documentTypes } from "./__mocks__/documentTypes";
 
 describe("DefaultFileUploadChild", () => {
-  it("shows description if no file is present", () => {
+  it("shows name and description if no file is present", () => {
     const wrapper = mount(
       <DefaultFileUploadChild documentType={documentTypes.required} />
     );
-    expect(wrapper.text()).toEqual("somename");
+    expect(wrapper.text()).toEqual("somenamesomedescription");
   });
 
-  it("shows file info if given", () => {
+  it("shows file info if upload completed", () => {
     const wrapper = mount(
       <DefaultFileUploadChild
         documentType={documentTypes.required}
+        uploadState={FileUploadState.Complete}
         document={{ name: "bar", fileSize: 100 }}
       />
     );
     expect(wrapper.text()).toEqual("somenamebar100 B");
   });
 
-  it("shows optional text if optional", () => {
+  it("shows error text if upload failed", () => {
+    const wrapper = mount(
+      <DefaultFileUploadChild
+        documentType={documentTypes.optional}
+        uploadState={FileUploadState.Error}
+        error="something wrong"
+      />
+    );
+    expect(wrapper.find(".textError").text()).toEqual("something wrong");
+  });
+
+  it("shows name and optional text if optional", () => {
     const wrapper = mount(
       <DefaultFileUploadChild documentType={documentTypes.optional} />
     );
-    expect(wrapper.text()).toEqual("optionalname (Optional)");
+    expect(wrapper.find(".textTitle").text()).toEqual(
+      "optionalname (Optional)"
+    );
   });
 
   describe("formatBytes", () => {

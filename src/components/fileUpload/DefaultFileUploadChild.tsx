@@ -78,10 +78,10 @@ export const formatBytes = (bytes: number): string => {
 // * drag and drop styling
 // * icon has a different onClick for each file upload states
 export const DefaultFileUploadChild = (props: IFileUploadChildProps) => {
-  const showDescription =
-    (props.uploadState === FileUploadState.Unstarted ||
-      props.uploadState === FileUploadState.Error) &&
-    !props.document;
+  const showDescription = !(
+    props.uploadState === FileUploadState.Complete && props.document
+  );
+  const showError = props.uploadState === FileUploadState.Error && props.error;
 
   return (
     <div
@@ -89,8 +89,7 @@ export const DefaultFileUploadChild = (props: IFileUploadChildProps) => {
         [styles.hasFile]:
           props.uploadState === FileUploadState.Complete ||
           props.uploadState === FileUploadState.Uploading,
-        [styles.hasError]:
-          props.error || props.uploadState === FileUploadState.Error,
+        [styles.hasError]: props.uploadState === FileUploadState.Error,
         [styles.uploading]: props.uploadState === FileUploadState.Uploading
       })}
       data-scrollpoint={true}
@@ -113,7 +112,7 @@ export const DefaultFileUploadChild = (props: IFileUploadChildProps) => {
         </div>
 
         {getIcon(
-          props.error ? FileUploadState.Error : props.uploadState,
+          props.uploadState,
           props.onProgressIconClick,
           props.onCompleteIconClick,
           props.onDefaultIconClick
@@ -128,7 +127,7 @@ export const DefaultFileUploadChild = (props: IFileUploadChildProps) => {
         props.document && (
           <>
             <div className={styles.textFilename}>
-              <span>{props.document.name}</span>
+              <div>{props.document.name}</div>
             </div>
 
             <div className={styles.textFilesize}>
@@ -138,7 +137,7 @@ export const DefaultFileUploadChild = (props: IFileUploadChildProps) => {
         )
       )}
 
-      {props.error && (
+      {showError && (
         <div className={addLocatedErrorClassname(styles.textError)}>
           {props.error}
         </div>

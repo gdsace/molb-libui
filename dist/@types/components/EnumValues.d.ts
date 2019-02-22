@@ -4,6 +4,16 @@ export declare enum Theme {
     Primary = "primary",
     Secondary = "secondary"
 }
+export declare enum PanelType {
+    Onepage = "onepagePanel",
+    Sidebar = "sidebarPanel"
+}
+export declare enum PanelTheme {
+    Normal = "normal",
+    Bottomless = "bottomless",
+    Topless = "topless",
+    Holing = "holing"
+}
 export declare enum TileTheme {
     SmallTile = "smallTile",
     MediumTile = "mediumTile",
@@ -24,7 +34,11 @@ export declare enum LinkStatus {
 }
 export declare enum InputType {
     Text = "text",
-    Number = "number"
+    Number = "number",
+    IntegerText = "integerText",
+    PositiveIntegerText = "positiveIntegerText",
+    DecimalText = "decimalText",
+    PositiveDecimalText = "positiveDecimalText"
 }
 export declare enum CardTheme {
     Normal = "normal",
@@ -65,4 +79,9 @@ export declare enum NotificationTheme {
     Error = "error",
     Informational = "informational",
     Warning = "warning"
+}
+export declare enum TooltipsLocationTheme {
+    BottomLeft = "bottom left",
+    BottomCenter = "bottom center",
+    BottomRight = "bottom right"
 }

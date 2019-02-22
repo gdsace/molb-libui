@@ -1,6 +1,6 @@
-import { ListcardStatus } from "@libui/components/EnumValues";
 import { shallow } from "enzyme";
 import * as React from "react";
+import { ListcardStatus } from "../../EnumValues";
 import { Listcard } from "../Listcard";
 
 describe("Input", () => {

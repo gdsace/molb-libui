@@ -1,14 +1,75 @@
-@import "~@libui/components/styles/utils";
+@import "../styles/utils.scss";
 
-.panel {
-  background-color: $ui-color-1;
-  padding: $space-10 105px;
+.onepagePanel {
+  background-color: $ui-color;
+  padding: $space-8 150px;
+  margin: 0 auto;
+  flex: 1;
+  box-sizing: border-box;
+  max-width: 1440px;
 
   @include for-phone-only {
     padding: $space-5 30px;
   }
 }
 
-.panel:not(:first-child) {
-  border-top: solid 1px $ui-color-2;
+.sidebarPanel {
+  background-color: $ui-color-1;
+  padding: $space-10 105px;
+  margin: 0 auto;
+  flex: 1;
+  box-sizing: border-box;
+  max-width: 1140px;
+  width: 100%;
+
+  @include for-phone-only {
+    padding: $space-5 30px;
+  }
+}
+
+.panelContainer {
+  display: flex;
+  width: 100%;
+
+  &:not(:first-child) {
+    border-top: solid 1px $ui-color-2;
+  }
+
+  &.bottomless {
+    border-bottom: none;
+
+    .onepagePanel {
+      padding-bottom: 0;
+    }
+
+    .sidebarPanel {
+      padding-bottom: 0;
+    }
+  }
+
+  &.topless {
+    border-top: none;
+
+    .onepagePanel {
+      padding-top: 0;
+    }
+
+    .sidebarPanel {
+      padding-top: 0;
+    }
+  }
+
+  &.holing {
+    border-top: none;
+
+    .onepagePanel {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    .sidebarPanel {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
 }

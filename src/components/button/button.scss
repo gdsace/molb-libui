@@ -17,6 +17,20 @@
   align-items: center;
   justify-content: center;
 
+  @keyframes rotate {
+    from {
+      transform: rotateZ(0deg);
+    }
+
+    to {
+      transform: rotateZ(360deg);
+    }
+  }
+
+  .loading {
+    animation: rotate 2s linear infinite;
+  }
+
   .leftIcon {
     margin-right: $space-2;
   }
@@ -64,7 +78,7 @@
   border: solid 1px $primary-color;
 
   &:focus {
-    background-color: $secondary-color-6;
+    background-color: $primary-color-2;
   }
 
   &:hover {

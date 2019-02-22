@@ -1,12 +1,12 @@
 import React from "react";
 
-import { Button } from "@src/components";
-import { NotificationTheme } from "@src/components/EnumValues";
 import { storiesOf } from "@storybook/react";
-import { notification, ToastContainer } from "../../components/notification";
-import { wInfo } from "../utils";
 
-(storiesOf("Components", module) as any).addWithJSX(
+import { Button, NotificationTheme } from "../../components";
+import { notification, ToastContainer } from "../../components/notification";
+import { CategoryName, wInfo } from "../utils";
+
+(storiesOf(CategoryName.Notification, module) as any).addWithJSX(
   "Notification",
   wInfo(``)(() => {
     const option = {
@@ -32,16 +32,25 @@ import { wInfo } from "../utils";
     };
 
     return (
-      <div style={{ padding: "10px" }}>
-        <Button label={"success"} onClick={() => notification(successOption)} />
-        <Button label={"error"} onClick={() => notification(errorOption)} />
-        <Button
-          label={"infomational"}
-          onClick={() => notification(infomationalOption)}
-        />
-        <Button label={"warning"} onClick={() => notification(warningOption)} />
-        {/* Important: in one page, ToastContainer can only have one component */}
-        <ToastContainer newestOnTop />
+      <div>
+        <h1>Notification</h1>
+        <div style={{ padding: "10px" }}>
+          <Button
+            label={"success"}
+            onClick={() => notification(successOption)}
+          />
+          <Button label={"error"} onClick={() => notification(errorOption)} />
+          <Button
+            label={"infomational"}
+            onClick={() => notification(infomationalOption)}
+          />
+          <Button
+            label={"warning"}
+            onClick={() => notification(warningOption)}
+          />
+          {/* Important: in one page, ToastContainer can only have one component */}
+          <ToastContainer newestOnTop />
+        </div>
       </div>
     );
   })

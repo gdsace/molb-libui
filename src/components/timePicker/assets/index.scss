@@ -1,0 +1,52 @@
+:global {
+  @import "../../styles/utils.scss";
+
+  $prefixClass: "rc-time-picker";
+
+  .#{$prefixClass} {
+    display: flex;
+    box-sizing: border-box;
+    position: relative;
+    align-items: center;
+
+    * {
+      box-sizing: border-box;
+    }
+  }
+
+  .#{$prefixClass}-root-container {
+    position: relative;
+  }
+
+  .#{$prefixClass}-header-section {
+    margin-bottom: $space-0;
+  }
+
+  .#{$prefixClass}-title {
+    font-size: $medium;
+    font-weight: $weight-medium;
+    line-height: $line-height-large;
+    color: $text-color-2;
+  }
+
+  .#{$prefixClass}-footer-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: $space-1;
+    width: 100%;
+    position: absolute;
+  }
+
+  .#{$prefixClass}-footer-message {
+    font-size: $small;
+    font-weight: $weight-regular;
+    line-height: $line-height-medium;
+    color: $support-red;
+    word-break: break-word;
+  }
+
+  @import "./index/Picker";
+  @import "./index/Panel";
+  @import "./index/Header";
+  @import "./index/Select";
+}

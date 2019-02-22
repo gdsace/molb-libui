@@ -1,21 +1,19 @@
-@import "~@libui/components/styles/utils";
+@import "../styles/utils.scss";
 
 .rootContainer {
   margin-top: $space-8;
 }
 
-.headerSection {
-  .zero {
+.zero {
+  .headerSection {
     margin-bottom: 0;
-  }
-
-  .normal {
-    margin-bottom: $space-3;
   }
 }
 
-.titleContainer {
-  // ...
+.normal {
+  .headerSection {
+    margin-bottom: $space-3;
+  }
 }
 
 .title {

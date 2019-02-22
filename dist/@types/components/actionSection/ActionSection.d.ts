@@ -3,7 +3,10 @@ export interface IActionSectionProps {
     onPreviousClick?: () => any;
     onNextClick?: () => any;
     showPrevious?: boolean;
+    showPreviousIcon?: boolean;
     showNext?: boolean;
+    showNextIcon?: boolean;
+    loading?: boolean;
     history?: any;
     disableNext?: boolean;
     onPreviousLabel?: string;
@@ -11,5 +14,6 @@ export interface IActionSectionProps {
     className?: string;
 }
 export declare class ActionSection extends React.Component<IActionSectionProps, {}> {
+    static defaultProps: Partial<IActionSectionProps>;
     render(): JSX.Element;
 }

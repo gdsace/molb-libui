@@ -98,12 +98,7 @@ const config = {
   },
   externals: [nodeExternals()],
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".jsx", ".json"],
-    alias: {
-      "@libui": path.resolve(__dirname, "src"),
-      "@src": path.resolve(__dirname, "src"),
-      "@test": path.resolve(__dirname, "test")
-    }
+    extensions: [".ts", ".tsx", ".js", ".jsx", ".json"]
   }
 };
 

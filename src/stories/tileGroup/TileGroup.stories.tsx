@@ -1,11 +1,11 @@
 import React from "react";
 
 import { State, Store } from "@sambego/storybook-state";
-import { TileGroup } from "@src/components";
-import { TileTheme } from "@src/components/EnumValues";
-import { Tile } from "@src/components/tileGroup/tile";
 import { storiesOf } from "@storybook/react";
-import { wInfo } from "../utils";
+import { Tile, TileGroup, TileTheme } from "../../components";
+import { CategoryName, wInfo } from "../utils";
+
+const styles = require("./tileGroup.stories.scss");
 
 const tileOptions = [
   {
@@ -32,6 +32,19 @@ const tileOptions = [
 ];
 const selectedTileValue = tileOptions[1];
 
+const creditCarOptions = [
+  {
+    key: "uniqueNumberIdentifier",
+    content: "cardholer name ",
+    subContent: "xxxx xxxx xxxx 333",
+    description: "Expiry date.",
+    imgSrc:
+      "https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox",
+    imgAlt: "Visa",
+    error: "xxxxx is not compatible with xxxxxx."
+  }
+];
+
 /**
  * Here define store, we can define our state here.
  */
@@ -55,27 +68,152 @@ const valueChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
  * Then the stateless component Dropdown get update
  * from store.get("value")
  */
-(storiesOf("Components", module) as any).addWithJSX(
+(storiesOf(CategoryName.Tiles, module) as any).addWithJSX(
   "TileGroup",
   wInfo(``)(() => (
-    <div>
-      <State store={store}>
-        <TileGroup onChange={valueChangeHandler} value={selectedTileValue.key}>
-          {tileOptions.map((item, index) => {
-            return (
-              <Tile
-                key={index}
-                icon="48-px-store"
-                content={item.name}
-                description={item.description}
-                value={item.key}
-                theme={TileTheme.LargeTile}
-                error={item.error}
-              />
-            );
-          })}
-        </TileGroup>
-      </State>
+    <div className={styles.rootContainer}>
+      <div className={styles.itemsContainer}>
+        <div className={styles.box}>
+          <p className={styles.notes}>SmallTile:</p>
+          <State store={store}>
+            <TileGroup
+              onChange={valueChangeHandler}
+              value={selectedTileValue.key}
+            >
+              {tileOptions.map((item, index) => {
+                return (
+                  <Tile
+                    key={index}
+                    icon="store"
+                    content={item.name}
+                    description={item.description}
+                    value={item.key}
+                    theme={TileTheme.SmallTile}
+                    containerStyle={styles.tileContainerStyle}
+                    error={item.error}
+                  />
+                );
+              })}
+            </TileGroup>
+          </State>
+        </div>
+        <div className={styles.box}>
+          <p className={styles.notes}>BasicTile:</p>
+          <TileGroup
+            onChange={valueChangeHandler}
+            value={selectedTileValue.key}
+          >
+            {tileOptions.map((item, index) => {
+              return (
+                <Tile
+                  key={index}
+                  icon="store"
+                  content={item.name}
+                  description={item.description}
+                  value={item.key}
+                  theme={TileTheme.BasicTile}
+                  containerStyle={styles.tileContainerStyle}
+                  error={item.error}
+                />
+              );
+            })}
+          </TileGroup>
+        </div>
+        <div className={styles.box}>
+          <p className={styles.notes}>MediumTile:</p>
+          <TileGroup
+            onChange={valueChangeHandler}
+            value={selectedTileValue.key}
+          >
+            {tileOptions.map((item, index) => {
+              return (
+                <Tile
+                  key={index}
+                  icon="store"
+                  content={item.name}
+                  description={item.description}
+                  value={item.key}
+                  theme={TileTheme.MediumTile}
+                  containerStyle={styles.tileContainerStyle}
+                  error={item.error}
+                />
+              );
+            })}
+          </TileGroup>
+        </div>
+        <div className={styles.box}>
+          <p className={styles.notes}>LargeTile:</p>
+          <TileGroup
+            onChange={valueChangeHandler}
+            value={selectedTileValue.key}
+          >
+            {tileOptions.map((item, index) => {
+              return (
+                <Tile
+                  key={index}
+                  icon="store"
+                  content={item.name}
+                  description={item.description}
+                  value={item.key}
+                  theme={TileTheme.LargeTile}
+                  containerStyle={styles.tileContainerStyle}
+                  error={item.error}
+                />
+              );
+            })}
+          </TileGroup>
+        </div>
+
+        <div className={styles.box}>
+          <p className={styles.notes}>Unselectable tileGroup:</p>
+          <TileGroup
+            onChange={valueChangeHandler}
+            deselectable={true}
+            value={selectedTileValue.key}
+          >
+            {tileOptions.map((item, index) => {
+              return (
+                <Tile
+                  key={index}
+                  icon="store"
+                  content={item.name}
+                  description={item.description}
+                  value={item.key}
+                  theme={TileTheme.LargeTile}
+                  containerStyle={styles.tileContainerStyle}
+                  error={item.error}
+                />
+              );
+            })}
+          </TileGroup>
+        </div>
+
+        <div className={styles.box}>
+          <p className={styles.notes}>Image source tileGroup:</p>
+          <TileGroup
+            onChange={valueChangeHandler}
+            deselectable={true}
+            value={selectedTileValue.key}
+          >
+            {creditCarOptions.map((item, index) => {
+              return (
+                <Tile
+                  key={index}
+                  imgSrc={item.imgSrc}
+                  imgAlt={item.imgAlt}
+                  content={item.content}
+                  subContent={item.subContent}
+                  description={item.description}
+                  value={item.key}
+                  theme={TileTheme.MediumTile}
+                  containerStyle={styles.tileContainerStyle}
+                  error={item.error}
+                />
+              );
+            })}
+          </TileGroup>
+        </div>
+      </div>
     </div>
   ))
 );

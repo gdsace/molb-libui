@@ -72,6 +72,33 @@ describe("Action Section", () => {
     ).toEqual("next label");
   });
 
+  it("should have loading icon when loading is set", () => {
+    const wrapper = mount(
+      <ActionSection
+        showPrevious={true}
+        showNext={true}
+        onPreviousLabel={"Previous"}
+        onNextLabel={"Next"}
+        onNextClick={noop}
+        history={noop}
+        loading={true}
+      />
+    );
+
+    expect(
+      wrapper
+        .find(Button)
+        .at(0)
+        .props().loading
+    ).toEqual(false);
+    expect(
+      wrapper
+        .find(Button)
+        .at(1)
+        .props().loading
+    ).toEqual(true);
+  });
+
   it("should have onlyNext class when only showNext to be true", () => {
     const wrapper = mount(
       <ActionSection

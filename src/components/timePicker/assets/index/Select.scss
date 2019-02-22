@@ -1,0 +1,73 @@
+@import "../../../styles/utils.scss";
+
+$prefixClass: "rc-time-picker";
+
+.#{$prefixClass}-panel-select {
+  float: left;
+  font-size: $small;
+  border: 1px solid $ui-color-2;
+  border-width: 0 1px;
+  margin-left: -1px;
+  box-sizing: border-box;
+  width: 88px;
+  max-height: 225px;
+  overflow-y: auto;
+  position: relative; // Fix chrome weird render bug
+
+  &-active {
+    overflow-y: auto;
+  }
+
+  &:first-child {
+    border-left: 0;
+    margin-left: 0;
+  }
+
+  &:last-child {
+    border-right: 0;
+  }
+
+  ul {
+    list-style: none;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  li {
+    list-style: none;
+    box-sizing: content-box;
+    margin: 0;
+    width: 100%;
+    height: 45px;
+    line-height: $line-height-large;
+    text-align: left;
+    cursor: pointer;
+    user-select: none;
+    font-size: $medium;
+    font-weight: $weight-regular;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+
+    &:hover {
+      background: #edfaff;
+    }
+  }
+
+  #{&}-option-selected {
+    background: $ui-color-1;
+    font-weight: bold;
+  }
+
+  #{&}-option-disabled {
+    color: $ui-color-2;
+
+    &:hover {
+      background: transparent;
+      cursor: not-allowed;
+    }
+  }
+}

@@ -1,13 +1,13 @@
 import React from "react";
 
-import { ModalContent } from "@src/components";
 import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
-import { wInfo } from "../utils";
+import { ModalContent } from "../../components";
+import { CategoryName, wInfo } from "../utils";
 
 const styles = require("./modalContent.stories.scss");
 
-(storiesOf("Components", module) as any).addWithJSX(
+(storiesOf(CategoryName.Modal, module) as any).addWithJSX(
   "ModalContent",
   wInfo(``)(() => (
     <div>
@@ -32,6 +32,23 @@ const styles = require("./modalContent.stories.scss");
       <div className={styles.box}>
         <ModalContent
           header="Modal Content without Sub Header"
+          leftButtonLabel="Left Button"
+          leftButtonOnClick={action("left-button-click")}
+          rightButtonLabel="Right Button"
+          rightButtonOnClick={action("right-button-click")}
+        />
+      </div>
+      <div className={styles.box}>
+        <ModalContent
+          header="Modal subheader with link subheader"
+          subheader={
+            <p>
+              Modal subheader with link{" "}
+              <a target="_blank" href="http://google.com">
+                Sub Header
+              </a>
+            </p>
+          }
           leftButtonLabel="Left Button"
           leftButtonOnClick={action("left-button-click")}
           rightButtonLabel="Right Button"

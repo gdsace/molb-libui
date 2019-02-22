@@ -1,8 +1,9 @@
-import { Size } from "@libui/components/EnumValues";
 import _ from "lodash";
 import React from "react";
 import { Props } from "react-select/lib/Select";
+import { Size } from "../EnumValues";
 import { Input } from "../input";
+import { addLocatedErrorClassname } from "../utils";
 import { baseComponents, BaseDropdown } from "./BaseDropdown";
 
 const styles = require("./styles.scss");
@@ -14,6 +15,7 @@ export interface IDropdownProps<T> extends Props<T> {
   size?: Size;
   maxLength?: number;
   onTextInputChange?: (event: React.ChangeEvent<HTMLInputElement>) => any;
+  textInputValue?: string;
 }
 
 // This Dropdown has outlining, a label and an error field over BaseDropdown
@@ -60,7 +62,6 @@ export class Dropdown<T> extends React.Component<IDropdownProps<T>, {}> {
     const dropdown = (
       <div
         className={`${styles.field} ${styles[this.props.size || Size.Large]}`}
-        data-scrollpoint={true}
       >
         <BaseDropdown
           components={{
@@ -70,14 +71,16 @@ export class Dropdown<T> extends React.Component<IDropdownProps<T>, {}> {
           {...this.props}
         />
         {this.props.error && (
-          <p className={styles.errorMessage}>{this.props.error}</p>
+          <p className={addLocatedErrorClassname(styles.errorMessage)}>
+            {this.props.error}
+          </p>
         )}
       </div>
     );
 
     const input = (
       <Input
-        value={this.props.value || ""}
+        value={this.props.textInputValue || ""}
         size={Size.Large}
         errorMsg={`${this.props.error}`}
         showError={!!this.props.error}

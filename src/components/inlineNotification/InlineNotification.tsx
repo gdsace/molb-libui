@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import * as React from "react";
+import { NotificationTheme } from "../EnumValues";
 import { Icon } from "../icons";
 import { addLocatedErrorClassname } from "../utils";
 
@@ -7,30 +8,33 @@ const style = require("./inlineNotification.scss");
 
 interface IInlineNotificationProps {
   text: string;
-  type: string;
+  theme: NotificationTheme;
 }
 
 export const InlineNotification = (props: IInlineNotificationProps) => {
-  const typeClass = {
-    [style.error]: props.type === "error",
-    [style.warning]: props.type === "warning"
+  const { theme, text } = props;
+
+  const iconType = {
+    [NotificationTheme.Success]: "notification-checkmark",
+    [NotificationTheme.Error]: "notification-error",
+    [NotificationTheme.Warning]: "warning",
+    [NotificationTheme.Informational]: "informational"
   };
-  const iconClassName = classNames(style.inlineNotificationIcon, typeClass);
 
   const inlineNotificationClassName = classNames(
     style.inlineNotification,
-    typeClass,
+    style[`${theme}`],
     {
-      [addLocatedErrorClassname("")]: props.type === "error"
+      [addLocatedErrorClassname("")]: theme === NotificationTheme.Error
     }
   );
 
   return (
-    <div className={inlineNotificationClassName} data-scrollpoint={true}>
-      <div className={iconClassName}>
-        <Icon type="alert" size="24" />
+    <div className={inlineNotificationClassName} data-scrollpoint>
+      <div className={style.inlineNotificationIcon}>
+        <Icon type={iconType[theme]} size="24" />
       </div>
-      <p className={style.inlineNotificationText}>{props.text}</p>
+      <p className={style.inlineNotificationText}>{text}</p>
     </div>
   );
 };

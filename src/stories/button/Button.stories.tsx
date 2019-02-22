@@ -1,68 +1,138 @@
 import React from "react";
 
-import { Button } from "@src/components";
-import { storiesOf } from "@storybook/react";
-import { wInfo } from "../utils";
-
-import { Size, Theme } from "@src/components/EnumValues";
 import { action } from "@storybook/addon-actions";
+import { storiesOf } from "@storybook/react";
+import { Button, Size, Theme } from "../../components";
+import { CategoryName, wInfo } from "../utils";
 
-const rowStyles = {
-  padding: "20px 0",
-  display: "flex",
-  justifyContent: "space-around",
-  alignItems: "center"
-};
+const styles = require("./button.stories.scss");
 
-(storiesOf("Components", module) as any).addWithJSX(
+(storiesOf(CategoryName.Buttons, module) as any).addWithJSX(
   "Button",
   wInfo(``)(() => (
-    <div style={{ padding: "10px" }}>
-      Is Disabled
-      <div style={rowStyles}>
-        <Button label="default" onClick={action("button-click")} />
-        <Button label="disabled" onClick={action("button-click")} disabled />
+    <div className={styles.rootContainer}>
+      <h6 className={styles.groupHeader}>Buttons: ...</h6>
+      <div className={styles.itemsContainer}>
+        <div className={styles.box}>
+          <p className={styles.notes}>default</p>
+          <Button label="default" onClick={action("button-click")} />
+        </div>
+        <div className={styles.box}>
+          <p className={styles.notes}>disabled</p>
+          <Button label="disabled" onClick={action("button-click")} disabled />
+        </div>
       </div>
-      Different Size
-      <div style={rowStyles}>
-        <Button
-          label="small"
-          onClick={action("button-click")}
-          size={Size.Small}
-        />
-        <Button
-          label="medium"
-          onClick={action("button-click")}
-          size={Size.Medium}
-        />
-        <Button
-          label="large"
-          onClick={action("button-click")}
-          size={Size.Large}
-        />
+
+      <h6 className={styles.groupHeader}>Different Size</h6>
+      <div className={styles.itemsContainer}>
+        <div className={styles.box}>
+          <Button
+            label="small"
+            onClick={action("button-click")}
+            size={Size.Small}
+          />
+        </div>
+        <div className={styles.box}>
+          <Button
+            label="medium"
+            onClick={action("button-click")}
+            size={Size.Medium}
+          />
+        </div>
+        <div className={styles.box}>
+          <Button
+            label="large"
+            onClick={action("button-click")}
+            size={Size.Large}
+          />
+        </div>
       </div>
-      Different Theme
-      <div style={rowStyles}>
-        <Button
-          label="ghost"
-          onClick={action("button-click")}
-          theme={Theme.Ghost}
-        />
-        <Button
-          label="simple"
-          onClick={action("button-click")}
-          theme={Theme.Simple}
-        />
-        <Button
-          label="primary"
-          onClick={action("button-click")}
-          theme={Theme.Primary}
-        />
-        <Button
-          label="secondary"
-          onClick={action("button-click")}
-          theme={Theme.Secondary}
-        />
+
+      <h6 className={styles.groupHeader}>Different Theme</h6>
+      <div className={styles.itemsContainer}>
+        <div className={styles.box}>
+          <p className={styles.notes}>ghost</p>
+          <Button
+            label="ghost"
+            onClick={action("button-click")}
+            theme={Theme.Ghost}
+          />
+        </div>
+        <div className={styles.box}>
+          <p className={styles.notes}>simple</p>
+          <Button
+            label="simple"
+            onClick={action("button-click")}
+            theme={Theme.Simple}
+          />
+        </div>
+        <div className={styles.box}>
+          <p className={styles.notes}>primary</p>
+          <Button
+            label="primary"
+            onClick={action("button-click")}
+            theme={Theme.Primary}
+          />
+        </div>
+        <div className={styles.box}>
+          <p className={styles.notes}>secondary</p>
+          <Button
+            label="secondary"
+            onClick={action("button-click")}
+            theme={Theme.Secondary}
+          />
+        </div>
+        <div className={styles.box}>
+          <p className={styles.notes}>primary: loading</p>
+          <Button
+            label="primary"
+            onClick={action("button-click")}
+            theme={Theme.Primary}
+            loading={true}
+          />
+        </div>
+        <div className={styles.box}>
+          <p className={styles.notes}>secondary: loading</p>
+          <Button
+            label="secondary"
+            onClick={action("button-click")}
+            theme={Theme.Secondary}
+            loading={true}
+          />
+        </div>
+      </div>
+
+      <h6 className={styles.groupHeader}>With Icon</h6>
+      <div className={styles.itemsContainer}>
+        <div className={styles.box}>
+          <p className={styles.notes}>ghost</p>
+          <Button
+            label="ghost"
+            onClick={action("button-click")}
+            theme={Theme.Ghost}
+            icon="arrowNext"
+            iconAlign="right"
+          />
+        </div>
+        <div className={styles.box}>
+          <p className={styles.notes}>primary</p>
+          <Button
+            label="primary"
+            onClick={action("button-click")}
+            theme={Theme.Primary}
+            icon="arrowPrev"
+          />
+        </div>
+        <div className={styles.box}>
+          <p className={styles.notes}>secondary</p>
+          <Button
+            label="secondary"
+            onClick={action("button-click")}
+            theme={Theme.Secondary}
+            size={Size.Large}
+            icon="add"
+          />
+        </div>
       </div>
     </div>
   ))

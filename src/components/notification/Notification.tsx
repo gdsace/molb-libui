@@ -1,10 +1,10 @@
-import { forPhoneOnlyMediaQuery } from "@libui/components/utils";
 import classnames from "classnames";
 import * as React from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { NotificationTheme } from "../EnumValues";
 import { Icon } from "../icons";
+import { forPhoneOnlyMediaQuery } from "../utils";
 
 export { ToastContainer } from "react-toastify";
 
@@ -23,7 +23,7 @@ export interface INotificationProps {
 // @ts-ignore
 const CloseButton = ({ closeToast }) => {
   return (
-    <div onClick={closeToast}>
+    <div onClick={closeToast} className={styles.close}>
       <Icon type="close" size={"16"} />
     </div>
   );

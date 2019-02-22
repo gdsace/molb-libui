@@ -1,4 +1,4 @@
-@import "~@libui/components/styles/utils";
+@import "../styles/utils.scss";
 
 .notice {
   text-align: center;
@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 0 $space-8 82px $space-8;
+  padding: $space-10 $space-6;
 
   @include for-phone-only {
     padding: $molb-body-padding;

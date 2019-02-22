@@ -1,4 +1,4 @@
-@import "~@libui/components/styles/utils";
+@import "../styles/utils.scss";
 
 .checkboxWrapper {
   line-height: 0;
@@ -36,4 +36,16 @@
   .description {
     color: $ui-color-4;
   }
+}
+
+.helpIcon {
+  color: $text-color;
+}
+
+.tooltip {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 4px;
+  position: relative;
+  top: -2px;
 }

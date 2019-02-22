@@ -5,6 +5,18 @@ export enum Theme {
   Secondary = "secondary"
 }
 
+export enum PanelType {
+  Onepage = "onepagePanel",
+  Sidebar = "sidebarPanel"
+}
+
+export enum PanelTheme {
+  Normal = "normal",
+  Bottomless = "bottomless",
+  Topless = "topless",
+  Holing = "holing"
+}
+
 export enum TileTheme {
   SmallTile = "smallTile",
   MediumTile = "mediumTile",
@@ -28,7 +40,30 @@ export enum LinkStatus {
 
 export enum InputType {
   Text = "text",
-  Number = "number"
+  /*
+   * Allow `scientific-notation` and decimal
+   * */
+  Number = "number",
+  /*
+   * Only positive & negative 0-9 allowed. EG.: -1, 0, 1
+   * No `scientific-notation`
+   * */
+  IntegerText = "integerText",
+  /*
+   * Only positive 0-9 allowed. EG.: 0, 1
+   * No `scientific-notation`
+   * */
+  PositiveIntegerText = "positiveIntegerText",
+  /*
+   * Only positive & negative integer/decimal allowed. EG.: -1.1, -1, 0, 1, 1.1
+   * No `scientific-notation`
+   * */
+  DecimalText = "decimalText",
+  /*
+   * Only positive integer/decimal allowed. EG.: 0, 1, 1.1
+   * No `scientific-notation`
+   * */
+  PositiveDecimalText = "positiveDecimalText"
 }
 
 export enum CardTheme {
@@ -76,4 +111,10 @@ export enum NotificationTheme {
   Error = "error",
   Informational = "informational",
   Warning = "warning"
+}
+
+export enum TooltipsLocationTheme {
+  BottomLeft = "bottom left",
+  BottomCenter = "bottom center",
+  BottomRight = "bottom right"
 }

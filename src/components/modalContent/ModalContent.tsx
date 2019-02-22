@@ -1,12 +1,12 @@
-import { Button } from "@libui/components/button";
-import { Size, Theme } from "@libui/components/EnumValues";
 import * as React from "react";
+import { Button } from "../button";
+import { Size, Theme } from "../EnumValues";
 
 const styles = require("./modalContent.scss");
 
 export interface IModalContentProps {
   header?: string;
-  subheader?: string;
+  subheader?: string | JSX.Element;
   leftButtonLabel?: string;
   leftButtonOnClick?: any;
   rightButtonLabel?: string;
@@ -18,7 +18,7 @@ export class ModalContent extends React.Component<IModalContentProps, {}> {
     return (
       <div className={styles.notice}>
         {this.props.header && <header>{this.props.header}</header>}
-        {this.props.subheader && <p>{this.props.subheader}</p>}
+        {this.props.subheader && this.getSubheader(this.props.subheader)}
         <div
           className={`${styles.modalFooter} ${
             this.props.rightButtonLabel ? styles.twoBtnFooter : ""
@@ -45,5 +45,12 @@ export class ModalContent extends React.Component<IModalContentProps, {}> {
         </div>
       </div>
     );
+  }
+  private getSubheader(subheader: string | JSX.Element): React.ReactNode {
+    if (typeof subheader === "string") {
+      return <p>{subheader}</p>;
+    } else {
+      return <div>{subheader}</div>;
+    }
   }
 }

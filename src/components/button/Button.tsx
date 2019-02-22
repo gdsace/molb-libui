@@ -1,9 +1,11 @@
-import { Size, Theme } from "@src/components/EnumValues";
-import { Icon } from "@src/components/icons";
 import classNames from "classnames";
 import * as React from "react";
+import { Size, Theme } from "../EnumValues";
+import { Icon } from "../icons";
 
 const styles = require("./button.scss");
+
+type ButtonType = "submit" | "reset" | "button";
 
 export interface IButtonProps {
   onClick: () => any;
@@ -12,6 +14,7 @@ export interface IButtonProps {
   className?: string;
   size?: Size;
   theme?: Theme;
+  type?: ButtonType;
   icon?: string;
   iconAlign?: "left" | "right";
   children?: React.ReactNode;
@@ -20,6 +23,7 @@ export interface IButtonProps {
 
 export class Button extends React.Component<IButtonProps, {}> {
   public static defaultProps: Partial<IButtonProps> = {
+    type: "submit",
     className: "",
     disabled: false,
     size: Size.Small,
@@ -38,6 +42,7 @@ export class Button extends React.Component<IButtonProps, {}> {
 
     return (
       <button
+        type={this.props.type}
         disabled={this.props.disabled}
         className={buttonClassName}
         onClick={() => this.handleOnClick(this.props.onClick)}
@@ -78,7 +83,7 @@ export class Button extends React.Component<IButtonProps, {}> {
   }
 
   private handleOnClick = (onClick: () => any) => {
-    if (!this.props.disabled) {
+    if (!this.props.disabled && !this.props.loading) {
       onClick();
     }
   };

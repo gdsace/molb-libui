@@ -1,0 +1,117 @@
+@import "../styles/utils.scss";
+
+.tabsBarContent {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  padding: 0 $space-specific-150;
+  margin: 0 auto;
+  box-sizing: border-box;
+  max-width: 1440px;
+
+  @include for-phone-only {
+    padding: 0 $space-specific-30;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.tab {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  .tabsBarContainer {
+    display: flex;
+    border-bottom: 1px solid $ui-color-2;
+  }
+
+  .leftComponent {
+    height: $display-x-large;
+    display: flex;
+    align-items: center;
+
+    @include for-phone-only {
+      justify-content: center;
+    }
+  }
+
+  .tabItems {
+    height: $display-x-large;
+    display: flex;
+    flex: 1;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    justify-content: flex-end;
+
+    @include for-phone-only {
+      justify-content: center;
+      padding-right: 0 !important;
+
+      .spaceItem {
+        width: 0;
+      }
+    }
+
+    .item {
+      height: 100%;
+      max-width: 100px;
+      color: $text-color-2;
+      cursor: pointer;
+      vertical-align: middle;
+      text-align: center;
+      align-items: center;
+      display: flex;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-left: $space-3;
+      box-sizing: border-box;
+      position: relative;
+      bottom: -1px;
+
+      &:nth-child(1) {
+        // the first child have no margin-left child.
+        margin-left: 0;
+      }
+
+      label {
+        width: 100%;
+        cursor: pointer;
+        font-size: $medium;
+        font-weight: $weight-semibold;
+        line-height: $line-height-large;
+      }
+    }
+
+    .item:hover {
+      color: $lavender-indigo;
+      overflow: visible;
+    }
+
+    .activeItem {
+      color: $indigo;
+      cursor: default;
+
+      label {
+        cursor: default;
+      }
+
+      &:hover {
+        color: $indigo;
+      }
+
+      &::after {
+        content: "";
+        width: 100%;
+        border-bottom: 2px solid $indigo;
+        position: absolute;
+        bottom: 0;
+      }
+    }
+  }
+
+  .tabPanel {
+    display: flex;
+    flex: 1;
+  }
+}

@@ -1,5 +1,5 @@
-import { CardTheme, TagTheme } from "@libui/components/EnumValues";
 import * as React from "react";
+import { CardTheme, TagTheme } from "../EnumValues";
 export interface ICardProps {
     title: string;
     titleIcon?: React.ReactNode;

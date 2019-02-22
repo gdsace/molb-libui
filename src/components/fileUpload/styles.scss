@@ -1,4 +1,4 @@
-@import "~@libui/components/styles/utils";
+@import "../styles/utils.scss";
 
 .default {
   min-width: 290px;
@@ -6,8 +6,6 @@
 }
 
 .uploading {
-  background-color: $secondary-color-6;
-
   > * {
     border-color: $lavender-indigo;
   }

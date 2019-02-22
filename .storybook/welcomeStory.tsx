@@ -4,16 +4,30 @@ import { storiesOf } from "@storybook/react";
 // @ts-ignore
 import { wInfo } from "./utils";
 
-(storiesOf("Welcome", module) as any).addWithJSX(
-  "to your new Storybook🎊",
+(storiesOf("0.Introduction", module) as any).addWithJSX(
+  "Terms / Definitions",
   wInfo(`
-    ### Introduction
+    ### Terms:
+    1.Components;
 
-    We can write some introduction for this component.
+    2.Modules: Consist of several Components;  
 
-    ### Usage
-    ~~~js
-    <div>We can show how our component works with Markdown format</div>
+    3.Templates: Consist of Modules;
+
+    ### Items Structure Definition:
+    ~~~code
+    +-- 0.Introduction
+    |    
+    +-- Buttons (This's the Component-Category-Name)
+    |  |  
+    |  +-- Button (This's the Component-Name)
+    |  +-- IconButton
+    |    
+    +-- ...
+    |    
+    +-- Others
+    |  |  
+    +  |-- Component-A (Components that not defined in the Design-System)
     ~~~
-  `)(() => <div>We can display how component works here</div>)
+  `)(() => <div />)
 );

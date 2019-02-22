@@ -1,13 +1,13 @@
 import React from "react";
 
-import { ActionSection } from "@src/components";
 import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
-import { wInfo } from "../utils";
+import { ActionSection } from "../../components";
+import { CategoryName, wInfo } from "../utils";
 
 const styles = require("./actionSection.stories.scss");
 
-(storiesOf("Components", module) as any).addWithJSX(
+(storiesOf(CategoryName.Others, module) as any).addWithJSX(
   "ActionSection",
   wInfo(``)(() => (
     <div>
@@ -33,6 +33,31 @@ const styles = require("./actionSection.stories.scss");
         <ActionSection
           showPrevious={true}
           showNext={true}
+          onNextLabel="RIGHT"
+          onPreviousLabel="LEFT"
+          onNextClick={action("next-button-click")}
+          onPreviousClick={action("previous-button-click")}
+        />
+      </div>
+      <h6>Action Section with custom Left and loading</h6>
+      <div className={styles.box}>
+        <ActionSection
+          showPrevious={true}
+          showNext={true}
+          onNextLabel="RIGHT"
+          onPreviousLabel="LEFT"
+          loading={true}
+          onNextClick={action("next-button-click")}
+          onPreviousClick={action("previous-button-click")}
+        />
+      </div>
+
+      <h6>Action Section without right icon </h6>
+      <div className={styles.box}>
+        <ActionSection
+          showPrevious={true}
+          showNext={true}
+          showNextIcon={false}
           onNextLabel="RIGHT"
           onPreviousLabel="LEFT"
           onNextClick={action("next-button-click")}

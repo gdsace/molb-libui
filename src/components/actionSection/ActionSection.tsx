@@ -1,7 +1,7 @@
-import { Size, Theme } from "@libui/components/EnumValues";
 import classNames from "classnames";
 import React from "react";
 import { Button } from "../button";
+import { Size, Theme } from "../EnumValues";
 
 const styles = require("./actionSection.scss");
 const PREVIOUS = "Prev";
@@ -11,7 +11,10 @@ export interface IActionSectionProps {
   onPreviousClick?: () => any;
   onNextClick?: () => any;
   showPrevious?: boolean;
+  showPreviousIcon?: boolean;
   showNext?: boolean;
+  showNextIcon?: boolean;
+  loading?: boolean;
   history?: any;
   disableNext?: boolean;
   onPreviousLabel?: string;
@@ -20,6 +23,11 @@ export interface IActionSectionProps {
 }
 
 export class ActionSection extends React.Component<IActionSectionProps, {}> {
+  public static defaultProps: Partial<IActionSectionProps> = {
+    showPreviousIcon: true,
+    showNextIcon: true
+  };
+
   public render() {
     const rowStyle = classNames(styles.row, styles.actionSectionRow, {
       [styles.onlyPrevious]: this.props.showPrevious && !this.props.showNext,
@@ -40,7 +48,7 @@ export class ActionSection extends React.Component<IActionSectionProps, {}> {
               }
               size={Size.Medium}
               theme={Theme.Secondary}
-              icon="arrowPrev"
+              icon={this.props.showPreviousIcon ? "arrowPrev" : ""}
               onClick={
                 this.props.onPreviousClick ||
                 (() => {
@@ -55,9 +63,10 @@ export class ActionSection extends React.Component<IActionSectionProps, {}> {
               label={this.props.onNextLabel ? this.props.onNextLabel : NEXT}
               size={Size.Medium}
               theme={Theme.Primary}
-              icon="arrowNext"
+              icon={this.props.showNextIcon ? "arrowNext" : ""}
               iconAlign="right"
               disabled={this.props.disableNext}
+              loading={this.props.loading}
               onClick={
                 this.props.onNextClick ||
                 (() => {

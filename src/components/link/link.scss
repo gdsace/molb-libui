@@ -21,7 +21,9 @@
 }
 
 .enable {
-  color: $primary-color;
+  a {
+    color: $primary-color;
+  }
 
   &:focus {
     a {
@@ -54,25 +56,40 @@
 }
 
 .warning {
-  color: $support-yellow;
-
+  /* stylelint-disable no-descending-specificity */
+  a {
+    color: $support-yellow;
+  }
+  /* stylelint-enable */
   &:hover {
-    color: $support-yellow-70;
+    a {
+      color: $support-yellow-70;
+    }
   }
 }
 
 .error {
-  color: $support-red;
-
+  /* stylelint-disable no-descending-specificity */
+  a {
+    color: $support-red;
+  }
+  /* stylelint-enable */
   &:hover {
-    color: $support-red-70;
+    a {
+      color: $support-red-70;
+    }
   }
 }
 
 .success {
-  color: $support-green;
-
+  /* stylelint-disable no-descending-specificity */
+  a {
+    color: $support-green;
+  }
+  /* stylelint-enable */
   &:hover {
-    color: $support-green-70;
+    a {
+      color: $support-green-70;
+    }
   }
 }

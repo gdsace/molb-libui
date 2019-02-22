@@ -1,9 +1,9 @@
 import React from "react";
 
-import { Link, LinkTarget } from "@src/components";
 import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
-import { wInfo } from "../utils";
+import { Link, LinkTarget } from "../../components";
+import { CategoryName, wInfo } from "../utils";
 
 const rowStyles = {
   padding: "20px 0",
@@ -12,7 +12,7 @@ const rowStyles = {
   alignItems: "center"
 };
 
-(storiesOf("Components", module) as any).addWithJSX(
+(storiesOf(CategoryName.Links, module) as any).addWithJSX(
   "Link",
   wInfo(``)(() => (
     <div style={{ padding: "10px" }}>

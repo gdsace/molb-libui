@@ -1,11 +1,10 @@
 import React from "react";
 
-import { Listcard } from "@src/components";
-import { ListcardStatus } from "@src/components/EnumValues";
 import { storiesOf } from "@storybook/react";
-import { wInfo } from "../utils";
+import { Listcard, ListcardStatus } from "../../components";
+import { CategoryName, wInfo } from "../utils";
 
-(storiesOf("Components", module) as any).addWithJSX(
+(storiesOf(CategoryName.Cards, module) as any).addWithJSX(
   "Listcard",
   wInfo(`default`)(() => (
     <div style={{ margin: "20px" }}>

@@ -1,10 +1,10 @@
 import React from "react";
 
-import { TextView } from "@src/components";
-import { mockLongText } from "@src/components/textView/__tests__/mockText";
 import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
-import { wInfo } from "../utils";
+import { TextView } from "../../components";
+import { mockLongText } from "../../components/textView/__tests__/mockText";
+import { CategoryName, wInfo } from "../utils";
 
 const textViewStyle = {
   width: 800,
@@ -15,7 +15,7 @@ const styles = {
   margin: "36px"
 };
 
-(storiesOf("Components", module) as any).addWithJSX(
+(storiesOf(CategoryName.TextFields, module) as any).addWithJSX(
   "TextView",
   wInfo(``)(() => (
     <div>

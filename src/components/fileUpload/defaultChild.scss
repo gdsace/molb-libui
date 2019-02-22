@@ -1,4 +1,4 @@
-@import "~@libui/components/styles/utils";
+@import "../styles/utils.scss";
 
 .root {
   font-size: $medium;
@@ -50,7 +50,7 @@
   margin-top: $space-1;
   color: $text-color;
   overflow: hidden;
-  white-space: nowrap;
+  overflow-wrap: break-word;
   text-overflow: ellipsis;
 }
 
@@ -111,6 +111,10 @@
   &:hover {
     border-color: $support-red;
     background-color: $ui-color-6;
+  }
+
+  .icon {
+    color: $support-red;
   }
 }
 

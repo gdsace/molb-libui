@@ -1,8 +1,8 @@
 import React from "react";
 
-import { Table } from "@src/components";
 import { storiesOf } from "@storybook/react";
-import { wInfo } from "../utils";
+import { Table, TableTheme } from "../../components";
+import { CategoryName, wInfo } from "../utils";
 
 export const tableColumns = [
   {
@@ -43,10 +43,6 @@ const style = {
   textStyle2: {
     fontSize: "14px",
     color: "#647283"
-  },
-  tableStyle: {
-    margin: "50px",
-    width: "90%"
   }
 };
 
@@ -59,9 +55,15 @@ const activeTag = (
 export const dataSource = [
   {
     key: "1",
-    name: "John Brown",
+    name:
+      "John Brown is a long text.John Brown is a long text.John Brown is a long text.",
     age: 32,
-    address: <span style={style.textStyle2}>"New York No. 1 Lake Park"</span>,
+    address: (
+      <span style={style.textStyle2}>
+        "New York No. 1 Lake Park.New York No. 1 Lake Park.New York No. 1 Lake
+        Park.New York No. 1 Lake Park"
+      </span>
+    ),
     tags: activeTag
   },
   {
@@ -80,13 +82,27 @@ export const dataSource = [
   }
 ];
 
-(storiesOf("Components", module) as any).addWithJSX(
+(storiesOf(CategoryName.Table, module) as any).addWithJSX(
   "Table",
   wInfo(``)(() => (
-    <Table
-      style={style.tableStyle}
-      columns={tableColumns}
-      dataSource={dataSource}
-    />
+    <div>
+      <div style={{ padding: "10px" }}>
+        stripe table with border:
+        <Table
+          columns={tableColumns}
+          dataSource={dataSource}
+          theme={TableTheme.Striped}
+          bordered={true}
+        />
+      </div>
+      <div style={{ padding: "10px" }}>
+        Basic table:
+        <Table
+          columns={tableColumns}
+          dataSource={dataSource}
+          theme={TableTheme.Basic}
+        />
+      </div>
+    </div>
   ))
 );

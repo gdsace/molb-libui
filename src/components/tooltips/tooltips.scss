@@ -1,0 +1,39 @@
+@import "../styles/utils.scss";
+
+.tooltipsContainer {
+  display: flex;
+  cursor: pointer;
+
+  .childrenContainer {
+    background: $text-color-2;
+    border-radius: 5px;
+    min-height: 81px;
+    max-height: 160px;
+    min-width: 96px;
+    max-width: 256px;
+    height: 100%;
+    width: 100%;
+    color: $field-color-2;
+    padding: 12px $space-2;
+    box-sizing: border-box;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+  }
+
+  .linkContainer {
+    margin-top: $space-2;
+
+    a {
+      color: $primary-color-2;
+      font-weight: $weight-semibold;
+    }
+  }
+
+  .withLabelChildren {
+    min-height: $space-10;
+  }
+}

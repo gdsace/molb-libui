@@ -1,7 +1,7 @@
-import { CardTheme, TagTheme } from "@libui/components/EnumValues";
-import { Tag } from "@src/components";
 import classnames from "classnames";
 import * as React from "react";
+import { CardTheme, TagTheme } from "../EnumValues";
+import { Tag } from "../tag";
 
 const styles = require("./card.scss");
 
@@ -34,11 +34,14 @@ export class Card extends React.Component<ICardProps> {
         [styles.cursorClick]: !!this.props.onClick
       }
     );
+    const titleWrapperClass = classnames(styles.titleWrapper, {
+      [styles.noSupportingText]: !this.props.supportingText
+    });
 
     return (
       <div className={cardClass} onClick={this.handleOnClick}>
         <div className={styles.header}>
-          <div className={styles.titleWrapper}>
+          <div className={titleWrapperClass}>
             <h6 className={styles.title}>{this.props.title}</h6>
             {this.props.titleIcon}
           </div>
@@ -68,8 +71,6 @@ export class Card extends React.Component<ICardProps> {
   }
 
   private handleOnClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
     if (this.props.onClick) {
       this.props.onClick();
     }

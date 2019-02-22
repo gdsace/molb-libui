@@ -1,7 +1,10 @@
+import _ from "lodash";
 import * as React from "react";
 
-import { Icon } from "@libui/components/icons";
-import { omit } from "lodash";
+import classnames from "classnames";
+import { Icon } from "../icons";
+import { addLocatedErrorClassname } from "../utils";
+
 const styles = require("./textArea.scss");
 
 export type HTMLTextareaProps = React.TextareaHTMLAttributes<
@@ -36,18 +39,24 @@ export class TextArea extends React.Component<ITextAreaPros, any> {
     this.handleIconMouseOut = this.handleIconMouseOut.bind(this);
     this.handleIconClick = this.handleIconClick.bind(this);
     this.state = {
-      characterCount: 0,
+      characterCount: (this.props.value || "").toString().length,
       isOverwrite: false
     };
   }
 
   public render() {
-    const theme = this.props.disabled
-      ? styles.textarea_disable
-      : styles.textarea;
+    const textareaValidation =
+      (this.props.overwrite && this.state.isOverwrite) || this.props.showError;
+    const rootContainerClassname = classnames(styles.textarea, {
+      [styles[`disabled`]]: this.props.disabled,
+      [styles[`validation`]]: textareaValidation
+    });
+    const helperMsgClassname = textareaValidation
+      ? addLocatedErrorClassname(styles.helperMsg)
+      : styles.helperMsg;
     const maxLength = this.props.overwrite ? undefined : this.props.maxLength;
     const props = this.props;
-    const otherProps = omit(props, [
+    const otherProps = _.omit(props, [
       "title",
       "helperText",
       "overwrite",
@@ -58,22 +67,22 @@ export class TextArea extends React.Component<ITextAreaPros, any> {
       "onIconMouseOut",
       "onIconMouseClick"
     ]);
-    const textareaValidation =
-      (this.props.overwrite && this.state.isOverwrite) || this.props.showError;
+    const iconSize = "16";
     return (
-      <div
-        className={textareaValidation ? styles.textarea_validation : theme}
-        data-scrollpoint={true}
-      >
-        <div className={styles.header}>
+      <div className={rootContainerClassname} data-scrollpoint={true}>
+        <div className={styles.headerSection}>
           <label className={styles.title}>{this.props.title}</label>
           <div
-            className={styles.onhover}
+            className={styles.infoIcon}
             onMouseOver={this.handleIconMouseOver}
             onMouseOut={this.handleIconMouseOut}
             onClick={this.handleIconClick}
           >
-            {this.props.iconType ? <Icon type={this.props.iconType} /> : ""}
+            {this.props.iconType ? (
+              <Icon type={this.props.iconType} size={iconSize} />
+            ) : (
+              ""
+            )}
           </div>
         </div>
         <div className={styles.content}>
@@ -83,18 +92,18 @@ export class TextArea extends React.Component<ITextAreaPros, any> {
             placeholder={this.props.placeholder}
             maxLength={maxLength}
             onChange={this.handleTextareaChange}
-            disabled={this.props.disabled ? true : false}
+            disabled={!!this.props.disabled}
           />
-          <div className={styles.bottomContainer}>
-            <div className={styles.helperMsg}>
-              {textareaValidation ? this.props.errorMsg : this.props.helperText}
-            </div>
-            {this.props.maxLength && (
-              <div className={styles.countMsg}>
-                {`${this.state.characterCount}/${this.props.maxLength}`}
-              </div>
-            )}
+        </div>
+        <div className={styles.bottomSection}>
+          <div className={helperMsgClassname}>
+            {textareaValidation ? this.props.errorMsg : this.props.helperText}
           </div>
+          {this.props.maxLength && (
+            <div className={styles.countMsg}>
+              {`${this.state.characterCount}/${this.props.maxLength}`}
+            </div>
+          )}
         </div>
       </div>
     );
