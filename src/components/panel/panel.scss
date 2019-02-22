@@ -35,6 +35,10 @@
     border-top: solid 1px $ui-color-2;
   }
 
+  &.reviewModel {
+    border-top: 0;
+  }
+
   &.bottomless {
     border-bottom: none;
 
@@ -71,5 +75,18 @@
       padding-top: 0;
       padding-bottom: 0;
     }
+  }
+}
+
+.panelContainer:first-child .sidebarPanel {
+  &.reviewModel {
+    padding-bottom: 0;
+  }
+}
+
+.panelContainer:not(:first-child) .sidebarPanel {
+  &.reviewModel {
+    padding-top: 0;
+    padding-bottom: 0;
   }
 }

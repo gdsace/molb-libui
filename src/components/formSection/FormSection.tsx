@@ -10,6 +10,7 @@ export interface IFormSectionProps {
   caption?: string;
   children?: React.ReactNode;
   id?: string;
+  reviewModel?: boolean;
   theme?: FormSectionSpacing;
 }
 
@@ -24,7 +25,13 @@ export class FormSection extends React.Component<IFormSectionProps, {}> {
       this.props.theme ? styles[this.props.theme] : styles.large
     );
     return (
-      <section id={this.props.id} className={styles.section}>
+      <section
+        id={this.props.id}
+        className={classNames(
+          styles.section,
+          this.props.theme ? styles[this.props.theme] : undefined
+        )}
+      >
         {this.props.caption && (
           <div className={styles.caption}>{this.props.caption}</div>
         )}
@@ -39,7 +46,7 @@ export class FormSection extends React.Component<IFormSectionProps, {}> {
           {this.props.header && (
             <h3 className={styles.header}>{this.props.header}</h3>
           )}
-          {this.props.subheader && (
+          {this.props.subheader && !this.props.reviewModel && (
             <h6 className={styles.subheader}>{this.props.subheader}</h6>
           )}
         </div>

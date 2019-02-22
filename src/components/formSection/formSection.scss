@@ -5,6 +5,10 @@
     margin-bottom: $space-8;
   }
 
+  &.reviewModel {
+    margin-bottom: $space-3;
+  }
+
   &.zero {
     margin-bottom: 0;
   }
@@ -22,6 +26,13 @@
   margin-top: $space-6;
   padding-top: $space-6;
   border-top: solid 1px $ui-color-2;
+}
+
+.section.reviewModel {
+  padding: 48px 80px;
+  background-color: $ui-color;
+  border-radius: 5px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.03);
 }
 
 .caption {

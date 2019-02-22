@@ -6,6 +6,7 @@ export interface IFormSectionProps {
     caption?: string;
     children?: React.ReactNode;
     id?: string;
+    reviewModel?: boolean;
     theme?: FormSectionSpacing;
 }
 export declare class FormSection extends React.Component<IFormSectionProps, {}> {

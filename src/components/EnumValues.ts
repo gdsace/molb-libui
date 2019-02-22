@@ -14,7 +14,8 @@ export enum PanelTheme {
   Normal = "normal",
   Bottomless = "bottomless",
   Topless = "topless",
-  Holing = "holing"
+  Holing = "holing",
+  ReviewModel = "reviewModel"
 }
 
 export enum TileTheme {
@@ -88,6 +89,7 @@ export enum ListcardStatus {
 
 export enum FormSectionSpacing {
   Zero = "zero",
+  ReviewModel = "reviewModel",
   Normal = "normal",
   Large = "large"
 }

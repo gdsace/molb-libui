@@ -31,7 +31,8 @@ export class Panel extends React.Component<IPanelProps, {}> {
           className={classnames(
             {
               [styles.onepagePanel]: this.props.type === PanelType.Onepage,
-              [styles.sidebarPanel]: this.props.type === PanelType.Sidebar
+              [styles.sidebarPanel]: this.props.type === PanelType.Sidebar,
+              [styles.reviewModel]: this.props.theme === PanelTheme.ReviewModel
             },
             this.props.contentStyle
           )}
