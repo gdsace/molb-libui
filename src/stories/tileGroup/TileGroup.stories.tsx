@@ -25,7 +25,9 @@ const tileOptions = [
     key: "FOOD-COURT",
     icon: "big-icon",
     name: "Food Court",
-    description: "Primarily for sale of food, single operator etc."
+    description: "Primarily for sale of food, single operator etc.",
+    error:
+      "XXXXX is not compatible with XXXXXX. Return to the previous step to edit."
   }
 ];
 const selectedTileValue = tileOptions[1];
@@ -38,7 +40,8 @@ const creditCarOptions = [
     description: "Expiry date.",
     imgSrc:
       "https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox",
-    imgAlt: "Visa"
+    imgAlt: "Visa",
+    error: "xxxxx is not compatible with xxxxxx."
   }
 ];
 
@@ -87,6 +90,7 @@ const valueChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
                     value={item.key}
                     theme={TileTheme.SmallTile}
                     containerStyle={styles.tileContainerStyle}
+                    error={item.error}
                   />
                 );
               })}
@@ -109,6 +113,7 @@ const valueChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
                   value={item.key}
                   theme={TileTheme.BasicTile}
                   containerStyle={styles.tileContainerStyle}
+                  error={item.error}
                 />
               );
             })}
@@ -130,6 +135,7 @@ const valueChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
                   value={item.key}
                   theme={TileTheme.MediumTile}
                   containerStyle={styles.tileContainerStyle}
+                  error={item.error}
                 />
               );
             })}
@@ -151,6 +157,7 @@ const valueChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
                   value={item.key}
                   theme={TileTheme.LargeTile}
                   containerStyle={styles.tileContainerStyle}
+                  error={item.error}
                 />
               );
             })}
@@ -174,6 +181,7 @@ const valueChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
                   value={item.key}
                   theme={TileTheme.LargeTile}
                   containerStyle={styles.tileContainerStyle}
+                  error={item.error}
                 />
               );
             })}
@@ -199,6 +207,7 @@ const valueChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
                   value={item.key}
                   theme={TileTheme.MediumTile}
                   containerStyle={styles.tileContainerStyle}
+                  error={item.error}
                 />
               );
             })}
