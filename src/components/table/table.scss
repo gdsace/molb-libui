@@ -53,10 +53,6 @@ $title-margin: $space-2;
     text-align: left;
   }
 
-  thead {
-    background-color: $ui-color;
-  }
-
   table.bordered {
     border-radius: 5px;
     box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.03), 0 7px 25px 0 rgba(0, 0, 0, 0.03), 0 0 0 1px rgba(0, 0, 0, 0.03);
@@ -87,6 +83,10 @@ $title-margin: $space-2;
   }
 
   table.striped {
+    thead {
+      background-color: $ui-color;
+    }
+
     tbody tr {
       box-sizing: border-box;
 
@@ -111,6 +111,10 @@ $title-margin: $space-2;
 
       text-align: left;
     }
+  }
+
+  .alignRight {
+    text-align: right;
   }
 }
 
