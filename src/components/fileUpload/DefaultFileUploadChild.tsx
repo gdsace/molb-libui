@@ -97,13 +97,13 @@ export const DefaultFileUploadChild = (props: IFileUploadChildProps) => {
       <div className={styles.rowTitle}>
         <div className={styles.textTitle}>
           <span>{props.documentType && props.documentType.name}</span>
-          {props.documentType && props.documentType.optional && (
+          {props.documentType && props.documentType.required === "O" && (
             <>
               {" "}
               <span className={styles.textOptional}>(Optional)</span>
             </>
           )}
-          {props.documentType && props.documentType.submitUponRequest && (
+          {props.documentType && props.documentType.required === "S" && (
             <>
               {" "}
               <span className={styles.textOptional}>(Submit Later)</span>

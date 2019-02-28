@@ -4,8 +4,7 @@ export declare const documentTypes: {
         name: string;
         description: string;
         entityWide: boolean;
-        optional: boolean;
-        submitUponRequest: boolean;
+        required: string;
         citedBy: number;
         uploaded: boolean;
         documentId: number;
@@ -17,8 +16,7 @@ export declare const documentTypes: {
         name: string;
         description: string;
         entityWide: boolean;
-        optional: boolean;
-        submitUponRequest: boolean;
+        required: string;
         citedBy: number;
         uploaded: boolean;
         documentId: null;

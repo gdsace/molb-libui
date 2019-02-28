@@ -16,8 +16,7 @@ export interface IDocumentType {
     description: string;
     entityWide: boolean;
     name: string;
-    optional: boolean;
-    submitUponRequest: boolean;
+    required: string;
     uploaded: boolean;
     documentId: number | null;
     documentName: string | null;
