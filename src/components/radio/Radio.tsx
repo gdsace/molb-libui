@@ -15,6 +15,7 @@ export interface IRadioProps {
   errorMsg?: string;
   id?: string;
   disableWidth?: boolean;
+  radioTextStyleOverride?: any;
   labelStyleOverride?: any;
 }
 
@@ -35,7 +36,7 @@ const getOptionIcon = (optionValue: IOptionValue, props: IRadioProps) => {
   }
 };
 
-const getOptionCompoents = (props: IRadioProps) => {
+const getOptionComponents = (props: IRadioProps) => {
   const labelStyleOverride = props.labelStyleOverride || {};
   const optionComponents = props.optionList.map(optionValue => {
     const isDisabled = props.disabled || optionValue.disabled;
@@ -77,8 +78,8 @@ const getOptionCompoents = (props: IRadioProps) => {
 };
 
 export const Radio = (props: IRadioProps) => {
-  const optionComponents = getOptionCompoents(props);
-  const radioclass = classNames(
+  const optionComponents = getOptionComponents(props);
+  const radioClass = classNames(
     props.className ? props.className : "",
     styles.radioWrapper
   );
@@ -86,9 +87,14 @@ export const Radio = (props: IRadioProps) => {
     props.disabled ? styles.radioContentDisabled : "",
     styles.radioText
   );
+  const radioTextStyleOverride = props.radioTextStyleOverride || {};
   return (
-    <div id={props.id} className={radioclass}>
-      {props.text && <div className={radioTextClass}>{props.text}</div>}
+    <div id={props.id} className={radioClass}>
+      {props.text && (
+        <div className={radioTextClass} style={radioTextStyleOverride}>
+          {props.text}
+        </div>
+      )}
       <div className={styles.radioLabel}>{optionComponents}</div>
       {props.showError && (
         <div className={styles.errorMsg}>{props.errorMsg}</div>
