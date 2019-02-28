@@ -161,7 +161,7 @@ $large-tile-width-mobile: 100%;
 }
 
 .largeTile {
-  height: $large-tile-height;
+  flex-basis: $large-tile-height;
   width: $large-tile-width;
 
   @include for-phone-only {
