@@ -201,7 +201,7 @@ export class Input extends React.Component<IInputProps, any> {
     } else if (type === InputType.Email) {
       return "email";
     } else {
-      return "number";
+      return "tel";
     }
   };
 }

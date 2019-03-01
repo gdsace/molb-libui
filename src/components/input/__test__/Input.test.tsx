@@ -98,7 +98,7 @@ describe("Input", () => {
     expect(component.find("input").prop("type")).toEqual("text");
   });
 
-  it("should set type attribute to email when type prop is specified but not Text or Email", () => {
+  it("should set type attribute to tel when type prop is specified but not Text or Email", () => {
     const component = Enzyme.shallow(
       <Input
         value="initial"
@@ -106,6 +106,6 @@ describe("Input", () => {
         type={InputType.DecimalText}
       />
     );
-    expect(component.find("input").prop("type")).toEqual("number");
+    expect(component.find("input").prop("type")).toEqual("tel");
   });
 });
