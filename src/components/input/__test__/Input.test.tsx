@@ -91,6 +91,17 @@ describe("Input", () => {
     expect(component.find("input").prop("type")).toEqual("email");
   });
 
+  it("should set type attribute to tel when type prop is PositiveIntegerText", () => {
+    const component = Enzyme.shallow(
+      <Input
+        value="initial"
+        onChange={jest.fn()}
+        type={InputType.PositiveIntegerText}
+      />
+    );
+    expect(component.find("input").prop("type")).toEqual("tel");
+  });
+
   it("should set type attribute to text when type prop is not specified", () => {
     const component = Enzyme.shallow(
       <Input value="initial" onChange={jest.fn()} />
@@ -98,7 +109,7 @@ describe("Input", () => {
     expect(component.find("input").prop("type")).toEqual("text");
   });
 
-  it("should set type attribute to tel when type prop is specified but not Text or Email", () => {
+  it("should set type attribute to number when type prop is specified but not Text, Email or PositiveIntegerText", () => {
     const component = Enzyme.shallow(
       <Input
         value="initial"
@@ -106,6 +117,6 @@ describe("Input", () => {
         type={InputType.DecimalText}
       />
     );
-    expect(component.find("input").prop("type")).toEqual("tel");
+    expect(component.find("input").prop("type")).toEqual("number");
   });
 });
