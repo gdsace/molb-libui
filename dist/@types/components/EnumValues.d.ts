@@ -34,6 +34,7 @@ export declare enum LinkStatus {
 }
 export declare enum InputType {
     Text = "text",
+    Email = "email",
     Number = "number",
     IntegerText = "integerText",
     PositiveIntegerText = "positiveIntegerText",

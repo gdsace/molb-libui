@@ -24,7 +24,9 @@ const radioProps: IRadioProps = {
   text: "1. all enable radio buttons",
   optionList: optionValueArray,
   onChange: valueChangeHandler,
-  disabled: false
+  disabled: false,
+  showError: true,
+  errorMsg: "This field is required."
 };
 
 const valueChangeHandler2 = (value: string) => {
