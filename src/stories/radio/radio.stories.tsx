@@ -2,8 +2,9 @@ import React from "react";
 
 import { State, Store } from "@sambego/storybook-state";
 import { storiesOf } from "@storybook/react";
-import { IOptionValue, IRadioProps, Radio } from "../../components/radio/Radio";
+import { IOptionValue, IRadioProps, Radio } from "../../components/radio";
 import { CategoryName, wInfo } from "../utils";
+const styles = require("./radio.scss");
 
 const valueChangeHandler = (value: string) => {
   store.set({ value });
@@ -46,7 +47,8 @@ const radioProps2: IRadioProps = {
   onChange: valueChangeHandler2,
   disabled: true,
   value: "value1",
-  radioTextStyleOverride: { marginTop: "40px", fontSize: "12px" }
+  radioTextStyleOverride: styles.overrideRadioText,
+  labelStyleOverride: styles.overrideRadioLabel
 };
 
 const optionValueArray3: IOptionValue[] = [
