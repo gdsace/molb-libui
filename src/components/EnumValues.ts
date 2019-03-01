@@ -40,6 +40,7 @@ export enum LinkStatus {
 
 export enum InputType {
   Text = "text",
+  Email = "email",
   /*
    * Allow `scientific-notation` and decimal
    * */

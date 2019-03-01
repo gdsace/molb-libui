@@ -29,4 +29,5 @@ export declare class Input extends React.Component<IInputProps, any> {
     constructor(props: any);
     render(): JSX.Element;
     handleOnChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    private getRawInputType;
 }
