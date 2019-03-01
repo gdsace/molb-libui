@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import * as React from "react";
-import { Icon } from "../icons/index";
+import { Icon } from "../icons";
 
 const styles = require("./radio.scss");
 
@@ -15,7 +15,8 @@ export interface IRadioProps {
   errorMsg?: string;
   id?: string;
   disableWidth?: boolean;
-  labelStyleOvveride?: any;
+  radioTextStyleOverride?: string;
+  labelStyleOverride?: string;
 }
 
 export interface IOptionValue {
@@ -35,8 +36,11 @@ const getOptionIcon = (optionValue: IOptionValue, props: IRadioProps) => {
   }
 };
 
-const getOptionCompoents = (props: IRadioProps) => {
-  const labelStyleOverride = props.labelStyleOvveride || {};
+const getOptionComponents = (props: IRadioProps) => {
+  const radioTextClass = classNames(
+    props.labelStyleOverride || "",
+    styles.optionText
+  );
   const optionComponents = props.optionList.map(optionValue => {
     const isDisabled = props.disabled || optionValue.disabled;
     const isSelected = optionValue.value === props.value;
@@ -67,9 +71,7 @@ const getOptionCompoents = (props: IRadioProps) => {
           disabled={isDisabled}
           onClick={onRadioClick}
         />
-        <span className={styles.optionText} style={labelStyleOverride}>
-          {optionValue.label}
-        </span>
+        <span className={radioTextClass}>{optionValue.label}</span>
       </label>
     );
   });
@@ -77,17 +79,18 @@ const getOptionCompoents = (props: IRadioProps) => {
 };
 
 export const Radio = (props: IRadioProps) => {
-  const optionComponents = getOptionCompoents(props);
-  const radioclass = classNames(
+  const optionComponents = getOptionComponents(props);
+  const radioClass = classNames(
     props.className ? props.className : "",
     styles.radioWrapper
   );
   const radioTextClass = classNames(
     props.disabled ? styles.radioContentDisabled : "",
+    props.radioTextStyleOverride || "",
     styles.radioText
   );
   return (
-    <div id={props.id} className={radioclass}>
+    <div id={props.id} className={radioClass}>
       {props.text && <div className={radioTextClass}>{props.text}</div>}
       <div className={styles.radioLabel}>{optionComponents}</div>
       {props.showError && (

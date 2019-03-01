@@ -12,6 +12,7 @@
   z-index: $z-index-9;
   -webkit-overflow-scrolling: touch;
   overflow-x: hidden;
+  user-select: none;
 
   .footer {
     z-index: $z-index-9;
@@ -49,10 +50,15 @@
       z-index: $z-index-9;
       font-size: $xx-large;
       position: absolute;
-      top: $space-2;
-      right: $space-2;
+      top: $space-3;
+      right: $space-3;
       color: $ui-color-4;
       cursor: pointer;
+
+      @include for-phone-only {
+        top: $space-4;
+        right: $space-4;
+      }
     }
 
     //class name here is
@@ -94,11 +100,11 @@
 
 .modal.largeTheme {
   .modalContent {
-    max-width: 980px;
+    max-width: 945px;
     min-height: 600px;
     width: auto;
     transform: translate(-50%, 0);
-    top: $space-5;
+    top: $space-10;
     margin-bottom: $space-5;
 
     @include for-phone-only {

@@ -22,6 +22,7 @@ $large-tile-width-mobile: 100%;
   display: flex;
   border-radius: 5px;
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.03), 0 7px 25px 0 rgba(0, 0, 0, 0.03), 0 0 0 1px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
 }
 
 .tileContent {
@@ -38,6 +39,25 @@ $large-tile-width-mobile: 100%;
   span {
     div {
       color: $ui-color;
+    }
+  }
+
+  .errorContent {
+    display: flex;
+    color: $support-red;
+    align-items: flex-start;
+    margin: $space-3 0;
+
+    .errorIcon {
+      width: 16px;
+      height: 16px;
+    }
+
+    span {
+      font-size: 12px;
+      max-width: 222px;
+      max-height: 45px;
+      word-break: normal;
     }
   }
 
@@ -141,7 +161,7 @@ $large-tile-width-mobile: 100%;
 }
 
 .largeTile {
-  height: $large-tile-height;
+  flex-basis: $large-tile-height;
   width: $large-tile-width;
 
   @include for-phone-only {

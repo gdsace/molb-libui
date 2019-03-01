@@ -2,10 +2,11 @@ import React from "react";
 
 import { State, Store } from "@sambego/storybook-state";
 import { storiesOf } from "@storybook/react";
-import { IOptionValue, IRadioProps, Radio } from "../../components/radio/Radio";
+import { IOptionValue, IRadioProps, Radio } from "../../components/radio";
 import { CategoryName, wInfo } from "../utils";
+const styles = require("./radio.scss");
 
-const valueChangeHanlder = (value: string) => {
+const valueChangeHandler = (value: string) => {
   store.set({ value });
 };
 const optionValueArray: IOptionValue[] = [
@@ -22,11 +23,11 @@ const optionValueArray: IOptionValue[] = [
 const radioProps: IRadioProps = {
   text: "1. all enable radio buttons",
   optionList: optionValueArray,
-  onChange: valueChangeHanlder,
+  onChange: valueChangeHandler,
   disabled: false
 };
 
-const valueChangeHanlder2 = (value: string) => {
+const valueChangeHandler2 = (value: string) => {
   store2.set({ value });
 };
 const optionValueArray2: IOptionValue[] = [
@@ -43,9 +44,11 @@ const optionValueArray2: IOptionValue[] = [
 const radioProps2: IRadioProps = {
   text: "2. all disabled radio buttons",
   optionList: optionValueArray2,
-  onChange: valueChangeHanlder2,
+  onChange: valueChangeHandler2,
   disabled: true,
-  value: "value1"
+  value: "value1",
+  radioTextStyleOverride: styles.overrideRadioText,
+  labelStyleOverride: styles.overrideRadioLabel
 };
 
 const optionValueArray3: IOptionValue[] = [
@@ -64,13 +67,13 @@ const optionValueArray3: IOptionValue[] = [
   }
 ];
 
-const valueChangeHanlder3 = (value: string) => {
+const valueChangeHandler3 = (value: string) => {
   store3.set({ value });
 };
 const radioProps3: IRadioProps = {
   text: "3. mixed disabled and enabled radio buttons",
   optionList: optionValueArray3,
-  onChange: valueChangeHanlder3,
+  onChange: valueChangeHandler3,
   disabled: false,
   value: "value1"
 };

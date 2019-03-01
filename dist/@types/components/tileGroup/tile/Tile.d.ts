@@ -11,6 +11,7 @@ export interface ITileProps {
     value?: string;
     theme?: TileTheme;
     containerStyle?: string;
+    error?: string;
     deselectable?: boolean;
     imgSrc?: string;
     imgAlt?: string;

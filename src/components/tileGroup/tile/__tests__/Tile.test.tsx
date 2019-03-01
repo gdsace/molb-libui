@@ -97,4 +97,19 @@ describe("Tile", () => {
     expect(wrapper.find(".tileHeader")).toHaveLength(1);
     expect(wrapper.find(".tileDescription")).toHaveLength(1);
   });
+
+  it("should render error when large-tile", () => {
+    const wrapper = shallow(
+      <Tile
+        icon="48-px-store"
+        content="Restaurant"
+        description="Some description"
+        theme={TileTheme.LargeTile}
+        error="error"
+      />
+    );
+
+    expect(wrapper.find(".errorContent")).toHaveLength(1);
+    expect(wrapper.find(".errorIcon")).toHaveLength(1);
+  });
 });
