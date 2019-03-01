@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import * as React from "react";
-import { Icon } from "../icons/index";
+import { Icon } from "../icons";
 
 const styles = require("./radio.scss");
 
@@ -15,8 +15,8 @@ export interface IRadioProps {
   errorMsg?: string;
   id?: string;
   disableWidth?: boolean;
-  radioTextStyleOverride?: any;
-  labelStyleOverride?: any;
+  radioTextStyleOverride?: string;
+  labelStyleOverride?: string;
 }
 
 export interface IOptionValue {
@@ -37,7 +37,10 @@ const getOptionIcon = (optionValue: IOptionValue, props: IRadioProps) => {
 };
 
 const getOptionComponents = (props: IRadioProps) => {
-  const labelStyleOverride = props.labelStyleOverride || {};
+  const radioTextClass = classNames(
+    props.labelStyleOverride || "",
+    styles.optionText
+  );
   const optionComponents = props.optionList.map(optionValue => {
     const isDisabled = props.disabled || optionValue.disabled;
     const isSelected = optionValue.value === props.value;
@@ -68,9 +71,7 @@ const getOptionComponents = (props: IRadioProps) => {
           disabled={isDisabled}
           onClick={onRadioClick}
         />
-        <span className={styles.optionText} style={labelStyleOverride}>
-          {optionValue.label}
-        </span>
+        <span className={radioTextClass}>{optionValue.label}</span>
       </label>
     );
   });
@@ -85,16 +86,12 @@ export const Radio = (props: IRadioProps) => {
   );
   const radioTextClass = classNames(
     props.disabled ? styles.radioContentDisabled : "",
+    props.radioTextStyleOverride || "",
     styles.radioText
   );
-  const radioTextStyleOverride = props.radioTextStyleOverride || {};
   return (
     <div id={props.id} className={radioClass}>
-      {props.text && (
-        <div className={radioTextClass} style={radioTextStyleOverride}>
-          {props.text}
-        </div>
-      )}
+      {props.text && <div className={radioTextClass}>{props.text}</div>}
       <div className={styles.radioLabel}>{optionComponents}</div>
       {props.showError && (
         <div className={styles.errorMsg}>{props.errorMsg}</div>
