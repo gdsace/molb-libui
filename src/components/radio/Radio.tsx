@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import * as React from "react";
 import { Icon } from "../icons";
+import { addLocatedErrorClassname } from "../utils";
 
 const styles = require("./radio.scss");
 
@@ -94,7 +95,9 @@ export const Radio = (props: IRadioProps) => {
       {props.text && <div className={radioTextClass}>{props.text}</div>}
       <div className={styles.radioLabel}>{optionComponents}</div>
       {props.showError && (
-        <div className={styles.errorMsg}>{props.errorMsg}</div>
+        <div className={addLocatedErrorClassname(styles.errorMsg)}>
+          {props.errorMsg}
+        </div>
       )}
     </div>
   );
