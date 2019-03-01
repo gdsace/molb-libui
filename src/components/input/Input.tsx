@@ -119,7 +119,7 @@ export class Input extends React.Component<IInputProps, any> {
               this.props.showError ? styles.error : ""
             }`}
             value={this.props.value}
-            type="text"
+            type={this.getRawInputType(this.props.type)}
             maxLength={this.props.maxLength}
             onChange={this.handleOnChange}
             onBlur={() => {
@@ -193,5 +193,15 @@ export class Input extends React.Component<IInputProps, any> {
       characterCount: event.target.value.length,
       previousValue: event.target.value
     });
+  };
+
+  private getRawInputType = (type?: InputType) => {
+    if (type === InputType.Text || !type) {
+      return "text";
+    } else if (type === InputType.Email) {
+      return "email";
+    } else {
+      return "number";
+    }
   };
 }
