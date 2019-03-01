@@ -164,10 +164,7 @@
     z-index: $z-index-3 !important;
 
     @include for-phone-only {
-      max-width: 320px;
-      // when the device screen is narrow(iphone 5s),
-      // the wrapper will broken. so it goes 320px;
-      width: 100%;
+      max-width: 100%;
     }
 
     // Hack to make sure value is vertically centered and not affected by hidden input
