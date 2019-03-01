@@ -16,7 +16,7 @@ const errorMsg = "Validation error message, blah blah blah...";
   wInfo(``)(() => (
     <div className={styles.rootContainer}>
       <h6 className={styles.groupHeader}>
-        Bellow are different size: Large, Medium, Small
+        Below are different sizes: Large, Medium, Small
       </h6>
       <div className={styles.itemsContainer}>
         <div className={styles.box}>
@@ -48,7 +48,7 @@ const errorMsg = "Validation error message, blah blah blah...";
       </div>
 
       <h6 className={styles.groupHeader}>
-        Bellow are different Type: Number, Text
+        Below are different types: Number, Text, Email
       </h6>
       <div className={styles.itemsContainer}>
         <div className={styles.box}>
@@ -69,10 +69,19 @@ const errorMsg = "Validation error message, blah blah blah...";
             size={Size.Large}
           />
         </div>
+        <div className={styles.box}>
+          <Input
+            onChange={action("value")}
+            placeholder={placeholder}
+            type={InputType.Email}
+            label={"Email"}
+            size={Size.Large}
+          />
+        </div>
       </div>
 
       <h6 className={styles.groupHeader}>
-        Bellow are different looks: Normal, Error, Disable, WithHelper,
+        Below are different looks: Normal, Error, Disable, WithHelper,
         WithToolTip, WithSuffix
       </h6>
       <div className={styles.itemsContainer}>
@@ -193,7 +202,7 @@ const errorMsg = "Validation error message, blah blah blah...";
       </div>
 
       <h6 className={styles.groupHeader}>
-        Bellow are some length limit for input
+        Below are some length limits for input
       </h6>
       <div className={styles.itemsContainer}>
         <div className={styles.box}>
