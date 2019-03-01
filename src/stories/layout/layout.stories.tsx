@@ -11,7 +11,7 @@ const styles = require("./layout.stories.scss");
   wInfo(``)(() => (
     <div className={styles.rootContainer}>
       <h6 className={styles.groupHeader}>
-        Bellow are different size: Large, Medium, Small
+        Below are different sizes: Large, Medium, Small
       </h6>
       <div className={styles.itemsContainer}>
         <div className={styles.box}>
