@@ -17,7 +17,7 @@ export interface IDocumentType {
   description: string;
   entityWide: boolean;
   name: string;
-  required: string;
+  additionalRemark: string | null;
   uploaded: boolean;
   documentId: number | null;
   documentName: string | null;
