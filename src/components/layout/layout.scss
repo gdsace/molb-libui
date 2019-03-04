@@ -15,6 +15,10 @@
   flex-grow: 1;
   height: 100%;
   border-top: 1px solid $ui-color-2;
+
+  @include for-tablet {
+    overflow: scroll;
+  }
 }
 
 .sidebar {
@@ -30,9 +34,12 @@
 }
 
 .mainContent {
-  overflow-x: hidden;
   display: flex;
   flex: 1;
+
+  @include for-phone-only {
+    overflow: hidden;
+  }
 }
 
 @include for-phone-only {
