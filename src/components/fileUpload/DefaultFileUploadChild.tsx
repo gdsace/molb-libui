@@ -132,7 +132,13 @@ export const DefaultFileUploadChild = (props: IFileUploadChildProps) => {
           </>
         )
       )}
-
+      {documentSampleLink && (
+        <div className={styles.downloadLink} >
+          <a target="_self">
+            Download mandatory template
+          </a>
+        </div>
+      )}
       {showError && (
         <div className={addLocatedErrorClassname(styles.textError)}>
           {props.error}
