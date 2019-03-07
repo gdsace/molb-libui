@@ -1,4 +1,5 @@
 import classnames from "classnames";
+import _ from "lodash";
 import { LocatedError } from "./constants";
 
 function getMediaQuery(mediaQueryPattern: string): boolean {
@@ -27,4 +28,21 @@ export function addLocatedErrorClassname(
   locatedErrorClassName = LocatedError
 ) {
   return classnames(classname, locatedErrorClassName);
+}
+
+export function getFileNameByHttpHeaders(headers: Headers) {
+  return getFileNameByContentDisposition(headers.get("Content-Disposition"));
+}
+
+export function getFileNameByContentDisposition(
+  contentDisposition: string | null
+) {
+  if (contentDisposition == null) {
+    return undefined;
+  }
+  const regex = /filename[^=]*=['"]?(.*)['"]?/;
+  const matches = regex.exec(contentDisposition);
+  if (matches != null && matches[1]) {
+    return matches[1];
+  }
 }

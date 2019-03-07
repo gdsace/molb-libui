@@ -1,9 +1,12 @@
 import classNames from "classnames";
 import * as React from "react";
 
+import _ from "lodash";
+import qs from "qs";
 import { FileUploadState, IFileUploadProps } from ".";
 import { Icon } from "../icons";
-import { addLocatedErrorClassname } from "../utils";
+import { addLocatedErrorClassname, getFileNameByHttpHeaders } from "../utils";
+import { SubjectType } from "./subjectTypes";
 
 const styles = require("./defaultChild.scss");
 
@@ -57,6 +60,9 @@ export interface IFileUploadChildProps
     | "onCompleteIconClick"
     | "onDefaultIconClick"
     | "onProgressIconClick"
+    | "subjectId"
+    | "baseUrl"
+    | "token"
   > {
   uploadState?: FileUploadState;
 }
@@ -69,6 +75,41 @@ export const formatBytes = (bytes: number): string => {
   } else {
     return `${(bytes / 1024 / 1024).toFixed(1)} MB`;
   }
+};
+
+const downloadTemplateFile = (props: IFileUploadChildProps) => {
+  const { documentType, subjectId, baseUrl, token } = props;
+
+  const queryString = qs.stringify({
+    documentTypeCode: documentType!.code,
+    subjectId,
+    subjectType: SubjectType.Premise
+  });
+
+  fetch(`${baseUrl}/api/document-info/template?${queryString}`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  }).then(response => {
+    if (!response.ok) {
+      return;
+    }
+    const url = window.URL.createObjectURL(
+      new Blob([response.blob.toString()])
+    );
+    const link = document.createElement("a");
+    link.style.display = "none";
+    link.href = url;
+    link.setAttribute(
+      "download",
+      `${getFileNameByHttpHeaders(response.headers)}`
+    );
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    window.URL.revokeObjectURL(link.href);
+  });
 };
 
 // We aren't using the Tile component here because of several
@@ -132,9 +173,15 @@ export const DefaultFileUploadChild = (props: IFileUploadChildProps) => {
           </>
         )
       )}
-      {documentSampleLink && (
-        <div className={styles.downloadLink} >
-          <a target="_self">
+      {props.documentType.hasTemplateFile && (
+        <div className={styles.downloadLink}>
+          <a
+            onClick={e => {
+              e.preventDefault();
+              e.stopPropagation();
+              downloadTemplateFile(props);
+            }}
+          >
             Download mandatory template
           </a>
         </div>

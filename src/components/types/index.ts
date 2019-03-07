@@ -22,4 +22,5 @@ export interface IDocumentType {
   documentId: number | null;
   documentName: string | null;
   documentSize: number | null;
+  hasTemplateFile: boolean;
 }

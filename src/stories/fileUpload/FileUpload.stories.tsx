@@ -7,6 +7,8 @@ import { Button, FileUpload, Size } from "../../components";
 import { documentTypes } from "../../components/fileUpload/__tests__/__mocks__/documentTypes";
 import { CategoryName, wInfo } from "../utils";
 
+const styles = require("./fileUpload.stories.scss");
+
 const store = new Store({
   error: "something wrong"
 });
@@ -22,30 +24,51 @@ const store = new Store({
         </a>{" "}
         with additional props.
       </p>
-      <div>
-        <State store={store}>
-          <FileUpload
-            baseUrl=""
-            subjectId=""
-            token=""
-            documentType={documentTypes.required}
-            onSuccess={action("ok")}
-            error={store.error}
-            onError={() => {
-              action("error");
-              store.set({
-                error: "something wrong"
-              });
-            }}
-            key="file-upload"
-          />
-          <Button
-            label="clear error"
-            onClick={() => store.set({ error: undefined })}
-            size={Size.Small}
-            key="button"
-          />
-        </State>
+      <div className={styles.content}>
+        <div className={styles.uploadFile}>
+          <State store={store}>
+            <FileUpload
+              baseUrl=""
+              subjectId="1"
+              token=""
+              documentType={documentTypes.required}
+              onSuccess={action("ok")}
+              error={store.error}
+              onError={() => {
+                action("error");
+                store.set({
+                  error: "something wrong"
+                });
+              }}
+              key="file-upload"
+            />
+            <Button
+              label="clear error"
+              onClick={() => store.set({ error: undefined })}
+              size={Size.Small}
+              key="button"
+            />
+          </State>
+        </div>
+        <div className={styles.uploadFile}>
+          <State store={store}>
+            <FileUpload
+              baseUrl=""
+              subjectId=""
+              token=""
+              documentType={documentTypes.required}
+              onSuccess={action("ok")}
+              error={store.error}
+              onError={() => {
+                action("error");
+                store.set({
+                  error: "something wrong"
+                });
+              }}
+              key="file-upload"
+            />
+          </State>
+        </div>
       </div>
     </div>
   ))
