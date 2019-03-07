@@ -10,6 +10,7 @@ export declare const documentTypes: {
         documentId: number;
         documentName: string;
         documentSize: number;
+        hasTemplateFile: boolean;
     };
     optional: {
         code: string;
@@ -22,5 +23,6 @@ export declare const documentTypes: {
         documentId: null;
         documentName: null;
         documentSize: null;
+        hasTemplateFile: boolean;
     };
 };

@@ -17,7 +17,24 @@ describe("FileUpload", () => {
 
     const child = wrapper.find(DefaultFileUploadChild);
     expect(child).toHaveLength(1);
-    expect(child.text()).toEqual("somenamesomedescription");
+    expect(
+      child
+        .find(".textTitle")
+        .at(0)
+        .text()
+    ).toEqual("somename");
+    expect(
+      child
+        .find(".textDescription")
+        .at(0)
+        .text()
+    ).toEqual("somedescription");
+    expect(
+      child
+        .find(".downloadLink")
+        .at(0)
+        .text()
+    ).toEqual("Download mandatory template");
   });
 
   it("renders the child when given a child", () => {

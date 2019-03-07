@@ -7,3 +7,5 @@ export declare function forDesktopUpMediaQuery(): boolean;
  * @param locatedErrorClassName added classnames used for error location
  */
 export declare function addLocatedErrorClassname(classname: string, locatedErrorClassName?: string): string;
+export declare function getFileNameByHttpHeaders(headers: Headers): string | undefined;
+export declare function getFileNameByContentDisposition(contentDisposition: string | null): string | undefined;
