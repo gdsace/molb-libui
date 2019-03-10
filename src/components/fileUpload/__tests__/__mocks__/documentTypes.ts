@@ -1,6 +1,6 @@
 export const documentTypes = {
   required: {
-    code: "034",
+    code: "031",
     name: "somename",
     description: "somedescription",
     entityWide: false,
