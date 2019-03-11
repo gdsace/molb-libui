@@ -2,11 +2,9 @@ import classNames from "classnames";
 import * as React from "react";
 
 import _ from "lodash";
-import qs from "qs";
 import { FileUploadState, IFileUploadProps } from ".";
 import { Icon } from "../icons";
 import { addLocatedErrorClassname, getFilenameByHttpHeaders } from "../utils";
-import { SubjectType } from "./subjectTypes";
 
 const styles = require("./defaultChild.scss");
 
@@ -60,7 +58,6 @@ export interface IFileUploadChildProps
     | "onCompleteIconClick"
     | "onDefaultIconClick"
     | "onProgressIconClick"
-    | "subjectId"
     | "baseUrl"
     | "token"
   > {
@@ -78,15 +75,9 @@ export const formatBytes = (bytes: number): string => {
 };
 
 const downloadTemplateFile = (props: IFileUploadChildProps) => {
-  const { documentType, subjectId, baseUrl, token } = props;
+  const { documentType, baseUrl, token } = props;
 
-  const queryString = qs.stringify({
-    documentTypeCode: documentType!.code,
-    subjectId,
-    subjectType: SubjectType.Premise
-  });
-
-  fetch(`${baseUrl}/api/document-info/template?${queryString}`, {
+  fetch(`${baseUrl}/api/document-types/${documentType!.code}/template`, {
     method: "GET",
     headers: {
       Authorization: `Bearer ${token}`
@@ -179,6 +170,11 @@ export const DefaultFileUploadChild = (props: IFileUploadChildProps) => {
           </>
         )
       )}
+      {showError && (
+        <div className={addLocatedErrorClassname(styles.textError)}>
+          {props.error}
+        </div>
+      )}
       {props.documentType.hasTemplateFile && (
         <div className={styles.downloadLink}>
           <a
@@ -190,11 +186,6 @@ export const DefaultFileUploadChild = (props: IFileUploadChildProps) => {
           >
             Download mandatory template
           </a>
-        </div>
-      )}
-      {showError && (
-        <div className={addLocatedErrorClassname(styles.textError)}>
-          {props.error}
         </div>
       )}
     </div>
