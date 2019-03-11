@@ -12,7 +12,6 @@ describe("DefaultFileUploadChild", () => {
         documentType={documentTypes.required}
         baseUrl=""
         token=""
-        subjectId="1"
       />
     );
     expect(
@@ -37,7 +36,6 @@ describe("DefaultFileUploadChild", () => {
         document={{ name: "bar", fileSize: 100 }}
         baseUrl=""
         token=""
-        subjectId="1"
       />
     );
     expect(
@@ -70,7 +68,6 @@ describe("DefaultFileUploadChild", () => {
         error="something wrong"
         baseUrl=""
         token=""
-        subjectId="1"
       />
     );
     expect(wrapper.find(".textError").text()).toEqual("something wrong");
@@ -82,7 +79,6 @@ describe("DefaultFileUploadChild", () => {
         documentType={documentTypes.optional}
         baseUrl=""
         token=""
-        subjectId="1"
       />
     );
     expect(wrapper.find(".textTitle").text()).toEqual(
@@ -96,7 +92,6 @@ describe("DefaultFileUploadChild", () => {
         documentType={documentTypes.required}
         baseUrl=""
         token=""
-        subjectId="1"
       />
     );
     expect(
@@ -116,7 +111,6 @@ describe("DefaultFileUploadChild", () => {
         }}
         baseUrl=""
         token=""
-        subjectId="1"
       />
     );
     expect(wrapper.find(".downloadLink")).toHaveLength(0);
