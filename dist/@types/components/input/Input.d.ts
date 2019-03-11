@@ -3,6 +3,7 @@ import { InputType, Size, TooltipsLocationTheme } from "../EnumValues";
 export interface IInputProps {
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => any;
     onBlur?: () => any;
+    onKeyPress?: (event: React.KeyboardEvent<HTMLInputElement>) => any;
     value: any;
     type?: InputType;
     minLength?: number;

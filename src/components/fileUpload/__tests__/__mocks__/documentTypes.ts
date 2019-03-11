@@ -1,6 +1,6 @@
 export const documentTypes = {
   required: {
-    code: "001",
+    code: "031",
     name: "somename",
     description: "somedescription",
     entityWide: false,
@@ -9,7 +9,8 @@ export const documentTypes = {
     uploaded: true,
     documentId: 30,
     documentName: "6766258486.pdf",
-    documentSize: 15110
+    documentSize: 15110,
+    hasTemplateFile: true
   },
   optional: {
     code: "003",
@@ -21,6 +22,7 @@ export const documentTypes = {
     uploaded: false,
     documentId: null,
     documentName: null,
-    documentSize: null
+    documentSize: null,
+    hasTemplateFile: false
   }
 };
