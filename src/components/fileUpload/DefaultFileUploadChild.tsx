@@ -5,7 +5,7 @@ import _ from "lodash";
 import qs from "qs";
 import { FileUploadState, IFileUploadProps } from ".";
 import { Icon } from "../icons";
-import { addLocatedErrorClassname, getFileNameByHttpHeaders } from "../utils";
+import { addLocatedErrorClassname, getFilenameByHttpHeaders } from "../utils";
 import { SubjectType } from "./subjectTypes";
 
 const styles = require("./defaultChild.scss");
@@ -103,7 +103,7 @@ const downloadTemplateFile = (props: IFileUploadChildProps) => {
         link.href = url;
         link.setAttribute(
           "download",
-          `${getFileNameByHttpHeaders(response.headers)}`
+          `${getFilenameByHttpHeaders(response.headers)}`
         );
         document.body.appendChild(link);
         link.click();

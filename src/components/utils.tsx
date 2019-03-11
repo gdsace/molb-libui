@@ -30,11 +30,11 @@ export function addLocatedErrorClassname(
   return classnames(classname, locatedErrorClassName);
 }
 
-export function getFileNameByHttpHeaders(headers: Headers) {
-  return getFileNameByContentDisposition(headers.get("Content-Disposition"));
+export function getFilenameByHttpHeaders(headers: Headers) {
+  return getFilenameByContentDisposition(headers.get("Content-Disposition"));
 }
 
-export function getFileNameByContentDisposition(
+export function getFilenameByContentDisposition(
   contentDisposition: string | null
 ) {
   if (contentDisposition == null) {
