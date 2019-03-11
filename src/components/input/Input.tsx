@@ -18,6 +18,7 @@ const defaultChangesFilterRegexDict: any = {
 export interface IInputProps {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => any;
   onBlur?: () => any;
+  onKeyPress?: () => any;
   value: any;
   type?: InputType;
   minLength?: number;
@@ -126,6 +127,11 @@ export class Input extends React.Component<IInputProps, any> {
             onBlur={() => {
               if (this.props.onBlur) {
                 this.props.onBlur();
+              }
+            }}
+            onKeyPress={() => {
+              if (this.props.onKeyPress) {
+                this.props.onKeyPress();
               }
             }}
             placeholder={this.props.placeholder}
