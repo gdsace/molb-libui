@@ -1,5 +1,6 @@
 import * as Enzyme from "enzyme";
 import * as React from "react";
+import { Icon } from "../../../components/icons";
 import { InputType } from "../../EnumValues";
 import { Input } from "../Input";
 
@@ -118,5 +119,17 @@ describe("Input", () => {
       />
     );
     expect(component.find("input").prop("type")).toEqual("number");
+  });
+
+  it("should set iconSignifier with props", () => {
+    const component = Enzyme.shallow(
+      <Input
+        value="initial"
+        onChange={jest.fn()}
+        type={InputType.Number}
+        iconSignifier={<Icon size="16" type={"search"} />}
+      />
+    );
+    expect(component.find(Icon)).toHaveLength(1);
   });
 });
