@@ -121,3 +121,16 @@
 .uploading {
   background-color: $secondary-color-6;
 }
+
+.downloadLink {
+  margin-top: $space-1;
+  font-size: $small;
+
+  a {
+    color: $indigo;
+
+    &:hover {
+      color: $lavender-indigo;
+    }
+  }
+}

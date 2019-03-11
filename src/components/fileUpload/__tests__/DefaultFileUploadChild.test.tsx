@@ -8,9 +8,25 @@ import { documentTypes } from "./__mocks__/documentTypes";
 describe("DefaultFileUploadChild", () => {
   it("shows name and description if no file is present", () => {
     const wrapper = mount(
-      <DefaultFileUploadChild documentType={documentTypes.required} />
+      <DefaultFileUploadChild
+        documentType={documentTypes.required}
+        baseUrl=""
+        token=""
+        subjectId="1"
+      />
     );
-    expect(wrapper.text()).toEqual("somenamesomedescription");
+    expect(
+      wrapper
+        .find(".textTitle")
+        .at(0)
+        .text()
+    ).toEqual("somename");
+    expect(
+      wrapper
+        .find(".textDescription")
+        .at(0)
+        .text()
+    ).toEqual("somedescription");
   });
 
   it("shows file info if upload completed", () => {
@@ -19,9 +35,31 @@ describe("DefaultFileUploadChild", () => {
         documentType={documentTypes.required}
         uploadState={FileUploadState.Complete}
         document={{ name: "bar", fileSize: 100 }}
+        baseUrl=""
+        token=""
+        subjectId="1"
       />
     );
-    expect(wrapper.text()).toEqual("somenamebar100 B");
+    expect(
+      wrapper
+        .find(".textTitle")
+        .at(0)
+        .text()
+    ).toEqual("somename");
+    expect(
+      wrapper
+        .find(".textFilename")
+        .at(0)
+        .find("div")
+        .at(0)
+        .text()
+    ).toEqual("bar");
+    expect(
+      wrapper
+        .find(".textFilesize")
+        .at(0)
+        .text()
+    ).toEqual("100 B");
   });
 
   it("shows error text if upload failed", () => {
@@ -30,6 +68,9 @@ describe("DefaultFileUploadChild", () => {
         documentType={documentTypes.optional}
         uploadState={FileUploadState.Error}
         error="something wrong"
+        baseUrl=""
+        token=""
+        subjectId="1"
       />
     );
     expect(wrapper.find(".textError").text()).toEqual("something wrong");
@@ -37,11 +78,48 @@ describe("DefaultFileUploadChild", () => {
 
   it("shows name and optional text if optional", () => {
     const wrapper = mount(
-      <DefaultFileUploadChild documentType={documentTypes.optional} />
+      <DefaultFileUploadChild
+        documentType={documentTypes.optional}
+        baseUrl=""
+        token=""
+        subjectId="1"
+      />
     );
     expect(wrapper.find(".textTitle").text()).toEqual(
       "optionalname (Optional)"
     );
+  });
+
+  it("shows download link if template file is present", () => {
+    const wrapper = mount(
+      <DefaultFileUploadChild
+        documentType={documentTypes.required}
+        baseUrl=""
+        token=""
+        subjectId="1"
+      />
+    );
+    expect(
+      wrapper
+        .find(".downloadLink")
+        .at(0)
+        .text()
+    ).toEqual("Download mandatory template");
+  });
+
+  it("not shows download link if template file is not existed", () => {
+    const wrapper = mount(
+      <DefaultFileUploadChild
+        documentType={{
+          ...documentTypes.required,
+          hasTemplateFile: false
+        }}
+        baseUrl=""
+        token=""
+        subjectId="1"
+      />
+    );
+    expect(wrapper.find(".downloadLink")).toHaveLength(0);
   });
 
   describe("formatBytes", () => {

@@ -1,9 +1,12 @@
 import classNames from "classnames";
 import * as React from "react";
 
+import _ from "lodash";
+import qs from "qs";
 import { FileUploadState, IFileUploadProps } from ".";
 import { Icon } from "../icons";
-import { addLocatedErrorClassname } from "../utils";
+import { addLocatedErrorClassname, getFilenameByHttpHeaders } from "../utils";
+import { SubjectType } from "./subjectTypes";
 
 const styles = require("./defaultChild.scss");
 
@@ -57,6 +60,9 @@ export interface IFileUploadChildProps
     | "onCompleteIconClick"
     | "onDefaultIconClick"
     | "onProgressIconClick"
+    | "subjectId"
+    | "baseUrl"
+    | "token"
   > {
   uploadState?: FileUploadState;
 }
@@ -69,6 +75,47 @@ export const formatBytes = (bytes: number): string => {
   } else {
     return `${(bytes / 1024 / 1024).toFixed(1)} MB`;
   }
+};
+
+const downloadTemplateFile = (props: IFileUploadChildProps) => {
+  const { documentType, subjectId, baseUrl, token } = props;
+
+  const queryString = qs.stringify({
+    documentTypeCode: documentType!.code,
+    subjectId,
+    subjectType: SubjectType.Premise
+  });
+
+  fetch(`${baseUrl}/api/document-info/template?${queryString}`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  })
+    .then((response: Response) => {
+      if (!response.ok) {
+        throw new Error("Something is wrong! Try later.");
+      }
+      response.blob().then((blob: Blob) => {
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.style.display = "none";
+        link.href = url;
+        link.setAttribute(
+          "download",
+          `${getFilenameByHttpHeaders(response.headers)}`
+        );
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(link.href);
+      });
+    })
+    .catch((error: Error) => {
+      throw new Error(
+        `There has been a problem with your fetch operation: ${error.message}`
+      );
+    });
 };
 
 // We aren't using the Tile component here because of several
@@ -132,7 +179,19 @@ export const DefaultFileUploadChild = (props: IFileUploadChildProps) => {
           </>
         )
       )}
-
+      {props.documentType.hasTemplateFile && (
+        <div className={styles.downloadLink}>
+          <a
+            onClick={e => {
+              e.preventDefault();
+              e.stopPropagation();
+              downloadTemplateFile(props);
+            }}
+          >
+            Download mandatory template
+          </a>
+        </div>
+      )}
       {showError && (
         <div className={addLocatedErrorClassname(styles.textError)}>
           {props.error}
