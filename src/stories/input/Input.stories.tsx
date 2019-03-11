@@ -146,8 +146,7 @@ const errorMsg = "Validation error message, blah blah blah...";
                 Something need to show like below - <br />
                 Please follow this general format:
                 <br />
-                E.g. use â€?01â€?, it represents â€?1st floorâ€?. In the same
-                way:
+                E.g. use ï¿½?01ï¿½?, it represents ï¿½?1st floorï¿½?. In the same way:
                 <br />
                 10 = 10th floor
                 <br />
@@ -170,7 +169,7 @@ const errorMsg = "Validation error message, blah blah blah...";
             value="Text input with toolTip"
             showTooltip={true}
             toolTipsContent={
-              "Please follow this general format: E.g. use â€?01â€?, it represents â€?1st floorâ€?. In the same way: 02 = 2nd floor, 10 = 10th floor, MEZZ = Mezzanine, RF = Roof, B1 = Basement 1"
+              "Please follow this general format: E.g. use ï¿½?01ï¿½?, it represents ï¿½?1st floorï¿½?. In the same way: 02 = 2nd floor, 10 = 10th floor, MEZZ = Mezzanine, RF = Roof, B1 = Basement 1"
             }
           />
         </div>
