@@ -2,7 +2,7 @@ import React from "react";
 
 import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
-import { Input, InputType, Size } from "../../components";
+import { Icon, Input, InputType, Size } from "../../components";
 import { CategoryName, wInfo } from "../utils";
 
 const styles = require("./input.stories.scss");
@@ -198,6 +198,23 @@ const errorMsg = "Validation error message, blah blah blah...";
           <p className={styles.content}>
             Other following contents (Input error msg should float on this)
           </p>
+        </div>
+        <div className={styles.box}>
+          <Input
+            onChange={action("value")}
+            type={InputType.Text}
+            label={"iconSignifier"}
+            size={Size.Large}
+            value="Text input with error"
+            iconSignifier={
+              <Icon
+                size="16"
+                className={styles.iconSignifier}
+                type={"search"}
+              />
+            }
+            onKeyPress={action("value")}
+          />
         </div>
       </div>
 

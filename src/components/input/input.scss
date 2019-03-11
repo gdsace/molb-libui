@@ -30,8 +30,6 @@ $input-focus-border: solid 1px $lavender-indigo;
   }
 
   .errorIcon {
-    position: absolute;
-    right: $small;
     color: $support-red;
   }
 
@@ -124,6 +122,11 @@ $input-focus-border: solid 1px $lavender-indigo;
     line-height: $line-height-medium;
   }
 
+  .rightInlineElementContainer {
+    position: absolute;
+    right: $small;
+  }
+
   .suffix {
     font-size: $medium;
     font-weight: normal;
@@ -132,8 +135,6 @@ $input-focus-border: solid 1px $lavender-indigo;
     line-height: $line-height-large;
     letter-spacing: normal;
     color: $text-color;
-    position: absolute;
-    right: $small;
   }
 
   &.validationError {

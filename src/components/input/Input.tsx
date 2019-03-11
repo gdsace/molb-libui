@@ -18,6 +18,7 @@ const defaultChangesFilterRegexDict: any = {
 export interface IInputProps {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => any;
   onBlur?: () => any;
+  onKeyPress?: (event: React.KeyboardEvent<HTMLInputElement>) => any;
   value: any;
   type?: InputType;
   minLength?: number;
@@ -33,6 +34,7 @@ export interface IInputProps {
   helperMsg?: string;
   showTooltip?: boolean;
   inlineElement?: JSX.Element | string;
+  iconSignifier?: JSX.Element;
   suffix?: string;
   showCharacterCount?: boolean;
   toolTipsContent?: JSX.Element | string;
@@ -127,15 +129,14 @@ export class Input extends React.Component<IInputProps, any> {
                 this.props.onBlur();
               }
             }}
+            onKeyPress={event => {
+              if (this.props.onKeyPress) {
+                this.props.onKeyPress(event);
+              }
+            }}
             placeholder={this.props.placeholder}
           />
-          {this.props.showError ? (
-            <Icon className={styles.errorIcon} size="16" type="error" />
-          ) : (
-            this.props.suffix && (
-              <span className={styles.suffix}>{this.props.suffix}</span>
-            )
-          )}
+          {this.getRightInlineElement()}
           {this.props.inlineElement}
         </div>
         {showFooterSection && (
@@ -194,6 +195,29 @@ export class Input extends React.Component<IInputProps, any> {
       previousValue: event.target.value
     });
   };
+
+  private getRightInlineElement() {
+    let element: JSX.Element = <></>;
+    const { showError, suffix, iconSignifier } = this.props;
+
+    if (!(showError || suffix || iconSignifier)) {
+      return <></>;
+    }
+
+    if (iconSignifier) {
+      element = iconSignifier;
+    }
+
+    if (suffix) {
+      element = <span className={styles.suffix}>{suffix}</span>;
+    }
+
+    if (showError) {
+      element = <Icon className={styles.errorIcon} size="16" type="error" />;
+    }
+
+    return <div className={styles.rightInlineElementContainer}>{element}</div>;
+  }
 
   private getRawInputType = (type?: InputType) => {
     if (type === InputType.Text || !type) {

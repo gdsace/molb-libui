@@ -3,6 +3,7 @@ import { InputType, Size, TooltipsLocationTheme } from "../EnumValues";
 export interface IInputProps {
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => any;
     onBlur?: () => any;
+    onKeyPress?: (event: React.KeyboardEvent<HTMLInputElement>) => any;
     value: any;
     type?: InputType;
     minLength?: number;
@@ -18,6 +19,7 @@ export interface IInputProps {
     helperMsg?: string;
     showTooltip?: boolean;
     inlineElement?: JSX.Element | string;
+    iconSignifier?: JSX.Element;
     suffix?: string;
     showCharacterCount?: boolean;
     toolTipsContent?: JSX.Element | string;
@@ -29,5 +31,6 @@ export declare class Input extends React.Component<IInputProps, any> {
     constructor(props: any);
     render(): JSX.Element;
     handleOnChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    private getRightInlineElement;
     private getRawInputType;
 }
