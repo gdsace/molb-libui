@@ -24,7 +24,7 @@ const tileOptions = [
   {
     key: "FOOD-COURT",
     icon: "big-icon",
-    name: "Food Court",
+    name: "Supermarket (Large) - Sale area more than 200m2",
     description: "Primarily for sale of food, single operator etc.",
     error:
       "XXXXX is not compatible with XXXXXX. Return to the previous step to edit."

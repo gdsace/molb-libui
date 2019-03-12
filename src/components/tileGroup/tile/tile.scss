@@ -4,7 +4,7 @@ $basic-tile-height: 90px;
 $basic-tile-width: 300px;
 
 $small-tile-height: 146px;
-$small-tile-width: 162px;
+$small-tile-width: 206px;
 $small-tile-height-mobile: 146px;
 $small-tile-width-mobile: 150px;
 
@@ -209,8 +209,9 @@ $large-tile-width-mobile: 100%;
   width: $small-tile-width;
 
   @include for-phone-only {
-    height: $small-tile-height-mobile;
+    flex-basis: $small-tile-width-mobile;
     width: $small-tile-width-mobile;
+    height: auto;
   }
 
   .tileContent {
