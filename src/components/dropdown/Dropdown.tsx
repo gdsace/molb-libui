@@ -54,7 +54,8 @@ export class Dropdown<T> extends React.Component<IDropdownProps<T>, {}> {
           boxShadow: "none",
           "&:hover": {
             border: "none"
-          }
+          },
+          backgroundColor: "transparent"
         };
       }
     };
