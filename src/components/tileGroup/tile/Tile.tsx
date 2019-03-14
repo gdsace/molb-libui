@@ -21,6 +21,7 @@ export interface ITileProps {
   deselectable?: boolean;
   imgSrc?: string;
   imgAlt?: string;
+  disabledToolTip?: string;
 }
 
 export const Tile = (props: ITileProps) => {
@@ -33,11 +34,16 @@ export const Tile = (props: ITileProps) => {
     [styles.tileContentChecked]: props.checked,
     [styles.tileContentDisabled]: props.disabled
   });
-  const selectionIcon = props.checked ? (
-    <Icon type="checkmark" size="20" />
-  ) : (
-    <Icon type="checkbox" size="20" />
-  );
+  let selectionIcon;
+  if (props.disabled && props.disabledToolTip) {
+    selectionIcon = (
+      <Icon className={styles.errorIcon} type="error" size="20" />
+    );
+  } else if (props.checked) {
+    selectionIcon = <Icon type="checkmark" size="20" />;
+  } else {
+    selectionIcon = <Icon type="checkbox" size="20" />;
+  }
 
   return (
     <div className={tileWrapperClass}>
