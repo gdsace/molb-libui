@@ -37,7 +37,7 @@ export const Tile = (props: ITileProps) => {
   let selectionIcon;
   if (props.disabled && props.disabledToolTip) {
     selectionIcon = (
-      <Icon className={styles.errorIcon} type="error" size="20" />
+      <Icon className={styles.disabledCheckIcon} type="error" size="20" />
     );
   } else if (props.checked) {
     selectionIcon = <Icon type="checkmark" size="20" />;

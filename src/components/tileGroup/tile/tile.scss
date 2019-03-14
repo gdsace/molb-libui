@@ -42,6 +42,10 @@ $large-tile-width-mobile: 100%;
     }
   }
 
+  .disabledCheckIcon {
+    color: $support-red;
+  }
+
   .errorContent {
     display: flex;
     color: $support-red;
