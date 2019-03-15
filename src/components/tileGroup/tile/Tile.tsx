@@ -1,8 +1,9 @@
 import classNames from "classnames";
 import _ from "lodash";
 import * as React from "react";
-import { TileTheme } from "../../EnumValues";
+import { TileTheme, TooltipsLocationTheme } from "../../EnumValues";
 import { Icon } from "../../icons/index";
+import { Tooltips } from "../../tooltips";
 
 const styles = require("./tile.scss");
 
@@ -44,12 +45,27 @@ export const Tile = (props: ITileProps) => {
   } else {
     selectionIcon = <Icon type="checkbox" size="20" />;
   }
-
+  let selection;
+  if (props.disabled && props.disabledToolTip) {
+    selection = (
+      <Tooltips
+        trigger={selectionIcon}
+        position={TooltipsLocationTheme.BottomCenter}
+        specializedPosition={true}
+        width={256}
+        height={69}
+      >
+        <div>{props.disabledToolTip}</div>
+      </Tooltips>
+    );
+  } else {
+    selection = selectionIcon;
+  }
   return (
     <div className={tileWrapperClass}>
       <label className={tileContentClass}>
         <span className={styles.checkBoxIcon}>
-          <div>{selectionIcon}</div>
+          <div>{selection}</div>
           <input
             type="radio"
             value={props.value}

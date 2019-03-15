@@ -63,6 +63,9 @@ export class Tooltips extends React.Component<ITooltipsProps, ITooltipsState> {
       height,
       padding: 0
     };
+    const overlayStyle = {
+      zIndex: "9999"
+    };
 
     let arrowStyle = this.props.arrowStyle || {
       boxShadow: "rgba(0, 0, 0, 0.1) 1px 1px 1px",
@@ -96,6 +99,7 @@ export class Tooltips extends React.Component<ITooltipsProps, ITooltipsState> {
           children={<div className={childrenClassNames}>{tooltipContent}</div>}
           open={show}
           contentStyle={desktopContentStyle}
+          overlayStyle={overlayStyle}
           closeOnDocumentClick
           onClose={() => this.closePopup()}
           offsetX={specializedStyle.offsetX}
