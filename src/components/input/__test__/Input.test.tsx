@@ -1,7 +1,7 @@
 import * as Enzyme from "enzyme";
 import * as React from "react";
-import { Icon } from "../../../components/icons";
 import { InputType } from "../../EnumValues";
+import { Icon } from "../../icons";
 import { Input } from "../Input";
 
 describe("Input", () => {
@@ -47,8 +47,8 @@ describe("Input", () => {
       <Input
         value="initial"
         onChange={jest.fn()}
-        label={"label"}
-        showTooltip={true}
+        label="label"
+        showTooltip
         toolTipsContent={toolTipsContent}
       />
     );
@@ -65,8 +65,8 @@ describe("Input", () => {
       <Input
         value="initial"
         onChange={jest.fn()}
-        label={"label"}
-        showTooltip={true}
+        label="label"
+        showTooltip
         toolTipsContent={toolTipsContent}
       />
     );
@@ -127,7 +127,7 @@ describe("Input", () => {
         value="initial"
         onChange={jest.fn()}
         type={InputType.Number}
-        iconSignifier={<Icon size="16" type={"search"} />}
+        iconSignifier={<Icon size="16" type="search" />}
       />
     );
     expect(component.find(Icon)).toHaveLength(1);
