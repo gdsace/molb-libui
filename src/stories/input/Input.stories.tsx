@@ -2,7 +2,7 @@ import React from "react";
 
 import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
-import { Icon, Input, InputType, Size } from "../../components";
+import { Icon, IconButton, Input, InputType, Size } from "../../components";
 import { CategoryName, wInfo } from "../utils";
 
 const styles = require("./input.stories.scss");
@@ -214,6 +214,38 @@ const errorMsg = "Validation error message, blah blah blah...";
               />
             }
             onKeyPress={action("value")}
+          />
+        </div>
+        <div className={styles.box}>
+          <Input
+            onChange={action("value")}
+            type={InputType.Text}
+            label={"inlineElement"}
+            size={Size.Large}
+            value="inline element"
+            inlineElement={
+              <div className={styles.deleteIcon}>
+                <IconButton type="delete" onClick={action("delete")} />
+              </div>
+            }
+            onKeyPress={action("value")}
+          />
+        </div>
+        <div className={styles.box}>
+          <Input
+            onChange={action("value")}
+            type={InputType.Text}
+            label={"InlineElement with Error icon "}
+            size={Size.Large}
+            value="inline element"
+            inlineElement={
+              <div>
+                <IconButton type="delete" onClick={action("delete")} />
+              </div>
+            }
+            onKeyPress={action("value")}
+            showError={true}
+            errorMsg={errorMsg}
           />
         </div>
       </div>
