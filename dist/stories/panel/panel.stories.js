@@ -1,0 +1,43 @@
+import React from "react";
+import { storiesOf } from "@storybook/react";
+import { Panel, PanelTheme, PanelType } from "../../components";
+import { CategoryName, wInfo } from "../utils";
+var styles = require("./panel.stories.scss");
+storiesOf(CategoryName.Others, module).addWithJSX("Panel", wInfo("")(function () { return (React.createElement("div", { className: styles.rootContainer },
+    React.createElement("h6", { className: styles.groupHeader }, "Panel type: Onepage,"),
+    React.createElement("div", { className: styles.itemsContainer },
+        React.createElement("div", { className: styles.box },
+            React.createElement("p", { className: styles.notes }, "Normal"),
+            React.createElement(Panel, { containerStyle: styles.containerStyle, type: PanelType.Onepage, theme: PanelTheme.Normal },
+                React.createElement("p", { className: styles.content }, "Sample Content"))),
+        React.createElement("div", { className: styles.box },
+            React.createElement("p", { className: styles.notes }, "Bottomless"),
+            React.createElement(Panel, { containerStyle: styles.containerStyle, type: PanelType.Onepage, theme: PanelTheme.Bottomless },
+                React.createElement("p", { className: styles.content }, "Sample Content"))),
+        React.createElement("div", { className: styles.box },
+            React.createElement("p", { className: styles.notes }, "Topless"),
+            React.createElement(Panel, { containerStyle: styles.containerStyle, type: PanelType.Onepage, theme: PanelTheme.Topless },
+                React.createElement("p", { className: styles.content }, "Sample Content"))),
+        React.createElement("div", { className: styles.box },
+            React.createElement("p", { className: styles.notes }, "Holing"),
+            React.createElement(Panel, { containerStyle: styles.containerStyle, type: PanelType.Onepage, theme: PanelTheme.Holing },
+                React.createElement("p", { className: styles.content }, "Sample Content")))),
+    React.createElement("h6", { className: styles.groupHeader }, "Panel type: Sidebar,"),
+    React.createElement("div", { className: styles.itemsContainer },
+        React.createElement("div", { className: styles.box },
+            React.createElement("p", { className: styles.notes }, "Normal"),
+            React.createElement(Panel, { containerStyle: styles.containerStyle, type: PanelType.Sidebar, theme: PanelTheme.Normal },
+                React.createElement("p", { className: styles.content }, "Sample Content"))),
+        React.createElement("div", { className: styles.box },
+            React.createElement("p", { className: styles.notes }, "Bottomless"),
+            React.createElement(Panel, { containerStyle: styles.containerStyle, type: PanelType.Sidebar, theme: PanelTheme.Bottomless },
+                React.createElement("p", { className: styles.content }, "Sample Content"))),
+        React.createElement("div", { className: styles.box },
+            React.createElement("p", { className: styles.notes }, "Topless"),
+            React.createElement(Panel, { containerStyle: styles.containerStyle, type: PanelType.Sidebar, theme: PanelTheme.Topless },
+                React.createElement("p", { className: styles.content }, "Sample Content"))),
+        React.createElement("div", { className: styles.box },
+            React.createElement("p", { className: styles.notes }, "Holing"),
+            React.createElement(Panel, { containerStyle: styles.containerStyle, type: PanelType.Sidebar, theme: PanelTheme.Holing },
+                React.createElement("p", { className: styles.content }, "Sample Content")))))); }));
+//# sourceMappingURL=panel.stories.js.map
