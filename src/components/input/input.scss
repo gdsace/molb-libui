@@ -131,8 +131,7 @@ $input-focus-border: solid 1px $lavender-indigo;
   .rightInlineElementContainer {
     width: 0;
     position: relative;
-    // padding + icon width
-    right: $small + $x-large;
+    right: $space-4;
   }
 
   .suffix {
