@@ -174,11 +174,13 @@ export class FileUpload extends React.Component<
       onError
     } = this.props;
 
-    const queryString = qs.stringify({
-      documentTypeCode: documentType.code,
-      subjectId,
-      subjectType: SubjectType.Premise // Always premise, backend will handle this
-    });
+    const queryString = qs.stringify(
+      {
+        documentTypeCode: documentType.code,
+        subject: { id: subjectId, type: SubjectType.Premise }
+      },
+      { allowDots: true }
+    );
 
     const formdata = new FormData();
     formdata.append("file", file);
