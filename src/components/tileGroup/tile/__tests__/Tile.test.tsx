@@ -56,7 +56,12 @@ describe("Tile", () => {
 
   it("should render tile which status is disabled with tooltip", () => {
     const wrapper = shallow(
-      <Tile icon="store" disabledToolTip="test" content="Restaurant" disabled />
+      <Tile
+        icon="store"
+        validationToolTip="test"
+        content="Restaurant"
+        disabled
+      />
     );
 
     expect(wrapper.find(Icon)).toHaveLength(1);

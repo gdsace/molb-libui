@@ -15,6 +15,6 @@ export interface ITileProps {
     deselectable?: boolean;
     imgSrc?: string;
     imgAlt?: string;
-    disabledToolTip?: string;
+    validationToolTip?: string;
 }
 export declare const Tile: (props: ITileProps) => JSX.Element;
