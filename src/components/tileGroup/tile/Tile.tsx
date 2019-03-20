@@ -22,7 +22,7 @@ export interface ITileProps {
   deselectable?: boolean;
   imgSrc?: string;
   imgAlt?: string;
-  disabledToolTip?: string;
+  validationToolTip?: string;
 }
 
 export const Tile = (props: ITileProps) => {
@@ -36,7 +36,7 @@ export const Tile = (props: ITileProps) => {
     [styles.tileContentDisabled]: props.disabled
   });
   let selectionIcon;
-  if (props.disabled && props.disabledToolTip) {
+  if (props.disabled && props.validationToolTip) {
     selectionIcon = (
       <Icon className={styles.disabledCheckIcon} type="error" size="20" />
     );
@@ -46,7 +46,7 @@ export const Tile = (props: ITileProps) => {
     selectionIcon = <Icon type="checkbox" size="20" />;
   }
   let selection;
-  if (props.disabled && props.disabledToolTip) {
+  if (props.disabled && props.validationToolTip) {
     selection = (
       <Tooltips
         trigger={selectionIcon}
@@ -55,7 +55,7 @@ export const Tile = (props: ITileProps) => {
         width={256}
         height={69}
       >
-        <div>{props.disabledToolTip}</div>
+        <div>{props.validationToolTip}</div>
       </Tooltips>
     );
   } else {
