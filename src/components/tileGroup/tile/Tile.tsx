@@ -1,8 +1,9 @@
 import classNames from "classnames";
 import _ from "lodash";
 import * as React from "react";
-import { TileTheme } from "../../EnumValues";
+import { TileTheme, TooltipsLocationTheme } from "../../EnumValues";
 import { Icon } from "../../icons/index";
+import { Tooltips } from "../../tooltips";
 
 const styles = require("./tile.scss");
 
@@ -21,6 +22,7 @@ export interface ITileProps {
   deselectable?: boolean;
   imgSrc?: string;
   imgAlt?: string;
+  validationToolTip?: string;
 }
 
 export const Tile = (props: ITileProps) => {
@@ -33,17 +35,37 @@ export const Tile = (props: ITileProps) => {
     [styles.tileContentChecked]: props.checked,
     [styles.tileContentDisabled]: props.disabled
   });
-  const selectionIcon = props.checked ? (
-    <Icon type="checkmark" size="20" />
-  ) : (
-    <Icon type="checkbox" size="20" />
-  );
-
+  let selectionIcon;
+  if (props.disabled && props.validationToolTip) {
+    selectionIcon = (
+      <Icon className={styles.disabledCheckIcon} type="error" size="20" />
+    );
+  } else if (props.checked) {
+    selectionIcon = <Icon type="checkmark" size="20" />;
+  } else {
+    selectionIcon = <Icon type="checkbox" size="20" />;
+  }
+  let selection;
+  if (props.disabled && props.validationToolTip) {
+    selection = (
+      <Tooltips
+        trigger={selectionIcon}
+        position={TooltipsLocationTheme.BottomCenter}
+        specializedPosition={true}
+        width={256}
+        height={69}
+      >
+        <div>{props.validationToolTip}</div>
+      </Tooltips>
+    );
+  } else {
+    selection = selectionIcon;
+  }
   return (
     <div className={tileWrapperClass}>
       <label className={tileContentClass}>
         <span className={styles.checkBoxIcon}>
-          <div>{selectionIcon}</div>
+          <div>{selection}</div>
           <input
             type="radio"
             value={props.value}

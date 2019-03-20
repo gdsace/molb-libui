@@ -2,6 +2,7 @@ import { shallow } from "enzyme";
 import * as React from "react";
 import { TileTheme } from "../../../EnumValues";
 import { Icon } from "../../../icons";
+import { Tooltips } from "../../../tooltips";
 import { Tile } from "../index";
 
 describe("Tile", () => {
@@ -50,6 +51,27 @@ describe("Tile", () => {
         .props().type
     ).toBe("checkmark");
     expect(wrapper.find("span")).toHaveLength(3);
+    expect(wrapper.find("input").props().disabled).toBe(true);
+  });
+
+  it("should render tile which status is disabled with tooltip", () => {
+    const wrapper = shallow(
+      <Tile
+        icon="store"
+        validationToolTip="test"
+        content="Restaurant"
+        disabled
+      />
+    );
+
+    expect(wrapper.find(Icon)).toHaveLength(1);
+    expect(wrapper.find(Tooltips)).toHaveLength(1);
+    expect(
+      wrapper
+        .find(Tooltips)
+        .at(0)
+        .props().trigger.props.type
+    ).toBe("error");
     expect(wrapper.find("input").props().disabled).toBe(true);
   });
 
