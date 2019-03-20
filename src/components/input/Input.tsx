@@ -114,29 +114,31 @@ export class Input extends React.Component<IInputProps, any> {
             )}
           </div>
         )}
-        <div className={styles.inline}>
-          <input
-            disabled={this.props.disabled}
-            className={`${styles.field} ${size} ${this.props.className} ${
-              this.props.showError ? styles.error : ""
-            }`}
-            value={this.props.value}
-            type={this.getRawInputType(this.props.type)}
-            maxLength={this.props.maxLength}
-            onChange={this.handleOnChange}
-            onBlur={() => {
-              if (this.props.onBlur) {
-                this.props.onBlur();
-              }
-            }}
-            onKeyPress={event => {
-              if (this.props.onKeyPress) {
-                this.props.onKeyPress(event);
-              }
-            }}
-            placeholder={this.props.placeholder}
-          />
-          {this.getRightInlineElement()}
+        <div className={styles.inlineWrapper}>
+          <div className={styles.inline}>
+            <input
+              disabled={this.props.disabled}
+              className={`${styles.field} ${size} ${this.props.className} ${
+                this.props.showError ? styles.error : ""
+              }`}
+              value={this.props.value}
+              type={this.getRawInputType(this.props.type)}
+              maxLength={this.props.maxLength}
+              onChange={this.handleOnChange}
+              onBlur={() => {
+                if (this.props.onBlur) {
+                  this.props.onBlur();
+                }
+              }}
+              onKeyPress={event => {
+                if (this.props.onKeyPress) {
+                  this.props.onKeyPress(event);
+                }
+              }}
+              placeholder={this.props.placeholder}
+            />
+            {this.getRightInlineElement()}
+          </div>
           {this.props.inlineElement}
         </div>
         {showFooterSection && (
