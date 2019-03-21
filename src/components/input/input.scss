@@ -142,6 +142,9 @@ $input-focus-border: solid 1px $lavender-indigo;
     line-height: $line-height-large;
     letter-spacing: normal;
     color: $text-color;
+    position: absolute;
+    right: -20px;
+    top: -10px;
   }
 
   &.validationError {
