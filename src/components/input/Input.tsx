@@ -168,9 +168,10 @@ export class Input extends React.Component<IInputProps, any> {
   public handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { type, customizedChangesFilterRegex } = this.props;
     const newValue = event.target.value;
-    const defaultChangesFilterRegex =
-      type && defaultChangesFilterRegexDict[type];
-
+    let defaultChangesFilterRegex;
+    if (type) {
+      defaultChangesFilterRegex = defaultChangesFilterRegexDict[type];
+    }
     // first check defaultChangesFilterRegex,
     // then check customizedChangesFilterRegex after.
     if (
@@ -180,7 +181,6 @@ export class Input extends React.Component<IInputProps, any> {
         !customizedChangesFilterRegex.test(newValue))
     ) {
       event.target.value = this.state.previousValue;
-      return;
     }
 
     if (
@@ -188,7 +188,6 @@ export class Input extends React.Component<IInputProps, any> {
       newValue.length > (this.props.maxLength || DEFAULT_MAX_LENGTH)
     ) {
       event.target.value = this.state.previousValue;
-      return;
     }
 
     this.props.onChange(event);
