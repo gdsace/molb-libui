@@ -74,6 +74,11 @@ $large-tile-width-mobile: 100%;
       margin: $space-1;
     }
 
+    .tileIconDisabled {
+      margin: $space-1;
+      color: #9da9b7;
+    }
+
     .tileHeader {
       margin-top: $space-1;
       font-size: $medium;
@@ -255,4 +260,8 @@ $large-tile-width-mobile: 100%;
   height: 24px;
   border-radius: 3px;
   margin-bottom: $space-1;
+
+  .disabled-image {
+    color: gray;
+  }
 }

@@ -61,6 +61,9 @@ export const Tile = (props: ITileProps) => {
   } else {
     selection = selectionIcon;
   }
+  const mainIconStyle = props.disabled
+    ? styles.tileIconDisabled
+    : styles.tileIcon;
   return (
     <div className={tileWrapperClass}>
       <label className={tileContentClass}>
@@ -78,7 +81,7 @@ export const Tile = (props: ITileProps) => {
         <div className={`${styles.itemsContent}`}>
           {props.theme !== TileTheme.BasicTile &&
             (props.icon && (
-              <Icon className={styles.tileIcon} type={props.icon} size="48" />
+              <Icon className={mainIconStyle} type={props.icon} size="48" />
             ))}
           {props.theme !== TileTheme.BasicTile &&
             (props.imgSrc && (
