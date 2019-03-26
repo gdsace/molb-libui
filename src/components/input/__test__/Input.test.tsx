@@ -118,7 +118,7 @@ describe("Input", () => {
         type={InputType.DecimalText}
       />
     );
-    expect(component.find("input").prop("type")).toEqual("number");
+    expect(component.find("input").prop("type")).toEqual("text");
   });
 
   it("should set iconSignifier with props", () => {
