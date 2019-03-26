@@ -110,7 +110,7 @@ describe("Input", () => {
     expect(component.find("input").prop("type")).toEqual("text");
   });
 
-  it("should set type attribute to number when type prop is specified but not Text, Email or PositiveIntegerText", () => {
+  it("should set type attribute to text when type prop is specified but not Email or PositiveIntegerText", () => {
     const component = Enzyme.shallow(
       <Input
         value="initial"
@@ -118,7 +118,7 @@ describe("Input", () => {
         type={InputType.DecimalText}
       />
     );
-    expect(component.find("input").prop("type")).toEqual("number");
+    expect(component.find("input").prop("type")).toEqual("text");
   });
 
   it("should set iconSignifier with props", () => {
