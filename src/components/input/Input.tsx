@@ -222,14 +222,14 @@ export class Input extends React.Component<IInputProps, any> {
   }
 
   private getRawInputType = (type?: InputType) => {
-    if (type === InputType.Text || !type) {
-      return "text";
-    } else if (type === InputType.Email) {
+    if (type === InputType.Email) {
       return "email";
     } else if (type === InputType.PositiveIntegerText) {
       return "tel";
     } else {
-      return "number";
+      // "number" makes weird event.target.value, for example entering 123e will return an event with "" as the value,
+      // causing the filter we set above to do nothing. So its preferable to use text to let our filter work instead
+      return "text";
     }
   };
 }
