@@ -15,15 +15,23 @@ export interface ICheckboxTypeQuestion {
   tooltip?: string;
 }
 
+interface ICheckboxTypeQuestionState {
+  checked: boolean;
+}
+
 export class CheckboxTypeQuestion extends React.Component<
   ICheckboxTypeQuestion,
-  {}
+  ICheckboxTypeQuestionState
 > {
+  constructor(props: ICheckboxTypeQuestion) {
+    super(props);
+    this.state = { checked: props.checked };
+  }
+
   public render() {
     const {
       checked,
       disabled,
-      onCheckboxClick,
       questionLabel,
       questionDescription,
       tooltip
@@ -34,7 +42,7 @@ export class CheckboxTypeQuestion extends React.Component<
           <Checkbox
             disabled={disabled}
             checked={checked}
-            onCheckboxClick={onCheckboxClick}
+            onCheckboxClick={this.onCheckedValueChange}
           />
         </div>
 
@@ -42,7 +50,9 @@ export class CheckboxTypeQuestion extends React.Component<
           className={`${styles.textWrapper} ${disabled ? styles.disabled : ""}`}
         >
           <span className={styles.question}>
-            {questionLabel}
+            <div className={styles.label} onClick={this.onTextClick}>
+              {questionLabel}
+            </div>
             {!!tooltip && (
               <div className={styles.tooltip}>
                 <Tooltips
@@ -63,9 +73,25 @@ export class CheckboxTypeQuestion extends React.Component<
             )}
           </span>
 
-          <span className={styles.description}>{questionDescription}</span>
+          <span className={styles.description} onClick={this.onTextClick}>
+            {questionDescription}
+          </span>
         </div>
       </div>
     );
   }
+
+  private onTextClick = () => {
+    if (this.props.disabled) {
+      return;
+    }
+    this.onCheckedValueChange(!this.state.checked);
+  };
+
+  private onCheckedValueChange = (newValue: boolean) => {
+    this.setState({ checked: newValue });
+    if (this.props.onCheckboxClick) {
+      this.props.onCheckboxClick(newValue);
+    }
+  };
 }

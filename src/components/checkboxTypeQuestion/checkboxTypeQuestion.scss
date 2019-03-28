@@ -20,6 +20,10 @@
   font-weight: $weight-semibold;
 }
 
+.label {
+  display: inline;
+}
+
 .description {
   font-size: $medium;
   line-height: $line-height-large;
