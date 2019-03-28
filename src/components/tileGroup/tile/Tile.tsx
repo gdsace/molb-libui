@@ -2,7 +2,7 @@ import classNames from "classnames";
 import _ from "lodash";
 import * as React from "react";
 import { TileTheme, TooltipsLocationTheme } from "../../EnumValues";
-import { Icon } from "../../icons/index";
+import { Icon } from "../../icons";
 import { Tooltips } from "../../tooltips";
 
 const styles = require("./tile.scss");
