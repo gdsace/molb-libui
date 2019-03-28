@@ -7,6 +7,13 @@ export interface ICheckboxTypeQuestion {
     questionDescription?: string;
     tooltip?: string;
 }
-export declare class CheckboxTypeQuestion extends React.Component<ICheckboxTypeQuestion, {}> {
-    render(): JSX.Element;
+interface ICheckboxTypeQuestionState {
+    checked: boolean;
 }
+export declare class CheckboxTypeQuestion extends React.Component<ICheckboxTypeQuestion, ICheckboxTypeQuestionState> {
+    constructor(props: ICheckboxTypeQuestion);
+    render(): JSX.Element;
+    private onTextClick;
+    private onCheckedValueChange;
+}
+export {};
