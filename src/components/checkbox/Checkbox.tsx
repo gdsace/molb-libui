@@ -6,13 +6,23 @@ export interface ICheckboxProps {
   onCheckboxClick: any;
   checked: boolean;
   disabled: boolean;
+  clickableElement?: JSX.Element | string;
 }
 
-export class Checkbox extends React.Component<ICheckboxProps, {}> {
+interface ICheckboxState {
+  checked: boolean;
+}
+
+export class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
   public static defaultProps: Partial<ICheckboxProps> = {
     checked: false,
     disabled: false
   };
+
+  constructor(props: ICheckboxProps) {
+    super(props);
+    this.state = { checked: props.checked };
+  }
 
   public render() {
     const { checked, disabled } = this.props;
@@ -28,11 +38,31 @@ export class Checkbox extends React.Component<ICheckboxProps, {}> {
           />
           <span className={styles.inner} />
         </span>
+        {this.props.clickableElement && (
+          <span
+            className={styles.clickableElement}
+            onClick={this.onClickableElementClick}
+          >
+            {this.props.clickableElement}
+          </span>
+        )}
       </div>
     );
   }
 
   private onCheckboxClick = (event: React.ChangeEvent<HTMLInputElement>) => {
-    this.props.onCheckboxClick(event.target.checked);
+    this.onCheckedValueChange(event.target.checked);
   };
+
+  private onClickableElementClick = () => {
+    if (this.props.disabled) {
+      return;
+    }
+    this.onCheckedValueChange(!this.state.checked);
+  };
+
+  private onCheckedValueChange(newValue: boolean) {
+    this.setState({ checked: newValue });
+    this.props.onCheckboxClick(newValue);
+  }
 }
