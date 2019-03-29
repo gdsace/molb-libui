@@ -209,18 +209,18 @@ export class Input extends React.Component<IInputProps, any> {
       return <></>;
     }
 
-    if (loading) {
-      element = (
-        <Icon className={styles.loading} type="progress" size={ICON_SIZE} />
-      );
-    }
-
     if (iconSignifier) {
       element = iconSignifier;
     }
 
     if (suffix) {
       element = <span className={styles.suffix}>{suffix}</span>;
+    }
+
+    if (loading) {
+      element = (
+        <Icon className={styles.loading} type="progress" size={ICON_SIZE} />
+      );
     }
 
     if (showError) {
