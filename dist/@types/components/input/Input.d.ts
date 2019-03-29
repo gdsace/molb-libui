@@ -29,6 +29,7 @@ export interface IInputProps {
 }
 export declare class Input extends React.Component<IInputProps, any> {
     static defaultProps: Partial<IInputProps>;
+    private debouncedChangeHandler;
     constructor(props: any);
     render(): JSX.Element;
     handleOnChange: (event: React.ChangeEvent<HTMLInputElement>) => void;

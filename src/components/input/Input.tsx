@@ -4,6 +4,7 @@ import { InputType, Size, TooltipsLocationTheme } from "../EnumValues";
 import { Icon } from "../icons";
 import { Tooltips } from "../tooltips";
 import { addLocatedErrorClassname } from "../utils";
+import * as _ from "lodash";
 
 const styles = require("./input.scss");
 
@@ -64,11 +65,14 @@ export class Input extends React.Component<IInputProps, any> {
     inlineElement: ""
   };
 
+  private debouncedChangeHandler = _.debounce(this.props.onChange, 300);
+
   constructor(props: any) {
     super(props);
     this.state = {
       characterCount: (this.props.value || "").toString().length,
-      previousValue: ""
+      previousValue: "",
+      value: this.props.value
     };
   }
 
@@ -123,7 +127,7 @@ export class Input extends React.Component<IInputProps, any> {
               className={`${styles.field} ${size} ${this.props.className} ${
                 this.props.showError ? styles.error : ""
               }`}
-              value={this.props.value}
+              value={this.state.value}
               type={this.getRawInputType(this.props.type)}
               maxLength={this.props.maxLength}
               onChange={this.handleOnChange}
@@ -193,11 +197,11 @@ export class Input extends React.Component<IInputProps, any> {
       return;
     }
 
-    this.props.onChange(event);
     this.setState({
       characterCount: event.target.value.length,
       previousValue: event.target.value
     });
+    this.debouncedChangeHandler(event);
   };
 
   private getRightInlineElement() {
