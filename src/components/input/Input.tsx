@@ -173,7 +173,6 @@ export class Input extends React.Component<IInputProps, any> {
 
   public handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { type, customizedChangesFilterRegex } = this.props;
-    const newValue = event.target.value;
     const defaultChangesFilterRegex =
       type && defaultChangesFilterRegexDict[type];
 
@@ -181,25 +180,23 @@ export class Input extends React.Component<IInputProps, any> {
     // then check customizedChangesFilterRegex after.
     if (
       (defaultChangesFilterRegex &&
-        !defaultChangesFilterRegex.test(newValue)) ||
+        !defaultChangesFilterRegex.test(event.target.value)) ||
       (customizedChangesFilterRegex &&
-        !customizedChangesFilterRegex.test(newValue))
+        !customizedChangesFilterRegex.test(event.target.value))
     ) {
-      event.target.value = this.state.previousValue;
       return;
     }
 
     if (
       this.props.disabled ||
-      newValue.length > (this.props.maxLength || DEFAULT_MAX_LENGTH)
+      event.target.value.length > (this.props.maxLength || DEFAULT_MAX_LENGTH)
     ) {
-      event.target.value = this.state.previousValue;
       return;
     }
 
     this.setState({
-      characterCount: event.target.value.length,
-      previousValue: event.target.value
+      characterCount: this.state.previousValue.length,
+      value: event.target.value
     });
     this.debouncedChangeHandler(event);
   };
