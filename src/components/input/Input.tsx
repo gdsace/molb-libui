@@ -71,9 +71,18 @@ export class Input extends React.Component<IInputProps, any> {
     super(props);
     this.state = {
       characterCount: (this.props.value || "").toString().length,
-      previousValue: "",
       value: this.props.value
     };
+  }
+
+  public componentWillReceiveProps(
+    nextProps: Readonly<IInputProps>,
+    nextContext: any
+  ): void {
+    console.log(nextProps)
+    if (this.props.value !== nextProps.value) {
+      this.setState({ value: nextProps.value });
+    }
   }
 
   public render() {
@@ -195,7 +204,7 @@ export class Input extends React.Component<IInputProps, any> {
     }
 
     this.setState({
-      characterCount: this.state.previousValue.length,
+      characterCount: _.get(this.state, "value.length", 0),
       value: event.target.value
     });
     this.debouncedChangeHandler({ ...event });

@@ -6,6 +6,8 @@ import { Input } from "../Input";
 
 describe("Input", () => {
   it("should call onChange prop", () => {
+    jest.useFakeTimers();
+
     const onChangeMock = jest.fn();
     const event = {
       target: { value: "changed" }
@@ -15,9 +17,33 @@ describe("Input", () => {
     );
     const input = component.find("input");
     input.simulate("change", event);
+
+    jest.runAllTimers();
     expect(onChangeMock).toBeCalledWith({
       target: { value: "changed" }
     });
+  });
+
+  it("should update the props value to the input value once props changed", () => {
+    jest.useFakeTimers();
+    const onChangeMock = jest.fn();
+    const event = {
+      target: { value: "changed" }
+    };
+    const component = Enzyme.shallow(
+      <Input value="initial" onChange={onChangeMock} />
+    );
+    const input = component.find("input");
+    input.simulate("change", event);
+
+    component.setProps({ value: "value from props" });
+    jest.runAllTimers();
+    expect(
+      component
+        .find("input")
+        .at(0)
+        .prop("value")
+    ).toEqual("value from props");
   });
 
   it("should check maxlength when we have this attr in onChange ", () => {

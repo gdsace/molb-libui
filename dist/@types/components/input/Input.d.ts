@@ -31,6 +31,7 @@ export declare class Input extends React.Component<IInputProps, any> {
     static defaultProps: Partial<IInputProps>;
     private debouncedChangeHandler;
     constructor(props: any);
+    componentWillReceiveProps(nextProps: Readonly<IInputProps>, nextContext: any): void;
     render(): JSX.Element;
     handleOnChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
     private getRightInlineElement;
