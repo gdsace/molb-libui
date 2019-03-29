@@ -1,10 +1,10 @@
 import classnames from "classnames";
+import * as _ from "lodash";
 import * as React from "react";
 import { InputType, Size, TooltipsLocationTheme } from "../EnumValues";
 import { Icon } from "../icons";
 import { Tooltips } from "../tooltips";
 import { addLocatedErrorClassname } from "../utils";
-import * as _ from "lodash";
 
 const styles = require("./input.scss");
 
@@ -198,7 +198,7 @@ export class Input extends React.Component<IInputProps, any> {
       characterCount: this.state.previousValue.length,
       value: event.target.value
     });
-    this.debouncedChangeHandler(event);
+    this.debouncedChangeHandler({ ...event });
   };
 
   private getRightInlineElement() {
