@@ -248,6 +248,16 @@ const errorMsg = "Validation error message, blah blah blah...";
             errorMsg={errorMsg}
           />
         </div>
+        <div className={styles.box}>
+          <Input
+            onChange={action("value")}
+            type={InputType.Text}
+            label={"InlineElement with loading icon "}
+            size={Size.Large}
+            loading={true}
+            onKeyPress={action("value")}
+          />
+        </div>
       </div>
 
       <h6 className={styles.groupHeader}>

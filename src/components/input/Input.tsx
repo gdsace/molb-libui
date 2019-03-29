@@ -7,6 +7,7 @@ import { addLocatedErrorClassname } from "../utils";
 
 const styles = require("./input.scss");
 
+const ICON_SIZE = "16";
 const DEFAULT_MAX_LENGTH = 30;
 const defaultChangesFilterRegexDict: any = {
   [InputType.IntegerText]: /^-?(\d*)$/,
@@ -35,6 +36,7 @@ export interface IInputProps {
   showTooltip?: boolean;
   inlineElement?: JSX.Element | string;
   iconSignifier?: JSX.Element;
+  loading?: boolean;
   suffix?: string;
   showCharacterCount?: boolean;
   toolTipsContent?: JSX.Element | string;
@@ -93,7 +95,7 @@ export class Input extends React.Component<IInputProps, any> {
                 trigger={(open: boolean) => (
                   <Icon
                     type="help"
-                    size="16"
+                    size={ICON_SIZE}
                     className={classnames(
                       styles.labelIcon,
                       open && styles.openTooltip
@@ -200,10 +202,16 @@ export class Input extends React.Component<IInputProps, any> {
 
   private getRightInlineElement() {
     let element: JSX.Element = <></>;
-    const { showError, suffix, iconSignifier } = this.props;
+    const { showError, suffix, iconSignifier, loading } = this.props;
 
-    if (!(showError || suffix || iconSignifier)) {
+    if (!(showError || suffix || iconSignifier || loading)) {
       return <></>;
+    }
+
+    if (loading) {
+      element = (
+        <Icon className={styles.loading} type="progress" size={ICON_SIZE} />
+      );
     }
 
     if (iconSignifier) {
@@ -215,7 +223,9 @@ export class Input extends React.Component<IInputProps, any> {
     }
 
     if (showError) {
-      element = <Icon className={styles.errorIcon} size="16" type="error" />;
+      element = (
+        <Icon className={styles.errorIcon} size={ICON_SIZE} type="error" />
+      );
     }
 
     return <div className={styles.rightInlineElementContainer}>{element}</div>;
