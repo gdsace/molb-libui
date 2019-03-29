@@ -147,6 +147,20 @@ $input-focus-border: solid 1px $lavender-indigo;
     top: -10px;
   }
 
+  .loading {
+    @keyframes rotate {
+      from {
+        transform: rotateZ(0deg);
+      }
+
+      to {
+        transform: rotateZ(360deg);
+      }
+    }
+
+    animation: rotate 2s linear infinite;
+  }
+
   &.validationError {
     .countMsg {
       color: $support-red;
