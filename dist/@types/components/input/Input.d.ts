@@ -20,6 +20,7 @@ export interface IInputProps {
     showTooltip?: boolean;
     inlineElement?: JSX.Element | string;
     iconSignifier?: JSX.Element;
+    loading?: boolean;
     suffix?: string;
     showCharacterCount?: boolean;
     toolTipsContent?: JSX.Element | string;
