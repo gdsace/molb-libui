@@ -42,6 +42,7 @@ export class Layout extends React.Component<ILayoutProps, {}> {
             {this.props.mainContent}
           </div>
         </div>
+        { this.props.footer }
       </div>
     );
   }
