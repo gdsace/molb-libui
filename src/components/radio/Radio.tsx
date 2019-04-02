@@ -18,6 +18,7 @@ export interface IRadioProps {
   disableWidth?: boolean;
   radioTextStyleOverride?: string;
   labelStyleOverride?: string;
+  radioLabelLineBreak?: boolean;
 }
 
 export interface IOptionValue {
@@ -93,7 +94,11 @@ export const Radio = (props: IRadioProps) => {
   return (
     <div id={props.id} className={radioClass}>
       {props.text && <div className={radioTextClass}>{props.text}</div>}
-      <div className={styles.radioLabel}>{optionComponents}</div>
+      {props.radioLabelLineBreak ? (
+        <div className={styles.radioLabelLineBreak}>{optionComponents}</div>
+      ) : (
+        <div className={styles.radioLabel}>{optionComponents}</div>
+      )}
       {props.showError && (
         <div className={addLocatedErrorClassname(styles.errorMsg)}>
           {props.errorMsg}

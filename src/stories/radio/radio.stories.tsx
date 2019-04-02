@@ -26,7 +26,8 @@ const radioProps: IRadioProps = {
   onChange: valueChangeHandler,
   disabled: false,
   showError: true,
-  errorMsg: "This field is required."
+  errorMsg: "This field is required.",
+  radioLabelLineBreak: false
 };
 
 const valueChangeHandler2 = (value: string) => {
@@ -50,7 +51,8 @@ const radioProps2: IRadioProps = {
   disabled: true,
   value: "value1",
   radioTextStyleOverride: styles.overrideRadioText,
-  labelStyleOverride: styles.overrideRadioLabel
+  labelStyleOverride: styles.overrideRadioLabel,
+  radioLabelLineBreak: false
 };
 
 const optionValueArray3: IOptionValue[] = [
@@ -77,7 +79,31 @@ const radioProps3: IRadioProps = {
   optionList: optionValueArray3,
   onChange: valueChangeHandler3,
   disabled: false,
-  value: "value1"
+  value: "value1",
+  radioLabelLineBreak: false
+};
+
+const valueChangeHandler4 = (value: string) => {
+  store4.set({ value });
+};
+const optionValueArray4: IOptionValue[] = [
+  {
+    value: "value1",
+    label: "value 1 label"
+  },
+  {
+    value: "value2",
+    label: "value 2"
+  }
+];
+
+const radioProps4: IRadioProps = {
+  text: "4. ensure line break for each radio button",
+  optionList: optionValueArray4,
+  onChange: valueChangeHandler4,
+  disabled: false,
+  showError: true,
+  radioLabelLineBreak: true
 };
 
 /**
@@ -92,6 +118,9 @@ const store2 = new Store({
   value: "value1"
 });
 const store3 = new Store({
+  value: ""
+});
+const store4 = new Store({
   value: ""
 });
 
@@ -112,6 +141,9 @@ const store3 = new Store({
       </State>
       <State store={store3}>
         <Radio {...radioProps3} />
+      </State>
+      <State store={store4}>
+        <Radio {...radioProps4} />
       </State>
     </div>
   ))
