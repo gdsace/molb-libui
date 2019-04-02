@@ -59,6 +59,14 @@ const styles = require("./button.stories.scss");
           />
         </div>
         <div className={styles.box}>
+          <p className={styles.notes}>footer</p>
+          <Button
+            label="footer"
+            onClick={action("button-click")}
+            theme={Theme.Footer}
+          />
+        </div>
+        <div className={styles.box}>
           <p className={styles.notes}>simple</p>
           <Button
             label="simple"
