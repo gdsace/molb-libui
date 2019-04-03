@@ -85,3 +85,11 @@
     top: 100%;
   }
 }
+
+.radioLabelLineBreak {
+  flex-direction: column;
+
+  .checkBoxIcon {
+    width: auto;
+  }
+}
