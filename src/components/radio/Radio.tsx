@@ -91,14 +91,15 @@ export const Radio = (props: IRadioProps) => {
     props.radioTextStyleOverride || "",
     styles.radioText
   );
+
+  const radioLabelClass = classNames(
+    props.radioLabelLineBreak ? styles.radioLabelLineBreak : styles.radioLabel,
+    styles.radioLabel
+  );
   return (
     <div id={props.id} className={radioClass}>
       {props.text && <div className={radioTextClass}>{props.text}</div>}
-      {props.radioLabelLineBreak ? (
-        <div className={styles.radioLabelLineBreak}>{optionComponents}</div>
-      ) : (
-        <div className={styles.radioLabel}>{optionComponents}</div>
-      )}
+      <div className={radioLabelClass}>{optionComponents}</div>
       {props.showError && (
         <div className={addLocatedErrorClassname(styles.errorMsg)}>
           {props.errorMsg}

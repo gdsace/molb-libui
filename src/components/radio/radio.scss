@@ -29,16 +29,6 @@
     }
   }
 
-  .radioLabelLineBreak {
-    display: inline-block;
-    justify-content: flex-start;
-    width: 100%;
-
-    @include for-phone-only {
-      flex-direction: column;
-    }
-  }
-
   .optionText {
     padding: 0 $space-2;
     font-size: $large;
@@ -93,5 +83,13 @@
     position: absolute;
     left: 0;
     top: 100%;
+  }
+}
+
+.radioLabelLineBreak {
+  flex-direction: column;
+
+  .checkBoxIcon {
+    width: auto;
   }
 }
