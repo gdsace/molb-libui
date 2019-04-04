@@ -63,6 +63,34 @@ const licenceIcons = [
   { type: "warning" }
 ];
 
+const shopTypesIcons = [
+  { type: "bakery" },
+  { type: "bakery-retail" },
+  { type: "canteen-without-stalls" },
+  { type: "canteen-school" },
+  { type: "eating-house" },
+  { type: "food-caterer" },
+  { type: "takeaway" },
+  { type: "restaurant" },
+  { type: "in-house-kitchen" },
+  { type: "snack-bar" },
+  { type: "grilling" },
+  { type: "market-produce" },
+  { type: "restaurant-cater" },
+  { type: "canteen-catering" },
+  { type: "food-court" },
+  { type: "private-market" },
+  { type: "canteen-with-stalls" },
+  { type: "canteen-construction" },
+  { type: "mobile-food-wagon" },
+  { type: "food-cart" },
+  { type: "others" },
+  { type: "pub-bar" },
+  { type: "food-vending-machines" },
+  { type: "pets-allowed" },
+  { type: "herbal-tea" }
+];
+
 (storiesOf(CategoryName.Icons, module) as any).addWithJSX(
   "Icon",
   wInfo(``)(() => (
@@ -87,6 +115,19 @@ const licenceIcons = [
           <div key={index} className={styles.iconWrapper}>
             <div className={styles.icon}>
               <Icon category={"licences"} type={icon.type} />
+            </div>
+            <div>
+              <label>{icon.type}</label>
+            </div>
+          </div>
+        );
+      })}
+      <h6 className={styles.header}>Shop Types Icons</h6>
+      {shopTypesIcons.map((icon, index) => {
+        return (
+          <div key={index} className={styles.iconWrapper}>
+            <div className={styles.icon}>
+              <Icon category={"shoptypes"} type={icon.type} />
             </div>
             <div>
               <label>{icon.type}</label>

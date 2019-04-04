@@ -32,4 +32,10 @@ describe("Icon", () => {
     expect(icon).toHaveLength(1);
     expect(icon.props().type).toEqual("business");
   });
+
+  it("should render shop type - restaurant icon", () => {
+    const icon = mount(<Icon type={"restaurant"} category="shoptypes" />);
+    expect(icon).toHaveLength(1);
+    expect(icon.props().type).toEqual("restaurant");
+  });
 });

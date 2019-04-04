@@ -1,7 +1,9 @@
 /// <reference types="react" />
 import { TileTheme } from "../../EnumValues";
+import { IIconCategory } from "../../icons/index";
 export interface ITileProps {
     icon?: string;
+    iconCategory?: IIconCategory;
     content: string;
     subContent?: string;
     description?: string;
