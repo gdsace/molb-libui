@@ -2,13 +2,14 @@ import classNames from "classnames";
 import _ from "lodash";
 import * as React from "react";
 import { TileTheme, TooltipsLocationTheme } from "../../EnumValues";
-import { Icon } from "../../icons/index";
+import { Icon, IIconCategory } from "../../icons/index";
 import { Tooltips } from "../../tooltips";
 
 const styles = require("./tile.scss");
 
 export interface ITileProps {
   icon?: string;
+  iconCategory?: IIconCategory;
   content: string;
   subContent?: string;
   description?: string;
@@ -78,7 +79,7 @@ export const Tile = (props: ITileProps) => {
         <div className={`${styles.itemsContent}`}>
           {props.theme !== TileTheme.BasicTile &&
             (props.icon && (
-              <Icon className={styles.tileIcon} type={props.icon} size="48" />
+              <Icon className={styles.tileIcon} category={props.iconCategory} type={props.icon} size="48" />
             ))}
           {props.theme !== TileTheme.BasicTile &&
             (props.imgSrc && (
