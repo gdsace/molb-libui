@@ -79,7 +79,12 @@ export const Tile = (props: ITileProps) => {
         <div className={`${styles.itemsContent}`}>
           {props.theme !== TileTheme.BasicTile &&
             (props.icon && (
-              <Icon className={styles.tileIcon} category={props.iconCategory} type={props.icon} size="48" />
+              <Icon
+                className={styles.tileIcon}
+                category={props.iconCategory}
+                type={props.icon}
+                size="48"
+              />
             ))}
           {props.theme !== TileTheme.BasicTile &&
             (props.imgSrc && (
