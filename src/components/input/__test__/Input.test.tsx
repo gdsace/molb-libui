@@ -5,6 +5,14 @@ import { Icon } from "../../icons";
 import { Input } from "../Input";
 
 describe("Input", () => {
+  beforeAll(() => {
+    Object.defineProperty(window, "matchMedia", {
+      value: jest.fn(() => {
+        return { matches: false };
+      })
+    });
+  });
+
   it("should call onChange prop", () => {
     const onChangeMock = jest.fn();
     const event = {
