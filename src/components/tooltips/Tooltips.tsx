@@ -183,9 +183,9 @@ export class Tooltips extends React.Component<ITooltipsProps, ITooltipsState> {
   private getCalculatedPosition(): TooltipsLocationTheme {
     if (isMobile() && this.state.tooltipRef.current) {
       const tooltipDetails = this.state.tooltipRef.current.getBoundingClientRect();
+      const positionFromRight = window.innerWidth - tooltipDetails.left;
       switch (this.props.position) {
         case TooltipsLocationTheme.BottomLeft: {
-          const positionFromRight = window.innerWidth - tooltipDetails.left;
           // i don't know what size to use, this is just based on trial and error
           if (positionFromRight < 112) {
             return TooltipsLocationTheme.BottomRight;
@@ -203,10 +203,10 @@ export class Tooltips extends React.Component<ITooltipsProps, ITooltipsState> {
           break;
         }
         case TooltipsLocationTheme.BottomCenter: {
-          if (tooltipDetails.left < 100) {
-            return TooltipsLocationTheme.BottomRight;
-          } else if (tooltipDetails.right < 100) {
+          if (tooltipDetails.left < 112) {
             return TooltipsLocationTheme.BottomLeft;
+          } else if (positionFromRight < 112) {
+            return TooltipsLocationTheme.BottomRight;
           }
           break;
         }
