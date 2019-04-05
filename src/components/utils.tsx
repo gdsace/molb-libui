@@ -46,3 +46,7 @@ export function getFilenameByContentDisposition(
     return matches[1];
   }
 }
+
+export function isMobile() {
+  return window.innerWidth < 600;
+}

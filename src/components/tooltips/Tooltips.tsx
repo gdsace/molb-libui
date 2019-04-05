@@ -3,6 +3,7 @@ import * as React from "react";
 import Popup from "reactjs-popup";
 import { TooltipsLocationTheme } from "..";
 import { Link, LinkTarget } from "../link";
+import { isMobile } from "../utils";
 
 const styles = require("./tooltips.scss");
 const OFFSET = 11;
@@ -31,13 +32,15 @@ export interface ITooltipsProps {
 
 interface ITooltipsState {
   show: boolean;
+  tooltipRef: any;
 }
 
 export class Tooltips extends React.Component<ITooltipsProps, ITooltipsState> {
   constructor(props: ITooltipsProps) {
     super(props);
     this.state = {
-      show: false
+      show: false,
+      tooltipRef: React.createRef()
     };
     this.openPopup = this.openPopup.bind(this);
     this.closePopup = this.closePopup.bind(this);
@@ -47,7 +50,6 @@ export class Tooltips extends React.Component<ITooltipsProps, ITooltipsState> {
       trigger,
       height,
       width,
-      position,
       linkLabel,
       childrenClassname,
       specializedPosition
@@ -89,13 +91,14 @@ export class Tooltips extends React.Component<ITooltipsProps, ITooltipsState> {
     const { show } = this.state;
     return (
       <div
+        ref={this.state.tooltipRef}
         className={styles.tooltipsContainer}
         onClick={show ? () => this.closePopup() : () => this.openPopup()}
       >
         <Popup
           arrowStyle={arrowStyle}
           trigger={trigger}
-          position={position}
+          position={this.getCalculatedPosition()}
           children={<div className={childrenClassNames}>{tooltipContent}</div>}
           open={show}
           contentStyle={desktopContentStyle}
@@ -144,7 +147,7 @@ export class Tooltips extends React.Component<ITooltipsProps, ITooltipsState> {
    * Or need some help can find Wu Yifan.
    */
   private calculateSpecializedStyle() {
-    const { specializedPosition, position } = this.props;
+    const { specializedPosition } = this.props;
     // director is
     const specializedStyle = {
       direction: "",
@@ -155,7 +158,7 @@ export class Tooltips extends React.Component<ITooltipsProps, ITooltipsState> {
     if (!specializedPosition) {
       return specializedStyle;
     }
-    switch (position) {
+    switch (this.getCalculatedPosition()) {
       case TooltipsLocationTheme.BottomLeft: {
         specializedStyle.direction = "left";
         specializedStyle.offsetX = -OFFSET;
@@ -175,5 +178,40 @@ export class Tooltips extends React.Component<ITooltipsProps, ITooltipsState> {
     }
 
     return specializedStyle;
+  }
+
+  private getCalculatedPosition(): TooltipsLocationTheme {
+    if (isMobile() && this.state.tooltipRef.current) {
+      const tooltipDetails = this.state.tooltipRef.current.getBoundingClientRect();
+      switch (this.props.position) {
+        case TooltipsLocationTheme.BottomLeft: {
+          const positionFromRight = window.innerWidth - tooltipDetails.left;
+          // i don't know what size to use, this is just based on trial and error
+          if (positionFromRight < 112) {
+            return TooltipsLocationTheme.BottomRight;
+          } else if (positionFromRight < 225) {
+            return TooltipsLocationTheme.BottomCenter;
+          }
+          break;
+        }
+        case TooltipsLocationTheme.BottomRight: {
+          if (tooltipDetails.left < 112) {
+            return TooltipsLocationTheme.BottomLeft;
+          } else if (tooltipDetails.left < 225) {
+            return TooltipsLocationTheme.BottomCenter;
+          }
+          break;
+        }
+        case TooltipsLocationTheme.BottomCenter: {
+          if (tooltipDetails.left < 100) {
+            return TooltipsLocationTheme.BottomRight;
+          } else if (tooltipDetails.right < 100) {
+            return TooltipsLocationTheme.BottomLeft;
+          }
+          break;
+        }
+      }
+    }
+    return this.props.position;
   }
 }
