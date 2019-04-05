@@ -9,4 +9,3 @@ export declare function forDesktopUpMediaQuery(): boolean;
 export declare function addLocatedErrorClassname(classname: string, locatedErrorClassName?: string): string;
 export declare function getFilenameByHttpHeaders(headers: Headers): string | undefined;
 export declare function getFilenameByContentDisposition(contentDisposition: string | null): string | undefined;
-export declare function isMobile(): boolean;

@@ -3,7 +3,7 @@ import * as React from "react";
 import Popup from "reactjs-popup";
 import { TooltipsLocationTheme } from "..";
 import { Link, LinkTarget } from "../link";
-import { isMobile } from "../utils";
+import { forPhoneOnlyMediaQuery } from "../utils";
 
 const styles = require("./tooltips.scss");
 const OFFSET = 11;
@@ -181,7 +181,7 @@ export class Tooltips extends React.Component<ITooltipsProps, ITooltipsState> {
   }
 
   private getCalculatedPosition(): TooltipsLocationTheme {
-    if (isMobile() && this.state.tooltipRef.current) {
+    if (forPhoneOnlyMediaQuery() && this.state.tooltipRef.current) {
       const tooltipDetails = this.state.tooltipRef.current.getBoundingClientRect();
       const positionFromRight = window.innerWidth - tooltipDetails.left;
       switch (this.props.position) {
