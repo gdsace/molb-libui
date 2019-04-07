@@ -19,7 +19,6 @@ export interface IRadioProps {
   radioTextStyleOverride?: string;
   labelStyleOverride?: string;
   subsequentQuestion?: React.ReactNode | string;
-  verticalDisplay?: boolean;
   radioLabelLineBreak?: boolean;
 }
 
@@ -54,7 +53,7 @@ const getOptionComponents = (props: IRadioProps) => {
       [styles.radioWrapperEnable]: !isDisabled,
       [styles.radioWrapperSelected]: isSelected,
       [styles.radioWrapperUnselected]: !isSelected,
-      [styles.widthDisabled]: props.disableWidth || props.verticalDisplay
+      [styles.widthDisabled]: props.disableWidth
     });
 
     const optionIcon = getOptionIcon(optionValue, props);
