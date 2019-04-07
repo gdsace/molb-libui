@@ -18,6 +18,8 @@ export interface IRadioProps {
   disableWidth?: boolean;
   radioTextStyleOverride?: string;
   labelStyleOverride?: string;
+  subsequentQuestion?: React.ReactNode | string;
+  verticalDisplay?: boolean;
 }
 
 export interface IOptionValue {
@@ -51,7 +53,7 @@ const getOptionComponents = (props: IRadioProps) => {
       [styles.radioWrapperEnable]: !isDisabled,
       [styles.radioWrapperSelected]: isSelected,
       [styles.radioWrapperUnselected]: !isSelected,
-      [styles.widthDisabled]: props.disableWidth
+      [styles.widthDisabled]: props.disableWidth || props.verticalDisplay
     });
 
     const optionIcon = getOptionIcon(optionValue, props);
@@ -64,16 +66,19 @@ const getOptionComponents = (props: IRadioProps) => {
     };
 
     return (
-      <label className={radioClassString} key={optionValue.value.toString()}>
-        <span>{optionIcon}</span>
-        <input
-          type="radio"
-          value={optionValue.value}
-          disabled={isDisabled}
-          onClick={onRadioClick}
-        />
-        <span className={radioTextClass}>{optionValue.label}</span>
-      </label>
+      <>
+        <label className={radioClassString} key={optionValue.value.toString()}>
+          <span>{optionIcon}</span>
+          <input
+            type="radio"
+            value={optionValue.value}
+            disabled={isDisabled}
+            onClick={onRadioClick}
+          />
+          <span className={radioTextClass}>{optionValue.label}</span>
+        </label>
+        {isSelected && props.subsequentQuestion}
+      </>
     );
   });
   return optionComponents;
@@ -90,10 +95,14 @@ export const Radio = (props: IRadioProps) => {
     props.radioTextStyleOverride || "",
     styles.radioText
   );
+  const radioLabelClass = classNames(
+    styles.radioLabel,
+    props.verticalDisplay ? styles.verticalOptions : ""
+  );
   return (
     <div id={props.id} className={radioClass}>
       {props.text && <div className={radioTextClass}>{props.text}</div>}
-      <div className={styles.radioLabel}>{optionComponents}</div>
+      <div className={radioLabelClass}>{optionComponents}</div>
       {props.showError && (
         <div className={addLocatedErrorClassname(styles.errorMsg)}>
           {props.errorMsg}

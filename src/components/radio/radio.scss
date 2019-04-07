@@ -29,6 +29,10 @@
     }
   }
 
+  .verticalOptions {
+    display: block;
+  }
+
   .optionText {
     padding: 0 $space-2;
     font-size: $large;
