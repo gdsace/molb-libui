@@ -19,6 +19,11 @@ export class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
     disabled: false
   };
 
+  public static getDerivedStateFromProps = (
+    props: ICheckboxProps,
+    state: ICheckboxState
+  ) => (state.checked === props.checked ? null : { checked: props.checked });
+
   constructor(props: ICheckboxProps) {
     super(props);
     this.state = { checked: props.checked };
