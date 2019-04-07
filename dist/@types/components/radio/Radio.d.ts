@@ -12,6 +12,7 @@ export interface IRadioProps {
     disableWidth?: boolean;
     radioTextStyleOverride?: string;
     labelStyleOverride?: string;
+    radioLabelLineBreak?: boolean;
 }
 export interface IOptionValue {
     value: string;

@@ -1,8 +1,10 @@
 import * as React from "react";
 
+export type IIconCategory = "licences" | "shoptypes";
+
 export interface IIconProps {
   type: string;
-  category?: "licences";
+  category?: IIconCategory;
   className?: string;
   size?: string;
   viewBox?: string;

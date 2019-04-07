@@ -12,6 +12,7 @@ export interface ILayoutProps {
   sideBarStyle?: string;
   mainContent?: React.ReactNode;
   mainContentStyle?: string;
+  footer?: React.ReactNode;
 }
 
 export class Layout extends React.Component<ILayoutProps, {}> {
@@ -42,6 +43,7 @@ export class Layout extends React.Component<ILayoutProps, {}> {
             {this.props.mainContent}
           </div>
         </div>
+        {this.props.footer}
       </div>
     );
   }

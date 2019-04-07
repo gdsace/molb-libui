@@ -20,6 +20,7 @@ export interface IRadioProps {
   labelStyleOverride?: string;
   subsequentQuestion?: React.ReactNode | string;
   verticalDisplay?: boolean;
+  radioLabelLineBreak?: boolean;
 }
 
 export interface IOptionValue {
@@ -96,8 +97,8 @@ export const Radio = (props: IRadioProps) => {
     styles.radioText
   );
   const radioLabelClass = classNames(
-    styles.radioLabel,
-    props.verticalDisplay ? styles.verticalOptions : ""
+    props.radioLabelLineBreak ? styles.radioLabelLineBreak : styles.radioLabel,
+    styles.radioLabel
   );
   return (
     <div id={props.id} className={radioClass}>
