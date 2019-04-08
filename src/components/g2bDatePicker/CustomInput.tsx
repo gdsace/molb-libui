@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import classnames from "classnames";
 import * as _ from "lodash";
 import React from "react";
 import { Icon } from "../icons";
@@ -19,12 +19,17 @@ export class CustomInput extends React.Component<any, ICustomInputState> {
 
   public render() {
     const customInputClassName = this.state.customInputSelected
-      ? classNames(styles.customInput, styles.customInputSelected)
-      : classNames(styles.customInput);
+      ? classnames(styles.customInput, styles.customInputSelected)
+      : classnames(styles.customInput);
+
+    const errorClassName = this.props.showError
+      ? classnames(styles.errorInput)
+      : "";
+
     return (
       <div
         tabIndex={1}
-        className={customInputClassName}
+        className={classnames(customInputClassName, errorClassName)}
         onClick={this.handleOnClick}
         onBlur={this.handleOnBlur}
       >
