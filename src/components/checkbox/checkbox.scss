@@ -6,6 +6,8 @@ $position-left: ($checkbox-size - $checkbox-inner-tick-width) / 2;
 $position-top: ($checkbox-size - $checkbox-inner-tick-height) / 2 - 1.5 * ($checkbox-size / 14);
 
 .checkboxWrapper {
+  display: flex;
+
   .checkbox {
     display: inline-block;
     line-height: 0;
@@ -75,5 +77,14 @@ $position-top: ($checkbox-size - $checkbox-inner-tick-height) / 2 - 1.5 * ($chec
   .checkboxInput:disabled:checked + .inner {
     display: inline-block;
     background-color: $ui-color-4;
+  }
+
+  .clickableElement {
+    display: flex;
+    font-size: $medium;
+    line-height: $space-3;
+    padding-left: $space-2;
+    color: $text-color-2;
+    font-weight: $weight-regular;
   }
 }

@@ -6,6 +6,14 @@ import { Icon, Link } from "../../index";
 import { Tooltips } from "../Tooltips";
 
 describe("Tooltips", () => {
+  beforeAll(() => {
+    Object.defineProperty(window, "matchMedia", {
+      value: jest.fn(() => {
+        return { matches: false };
+      })
+    });
+  });
+
   it("render ui", () => {
     const wrapper = shallow(
       <Tooltips trigger={<div />} position={TooltipsLocationTheme.BottomLeft}>

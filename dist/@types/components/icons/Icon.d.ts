@@ -1,7 +1,8 @@
 /// <reference types="react" />
+export declare type IIconCategory = "licences" | "shoptypes";
 export interface IIconProps {
     type: string;
-    category?: "licences";
+    category?: IIconCategory;
     className?: string;
     size?: string;
     viewBox?: string;

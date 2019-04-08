@@ -44,7 +44,8 @@ export class Dropdown<T> extends React.Component<IDropdownProps<T>, {}> {
           border: borderColor,
           "&:hover": {
             border: state.isFocused ? "1px solid #408" : "1px solid #647283"
-          }
+          },
+          backgroundColor: state.isDisabled ? "#f9fafa" : "white"
         };
       },
       control: (base: any) => {
@@ -54,7 +55,8 @@ export class Dropdown<T> extends React.Component<IDropdownProps<T>, {}> {
           boxShadow: "none",
           "&:hover": {
             border: "none"
-          }
+          },
+          backgroundColor: "transparent"
         };
       }
     };

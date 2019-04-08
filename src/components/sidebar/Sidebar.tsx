@@ -23,6 +23,9 @@ export class Sidebar extends React.Component<ISidebarProps, {}> {
   public render() {
     const { list, selectedIndex } = this.props;
     const typeClass = styles[`${this.props.type}Item`];
+    const itemClassName = `${styles.item} ${typeClass}${
+      this.props.onItemClick ? " " + styles.clickable : ""
+    }`;
 
     return (
       <div className={styles.sidebar}>
@@ -33,7 +36,7 @@ export class Sidebar extends React.Component<ISidebarProps, {}> {
               className={`${selectedIndex === index ? styles.activeItem : ""}`}
               onClick={this.onItemClick(index)}
             >
-              <div className={`${styles.item} ${typeClass}`}>{item.title}</div>
+              <div className={itemClassName}>{item.title}</div>
             </li>
           ))}
         </ul>

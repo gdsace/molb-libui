@@ -17,10 +17,10 @@ export interface IDocumentType {
   description: string;
   entityWide: boolean;
   name: string;
-  optional: boolean;
-  submitUponRequest: boolean;
+  additionalRemark: string | null;
   uploaded: boolean;
   documentId: number | null;
   documentName: string | null;
   documentSize: number | null;
+  hasTemplateFile: boolean;
 }

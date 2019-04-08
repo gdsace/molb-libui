@@ -20,10 +20,14 @@
   font-weight: $weight-semibold;
 }
 
+.label {
+  display: inline;
+}
+
 .description {
   font-size: $medium;
   line-height: $line-height-large;
-  color: $text-color-2;
+  color: $text-color;
   margin-top: $space-0;
   font-weight: $weight-regular;
 }
@@ -36,4 +40,16 @@
   .description {
     color: $ui-color-4;
   }
+}
+
+.helpIcon {
+  color: $text-color;
+}
+
+.tooltip {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 4px;
+  position: relative;
+  top: -2px;
 }

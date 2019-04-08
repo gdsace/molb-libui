@@ -1,6 +1,11 @@
 import * as React from "react";
 import { createPortal } from "react-dom";
 
+import {
+  clearAllBodyScrollLocks,
+  disableBodyScroll,
+  enableBodyScroll
+} from "body-scroll-lock";
 import classNames from "classnames";
 import { Icon } from "../icons";
 
@@ -15,6 +20,7 @@ export enum ModalTheme {
 export interface IModalProps {
   onClose: () => void;
   show: boolean;
+  hideCloseButton?: boolean;
   header?: string;
   children?: React.ReactNode;
   theme?: ModalTheme;
@@ -42,11 +48,18 @@ export class Modal extends React.Component<IModalProps, {}> {
     this.setFooter = (element: HTMLElement) => (this.footer = element);
   }
 
+  public componentWillReceiveProps(nextProps: IModalProps) {
+    if (this.props.show !== nextProps.show) {
+      this.controlBodyScrollable(nextProps.show);
+    }
+  }
+
   public componentDidMount() {
     this.modalRoot.appendChild(this.el);
   }
 
   public componentWillUnmount() {
+    clearAllBodyScrollLocks();
     document.body.style.overflow = "auto";
     this.modalRoot.removeChild(this.el);
   }
@@ -59,17 +72,17 @@ export class Modal extends React.Component<IModalProps, {}> {
       [styles.fullTheme]: this.props.theme === ModalTheme.Full
     });
 
-    document.body.style.overflow = this.props.show ? "hidden" : "auto";
-
     const modalContent = (
       <div className={modalStyle} onClick={this.onClickAway}>
         <section
           className={styles.modalContent}
           ref={this.setUpModalContentRef}
         >
-          <div className={styles.close} onClick={() => this.props.onClose()}>
-            <Icon type={"close"} />
-          </div>
+          {!this.props.hideCloseButton && (
+            <div className={styles.close} onClick={this.onClose}>
+              <Icon type={"close"} />
+            </div>
+          )}
           <div className={styles.content}>{this.props.children}</div>
         </section>
         {this.props.footer && (
@@ -83,13 +96,36 @@ export class Modal extends React.Component<IModalProps, {}> {
     return createPortal(modalContent, this.el);
   }
 
+  private onClose = () => {
+    clearAllBodyScrollLocks();
+    document.body.style.overflow = "auto";
+    this.props.onClose();
+  };
+
+  private controlBodyScrollable = (show: boolean) => {
+    if (show) {
+      this.disableBodyScroll();
+    } else {
+      this.enableBodyScroll();
+    }
+  };
+
+  private disableBodyScroll = () => {
+    disableBodyScroll(document.body);
+  };
+
+  private enableBodyScroll = () => {
+    enableBodyScroll(document.body);
+  };
+
   private onClickAway = (e: any) => {
     if (
       (this.modalNode && this.modalNode.contains(e.target)) ||
-      (this.footer && this.footer.contains(e.target))
+      (this.footer && this.footer.contains(e.target)) ||
+      this.props.hideCloseButton
     ) {
       return;
     }
-    this.props.onClose();
+    this.onClose();
   };
 }

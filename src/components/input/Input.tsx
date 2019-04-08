@@ -7,6 +7,7 @@ import { addLocatedErrorClassname } from "../utils";
 
 const styles = require("./input.scss");
 
+const ICON_SIZE = "16";
 const DEFAULT_MAX_LENGTH = 30;
 const defaultChangesFilterRegexDict: any = {
   [InputType.IntegerText]: /^-?(\d*)$/,
@@ -18,6 +19,7 @@ const defaultChangesFilterRegexDict: any = {
 export interface IInputProps {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => any;
   onBlur?: () => any;
+  onKeyPress?: (event: React.KeyboardEvent<HTMLInputElement>) => any;
   value: any;
   type?: InputType;
   minLength?: number;
@@ -32,6 +34,9 @@ export interface IInputProps {
   showHelper?: boolean;
   helperMsg?: string;
   showTooltip?: boolean;
+  inlineElement?: JSX.Element | string;
+  iconSignifier?: JSX.Element;
+  loading?: boolean;
   suffix?: string;
   showCharacterCount?: boolean;
   toolTipsContent?: JSX.Element | string;
@@ -55,7 +60,8 @@ export class Input extends React.Component<IInputProps, any> {
     size: Size.Medium,
     type: InputType.Text,
     showCharacterCount: false,
-    showTooltip: false
+    showTooltip: false,
+    inlineElement: ""
   };
 
   constructor(props: any) {
@@ -89,7 +95,7 @@ export class Input extends React.Component<IInputProps, any> {
                 trigger={(open: boolean) => (
                   <Icon
                     type="help"
-                    size="16"
+                    size={ICON_SIZE}
                     className={classnames(
                       styles.labelIcon,
                       open && styles.openTooltip
@@ -110,30 +116,32 @@ export class Input extends React.Component<IInputProps, any> {
             )}
           </div>
         )}
-        <div className={styles.inline}>
-          <input
-            disabled={this.props.disabled}
-            className={`${styles.field} ${size} ${this.props.className} ${
-              this.props.showError ? styles.error : ""
-            }`}
-            value={this.props.value}
-            type="text"
-            maxLength={this.props.maxLength}
-            onChange={this.handleOnChange}
-            onBlur={() => {
-              if (this.props.onBlur) {
-                this.props.onBlur();
-              }
-            }}
-            placeholder={this.props.placeholder}
-          />
-          {this.props.showError ? (
-            <Icon className={styles.errorIcon} size="16" type="error" />
-          ) : (
-            this.props.suffix && (
-              <span className={styles.suffix}>{this.props.suffix}</span>
-            )
-          )}
+        <div className={styles.inlineWrapper}>
+          <div className={styles.inline}>
+            <input
+              disabled={this.props.disabled}
+              className={`${styles.field} ${size} ${this.props.className} ${
+                this.props.showError ? styles.error : ""
+              }`}
+              value={this.props.value}
+              type={this.getRawInputType(this.props.type)}
+              maxLength={this.props.maxLength}
+              onChange={this.handleOnChange}
+              onBlur={() => {
+                if (this.props.onBlur) {
+                  this.props.onBlur();
+                }
+              }}
+              onKeyPress={event => {
+                if (this.props.onKeyPress) {
+                  this.props.onKeyPress(event);
+                }
+              }}
+              placeholder={this.props.placeholder}
+            />
+            {this.getRightInlineElement()}
+          </div>
+          {this.props.inlineElement}
         </div>
         {showFooterSection && (
           <div className={styles.footerSection}>
@@ -190,5 +198,48 @@ export class Input extends React.Component<IInputProps, any> {
       characterCount: event.target.value.length,
       previousValue: event.target.value
     });
+  };
+
+  private getRightInlineElement() {
+    let element: JSX.Element = <></>;
+    const { showError, suffix, iconSignifier, loading } = this.props;
+
+    if (!(showError || suffix || iconSignifier || loading)) {
+      return <></>;
+    }
+
+    if (iconSignifier) {
+      element = iconSignifier;
+    }
+
+    if (suffix) {
+      element = <span className={styles.suffix}>{suffix}</span>;
+    }
+
+    if (loading) {
+      element = (
+        <Icon className={styles.loading} type="progress" size={ICON_SIZE} />
+      );
+    }
+
+    if (showError) {
+      element = (
+        <Icon className={styles.errorIcon} size={ICON_SIZE} type="error" />
+      );
+    }
+
+    return <div className={styles.rightInlineElementContainer}>{element}</div>;
+  }
+
+  private getRawInputType = (type?: InputType) => {
+    if (type === InputType.Email) {
+      return "email";
+    } else if (type === InputType.PositiveIntegerText) {
+      return "tel";
+    } else {
+      // "number" makes weird event.target.value, for example entering 123e will return an event with "" as the value,
+      // causing the filter we set above to do nothing. So its preferable to use text to let our filter work instead
+      return "text";
+    }
   };
 }

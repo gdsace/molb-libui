@@ -2,7 +2,7 @@ import React from "react";
 
 import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
-import { Input, InputType, Size } from "../../components";
+import { Icon, IconButton, Input, InputType, Size } from "../../components";
 import { CategoryName, wInfo } from "../utils";
 
 const styles = require("./input.stories.scss");
@@ -16,7 +16,7 @@ const errorMsg = "Validation error message, blah blah blah...";
   wInfo(``)(() => (
     <div className={styles.rootContainer}>
       <h6 className={styles.groupHeader}>
-        Bellow are different size: Large, Medium, Small
+        Below are different sizes: Large, Medium, Small
       </h6>
       <div className={styles.itemsContainer}>
         <div className={styles.box}>
@@ -48,7 +48,7 @@ const errorMsg = "Validation error message, blah blah blah...";
       </div>
 
       <h6 className={styles.groupHeader}>
-        Bellow are different Type: Number, Text
+        Below are different types: Number, Text, Email
       </h6>
       <div className={styles.itemsContainer}>
         <div className={styles.box}>
@@ -69,10 +69,19 @@ const errorMsg = "Validation error message, blah blah blah...";
             size={Size.Large}
           />
         </div>
+        <div className={styles.box}>
+          <Input
+            onChange={action("value")}
+            placeholder={placeholder}
+            type={InputType.Email}
+            label={"Email"}
+            size={Size.Large}
+          />
+        </div>
       </div>
 
       <h6 className={styles.groupHeader}>
-        Bellow are different looks: Normal, Error, Disable, WithHelper,
+        Below are different looks: Normal, Error, Disable, WithHelper,
         WithToolTip, WithSuffix
       </h6>
       <div className={styles.itemsContainer}>
@@ -190,10 +199,69 @@ const errorMsg = "Validation error message, blah blah blah...";
             Other following contents (Input error msg should float on this)
           </p>
         </div>
+        <div className={styles.box}>
+          <Input
+            onChange={action("value")}
+            type={InputType.Text}
+            label={"iconSignifier"}
+            size={Size.Large}
+            value="Text input with error"
+            iconSignifier={
+              <Icon
+                size="16"
+                className={styles.iconSignifier}
+                type={"search"}
+              />
+            }
+            onKeyPress={action("value")}
+          />
+        </div>
+        <div className={styles.box}>
+          <Input
+            onChange={action("value")}
+            type={InputType.Text}
+            label={"inlineElement"}
+            size={Size.Large}
+            value="inline element"
+            inlineElement={
+              <div className={styles.deleteIcon}>
+                <IconButton type="delete" onClick={action("delete")} />
+              </div>
+            }
+            onKeyPress={action("value")}
+          />
+        </div>
+        <div className={styles.box}>
+          <Input
+            onChange={action("value")}
+            type={InputType.Text}
+            label={"InlineElement with Error icon "}
+            size={Size.Large}
+            value="inline element"
+            inlineElement={
+              <div>
+                <IconButton type="delete" onClick={action("delete")} />
+              </div>
+            }
+            onKeyPress={action("value")}
+            showError={true}
+            errorMsg={errorMsg}
+          />
+        </div>
+        <div className={styles.box}>
+          <Input
+            onChange={action("value")}
+            type={InputType.Text}
+            label={"InlineElement with loading icon "}
+            size={Size.Large}
+            loading={true}
+            onKeyPress={action("value")}
+          />
+        </div>
       </div>
 
       <h6 className={styles.groupHeader}>
-        Bellow are some length limit for input
+        Below are some length limits for input
       </h6>
       <div className={styles.itemsContainer}>
         <div className={styles.box}>

@@ -6,9 +6,15 @@ $input-focus-border: solid 1px $lavender-indigo;
 .rootContainer {
   position: relative;
 
+  .inlineWrapper {
+    display: flex;
+    align-items: center;
+  }
+
   .inline {
     display: flex;
     align-items: center;
+    width: 100%;
   }
 
   .field {
@@ -30,8 +36,6 @@ $input-focus-border: solid 1px $lavender-indigo;
   }
 
   .errorIcon {
-    position: absolute;
-    right: $small;
     color: $support-red;
   }
 
@@ -124,6 +128,12 @@ $input-focus-border: solid 1px $lavender-indigo;
     line-height: $line-height-medium;
   }
 
+  .rightInlineElementContainer {
+    width: 0;
+    position: relative;
+    right: $space-4;
+  }
+
   .suffix {
     font-size: $medium;
     font-weight: normal;
@@ -133,7 +143,22 @@ $input-focus-border: solid 1px $lavender-indigo;
     letter-spacing: normal;
     color: $text-color;
     position: absolute;
-    right: $small;
+    right: -20px;
+    top: -10px;
+  }
+
+  .loading {
+    @keyframes rotate {
+      from {
+        transform: rotateZ(0deg);
+      }
+
+      to {
+        transform: rotateZ(360deg);
+      }
+    }
+
+    animation: rotate 2s linear infinite;
   }
 
   &.validationError {

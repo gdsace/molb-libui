@@ -7,6 +7,8 @@ const cx = classNames.bind(styles).default || classNames.bind(styles);
 export interface IColumn {
   title: string;
   key: string;
+  width?: string;
+  textAlignRight?: boolean;
 }
 
 export interface IDateSource {
@@ -63,6 +65,7 @@ export class Table extends React.Component<ITableProps, {}> {
   ): React.ReactNode {
     const keyInOrder = columns.map(column => column.key);
     const titleInOrder = columns.map(column => column.title);
+    const textAlignRightInOrder = columns.map(column => column.textAlignRight);
     return (
       <tbody>
         {dataSource.map(rowData => {
@@ -70,7 +73,13 @@ export class Table extends React.Component<ITableProps, {}> {
             <tr key={`tr-${rowData.key}`}>
               {keyInOrder.map((key, index) => {
                 return (
-                  <td data-title={titleInOrder[index]} key={`td-${key}`}>
+                  <td
+                    data-title={titleInOrder[index]}
+                    key={`td-${key}`}
+                    className={
+                      textAlignRightInOrder[index] ? styles.alignRight : ""
+                    }
+                  >
                     <div className={cx("contentData")}>{rowData[key]}</div>
                   </td>
                 );
@@ -81,12 +90,19 @@ export class Table extends React.Component<ITableProps, {}> {
       </tbody>
     );
   }
+
   public getHeadComponent(columns: IColumn[]): React.ReactNode {
     return (
       <thead>
         <tr>
           {columns.map(column => (
-            <th key={column.key}>{column.title}</th>
+            <th
+              key={column.key}
+              style={column.width ? { width: column.width } : {}}
+              className={column.textAlignRight ? styles.alignRight : ""}
+            >
+              {column.title}
+            </th>
           ))}
         </tr>
       </thead>

@@ -106,7 +106,7 @@ export class TimePicker extends React.Component<
     onBlur: noop,
     addon: noop,
     use12Hours: false,
-    focusOnOpen: false,
+    focusOnOpen: true,
     onKeyDown: noop,
     showError: false
   };
@@ -296,7 +296,6 @@ export class TimePicker extends React.Component<
         this.setState({ open });
       }
       if (open) {
-        this.focus();
         if (onOpen) {
           onOpen({ open });
         }
@@ -365,7 +364,7 @@ export class TimePicker extends React.Component<
           popupAlign={align}
           builtinPlacements={placements}
           popupPlacement={placement}
-          action={disabled ? [] : ["click", "focus"]}
+          action={disabled ? [] : ["click"]}
           destroyPopupOnHide
           getPopupContainer={getPopupContainer}
           popupTransitionName={transitionName}

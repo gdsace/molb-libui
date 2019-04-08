@@ -26,6 +26,10 @@ $indicator-border-color: rgba(219, 223, 228, 0.5);
     color: $text-color-2;
     display: flex;
     padding: 20px $space-4;
+
+    &.clickable {
+      cursor: pointer;
+    }
   }
 
   .indicatorItem {

@@ -1,4 +1,4 @@
-FROM node:10.3.0-alpine
+FROM node:10.15.3-alpine
 
 RUN apk update \
     && apk upgrade \
@@ -14,7 +14,7 @@ RUN yarn install --frozen-lockfile \
 ARG NODE_ENV=production
 COPY . /usr/src/app
 
-# Check that it builds
-RUN yarn build:production
+# Check that it builds and that there are no uncommitted changes after building
+RUN yarn build:check
 
 RUN yarn lint && yarn test:coverage

@@ -2,6 +2,7 @@ import { shallow } from "enzyme";
 import * as React from "react";
 import { TileTheme } from "../../../EnumValues";
 import { Icon } from "../../../icons";
+import { Tooltips } from "../../../tooltips";
 import { Tile } from "../index";
 
 describe("Tile", () => {
@@ -53,6 +54,27 @@ describe("Tile", () => {
     expect(wrapper.find("input").props().disabled).toBe(true);
   });
 
+  it("should render tile which status is disabled with tooltip", () => {
+    const wrapper = shallow(
+      <Tile
+        icon="store"
+        validationToolTip="test"
+        content="Restaurant"
+        disabled
+      />
+    );
+
+    expect(wrapper.find(Icon)).toHaveLength(1);
+    expect(wrapper.find(Tooltips)).toHaveLength(1);
+    expect(
+      wrapper
+        .find(Tooltips)
+        .at(0)
+        .props().trigger.props.type
+    ).toBe("error");
+    expect(wrapper.find("input").props().disabled).toBe(true);
+  });
+
   it("should render small-tile (smallTile)", () => {
     const wrapper = shallow(
       <Tile
@@ -96,5 +118,20 @@ describe("Tile", () => {
     expect(wrapper.find(".tileIcon")).toHaveLength(1);
     expect(wrapper.find(".tileHeader")).toHaveLength(1);
     expect(wrapper.find(".tileDescription")).toHaveLength(1);
+  });
+
+  it("should render error when large-tile", () => {
+    const wrapper = shallow(
+      <Tile
+        icon="48-px-store"
+        content="Restaurant"
+        description="Some description"
+        theme={TileTheme.LargeTile}
+        error="error"
+      />
+    );
+
+    expect(wrapper.find(".errorContent")).toHaveLength(1);
+    expect(wrapper.find(".errorIcon")).toHaveLength(1);
   });
 });

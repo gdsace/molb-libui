@@ -7,6 +7,7 @@ export interface ILayoutProps {
     sideBarStyle?: string;
     mainContent?: React.ReactNode;
     mainContentStyle?: string;
+    footer?: React.ReactNode;
 }
 export declare class Layout extends React.Component<ILayoutProps, {}> {
     static defaultProps: Partial<ILayoutProps>;

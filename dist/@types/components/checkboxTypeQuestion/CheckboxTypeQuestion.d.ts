@@ -5,7 +5,15 @@ export interface ICheckboxTypeQuestion {
     onCheckboxClick: any;
     questionLabel: string;
     questionDescription?: string;
+    tooltip?: string;
 }
-export declare class CheckboxTypeQuestion extends React.Component<ICheckboxTypeQuestion, {}> {
+interface ICheckboxTypeQuestionState {
+    checked: boolean;
+}
+export declare class CheckboxTypeQuestion extends React.Component<ICheckboxTypeQuestion, ICheckboxTypeQuestionState> {
+    constructor(props: ICheckboxTypeQuestion);
     render(): JSX.Element;
+    private onTextClick;
+    private onCheckedValueChange;
 }
+export {};

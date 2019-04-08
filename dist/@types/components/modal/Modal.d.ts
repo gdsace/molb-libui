@@ -7,6 +7,7 @@ export declare enum ModalTheme {
 export interface IModalProps {
     onClose: () => void;
     show: boolean;
+    hideCloseButton?: boolean;
     header?: string;
     children?: React.ReactNode;
     theme?: ModalTheme;
@@ -21,8 +22,13 @@ export declare class Modal extends React.Component<IModalProps, {}> {
     private readonly setFooter;
     private footer;
     constructor(props: IModalProps);
+    componentWillReceiveProps(nextProps: IModalProps): void;
     componentDidMount(): void;
     componentWillUnmount(): void;
     render(): React.ReactPortal;
+    private onClose;
+    private controlBodyScrollable;
+    private disableBodyScroll;
+    private enableBodyScroll;
     private onClickAway;
 }
