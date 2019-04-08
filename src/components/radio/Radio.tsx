@@ -18,6 +18,7 @@ export interface IRadioProps {
   disableWidth?: boolean;
   radioTextStyleOverride?: string;
   labelStyleOverride?: string;
+  subsequentQuestion?: React.ReactNode | string;
   radioLabelLineBreak?: boolean;
 }
 
@@ -65,16 +66,19 @@ const getOptionComponents = (props: IRadioProps) => {
     };
 
     return (
-      <label className={radioClassString} key={optionValue.value.toString()}>
-        <span>{optionIcon}</span>
-        <input
-          type="radio"
-          value={optionValue.value}
-          disabled={isDisabled}
-          onClick={onRadioClick}
-        />
-        <span className={radioTextClass}>{optionValue.label}</span>
-      </label>
+      <>
+        <label className={radioClassString} key={optionValue.value.toString()}>
+          <span>{optionIcon}</span>
+          <input
+            type="radio"
+            value={optionValue.value}
+            disabled={isDisabled}
+            onClick={onRadioClick}
+          />
+          <span className={radioTextClass}>{optionValue.label}</span>
+        </label>
+        {isSelected && props.subsequentQuestion}
+      </>
     );
   });
   return optionComponents;
@@ -91,7 +95,6 @@ export const Radio = (props: IRadioProps) => {
     props.radioTextStyleOverride || "",
     styles.radioText
   );
-
   const radioLabelClass = classNames(
     props.radioLabelLineBreak ? styles.radioLabelLineBreak : styles.radioLabel,
     styles.radioLabel
