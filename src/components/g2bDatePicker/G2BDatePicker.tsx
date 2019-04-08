@@ -8,7 +8,7 @@ import "./datePicker.css";
 const styles = require("./g2bDatePicker.scss");
 
 export interface IG2BDatePickerProps {
-  onChange: () => any;
+  onChange: (date: any) => any;
 }
 
 export class G2BDatePicker extends React.Component<IG2BDatePickerProps, any> {
@@ -17,18 +17,15 @@ export class G2BDatePicker extends React.Component<IG2BDatePickerProps, any> {
     this.state = {
       startDate: undefined
     };
-    this.myRef = React.createRef();
   }
 
   public render() {
     return (
       <div className={styles.datePicker}>
         <DatePicker
-          focus={()=>{this.myRef.current.focus()}}
-          customInput={<CustomInput ref={this.myRef} />}
+          customInput={<CustomInput />}
           selected={this.state.startDate}
           onChange={this.handleChange}
-          // onBlur={this.handleOnBlur}
           dateFormat="dd/MM/yyyy"
           placeholderText={"DD/MM/YYYY"}
         />
@@ -37,13 +34,9 @@ export class G2BDatePicker extends React.Component<IG2BDatePickerProps, any> {
   }
 
   private handleChange = (date: any) => {
-    console.log("this is on Change");
     this.setState({
       startDate: date
     });
+    this.props.onChange(date);
   };
-
-  private handleOnBlur = () => {
-    console.log("onblur");
-  }
 }

@@ -26,6 +26,7 @@ export class CustomInput extends React.Component<any, ICustomInputState> {
         tabIndex={1}
         className={customInputClassName}
         onClick={this.handleOnClick}
+        onBlur={this.handleOnBlur}
       >
         {!_.isEmpty(this.props.value)
           ? this.props.value
@@ -36,14 +37,13 @@ export class CustomInput extends React.Component<any, ICustomInputState> {
   }
 
   private handleOnClick = () => {
-    // console.log("this is on click");
-    // this.setState({ customInputSelected: true });
+    this.setState({
+      customInputSelected: true
+    });
     this.props.onClick();
   };
 
   private handleOnBlur = () => {
-    console.log("this is on blur");
-
     this.setState({ customInputSelected: false });
     this.props.onBlur();
   };
