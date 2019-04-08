@@ -1,0 +1,49 @@
+@import "../styles/utils";
+
+.datePicker {
+  position: relative;
+
+  .dateIcon {
+    position: absolute;
+    left: 173px;
+    top: 13px;
+  }
+}
+
+.customInput {
+  width: 210px;
+  height: $space-6;
+  font-size: $medium;
+  line-height: $space-3;
+  border-radius: $border-radius-3;
+  border: solid 1px $ui-color-2;
+  background-color: $field-color;
+  color: $text-color-2;
+  position: relative;
+  padding: 12px $space-2;
+  box-sizing: border-box;
+  outline: none;
+
+  &:focus {
+    border: red 1px solid;
+  }
+
+  .calendarIcon {
+    position: absolute;
+    top: 13px;
+    right: 13px;
+
+    &:hover {
+      color: $lavender-indigo;
+    }
+  }
+}
+
+.customInputSelected {
+  border-color: $lavender-indigo;
+
+  .calendarIcon {
+    color: $lavender-indigo !important;
+  }
+}
+
