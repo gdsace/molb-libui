@@ -10,6 +10,14 @@
   }
 }
 
+.customInputSelected {
+  border-color: $lavender-indigo;
+
+  .calendarIcon {
+    color: $lavender-indigo !important;
+  }
+}
+
 .customInput {
   width: 210px;
   height: $space-6;
@@ -36,14 +44,6 @@
     &:hover {
       color: $lavender-indigo;
     }
-  }
-}
-
-.customInputSelected {
-  border-color: $lavender-indigo;
-
-  .calendarIcon {
-    color: $lavender-indigo !important;
   }
 }
 

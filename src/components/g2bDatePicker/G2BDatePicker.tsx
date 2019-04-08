@@ -22,8 +22,6 @@ export class G2BDatePicker extends React.Component<IG2BDatePickerProps, any> {
   };
 
   public render() {
-    console.log("this is render: selectedDate: ", this.props.selectedDate)
-    console.log("this is render: showError: ", this.props.showError)
     return (
       <div className={styles.datePicker}>
         <DatePicker
