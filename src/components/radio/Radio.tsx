@@ -66,8 +66,8 @@ const getOptionComponents = (props: IRadioProps) => {
     };
 
     return (
-      <>
-        <label className={radioClassString} key={optionValue.value.toString()}>
+      <React.Fragment key={optionValue.value.toString()}>
+        <label className={radioClassString}>
           <span>{optionIcon}</span>
           <input
             type="radio"
@@ -78,7 +78,7 @@ const getOptionComponents = (props: IRadioProps) => {
           <span className={radioTextClass}>{optionValue.label}</span>
         </label>
         {isSelected && props.subsequentQuestion}
-      </>
+      </React.Fragment>
     );
   });
   return optionComponents;
