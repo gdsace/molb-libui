@@ -10,6 +10,9 @@ interface ICheckboxState {
 }
 export declare class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
     static defaultProps: Partial<ICheckboxProps>;
+    static getDerivedStateFromProps: (props: ICheckboxProps, state: ICheckboxState) => {
+        checked: boolean;
+    } | null;
     constructor(props: ICheckboxProps);
     render(): JSX.Element;
     private onCheckboxClick;
