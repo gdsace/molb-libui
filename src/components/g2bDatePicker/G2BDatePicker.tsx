@@ -14,6 +14,7 @@ export interface IG2BDatePickerProps {
   dateFormat?: string;
   showError?: boolean;
   errorMsg?: string;
+  customInput?: React.ReactNode;
 }
 
 export class G2BDatePicker extends React.Component<IG2BDatePickerProps, any> {
@@ -25,7 +26,11 @@ export class G2BDatePicker extends React.Component<IG2BDatePickerProps, any> {
     return (
       <div className={styles.datePicker}>
         <DatePicker
-          customInput={<CustomInput showError={this.props.showError} />}
+          customInput={
+            this.props.customInput || (
+              <CustomInput showError={this.props.showError} />
+            )
+          }
           selected={this.props.selectedDate}
           onChange={this.handleChange}
           dateFormat="dd/MM/yyyy"

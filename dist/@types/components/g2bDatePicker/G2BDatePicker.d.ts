@@ -8,6 +8,7 @@ export interface IG2BDatePickerProps {
     dateFormat?: string;
     showError?: boolean;
     errorMsg?: string;
+    customInput?: React.ReactNode;
 }
 export declare class G2BDatePicker extends React.Component<IG2BDatePickerProps, any> {
     static defaultProps: Partial<IG2BDatePickerProps>;
