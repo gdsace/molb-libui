@@ -2,6 +2,7 @@ import React from "react";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
+import { addLocatedErrorClassname } from "../utils";
 import { CustomInput } from "./CustomInput";
 import "./datePicker.css";
 
@@ -23,21 +24,23 @@ export class G2BDatePicker extends React.Component<IG2BDatePickerProps, any> {
   };
 
   public render() {
+    const customInput = this.props.customInput || (
+      <CustomInput showError={this.props.showError} />
+    );
+
     return (
       <div className={styles.datePicker}>
         <DatePicker
-          customInput={
-            this.props.customInput || (
-              <CustomInput showError={this.props.showError} />
-            )
-          }
+          customInput={customInput}
           selected={this.props.selectedDate}
           onChange={this.handleChange}
           dateFormat="dd/MM/yyyy"
           placeholderText={"DD/MM/YYYY"}
         />
         {this.props.showError && (
-          <p className={styles.errorMsg}>{this.props.errorMsg}</p>
+          <p className={addLocatedErrorClassname(styles.errorMsg)}>
+            {this.props.errorMsg}
+          </p>
         )}
       </div>
     );
