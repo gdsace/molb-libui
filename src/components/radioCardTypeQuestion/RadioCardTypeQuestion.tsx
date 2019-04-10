@@ -24,6 +24,7 @@ export interface IOption {
   label: string;
   description: string;
   value: string;
+  tooltip?: string;
 }
 
 export class RadioCardTypeQuestion extends React.Component<

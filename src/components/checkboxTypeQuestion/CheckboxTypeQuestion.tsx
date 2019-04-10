@@ -13,6 +13,7 @@ export interface ICheckboxTypeQuestion {
   questionLabel: string;
   questionDescription?: string;
   tooltip?: string;
+  hidden?: boolean;
 }
 
 interface ICheckboxTypeQuestionState {
@@ -34,8 +35,12 @@ export class CheckboxTypeQuestion extends React.Component<
       disabled,
       questionLabel,
       questionDescription,
-      tooltip
+      tooltip,
+      hidden
     } = this.props;
+    if(hidden) {
+      return <></>;
+    }
     return (
       <div className={styles.wrapper}>
         <div className={styles.checkboxWrapper}>
