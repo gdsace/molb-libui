@@ -32,10 +32,6 @@
   box-sizing: border-box;
   outline: none;
 
-  &:focus {
-    border: $lavender-indigo 1px solid;
-  }
-
   .calendarIcon {
     position: absolute;
     top: 13px;
@@ -45,6 +41,10 @@
       color: $lavender-indigo;
     }
   }
+}
+
+.selected {
+  border: $lavender-indigo 1px solid;
 }
 
 .errorInput {

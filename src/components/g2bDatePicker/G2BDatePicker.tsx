@@ -6,6 +6,9 @@ import { CustomInput } from "./CustomInput";
 import "./datePicker.css";
 
 const styles = require("./g2bDatePicker.scss");
+interface ICustomInputState {
+  selected?: boolean;
+}
 
 export interface IG2BDatePickerProps {
   selectedDate: Date | null;
@@ -17,10 +20,19 @@ export interface IG2BDatePickerProps {
   customInput?: React.ReactNode;
 }
 
-export class G2BDatePicker extends React.Component<IG2BDatePickerProps, any> {
+export class G2BDatePicker extends React.Component<
+  IG2BDatePickerProps,
+  ICustomInputState
+> {
   public static defaultProps: Partial<IG2BDatePickerProps> = {
     selectedDate: null
   };
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      selected: false
+    };
+  }
 
   public render() {
     return (
@@ -28,13 +40,18 @@ export class G2BDatePicker extends React.Component<IG2BDatePickerProps, any> {
         <DatePicker
           customInput={
             this.props.customInput || (
-              <CustomInput showError={this.props.showError} />
+              <CustomInput
+                showError={this.props.showError}
+                selected={this.state.selected}
+              />
             )
           }
           selected={this.props.selectedDate}
           onChange={this.handleChange}
           dateFormat="dd/MM/yyyy"
           placeholderText={"DD/MM/YYYY"}
+          onClickOutside={this.handleClickOutside}
+          onInputClick={this.handleFocus}
         />
         {this.props.showError && (
           <p className={styles.errorMsg}>{this.props.errorMsg}</p>
@@ -44,6 +61,15 @@ export class G2BDatePicker extends React.Component<IG2BDatePickerProps, any> {
   }
 
   private handleChange = (selectedDate: Date) => {
+    this.setState({ selected: false });
     this.props.onChange(selectedDate);
+  };
+
+  private handleClickOutside = () => {
+    this.setState({ selected: false });
+  };
+
+  private handleFocus = () => {
+    this.setState({ selected: true });
   };
 }

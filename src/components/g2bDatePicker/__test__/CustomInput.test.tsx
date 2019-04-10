@@ -24,15 +24,5 @@ describe("CustomInput", () => {
     // @ts-ignore
     instance.handleOnClick();
     expect(props.onClick).toBeCalled();
-    expect(instance.state.customInputSelected).toBe(true);
-  });
-
-  it("should call props.onBlur when handle on Blur", () => {
-    const wrapper = shallow(<CustomInput {...props} />);
-    const instance = wrapper.instance() as CustomInput;
-    // @ts-ignore
-    instance.handleOnBlur();
-    expect(props.onBlur).toBeCalled();
-    expect(instance.state.customInputSelected).toBe(false);
   });
 });

@@ -18,8 +18,8 @@ export class CustomInput extends React.Component<any, ICustomInputState> {
   }
 
   public render() {
-    const customInputClassName = this.state.customInputSelected
-      ? classnames(styles.customInput, styles.customInputSelected)
+    const customInputClassName = this.props.selected
+      ? classnames(styles.customInput, styles.selected)
       : classnames(styles.customInput);
 
     const errorClassName = this.props.showError
@@ -31,7 +31,6 @@ export class CustomInput extends React.Component<any, ICustomInputState> {
         tabIndex={1}
         className={classnames(customInputClassName, errorClassName)}
         onClick={this.handleOnClick}
-        onBlur={this.handleOnBlur}
       >
         {!_.isEmpty(this.props.value)
           ? this.props.value
@@ -42,14 +41,6 @@ export class CustomInput extends React.Component<any, ICustomInputState> {
   }
 
   private handleOnClick = () => {
-    this.setState({
-      customInputSelected: true
-    });
     this.props.onClick();
-  };
-
-  private handleOnBlur = () => {
-    this.setState({ customInputSelected: false });
-    this.props.onBlur();
   };
 }
