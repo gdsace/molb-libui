@@ -88,6 +88,10 @@
   line-height: 40px;
 }
 
+.react-datepicker__day--keyboard-selected {
+  background-color: #408;
+}
+
 .react-datepicker__day--selected {
   border-radius: 3px;
   background-color: #408;

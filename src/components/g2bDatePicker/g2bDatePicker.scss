@@ -2,49 +2,43 @@
 
 .datePicker {
   position: relative;
+}
 
-  .dateIcon {
+.customInput {
+  display: flex;
+  align-items: center;
+  width: 210px;
+  height: $space-6;
+  font-size: $medium;
+  border-radius: $border-radius-3;
+  border: solid 1px $ui-color-2;
+  background-color: $field-color;
+  color: $text-color-2;
+  position: relative;
+  padding: 0 $space-2;
+  box-sizing: border-box;
+  outline: none;
+
+  .calendarIcon {
     position: absolute;
-    left: 173px;
-    top: 13px;
+    right: 13px;
   }
 }
 
-.customInputSelected {
-  border-color: $lavender-indigo;
+.selected {
+  border: $lavender-indigo 1px solid;
 
   .calendarIcon {
     color: $lavender-indigo !important;
   }
 }
 
-.customInput {
-  width: 210px;
-  height: $space-6;
-  font-size: $medium;
-  line-height: $space-3;
-  border-radius: $border-radius-3;
-  border: solid 1px $ui-color-2;
-  background-color: $field-color;
-  color: $text-color-2;
-  position: relative;
-  padding: 12px $space-2;
-  box-sizing: border-box;
-  outline: none;
+.customInput .calendarIcon:hover {
+  color: $lavender-indigo;
+}
 
-  &:focus {
-    border: $lavender-indigo 1px solid;
-  }
-
-  .calendarIcon {
-    position: absolute;
-    top: 13px;
-    right: 13px;
-
-    &:hover {
-      color: $lavender-indigo;
-    }
-  }
+.placeholderColor {
+  color: $text-color-7;
 }
 
 .errorInput {

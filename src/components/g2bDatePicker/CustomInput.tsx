@@ -5,33 +5,28 @@ import { Icon } from "../icons";
 
 const styles = require("./g2bDatePicker.scss");
 
-interface ICustomInputState {
-  customInputSelected: boolean;
-}
-
-export class CustomInput extends React.Component<any, ICustomInputState> {
-  constructor(props: any) {
-    super(props);
-    this.state = {
-      customInputSelected: false
-    };
-  }
-
+export class CustomInput extends React.Component<any, any> {
   public render() {
-    const customInputClassName = this.state.customInputSelected
-      ? classnames(styles.customInput, styles.customInputSelected)
+    const customInputClassName = this.props.selected
+      ? classnames(styles.customInput, styles.selected)
       : classnames(styles.customInput);
 
     const errorClassName = this.props.showError
       ? classnames(styles.errorInput)
       : "";
 
+    const textColorClassName = this.props.value
+      ? ""
+      : classnames(styles.placeholderColor);
+
     return (
       <div
-        tabIndex={1}
-        className={classnames(customInputClassName, errorClassName)}
-        onClick={this.handleOnClick}
-        onBlur={this.handleOnBlur}
+        className={classnames(
+          customInputClassName,
+          errorClassName,
+          textColorClassName
+        )}
+        onClick={this.props.onClick}
       >
         {!_.isEmpty(this.props.value)
           ? this.props.value
@@ -40,16 +35,4 @@ export class CustomInput extends React.Component<any, ICustomInputState> {
       </div>
     );
   }
-
-  private handleOnClick = () => {
-    this.setState({
-      customInputSelected: true
-    });
-    this.props.onClick();
-  };
-
-  private handleOnBlur = () => {
-    this.setState({ customInputSelected: false });
-    this.props.onBlur();
-  };
 }
