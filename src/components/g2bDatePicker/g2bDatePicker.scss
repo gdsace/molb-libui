@@ -4,8 +4,8 @@
   position: relative;
 }
 
-.customInputSelected {
-  border-color: $lavender-indigo;
+.selected {
+  border: $lavender-indigo 1px solid;
 
   .calendarIcon {
     color: $lavender-indigo !important;
@@ -27,19 +27,19 @@
   box-sizing: border-box;
   outline: none;
 
-  &:focus {
-    border: $lavender-indigo 1px solid;
-
-    .calendarIcon {
-      color: $lavender-indigo;
-    }
-  }
-
   .calendarIcon {
     position: absolute;
     right: 13px;
 
     &:hover {
+      color: $lavender-indigo;
+    }
+  }
+
+  &:focus {
+    border: $lavender-indigo 1px solid;
+
+    .calendarIcon {
       color: $lavender-indigo;
     }
   }

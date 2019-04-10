@@ -7,6 +7,10 @@ const styles = require("./g2bDatePicker.scss");
 
 export class CustomInput extends React.Component<any, any> {
   public render() {
+    const customInputClassName = this.props.selected
+      ? classnames(styles.customInput, styles.selected)
+      : classnames(styles.customInput);
+
     const errorClassName = this.props.showError
       ? classnames(styles.errorInput)
       : "";
@@ -17,9 +21,8 @@ export class CustomInput extends React.Component<any, any> {
 
     return (
       <div
-        tabIndex={1}
         className={classnames(
-          styles.customInput,
+          customInputClassName,
           errorClassName,
           textColorClassName
         )}
