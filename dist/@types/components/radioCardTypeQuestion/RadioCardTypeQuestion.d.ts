@@ -12,6 +12,7 @@ export interface IOption {
     label: string;
     description: string;
     value: string;
+    tooltip?: string;
 }
 export declare class RadioCardTypeQuestion extends React.Component<IRadioCardTypeQuestionProps, {}> {
     static defaultProps: Partial<IRadioCardTypeQuestionProps>;
