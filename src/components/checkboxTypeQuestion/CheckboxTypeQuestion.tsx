@@ -38,7 +38,7 @@ export class CheckboxTypeQuestion extends React.Component<
       tooltip,
       hidden
     } = this.props;
-    if(hidden) {
+    if (hidden) {
       return <></>;
     }
     return (
