@@ -1,4 +1,4 @@
-/// <reference types="react" />
+import * as React from "react";
 export interface IRadioProps {
     className?: string;
     text?: string;
@@ -12,6 +12,7 @@ export interface IRadioProps {
     disableWidth?: boolean;
     radioTextStyleOverride?: string;
     labelStyleOverride?: string;
+    subsequentQuestion?: React.ReactNode | string;
     radioLabelLineBreak?: boolean;
 }
 export interface IOptionValue {

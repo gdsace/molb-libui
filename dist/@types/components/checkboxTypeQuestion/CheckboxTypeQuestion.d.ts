@@ -6,6 +6,7 @@ export interface ICheckboxTypeQuestion {
     questionLabel: string;
     questionDescription?: string;
     tooltip?: string;
+    hidden?: boolean;
 }
 interface ICheckboxTypeQuestionState {
     checked: boolean;

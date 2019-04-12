@@ -22,6 +22,7 @@ export interface ITooltipsProps {
 }
 interface ITooltipsState {
     show: boolean;
+    tooltipRef: any;
 }
 export declare class Tooltips extends React.Component<ITooltipsProps, ITooltipsState> {
     constructor(props: ITooltipsProps);
@@ -36,5 +37,6 @@ export declare class Tooltips extends React.Component<ITooltipsProps, ITooltipsS
      * Or need some help can find Wu Yifan.
      */
     private calculateSpecializedStyle;
+    private getCalculatedPosition;
 }
 export {};

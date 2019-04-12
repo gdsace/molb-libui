@@ -45,6 +45,15 @@ const questionDescription = "This is question description";
           questionDescription={questionDescription}
           questionLabel={questionLabel}
         />
+        <div>Below is a hidden checkboxTypeQuestion.</div>
+        <CheckboxTypeQuestion
+          checked={true}
+          disabled={true}
+          onCheckboxClick={onCheckboxClick}
+          questionDescription={questionDescription}
+          questionLabel={questionLabel}
+          hidden={true}
+        />
       </div>
     );
   })

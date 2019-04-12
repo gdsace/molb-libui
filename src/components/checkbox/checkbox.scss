@@ -86,5 +86,6 @@ $position-top: ($checkbox-size - $checkbox-inner-tick-height) / 2 - 1.5 * ($chec
     padding-left: $space-2;
     color: $text-color-2;
     font-weight: $weight-regular;
+    cursor: default;
   }
 }
