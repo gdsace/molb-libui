@@ -127,7 +127,7 @@ const shopTypesIcons = [
         return (
           <div key={index} className={styles.iconWrapper}>
             <div className={styles.icon}>
-              <Icon category={"shoptypes"} type={icon.type} />
+              <Icon className={styles.dualColorTheme} category={"shoptypes"} type={icon.type} />
             </div>
             <div>
               <label>{icon.type}</label>
