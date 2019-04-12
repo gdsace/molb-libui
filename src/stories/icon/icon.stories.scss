@@ -3,18 +3,37 @@
 .iconWrapper {
   display: flex;
   align-items: center;
-  margin: 16px;
+  margin: $space-2;
 }
 
 .icon {
-  margin-right: 8px;
+  margin-right: $space-1;
 }
 
 .header {
-  margin: 16px;
+  margin: $space-2;
 }
 
-.dualColorTheme {
-  --color1: #161a1d;
-  --color2: url(#bakery_a);
+.shopTypeIconsNote {
+  color: $ui-color-5;
+  line-height: $line-height-large;
+  margin: $space-2;
+}
+
+table,
+th,
+td {
+  border: 1px solid $ui-color-5;
+  border-collapse: collapse;
+}
+
+.foodShopIconsTable {
+  margin: $space-2;
+  width: 500px;
+  text-align: center;
+
+  .dualColorTheme {
+    --color1: red;
+    --color2: green;
+  }
 }
