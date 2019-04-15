@@ -124,6 +124,9 @@ $large-tile-width-mobile: 100%;
 
     .tileIcon {
       color: $ui-color-4;
+
+      --color1: #{$ui-color-4};
+      --color2: #{$ui-color-4};
     }
 
     .tileDescription {
