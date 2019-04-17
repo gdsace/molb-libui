@@ -12,7 +12,10 @@ export interface ITabProps {
   list: ITabNode[];
   leftNode?: React.ReactNode;
   tabsBarContentStyle?: string;
-  customizedTabComponent?: React.ReactElement<{ onClick: any; key: any }>;
+  customizedTabComponent?: React.ReactElement<{
+    onClick: () => any;
+    key: number;
+  }>;
 }
 
 export interface ITabState {
