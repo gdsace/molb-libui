@@ -12,6 +12,10 @@ export interface ITabProps {
   list: ITabNode[];
   leftNode?: React.ReactNode;
   tabsBarContentStyle?: string;
+  customizedTabComponent?: React.ReactElement<{
+    onClick: () => any;
+    key: number;
+  }>;
 }
 
 export interface ITabState {
@@ -28,7 +32,7 @@ export class Tabs extends React.Component<ITabProps, ITabState> {
 
   public render() {
     const { currentIndex } = this.state;
-    const { list, leftNode } = this.props;
+    const { list, leftNode, customizedTabComponent } = this.props;
     const activeTabPanel = list[currentIndex as number].tabPanel;
     return (
       <div className={styles.tab}>
@@ -41,17 +45,24 @@ export class Tabs extends React.Component<ITabProps, ITabState> {
           >
             {leftNode ? this.getLeftComponent(leftNode) : null}
             <div className={styles.tabItems}>
-              {list.map((item, index) => (
-                <div
-                  key={index}
-                  onClick={this.tabItemClick(index)}
-                  className={`${
-                    currentIndex === index ? styles.activeItem : ""
-                  } ${styles.item}`}
-                >
-                  <label>{item.label}</label>
-                </div>
-              ))}
+              {list.map((item, index) =>
+                customizedTabComponent ? (
+                  React.cloneElement(customizedTabComponent, {
+                    onClick: this.tabItemClick(index),
+                    key: index
+                  })
+                ) : (
+                  <div
+                    key={index}
+                    onClick={this.tabItemClick(index)}
+                    className={`${
+                      currentIndex === index ? styles.activeItem : ""
+                    } ${styles.item}`}
+                  >
+                    <label>{item.label}</label>
+                  </div>
+                )
+              )}
             </div>
           </div>
         </div>

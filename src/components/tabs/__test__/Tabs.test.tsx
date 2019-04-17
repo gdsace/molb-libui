@@ -73,4 +73,29 @@ describe("Tabs", () => {
       .text();
     expect(label).toEqual("tab2");
   });
+
+  it("should render customizedTabComponent", () => {
+    const list = [
+      {
+        label: "tab 1",
+        tabPanel: <div />
+      },
+      {
+        label: "tab 2",
+        tabPanel: <div />
+      }
+    ];
+    const customizedComponent = (
+      <div id="customized"> customized component</div>
+    );
+    const wrapper = Enzyme.shallow(
+      <Tabs list={list} customizedTabComponent={customizedComponent} />
+    );
+    wrapper
+      .find("#customized")
+      .at(1)
+      .simulate("click");
+    expect(wrapper.find("#customized").length).toEqual(2);
+    expect(wrapper.state("currentIndex")).toEqual(1);
+  });
 });
