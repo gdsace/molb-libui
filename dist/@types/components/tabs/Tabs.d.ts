@@ -8,8 +8,8 @@ export interface ITabProps {
     leftNode?: React.ReactNode;
     tabsBarContentStyle?: string;
     customizedTabComponent?: React.ReactElement<{
-        onClick: any;
-        key: any;
+        onClick: () => any;
+        key: number;
     }>;
 }
 export interface ITabState {
