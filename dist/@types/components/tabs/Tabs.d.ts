@@ -7,6 +7,10 @@ export interface ITabProps {
     list: ITabNode[];
     leftNode?: React.ReactNode;
     tabsBarContentStyle?: string;
+    customizedTabComponent?: React.ReactElement<{
+        onClick: any;
+        key: any;
+    }>;
 }
 export interface ITabState {
     currentIndex?: number;
