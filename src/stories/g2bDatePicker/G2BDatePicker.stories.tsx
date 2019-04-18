@@ -16,7 +16,7 @@ const store = new Store({
   wInfo(``)(() => {
     return (
       <div>
-        <div style={{ display: "inline-block" }}>
+        <div style={{ display: "inline-block", width: "328px" }}>
           <State store={store}>
             <G2BDatePicker
               selectedDate={store.get("selectedDate")}
