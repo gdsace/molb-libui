@@ -3,18 +3,18 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 
 import { NotificationTheme } from "../../components";
-import { InlineNotifWithHeader } from "../../components/inlineNotifWithHeader";
+import { InlineNotificationWithHeader } from "../../components/inlineNotificationWithHeader";
 import { CategoryName, wInfo } from "../utils";
 
 const lorem =
   "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam natus doloribus aperiam ipsum consectetur, accusamus laborum nam dolor error consequatur beatae quaerat doloremque placeat impedit illo cumque. Provident, eos aperiam.";
 
 (storiesOf(CategoryName.Notification, module) as any).addWithJSX(
-  "InlineNotifWithHeader",
+  "InlineNotificationWithHeader",
   wInfo(``)(() => {
     return (
       <div>
-        <h1>InlineNotifWithHeader</h1>
+        <h1>InlineNotificationWithHeader</h1>
         <p>
           Essentially the same component as <code>InlineNotification</code>, but
           with an extra header
@@ -22,38 +22,38 @@ const lorem =
         <br />
         <h5>Informational Type</h5>
         <div style={{ padding: "10px" }}>
-          <InlineNotifWithHeader
+          <InlineNotificationWithHeader
             header="Normal Header"
             text={"Very infomational thanks"}
             theme={NotificationTheme.Informational}
           />
-          <InlineNotifWithHeader
+          <InlineNotificationWithHeader
             header="Normal Header"
             text={lorem}
             theme={NotificationTheme.Informational}
           />
-          <InlineNotifWithHeader
+          <InlineNotificationWithHeader
             header="Normal Header"
             text={lorem + lorem}
             theme={NotificationTheme.Informational}
           />
           <br />
           <h5>Success Type</h5>
-          <InlineNotifWithHeader
+          <InlineNotificationWithHeader
             header="Success Header"
             text={"Bleh"}
             theme={NotificationTheme.Success}
           />
           <br />
           <h5>Warning Type</h5>
-          <InlineNotifWithHeader
+          <InlineNotificationWithHeader
             header="Warning Header"
             text={"Bleh"}
             theme={NotificationTheme.Warning}
           />
           <br />
           <h5>Error Type</h5>
-          <InlineNotifWithHeader
+          <InlineNotificationWithHeader
             header="Error Header"
             text={"Bleh"}
             theme={NotificationTheme.Error}

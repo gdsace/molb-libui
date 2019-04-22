@@ -4,15 +4,17 @@ import { NotificationTheme } from "../EnumValues";
 import { Icon } from "../icons";
 import { addLocatedErrorClassname } from "../utils";
 
-const style = require("./InlineNotifWithHeader.scss");
+const style = require("./InlineNotificationWithHeader.scss");
 
-interface IInlineNotifWithHeaderProps {
+interface IInlineNotificationWithHeaderProps {
   header: string;
   text: string;
   theme: NotificationTheme;
 }
 
-export const InlineNotifWithHeader = (props: IInlineNotifWithHeaderProps) => {
+export const InlineNotificationWithHeader = (
+  props: IInlineNotificationWithHeaderProps
+) => {
   const { theme, text } = props;
 
   const headerStyle = classNames(

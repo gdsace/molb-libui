@@ -13,7 +13,7 @@ export * from "./header";
 export * from "./icons";
 export * from "./indicator";
 export * from "./inlineNotification";
-export * from "./inlineNotifWithHeader";
+export * from "./inlineNotificationWithHeader";
 export * from "./input";
 export * from "./layout";
 export * from "./link";

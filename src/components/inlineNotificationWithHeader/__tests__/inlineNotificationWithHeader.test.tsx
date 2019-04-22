@@ -2,7 +2,7 @@ import { shallow } from "enzyme";
 import * as React from "react";
 import { NotificationTheme } from "../../EnumValues";
 import { Icon } from "../../icons";
-import { InlineNotifWithHeader } from "../InlineNotifWithHeader";
+import { InlineNotificationWithHeader } from "../InlineNotificationWithHeader";
 
 describe("Inline notification", () => {
   it("should render warning notification success", () => {
@@ -12,7 +12,7 @@ describe("Inline notification", () => {
     };
 
     const wrapper = shallow(
-      <InlineNotifWithHeader
+      <InlineNotificationWithHeader
         header="Header Test"
         text="this is warning text"
         theme={NotificationTheme.Warning}
@@ -32,7 +32,7 @@ describe("Inline notification", () => {
     };
 
     const wrapper = shallow(
-      <InlineNotifWithHeader
+      <InlineNotificationWithHeader
         header={testThis.header}
         text={testThis.text}
         theme={NotificationTheme.Error}
