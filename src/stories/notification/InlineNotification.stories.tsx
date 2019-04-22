@@ -3,6 +3,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 
 import { InlineNotification, NotificationTheme } from "../../components";
+import { InlineNotifWithHeader } from "../../components/inlineNotifWithHeader";
 import { CategoryName, wInfo } from "../utils";
 
 (storiesOf(CategoryName.Notification, module) as any).addWithJSX(
@@ -27,6 +28,10 @@ import { CategoryName, wInfo } from "../utils";
           <InlineNotification
             text={"Error Notification"}
             theme={NotificationTheme.Error}
+          />
+          <InlineNotifWithHeader
+            text={"Where's my header?!"}
+            theme={NotificationTheme.Informational}
           />
         </div>
       </div>
