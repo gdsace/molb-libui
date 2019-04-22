@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   border-radius: 5px;
-  max-height: 55px;
+  min-height: 55px;
 
   &.success {
     background-color: $panache;
@@ -32,13 +32,34 @@
 
   .inlineNotificationIcon {
     margin: $space-2 0 $space-2 $space-2;
+    align-self: stretch;
   }
 
-  .inlineNotificationText {
-    margin: $space-2 $space-4 $space-2 $space-2;
-    font-size: $small;
-    font-weight: normal;
-    line-height: $line-height-medium;
-    color: $text-color-2;
+  .content {
+    margin: 18px $space-4 $space-2 $space-2;
+    // margin-top: calc($space-2 + 2px);
+    display: flex;
+    flex-direction: column;
+
+    .inlineNotificationHeader {
+      font-size: $medium;
+      font-weight: bold;
+      color: $indigo;
+      height: 21px;
+      display: flex;
+      align-items: center;
+    }
+  
+    .inlineNotificationText {
+      // margin: $space-2 $space-4 $space-2 $space-2;
+      font-size: $small;
+      font-weight: normal;
+      line-height: $line-height-medium;
+      color: $text-color-2;
+    }
   }
+
+ 
+  
+
 }

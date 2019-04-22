@@ -7,6 +7,7 @@ import { addLocatedErrorClassname } from "../utils";
 const style = require("./InlineNotifWithHeader.scss");
 
 interface IInlineNotifWithHeaderProps {
+  header: string;
   text: string;
   theme: NotificationTheme;
 }
@@ -34,7 +35,10 @@ export const InlineNotifWithHeader = (props: IInlineNotifWithHeaderProps) => {
       <div className={style.inlineNotificationIcon}>
         <Icon type={iconType[theme]} size="24" />
       </div>
-      <p className={style.inlineNotificationText}>{text}</p>
+      <div className={style.content}>
+        <h5 className={style.inlineNotificationHeader}>{props.header}</h5>
+        <p className={style.inlineNotificationText}>{text}</p>
+      </div>
     </div>
   );
 };
