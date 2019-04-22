@@ -12,6 +12,8 @@ describe("Inline notification", () => {
         theme={NotificationTheme.Warning}
       />
     );
+    // tslint:disable-next-line:no-console
+    console.log(wrapper.debug());
 
     expect(wrapper.find("p").text()).toEqual("this is warning text");
     expect(wrapper.find(".warning")).toHaveLength(1);
