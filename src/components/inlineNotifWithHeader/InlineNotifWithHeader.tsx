@@ -15,6 +15,14 @@ interface IInlineNotifWithHeaderProps {
 export const InlineNotifWithHeader = (props: IInlineNotifWithHeaderProps) => {
   const { theme, text } = props;
 
+  const headerStyle = classNames(
+    style.inlineNotificationHeader,
+    style[`${theme}`],
+    {
+      [addLocatedErrorClassname("")]: theme === NotificationTheme.Error
+    }
+  );
+
   const iconType = {
     [NotificationTheme.Success]: "notification-checkmark",
     [NotificationTheme.Error]: "notification-error",
@@ -36,7 +44,7 @@ export const InlineNotifWithHeader = (props: IInlineNotifWithHeaderProps) => {
         <Icon type={iconType[theme]} size="24" />
       </div>
       <div className={style.content}>
-        <h5 className={style.inlineNotificationHeader}>{props.header}</h5>
+        <h5 className={headerStyle}>{props.header}</h5>
         <p className={style.inlineNotificationText}>{text}</p>
       </div>
     </div>
