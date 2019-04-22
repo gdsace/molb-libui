@@ -30,12 +30,11 @@
     color: $support-yellow;
   }
 
-
   .inlineNotificationIcon {
     margin: $space-2 0 $space-2 $space-2;
     align-self: stretch;
   }
-  
+
   .inlineNotificationHeader {
     font-size: $medium;
     font-weight: bold;
@@ -74,8 +73,4 @@
       color: $text-color-2;
     }
   }
-
- 
-  
-
 }
