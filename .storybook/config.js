@@ -22,7 +22,6 @@ const req = require.context("../src/stories", true, /.stories.tsx$/);
 
 function loadStories() {
   require("./welcomeStory.tsx");
-  console.log(req.keys());
   req.keys().forEach(filename => req(filename));
 }
 
