@@ -1,12 +1,12 @@
 @import "../styles/utils.scss";
 
 .dropdownIcon {
-  width: 32px; /* Fix for IE11, Safari icon not showing */
+  width: $display-medium; /* Fix for IE11, Safari icon not showing */
   transform: rotate(180deg);
 }
 
 .dropdownIconCollapsed {
-  width: 32px; /* Fix for IE11, Safari icon not showing */
+  width: $display-medium; /* Fix for IE11, Safari icon not showing */
 }
 
 .rootContainer {
@@ -14,7 +14,7 @@
 }
 
 .collapsible .headerSection {
-  padding-bottom: 16px;
+  padding-bottom: $space-2;
   border-bottom: 1px solid $ui-color-2;
 }
 
