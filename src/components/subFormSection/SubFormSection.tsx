@@ -12,7 +12,7 @@ export interface ISubFormSectionProps {
   optional?: boolean;
   children?: React.ReactNode;
   theme?: SubFormSectionTheme;
-  isCollapsable?: boolean;
+  isCollapsible?: boolean;
 }
 
 interface ISubFormSectionState {
@@ -38,7 +38,7 @@ export class SubFormSection extends React.Component<
     const rootContainerClassName = classNames(
       styles.rootContainer,
       this.props.theme ? styles[this.props.theme] : "",
-      this.props.isCollapsable ? styles.collapsable : ""
+      this.props.isCollapsible ? styles.collapsible : ""
     );
     return (
       <section id={this.props.id} className={rootContainerClassName}>
@@ -57,9 +57,9 @@ export class SubFormSection extends React.Component<
                 <h6 className={styles.subTitle}>{this.props.subTitle}</h6>
               )}
             </div>
-            {this.props.isCollapsable && (
+            {this.props.isCollapsible && (
               <div
-                className={styles.collapsableButton}
+                className={styles.collapsibleButton}
                 onClick={this.onClickHandler}
               >
                 <Icon

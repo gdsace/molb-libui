@@ -63,32 +63,32 @@ describe("Form Section", () => {
     expect(optional).toHaveLength(0);
   });
 
-  it("render complete section with collapsable button by default", () => {
+  it("render complete section with collapsible button by default", () => {
     const wrapper = mount(
-      <SubFormSection title="This is title" isCollapsable={true}>
+      <SubFormSection title="This is title" isCollapsible={true}>
         <p>Hello Form Section</p>
       </SubFormSection>
     );
     const title = wrapper.find(".title");
-    const collapsableButton = wrapper.find("svg");
+    const collapsibleButton = wrapper.find("svg");
     const children = wrapper.find("p");
     expect(title.text()).toEqual("This is title");
-    expect(collapsableButton).toHaveLength(1);
+    expect(collapsibleButton).toHaveLength(1);
     expect(children.text()).toEqual("Hello Form Section");
   });
 
-  it("render partial section with collapsable button when collapsed", () => {
+  it("render partial section with collapsible button when collapsed", () => {
     const wrapper = mount(
-      <SubFormSection title="This is title" isCollapsable={true}>
+      <SubFormSection title="This is title" isCollapsible={true}>
         <p>Hello Form Section</p>
       </SubFormSection>
     );
     const title = wrapper.find(".title");
-    const collapsableButton = wrapper.find("svg");
-    collapsableButton.simulate("click");
+    const collapsibleButton = wrapper.find("svg");
+    collapsibleButton.simulate("click");
     const children = wrapper.find("p");
     expect(title.text()).toEqual("This is title");
-    expect(collapsableButton).toHaveLength(1);
+    expect(collapsibleButton).toHaveLength(1);
     expect(children).toHaveLength(0);
   });
 });

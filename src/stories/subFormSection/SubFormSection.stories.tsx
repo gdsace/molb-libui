@@ -32,8 +32,8 @@ const styles = require("./subFormSection.stories.scss");
         <div className={styles.box}>
           <SubFormSection
             id="operatingHoursSubSection"
-            title="This is a collapsable sub-section"
-            isCollapsable={true}
+            title="This is a collapsible sub-section"
+            isCollapsible={true}
             theme={SubFormSectionTheme.Normal}
           >
             <p>Theme: Normal, Some sample content</p>
