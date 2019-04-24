@@ -37,8 +37,8 @@ export class SubFormSection extends React.Component<
   public render() {
     const rootContainerClassName = classNames(
       styles.rootContainer,
-      this.props.theme ? styles[this.props.theme] : "",
-      this.props.isCollapsible ? styles.collapsible : ""
+      styles[this.props.theme!],
+      { [`${styles.collapsible}`]: this.props.isCollapsible }
     );
     return (
       <section id={this.props.id} className={rootContainerClassName}>
