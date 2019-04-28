@@ -188,7 +188,9 @@ export class Input extends React.Component<IInputProps, any> {
       event.target.value = this.state.previousValue;
 
       // set cursor back to the previous position
-      event.target.setSelectionRange(caretStart - 1, caretEnd - 1);
+      if (typeof event.target.setSelectionRange === "function") {
+        event.target.setSelectionRange(caretStart - 1, caretEnd - 1);
+      }
       return;
     }
 
