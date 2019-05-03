@@ -62,6 +62,7 @@ export const Tile = (props: ITileProps) => {
   } else {
     selection = selectionIcon;
   }
+  console.log("TILE PROPS", props)
   return (
     <div className={tileWrapperClass}>
       <label className={tileContentClass}>
