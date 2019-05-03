@@ -62,4 +62,33 @@ describe("Form Section", () => {
     expect(children).toHaveLength(0);
     expect(optional).toHaveLength(0);
   });
+
+  it("render complete section with collapsible button by default", () => {
+    const wrapper = mount(
+      <SubFormSection title="This is title" isCollapsible={true}>
+        <p>Hello Form Section</p>
+      </SubFormSection>
+    );
+    const title = wrapper.find(".title");
+    const collapsibleButton = wrapper.find("svg");
+    const children = wrapper.find("p");
+    expect(title.text()).toEqual("This is title");
+    expect(collapsibleButton).toHaveLength(1);
+    expect(children.text()).toEqual("Hello Form Section");
+  });
+
+  it("render partial section with collapsible button when collapsed", () => {
+    const wrapper = mount(
+      <SubFormSection title="This is title" isCollapsible={true}>
+        <p>Hello Form Section</p>
+      </SubFormSection>
+    );
+    const title = wrapper.find(".title");
+    const collapsibleButton = wrapper.find("svg");
+    collapsibleButton.simulate("click");
+    const children = wrapper.find("p");
+    expect(title.text()).toEqual("This is title");
+    expect(collapsibleButton).toHaveLength(1);
+    expect(children).toHaveLength(0);
+  });
 });

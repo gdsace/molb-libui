@@ -25,6 +25,10 @@ const store4 = new Store({
   show: false
 });
 
+const store5 = new Store({
+  show: false
+});
+
 (storiesOf(CategoryName.Modal, module) as any).addWithJSX(
   "Modal",
   wInfo(``)(() => (
@@ -235,6 +239,96 @@ const store4 = new Store({
           label={"Basic Modal without close icon"}
           onClick={() => store4.set({ show: true })}
           key="modal-button1"
+        />
+      </div>
+
+      <div className={styles.container}>
+        <State store={store5}>
+          <Modal
+            key="modal-5"
+            theme={ModalTheme.Full}
+            show={!!store5.get("show")}
+            onClose={() => store5.set({ show: false })}
+            onScrollBottomCallback={action("reach to the bottom")}
+            footer={
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  width: "750px"
+                }}
+              >
+                <label>label</label>
+                <Button label={"Apply Now"} onClick={() => ({})} />
+              </div>
+            }
+          >
+            <div>
+              <h4>Something need to show </h4>
+              <p>
+                abracadabra a long list.....abracadabra abracadabra abracadabra
+                abracadabra abracadabra abracadabra asldfk alskdfjlasdkf
+                asdalsdkfjals asldfkasldfkjalskdfjl alsdkfjalskdj
+              </p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>abracadabra</p>
+              <p>xxxxxxxxxxxxxxx</p>
+              <p>xxxxxxxxxxxx</p>
+              <p>xxxxxxxxxxxx</p>
+              <p>xxxxxxxxxx</p>
+            </div>
+          </Modal>
+        </State>
+        <Button
+          label={"Full Modal With Scrollbottom Callback"}
+          onClick={() => store5.set({ show: true })}
+          key="modal-button3"
         />
       </div>
     </div>

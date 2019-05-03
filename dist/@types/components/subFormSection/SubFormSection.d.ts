@@ -7,8 +7,15 @@ export interface ISubFormSectionProps {
     optional?: boolean;
     children?: React.ReactNode;
     theme?: SubFormSectionTheme;
+    isCollapsible?: boolean;
 }
-export declare class SubFormSection extends React.Component<ISubFormSectionProps, {}> {
+interface ISubFormSectionState {
+    isCollapsed: boolean;
+}
+export declare class SubFormSection extends React.Component<ISubFormSectionProps, ISubFormSectionState> {
     static defaultProps: Partial<ISubFormSectionProps>;
+    constructor(props: ISubFormSectionProps);
     render(): JSX.Element;
+    private onClickHandler;
 }
+export {};

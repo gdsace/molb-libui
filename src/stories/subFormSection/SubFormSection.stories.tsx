@@ -29,6 +29,16 @@ const styles = require("./subFormSection.stories.scss");
             <p className={styles.content}>Theme: Normal, Some sample content</p>
           </SubFormSection>
         </div>
+        <div className={styles.box}>
+          <SubFormSection
+            id="operatingHoursSubSection"
+            title="This is a collapsible sub-section"
+            isCollapsible={true}
+            theme={SubFormSectionTheme.Normal}
+          >
+            <p>Theme: Normal, Some sample content</p>
+          </SubFormSection>
+        </div>
       </div>
     );
   })

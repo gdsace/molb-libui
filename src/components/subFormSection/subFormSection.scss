@@ -1,18 +1,38 @@
 @import "../styles/utils.scss";
 
+.dropdownIcon {
+  width: $display-medium; /* Fix for IE11, Safari icon not showing */
+  transform: rotate(180deg);
+}
+
+.dropdownIconCollapsed {
+  width: $display-medium; /* Fix for IE11, Safari icon not showing */
+}
+
 .rootContainer {
   margin-top: $space-8;
+}
+
+.collapsible .headerSection {
+  padding-bottom: $space-2;
+  border-bottom: 1px solid $ui-color-2;
 }
 
 .zero {
   .headerSection {
     margin-bottom: 0;
+    display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
   }
 }
 
 .normal {
   .headerSection {
     margin-bottom: $space-3;
+    display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
   }
 }
 

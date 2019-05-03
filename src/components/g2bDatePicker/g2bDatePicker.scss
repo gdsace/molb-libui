@@ -2,13 +2,16 @@
 
 .datePicker {
   position: relative;
+  height: 100%;
 }
 
 .customInput {
   display: flex;
   align-items: center;
-  width: 210px;
-  height: $space-6;
+  min-width: 160px;
+  width: 100%;
+  min-height: 48px;
+  height: 100%;
   font-size: $medium;
   border-radius: $border-radius-3;
   border: solid 1px $ui-color-2;

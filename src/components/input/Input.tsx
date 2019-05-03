@@ -181,7 +181,16 @@ export class Input extends React.Component<IInputProps, any> {
       (customizedChangesFilterRegex &&
         !customizedChangesFilterRegex.test(newValue))
     ) {
+      // remember cursor position
+      const caretStart = event.target.selectionStart || 0;
+      const caretEnd = event.target.selectionEnd || 0;
+
       event.target.value = this.state.previousValue;
+
+      // set cursor back to the previous position
+      if (typeof event.target.setSelectionRange === "function") {
+        event.target.setSelectionRange(caretStart - 1, caretEnd - 1);
+      }
       return;
     }
 
