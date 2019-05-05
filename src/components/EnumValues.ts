@@ -119,3 +119,9 @@ export enum TooltipsLocationTheme {
   BottomCenter = "bottom center",
   BottomRight = "bottom right"
 }
+
+export enum AccordionTheme {
+  Standard = "standard",
+  Large = "large",
+  Wrapped = "wrapped"
+}

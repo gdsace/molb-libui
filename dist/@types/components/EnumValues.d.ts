@@ -86,3 +86,8 @@ export declare enum TooltipsLocationTheme {
     BottomCenter = "bottom center",
     BottomRight = "bottom right"
 }
+export declare enum AccordionTheme {
+    Standard = "standard",
+    Large = "large",
+    Wrapped = "wrapped"
+}

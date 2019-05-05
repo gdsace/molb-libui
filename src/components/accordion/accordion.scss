@@ -1,0 +1,65 @@
+@import "../styles/utils.scss";
+
+.standard, .large {
+  border-bottom: 1px solid $ui-color-2;
+}
+.panelHeader {
+  line-height: $line-height-medium;
+  color: $primary-color-1;
+  font-weight: $weight-semibold;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  &:hover {
+    color: $lavender-indigo;
+    cursor: pointer;
+    .collapseIcon {
+      color: $lavender-indigo;
+    }
+  }
+  .collapseIcon {
+    color: $text-color;
+  }
+}
+
+.standard {
+  .panelHeader {
+    padding: $space-2 0;
+    font-size: $x-large;
+  }
+
+  .panelContent {
+    padding-bottom: $space-3;
+  }
+}
+
+.large {
+  .panelHeader {
+    font-size: $xx-large;
+    padding: $space-3 0;
+  }
+
+  .panelContent {
+    padding-bottom: 30px;
+  }
+}
+
+.wrapped {
+  border: 1px solid $ui-color-2;
+  border-radius: 5px;
+
+  &:hover {
+    background: $ui-color-1;
+  }
+
+  .panelHeader {
+    font-size: $large;
+    line-height: $line-height-large;
+    padding: $space-2 $space-3;
+  }
+
+  .panelContent {
+    padding: 0 $space-3 $space-2 $space-3;
+  }
+}
