@@ -42,10 +42,12 @@ export class TileGroup extends React.Component<
     };
   }
 
-  public componentWillReceiveProps(props: ITileGroupProps) {
-    this.setState({
-      value: props.value
-    });
+  public getDerivedStateFromProps(props: ITileGroupProps, state: ITileGroupState ) {
+    if (props.value !== state.value) {
+      this.setState({
+        value: props.value
+      });
+    }
   }
 
   public onSelectionChanged = (ev: React.ChangeEvent<HTMLInputElement>) => {
