@@ -1,8 +1,10 @@
 @import "../styles/utils.scss";
 
-.standard, .large {
+.standard,
+.large {
   border-bottom: 1px solid $ui-color-2;
 }
+
 .panelHeader {
   line-height: $line-height-medium;
   color: $primary-color-1;
@@ -11,15 +13,17 @@
   flex-direction: row;
   justify-content: space-between;
 
+  .collapseIcon {
+    color: $text-color;
+  }
+
   &:hover {
     color: $lavender-indigo;
     cursor: pointer;
+
     .collapseIcon {
       color: $lavender-indigo;
     }
-  }
-  .collapseIcon {
-    color: $text-color;
   }
 }
 
