@@ -42,11 +42,11 @@ export class TileGroup extends React.Component<
     };
   }
 
-  public getDerivedStateFromProps(props: ITileGroupProps, state: ITileGroupState ) {
+  public static getDerivedStateFromProps(props: ITileGroupProps, state: ITileGroupState ) {
     if (props.value !== state.value) {
-      this.setState({
+      return {
         value: props.value
-      });
+      };
     }
   }
 
