@@ -42,6 +42,12 @@ export class TileGroup extends React.Component<
     };
   }
 
+  public componentWillReceiveProps(props: ITileGroupProps) {
+    this.setState({
+      value: props.value
+    });
+  }
+
   public onSelectionChanged = (ev: React.ChangeEvent<HTMLInputElement>) => {
     const lastValue = this.state.value;
     const value = ev.target.value;
@@ -65,7 +71,6 @@ export class TileGroup extends React.Component<
     const renderChildren = () => {
       return React.Children.map(this.props.children, child => {
         if (React.isValidElement<ITileProps>(child)) {
-          console.log("IN TILE GROUP: child prop:", child.props.value, "state value:",  this.state.value)
           return React.cloneElement<ITileProps>(child, {
             ...child.props,
             deselectable: this.props.deselectable,

@@ -12,6 +12,7 @@ interface ITileGroupState {
 export declare class TileGroup extends React.Component<ITileGroupProps, ITileGroupState> {
     static defaultProps: Partial<ITileGroupProps>;
     constructor(props: ITileGroupProps);
+    componentWillReceiveProps(props: ITileGroupProps): void;
     onSelectionChanged: (ev: React.ChangeEvent<HTMLInputElement>) => void;
     render(): JSX.Element;
 }
