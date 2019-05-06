@@ -1,4 +1,5 @@
 import * as React from "react";
+import _ from "lodash";
 export declare enum ModalTheme {
     Basic = 0,
     Large = 1,
@@ -12,9 +13,11 @@ export interface IModalProps {
     children?: React.ReactNode;
     theme?: ModalTheme;
     footer?: React.ReactNode;
+    onScrollBottomCallback?: () => any;
 }
 export declare class Modal extends React.Component<IModalProps, {}> {
     static defaultProps: Partial<IModalProps>;
+    debouncedScrollHandler: ((e: any) => void) & _.Cancelable;
     private readonly el;
     private modalRoot;
     private readonly setUpModalContentRef;
@@ -26,6 +29,7 @@ export declare class Modal extends React.Component<IModalProps, {}> {
     componentDidMount(): void;
     componentWillUnmount(): void;
     render(): React.ReactPortal;
+    private onScrollBottom;
     private onClose;
     private controlBodyScrollable;
     private disableBodyScroll;

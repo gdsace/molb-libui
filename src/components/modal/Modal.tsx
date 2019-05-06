@@ -7,6 +7,7 @@ import {
   enableBodyScroll
 } from "body-scroll-lock";
 import classNames from "classnames";
+import _ from "lodash";
 import { Icon } from "../icons";
 
 const styles = require("./modal.scss");
@@ -25,6 +26,7 @@ export interface IModalProps {
   children?: React.ReactNode;
   theme?: ModalTheme;
   footer?: React.ReactNode;
+  onScrollBottomCallback?: () => any;
 }
 
 export class Modal extends React.Component<IModalProps, {}> {
@@ -32,6 +34,7 @@ export class Modal extends React.Component<IModalProps, {}> {
     show: false,
     theme: ModalTheme.Basic
   };
+  public debouncedScrollHandler: ((e: any) => void) & _.Cancelable;
   private readonly el: HTMLElement;
   private modalRoot: HTMLElement;
   private readonly setUpModalContentRef: (element: HTMLElement) => any;
@@ -46,6 +49,10 @@ export class Modal extends React.Component<IModalProps, {}> {
     this.setUpModalContentRef = (element: HTMLElement) =>
       (this.modalNode = element);
     this.setFooter = (element: HTMLElement) => (this.footer = element);
+    this.debouncedScrollHandler = _.debounce(
+      this.onScrollBottom.bind(this),
+      50
+    );
   }
 
   public componentWillReceiveProps(nextProps: IModalProps) {
@@ -56,10 +63,19 @@ export class Modal extends React.Component<IModalProps, {}> {
 
   public componentDidMount() {
     this.modalRoot.appendChild(this.el);
+    if (!!this.modalNode && !!this.props.onScrollBottomCallback) {
+      this.modalNode.addEventListener("scroll", this.debouncedScrollHandler);
+      window.addEventListener("resize", this.debouncedScrollHandler);
+      this.debouncedScrollHandler(this.modalNode);
+    }
   }
 
   public componentWillUnmount() {
     clearAllBodyScrollLocks();
+    if (!!this.props.onScrollBottomCallback && !!this.modalNode) {
+      this.modalNode.removeEventListener("scroll", this.debouncedScrollHandler);
+      window.removeEventListener("resize", this.debouncedScrollHandler);
+    }
     document.body.style.overflow = "auto";
     this.modalRoot.removeChild(this.el);
   }
@@ -94,6 +110,19 @@ export class Modal extends React.Component<IModalProps, {}> {
     );
 
     return createPortal(modalContent, this.el);
+  }
+
+  private onScrollBottom() {
+    const scrollTop = this.modalNode!.scrollTop;
+    const clientHeight = this.modalNode!.clientHeight;
+    const scrollHeight = this.modalNode!.scrollHeight;
+    // when we zoom the screen, scrollHeight and scrollTop + clientHeight
+    // are not strictly equal. scrollTop will be a decimal not an integer.
+    const didReachBottom =
+      Math.abs(scrollHeight - (scrollTop + clientHeight)) <= 1;
+    if (didReachBottom && !!this.props.onScrollBottomCallback) {
+      this.props.onScrollBottomCallback!();
+    }
   }
 
   private onClose = () => {
