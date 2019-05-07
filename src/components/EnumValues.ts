@@ -98,6 +98,11 @@ export enum SubFormSectionTheme {
   Normal = "normal"
 }
 
+export enum TagSize {
+  Small = "small",
+  Large = "large"
+}
+
 export enum TagTheme {
   Blue = "blue",
   Green = "green",

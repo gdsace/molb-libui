@@ -1,6 +1,6 @@
 import classnames from "classnames";
 import * as React from "react";
-import { TagTheme, TooltipsLocationTheme } from "../EnumValues";
+import { TagSize, TagTheme, TooltipsLocationTheme } from "../EnumValues";
 import { Icon } from "../icons";
 import { Tooltips } from "../tooltips";
 
@@ -14,11 +14,6 @@ export interface ITagProps {
   tooltipContent?: JSX.Element | string;
   toolTipsPosition?: TooltipsLocationTheme;
   tagSize?: TagSize;
-}
-
-export enum TagSize {
-  Small = "small",
-  Large = "large"
 }
 
 export class Tag extends React.Component<ITagProps, {}> {
