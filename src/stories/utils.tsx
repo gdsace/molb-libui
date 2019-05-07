@@ -47,5 +47,6 @@ export enum CategoryName {
   TimePicker = "TimePicker",
   Tooltips = "Tooltips",
   SelectionControls = "Selection-Controls",
+  Accordion = "Accordion",
   Others = "Others"
 }
