@@ -1,7 +1,7 @@
 import React from "react";
 
 import { storiesOf } from "@storybook/react";
-import { Tag } from "../../components";
+import { Tag, TagSize } from "../../components";
 import { TagTheme } from "../../components/EnumValues";
 import { CategoryName, wInfo } from "../utils";
 
@@ -9,7 +9,6 @@ const rowStyles = {
   padding: "20px 0",
   marginRight: "10px"
 };
-
 (storiesOf(CategoryName.Tags, module) as any).addWithJSX(
   "Tag",
   wInfo(``)(() => (
@@ -17,22 +16,53 @@ const rowStyles = {
       Tag Themes
       <br />
       <div style={rowStyles}>
-        <Tag theme={TagTheme.Blue} label={"blue theme"} />
+        <Tag
+          theme={TagTheme.Blue}
+          label="blue theme"
+          showTooltip
+          tooltipContent="this is the blue theme"
+        />
       </div>
       <div style={rowStyles}>
-        <Tag theme={TagTheme.Green} label={"green theme"} />
+        <Tag
+          theme={TagTheme.Green}
+          label="green theme"
+          showTooltip
+          tooltipContent="this is the green theme"
+        />
       </div>
       <div style={rowStyles}>
-        <Tag theme={TagTheme.Orange} label={"orange theme"} />
+        <Tag
+          theme={TagTheme.Orange}
+          label="orange theme"
+          showTooltip
+          tooltipContent="this is the orange theme"
+        />
       </div>
       <div style={rowStyles}>
-        <Tag theme={TagTheme.Red} label={"red theme"} />
+        <Tag
+          theme={TagTheme.Red}
+          label="red theme"
+          showTooltip
+          tooltipContent="this is the red theme"
+        />
       </div>
       <div style={rowStyles}>
-        <Tag theme={TagTheme.Purple} label={"purple theme"} />
+        <Tag
+          theme={TagTheme.Purple}
+          label="purple theme"
+          showTooltip
+          tooltipContent="this is the purple theme"
+        />
       </div>
       <div style={rowStyles}>
-        <Tag theme={TagTheme.Grey} label={"grey theme"} />
+        <Tag
+          theme={TagTheme.Grey}
+          tagSize={TagSize.Large}
+          label="grey theme"
+          showTooltip
+          tooltipContent="this is the grey theme"
+        />
       </div>
     </div>
   ))
