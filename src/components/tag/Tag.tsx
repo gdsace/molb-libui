@@ -8,18 +8,19 @@ const styles = require("./tag.scss");
 
 export interface ITagProps {
   label: string;
-  theme?: TagTheme;
-  className?: string;
-  showTooltip?: boolean;
+  theme: TagTheme;
+  showTooltip: boolean;
   tooltipContent?: JSX.Element | string;
-  toolTipsPosition?: TooltipsLocationTheme;
-  tagSize?: TagSize;
+  toolTipsPosition: TooltipsLocationTheme;
+  tagSize: TagSize;
 }
 
 export class Tag extends React.Component<ITagProps, {}> {
   public static defaultProps: Partial<ITagProps> = {
+    showTooltip: false,
     theme: TagTheme.Blue,
-    tagSize: TagSize.Small
+    tagSize: TagSize.Small,
+    toolTipsPosition: TooltipsLocationTheme.BottomLeft
   };
 
   public render() {
@@ -38,11 +39,7 @@ export class Tag extends React.Component<ITagProps, {}> {
                   <Icon type="help" size="16" className={styles.helpIcon} />
                 }
                 width={250}
-                position={
-                  this.props.toolTipsPosition
-                    ? this.props.toolTipsPosition
-                    : TooltipsLocationTheme.BottomLeft
-                }
+                position={this.props.toolTipsPosition}
                 specializedPosition={false}
               >
                 <div>{this.props.tooltipContent}</div>
