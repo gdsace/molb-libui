@@ -7,11 +7,10 @@ describe("G2BDatePicker", () => {
   let props: IG2BDatePickerProps;
   beforeEach(() => {
     props = {
-      selectedDate: null,
+      selectedDate: "",
       onChange: jest.fn(),
       placeholderText: "this is place holder",
       dateFormat: "DD/MM/YYYY",
-      showError: false,
       errorMsg: undefined
     };
   });
@@ -22,7 +21,6 @@ describe("G2BDatePicker", () => {
   });
 
   it("should render errorMsg when showError is true", () => {
-    props.showError = true;
     props.errorMsg = "this is error msg.";
     const wrapper = shallow(<G2BDatePicker {...props} />);
     const errorMsg = wrapper.find(".errorMsg");

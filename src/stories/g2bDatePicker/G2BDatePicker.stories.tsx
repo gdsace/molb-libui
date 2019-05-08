@@ -2,13 +2,14 @@ import React from "react";
 
 import { State, Store } from "@sambego/storybook-state";
 import { storiesOf } from "@storybook/react";
+import { isEmpty } from "lodash";
 import { Button } from "../../components/button";
 import { G2BDatePicker } from "../../components/g2bDatePicker";
 import { CategoryName, wInfo } from "../utils";
 
 const store = new Store({
-  showError: false,
-  selectedDate: null
+  errorMsg: undefined,
+  selectedDate: undefined
 });
 
 (storiesOf(CategoryName.TimePicker, module) as any).addWithJSX(
@@ -22,20 +23,19 @@ const store = new Store({
           <State store={store}>
             <G2BDatePicker
               selectedDate={store.get("selectedDate")}
-              onChange={(date: Date | null) =>
-                store.set({ selectedDate: date, showError: false })
+              onChange={(dateString: string) =>
+                store.set({ selectedDate: dateString })
               }
               dateFormat="dd/MM/yyyy"
               placeholderText={"DD/MM/YYYY"}
-              showError={store.get("showError")}
               errorMsg="this is error Msg."
             />
             <div style={{ display: "inline-block", marginTop: "50px" }}>
               <Button
                 onClick={() => {
-                  store.get("selectedDate") !== null
-                    ? store.set({ showError: false })
-                    : store.set({ showError: true });
+                  !isEmpty(store.get("selectedDate"))
+                    ? store.set({ errorMsg: undefined })
+                    : store.set({ errorMsg: "this is error Msg." });
                 }}
                 label="Check"
               />
