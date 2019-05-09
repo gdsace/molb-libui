@@ -67,6 +67,10 @@ export declare enum SubFormSectionTheme {
     Zero = "zero",
     Normal = "normal"
 }
+export declare enum TagSize {
+    Small = "small",
+    Large = "large"
+}
 export declare enum TagTheme {
     Blue = "blue",
     Green = "green",

@@ -1,10 +1,19 @@
 @import "../styles/utils.scss";
 
-.tag {
+.small {
   font-size: $small;
   line-height: $line-height-large;
   font-weight: $weight-medium;
   padding: 2px $space-1;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.large {
+  font-size: $large;
+  line-height: $line-height-large;
+  font-weight: $weight-semibold;
+  padding: $space-1 20px;
   border-radius: 3px;
   display: inline-block;
 }
@@ -37,4 +46,16 @@
 .grey {
   background-color: $porcelain;
   color: $text-color;
+}
+
+.helpIcon {
+  color: $text-color;
+}
+
+.tooltip {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 4px;
+  position: relative;
+  top: -2px;
 }
