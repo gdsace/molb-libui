@@ -83,6 +83,7 @@ $input-focus-border: solid 1px $lavender-indigo;
 
   .disableLabel {
     @extend .label;
+
     color: $ui-color-4;
   }
 
