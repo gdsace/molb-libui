@@ -204,12 +204,12 @@ export class Input extends React.Component<IInputProps, any> {
 
     this.props.onChange(event);
     const targetValue = event.target.value;
-    setTimeout(() => {
-      this.setState({
-        characterCount: targetValue.length,
-        previousValue: targetValue
-      });
-    }, 500);
+    this.setState({
+      characterCount: targetValue.length,
+      previousValue: targetValue
+    });
+    // setTimeout(() => {
+    // }, 500);
   };
 
   private getRightInlineElement() {
