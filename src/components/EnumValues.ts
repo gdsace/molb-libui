@@ -59,6 +59,9 @@ export enum InputType {
    * Only positive & negative integer/decimal allowed. EG.: -1.1, -1, 0, 1, 1.1
    * No `scientific-notation`
    * */
+
+  IsNumeric = "isNumeric",
+  
   DecimalText = "decimalText",
   /*
    * Only positive integer/decimal allowed. EG.: 0, 1, 1.1

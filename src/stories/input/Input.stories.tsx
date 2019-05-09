@@ -314,6 +314,16 @@ const errorMsg = "Validation error message, blah blah blah...";
         <div className={styles.box}>
           <Input
             onChange={action("value")}
+            type={InputType.IsNumeric}
+            placeholder={placeholder}
+            label={"IsNumeric"}
+            size={Size.Large}
+            maxLength={10}
+          />
+        </div>
+        <div className={styles.box}>
+          <Input
+            onChange={action("value")}
             type={InputType.DecimalText}
             placeholder={placeholder}
             label={"Decimal"}
