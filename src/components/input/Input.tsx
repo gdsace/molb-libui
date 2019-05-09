@@ -121,6 +121,7 @@ export class Input extends React.Component<IInputProps, any> {
         )}
         <div className={styles.inlineWrapper}>
           <div className={styles.inline}>
+            # Test in progres...
             <input
               disabled={this.props.disabled}
               className={`${styles.field} ${size} ${this.props.className} ${
@@ -175,6 +176,7 @@ export class Input extends React.Component<IInputProps, any> {
     const newValue = event.target.value;
     const defaultChangesFilterRegex =
       type && defaultChangesFilterRegexDict[type];
+    debugger
 
     // first check defaultChangesFilterRegex,
     // then check customizedChangesFilterRegex after.
