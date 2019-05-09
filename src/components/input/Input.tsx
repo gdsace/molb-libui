@@ -85,10 +85,12 @@ export class Input extends React.Component<IInputProps, any> {
     return (
       <div
         className={rootContainerClassname}
-        data-scrollpoint={this.props.label ? true : false}
+        data-scrollpoint={!!this.props.label}
       >
         {this.props.label && (
-          <div className={styles.label}>
+          <div
+            className={this.props.disabled ? styles.disableLabel : styles.label}
+          >
             <p>{this.props.label}</p>
             {this.props.showTooltip && (
               <Tooltips
