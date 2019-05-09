@@ -7,11 +7,14 @@ import { addLocatedErrorClassname } from "../utils";
 
 const styles = require("./input.scss");
 
+// #remove
+// tslint:disable
 const ICON_SIZE = "16";
 const DEFAULT_MAX_LENGTH = 30;
 const defaultChangesFilterRegexDict: any = {
   [InputType.IntegerText]: /^-?(\d*)$/,
-  [InputType.PositiveIntegerText]: /^(\d*)$/,
+  [InputType.PositiveIntegerText]: /^([1-9]{1}\d*|)$/,
+  // [InputType.PositiveIntegerText]: /^(\d*)$/,
   [InputType.DecimalText]: /^-?([0-9]*|[0-9]+\.[0-9]*)$/,
   [InputType.PositiveDecimalText]: /^([0-9]*|[0-9]+\.[0-9]*)$/
 };
