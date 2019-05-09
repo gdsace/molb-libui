@@ -176,7 +176,11 @@ export class Input extends React.Component<IInputProps, any> {
     const newValue = event.target.value;
     const defaultChangesFilterRegex =
       type && defaultChangesFilterRegexDict[type];
-    debugger
+
+    console.log({
+      newValue,
+      defaultChangesFilterRegex
+    })
 
     // first check defaultChangesFilterRegex,
     // then check customizedChangesFilterRegex after.
