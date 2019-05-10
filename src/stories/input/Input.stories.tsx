@@ -296,7 +296,7 @@ const errorMsg = "Validation error message, blah blah blah...";
             onChange={action("value")}
             type={InputType.IntegerText}
             placeholder={placeholder}
-            label={"Integer"}
+            label={"IntegerText"}
             size={Size.Large}
             maxLength={10}
           />
@@ -304,9 +304,19 @@ const errorMsg = "Validation error message, blah blah blah...";
         <div className={styles.box}>
           <Input
             onChange={action("value")}
-            type={InputType.PositiveIntegerText}
+            type={InputType.DigitsOnly}
             placeholder={placeholder}
-            label={"PositiveInteger"}
+            label={"DigitsOnly"}
+            size={Size.Large}
+            maxLength={10}
+          />
+        </div>
+        <div className={styles.box}>
+          <Input
+            onChange={action("value")}
+            type={InputType.NonZeroLeadingDigits}
+            placeholder={placeholder}
+            label={"NonZeroLeadingDigits"}
             size={Size.Large}
             maxLength={10}
           />

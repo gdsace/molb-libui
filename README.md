@@ -1,3 +1,7 @@
+# Prerequisites
+* Node version: 10.15.3
+* Yarn version: 1.15.2
+
 
 # molb-libui
 
@@ -33,6 +37,17 @@ You can also build your design system for publishing to private npm or your own 
 yarn build:production
 ```
 
+## Common Issues
+
+#### I've ran `yarn build:production` but travis is failing with the following error:
+`Please run 'yarn build:production' and commit the changes error Command failed with exit code 1.`
+
+Try:
+1. Remove `dist` folder
+2. Remove `node_modules`
+3. run `yarn`
+4. run `yarn build:production`
+
 ### Test
 
 ```bash
@@ -52,7 +67,6 @@ If you meet some lint error, you can try fix srcipt.
 ```bash
 yarn lint:fix
 ```
-
 
 ## Write a story
 
