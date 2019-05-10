@@ -37,7 +37,7 @@
 
   .inlineNotificationHeader {
     font-size: $medium;
-    font-weight: bold;
+    font-weight: $weight-semibold;
     height: 21px;
     display: flex;
     align-items: center;
