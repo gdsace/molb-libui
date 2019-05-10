@@ -50,6 +50,9 @@ export class SubFormSection extends React.Component<
               {this.props.title && (
                 <div className={styles.titleContainer}>
                   <span className={styles.title}>{this.props.title}</span>
+                  {this.props.optional && (
+                    <span className={styles.optional}>(Optional)</span>
+                  )}
                   {!!this.props.tooltip && (
                     <div className={styles.tooltip}>
                       <Tooltips
@@ -61,15 +64,12 @@ export class SubFormSection extends React.Component<
                           />
                         }
                         width={250}
-                        position={TooltipsLocationTheme.BottomRight}
+                        position={TooltipsLocationTheme.BottomLeft}
                         specializedPosition={true}
                       >
                         <div>{this.props.tooltip}</div>
                       </Tooltips>
                     </div>
-                  )}
-                  {this.props.optional && (
-                    <span className={styles.optional}>(Optional)</span>
                   )}
                 </div>
               )}

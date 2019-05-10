@@ -36,6 +36,11 @@
   }
 }
 
+.titleContainer {
+  display: flex;
+  align-items: center;
+}
+
 .title {
   font-size: $x-large;
   font-weight: $weight-semibold;
@@ -66,8 +71,5 @@
 
 .tooltip {
   display: inline-block;
-  vertical-align: middle;
   margin-left: $space-0;
-  position: relative;
-  top: -2px;
 }
