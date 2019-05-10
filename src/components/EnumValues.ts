@@ -41,33 +41,37 @@ export enum LinkStatus {
 export enum InputType {
   Text = "text",
   Email = "email",
-  /*
+
+  /* @Number:
    * Allow `scientific-notation` and decimal
    * */
   Number = "number",
-  /*
+
+  /* @IntergerText:
    * Only positive & negative 0-9 allowed. EG.: -1, 0, 1
    * No `scientific-notation`
    * */
   IntegerText = "integerText",
-  /*
-   * Only positive 0-9 allowed. EG.: 0, 1
-   * No `scientific-notation`
-   * */
-  DigitsOnly = "digitOnly",
-  /*
+
+  /* @DigitsOnly:
    * Only digits-only string are allowed. EG.: 0, 00, 0123, 1230
    * No `scientific-notation`
    * */
+  DigitsOnly = "digitOnly",
 
-  NonZeroLeadingDigits = "nonZeroLeadingDigits",
-  /*
+  /* @NonZeroLeadingDigits:
    * Only non-zero-leading digit strings are allowed. EG.: 123, 1230
    * No `scientific-notation`
    * */
+  NonZeroLeadingDigits = "nonZeroLeadingDigits",
 
+  /* @DecimalText:
+   * Only positive & negative integer/decimal allowed. EG.: -1.1, -1, 0, 1, 1.1
+   * No `scientific-notation`
+   * */
   DecimalText = "decimalText",
-  /*
+
+  /* @PositiveDecimalText:
    * Only positive integer/decimal allowed. EG.: 0, 1, 1.1
    * No `scientific-notation`
    * */
