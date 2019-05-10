@@ -102,11 +102,7 @@ describe("Input", () => {
 
   it("should set type attribute to tel when type prop is PositiveIntegerText", () => {
     const component = Enzyme.shallow(
-      <Input
-        value="initial"
-        onChange={jest.fn()}
-        type={InputType.DigitsOnly}
-      />
+      <Input value="initial" onChange={jest.fn()} type={InputType.DigitsOnly} />
     );
     expect(component.find("input").prop("type")).toEqual("tel");
   });
