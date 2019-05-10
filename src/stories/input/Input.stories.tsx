@@ -296,7 +296,7 @@ const errorMsg = "Validation error message, blah blah blah...";
             onChange={action("value")}
             type={InputType.IntegerText}
             placeholder={placeholder}
-            label={"Integer"}
+            label={"IntegerText"}
             size={Size.Large}
             maxLength={10}
           />
