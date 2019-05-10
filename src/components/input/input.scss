@@ -81,6 +81,12 @@ $input-focus-border: solid 1px $lavender-indigo;
     color: $text-color-2;
   }
 
+  .disableLabel {
+    @extend .label;
+
+    color: $ui-color-4;
+  }
+
   .labelIcon {
     margin-left: $space-0;
     cursor: pointer;
