@@ -304,9 +304,9 @@ const errorMsg = "Validation error message, blah blah blah...";
         <div className={styles.box}>
           <Input
             onChange={action("value")}
-            type={InputType.PositiveIntegerText}
+            type={InputType.DigitsOnly}
             placeholder={placeholder}
-            label={"PositiveInteger"}
+            label={"DigitsOnly"}
             size={Size.Large}
             maxLength={10}
           />

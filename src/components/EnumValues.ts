@@ -54,13 +54,17 @@ export enum InputType {
    * Only positive 0-9 allowed. EG.: 0, 1
    * No `scientific-notation`
    * */
-  PositiveIntegerText = "positiveIntegerText",
+  DigitsOnly = "digitOnly",
   /*
-   * Only positive & negative integer/decimal allowed. EG.: -1.1, -1, 0, 1, 1.1
+   * Only digits-only string are allowed. EG.: 0, 00, 0123, 1230
    * No `scientific-notation`
    * */
 
   NonZeroLeadingDigits = "nonZeroLeadingDigits",
+  /*
+   * Only non-zero-leading digit strings are allowed. EG.: 123, 1230
+   * No `scientific-notation`
+   * */
 
   DecimalText = "decimalText",
   /*

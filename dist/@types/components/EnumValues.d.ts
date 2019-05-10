@@ -37,7 +37,7 @@ export declare enum InputType {
     Email = "email",
     Number = "number",
     IntegerText = "integerText",
-    PositiveIntegerText = "positiveIntegerText",
+    DigitsOnly = "digitOnly",
     NonZeroLeadingDigits = "nonZeroLeadingDigits",
     DecimalText = "decimalText",
     PositiveDecimalText = "positiveDecimalText"

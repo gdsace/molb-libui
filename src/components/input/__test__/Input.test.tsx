@@ -105,7 +105,7 @@ describe("Input", () => {
       <Input
         value="initial"
         onChange={jest.fn()}
-        type={InputType.PositiveIntegerText}
+        type={InputType.DigitsOnly}
       />
     );
     expect(component.find("input").prop("type")).toEqual("tel");

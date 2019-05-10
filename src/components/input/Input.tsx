@@ -12,7 +12,7 @@ const DEFAULT_MAX_LENGTH = 30;
 const defaultChangesFilterRegexDict: any = {
   [InputType.IntegerText]: /^-?(\d*)$/,
   [InputType.NonZeroLeadingDigits]: /^([1-9]{1}\d*|)$/,
-  [InputType.PositiveIntegerText]: /^(\d*)$/,
+  [InputType.DigitsOnly]: /^(\d*)$/,
   [InputType.DecimalText]: /^-?([0-9]*|[0-9]+\.[0-9]*)$/,
   [InputType.PositiveDecimalText]: /^([0-9]*|[0-9]+\.[0-9]*)$/
 };
@@ -247,7 +247,7 @@ export class Input extends React.Component<IInputProps, any> {
   private getRawInputType = (type?: InputType) => {
     if (type === InputType.Email) {
       return "email";
-    } else if (type === InputType.PositiveIntegerText) {
+    } else if (type === InputType.DigitsOnly) {
       return "tel";
     } else {
       // "number" makes weird event.target.value, for example entering 123e will return an event with "" as the value,
