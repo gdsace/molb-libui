@@ -127,6 +127,8 @@
 }
 
 .modal.fullTheme {
+  overflow-y: hidden;
+
   .modalContent {
     margin: 0;
     padding: 0;
