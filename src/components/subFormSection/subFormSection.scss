@@ -59,3 +59,15 @@
   color: $text-color-2;
   margin-top: $space-1;
 }
+
+.helpIcon {
+  color: $text-color;
+}
+
+.tooltip {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: $space-0;
+  position: relative;
+  top: -2px;
+}

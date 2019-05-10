@@ -8,6 +8,7 @@ export interface ISubFormSectionProps {
     children?: React.ReactNode;
     theme?: SubFormSectionTheme;
     isCollapsible?: boolean;
+    tooltip?: string;
 }
 interface ISubFormSectionState {
     isCollapsed: boolean;
