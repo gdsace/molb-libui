@@ -1,7 +1,8 @@
 import classNames from "classnames";
 import React from "react";
-import { SubFormSectionTheme } from "../EnumValues";
+import { SubFormSectionTheme, TooltipsLocationTheme } from "../EnumValues";
 import { Icon } from "../icons/Icon";
+import { Tooltips } from "../tooltips";
 
 const styles = require("./subFormSection.scss");
 
@@ -13,6 +14,7 @@ export interface ISubFormSectionProps {
   children?: React.ReactNode;
   theme?: SubFormSectionTheme;
   isCollapsible?: boolean;
+  tooltip?: string;
 }
 
 interface ISubFormSectionState {
@@ -48,6 +50,24 @@ export class SubFormSection extends React.Component<
               {this.props.title && (
                 <div className={styles.titleContainer}>
                   <span className={styles.title}>{this.props.title}</span>
+                  {!!this.props.tooltip && (
+                    <div className={styles.tooltip}>
+                      <Tooltips
+                        trigger={
+                          <Icon
+                            type={"help"}
+                            size={"16"}
+                            className={styles.helpIcon}
+                          />
+                        }
+                        width={250}
+                        position={TooltipsLocationTheme.BottomRight}
+                        specializedPosition={true}
+                      >
+                        <div>{this.props.tooltip}</div>
+                      </Tooltips>
+                    </div>
+                  )}
                   {this.props.optional && (
                     <span className={styles.optional}>(Optional)</span>
                   )}
