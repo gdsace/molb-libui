@@ -314,9 +314,9 @@ const errorMsg = "Validation error message, blah blah blah...";
         <div className={styles.box}>
           <Input
             onChange={action("value")}
-            type={InputType.IsNumeric}
+            type={InputType.NonZeroLeadingDigits}
             placeholder={placeholder}
-            label={"IsNumeric"}
+            label={"NonZeroLeadingDigits"}
             size={Size.Large}
             maxLength={10}
           />

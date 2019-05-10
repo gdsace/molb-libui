@@ -7,13 +7,11 @@ import { addLocatedErrorClassname } from "../utils";
 
 const styles = require("./input.scss");
 
-// #remove
-// tslint:disable
 const ICON_SIZE = "16";
 const DEFAULT_MAX_LENGTH = 30;
 const defaultChangesFilterRegexDict: any = {
   [InputType.IntegerText]: /^-?(\d*)$/,
-  [InputType.IsNumeric]: /^([1-9]{1}\d*|)$/,
+  [InputType.NonZeroLeadingDigits]: /^([1-9]{1}\d*|)$/,
   [InputType.PositiveIntegerText]: /^(\d*)$/,
   [InputType.DecimalText]: /^-?([0-9]*|[0-9]+\.[0-9]*)$/,
   [InputType.PositiveDecimalText]: /^([0-9]*|[0-9]+\.[0-9]*)$/
@@ -121,7 +119,6 @@ export class Input extends React.Component<IInputProps, any> {
         )}
         <div className={styles.inlineWrapper}>
           <div className={styles.inline}>
-            # Test in progres...
             <input
               disabled={this.props.disabled}
               className={`${styles.field} ${size} ${this.props.className} ${
@@ -177,11 +174,6 @@ export class Input extends React.Component<IInputProps, any> {
     const defaultChangesFilterRegex =
       type && defaultChangesFilterRegexDict[type];
 
-    console.log({
-      newValue,
-      defaultChangesFilterRegex
-    })
-
     // first check defaultChangesFilterRegex,
     // then check customizedChangesFilterRegex after.
     if (
@@ -213,12 +205,12 @@ export class Input extends React.Component<IInputProps, any> {
 
     this.props.onChange(event);
     const targetValue = event.target.value;
-    this.setState({
-      characterCount: targetValue.length,
-      previousValue: targetValue
-    });
-    // setTimeout(() => {
-    // }, 500);
+    setTimeout(() => {
+      this.setState({
+        characterCount: targetValue.length,
+        previousValue: targetValue
+      });
+    }, 500);
   };
 
   private getRightInlineElement() {

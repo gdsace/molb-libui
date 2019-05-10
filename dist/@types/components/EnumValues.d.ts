@@ -38,7 +38,7 @@ export declare enum InputType {
     Number = "number",
     IntegerText = "integerText",
     PositiveIntegerText = "positiveIntegerText",
-    IsNumeric = "isNumeric",
+    NonZeroLeadingDigits = "nonZeroLeadingDigits",
     DecimalText = "decimalText",
     PositiveDecimalText = "positiveDecimalText"
 }

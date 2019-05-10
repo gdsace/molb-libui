@@ -60,8 +60,8 @@ export enum InputType {
    * No `scientific-notation`
    * */
 
-  IsNumeric = "isNumeric",
-  
+  NonZeroLeadingDigits = "nonZeroLeadingDigits",
+
   DecimalText = "decimalText",
   /*
    * Only positive integer/decimal allowed. EG.: 0, 1, 1.1
