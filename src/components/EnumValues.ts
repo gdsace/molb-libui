@@ -2,7 +2,8 @@ export enum Theme {
   Simple = "simple",
   Ghost = "ghost",
   Primary = "primary",
-  Secondary = "secondary"
+  Secondary = "secondary",
+  Flat = "flat"
 }
 
 export enum PanelType {
