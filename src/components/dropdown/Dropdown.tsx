@@ -1,3 +1,4 @@
+import classnames from "classnames";
 import _ from "lodash";
 import React from "react";
 import { Props } from "react-select/lib/Select";
@@ -20,56 +21,60 @@ export interface IDropdownProps<T> extends Props<T> {
 
 // This Dropdown has outlining, a label and an error field over BaseDropdown
 // tslint:disable-next-line:max-classes-per-file
+export const dropdownCustomStyles = {
+  container: (base: any, state: any) => {
+    let borderColor;
+    if (state.isFocused && !state.isDisabled) {
+      borderColor = "1px solid #408";
+    } else if (_.get(state, "selectProps.error")) {
+      borderColor = "1px solid #dc3545";
+    } else {
+      borderColor = "1px solid #dbdfe4";
+    }
+
+    // We don't have a handle to the "container" component
+    // so we can't set a className on the outermost component
+    // Also, react-select cannot insert --focused classNames
+    // therefore we have to use css-in-js to set the styles for focused
+    return {
+      ...base,
+      boxSizing: "border-box",
+      borderRadius: state.isFocused ? "3px 3px 0 0" : "3px",
+      border: borderColor,
+      "&:hover": {
+        border: state.isFocused ? "1px solid #408" : "1px solid #647283"
+      },
+      backgroundColor: state.isDisabled ? "#f9fafa" : "white"
+    };
+  },
+  control: (base: any) => {
+    return {
+      ...base,
+      border: "none",
+      boxShadow: "none",
+      "&:hover": {
+        border: "none"
+      },
+      backgroundColor: "transparent"
+    };
+  }
+};
+
 export class Dropdown<T> extends React.Component<IDropdownProps<T>, {}> {
   public render() {
-    const customStyles = {
-      container: (base: any, state: any) => {
-        let borderColor;
-        if (_.get(state, "selectProps.error")) {
-          borderColor = "1px solid #dc3545";
-        } else if (state.isFocused && !state.isDisabled) {
-          borderColor = "1px solid #408";
-        } else {
-          borderColor = "1px solid #dbdfe4";
-        }
-
-        // We don't have a handle to the "container" component
-        // so we can't set a className on the outermost component
-        // Also, react-select cannot insert --focused classNames
-        // therefore we have to use css-in-js to set the styles for focused
-        return {
-          ...base,
-          boxSizing: "border-box",
-          borderRadius: state.isFocused ? "3px 3px 0 0" : "3px",
-          border: borderColor,
-          "&:hover": {
-            border: state.isFocused ? "1px solid #408" : "1px solid #647283"
-          },
-          backgroundColor: state.isDisabled ? "#f9fafa" : "white"
-        };
-      },
-      control: (base: any) => {
-        return {
-          ...base,
-          border: "none",
-          boxShadow: "none",
-          "&:hover": {
-            border: "none"
-          },
-          backgroundColor: "transparent"
-        };
-      }
-    };
+    const dropdownClassName = classnames(
+      styles.field,
+      styles.dropdownField,
+      styles[this.props.size || Size.Large]
+    );
 
     const dropdown = (
-      <div
-        className={`${styles.field} ${styles[this.props.size || Size.Large]}`}
-      >
+      <div className={dropdownClassName}>
         <BaseDropdown
           components={{
             ...baseComponents
           }}
-          styles={customStyles}
+          styles={dropdownCustomStyles}
           {...this.props}
         />
         {this.props.error && (

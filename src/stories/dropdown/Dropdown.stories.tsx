@@ -1,42 +1,24 @@
 import React from "react";
 
+import { State, Store } from "@sambego/storybook-state";
 import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
-import { Dropdown, PremiseDropdown } from "../../components";
+import { Dropdown, MultiSelect, PremiseDropdown } from "../../components";
 import { CategoryName, wInfo } from "../utils";
+import { mockOptions, mockOptionsForDays } from "./mockDropdownStories";
 
 const styles = require("./dropdown.stories.scss");
 
-const mockOptions = [
-  {
-    label: "foo bar baz foo bar baz foo bar baz foo bar baz",
-    value: {
-      address: {
-        postalCode: "123456"
-      }
-    }
-  },
-  {
-    label: "foo bar",
-    value: "baz"
-  },
-  {
-    label: "foo bar",
-    value: "baz"
-  },
-  {
-    label: "foo bar",
-    value: "baz"
-  },
-  {
-    label: "foo bar",
-    value: "baz"
-  },
-  {
-    label: "foo bar",
-    value: "baz"
-  }
-];
+const store = new Store({
+  error: "click will remove the error"
+});
+
+const clearErrorMessage = () => {
+  store.set({ error: "" });
+};
+const onDataChange = (dataArray: any) => {
+  action("data")(dataArray.map((data: any) => data.label).join(" "));
+};
 
 /**
  * State component can use store as a component.
@@ -74,6 +56,16 @@ const mockOptions = [
           <p className={styles.content}>
             Other following contents (Input error msg should float on this)
           </p>
+        </div>
+        <div className={styles.multiSelectBox}>
+          <State store={store}>
+            <MultiSelect
+              error={store.state.error}
+              options={mockOptionsForDays}
+              onFocus={clearErrorMessage}
+              onChange={onDataChange}
+            />
+          </State>
         </div>
       </div>
     </div>
