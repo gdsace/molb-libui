@@ -4,6 +4,8 @@ import { storiesOf } from "@storybook/react";
 import { Table, TableTheme } from "../../components";
 import { CategoryName, wInfo } from "../utils";
 
+const styles = require("./table.stories.scss");
+
 export const tableColumns = [
   {
     title: "Name",
@@ -86,23 +88,34 @@ export const dataSource = [
 (storiesOf(CategoryName.Table, module) as any).addWithJSX(
   "Table",
   wInfo(``)(() => (
-    <div>
-      <div style={{ padding: "10px" }}>
-        stripe table with border:
-        <Table
-          columns={tableColumns}
-          dataSource={dataSource}
-          theme={TableTheme.Striped}
-          bordered={true}
-        />
-      </div>
-      <div style={{ padding: "10px" }}>
-        Basic table:
-        <Table
-          columns={tableColumns}
-          dataSource={dataSource}
-          theme={TableTheme.Basic}
-        />
+    <div className={styles.rootContainer}>
+      <h6 className={styles.groupHeader}>Table type: themes</h6>
+      <div className={styles.itemsContainer}>
+        <div className={styles.box}>
+          <p className={styles.notes}>Showing "No data available":</p>
+          <Table
+            columns={tableColumns}
+            dataSource={[]}
+            theme={TableTheme.Basic}
+          />
+        </div>
+        <div className={styles.box}>
+          <p className={styles.notes}>Striped table with border:</p>
+          <Table
+            columns={tableColumns}
+            dataSource={dataSource}
+            bordered={true}
+            theme={TableTheme.Striped}
+          />
+        </div>
+        <div className={styles.box}>
+          <p className={styles.notes}>Basic table:</p>
+          <Table
+            columns={tableColumns}
+            dataSource={dataSource}
+            theme={TableTheme.Basic}
+          />
+        </div>
       </div>
     </div>
   ))

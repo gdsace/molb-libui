@@ -3,6 +3,7 @@ import * as React from "react";
 
 const styles = require("./table.scss");
 const cx = classNames.bind(styles).default || classNames.bind(styles);
+const NO_DATA_IN_TABLE = "No data available in table";
 
 export interface IColumn {
   title?: string;
@@ -23,6 +24,7 @@ export interface ITableProps {
   bordered?: boolean;
   size?: TableSize;
   theme?: TableTheme;
+  showNoDataAvailableMessage?: boolean;
 }
 
 export enum TableSize {
@@ -40,15 +42,25 @@ export class Table extends React.Component<ITableProps, {}> {
     bordered: false,
     size: TableSize.Small,
     theme: TableTheme.Basic,
-    tableCls: ""
+    tableCls: "",
+    showNoDataAvailableMessage: true
   };
 
   public render() {
-    const { columns, dataSource, tableCls, bordered, size, theme } = this.props;
+    const {
+      columns,
+      dataSource,
+      tableCls,
+      bordered,
+      size,
+      theme,
+      showNoDataAvailableMessage
+    } = this.props;
     const theadComponent: React.ReactNode = this.getHeadComponent(columns);
     const tbodyComponent: React.ReactNode = this.getBodyComponent(
       columns,
-      dataSource
+      dataSource,
+      showNoDataAvailableMessage
     );
 
     return (
@@ -63,7 +75,8 @@ export class Table extends React.Component<ITableProps, {}> {
 
   private getBodyComponent(
     columns: IColumn[],
-    dataSource: IDataSource[]
+    dataSource: IDataSource[],
+    showNoDataAvailableMessage?: boolean
   ): React.ReactNode {
     const toItem = (column: IColumn, data: IDataSource) => (
       <td
@@ -78,13 +91,29 @@ export class Table extends React.Component<ITableProps, {}> {
       </td>
     );
 
-    const toRow = (data: IDataSource) => (
-      <tr key={`tr-${data.key}`}>
-        {columns.map(column => toItem(column, data))}
+    const emptyRows = [
+      <tr key={`tr-NO_DATA`}>
+        <td key={`td-NO_DATA`} colSpan={columns.length}>
+          <div className={cx("contentData")}>
+            <span>{NO_DATA_IN_TABLE}</span>
+          </div>
+        </td>
       </tr>
-    );
+    ];
 
-    return <tbody>{dataSource.map(toRow)}</tbody>;
+    const detailRows = dataSource.map(rowData => (
+      <tr key={`tr-${rowData.key}`}>
+        {columns.map(column => toItem(column, rowData))}
+      </tr>
+    ));
+
+    return (
+      <tbody>
+        {dataSource.length <= 0 && showNoDataAvailableMessage
+          ? emptyRows
+          : detailRows}
+      </tbody>
+    );
   }
 
   private getHeadComponent(columns: IColumn[]): React.ReactNode {
