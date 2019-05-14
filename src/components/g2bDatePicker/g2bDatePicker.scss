@@ -21,6 +21,7 @@
   padding: 0 $space-2;
   box-sizing: border-box;
   outline: none;
+  font-weight: $weight-regular;
 
   .calendarIcon {
     position: absolute;
@@ -52,4 +53,5 @@
   margin-top: $space-1;
   color: $support-red;
   font-size: $small;
+  font-weight: $weight-regular;
 }

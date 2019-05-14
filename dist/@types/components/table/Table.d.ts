@@ -1,15 +1,16 @@
 import * as React from "react";
 export interface IColumn {
-    title: string;
+    title?: string;
     key: string;
     width?: string;
     textAlignRight?: boolean;
+    hiddenInlineTitle?: boolean;
 }
-export interface IDateSource {
+export interface IDataSource {
     [key: string]: any;
 }
 export interface ITableProps {
-    dataSource: IDateSource[];
+    dataSource: IDataSource[];
     columns: IColumn[];
     tableCls?: string;
     bordered?: boolean;
@@ -27,6 +28,6 @@ export declare enum TableTheme {
 export declare class Table extends React.Component<ITableProps, {}> {
     static defaultProps: Partial<ITableProps>;
     render(): JSX.Element;
-    getBodyComponent(columns: IColumn[], dataSource: IDateSource[]): React.ReactNode;
-    getHeadComponent(columns: IColumn[]): React.ReactNode;
+    private getBodyComponent;
+    private getHeadComponent;
 }

@@ -37,7 +37,7 @@
   .inlineNotificationText {
     margin: $space-2 $space-4 $space-2 $space-2;
     font-size: $small;
-    font-weight: normal;
+    font-weight: $weight-regular;
     line-height: $line-height-medium;
     color: $text-color-2;
   }
