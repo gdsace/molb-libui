@@ -47,9 +47,9 @@ export class Accordion extends React.Component<
         <div className={cx("panelHeader")} onClick={this.onPanelClick}>
           <span className={cx("panelTitle")}>{header}</span>
           {collapsed ? (
-            <Icon type={"up"} className={cx("collapseIcon")} />
-          ) : (
             <Icon type={"dropdown"} className={cx("collapseIcon")} />
+          ) : (
+            <Icon type={"up"} className={cx("collapseIcon")} />
           )}
         </div>
         {!collapsed && <div className={cx("panelContent")}>{content}</div>}

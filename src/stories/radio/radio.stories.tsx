@@ -108,6 +108,33 @@ const radioProps4: IRadioProps = {
   radioLabelLineBreak: true
 };
 
+const valueChangeHandler5 = (value: string) => {
+  store5.set({ value });
+};
+
+const optionValueArray5: IOptionValue[] = [
+  {
+    value: "value1",
+    label: "first"
+  },
+  {
+    value: "value2",
+    label: "second"
+  }
+];
+
+const radioProps5: IRadioProps = {
+  text: "5. radio button with tooltip",
+  optionList: optionValueArray5,
+  onChange: valueChangeHandler5,
+  disabled: false,
+  showError: false,
+  errorMsg: "This field is required.",
+  radioLabelLineBreak: false,
+  showTooltip: true,
+  toolTipsContent: "This is the content you want to show on tooltip"
+};
+
 /**
  * Here define store, we can define our state here.
  * If we define store here, the same property in props won't work.
@@ -123,6 +150,10 @@ const store3 = new Store({
   value: ""
 });
 const store4 = new Store({
+  value: ""
+});
+
+const store5 = new Store({
   value: ""
 });
 
@@ -146,6 +177,9 @@ const store4 = new Store({
       </State>
       <State store={store4}>
         <Radio {...radioProps4} />
+      </State>
+      <State store={store5}>
+        <Radio {...radioProps5} />
       </State>
     </div>
   ))
