@@ -3,10 +3,12 @@ export declare const tableColumns: ({
     title: string;
     key: string;
     render?: undefined;
+    hiddenInlineTitle?: undefined;
 } | {
     title: string;
     key: string;
     render: boolean;
+    hiddenInlineTitle: boolean;
 })[];
 export declare const dataSource: ({
     key: string;
