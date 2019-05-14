@@ -1,5 +1,6 @@
 export * from "./accordion";
 export * from "./actionSection";
+export * from "./appAlert";
 export * from "./button";
 export * from "./card";
 export * from "./checkbox";
