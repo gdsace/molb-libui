@@ -130,6 +130,17 @@ export enum NotificationTheme {
   Warning = "warning"
 }
 
+export enum AppAlertTheme {
+  Error = "error",
+  Informational = "informational",
+  Warning = "warning"
+}
+
+export enum AppAlertAlignmentTheme {
+  LEFT = "left",
+  CENTER = "center"
+}
+
 export enum TooltipsLocationTheme {
   BottomLeft = "bottom left",
   BottomCenter = "bottom center",

@@ -1,0 +1,46 @@
+@import "../styles/utils.scss";
+
+.appAlert {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  height: $space-6;
+
+  @include for-phone-only {
+    padding: $space-2 $space-specific-30;
+  }
+
+  &.left {
+    padding-left: $space-specific-150;
+  }
+
+  &.center {
+    justify-content: center;
+  }
+
+  &.error {
+    background-color: $support-red;
+  }
+
+  &.informational {
+    background-color: $indigo;
+  }
+
+  &.warning {
+    background-color: $vivid-orange;
+  }
+
+  .appAlertIcon {
+    color: $primary-color-2;
+    width: 14px;
+    height: 14px;
+  }
+
+  .appAlertText {
+    margin-left: $space-0;
+    font-size: $medium;
+    font-weight: $weight-regular;
+    line-height: $line-height-medium;
+    color: $primary-color-2;
+  }
+}

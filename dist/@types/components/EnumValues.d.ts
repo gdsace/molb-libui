@@ -86,6 +86,15 @@ export declare enum NotificationTheme {
     Informational = "informational",
     Warning = "warning"
 }
+export declare enum AppAlertTheme {
+    Error = "error",
+    Informational = "informational",
+    Warning = "warning"
+}
+export declare enum AppAlertAlignmentTheme {
+    LEFT = "left",
+    CENTER = "center"
+}
 export declare enum TooltipsLocationTheme {
     BottomLeft = "bottom left",
     BottomCenter = "bottom center",
