@@ -16,7 +16,7 @@ export const tableColumns = [
     key: "age"
   },
   {
-    title: "Address",
+    title: "Address<BR>Line-break-in-title",
     key: "address"
   },
   {

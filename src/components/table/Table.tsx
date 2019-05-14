@@ -93,7 +93,11 @@ export class Table extends React.Component<ITableProps, {}> {
 
     const emptyRows = [
       <tr key={`tr-NO_DATA`}>
-        <td key={`td-NO_DATA`} colSpan={columns.length}>
+        <td
+          key={`td-NO_DATA`}
+          colSpan={columns.length}
+          className={styles.noDatRow}
+        >
           <div className={cx("contentData")}>
             <span>{NO_DATA_IN_TABLE}</span>
           </div>
@@ -125,7 +129,7 @@ export class Table extends React.Component<ITableProps, {}> {
           alignRight: column.textAlignRight
         })}
       >
-        {column.title}
+        <span dangerouslySetInnerHTML={{ __html: column.title || "" }} />
       </th>
     );
 
