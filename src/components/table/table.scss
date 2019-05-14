@@ -127,6 +127,15 @@ $title-margin: $space-2;
     td {
       display: block;
 
+      &::before {
+        content: attr(data-title);
+        width: $title-width-for-mobile;
+        display: inline-block;
+        margin-right: $title-margin;
+        vertical-align: top;
+        word-break: break-word;
+      }
+
       &:not(:first-child) {
         padding-left: 0;
 
@@ -140,13 +149,8 @@ $title-margin: $space-2;
         padding-right: 0;
       }
 
-      &:not(:first-child)::before {
-        content: attr(data-title);
-        width: $title-width-for-mobile;
-        display: inline-block;
-        margin-right: $title-margin;
-        vertical-align: top;
-        word-break: break-word;
+      &.hiddenInlineTitle::before {
+        display: none;
       }
     }
 
@@ -179,6 +183,7 @@ $title-margin: $space-2;
         }
       }
     }
+
     /* stylelint-enable */
   }
 }

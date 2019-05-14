@@ -20,7 +20,8 @@ export const tableColumns = [
   {
     title: "Tags",
     key: "tags",
-    render: true
+    render: true,
+    hiddenInlineTitle: true
   }
 ];
 
