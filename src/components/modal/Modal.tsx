@@ -166,7 +166,6 @@ export class Modal extends React.Component<IModalProps, {}> {
   }
 
   private isClickedOnFloatOrAbsuluteElement(e: any) {
-    console.log(e.target, e.target.tagName);
     return (
       e!.target.tagName === "LI" ||
       e!.target.tagName === "UL" ||
