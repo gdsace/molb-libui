@@ -37,6 +37,11 @@ const lorem =
             text={lorem + lorem}
             theme={NotificationTheme.Informational}
           />
+          <InlineNotificationWithHeader
+            header="A very very very very very very very very long header"
+            text={lorem}
+            theme={NotificationTheme.Informational}
+          />
           <br />
           <h5>Success Type</h5>
           <InlineNotificationWithHeader
