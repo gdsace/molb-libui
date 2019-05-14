@@ -57,17 +57,25 @@
   width: 130px;
 }
 
+.multiSelectField {
+  .dropdown {
+    height: auto !important;
+    min-height: $space-6 !important;
+  }
+
+  .dropdownControl {
+    min-height: 46px;
+  }
+}
+
 /* Dropdown input field styling */
 .field {
   position: relative;
 
-  .dropdown {
-    height: 48px !important;
-  }
-
   .dropdownControl {
     border-radius: 3px;
     border: solid 1px $ui-color-2;
+    height: 100% !important;
 
     &:hover {
       border: solid 1px $text-color;
@@ -118,6 +126,12 @@
     overflow: hidden;
     width: 100%;
     user-select: none;
+  }
+}
+
+.dropdownField {
+  .dropdown {
+    height: 48px !important;
   }
 }
 

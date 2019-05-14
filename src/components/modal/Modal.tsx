@@ -19,7 +19,7 @@ export enum ModalTheme {
 }
 
 export interface IModalProps {
-  onClose: () => void;
+  onClose: (event: any) => void;
   show: boolean;
   hideCloseButton?: boolean;
   header?: string;
@@ -125,10 +125,10 @@ export class Modal extends React.Component<IModalProps, {}> {
     }
   }
 
-  private onClose = () => {
+  private onClose = (event: any) => {
     clearAllBodyScrollLocks();
     document.body.style.overflow = "auto";
-    this.props.onClose();
+    this.props.onClose(event);
   };
 
   private controlBodyScrollable = (show: boolean) => {
@@ -148,13 +148,28 @@ export class Modal extends React.Component<IModalProps, {}> {
   };
 
   private onClickAway = (e: any) => {
-    if (
+    if (this.isClickedElementInModalBox(e)) {
+      return;
+    }
+    if (this.isClickedOnFloatOrAbsuluteElement(e)) {
+      return;
+    }
+    this.onClose(e);
+  };
+
+  private isClickedElementInModalBox(e: any) {
+    return (
       (this.modalNode && this.modalNode.contains(e.target)) ||
       (this.footer && this.footer.contains(e.target)) ||
       this.props.hideCloseButton
-    ) {
-      return;
-    }
-    this.onClose();
-  };
+    );
+  }
+
+  private isClickedOnFloatOrAbsuluteElement(e: any) {
+    return (
+      e!.target.tagName === "LI" ||
+      e!.target.tagName === "UL" ||
+      e.target.className.indexOf("rc-time-picker") !== -1
+    );
+  }
 }
