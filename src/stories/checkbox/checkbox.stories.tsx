@@ -26,7 +26,7 @@ const onCheckboxClick = (value: string) => {
             <p className={styles.notes}>Normal:</p>
             <State store={store}>
               <Checkbox
-                checked={store.checked}
+                checked={store.state.checked}
                 disabled={false}
                 onCheckboxClick={onCheckboxClick}
               />
