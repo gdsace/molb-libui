@@ -1,9 +1,12 @@
 import classNames from "classnames";
 import * as React from "react";
+import { TooltipsLocationTheme } from "../EnumValues";
 import { Icon } from "../icons";
+import { Tooltips } from "../tooltips";
 import { addLocatedErrorClassname } from "../utils";
 
 const styles = require("./radio.scss");
+const ICON_SIZE = "16";
 
 export interface IRadioProps {
   className?: string;
@@ -20,6 +23,9 @@ export interface IRadioProps {
   labelStyleOverride?: string;
   subsequentQuestion?: React.ReactNode | string;
   radioLabelLineBreak?: boolean;
+  showTooltip?: boolean;
+  toolTipsContent?: JSX.Element | string;
+  toolTipsPosition?: TooltipsLocationTheme;
 }
 
 export interface IOptionValue {
@@ -99,9 +105,40 @@ export const Radio = (props: IRadioProps) => {
     props.radioLabelLineBreak ? styles.radioLabelLineBreak : styles.radioLabel,
     styles.radioLabel
   );
+
+  const radioHeaderClass = classNames(
+    props.showTooltip ? styles.radioWithToolTip : ""
+  );
+
   return (
     <div id={props.id} className={radioClass}>
-      {props.text && <div className={radioTextClass}>{props.text}</div>}
+      <div className={radioHeaderClass}>
+        {props.text && <div className={radioTextClass}>{props.text}</div>}
+        {props.showTooltip && (
+          <Tooltips
+            trigger={(open: boolean) => (
+              <Icon
+                type="help"
+                size={ICON_SIZE}
+                className={classNames(
+                  styles.labelIcon,
+                  open && styles.openTooltip
+                )}
+              />
+            )}
+            position={
+              props.toolTipsPosition
+                ? props.toolTipsPosition
+                : TooltipsLocationTheme.BottomCenter
+            }
+            specializedPosition={true}
+          >
+            <div className={styles.toolTipsContent}>
+              {props.toolTipsContent}
+            </div>
+          </Tooltips>
+        )}
+      </div>
       <div className={radioLabelClass}>{optionComponents}</div>
       {props.showError && (
         <div className={addLocatedErrorClassname(styles.errorMsg)}>

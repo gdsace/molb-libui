@@ -1,4 +1,5 @@
 import * as React from "react";
+import { TooltipsLocationTheme } from "../EnumValues";
 export interface IRadioProps {
     className?: string;
     text?: string;
@@ -14,6 +15,9 @@ export interface IRadioProps {
     labelStyleOverride?: string;
     subsequentQuestion?: React.ReactNode | string;
     radioLabelLineBreak?: boolean;
+    showTooltip?: boolean;
+    toolTipsContent?: JSX.Element | string;
+    toolTipsPosition?: TooltipsLocationTheme;
 }
 export interface IOptionValue {
     value: string;
