@@ -13,7 +13,7 @@
   }
 
   .radioWithToolTip {
-    display:flex;
+    display: flex;
 
     .labelIcon {
       padding: $space-0;
@@ -22,7 +22,7 @@
       cursor: pointer;
       color: $text-color;
     }
-  
+
     .openTooltip {
       color: $lavender-indigo;
     }
