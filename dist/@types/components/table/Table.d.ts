@@ -6,11 +6,11 @@ export interface IColumn {
     textAlignRight?: boolean;
     hiddenInlineTitle?: boolean;
 }
-export interface IDateSource {
+export interface IDataSource {
     [key: string]: any;
 }
 export interface ITableProps {
-    dataSource: IDateSource[];
+    dataSource: IDataSource[];
     columns: IColumn[];
     tableCls?: string;
     bordered?: boolean;

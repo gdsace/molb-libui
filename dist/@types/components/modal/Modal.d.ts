@@ -6,7 +6,7 @@ export declare enum ModalTheme {
     Full = 2
 }
 export interface IModalProps {
-    onClose: () => void;
+    onClose: (event: any) => void;
     show: boolean;
     hideCloseButton?: boolean;
     header?: string;
@@ -35,4 +35,6 @@ export declare class Modal extends React.Component<IModalProps, {}> {
     private disableBodyScroll;
     private enableBodyScroll;
     private onClickAway;
+    private isClickedElementInModalBox;
+    private isClickedOnFloatOrAbsuluteElement;
 }
