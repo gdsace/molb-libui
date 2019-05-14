@@ -12,12 +12,12 @@ export interface IColumn {
   hiddenInlineTitle?: boolean;
 }
 
-export interface IDateSource {
+export interface IDataSource {
   [key: string]: any;
 }
 
 export interface ITableProps {
-  dataSource: IDateSource[];
+  dataSource: IDataSource[];
   columns: IColumn[];
   tableCls?: string;
   bordered?: boolean;
@@ -63,9 +63,9 @@ export class Table extends React.Component<ITableProps, {}> {
 
   private getBodyComponent(
     columns: IColumn[],
-    dataSource: IDateSource[]
+    dataSource: IDataSource[]
   ): React.ReactNode {
-    const toItem = (column: IColumn, data: IDateSource) => (
+    const toItem = (column: IColumn, data: IDataSource) => (
       <td
         data-title={column.title}
         key={`td-${column.key}`}
@@ -78,7 +78,7 @@ export class Table extends React.Component<ITableProps, {}> {
       </td>
     );
 
-    const toRow = (data: IDateSource) => (
+    const toRow = (data: IDataSource) => (
       <tr key={`tr-${data.key}`}>
         {columns.map(column => toItem(column, data))}
       </tr>
