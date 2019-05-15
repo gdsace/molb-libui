@@ -64,6 +64,7 @@ const onDataChange = (dataArray: any) => {
               options={mockOptionsForDays}
               onFocus={clearErrorMessage}
               onChange={onDataChange}
+              selectedValue={mockOptionsForDays}
             />
           </State>
         </div>

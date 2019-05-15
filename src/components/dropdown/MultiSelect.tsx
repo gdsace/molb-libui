@@ -82,14 +82,14 @@ export class MultiSelect<T> extends React.Component<IMultiSelectProps<T>, {}> {
     );
     return (
       <div className={multiSelectClassName}>
-        <BaseDropdown
+        <BaseDropdown<T>
           isMulti
           styles={multiSelectCustomStyles}
           closeMenuOnSelect={false}
           onChange={this.props.onChange}
           onFocus={this.props.onFocus}
           components={multiSelectCustomComponents}
-          defaultValue={this.props.selectedValue}
+          value={this.props.selectedValue}
           options={this.props.options}
           {...this.props}
         />
