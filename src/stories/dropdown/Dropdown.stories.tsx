@@ -10,7 +10,13 @@ import { mockOptions, mockOptionsForDays } from "./mockDropdownStories";
 const styles = require("./dropdown.stories.scss");
 
 const store = new Store({
-  error: "click will remove the error"
+  error: "click will remove the error",
+  value: [
+    {
+      value: "Mon",
+      label: "Mon"
+    }
+  ]
 });
 
 const clearErrorMessage = () => {
@@ -18,6 +24,9 @@ const clearErrorMessage = () => {
 };
 const onDataChange = (dataArray: any) => {
   action("data")(dataArray.map((data: any) => data.label).join(" "));
+  store.set({
+    value: dataArray
+  });
 };
 
 /**
@@ -64,7 +73,7 @@ const onDataChange = (dataArray: any) => {
               options={mockOptionsForDays}
               onFocus={clearErrorMessage}
               onChange={onDataChange}
-              selectedValue={mockOptionsForDays}
+              selectedValue={store.state.value}
             />
           </State>
         </div>
