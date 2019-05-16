@@ -1,0 +1,32 @@
+@import "~@src/static/styles/utils";
+
+.wrapper {
+  display: flex;
+  flex-flow: column wrap;
+  flex: 1;
+  width: 100%;
+  align-items: center; 
+
+  .searchSection {
+    margin-top: 100px;
+    width: 100%;
+    height: 48px;
+  }
+
+  .searchTypeDropdown {
+    float: left;
+    width: 20%;
+    height: 48px;
+  }
+  
+  .searchTextInputWrapper {
+    display: inline-block;
+    width: calc(78% - 142px); //110 + 32 from space-4
+    margin-right: $space-4;
+  }
+
+  .searchButton {
+    width: 110px;
+    height: 100%;
+  }
+}
