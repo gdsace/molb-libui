@@ -9,8 +9,22 @@ describe("Table", () => {
       <Table columns={tableColumns} dataSource={dataSource} />
     );
 
-    const tHeaderText = wrapper.find("thead").text();
+    const tHeaderText = wrapper
+      .find("thead")
+      .render()
+      .text();
     expect(tHeaderText).toEqual("NameAgeAddress");
+  });
+
+  it("should show table header with html-tag allowed", () => {
+    const wrapper = Enzyme.shallow(
+      <Table columns={tableColumns} dataSource={dataSource} />
+    );
+
+    const tHeaderCell = wrapper.find("thead tr th").at(2);
+    expect(tHeaderCell.html()).toEqual(
+      '<th class=""><span>Address<BR/></span></th>'
+    );
   });
 
   it("should show table body", () => {
@@ -18,7 +32,7 @@ describe("Table", () => {
       <Table columns={tableColumns} dataSource={dataSource} />
     );
 
-    const tHeaderText = wrapper.find("tbody").text();
-    expect(tHeaderText).toEqual("Joe Black32Joe Black33");
+    const tBodyText = wrapper.find("tbody").text();
+    expect(tBodyText).toEqual("Joe Black32Joe Black33");
   });
 });

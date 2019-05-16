@@ -21,6 +21,10 @@ $title-margin: $space-2;
     border-collapse: collapse;
   }
 
+  table td.noDatRow {
+    color: $text-color;
+  }
+
   th {
     @extend %tableTitle;
   }
