@@ -1,4 +1,4 @@
-import { shallow } from "enzyme";
+import { mount } from "enzyme";
 import * as React from "react";
 import { SearchSingleDropdown, ISearchSingleDropdownProps } from "../searchBarSingleDropdown";
 import { Dropdown, Input, Button } from '../../../components';
@@ -42,7 +42,7 @@ describe("Search Bar with single dropdown", () => {
     };
   });
   it("should have a dropdown for search criteria", () => {
-    const wrapper = shallow(
+    const wrapper = mount(
       <SearchSingleDropdown {...props} />
     );
 
@@ -53,18 +53,19 @@ describe("Search Bar with single dropdown", () => {
   });
 
   it("should have an input box for search text", () => {
-    const wrapper = shallow(
+    const wrapper = mount(
       <SearchSingleDropdown {...props} />
     );
 
     const textInput = wrapper.find(Input);
 
     expect(textInput).toHaveLength(1);
-    expect(textInput.text()).toEqual("test");
+    console.log(textInput);
+    expect(textInput.prop("value")).toEqual("test");
   });
 
   it("should have a search button", () => {
-    const wrapper = shallow(
+    const wrapper = mount(
       <SearchSingleDropdown {...props} />
     );
 
