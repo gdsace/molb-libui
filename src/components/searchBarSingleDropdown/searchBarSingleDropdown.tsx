@@ -53,7 +53,6 @@ export class SearchSingleDropdown extends React.Component<
               onChange={(e) => {
                 this.props.handleInputChange(e.target.value);
               }}
-              // TODO pageConst
             />
           </div>
           <Button 
@@ -65,7 +64,6 @@ export class SearchSingleDropdown extends React.Component<
             onClick={() => {
               this.props.handleButtonClick(this.props.inputText, this.props.selectedDropdown);
             }} 
-            // TODO pageConst.SEARCH_APPLICATIONS
           />
         
         </div>
