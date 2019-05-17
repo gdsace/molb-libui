@@ -1,7 +1,10 @@
 import { mount } from "enzyme";
 import * as React from "react";
-import { SearchSingleDropdown, ISearchSingleDropdownProps } from "../searchBarSingleDropdown";
-import { Dropdown, Input, Button } from '../../../components';
+import { Button, Dropdown, Input } from "../../../components";
+import {
+  ISearchSingleDropdownProps,
+  SearchSingleDropdown
+} from "../searchBarSingleDropdown";
 
 export const SEARCH_CRITERIAS = [
   {
@@ -26,25 +29,26 @@ export const SEARCH_CRITERIAS = [
   }
 ];
 
-describe("Search Bar with single dropdown", () => {    
+describe("Search Bar with single dropdown", () => {
   let props: ISearchSingleDropdownProps;
   beforeEach(() => {
     props = {
       dropdownOptions: SEARCH_CRITERIAS,
       selectedDropdown: SEARCH_CRITERIAS[0],
-      handleDropdownChange: (value) => value,
+      handleDropdownChange: value => value,
       inputText: "test",
-      handleInputChange: (inputText) => inputText,
+      handleInputChange: inputText => inputText,
       inputPlaceholder: "test placeholder",
       inputMaxlength: 100,
       buttonLabel: "Search",
-      handleButtonClick: (inputText, selectedDropdown) => [inputText, selectedDropdown]
+      handleButtonClick: (inputText, selectedDropdown) => [
+        inputText,
+        selectedDropdown
+      ]
     };
   });
   it("should have a dropdown for search criteria", () => {
-    const wrapper = mount(
-      <SearchSingleDropdown {...props} />
-    );
+    const wrapper = mount(<SearchSingleDropdown {...props} />);
 
     const criteriaDropdown = wrapper.find(Dropdown);
 
@@ -53,21 +57,16 @@ describe("Search Bar with single dropdown", () => {
   });
 
   it("should have an input box for search text", () => {
-    const wrapper = mount(
-      <SearchSingleDropdown {...props} />
-    );
+    const wrapper = mount(<SearchSingleDropdown {...props} />);
 
     const textInput = wrapper.find(Input);
 
     expect(textInput).toHaveLength(1);
-    console.log(textInput);
     expect(textInput.prop("value")).toEqual("test");
   });
 
   it("should have a search button", () => {
-    const wrapper = mount(
-      <SearchSingleDropdown {...props} />
-    );
+    const wrapper = mount(<SearchSingleDropdown {...props} />);
 
     const button = wrapper.find(Button);
 

@@ -1,5 +1,12 @@
 import * as React from "react";
-import { Dropdown, Button, Input, InputType, Size, Theme } from "../../components";
+import {
+  Button,
+  Dropdown,
+  Input,
+  InputType,
+  Size,
+  Theme
+} from "../../components";
 
 const styles = require("./searchBarSingleDropdown.scss");
 
@@ -9,20 +16,23 @@ export interface IDropdownOptionType {
 }
 
 export interface ISearchSingleDropdownProps {
-  //dropdown props
+  // dropdown props
   dropdownOptions?: IDropdownOptionType[];
   selectedDropdown: IDropdownOptionType;
   handleDropdownChange: (optionValue: IDropdownOptionType) => any;
 
-  //input props
+  // input props
   inputText: string;
   handleInputChange: (inputText: string) => any;
   inputPlaceholder?: string;
   inputMaxlength?: number;
 
-  //button props
+  // button props
   buttonLabel: string;
-  handleButtonClick: (inputText: string, selectedDropdown: IDropdownOptionType) => any;
+  handleButtonClick: (
+    inputText: string,
+    selectedDropdown: IDropdownOptionType
+  ) => any;
 }
 
 export class SearchSingleDropdown extends React.Component<
@@ -37,7 +47,7 @@ export class SearchSingleDropdown extends React.Component<
             options={this.props.dropdownOptions}
             className={styles.searchTypeDropdown}
             value={this.props.selectedDropdown}
-            onChange={(optionValue) => {
+            onChange={optionValue => {
               const option = optionValue as IDropdownOptionType;
               this.props.handleDropdownChange(option);
             }}
@@ -49,23 +59,25 @@ export class SearchSingleDropdown extends React.Component<
               type={InputType.Text}
               value={this.props.inputText}
               placeholder={this.props.inputPlaceholder}
-              maxLength={this.props.inputMaxlength || 100} 
-              onChange={(e) => {
+              maxLength={this.props.inputMaxlength || 100}
+              onChange={e => {
                 this.props.handleInputChange(e.target.value);
               }}
             />
           </div>
-          <Button 
+          <Button
             className={styles.searchButton}
             label={this.props.buttonLabel}
             size={Size.Medium}
             theme={Theme.Primary}
             type="button"
             onClick={() => {
-              this.props.handleButtonClick(this.props.inputText, this.props.selectedDropdown);
-            }} 
+              this.props.handleButtonClick(
+                this.props.inputText,
+                this.props.selectedDropdown
+              );
+            }}
           />
-        
         </div>
       </div>
     );
