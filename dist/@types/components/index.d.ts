@@ -41,3 +41,4 @@ export * from "./tooltips";
 export * from "./iconButton";
 export * from "./EnumValues";
 export * from "./g2bDatePicker";
+export * from "./searchBarSingleDropdown";
