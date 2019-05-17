@@ -153,3 +153,8 @@ export enum AccordionTheme {
   Large = "large",
   Wrapped = "wrapped"
 }
+
+export enum ExpandablePanelTheme {
+  Standard = "standard",
+  Large = "large"
+}
