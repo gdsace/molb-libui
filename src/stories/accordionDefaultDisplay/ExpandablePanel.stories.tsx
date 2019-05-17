@@ -1,18 +1,18 @@
 import { storiesOf } from "@storybook/react";
 import React from "react";
 
-import { AccordionTheme } from "../../components";
-import { AccordionDefaultDisplay } from "../../components/accordionDefaultDisplay/AccordionDefaultDisplay";
+import { ExpandablePanelTheme } from "../../components";
+import { ExpandablePanel } from "../../components/expandablePanel/ExpandablePanel";
 import { CategoryName, wInfo } from "../utils";
 
 (storiesOf(CategoryName.Accordion, module) as any).addWithJSX(
-  "AccordionDefaltDisplay",
+  "ExpandablePanel",
   wInfo(``)(() => (
     <div>
-      <AccordionDefaultDisplay
-        theme={AccordionTheme.Standard}
+      <ExpandablePanel
+        theme={ExpandablePanelTheme.Standard}
         content={["this is a content div1", "this is a content div2"]}
-        title={"Accordion Header"}
+        title={"ExpandablePanel Header"}
         defaultDisplay={1}
       />
     </div>

@@ -1,15 +1,15 @@
 import { mount } from "enzyme";
 import React from "react";
 
-import { AccordionTheme } from "../../EnumValues";
-import { AccordionDefaultDisplay } from "../AccordionDefaultDisplay";
+import { ExpandablePanelTheme } from "../../EnumValues";
+import { ExpandablePanel } from "../ExpandablePanel";
 
-describe("Accordion", () => {
+describe("ExpandablePanel", () => {
   it("should render title content and apply correct style", () => {
-    const child = <div>this is accordion content</div>;
+    const child = <div>this is expandablePanel content</div>;
     const wrapper = mount(
-      <AccordionDefaultDisplay
-        theme={AccordionTheme.Standard}
+      <ExpandablePanel
+        theme={ExpandablePanelTheme.Standard}
         title={"title"}
         content={child}
       />
@@ -20,15 +20,15 @@ describe("Accordion", () => {
   });
 
   it("should be able to set collapsed status by props", () => {
-    const child = <div>this is accordion content</div>;
+    const child = <div>this is expandablePanel content</div>;
     const props = {
       collapsed: true,
-      theme: AccordionTheme.Large,
+      theme: ExpandablePanelTheme.Large,
       title: "title",
       content: child,
       onPanelClick: jest.fn()
     };
-    const wrapper = mount(<AccordionDefaultDisplay {...props} />);
+    const wrapper = mount(<ExpandablePanel {...props} />);
     expect(wrapper.find(".panelContent").length).toBe(0);
     expect(wrapper.find(".large").length).toBe(1);
     wrapper.find(".panelHeader").simulate("click");

@@ -11,11 +11,11 @@
   font-weight: $weight-semibold;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
 
   .collapseIcon {
     color: $text-color;
+    margin-left: $space-1;
   }
 
   &:hover {

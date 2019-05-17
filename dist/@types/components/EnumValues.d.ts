@@ -106,3 +106,7 @@ export declare enum AccordionTheme {
     Large = "large",
     Wrapped = "wrapped"
 }
+export declare enum ExpandablePanelTheme {
+    Standard = "standard",
+    Large = "large"
+}

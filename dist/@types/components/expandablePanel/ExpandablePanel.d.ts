@@ -1,18 +1,18 @@
 import React from "react";
-import { AccordionTheme } from "../EnumValues";
-export interface IAccordionProps {
+import { ExpandablePanelTheme } from "../EnumValues";
+export interface IExpandablePanelProps {
     collapsed?: boolean;
     onPanelClick?: (collapsed: boolean) => any;
     title?: string | React.ReactNode;
     content?: React.ReactNode[] | string[] | React.ReactNode;
-    theme: AccordionTheme;
+    theme: ExpandablePanelTheme;
     defaultDisplay?: number;
 }
-export interface IAccordionState {
+export interface IExpandablePanelState {
     collapsed: boolean;
 }
-export declare class AccordionDefaultDisplay extends React.Component<IAccordionProps, IAccordionState> {
-    constructor(props: IAccordionProps);
+export declare class ExpandablePanel extends React.Component<IExpandablePanelProps, IExpandablePanelState> {
+    constructor(props: IExpandablePanelProps);
     render(): JSX.Element;
     private onPanelClick;
     private renderPanelContent;

@@ -1,39 +1,36 @@
 import ClassNames from "classnames/bind";
-import { isUndefined } from "lodash";
+import { cloneDeep, isUndefined, map } from "lodash";
 import React from "react";
 
-// tslint:disable-next-line:no-duplicate-imports
-import { cloneDeep, map } from "lodash";
-import { AccordionTheme } from "../EnumValues";
+import { ExpandablePanelTheme } from "../EnumValues";
 import { Icon } from "../icons";
 
-const styles = require("./accordionDefaultDisplay.scss");
+const styles = require("./ExpandablePanel.scss");
 const cx = ClassNames.bind(styles).default || ClassNames.bind(styles);
 
-export interface IAccordionProps {
+export interface IExpandablePanelProps {
   collapsed?: boolean;
   onPanelClick?: (collapsed: boolean) => any;
   title?: string | React.ReactNode;
   content?: React.ReactNode[] | string[] | React.ReactNode;
-  theme: AccordionTheme;
+  theme: ExpandablePanelTheme;
   defaultDisplay?: number;
 }
 
-export interface IAccordionState {
+export interface IExpandablePanelState {
   collapsed: boolean;
 }
 
 const themeClassMapper = {
-  [AccordionTheme.Standard]: "standard",
-  [AccordionTheme.Large]: "large",
-  [AccordionTheme.Wrapped]: "wrapped"
+  [ExpandablePanelTheme.Standard]: "standard",
+  [ExpandablePanelTheme.Large]: "large"
 };
 
-export class AccordionDefaultDisplay extends React.Component<
-  IAccordionProps,
-  IAccordionState
+export class ExpandablePanel extends React.Component<
+  IExpandablePanelProps,
+  IExpandablePanelState
 > {
-  public constructor(props: IAccordionProps) {
+  public constructor(props: IExpandablePanelProps) {
     super(props);
     this.state = {
       collapsed: true
@@ -46,7 +43,7 @@ export class AccordionDefaultDisplay extends React.Component<
       : this.props.collapsed;
     const { title, theme } = this.props;
     return (
-      <div className={cx("accordion", themeClassMapper[theme])}>
+      <div className={cx("expandablePanel", themeClassMapper[theme])}>
         <div className={cx("panelHeader")} onClick={this.onPanelClick}>
           <span className={cx("panelTitle")}>{title}</span>
           <Icon
