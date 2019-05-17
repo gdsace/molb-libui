@@ -11,6 +11,7 @@ export interface ITooltipsProps {
     width?: number;
     height?: number;
     trigger: any;
+    overrideTrigger: boolean;
     children: JSX.Element;
     position: TooltipsLocationTheme;
     linkLabel?: string;
@@ -20,11 +21,12 @@ export interface ITooltipsProps {
     childrenClassname?: string;
     specializedPosition?: boolean;
 }
-interface ITooltipsState {
+export interface ITooltipsState {
     show: boolean;
     tooltipRef: any;
 }
 export declare class Tooltips extends React.Component<ITooltipsProps, ITooltipsState> {
+    static defaultProps: Partial<ITooltipsProps>;
     constructor(props: ITooltipsProps);
     render(): JSX.Element;
     private openPopup;
@@ -39,4 +41,3 @@ export declare class Tooltips extends React.Component<ITooltipsProps, ITooltipsS
     private calculateSpecializedStyle;
     private getCalculatedPosition;
 }
-export {};

@@ -6,6 +6,7 @@ import { Link, LinkTarget } from "../link";
 import { forPhoneOnlyMediaQuery } from "../utils";
 
 const styles = require("./tooltips.scss");
+
 const OFFSET = 11;
 const ARROW_OFFSET = "20px";
 const TEXT_COLOR_2 = "#313840";
@@ -20,6 +21,7 @@ export interface ITooltipsProps {
   width?: number;
   height?: number;
   trigger: any;
+  overrideTrigger: boolean;
   children: JSX.Element;
   position: TooltipsLocationTheme;
   linkLabel?: string;
@@ -30,12 +32,16 @@ export interface ITooltipsProps {
   specializedPosition?: boolean;
 }
 
-interface ITooltipsState {
+export interface ITooltipsState {
   show: boolean;
   tooltipRef: any;
 }
 
 export class Tooltips extends React.Component<ITooltipsProps, ITooltipsState> {
+  public static defaultProps: Partial<ITooltipsProps> = {
+    overrideTrigger: false
+  };
+
   constructor(props: ITooltipsProps) {
     super(props);
     this.state = {
@@ -45,6 +51,7 @@ export class Tooltips extends React.Component<ITooltipsProps, ITooltipsState> {
     this.openPopup = this.openPopup.bind(this);
     this.closePopup = this.closePopup.bind(this);
   }
+
   public render() {
     const {
       trigger,
@@ -52,7 +59,8 @@ export class Tooltips extends React.Component<ITooltipsProps, ITooltipsState> {
       width,
       linkLabel,
       childrenClassname,
-      specializedPosition
+      specializedPosition,
+      overrideTrigger
     } = this.props;
     const specializedStyle = this.calculateSpecializedStyle();
     const desktopContentStyle = {
@@ -97,7 +105,7 @@ export class Tooltips extends React.Component<ITooltipsProps, ITooltipsState> {
       >
         <Popup
           arrowStyle={arrowStyle}
-          trigger={trigger}
+          trigger={overrideTrigger ? trigger(this.state.show) : trigger}
           position={this.getCalculatedPosition()}
           children={<div className={childrenClassNames}>{tooltipContent}</div>}
           open={show}
@@ -110,9 +118,11 @@ export class Tooltips extends React.Component<ITooltipsProps, ITooltipsState> {
       </div>
     );
   }
+
   private openPopup() {
     this.setState({ show: true });
   }
+
   private getTooltipContent(props: ITooltipsProps) {
     const { children, linkLabel, linkUrl, linkTarget, linkIcon } = props;
     if (!linkLabel) {
@@ -140,6 +150,7 @@ export class Tooltips extends React.Component<ITooltipsProps, ITooltipsState> {
   private closePopup() {
     this.setState({ show: false });
   }
+
   /**
    * use magic number 22px to fit UX design.
    * You can use tooltip with specializedPosition={false}
@@ -189,7 +200,8 @@ export class Tooltips extends React.Component<ITooltipsProps, ITooltipsState> {
           // i don't know what size to use, this is just based on trial and error
           if (positionFromRight < 112) {
             return TooltipsLocationTheme.BottomRight;
-          } else if (positionFromRight < 225) {
+          }
+          if (positionFromRight < 225) {
             return TooltipsLocationTheme.BottomCenter;
           }
           break;
@@ -197,7 +209,8 @@ export class Tooltips extends React.Component<ITooltipsProps, ITooltipsState> {
         case TooltipsLocationTheme.BottomRight: {
           if (tooltipDetails.left < 112) {
             return TooltipsLocationTheme.BottomLeft;
-          } else if (tooltipDetails.left < 225) {
+          }
+          if (tooltipDetails.left < 225) {
             return TooltipsLocationTheme.BottomCenter;
           }
           break;
@@ -205,7 +218,8 @@ export class Tooltips extends React.Component<ITooltipsProps, ITooltipsState> {
         case TooltipsLocationTheme.BottomCenter: {
           if (tooltipDetails.left < 112) {
             return TooltipsLocationTheme.BottomLeft;
-          } else if (positionFromRight < 112) {
+          }
+          if (positionFromRight < 112) {
             return TooltipsLocationTheme.BottomRight;
           }
           break;
