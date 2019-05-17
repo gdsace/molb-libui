@@ -6,12 +6,14 @@ import { AppAlertAlignmentTheme, AppAlertTheme } from "../../components";
 import { AppAlert } from "../../components/appAlert";
 import { CategoryName, wInfo } from "../utils";
 
-(storiesOf(CategoryName.AppAlert, module) as any).addWithJSX(
-  "AppAlert",
+(storiesOf(CategoryName.Notification, module) as any).addWithJSX(
+  "App-level Alert",
   wInfo(``)(() => {
     return (
       <div>
-        <h3>App-level Alert content alignment left</h3>
+        <h1>AppAlert</h1>
+        <br />
+        <h5>Alignment: left</h5>
         <div style={{ padding: "10px" }}>
           <AppAlert
             text={"Normal Notification"}
@@ -23,8 +25,8 @@ import { CategoryName, wInfo } from "../utils";
           />
           <AppAlert text={"Error Notification"} theme={AppAlertTheme.Error} />
         </div>
-
-        <h3>App-level Alert content alignment center</h3>
+        <br />
+        <h5>Alignment: center</h5>
         <div style={{ padding: "10px" }}>
           <AppAlert
             text={"Normal Notification"}
