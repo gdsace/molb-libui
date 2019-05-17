@@ -1,12 +1,14 @@
 import React from "react";
-import { ExpandablePanelTheme } from "../EnumValues";
+import { CellTheme, ExpandablePanelTheme } from "../EnumValues";
 export interface IExpandablePanelProps {
     collapsed?: boolean;
     onPanelClick?: (collapsed: boolean) => any;
     title?: string | React.ReactNode;
-    content?: React.ReactNode[] | string[] | React.ReactNode;
+    content: string[];
     theme: ExpandablePanelTheme;
     defaultDisplay?: number;
+    subTitle?: string;
+    cellThem?: CellTheme;
 }
 export interface IExpandablePanelState {
     collapsed: boolean;

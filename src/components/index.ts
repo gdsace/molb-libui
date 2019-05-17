@@ -7,6 +7,7 @@ export * from "./checkbox";
 export * from "./checkboxTypeQuestion";
 export * from "./dropdown";
 export * from "./echo";
+export * from "./expandablePanel";
 export * from "./fileUpload";
 export * from "./fileUpload/subjectTypes";
 export * from "./formSection";

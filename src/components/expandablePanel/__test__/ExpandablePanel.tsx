@@ -6,7 +6,7 @@ import { ExpandablePanel } from "../ExpandablePanel";
 
 describe("ExpandablePanel", () => {
   it("should render title content and apply correct style", () => {
-    const child = <div>this is expandablePanel content</div>;
+    const child = ["this is expandablePanel content"];
     const wrapper = mount(
       <ExpandablePanel
         theme={ExpandablePanelTheme.Standard}
@@ -16,11 +16,11 @@ describe("ExpandablePanel", () => {
     );
     expect(wrapper.find(".standard").length).toEqual(1);
     expect(wrapper.find(".panelTitle").text()).toEqual("title");
-    expect(wrapper.find(".panelContent").contains(child));
+    expect(wrapper.find(".panelContent").contains(child[0]));
   });
 
   it("should be able to set collapsed status by props", () => {
-    const child = <div>this is expandablePanel content</div>;
+    const child = ["this is expandablePanel content"];
     const props = {
       collapsed: true,
       theme: ExpandablePanelTheme.Large,

@@ -2,7 +2,7 @@ import ClassNames from "classnames/bind";
 import { cloneDeep, isUndefined, map } from "lodash";
 import React from "react";
 
-import { ExpandablePanelTheme } from "../EnumValues";
+import { CellTheme, ExpandablePanelTheme } from "../EnumValues";
 import { Icon } from "../icons";
 
 const styles = require("./ExpandablePanel.scss");
@@ -12,9 +12,11 @@ export interface IExpandablePanelProps {
   collapsed?: boolean;
   onPanelClick?: (collapsed: boolean) => any;
   title?: string | React.ReactNode;
-  content?: React.ReactNode[] | string[] | React.ReactNode;
+  content: string[];
   theme: ExpandablePanelTheme;
   defaultDisplay?: number;
+  subTitle?: string;
+  cellThem?: CellTheme;
 }
 
 export interface IExpandablePanelState {
@@ -41,16 +43,28 @@ export class ExpandablePanel extends React.Component<
     const collapsed = isUndefined(this.props.collapsed)
       ? this.state.collapsed
       : this.props.collapsed;
-    const { title, theme } = this.props;
+    const {
+      title,
+      theme,
+      subTitle,
+      cellThem,
+      content,
+      defaultDisplay
+    } = this.props;
     return (
       <div className={cx("expandablePanel", themeClassMapper[theme])}>
-        <div className={cx("panelHeader")} onClick={this.onPanelClick}>
-          <span className={cx("panelTitle")}>{title}</span>
-          <Icon
-            type={collapsed ? "dropdown" : "up"}
-            className={cx("collapseIcon")}
-            size="20"
-          />
+        <div className={cx("panelHeader", cellThem)}>
+          <div className={cx("panelTitle")}>{title}</div>
+          {defaultDisplay && content.length > defaultDisplay && (
+            <div className={cx("subTitle")} onClick={this.onPanelClick}>
+              <span className={cx("panelTitle")}>{subTitle}</span>
+              <Icon
+                type={collapsed ? "dropdown" : "up"}
+                className={cx("collapseIcon")}
+                size="20"
+              />
+            </div>
+          )}
         </div>
         {this.renderPanelContent(collapsed)}
       </div>
@@ -80,13 +94,14 @@ export class ExpandablePanel extends React.Component<
   };
 
   private renderContent = (content?: string | React.ReactNode | string[]) => {
+    const { cellThem } = this.props;
     if (content && Array.isArray(content)) {
-      return map(content, item => (
-        <div className={cx("panelContent")} key={JSON.stringify(item)}>
+      return map(content, (item, index) => (
+        <div className={cx("panelContent", cellThem)} key={index}>
           {item}
         </div>
       ));
     }
-    return <div className={cx("panelContent")}>{content}</div>;
+    return <div className={cx("panelContent", cellThem)}>{content}</div>;
   };
 }
