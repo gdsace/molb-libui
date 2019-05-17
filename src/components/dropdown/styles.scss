@@ -66,6 +66,16 @@
   .dropdownControl {
     min-height: 46px;
   }
+
+  .placeholder {
+    font-family: $font-family;
+    margin: 0 $space-2 !important;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+    user-select: none;
+  }
 }
 
 /* Dropdown input field styling */
