@@ -133,6 +133,16 @@ const styles = require("./button.stories.scss");
             icon="add"
           />
         </div>
+        <div className={styles.box}>
+          <p className={styles.notes}>Flat Button</p>
+          <Button
+            label="flat-button"
+            onClick={action("button-click")}
+            theme={Theme.Flat}
+            size={Size.Large}
+            icon="add"
+          />
+        </div>
       </div>
     </div>
   ))

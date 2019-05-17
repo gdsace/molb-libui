@@ -8,7 +8,7 @@ export const tableColumns = [
     key: "age"
   },
   {
-    title: "Address",
+    title: "Address<BR/>",
     key: "address"
   }
 ];
