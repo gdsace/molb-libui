@@ -1,0 +1,34 @@
+@import "../../components/styles/utils.scss";
+
+.rootContainer {
+  padding: 0 $space-specific-30 $space-specific-30 $space-specific-30;
+  background-color: #eff3fa;
+}
+
+.groupHeader {
+  margin: $space-8 0 $space-3 0;
+  color: grey;
+}
+
+.itemsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: -$space-3 0 0 0;
+}
+
+.box {
+  border: solid 0 #828282;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: $space-3 0 0 0;
+}
+
+.content {
+  background-color: lightgreen;
+}
+
+.containerStyle {
+  background-color: lightblue;
+}

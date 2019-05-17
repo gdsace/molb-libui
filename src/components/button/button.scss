@@ -87,6 +87,21 @@
   }
 }
 
+.flat {
+  color: $primary-color;
+  background-color: transparent;
+  border: none;
+
+  &:focus {
+    background-color: transparent;
+  }
+
+  &:hover {
+    color: $lavender-indigo;
+    background-color: $porcelain;
+  }
+}
+
 .disabled {
   color: $primary-color-2;
   background-color: $ui-color-2;

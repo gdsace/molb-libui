@@ -57,7 +57,6 @@ const rowStyles = {
       </div>
       <div style={rowStyles}>
         <Tag
-          theme={TagTheme.Grey}
           tagSize={TagSize.Large}
           label="grey theme"
           showTooltip

@@ -2,7 +2,7 @@ import classnames from "classnames";
 import * as React from "react";
 import { TagSize, TagTheme, TooltipsLocationTheme } from "../EnumValues";
 import { Icon } from "../icons";
-import { Tooltips } from "../tooltips";
+import { ITooltipsState, Tooltips } from "../tooltips";
 
 const styles = require("./tag.scss");
 
@@ -26,7 +26,9 @@ export class Tag extends React.Component<ITagProps, {}> {
   public render() {
     const tagClass = classnames(
       styles[`${this.props.tagSize}`],
-      styles[`${this.props.theme}`]
+      this.props.tagSize === TagSize.Large
+        ? styles.grey
+        : styles[`${this.props.theme}`]
     );
     return (
       <div className={tagClass}>
@@ -35,9 +37,14 @@ export class Tag extends React.Component<ITagProps, {}> {
           {this.props.showTooltip && (
             <div className={styles.tooltip}>
               <Tooltips
-                trigger={
-                  <Icon type="help" size="16" className={styles.helpIcon} />
-                }
+                trigger={(show: ITooltipsState) => (
+                  <Icon
+                    type="help"
+                    size="16"
+                    className={show ? styles.purpleIcon : styles.helpIcon}
+                  />
+                )}
+                overrideTrigger
                 width={250}
                 position={this.props.toolTipsPosition}
                 specializedPosition={false}

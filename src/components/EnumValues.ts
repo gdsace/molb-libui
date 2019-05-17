@@ -2,7 +2,8 @@ export enum Theme {
   Simple = "simple",
   Ghost = "ghost",
   Primary = "primary",
-  Secondary = "secondary"
+  Secondary = "secondary",
+  Flat = "flat"
 }
 
 export enum PanelType {
@@ -151,4 +152,9 @@ export enum AccordionTheme {
   Standard = "standard",
   Large = "large",
   Wrapped = "wrapped"
+}
+
+export enum ExpandablePanelTheme {
+  Standard = "standard",
+  Large = "large"
 }

@@ -16,6 +16,7 @@ export interface ITableProps {
     bordered?: boolean;
     size?: TableSize;
     theme?: TableTheme;
+    showNoDataAvailableMessage?: boolean;
 }
 export declare enum TableSize {
     Small = "small",
