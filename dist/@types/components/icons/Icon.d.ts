@@ -6,6 +6,5 @@ export interface IIconProps {
     className?: string;
     size?: string;
     viewBox?: string;
-    id?: string;
 }
 export declare const Icon: (props: IIconProps) => JSX.Element;
