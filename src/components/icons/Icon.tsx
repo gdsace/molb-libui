@@ -10,7 +10,6 @@ export interface IIconProps {
   className?: string;
   size?: string;
   viewBox?: string;
-  id?: string;
 }
 
 export const Icon = (props: IIconProps) => {
@@ -22,7 +21,6 @@ export const Icon = (props: IIconProps) => {
 
   return (
     <svg
-      id={props.id}
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
       className={`dib v-mid ${

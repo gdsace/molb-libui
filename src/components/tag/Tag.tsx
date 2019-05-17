@@ -39,7 +39,6 @@ export class Tag extends React.Component<ITagProps, {}> {
               <Tooltips
                 trigger={(show: ITooltipsState) => (
                   <Icon
-                    id={"tag-icon-svg"}
                     type="help"
                     size="16"
                     className={show ? styles.purpleIcon : styles.helpIcon}
