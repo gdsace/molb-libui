@@ -1,29 +1,37 @@
 @import "../styles/utils.scss";
 
-.panelHeader {
-  line-height: $line-height-medium;
-  color: $primary-color-1;
-  font-weight: $weight-semibold;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-
-  .collapseIcon {
-    color: $text-color;
-    margin-left: $space-1;
-  }
-
-  .subTitle {
+.expandablePanel {
+  padding-top: $xx-large;
+  
+  .panelHeader {
+    line-height: $line-height-medium;
+    color: $primary-color-1;
     display: flex;
+    flex-direction: row;
     align-items: center;
+    justify-content: space-between;
 
-    &:hover {
-      color: $lavender-indigo;
-      cursor: pointer;
+    .panelTitle {
+      color: $ui-color-4;
+    }
 
-      .collapseIcon {
+    .collapseIcon {
+      color: $text-color;
+      margin-left: $space-1;
+    }
+
+    .subTitle {
+      display: flex;
+      align-items: center;
+      font-weight: $weight-semibold;
+
+      &:hover {
         color: $lavender-indigo;
+        cursor: pointer;
+
+        .collapseIcon {
+          color: $lavender-indigo;
+        }
       }
     }
   }

@@ -50,7 +50,7 @@ export class ExpandablePanel extends React.Component<
           <div className={cx("panelTitle")}>{title}</div>
           {defaultDisplay && children && children.length > defaultDisplay && (
             <div className={cx("subTitle")} onClick={this.onPanelClick}>
-              <span className={cx("panelTitle")}>{subTitle}</span>
+              <span>{subTitle}</span>
               <Icon
                 type={collapsed ? "dropdown" : "up"}
                 className={cx("collapseIcon")}
