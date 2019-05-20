@@ -24,10 +24,10 @@ export interface IDropdownProps<T> extends Props<T> {
 export const dropdownCustomStyles = {
   container: (base: any, state: any) => {
     let borderColor;
-    if (state.isFocused && !state.isDisabled) {
-      borderColor = "1px solid #408";
-    } else if (_.get(state, "selectProps.error")) {
+    if (_.get(state, "selectProps.error")) {
       borderColor = "1px solid #dc3545";
+    } else if (state.isFocused && !state.isDisabled) {
+      borderColor = "1px solid #408";
     } else {
       borderColor = "1px solid #dbdfe4";
     }
@@ -41,9 +41,6 @@ export const dropdownCustomStyles = {
       boxSizing: "border-box",
       borderRadius: state.isFocused ? "3px 3px 0 0" : "3px",
       border: borderColor,
-      "&:hover": {
-        border: state.isFocused ? "1px solid #408" : "1px solid #647283"
-      },
       backgroundColor: state.isDisabled ? "#f9fafa" : "white"
     };
   },
