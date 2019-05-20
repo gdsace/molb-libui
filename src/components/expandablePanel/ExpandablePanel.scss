@@ -9,6 +9,11 @@
   align-items: center;
   justify-content: space-between;
 
+  .collapseIcon {
+    color: $text-color;
+    margin-left: $space-1;
+  }
+
   .subTitle {
     display: flex;
     align-items: center;
@@ -16,34 +21,17 @@
     &:hover {
       color: $lavender-indigo;
       cursor: pointer;
-  
+
       .collapseIcon {
         color: $lavender-indigo;
       }
     }
-  }
-
-  .collapseIcon {
-    color: $text-color;
-    margin-left: $space-1;
   }
 }
 
 .panelContent {
   font-weight: $weight-regular;
   line-height: $line-height-large;
-}
-
-.normal {
-  width: 370px;
-
-  @include for-phone-only {
-    width: 100%;
-  }
-}
-
-.fullText {
-  width: 100%;
 }
 
 .standard {

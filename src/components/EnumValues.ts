@@ -158,8 +158,3 @@ export enum ExpandablePanelTheme {
   Standard = "standard",
   Large = "large"
 }
-
-export enum CellTheme {
-  Normal = "normal",
-  FullText = "fullText"
-}
