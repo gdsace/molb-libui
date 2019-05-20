@@ -28,19 +28,17 @@ export const SEARCH_CRITERIAS = [
   }
 ];
 
-const styles = require("./searchBarSingleDropdown.stories.scss");
-
 const placeholder = "Seach here...";
 const buttonLabel = "Search";
 
 (storiesOf(CategoryName.Others, module) as any).addWithJSX(
   "Search bar with single dropdown",
   wInfo(``)(() => (
-    <div className={styles.rootContainer}>
-      <h6 className={styles.groupHeader}>Search Bar with a single dropdown</h6>
+    <div>
+      <h6>Search Bar with a single dropdown</h6>
       <p>text field and dropdown box is powered by the store</p>
-      <div className={styles.itemsContainer}>
-        <div className={styles.box}>
+      <div>
+        <div>
           <SearchSingleDropdown
             dropdownOptions={SEARCH_CRITERIAS}
             selectedDropdown={SEARCH_CRITERIAS[0]}
