@@ -12,20 +12,20 @@
   .subTitle {
     display: flex;
     align-items: center;
+
+    &:hover {
+      color: $lavender-indigo;
+      cursor: pointer;
+  
+      .collapseIcon {
+        color: $lavender-indigo;
+      }
+    }
   }
 
   .collapseIcon {
     color: $text-color;
     margin-left: $space-1;
-  }
-
-  &:hover {
-    color: $lavender-indigo;
-    cursor: pointer;
-
-    .collapseIcon {
-      color: $lavender-indigo;
-    }
   }
 }
 
