@@ -66,6 +66,13 @@ const multiSelectCustomStyles = {
   valueContainer: (base: any) => ({
     ...base,
     padding: "9px 8px"
+  }),
+  placeholder: (base: any) => ({
+    ...base,
+    fontWeight: 400,
+    fontFamily: "HK Nova",
+    fontSize: "14px",
+    color: "#647283 "
   })
 };
 
