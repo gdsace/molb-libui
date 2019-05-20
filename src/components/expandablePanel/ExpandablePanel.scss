@@ -1,10 +1,5 @@
 @import "../styles/utils.scss";
 
-.standard,
-.large {
-  border-bottom: 1px solid $ui-color-2;
-}
-
 .panelHeader {
   line-height: $line-height-medium;
   color: $primary-color-1;
@@ -12,59 +7,51 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
 
   .collapseIcon {
     color: $text-color;
     margin-left: $space-1;
   }
 
-  &:hover {
-    color: $lavender-indigo;
-    cursor: pointer;
+  .subTitle {
+    display: flex;
+    align-items: center;
 
-    .collapseIcon {
+    &:hover {
       color: $lavender-indigo;
+      cursor: pointer;
+
+      .collapseIcon {
+        color: $lavender-indigo;
+      }
     }
   }
 }
 
+.panelContent {
+  font-weight: $weight-regular;
+  line-height: $line-height-large;
+}
+
 .standard {
   .panelHeader {
-    padding-top: $space-1;
     font-size: $small;
   }
 
   .panelContent {
     padding-bottom: $space-1;
+    font-size: $medium;
   }
 }
 
 .large {
   .panelHeader {
     font-size: $xx-large;
-    padding: $space-3 0;
   }
 
   .panelContent {
     padding-top: $space-3;
-  }
-}
-
-.wrapped {
-  border: 1px solid $ui-color-2;
-  border-radius: 5px;
-
-  &:hover {
-    background: $ui-color-1;
-  }
-
-  .panelHeader {
     font-size: $large;
-    line-height: $line-height-large;
-    padding: $space-2 $space-3;
-  }
-
-  .panelContent {
-    padding: 0 $space-3 $space-2 $space-3;
   }
 }
