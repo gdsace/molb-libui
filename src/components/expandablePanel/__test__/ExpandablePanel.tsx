@@ -20,12 +20,10 @@ describe("ExpandablePanel", () => {
   });
 
   it("should be able to set collapsed status by props", () => {
-    const child = ["this is expandablePanel content"];
     const props = {
       collapsed: true,
       theme: ExpandablePanelTheme.Large,
       title: "title",
-      content: child,
       onPanelClick: jest.fn()
     };
     const wrapper = mount(
