@@ -2,36 +2,36 @@
 
 .expandablePanel {
   padding-top: $xx-large;
-  
-  .panelHeader {
-    line-height: $line-height-medium;
-    color: $primary-color-1;
+}
+
+.panelHeader {
+  line-height: $line-height-medium;
+  color: $primary-color-1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  .panelTitle {
+    color: $ui-color-4;
+  }
+
+  .collapseIcon {
+    color: $text-color;
+    margin-left: $space-1;
+  }
+
+  .subTitle {
     display: flex;
-    flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    font-weight: $weight-semibold;
 
-    .panelTitle {
-      color: $ui-color-4;
-    }
+    &:hover {
+      color: $lavender-indigo;
+      cursor: pointer;
 
-    .collapseIcon {
-      color: $text-color;
-      margin-left: $space-1;
-    }
-
-    .subTitle {
-      display: flex;
-      align-items: center;
-      font-weight: $weight-semibold;
-
-      &:hover {
+      .collapseIcon {
         color: $lavender-indigo;
-        cursor: pointer;
-
-        .collapseIcon {
-          color: $lavender-indigo;
-        }
       }
     }
   }
