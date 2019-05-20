@@ -28,8 +28,6 @@ export const SEARCH_CRITERIAS = [
   }
 ];
 
-const styles = require("./searchBarSingleDropdown.stories.scss");
-
 const placeholder = "Seach here...";
 const buttonLabel = "Search";
 
