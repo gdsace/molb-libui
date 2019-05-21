@@ -14,7 +14,7 @@ export interface IExpandablePanelProps {
   title?: string | React.ReactNode;
   theme: ExpandablePanelTheme;
   defaultDisplay?: number;
-  subTitle?: string;
+  subTitle?: string | React.ReactNode;
   children?: React.ReactNodeArray | React.ReactNode;
 }
 
