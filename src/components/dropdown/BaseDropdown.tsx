@@ -102,6 +102,7 @@ export class BaseDropdown<T> extends React.Component<
           this.props.size,
           this.props.className
         )}
+        menuPortalTarget={document.body}
         classNamePrefix="dropdown"
         components={customComponents}
         styles={this.props.styles || {}}
