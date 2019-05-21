@@ -35,7 +35,7 @@ export class AppAlert extends React.Component<IAppAlertProps, {}> {
     );
 
     return (
-      <div className="{style[`${theme}`]}">
+      <div className={style[`${theme}`]}>
         <div className={appAlertClassName}>
           <Icon
             className={style.appAlertIcon}
