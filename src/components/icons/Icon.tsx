@@ -30,6 +30,12 @@ export const Icon = (props: IIconProps) => {
       height={props.size || "24"}
       viewBox={props.viewBox || `0 0 24 24`}
     >
+      <defs>
+        <linearGradient id="linearColor" x1="0%" y1="40.644%" y2="59.356%">
+          <stop offset="0%" stopColor="#60F" />
+          <stop offset="100%" stopColor="#95E" />
+        </linearGradient>
+      </defs>
       <use xlinkHref={`#${props.type}`} />
     </svg>
   );
