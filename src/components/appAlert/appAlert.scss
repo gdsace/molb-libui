@@ -1,5 +1,17 @@
 @import "../styles/utils.scss";
 
+.error {
+  background-color: $support-red;
+}
+
+.informational {
+  background-color: $indigo;
+}
+
+.warning {
+  background-color: $vivid-orange;
+}
+
 .appAlert {
   display: flex;
   align-items: center;
@@ -11,23 +23,13 @@
   }
 
   &.left {
-    padding-left: $space-specific-150;
+    padding: 0 $space-specific-150;
+    margin: 0 auto;
+    max-width: 1440px;
   }
 
   &.center {
     justify-content: center;
-  }
-
-  &.error {
-    background-color: $support-red;
-  }
-
-  &.informational {
-    background-color: $indigo;
-  }
-
-  &.warning {
-    background-color: $vivid-orange;
   }
 
   .appAlertIcon {
