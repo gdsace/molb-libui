@@ -15,6 +15,7 @@ export declare const dropdownCustomStyles: {
     control: (base: any) => any;
     menu: (base: any) => any;
     option: (base: any) => any;
+    menuList: (base: any) => any;
     menuPortal: (base: any) => any;
 };
 export declare class Dropdown<T> extends React.Component<IDropdownProps<T>, {}> {

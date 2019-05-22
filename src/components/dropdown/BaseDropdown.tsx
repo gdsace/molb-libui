@@ -100,6 +100,13 @@ export const baseComponentMenuStyles = (base: any) => {
   };
 };
 
+export const baseComponentMenuListStyles = (base: any) => {
+  return {
+    ...base,
+    maxHeight: "240px"
+  };
+};
+
 export class BaseDropdown<T> extends React.Component<
   IBaseDropdownProps<T>,
   {}

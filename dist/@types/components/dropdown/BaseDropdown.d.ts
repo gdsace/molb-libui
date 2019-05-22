@@ -11,6 +11,7 @@ export interface IBaseDropdownProps<T> extends Props<T> {
 }
 export declare const baseComponentOptionStyles: (base: any) => any;
 export declare const baseComponentMenuStyles: (base: any) => any;
+export declare const baseComponentMenuListStyles: (base: any) => any;
 export declare class BaseDropdown<T> extends React.Component<IBaseDropdownProps<T>, {}> {
     static defaultProps: Partial<IBaseDropdownProps<any>>;
     render(): JSX.Element;
