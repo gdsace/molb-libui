@@ -40,7 +40,6 @@ export enum CategoryName {
   Links = "Links",
   Modal = "Modal",
   Notification = "Notification",
-  AppAlert = "AppAlert",
   Table = "Table",
   Tabs = "Tabs",
   Tags = "Tags",
