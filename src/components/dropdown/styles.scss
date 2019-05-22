@@ -22,23 +22,6 @@
   }
 }
 
-.menuList {
-  padding: 0 !important;
-  overflow-x: hidden;
-  max-height: 265px !important;
-}
-
-.option {
-  color: $text-color-2 !important;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-
-  &:hover {
-    background-color: $ui-color-1 !important;
-  }
-}
-
 .errorMessage {
   margin-top: $space-1;
   font-size: $small;
@@ -80,24 +63,6 @@
     &:hover {
       border: solid 1px $text-color;
     }
-  }
-
-  .option {
-    padding: $space-2 !important;
-  }
-
-  .menu {
-    border-radius: 0 0 3px 3px;
-    border-right: solid 1px $indigo;
-    border-left: solid 1px $indigo;
-    border-bottom: solid 1px $indigo;
-    margin: 0 0 0 -1px !important;
-    box-sizing: unset !important;
-    box-shadow: none !important;
-  }
-
-  .menuList {
-    border-top: solid 1px $ui-color-2;
   }
 
   .valueContainer {

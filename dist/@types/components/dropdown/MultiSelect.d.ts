@@ -4,6 +4,7 @@ import { Size } from "../EnumValues";
 interface IMultiSelectProps<T> {
     size?: Size;
     error?: string;
+    placeholder?: string;
     selectedValue?: T[];
     options: T[];
     onChange?: (data: ValueType<T>) => void;
