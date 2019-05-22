@@ -2,7 +2,11 @@ import _ from "lodash";
 import React from "react";
 import { components } from "react-select";
 import { Props } from "react-select/lib/Select";
-import { baseComponents, BaseDropdown } from "./BaseDropdown";
+import {
+  baseComponentOptionStyles,
+  baseComponents,
+  BaseDropdown
+} from "./BaseDropdown";
 
 const styles = require("./styles.scss");
 
@@ -43,6 +47,9 @@ export class PremiseDropdown<T> extends React.Component<Props<T>, {}> {
     return (
       <div className={styles.premise}>
         <BaseDropdown
+          styles={{
+            option: baseComponentOptionStyles
+          }}
           components={{
             ...baseComponents,
             Option: PremiseAutoLabel,

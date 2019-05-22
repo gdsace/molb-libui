@@ -5,7 +5,12 @@ import { Props } from "react-select/lib/Select";
 import { Size } from "../EnumValues";
 import { Input } from "../input";
 import { addLocatedErrorClassname } from "../utils";
-import { baseComponents, BaseDropdown } from "./BaseDropdown";
+import {
+  baseComponentMenuStyles,
+  baseComponentOptionStyles,
+  baseComponents,
+  BaseDropdown
+} from "./BaseDropdown";
 
 const styles = require("./styles.scss");
 
@@ -24,10 +29,10 @@ export interface IDropdownProps<T> extends Props<T> {
 export const dropdownCustomStyles = {
   container: (base: any, state: any) => {
     let borderColor;
-    if (state.isFocused && !state.isDisabled) {
-      borderColor = "1px solid #408";
-    } else if (_.get(state, "selectProps.error")) {
+    if (_.get(state, "selectProps.error")) {
       borderColor = "1px solid #dc3545";
+    } else if (state.isFocused && !state.isDisabled) {
+      borderColor = "1px solid #408";
     } else {
       borderColor = "1px solid #dbdfe4";
     }
@@ -39,7 +44,7 @@ export const dropdownCustomStyles = {
     return {
       ...base,
       boxSizing: "border-box",
-      borderRadius: state.isFocused ? "3px 3px 0 0" : "3px",
+      borderRadius: "3px",
       border: borderColor,
       backgroundColor: state.isDisabled ? "#f9fafa" : "white"
     };
@@ -55,30 +60,8 @@ export const dropdownCustomStyles = {
       backgroundColor: "transparent"
     };
   },
-  menu: (base: any) => {
-    return {
-      ...base,
-      borderRadius: "0 0 3px 3px !important",
-      borderRight: "solid 1px #408 !important",
-      borderLeft: "solid 1px #408 !important",
-      borderBottom: "solid 1px #408 !important",
-      margin: "0 0 0 -1px !important",
-      boxSizing: "unset !important",
-      boxShadow: "none !important"
-    };
-  },
-  menuList: (base: any) => ({
-    ...base,
-    borderTop: "solid 1px #dbdfe4"
-  }),
-  option: (base: any) => ({
-    ...base,
-    color: "#313840 !important",
-    display: "flex",
-    justifyContent: "flex-start",
-    alignItems: "center",
-    padding: "16px !important"
-  }),
+  menu: baseComponentMenuStyles,
+  option: baseComponentOptionStyles,
   menuPortal: (base: any) => ({ ...base, zIndex: 9999 })
 };
 
@@ -92,7 +75,7 @@ export class Dropdown<T> extends React.Component<IDropdownProps<T>, {}> {
 
     const dropdown = (
       <div className={dropdownClassName}>
-        <BaseDropdown
+        <BaseDropdown<T>
           components={{
             ...baseComponents
           }}
@@ -127,10 +110,7 @@ export class Dropdown<T> extends React.Component<IDropdownProps<T>, {}> {
     if (this.props.label) {
       return (
         <label data-scrollpoint={true}>
-          <div className={styles.label}>
-            {this.props.label}
-            {/* <Icon type="help" /> */}
-          </div>
+          <div className={styles.label}>{this.props.label}</div>
           {this.props.editable ? input : dropdown}
         </label>
       );
