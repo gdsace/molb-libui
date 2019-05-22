@@ -6,6 +6,7 @@ import { Size } from "../EnumValues";
 import { Input } from "../input";
 import { addLocatedErrorClassname } from "../utils";
 import {
+  baseComponentMenuListStyles,
   baseComponentMenuStyles,
   baseComponentOptionStyles,
   baseComponents,
@@ -62,6 +63,7 @@ export const dropdownCustomStyles = {
   },
   menu: baseComponentMenuStyles,
   option: baseComponentOptionStyles,
+  menuList: baseComponentMenuListStyles,
   menuPortal: (base: any) => ({ ...base, zIndex: 9999 })
 };
 

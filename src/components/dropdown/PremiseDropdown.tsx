@@ -3,6 +3,8 @@ import React from "react";
 import { components } from "react-select";
 import { Props } from "react-select/lib/Select";
 import {
+  baseComponentMenuListStyles,
+  baseComponentMenuStyles,
   baseComponentOptionStyles,
   baseComponents,
   BaseDropdown
@@ -48,7 +50,9 @@ export class PremiseDropdown<T> extends React.Component<Props<T>, {}> {
       <div className={styles.premise}>
         <BaseDropdown
           styles={{
-            option: baseComponentOptionStyles
+            option: baseComponentOptionStyles,
+            menuList: baseComponentMenuListStyles,
+            menu: baseComponentMenuStyles
           }}
           components={{
             ...baseComponents,
