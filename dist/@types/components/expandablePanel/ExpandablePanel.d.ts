@@ -4,9 +4,10 @@ export interface IExpandablePanelProps {
     collapsed?: boolean;
     onPanelClick?: (collapsed: boolean) => any;
     title?: string | React.ReactNode;
-    content?: React.ReactNode[] | string[] | React.ReactNode;
     theme: ExpandablePanelTheme;
     defaultDisplay?: number;
+    subTitle?: string | React.ReactNode;
+    children?: React.ReactNodeArray | React.ReactNode;
 }
 export interface IExpandablePanelState {
     collapsed: boolean;
@@ -15,6 +16,4 @@ export declare class ExpandablePanel extends React.Component<IExpandablePanelPro
     constructor(props: IExpandablePanelProps);
     render(): JSX.Element;
     private onPanelClick;
-    private renderPanelContent;
-    private renderContent;
 }

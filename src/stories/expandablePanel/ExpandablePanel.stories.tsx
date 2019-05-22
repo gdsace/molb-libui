@@ -11,10 +11,13 @@ import { CategoryName, wInfo } from "../utils";
     <div>
       <ExpandablePanel
         theme={ExpandablePanelTheme.Standard}
-        content={["this is a content div1", "this is a content div2"]}
         title={"ExpandablePanel Header"}
+        subTitle="View All"
         defaultDisplay={1}
-      />
+      >
+        <p> this is div1</p>
+        <p> this is div2</p>
+      </ExpandablePanel>
     </div>
   ))
 );
