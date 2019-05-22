@@ -66,7 +66,6 @@ export class ExpandablePanel extends React.Component<
             index < defaultDisplay ? item : null
           )}
         {!collapsed && this.props.children}
-        {"this is a test"}
       </div>
     );
   }
