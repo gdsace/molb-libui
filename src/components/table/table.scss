@@ -131,6 +131,14 @@ $title-margin: $space-2;
     td {
       display: block;
 
+      &:not(:first-child) {
+        padding-left: 0;
+      }
+
+      &:not(:last-child) {
+        padding-right: 0;
+      }
+
       &::before {
         content: attr(data-title);
         width: $title-width-for-mobile;
@@ -140,21 +148,19 @@ $title-margin: $space-2;
         word-break: break-word;
       }
 
-      &:not(:first-child) {
-        padding-left: 0;
+      .contentData {
+        display: inline-block;
+        width: calc(100% - #{$title-width-for-mobile + $title-margin});
+      }
+
+      &.hiddenInlineTitle {
+        &::before {
+          display: none;
+        }
 
         .contentData {
-          display: inline-block;
-          width: calc(100% - #{$title-width-for-mobile + $title-margin});
+          width: auto;
         }
-      }
-
-      &:not(:last-child) {
-        padding-right: 0;
-      }
-
-      &.hiddenInlineTitle::before {
-        display: none;
       }
     }
 
@@ -173,7 +179,6 @@ $title-margin: $space-2;
       }
     }
 
-    /* stylelint-disable */
     table.small {
       td {
         &:last-child {
@@ -187,7 +192,5 @@ $title-margin: $space-2;
         }
       }
     }
-
-    /* stylelint-enable */
   }
 }
