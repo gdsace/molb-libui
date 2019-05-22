@@ -120,6 +120,10 @@ $title-margin: $space-2;
   .alignRight {
     text-align: right;
   }
+
+  .withoutBorder {
+    border-bottom-color: $ui-color;
+  }
 }
 
 @include for-phone-only {

@@ -105,11 +105,17 @@ export class Table extends React.Component<ITableProps, {}> {
       </tr>
     ];
 
-    const detailRows = dataSource.map(rowData => (
-      <tr key={`tr-${rowData.key}`}>
-        {columns.map(column => toItem(column, rowData))}
-      </tr>
-    ));
+    const detailRows = dataSource.map(rowData => {
+      console.log("rowData", rowData);
+      return (
+        <tr
+          key={`tr-${rowData.key}`}
+          className={rowData.withoutBorder ? styles.withoutBorder : ""}
+        >
+          {columns.map(column => toItem(column, rowData))}
+        </tr>
+      );
+    });
 
     return (
       <tbody>
