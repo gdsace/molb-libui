@@ -179,6 +179,7 @@ $title-margin: $space-2;
       }
     }
 
+    /* stylelint-disable */
     table.small {
       td {
         &:last-child {
@@ -192,5 +193,6 @@ $title-margin: $space-2;
         }
       }
     }
+    /* stylelint-enable */
   }
 }
