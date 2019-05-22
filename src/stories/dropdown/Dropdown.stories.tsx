@@ -19,13 +19,11 @@ const store = new Store({
   ]
 });
 
-const clearErrorMessage = () => {
-  store.set({ error: "" });
-};
 const onDataChange = (dataArray: any) => {
   action("data")(dataArray.map((data: any) => data.label).join(" "));
   store.set({
-    value: dataArray
+    value: dataArray,
+    error: ""
   });
 };
 
@@ -71,7 +69,6 @@ const onDataChange = (dataArray: any) => {
             <MultiSelect
               error={store.state.error}
               options={mockOptionsForDays}
-              onFocus={clearErrorMessage}
               onChange={onDataChange}
               selectedValue={store.state.value}
             />
