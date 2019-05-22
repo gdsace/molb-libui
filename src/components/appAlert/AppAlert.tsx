@@ -37,7 +37,7 @@ export class AppAlert extends React.Component<IAppAlertProps, {}> {
 
     return (
       <div className={appAlertClassName}>
-        <Icon className={style.appAlertIcon} type={iconType[theme]} size="14" />
+        <Icon className={style.appAlertIcon} type={iconType[theme]} size="20" />
         <span className={style.appAlertText}>{text}</span>
       </div>
     );

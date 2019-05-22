@@ -14,7 +14,7 @@ import { CategoryName, wInfo } from "../utils";
         <h1>AppAlert</h1>
         <br />
         <h5>Alignment: left</h5>
-        <div style={{ padding: "10px" }}>
+        <div>
           <AppAlert
             text={"Normal Notification"}
             theme={AppAlertTheme.Informational}
@@ -24,10 +24,16 @@ import { CategoryName, wInfo } from "../utils";
             theme={AppAlertTheme.Warning}
           />
           <AppAlert text={"Error Notification"} theme={AppAlertTheme.Error} />
+          <AppAlert
+            text={
+              "Normal Notification with a very very very very very very very very long text"
+            }
+            theme={AppAlertTheme.Informational}
+          />
         </div>
         <br />
         <h5>Alignment: center</h5>
-        <div style={{ padding: "10px" }}>
+        <div>
           <AppAlert
             text={"Normal Notification"}
             theme={AppAlertTheme.Informational}
@@ -41,6 +47,13 @@ import { CategoryName, wInfo } from "../utils";
           <AppAlert
             text={"Error Notification"}
             theme={AppAlertTheme.Error}
+            alignment={AppAlertAlignmentTheme.CENTER}
+          />
+          <AppAlert
+            text={
+              "Normal Notification with a very very very very very very very very long text"
+            }
+            theme={AppAlertTheme.Informational}
             alignment={AppAlertAlignmentTheme.CENTER}
           />
         </div>
