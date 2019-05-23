@@ -7,6 +7,10 @@
   width: 32px; /* Fix for IE11, Safari icon not showing */
 }
 
+.dropdown {
+  height: 48px !important;
+}
+
 .dropdownControl {
   height: 100% !important;
   border: 0 !important;
@@ -209,7 +213,7 @@
     color: $text-color-2;
   }
 
-
+  // stylelint-disable
   .dropdownControl {
     &:hover {
       .addressLabel,
@@ -222,8 +226,5 @@
       }
     }
   }
-}
-
-.dropdown {
-  height: 48px !important;
+  // stylelint-enable
 }
