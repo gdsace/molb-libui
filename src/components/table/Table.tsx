@@ -1,5 +1,6 @@
 import classNames from "classnames/bind";
 import * as React from "react";
+import { Icon } from "..";
 
 const styles = require("./table.scss");
 const cx = classNames.bind(styles).default || classNames.bind(styles);
@@ -33,6 +34,7 @@ export enum TableSize {
 }
 
 export enum TableTheme {
+  expandable = "expandable",
   Striped = "striped",
   Basic = "basic"
 }
@@ -105,10 +107,25 @@ export class Table extends React.Component<ITableProps, {}> {
       </tr>
     ];
 
-    const detailRows = dataSource.map(rowData => (
-      <tr key={`tr-${rowData.key}`}>
-        {columns.map(column => toItem(column, rowData))}
+    const expandableContent = (data: IDateSource) => (
+      <tr>
+        <td colSpan={columns.length + 1}>
+          <div>OK</div>
+        </td>
       </tr>
+    );
+
+    const detailRows = dataSource.map(rowData => (
+      <>
+        <tr key={`tr-${rowData.key}`}>
+          {columns.map(column => {
+            return toItem(column, rowData);
+          })}
+          {this.props.theme === "striped" ? <Icon type="dropdown" /> : null}
+        </tr>
+        {/* TODO if expandable */}
+        {expandableContent(rowData)}
+      </>
     ));
 
     return (
@@ -135,7 +152,10 @@ export class Table extends React.Component<ITableProps, {}> {
 
     return (
       <thead>
-        <tr>{columns.map(toItem)}</tr>
+        <tr>
+          {columns.map(toItem)}
+          {this.props.theme === "striped" ? <th /> : null}
+        </tr>
       </thead>
     );
   }
