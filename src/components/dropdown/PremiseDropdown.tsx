@@ -2,15 +2,9 @@ import _ from "lodash";
 import React from "react";
 import { components } from "react-select";
 import { Props } from "react-select/lib/Select";
-import {
-  baseComponentMenuListStyles,
-  baseComponentMenuStyles,
-  baseComponentOptionStyles,
-  baseComponents,
-  BaseDropdown
-} from "./BaseDropdown";
+import { baseComponents, BaseDropdown } from "./BaseDropdown";
 
-const styles = require("./styles.scss");
+const styles = require("./dropdownStyle.scss");
 
 const PremiseAutoLabel = (props: any) => {
   const postalCode = _.get(props, "data.value.address.postalCode");
@@ -49,11 +43,6 @@ export class PremiseDropdown<T> extends React.Component<Props<T>, {}> {
     return (
       <div className={styles.premise}>
         <BaseDropdown
-          styles={{
-            option: baseComponentOptionStyles,
-            menuList: baseComponentMenuListStyles,
-            menu: baseComponentMenuStyles
-          }}
           components={{
             ...baseComponents,
             Option: PremiseAutoLabel,
