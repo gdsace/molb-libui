@@ -8,7 +8,7 @@ import { Icon } from "../icons/Icon";
 
 import "./library.scss.nomangle";
 
-const styles = require("./styles.scss");
+const styles = require("./dropdownStyle.scss");
 
 // Use custom components so we can assign our own styles via CSS modules
 // Ignore usages of any since we're just doing thin wrappers over react-select
@@ -80,32 +80,6 @@ export interface IBaseDropdownProps<T> extends Props<T> {
   styles?: any;
   size?: Size;
 }
-
-export const baseComponentOptionStyles = (base: any) => ({
-  ...base,
-  color: "#313840 !important",
-  display: "flex",
-  justifyContent: "flex-start",
-  alignItems: "center",
-  padding: "16px !important"
-});
-
-export const baseComponentMenuStyles = (base: any) => {
-  return {
-    ...base,
-    borderRadius: "3px !important",
-    marginTop: "1px !important",
-    boxShadow:
-      "0 4px 12px 0 rgba(0, 0, 0, 0.03), 0 7px 25px 0 rgba(0, 0, 0, 0.03), 0 0 0 1px rgba(0, 0, 0, 0.03); !important"
-  };
-};
-
-export const baseComponentMenuListStyles = (base: any) => {
-  return {
-    ...base,
-    maxHeight: "240px"
-  };
-};
 
 export class BaseDropdown<T> extends React.Component<
   IBaseDropdownProps<T>,

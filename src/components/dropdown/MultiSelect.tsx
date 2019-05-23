@@ -9,7 +9,7 @@ import { addLocatedErrorClassname } from "../utils";
 import { baseComponents, BaseDropdown } from "./BaseDropdown";
 import { dropdownCustomStyles } from "./Dropdown";
 
-const styles = require("./styles.scss");
+const styles = require("./dropdownStyle.scss");
 
 interface IMultiSelectProps<T> {
   size?: Size;

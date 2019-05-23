@@ -5,15 +5,9 @@ import { Props } from "react-select/lib/Select";
 import { Size } from "../EnumValues";
 import { Input } from "../input";
 import { addLocatedErrorClassname } from "../utils";
-import {
-  baseComponentMenuListStyles,
-  baseComponentMenuStyles,
-  baseComponentOptionStyles,
-  baseComponents,
-  BaseDropdown
-} from "./BaseDropdown";
+import { baseComponents, BaseDropdown } from "./BaseDropdown";
 
-const styles = require("./styles.scss");
+const styles = require("./dropdownStyle.scss");
 
 export interface IDropdownProps<T> extends Props<T> {
   error?: string | boolean;
@@ -61,9 +55,6 @@ export const dropdownCustomStyles = {
       backgroundColor: "transparent"
     };
   },
-  menu: baseComponentMenuStyles,
-  option: baseComponentOptionStyles,
-  menuList: baseComponentMenuListStyles,
   menuPortal: (base: any) => ({ ...base, zIndex: 9999 })
 };
 
