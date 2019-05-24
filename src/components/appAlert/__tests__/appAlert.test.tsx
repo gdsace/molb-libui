@@ -7,10 +7,7 @@ import { AppAlert } from "../AppAlert";
 describe("App-level alert", () => {
   it("should render warning notification success", () => {
     const wrapper = shallow(
-      <AppAlert
-        textStart="this is warning text"
-        theme={AppAlertTheme.Warning}
-      />
+      <AppAlert text="this is warning text" theme={AppAlertTheme.Warning} />
     );
 
     expect(wrapper.find("span").text()).toEqual("this is warning text");
@@ -22,7 +19,7 @@ describe("App-level alert", () => {
   it("should render error notification success", () => {
     const wrapper = shallow(
       <AppAlert
-        textStart="this is error text"
+        text="this is error text"
         theme={AppAlertTheme.Error}
         alignment={AppAlertAlignmentTheme.CENTER}
       />
@@ -37,7 +34,7 @@ describe("App-level alert", () => {
   it("should render informational notification success", () => {
     const wrapper = shallow(
       <AppAlert
-        textStart="this is informational text"
+        text="this is informational text"
         theme={AppAlertTheme.Informational}
       />
     );
@@ -47,15 +44,16 @@ describe("App-level alert", () => {
     expect(wrapper.find(Icon).prop("type")).toEqual("informational");
   });
 
-  it("should render bold in the ", () => {
+  it("should render textInBold", () => {
     const wrapper = shallow(
       <AppAlert
-        textStart="this is informational text"
+        text="this is a bold bold bold text"
+        textToBold="bold"
         theme={AppAlertTheme.Informational}
       />
     );
 
-    expect(wrapper.find("span").text()).toEqual("this is informational text");
+    expect(wrapper.find(".appAlertTextBold")).toHaveLength(3);
     expect(wrapper.find(".informational")).toHaveLength(1);
     expect(wrapper.find(Icon).prop("type")).toEqual("informational");
   });
