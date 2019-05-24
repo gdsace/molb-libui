@@ -16,7 +16,8 @@ const store = new Store({
       value: "Mon",
       label: "Mon"
     }
-  ]
+  ],
+  text: ""
 });
 
 const onDataChange = (dataArray: any) => {
@@ -53,10 +54,12 @@ const onDataChange = (dataArray: any) => {
             onChange={action("value")}
           />
         </div>
+
         <div className={styles.box}>
-          <p className={styles.notes}>Disabled:</p>
-          <Dropdown options={mockOptions} isDisabled />
+          <p className={styles.notes}>Disabled</p>
+          <Dropdown label="Label" isDisabled={true} />
         </div>
+
         <div className={styles.box}>
           <p className={styles.notes}>Validation Error:</p>
           <Dropdown options={mockOptions} error="Some error" />
@@ -64,6 +67,7 @@ const onDataChange = (dataArray: any) => {
             Other following contents (Input error msg should float on this)
           </p>
         </div>
+
         <div className={styles.multiSelectBox}>
           <State store={store}>
             <MultiSelect
@@ -73,6 +77,29 @@ const onDataChange = (dataArray: any) => {
               selectedValue={store.state.value}
             />
           </State>
+        </div>
+      </div>
+
+      <h6 className={styles.groupHeader}>Dropdown editable: ...</h6>
+      <div className={styles.itemsContainer}>
+        <div className={styles.box}>
+          <p className={styles.notes}>editable</p>
+          <Dropdown
+            error={undefined}
+            label={"Label"}
+            editable={true}
+            textInputValue="this is value"
+          />
+        </div>
+        <div className={styles.box}>
+          <p className={styles.notes}>editable</p>
+          <Dropdown
+            error={undefined}
+            isDisabled={true}
+            label={"Label"}
+            editable={true}
+            textInputValue=""
+          />
         </div>
       </div>
     </div>
