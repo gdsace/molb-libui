@@ -38,5 +38,9 @@
     font-weight: $weight-medium;
     line-height: $line-height-large;
     color: $primary-color-2;
+
+    .appAlertTextBold {
+      font-weight: $weight-bold;
+    }
   }
 }
