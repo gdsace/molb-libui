@@ -20,10 +20,7 @@ export declare class Modal extends React.Component<IModalProps, {}> {
     debouncedScrollHandler: ((e: any) => void) & _.Cancelable;
     private readonly el;
     private modalRoot;
-    private readonly setUpModalContentRef;
     private modalNode;
-    private readonly setFooter;
-    private footer;
     constructor(props: IModalProps);
     componentWillReceiveProps(nextProps: IModalProps): void;
     componentDidMount(): void;
@@ -35,6 +32,5 @@ export declare class Modal extends React.Component<IModalProps, {}> {
     private disableBodyScroll;
     private enableBodyScroll;
     private onClickAway;
-    private isClickedElementInModalBox;
     private isClickedOnFloatOrAbsuluteElement;
 }

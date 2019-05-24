@@ -37,18 +37,12 @@ export class Modal extends React.Component<IModalProps, {}> {
   public debouncedScrollHandler: ((e: any) => void) & _.Cancelable;
   private readonly el: HTMLElement;
   private modalRoot: HTMLElement;
-  private readonly setUpModalContentRef: (element: HTMLElement) => any;
   private modalNode: HTMLElement | undefined;
-  private readonly setFooter: (element: HTMLElement) => any;
-  private footer: HTMLElement | undefined;
 
   constructor(props: IModalProps) {
     super(props);
     this.el = document.createElement("div");
     this.modalRoot = document.body as HTMLElement;
-    this.setUpModalContentRef = (element: HTMLElement) =>
-      (this.modalNode = element);
-    this.setFooter = (element: HTMLElement) => (this.footer = element);
     this.debouncedScrollHandler = _.debounce(
       this.onScrollBottom.bind(this),
       50
@@ -89,11 +83,8 @@ export class Modal extends React.Component<IModalProps, {}> {
     });
 
     const modalContent = (
-      <div className={modalStyle} onClick={this.onClickAway}>
-        <section
-          className={styles.modalContent}
-          ref={this.setUpModalContentRef}
-        >
+      <div className={modalStyle}>
+        <section className={styles.modalContent}>
           {!this.props.hideCloseButton && (
             <div className={styles.close} onClick={this.onClose}>
               <Icon type={"close"} />
@@ -102,10 +93,9 @@ export class Modal extends React.Component<IModalProps, {}> {
           <div className={styles.content}>{this.props.children}</div>
         </section>
         {this.props.footer && (
-          <section ref={this.setFooter} className={styles.footer}>
-            {this.props.footer}
-          </section>
+          <section className={styles.footer}>{this.props.footer}</section>
         )}
+        <div className={styles.mask} onClick={this.onClickAway} />
       </div>
     );
 
@@ -148,29 +138,21 @@ export class Modal extends React.Component<IModalProps, {}> {
   };
 
   private onClickAway = (e: any) => {
-    if (this.isClickedElementInModalBox(e)) {
-      return;
-    }
     if (this.isClickedOnFloatOrAbsuluteElement(e)) {
       return;
     }
     this.onClose(e);
   };
 
-  private isClickedElementInModalBox(e: any) {
-    return (
-      (this.modalNode && this.modalNode.contains(e.target)) ||
-      (this.footer && this.footer.contains(e.target)) ||
-      this.props.hideCloseButton
-    );
-  }
-
   private isClickedOnFloatOrAbsuluteElement(e: any) {
-    return (
+    const isElementClickedOnTimePicker =
       e!.target.tagName === "LI" ||
       e!.target.tagName === "UL" ||
-      e.target.className.indexOf("rc-time-picker") !== -1 ||
-      e.target.className.indexOf("dropdown") !== -1
-    );
+      e.target.className.indexOf("rc-time-picker") !== -1;
+
+    const isElementClickedOnDropdownOptionList =
+      e.target.className.indexOf("dropdown") !== -1;
+
+    return isElementClickedOnTimePicker || isElementClickedOnDropdownOptionList;
   }
 }
