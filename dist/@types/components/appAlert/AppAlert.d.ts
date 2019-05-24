@@ -1,7 +1,9 @@
 import * as React from "react";
 import { AppAlertAlignmentTheme, AppAlertTheme } from "../EnumValues";
 interface IAppAlertProps {
-    text: string;
+    textStart: string;
+    textMiddle?: string;
+    textEnd?: string;
     theme: AppAlertTheme;
     alignment?: AppAlertAlignmentTheme;
 }
