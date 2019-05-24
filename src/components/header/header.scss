@@ -6,11 +6,13 @@ $header-height: 80px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  min-height: $header-height;
   padding: $body-padding;
   line-height: 1;
   vertical-align: middle;
   justify-content: space-between;
+
+  min-height: $header-height;
+  width: 100%;
 
   @include for-phone-only {
     padding: $molb-body-padding;
@@ -21,11 +23,12 @@ $header-height: 80px;
   }
 }
 
-.forRfa {
+.rfa {
   background-color: $ui-color;
+  border-bottom: 1px solid $ui-color-2;
 }
 
-.forStoryBookDemo {
+.storyBookDemo {
   background-color: $ui-color-7;
   border: 1px solid $ui-color-2;
 }

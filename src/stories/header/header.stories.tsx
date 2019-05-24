@@ -1,17 +1,24 @@
 import React from "react";
 
 import { storiesOf } from "@storybook/react";
-import { Header } from "../../components";
+import { Header, HeaderType } from "../../components";
 import { CategoryName, wInfo } from "../utils";
-// const styles = require("./header.stories.scss");
+const styles = require("./header.stories.scss");
 
 (storiesOf(CategoryName.Others, module) as any).addWithJSX(
   "Header",
   wInfo(``)(() => (
     <div>
-      <Header className={"forStoryBookDemo"}>
-        <h4>Header Component</h4>
-      </Header>
+      <div className={styles.demo}>
+        <Header className={HeaderType.Demo}>
+          <h4>Demo Header</h4>
+        </Header>
+      </div>
+      <div className={styles.rfa}>
+        <Header className={HeaderType.Rfa}>
+          <h4>RFA Header</h4>
+        </Header>
+      </div>
     </div>
   ))
 );

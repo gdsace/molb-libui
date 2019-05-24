@@ -1,0 +1,21 @@
+@import "../../components/styles/utils.scss";
+
+%spacer {
+  margin-bottom: 1em;
+  border: 1px solid $lavender-indigo;
+  height: 130px;
+  width: 100%;
+
+  display: flex;
+  justify-content: stretch;
+  padding: 25px 0;
+}
+
+.demo {
+  @extend %spacer;
+}
+
+.rfa {
+  @extend %spacer;
+  background-color: $ui-color-1;
+}
