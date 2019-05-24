@@ -8,7 +8,7 @@ import { Icon } from "../icons/Icon";
 
 import "./library.scss.nomangle";
 
-const styles = require("./styles.scss");
+const styles = require("./dropdownStyle.scss");
 
 // Use custom components so we can assign our own styles via CSS modules
 // Ignore usages of any since we're just doing thin wrappers over react-select
@@ -102,6 +102,7 @@ export class BaseDropdown<T> extends React.Component<
           this.props.size,
           this.props.className
         )}
+        menuPortalTarget={document.body}
         classNamePrefix="dropdown"
         components={customComponents}
         styles={this.props.styles || {}}

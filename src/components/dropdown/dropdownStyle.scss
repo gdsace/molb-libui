@@ -1,5 +1,5 @@
-// We cannot split this file up because importing styles from another file will
-// create duplicates
+// // We cannot split this file up because importing styles from another file will
+// // create duplicates
 
 @import "../styles/utils.scss";
 
@@ -7,36 +7,15 @@
   width: 32px; /* Fix for IE11, Safari icon not showing */
 }
 
+.dropdown {
+  height: 48px !important;
+}
+
 .dropdownControl {
   height: 100% !important;
   border: 0 !important;
   box-shadow: none !important;
   user-select: none;
-
-  &:hover {
-    .addressLabel,
-    .dropdownIndicator {
-      transition: none !important;
-      color: $indigo !important;
-    }
-  }
-}
-
-.menuList {
-  padding: 0 !important;
-  overflow-x: hidden;
-  max-height: 265px !important;
-}
-
-.option {
-  color: $text-color-2 !important;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-
-  &:hover {
-    background-color: $ui-color-1 !important;
-  }
 }
 
 .errorMessage {
@@ -82,24 +61,6 @@
     }
   }
 
-  .option {
-    padding: $space-2 !important;
-  }
-
-  .menu {
-    border-radius: 0 0 3px 3px;
-    border-right: solid 1px $indigo;
-    border-left: solid 1px $indigo;
-    border-bottom: solid 1px $indigo;
-    margin: 0 0 0 -1px !important;
-    box-sizing: unset !important;
-    box-shadow: none !important;
-  }
-
-  .menuList {
-    border-top: solid 1px $ui-color-2;
-  }
-
   .valueContainer {
     padding: 0;
   }
@@ -109,6 +70,7 @@
     margin: 0 0 0 $space-2 !important;
     width: 100% !important;
     border: none !important;
+    font-size: $medium;
 
     &:focus {
       border: none !important;
@@ -126,6 +88,8 @@
     overflow: hidden;
     width: 100%;
     user-select: none;
+    color: $text-color;
+    font-size: $medium;
   }
 }
 
@@ -173,7 +137,7 @@
     // This is bugged because the mobile breakpoint is too narrow
     // On more narrow widths this will create a scrollbar
     // To confirm with UX team
-    max-width: 560px;
+    max-width: 320px;
 
     // prevent svg from appearing on top of this
     z-index: $z-index-3 !important;
@@ -242,8 +206,25 @@
   }
 
   .placeholder {
-    font-size: $x-large !important;
+    font-size: $large !important;
     font-weight: $weight-semibold;
     user-select: none;
+    line-height: 1.5;
+    color: $text-color-2;
   }
+
+  // stylelint-disable
+  .dropdownControl {
+    &:hover {
+      .addressLabel,
+      .placeholder,
+      .premiseLabel,
+      .addressText,
+      .dropdownIndicator {
+        transition: none !important;
+        color: $indigo !important;
+      }
+    }
+  }
+  // stylelint-enable
 }

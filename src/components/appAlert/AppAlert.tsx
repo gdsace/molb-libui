@@ -28,7 +28,6 @@ export class AppAlert extends React.Component<IAppAlertProps, {}> {
 
     const appAlertClassName = classNames(
       style.appAlert,
-      style[`${theme}`],
       style[`${alignment}`],
       {
         [addLocatedErrorClassname("")]: theme === AppAlertTheme.Error
@@ -36,9 +35,15 @@ export class AppAlert extends React.Component<IAppAlertProps, {}> {
     );
 
     return (
-      <div className={appAlertClassName}>
-        <Icon className={style.appAlertIcon} type={iconType[theme]} size="14" />
-        <span className={style.appAlertText}>{text}</span>
+      <div className={style[`${theme}`]}>
+        <div className={appAlertClassName}>
+          <Icon
+            className={style.appAlertIcon}
+            type={iconType[theme]}
+            size="20"
+          />
+          <span className={style.appAlertText}>{text}</span>
+        </div>
       </div>
     );
   }

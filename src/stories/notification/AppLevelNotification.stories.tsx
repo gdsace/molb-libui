@@ -6,13 +6,15 @@ import { AppAlertAlignmentTheme, AppAlertTheme } from "../../components";
 import { AppAlert } from "../../components/appAlert";
 import { CategoryName, wInfo } from "../utils";
 
-(storiesOf(CategoryName.AppAlert, module) as any).addWithJSX(
-  "AppAlert",
+(storiesOf(CategoryName.Notification, module) as any).addWithJSX(
+  "App-level Alert",
   wInfo(``)(() => {
     return (
       <div>
-        <h3>App-level Alert content alignment left</h3>
-        <div style={{ padding: "10px" }}>
+        <h1>AppAlert</h1>
+        <br />
+        <h5>Alignment: left</h5>
+        <div>
           <AppAlert
             text={"Normal Notification"}
             theme={AppAlertTheme.Informational}
@@ -22,10 +24,16 @@ import { CategoryName, wInfo } from "../utils";
             theme={AppAlertTheme.Warning}
           />
           <AppAlert text={"Error Notification"} theme={AppAlertTheme.Error} />
+          <AppAlert
+            text={
+              "Normal Notification with a very very very very very very very very long text"
+            }
+            theme={AppAlertTheme.Informational}
+          />
         </div>
-
-        <h3>App-level Alert content alignment center</h3>
-        <div style={{ padding: "10px" }}>
+        <br />
+        <h5>Alignment: center</h5>
+        <div>
           <AppAlert
             text={"Normal Notification"}
             theme={AppAlertTheme.Informational}
@@ -39,6 +47,13 @@ import { CategoryName, wInfo } from "../utils";
           <AppAlert
             text={"Error Notification"}
             theme={AppAlertTheme.Error}
+            alignment={AppAlertAlignmentTheme.CENTER}
+          />
+          <AppAlert
+            text={
+              "Normal Notification with a very very very very very very very very long text"
+            }
+            theme={AppAlertTheme.Informational}
             alignment={AppAlertAlignmentTheme.CENTER}
           />
         </div>

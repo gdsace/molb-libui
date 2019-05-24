@@ -9,11 +9,12 @@ import { addLocatedErrorClassname } from "../utils";
 import { baseComponents, BaseDropdown } from "./BaseDropdown";
 import { dropdownCustomStyles } from "./Dropdown";
 
-const styles = require("./styles.scss");
+const styles = require("./dropdownStyle.scss");
 
 interface IMultiSelectProps<T> {
   size?: Size;
   error?: string;
+  placeholder?: string;
   selectedValue?: T[];
   options: T[];
   onChange?: (data: ValueType<T>) => void;
@@ -98,6 +99,7 @@ export class MultiSelect<T> extends React.Component<IMultiSelectProps<T>, {}> {
           components={multiSelectCustomComponents}
           value={this.props.selectedValue}
           options={this.props.options}
+          placeholder={this.props.placeholder}
           {...this.props}
         />
         {this.props.error && (

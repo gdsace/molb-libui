@@ -169,7 +169,8 @@ export class Modal extends React.Component<IModalProps, {}> {
     return (
       e!.target.tagName === "LI" ||
       e!.target.tagName === "UL" ||
-      e.target.className.indexOf("rc-time-picker") !== -1
+      e.target.className.indexOf("rc-time-picker") !== -1 ||
+      e.target.className.indexOf("dropdown") !== -1
     );
   }
 }
