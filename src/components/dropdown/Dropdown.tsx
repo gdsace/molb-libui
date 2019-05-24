@@ -5,15 +5,9 @@ import { Props } from "react-select/lib/Select";
 import { Size } from "../EnumValues";
 import { Input } from "../input";
 import { addLocatedErrorClassname } from "../utils";
-import {
-  baseComponentMenuListStyles,
-  baseComponentMenuStyles,
-  baseComponentOptionStyles,
-  baseComponents,
-  BaseDropdown
-} from "./BaseDropdown";
+import { baseComponents, BaseDropdown } from "./BaseDropdown";
 
-const styles = require("./styles.scss");
+const styles = require("./dropdownStyle.scss");
 
 export interface IDropdownProps<T> extends Props<T> {
   error?: string | boolean;
@@ -61,9 +55,6 @@ export const dropdownCustomStyles = {
       backgroundColor: "transparent"
     };
   },
-  menu: baseComponentMenuStyles,
-  option: baseComponentOptionStyles,
-  menuList: baseComponentMenuListStyles,
   menuPortal: (base: any) => ({ ...base, zIndex: 9999 })
 };
 
@@ -96,6 +87,7 @@ export class Dropdown<T> extends React.Component<IDropdownProps<T>, {}> {
       <Input
         value={this.props.textInputValue || ""}
         size={Size.Large}
+        disabled={this.props.isDisabled}
         errorMsg={`${this.props.error}`}
         showError={!!this.props.error}
         maxLength={this.props.maxLength}
@@ -110,9 +102,13 @@ export class Dropdown<T> extends React.Component<IDropdownProps<T>, {}> {
     // Wrap select in label for accessibility
     // Todo: use a common Label component
     if (this.props.label) {
+      const labelClass = classnames(
+        styles.label,
+        this.props.isDisabled ? styles.disabledLabel : undefined
+      );
       return (
         <label data-scrollpoint={true}>
-          <div className={styles.label}>{this.props.label}</div>
+          <div className={labelClass}>{this.props.label}</div>
           {this.props.editable ? input : dropdown}
         </label>
       );
