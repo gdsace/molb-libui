@@ -16,8 +16,7 @@ const store = new Store({
       value: "Mon",
       label: "Mon"
     }
-  ],
-  text: ""
+  ]
 });
 
 const onDataChange = (dataArray: any) => {
