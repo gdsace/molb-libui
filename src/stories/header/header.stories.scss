@@ -15,6 +15,11 @@
   @extend %spacer;
 }
 
+.main {
+  @extend %spacer;
+  background-color: $ui-color-1;
+}
+
 .rfa {
   @extend %spacer;
   background-color: $ui-color-1;

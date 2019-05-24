@@ -12,7 +12,6 @@ $header-height: 80px;
   justify-content: space-between;
 
   min-height: $header-height;
-  width: 100%;
 
   @include for-phone-only {
     padding: $molb-body-padding;
@@ -23,9 +22,14 @@ $header-height: 80px;
   }
 }
 
+.main {
+  border-bottom: 1px solid $ui-color-2;
+}
+
 .rfa {
   background-color: $ui-color;
   border-bottom: 1px solid $ui-color-2;
+  width: 100%;
 }
 
 .storyBookDemo {
