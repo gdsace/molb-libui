@@ -7,7 +7,9 @@ import { addLocatedErrorClassname } from "../utils";
 const style = require("./appAlert.scss");
 
 interface IAppAlertProps {
-  text: string;
+  textStart: string;
+  textMiddle?: string;
+  textEnd?: string;
   theme: AppAlertTheme;
   alignment?: AppAlertAlignmentTheme;
 }
@@ -18,7 +20,7 @@ export class AppAlert extends React.Component<IAppAlertProps, {}> {
   };
 
   public render() {
-    const { theme, text, alignment } = this.props;
+    const { theme, textStart, textMiddle, textEnd, alignment } = this.props;
 
     const iconType = {
       [AppAlertTheme.Error]: "notification-error",
@@ -42,7 +44,13 @@ export class AppAlert extends React.Component<IAppAlertProps, {}> {
             type={iconType[theme]}
             size="20"
           />
-          <span className={style.appAlertText}>{text}</span>
+          <span className={style.appAlertText}>
+            {textStart}
+            {textMiddle && (
+              <span className={style.appAlertTextBold}>{textMiddle}</span>
+            )}
+            {textEnd}
+          </span>
         </div>
       </div>
     );

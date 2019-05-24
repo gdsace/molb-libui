@@ -16,43 +16,52 @@ import { CategoryName, wInfo } from "../utils";
         <h5>Alignment: left</h5>
         <div>
           <AppAlert
-            text={"Normal Notification"}
+            textStart={"Normal Notification"}
             theme={AppAlertTheme.Informational}
           />
           <AppAlert
-            text={"Warning Notification"}
+            textStart={"Warning Notification"}
             theme={AppAlertTheme.Warning}
           />
-          <AppAlert text={"Error Notification"} theme={AppAlertTheme.Error} />
           <AppAlert
-            text={
-              "Normal Notification with a very very very very very very very very long text"
+            textStart={"Error Notification"}
+            theme={AppAlertTheme.Error}
+          />
+          <AppAlert
+            textStart={
+              "Normal Notification with a very very very very very very very very long text."
             }
             theme={AppAlertTheme.Informational}
+          />
+          <AppAlert
+            textStart={"Warning Notification with a "}
+            textMiddle={"bold"}
+            textEnd={" text."}
+            theme={AppAlertTheme.Warning}
           />
         </div>
         <br />
         <h5>Alignment: center</h5>
         <div>
           <AppAlert
-            text={"Normal Notification"}
+            textStart={"Normal Notification"}
             theme={AppAlertTheme.Informational}
             alignment={AppAlertAlignmentTheme.CENTER}
           />
           <AppAlert
-            text={"Warning Notification"}
+            textStart={"Warning Notification"}
             theme={AppAlertTheme.Warning}
             alignment={AppAlertAlignmentTheme.CENTER}
           />
           <AppAlert
-            text={"Error Notification"}
+            textStart={"Error Notification"}
             theme={AppAlertTheme.Error}
             alignment={AppAlertAlignmentTheme.CENTER}
           />
           <AppAlert
-            text={
-              "Normal Notification with a very very very very very very very very long text"
-            }
+            textStart={"Normal Notification with a "}
+            textMiddle={"very very very very very very very very long"}
+            textEnd={" text."}
             theme={AppAlertTheme.Informational}
             alignment={AppAlertAlignmentTheme.CENTER}
           />
