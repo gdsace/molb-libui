@@ -14,6 +14,11 @@ const styles = require("./header.stories.scss");
           <h4>Demo Header</h4>
         </Header>
       </div>
+      <div className={styles.main}>
+        <Header>
+          <h4>Main Header</h4>
+        </Header>
+      </div>
       <div className={styles.rfa}>
         <Header className={HeaderType.Rfa}>
           <h4>RFA Header</h4>

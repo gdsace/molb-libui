@@ -10,7 +10,6 @@ $header-height: 80px;
   line-height: 1;
   vertical-align: middle;
   justify-content: space-between;
-
   min-height: $header-height;
 
   @include for-phone-only {
@@ -25,7 +24,6 @@ $header-height: 80px;
 .rfa {
   background-color: $ui-color;
   border-bottom: 1px solid $ui-color-2;
-  width: 100%;
 }
 
 .storyBookDemo {

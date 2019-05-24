@@ -3,10 +3,7 @@
 %spacer {
   margin-bottom: 1em;
   border: 1px solid $lavender-indigo;
-  height: 130px;
-
-  display: flex;
-  justify-content: stretch;
+  height: 110px;
   padding: 25px 0;
 }
 
@@ -16,10 +13,10 @@
 
 .main {
   @extend %spacer;
-  background-color: $ui-color-1;
 }
 
 .rfa {
   @extend %spacer;
+
   background-color: $ui-color-1;
 }
