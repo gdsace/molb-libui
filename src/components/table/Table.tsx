@@ -26,6 +26,11 @@ export interface ITableProps {
   size?: TableSize;
   theme?: TableTheme;
   showNoDataAvailableMessage?: boolean;
+  expandableDataSource?: IDataSource[];
+}
+
+export interface ITableState {
+  expandedRow: number;
 }
 
 export enum TableSize {
@@ -34,12 +39,12 @@ export enum TableSize {
 }
 
 export enum TableTheme {
-  expandable = "expandable",
   Striped = "striped",
+  Expandable = "expandable",
   Basic = "basic"
 }
 
-export class Table extends React.Component<ITableProps, {}> {
+export class Table extends React.Component<ITableProps, ITableState> {
   public static defaultProps: Partial<ITableProps> = {
     bordered: false,
     size: TableSize.Small,
@@ -47,6 +52,13 @@ export class Table extends React.Component<ITableProps, {}> {
     tableCls: "",
     showNoDataAvailableMessage: true
   };
+
+  public constructor(props: ITableProps) {
+    super(props);
+    this.state = {
+      expandedRow: -1
+    };
+  }
 
   public render() {
     const {
@@ -107,26 +119,47 @@ export class Table extends React.Component<ITableProps, {}> {
       </tr>
     ];
 
-    const expandableContent = (data: IDateSource) => (
-      <tr>
+    const handleRowClick = (rowId: number) => {
+      const currentExpandedRow = this.state.expandedRow;
+
+      this.setState({
+        expandedRow: rowId === currentExpandedRow ? -1 : rowId
+      });
+    };
+
+    const expandableContent = (index: number) => (
+      <tr id={`expandableRow${index}`}>
         <td colSpan={columns.length + 1}>
-          <div>OK</div>
+          <div>EXPANDABLE CONTENT HERE</div>
         </td>
       </tr>
     );
 
-    const detailRows = dataSource.map(rowData => (
-      <>
-        <tr key={`tr-${rowData.key}`}>
-          {columns.map(column => {
-            return toItem(column, rowData);
-          })}
-          {this.props.theme === "striped" ? <Icon type="dropdown" /> : null}
-        </tr>
-        {/* TODO if expandable */}
-        {expandableContent(rowData)}
-      </>
-    ));
+    const detailRows = dataSource.map((rowData, index) => {
+      const expandedRow = this.state.expandedRow;
+      return (
+        <>
+          <tr key={`tr-${rowData.key}`}>
+            {columns.map(column => {
+              return toItem(column, rowData);
+            })}
+            {this.props.theme === TableTheme.Expandable ? (
+              <td
+                onClick={() => {
+                  handleRowClick(index);
+                }}
+              >
+                <Icon
+                  className={styles.tableDropdownButton}
+                  type={expandedRow === index ? "up" : "dropdown"}
+                />
+              </td>
+            ) : null}
+          </tr>
+          {expandedRow === index ? expandableContent(index) : null}
+        </>
+      );
+    });
 
     return (
       <tbody>
@@ -154,7 +187,7 @@ export class Table extends React.Component<ITableProps, {}> {
       <thead>
         <tr>
           {columns.map(toItem)}
-          {this.props.theme === "striped" ? <th /> : null}
+          {this.props.theme === TableTheme.Expandable ? <th /> : null}
         </tr>
       </thead>
     );

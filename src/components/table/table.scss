@@ -13,6 +13,10 @@ $title-margin: $space-2;
   font-weight: $weight-bold;
 }
 
+.tableDropdownButton {
+  cursor: pointer;
+}
+
 .tableContainer {
   table {
     width: 100%;
