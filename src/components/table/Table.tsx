@@ -1,6 +1,7 @@
 import classNames from "classnames/bind";
 import * as React from "react";
 import { Icon } from "..";
+import { ExpandablePanel } from "../expandablePanel";
 
 const styles = require("./table.scss");
 const cx = classNames.bind(styles).default || classNames.bind(styles);
@@ -27,6 +28,7 @@ export interface ITableProps {
   theme?: TableTheme;
   showNoDataAvailableMessage?: boolean;
   expandableDataSource?: IDataSource[];
+  expandableDataContent?: any;
 }
 
 export interface ITableState {
@@ -105,6 +107,12 @@ export class Table extends React.Component<ITableProps, ITableState> {
       </td>
     );
 
+    const toExpandableItem = (index: number) => (
+      <tr>
+        <td colSpan={columns.length + 1}>{this.props.expandableDataContent}</td>
+      </tr>
+    );
+
     const emptyRows = [
       <tr key={`tr-NO_DATA`}>
         <td
@@ -127,14 +135,6 @@ export class Table extends React.Component<ITableProps, ITableState> {
       });
     };
 
-    const expandableContent = (index: number) => (
-      <tr id={`expandableRow${index}`}>
-        <td colSpan={columns.length + 1}>
-          <div>EXPANDABLE CONTENT HERE</div>
-        </td>
-      </tr>
-    );
-
     const detailRows = dataSource.map((rowData, index) => {
       const expandedRow = this.state.expandedRow;
       return (
@@ -156,7 +156,7 @@ export class Table extends React.Component<ITableProps, ITableState> {
               </td>
             ) : null}
           </tr>
-          {expandedRow === index ? expandableContent(index) : null}
+          {expandedRow === index ? toExpandableItem(index) : null}
         </>
       );
     });
