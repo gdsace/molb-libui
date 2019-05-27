@@ -12,7 +12,7 @@
 .dropdown__menu {
   .dropdown__menu-list {
     .dropdown__option.dropdown__option--is-selected {
-      color: $lavender-indigo !important;
+      color: $indigo !important;
       background-color: transparent !important;
     }
   }
