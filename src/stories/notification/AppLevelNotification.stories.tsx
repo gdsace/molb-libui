@@ -26,9 +26,14 @@ import { CategoryName, wInfo } from "../utils";
           <AppAlert text={"Error Notification"} theme={AppAlertTheme.Error} />
           <AppAlert
             text={
-              "Normal Notification with a very very very very very very very very long text"
+              "Normal Notification with a very very very very very very very very long text."
             }
             theme={AppAlertTheme.Informational}
+          />
+          <AppAlert
+            text={"Warning Notification with a bold text."}
+            textToBold={"bold"}
+            theme={AppAlertTheme.Warning}
           />
         </div>
         <br />
@@ -51,7 +56,7 @@ import { CategoryName, wInfo } from "../utils";
           />
           <AppAlert
             text={
-              "Normal Notification with a very very very very very very very very long text"
+              "Normal Notification with a very very very very very very very very long text."
             }
             theme={AppAlertTheme.Informational}
             alignment={AppAlertAlignmentTheme.CENTER}

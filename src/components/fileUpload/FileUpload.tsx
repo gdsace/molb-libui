@@ -24,6 +24,7 @@ export interface IFileUploadProps extends DropzoneProps {
   onSuccess?: (event: any) => any;
   subjectId: string;
   token: string;
+  existingDocumentIds?: number[];
 }
 
 export interface IFileUploadState {
@@ -171,14 +172,19 @@ export class FileUpload extends React.Component<
       baseUrl,
       token,
       onSuccess,
-      onError
+      onError,
+      existingDocumentIds
     } = this.props;
 
-    const queryString = qs.stringify({
-      documentTypeCode: documentType.code,
-      subjectId,
-      subjectType: SubjectType.Premise // Always premise, backend will handle this
-    });
+    const queryString = qs.stringify(
+      {
+        documentTypeCode: documentType.code,
+        existingDocumentIds,
+        subjectId,
+        subjectType: SubjectType.Premise // Always premise, backend will handle this
+      },
+      { arrayFormat: "repeat" }
+    );
 
     const formdata = new FormData();
     formdata.append("file", file);

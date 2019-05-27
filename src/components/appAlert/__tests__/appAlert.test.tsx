@@ -43,4 +43,18 @@ describe("App-level alert", () => {
     expect(wrapper.find(".informational")).toHaveLength(1);
     expect(wrapper.find(Icon).prop("type")).toEqual("informational");
   });
+
+  it("should render textInBold", () => {
+    const wrapper = shallow(
+      <AppAlert
+        text="this is a bold bold bold text"
+        textToBold="bold"
+        theme={AppAlertTheme.Informational}
+      />
+    );
+
+    expect(wrapper.find(".appAlertTextBold")).toHaveLength(3);
+    expect(wrapper.find(".informational")).toHaveLength(1);
+    expect(wrapper.find(Icon).prop("type")).toEqual("informational");
+  });
 });

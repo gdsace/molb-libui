@@ -120,6 +120,10 @@ $title-margin: $space-2;
   .alignRight {
     text-align: right;
   }
+
+  .withoutBorder {
+    border: 0 !important;
+  }
 }
 
 @include for-phone-only {
@@ -177,6 +181,10 @@ $title-margin: $space-2;
           padding-right: $space-3;
         }
       }
+    }
+
+    .emptyContent {
+      display: none;
     }
 
     /* stylelint-disable */
