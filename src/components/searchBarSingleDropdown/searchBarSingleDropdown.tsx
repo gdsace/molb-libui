@@ -26,6 +26,8 @@ export interface ISearchSingleDropdownProps {
   handleInputChange: (inputText: string) => any;
   inputPlaceholder?: string;
   inputMaxlength?: number;
+  showError?: boolean;
+  errorMsg?: string;
 
   // button props
   buttonLabel: string;
@@ -63,6 +65,8 @@ export class SearchSingleDropdown extends React.Component<
               onChange={e => {
                 this.props.handleInputChange(e.target.value);
               }}
+              showError={this.props.showError || false}
+              errorMsg={this.props.errorMsg || ""}
             />
           </div>
           <Button
