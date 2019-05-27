@@ -41,7 +41,7 @@ export class AppAlert extends React.Component<IAppAlertProps, {}> {
           <Icon
             className={style.appAlertIcon}
             type={iconType[theme]}
-            size="20"
+            size="24"
           />
           {this.renderText(text, textToBold)}
         </div>
@@ -53,7 +53,7 @@ export class AppAlert extends React.Component<IAppAlertProps, {}> {
     if (textToBold) {
       const splitText = mainText.split(new RegExp(`(${textToBold})`, "gi"));
       return (
-        <span className={style.appAlertText}>
+        <div className={style.appAlertText}>
           {splitText.map((part, i) =>
             part.toLowerCase() === textToBold.toLowerCase() ? (
               <span className={style.appAlertTextBold} key={i}>
@@ -63,10 +63,10 @@ export class AppAlert extends React.Component<IAppAlertProps, {}> {
               part
             )
           )}
-        </span>
+        </div>
       );
     } else {
-      return <span className={style.appAlertText}>{mainText}</span>;
+      return <div className={style.appAlertText}>{mainText}</div>;
     }
   }
 }

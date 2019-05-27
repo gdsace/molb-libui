@@ -14,8 +14,9 @@
 
 .appAlert {
   display: flex;
+  align-items: center;
   box-sizing: border-box;
-  padding: 14px $space-3;
+  padding: 12px $space-3;
 
   &.left {
     padding-left: $space-specific-150;
@@ -28,12 +29,13 @@
   }
 
   .appAlertIcon {
+    align-self: stretch;
     color: $primary-color-2;
-    min-width: 20px;
+    min-width: 24px;
   }
 
   .appAlertText {
-    padding-left: 18px;
+    padding-left: $space-2;
     font-size: $medium;
     font-weight: $weight-medium;
     line-height: $line-height-large;
