@@ -67,6 +67,14 @@ export class SearchSingleDropdown extends React.Component<
               }}
               showError={this.props.showError || false}
               errorMsg={this.props.errorMsg || ""}
+              onKeyPress={e => {
+                if (e.key === "Enter") {
+                  this.props.handleButtonClick(
+                    this.props.inputText,
+                    this.props.selectedDropdown
+                  );
+                }
+              }}
             />
           </div>
           <Button
