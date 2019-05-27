@@ -1,8 +1,6 @@
 import classNames from "classnames/bind";
 import * as React from "react";
 import { Icon } from "..";
-import { ExpandablePanel } from "../expandablePanel";
-
 const styles = require("./table.scss");
 const cx = classNames.bind(styles).default || classNames.bind(styles);
 const NO_DATA_IN_TABLE = "No data available in table";
@@ -27,8 +25,7 @@ export interface ITableProps {
   size?: TableSize;
   theme?: TableTheme;
   showNoDataAvailableMessage?: boolean;
-  expandableDataSource?: IDataSource[];
-  expandableDataContent?: any;
+  expandableDataContent?: IDataSource;
 }
 
 export interface ITableState {
