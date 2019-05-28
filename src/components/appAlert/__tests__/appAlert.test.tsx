@@ -10,7 +10,9 @@ describe("App-level alert", () => {
       <AppAlert text="this is warning text" theme={AppAlertTheme.Warning} />
     );
 
-    expect(wrapper.find("span").text()).toEqual("this is warning text");
+    expect(wrapper.find(".appAlertText").text()).toEqual(
+      "this is warning text"
+    );
     expect(wrapper.find(".warning")).toHaveLength(1);
     expect(wrapper.find(".left")).toHaveLength(1);
     expect(wrapper.find(Icon).prop("type")).toEqual("alert");
@@ -25,7 +27,7 @@ describe("App-level alert", () => {
       />
     );
 
-    expect(wrapper.find("span").text()).toEqual("this is error text");
+    expect(wrapper.find(".appAlertText").text()).toEqual("this is error text");
     expect(wrapper.find(".center")).toHaveLength(1);
     expect(wrapper.find(".error")).toHaveLength(1);
     expect(wrapper.find(Icon).prop("type")).toEqual("notification-error");
@@ -39,7 +41,9 @@ describe("App-level alert", () => {
       />
     );
 
-    expect(wrapper.find("span").text()).toEqual("this is informational text");
+    expect(wrapper.find(".appAlertText").text()).toEqual(
+      "this is informational text"
+    );
     expect(wrapper.find(".informational")).toHaveLength(1);
     expect(wrapper.find(Icon).prop("type")).toEqual("informational");
   });
