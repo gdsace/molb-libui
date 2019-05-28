@@ -25,7 +25,7 @@ export interface ITableProps {
   size?: TableSize;
   theme?: TableTheme;
   showNoDataAvailableMessage?: boolean;
-  expandableDataContent?: IDataSource;
+  expandableRowTemplate?: React.ReactNode;
 }
 
 export interface ITableState {
@@ -106,7 +106,7 @@ export class Table extends React.Component<ITableProps, ITableState> {
 
     const toExpandableItem = (index: number) => (
       <tr>
-        <td colSpan={columns.length + 1}>{this.props.expandableDataContent}</td>
+        <td colSpan={columns.length + 1}>{this.props.expandableRowTemplate}</td>
       </tr>
     );
 

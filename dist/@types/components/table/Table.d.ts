@@ -11,7 +11,6 @@ export interface IDataSource {
 }
 export interface ITableProps {
     dataSource: IDataSource[];
-    expandableDataContent?: IDataSource;
     columns: IColumn[];
     tableCls?: string;
     bordered?: boolean;
