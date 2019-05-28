@@ -26,7 +26,9 @@ export interface ITableProps {
   size?: TableSize;
   theme?: TableTheme;
   showNoDataAvailableMessage?: boolean;
-  expandableRowTemplate?: React.ReactNode;
+  selectedItemIndex: number;
+  expandableRowTemplate: React.ReactChild;
+  onDropdownClick: (itemIndex: number) => void;
 }
 
 export interface ITableState {
@@ -105,7 +107,7 @@ export class Table extends React.Component<ITableProps, ITableState> {
       </td>
     );
 
-    const toExpandableItem = (index: number) => (
+    const toExpandableItem = () => (
       <tr>
         <td colSpan={columns.length + 1}>{this.props.expandableRowTemplate}</td>
       </tr>
@@ -145,6 +147,7 @@ export class Table extends React.Component<ITableProps, ITableState> {
               <td
                 onClick={() => {
                   handleRowClick(index);
+                  this.props.onArrowClick(index);
                 }}
               >
                 <Icon
@@ -154,7 +157,7 @@ export class Table extends React.Component<ITableProps, ITableState> {
               </td>
             ) : null}
           </tr>
-          {expandedRow === index ? toExpandableItem(index) : null}
+          {expandedRow === index ? toExpandableItem() : null}
         </>
       );
     });
