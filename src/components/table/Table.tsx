@@ -22,6 +22,7 @@ export interface ITableProps {
   columns: IColumn[];
   tableCls?: string;
   bordered?: boolean;
+  expandable?: boolean;
   size?: TableSize;
   theme?: TableTheme;
   showNoDataAvailableMessage?: boolean;
@@ -140,7 +141,7 @@ export class Table extends React.Component<ITableProps, ITableState> {
             {columns.map(column => {
               return toItem(column, rowData);
             })}
-            {this.props.theme === TableTheme.Expandable ? (
+            {this.props.expandable ? (
               <td
                 onClick={() => {
                   handleRowClick(index);
@@ -184,7 +185,7 @@ export class Table extends React.Component<ITableProps, ITableState> {
       <thead>
         <tr>
           {columns.map(toItem)}
-          {this.props.theme === TableTheme.Expandable ? <th /> : null}
+          {this.props.expandable ? <th /> : null}
         </tr>
       </thead>
     );

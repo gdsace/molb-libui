@@ -121,6 +121,7 @@ export const dataSource = [
             columns={tableColumns}
             dataSource={dataSource}
             theme={TableTheme.Expandable}
+            expandable={true}
           />
         </div>
       </div>
