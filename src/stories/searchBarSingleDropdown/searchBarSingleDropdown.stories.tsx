@@ -30,7 +30,7 @@ export const SEARCH_CRITERIAS = [
   }
 ];
 
-const placeholder = "Seach here...";
+const placeholder = "Search here...";
 const buttonLabel = "Search";
 const errorMsg = "Validation error message, blah blah blah...";
 
