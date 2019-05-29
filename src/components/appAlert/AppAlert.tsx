@@ -8,6 +8,7 @@ const style = require("./appAlert.scss");
 
 interface IAppAlertProps {
   text: string;
+  textToBold?: string;
   theme: AppAlertTheme;
   alignment?: AppAlertAlignmentTheme;
 }
@@ -18,7 +19,7 @@ export class AppAlert extends React.Component<IAppAlertProps, {}> {
   };
 
   public render() {
-    const { theme, text, alignment } = this.props;
+    const { theme, text, textToBold, alignment } = this.props;
 
     const iconType = {
       [AppAlertTheme.Error]: "notification-error",
@@ -40,11 +41,32 @@ export class AppAlert extends React.Component<IAppAlertProps, {}> {
           <Icon
             className={style.appAlertIcon}
             type={iconType[theme]}
-            size="14"
+            size="24"
           />
-          <span className={style.appAlertText}>{text}</span>
+          {this.renderText(text, textToBold)}
         </div>
       </div>
     );
+  }
+
+  private renderText(mainText: string, textToBold?: string) {
+    if (textToBold) {
+      const splitText = mainText.split(new RegExp(`(${textToBold})`, "gi"));
+      return (
+        <div className={style.appAlertText}>
+          {splitText.map((part, i) =>
+            part.toLowerCase() === textToBold.toLowerCase() ? (
+              <span className={style.appAlertTextBold} key={i}>
+                {part}
+              </span>
+            ) : (
+              part
+            )
+          )}
+        </div>
+      );
+    } else {
+      return <div className={style.appAlertText}>{mainText}</div>;
+    }
   }
 }

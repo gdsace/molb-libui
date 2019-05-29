@@ -110,3 +110,7 @@ export declare enum ExpandablePanelTheme {
     Standard = "standard",
     Large = "large"
 }
+export declare enum HeaderType {
+    Demo = "storyBookDemo",
+    Rfa = "rfa"
+}

@@ -19,13 +19,11 @@ const store = new Store({
   ]
 });
 
-const clearErrorMessage = () => {
-  store.set({ error: "" });
-};
 const onDataChange = (dataArray: any) => {
   action("data")(dataArray.map((data: any) => data.label).join(" "));
   store.set({
-    value: dataArray
+    value: dataArray,
+    error: ""
   });
 };
 
@@ -55,10 +53,12 @@ const onDataChange = (dataArray: any) => {
             onChange={action("value")}
           />
         </div>
+
         <div className={styles.box}>
-          <p className={styles.notes}>Disabled:</p>
-          <Dropdown options={mockOptions} isDisabled />
+          <p className={styles.notes}>Disabled</p>
+          <Dropdown label="Label" isDisabled={true} />
         </div>
+
         <div className={styles.box}>
           <p className={styles.notes}>Validation Error:</p>
           <Dropdown options={mockOptions} error="Some error" />
@@ -66,16 +66,39 @@ const onDataChange = (dataArray: any) => {
             Other following contents (Input error msg should float on this)
           </p>
         </div>
+
         <div className={styles.multiSelectBox}>
           <State store={store}>
             <MultiSelect
               error={store.state.error}
               options={mockOptionsForDays}
-              onFocus={clearErrorMessage}
               onChange={onDataChange}
               selectedValue={store.state.value}
             />
           </State>
+        </div>
+      </div>
+
+      <h6 className={styles.groupHeader}>Dropdown editable: ...</h6>
+      <div className={styles.itemsContainer}>
+        <div className={styles.box}>
+          <p className={styles.notes}>editable</p>
+          <Dropdown
+            error={undefined}
+            label={"Label"}
+            editable={true}
+            textInputValue="this is value"
+          />
+        </div>
+        <div className={styles.box}>
+          <p className={styles.notes}>editable</p>
+          <Dropdown
+            error={undefined}
+            isDisabled={true}
+            label={"Label"}
+            editable={true}
+            textInputValue=""
+          />
         </div>
       </div>
     </div>

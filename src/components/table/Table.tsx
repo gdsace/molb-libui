@@ -87,7 +87,8 @@ export class Table extends React.Component<ITableProps, {}> {
         key={`td-${column.key}`}
         className={cx({
           alignRight: column.textAlignRight,
-          hiddenInlineTitle: column.hiddenInlineTitle
+          hiddenInlineTitle: column.hiddenInlineTitle,
+          emptyContent: !data[column.key]
         })}
       >
         <div className={cx("contentData")}>{data[column.key]}</div>
@@ -109,7 +110,10 @@ export class Table extends React.Component<ITableProps, {}> {
     ];
 
     const detailRows = dataSource.map(rowData => (
-      <tr key={`tr-${rowData.key}`}>
+      <tr
+        key={`tr-${rowData.key}`}
+        className={rowData.withoutBorder ? styles.withoutBorder : ""}
+      >
         {columns.map(column => toItem(column, rowData))}
       </tr>
     ));

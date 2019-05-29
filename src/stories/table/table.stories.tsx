@@ -17,13 +17,12 @@ export const tableColumns = [
   },
   {
     title: "Address<BR>Line-break-in-title",
-    key: "address"
+    key: "address",
+    hiddenInlineTitle: true
   },
   {
     title: "Tags",
-    key: "tags",
-    render: true,
-    hiddenInlineTitle: true
+    key: "tags"
   }
 ];
 

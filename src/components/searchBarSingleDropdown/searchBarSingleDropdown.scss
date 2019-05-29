@@ -8,25 +8,24 @@
   align-items: center;
 
   .searchSection {
-    margin-top: 100px;
     width: 100%;
-    height: 48px;
+    height: $space-6;
   }
 
   .searchTypeDropdown {
     float: left;
     width: 20%;
-    height: 48px;
+    height: $space-6;
   }
 
   .searchTextInputWrapper {
     display: inline-block;
-    width: calc(80% - 142px); //110 + 32 from space-4
+    width: calc(80% - 197px); //165 + 32 from space-4
     margin-right: $space-4;
   }
 
   .searchButton {
-    width: 110px;
-    height: 100%;
+    width: 165px;
+    height: $space-6;
   }
 }
