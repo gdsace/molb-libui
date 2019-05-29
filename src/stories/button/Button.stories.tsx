@@ -46,10 +46,25 @@ const styles = require("./button.stories.scss");
             size={Size.Large}
           />
         </div>
+        <div className={styles.box}>
+          <Button
+            label="square"
+            onClick={action("button-click")}
+            size={Size.Square}
+          />
+        </div>
       </div>
 
       <h6 className={styles.groupHeader}>Different Theme</h6>
       <div className={styles.itemsContainer}>
+        <div className={styles.box}>
+          <p className={styles.notes}>grey</p>
+          <Button
+            label="grey"
+            onClick={action("button-click")}
+            theme={Theme.Grey}
+          />
+        </div>
         <div className={styles.box}>
           <p className={styles.notes}>ghost</p>
           <Button

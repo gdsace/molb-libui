@@ -3,7 +3,8 @@ export enum Theme {
   Ghost = "ghost",
   Primary = "primary",
   Secondary = "secondary",
-  Flat = "flat"
+  Flat = "flat",
+  Grey = "grey"
 }
 
 export enum PanelType {
@@ -29,7 +30,8 @@ export enum Size {
   Small = "small",
   Medium = "medium",
   Large = "large",
-  XLarge = "xlarge"
+  XLarge = "xlarge",
+  Square = "square"
 }
 
 export enum LinkStatus {

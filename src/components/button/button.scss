@@ -102,6 +102,21 @@
   }
 }
 
+.grey {
+  color: $text-color;
+  background-color: $primary-color-2;
+  border: 1px solid $ui-color-2;
+
+  &:hover {
+    border: 1px solid $lavender-indigo;
+  }
+}
+
+.disabledGrey {
+  color: $porcelain;
+  border: 1px solid $porcelain;
+}
+
 .disabled {
   color: $primary-color-2;
   background-color: $ui-color-2;
@@ -116,6 +131,12 @@
   @include for-phone-only {
     min-width: 70px;
   }
+}
+
+.square {
+  height: 48px;
+  font-size: $small;
+  min-width: 48px;
 }
 
 .medium {

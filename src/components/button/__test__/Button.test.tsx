@@ -23,6 +23,15 @@ describe("Button", () => {
       expect(buttonContent.childAt(0).text()).toEqual("test");
       expect(buttonContent.childAt(1).is(Icon)).toBeTruthy();
     });
+
+    it("renders the center icon with label", () => {
+      const wrapper = mount(
+        <Button label="test" onClick={noop} icon="close" iconAlign="center" />
+      );
+      const buttonContent = wrapper.find(".buttonContent");
+      expect(buttonContent.childAt(0).text()).toEqual("test");
+      expect(buttonContent.childAt(1).is(Icon)).toBeTruthy();
+    });
   });
 
   describe("button type", () => {
