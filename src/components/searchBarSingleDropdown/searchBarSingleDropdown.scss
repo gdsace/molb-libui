@@ -9,13 +9,13 @@
 
   .searchSection {
     width: 100%;
-    height: 48px;
+    height: $space-6;
   }
 
   .searchTypeDropdown {
     float: left;
     width: 20%;
-    height: 48px;
+    height: $space-6;
   }
 
   .searchTextInputWrapper {
@@ -26,6 +26,6 @@
 
   .searchButton {
     width: 165px;
-    height: 48px;
+    height: $space-6;
   }
 }
