@@ -3,7 +3,8 @@ export declare enum Theme {
     Ghost = "ghost",
     Primary = "primary",
     Secondary = "secondary",
-    Flat = "flat"
+    Flat = "flat",
+    Grey = "grey"
 }
 export declare enum PanelType {
     Onepage = "onepagePanel",
@@ -25,7 +26,8 @@ export declare enum Size {
     Small = "small",
     Medium = "medium",
     Large = "large",
-    XLarge = "xlarge"
+    XLarge = "xlarge",
+    Square = "square"
 }
 export declare enum LinkStatus {
     Normal = "normal",
