@@ -34,11 +34,14 @@ const store = new Store({
               documentType={documentTypes.required}
               onSuccess={action("ok")}
               error={store.error}
-              onError={() => {
+              onError={(res: { error: any }) => {
                 action("error");
                 store.set({
-                  error: "something wrong"
+                  error: res.error
                 });
+              }}
+              validateFile={(file: File, documentTypeCode: string) => {
+                return "duplicate name";
               }}
               key="file-upload"
             />

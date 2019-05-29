@@ -24,7 +24,7 @@ export interface IFileUploadProps extends DropzoneProps {
   onSuccess?: (event: any) => any;
   subjectId: string;
   token: string;
-  existingDocumentIds?: number[];
+  validateFile?: (file: File, documentTypeCode: string) => any;
 }
 
 export interface IFileUploadState {
@@ -107,6 +107,7 @@ export class FileUpload extends React.Component<
       onCompleteIconClick,
       onDefaultIconClick,
       children,
+      validateFile,
       ...forDropzone
     } = this.props;
 
@@ -173,13 +174,19 @@ export class FileUpload extends React.Component<
       token,
       onSuccess,
       onError,
-      existingDocumentIds
+      validateFile
     } = this.props;
-
+    const errorMsg = validateFile && validateFile(file, documentType.code);
+    if (!!errorMsg) {
+      if (onError) {
+        onError({ error: errorMsg });
+      }
+      this.setState({ uploadState: FileUploadState.Error });
+      return;
+    }
     const queryString = qs.stringify(
       {
         documentTypeCode: documentType.code,
-        existingDocumentIds,
         subjectId,
         subjectType: SubjectType.Premise // Always premise, backend will handle this
       },
