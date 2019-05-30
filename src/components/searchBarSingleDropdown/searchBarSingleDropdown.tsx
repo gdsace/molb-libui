@@ -2,11 +2,11 @@ import * as React from "react";
 import {
   Button,
   Dropdown,
+  Icon,
   Input,
   InputType,
   Size,
-  Theme,
-  Icon
+  Theme
 } from "../../components";
 
 const styles = require("./searchBarSingleDropdown.scss");
