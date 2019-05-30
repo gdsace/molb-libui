@@ -1,8 +1,19 @@
 @import "../styles/utils.scss";
 
+.tab {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  width: 100%;
+}
+
+.tabsBarContainer {
+  border-bottom: 1px solid $ui-color-2;
+}
+
 .tabsBarContent {
   display: flex;
-  flex: 1;
+  flex: 1 1 auto;
   justify-content: space-between;
   padding: 0 $space-specific-150;
   margin: 0 auto;
@@ -13,17 +24,6 @@
     padding: 0 $space-specific-30;
     flex-direction: column;
     justify-content: center;
-  }
-}
-
-.tab {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  width: 100%;
-
-  .tabsBarContainer {
-    border-bottom: 1px solid $ui-color-2;
   }
 
   .leftComponent {
@@ -39,7 +39,7 @@
   .tabItems {
     height: $display-x-large;
     display: flex;
-    flex: 1;
+    flex: 1 1 auto;
     flex-flow: row nowrap;
     align-items: flex-start;
     justify-content: flex-end;
@@ -109,9 +109,9 @@
       }
     }
   }
+}
 
-  .tabPanel {
-    display: flex;
-    flex: 1;
-  }
+.tabPanel {
+  display: flex;
+  flex: 1 1 auto;
 }
