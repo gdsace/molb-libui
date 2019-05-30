@@ -2,6 +2,7 @@ import * as React from "react";
 import {
   Button,
   Dropdown,
+  Icon,
   Input,
   InputType,
   Size,
@@ -65,6 +66,13 @@ export class SearchSingleDropdown extends React.Component<
               onChange={e => {
                 this.props.handleInputChange(e.target.value);
               }}
+              iconSignifier={
+                <Icon
+                  size="16"
+                  className={styles.iconSignifier}
+                  type={"search"}
+                />
+              }
               showError={this.props.showError || false}
               errorMsg={this.props.errorMsg || ""}
               onKeyPress={e => {
