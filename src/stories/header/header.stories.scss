@@ -7,16 +7,11 @@
   padding: 25px 0;
 }
 
-.demo {
+.default {
   @extend %spacer;
 }
 
 .main {
   @extend %spacer;
-}
-
-.rfa {
-  @extend %spacer;
-
   background-color: $ui-color-1;
 }

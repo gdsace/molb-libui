@@ -9,19 +9,14 @@ const styles = require("./header.stories.scss");
   "Header",
   wInfo(``)(() => (
     <div>
-      <div className={styles.demo}>
+      <div className={styles.default}>
         <Header className={HeaderType.Demo}>
           <h4>Demo Header</h4>
         </Header>
       </div>
       <div className={styles.main}>
-        <Header>
+        <Header className={HeaderType.Main}>
           <h4>Main Header</h4>
-        </Header>
-      </div>
-      <div className={styles.rfa}>
-        <Header className={HeaderType.Rfa}>
-          <h4>RFA Header</h4>
         </Header>
       </div>
     </div>

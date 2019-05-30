@@ -163,5 +163,5 @@ export enum ExpandablePanelTheme {
 
 export enum HeaderType {
   Demo = "storyBookDemo",
-  Rfa = "rfa"
+  Main = "main"
 }
