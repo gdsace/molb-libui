@@ -151,7 +151,7 @@ export class Modal extends React.Component<IModalProps, {}> {
     if (this.isClickedElementInModalBox(e)) {
       return;
     }
-    if (this.isClickedOnFloatOrAbsuluteElement(e)) {
+    if (this.isClickedOnFloatOrAbsoluteElement(e)) {
       return;
     }
     this.onClose(e);
@@ -165,10 +165,11 @@ export class Modal extends React.Component<IModalProps, {}> {
     );
   }
 
-  private isClickedOnFloatOrAbsuluteElement(e: any) {
+  private isClickedOnFloatOrAbsoluteElement(e: any) {
     return (
       e!.target.tagName === "LI" ||
       e!.target.tagName === "UL" ||
+      e.target.className.indexOf("react-datepicker") !== -1 ||
       e.target.className.indexOf("rc-time-picker") !== -1 ||
       e.target.className.indexOf("dropdown") !== -1
     );
