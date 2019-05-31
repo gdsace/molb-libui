@@ -127,6 +127,7 @@ $title-margin: $space-2;
     }
 
     tbody tr {
+      border-top:1px solid $ui-color-2;
       box-sizing: border-box;
       background-color: $ui-color;
     }

@@ -13,6 +13,8 @@ export interface ISearchSingleDropdownProps {
     inputMaxlength?: number;
     buttonLabel: string;
     handleButtonClick: (inputText: string, selectedDropdown: IDropdownOptionType) => any;
+    errorMsg?: string;
+    showError?: boolean;
 }
 export declare class SearchSingleDropdown extends React.Component<ISearchSingleDropdownProps, {}> {
     render(): JSX.Element;

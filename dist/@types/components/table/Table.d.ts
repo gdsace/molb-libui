@@ -18,9 +18,10 @@ export interface ITableProps {
     size?: TableSize;
     theme?: TableTheme;
     showNoDataAvailableMessage?: boolean;
-    selectedItemIndex: number;
-    expandableRowTemplate: React.ReactChild;
-    onDropdownClick: (itemIndex: number) => void;
+    selectedItemIndex?: number;
+    expandableRowTemplate?: React.ReactChild;
+    onDropdownClick?: (itemIndex: number) => void;
+    disableDropdownClick?: boolean;
 }
 export interface ITableState {
     expandedRow: number;
