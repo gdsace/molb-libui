@@ -19,11 +19,11 @@ export interface ITableProps {
     size?: TableSize;
     theme?: TableTheme;
     showNoDataAvailableMessage?: boolean;
-    showPagination?: boolean;
     selectedItemIndex?: number;
     expandableRowTemplate?: React.ReactChild;
-    onDropdownClick?: (itemIndex: number) => void;
+    onDropdownClick: (itemIndex: number) => void;
     disableDropdownClick?: boolean;
+    showPagination?: boolean;
 }
 export interface ITableState {
     expandedRow: number;

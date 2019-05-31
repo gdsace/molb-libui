@@ -29,7 +29,7 @@ export interface ITableProps {
   showNoDataAvailableMessage?: boolean;
   selectedItemIndex?: number;
   expandableRowTemplate?: React.ReactChild;
-  onDropdownClick?: (itemIndex: number) => void;
+  onDropdownClick: (itemIndex: number) => void;
   disableDropdownClick?: boolean;
   showPagination?: boolean;
 }
@@ -134,27 +134,14 @@ export class Table extends React.Component<ITableProps, ITableState> {
       </tr>
     ];
 
-    const detailRows = dataSource.map(rowData => (
-      <tr
-        key={`tr-${rowData.key}`}
-        className={rowData.withoutBorder ? styles.withoutBorder : ""}
-      >
-        {columns.map(column => toItem(column, rowData))}
-      </tr>
-    ));
-    const handleRowClick = (rowId: number) => {
-      const currentExpandedRow = this.state.expandedRow;
-
-      this.setState({
-        expandedRow: rowId === currentExpandedRow ? -1 : rowId
-      });
-    };
-
     const detailRows = dataSource.map((rowData, index) => {
       const expandedRow = this.state.expandedRow;
       return (
         <>
-          <tr key={`tr-${rowData.key}`}>
+          <tr
+            key={`tr-${rowData.key}`}
+            className={rowData.withoutBorder ? styles.withoutBorder : ""}
+          >
             {columns.map(column => {
               return toItem(column, rowData);
             })}
@@ -178,6 +165,14 @@ export class Table extends React.Component<ITableProps, ITableState> {
         </>
       );
     });
+
+    const handleRowClick = (rowId: number) => {
+      const currentExpandedRow = this.state.expandedRow;
+
+      this.setState({
+        expandedRow: rowId === currentExpandedRow ? -1 : rowId
+      });
+    };
 
     return (
       <tbody>

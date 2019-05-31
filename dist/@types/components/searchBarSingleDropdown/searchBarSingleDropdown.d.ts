@@ -15,8 +15,6 @@ export interface ISearchSingleDropdownProps {
     errorMsg?: string;
     buttonLabel: string;
     handleButtonClick: (inputText: string, selectedDropdown: IDropdownOptionType) => any;
-    errorMsg?: string;
-    showError?: boolean;
 }
 export declare class SearchSingleDropdown extends React.Component<ISearchSingleDropdownProps, {}> {
     render(): JSX.Element;
