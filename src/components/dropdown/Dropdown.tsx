@@ -27,7 +27,7 @@ export const dropdownCustomStyles = {
     if (_.get(state, "selectProps.error")) {
       borderColor = "1px solid #dc3545";
     } else if (state.isFocused && !state.isDisabled) {
-      borderColor = "1px solid #408";
+      borderColor = "1px solid #95e";
     } else {
       borderColor = "1px solid #dbdfe4";
     }

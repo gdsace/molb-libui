@@ -5,14 +5,14 @@
 }
 
 .dropdown__option--is-focused {
-  color: $indigo !important;
+  color: $lavender-indigo !important;
   background-color: $field-color-1 !important;
 }
 
 .dropdown__menu {
   .dropdown__menu-list {
     .dropdown__option.dropdown__option--is-selected {
-      color: $indigo !important;
+      color: $lavender-indigo !important;
       background-color: transparent !important;
     }
   }

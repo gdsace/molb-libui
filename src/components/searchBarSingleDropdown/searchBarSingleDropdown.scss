@@ -15,8 +15,11 @@
       float: left;
       width: 20%;
       height: $space-6;
-      border-radius: 0px;
+      border-radius: 5px 0px 0px 5px;
       border-right: 0px;
+      &:hover {
+        border: 1px solid $black;
+      }
     }
 
     .searchTextInputWrapper {
