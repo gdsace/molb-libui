@@ -9,7 +9,6 @@
   left: 0;
   top: 0;
   background: rgba(0, 0, 0, 0.6);
-  z-index: $z-index-9;
   -webkit-overflow-scrolling: touch;
   overflow-x: hidden;
   user-select: none;
@@ -178,4 +177,19 @@
 
 .none {
   display: none;
+}
+.LowIndex{
+  z-index: $z-index-1;
+}
+.normalIndex{
+  z-index:$z-index-2 ;
+}
+.middleIndex{
+  z-index: $z-index-3;
+}
+.highIndex{
+  z-index: $z-index-9;
+}
+.higherIndex{
+  z-index: $z-index-10;
 }
