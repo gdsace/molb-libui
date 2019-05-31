@@ -10,26 +10,29 @@
   .searchSection {
     width: 100%;
     height: $space-6;
-  }
 
-  .searchTypeDropdown {
-    float: left;
-    width: 20%;
-    height: $space-6;
-  }
+    .searchTypeDropdown {
+      float: left;
+      width: 20%;
+      height: $space-6;
+      border-radius: 0px;
+      border-right: 0px;
+    }
 
-  .searchTextInputWrapper {
-    display: inline-block;
-    width: calc(80% - 197px); //165 + 32 from space-4
-    margin-right: $space-4;
-  }
+    .searchTextInputWrapper {
+      display: inline-block;
+      width: calc(80% - 197px); //165 + 32 from space-4
+      margin-right: $space-4;
+      border: 0px;
 
-  .searchButton {
-    width: 165px;
-    height: $space-6;
-  }
+      .iconSignifier {
+        color: $text-color;
+      }
+    }
 
-  .iconSignifier {
-    color: $text-color;
+    .searchButton {
+      width: 165px;
+      height: $space-6;
+    }
   }
 }

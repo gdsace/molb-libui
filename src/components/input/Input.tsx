@@ -123,9 +123,12 @@ export class Input extends React.Component<IInputProps, any> {
           <div className={styles.inline}>
             <input
               disabled={this.props.disabled}
-              className={`${styles.field} ${size} ${this.props.className} ${
+              className={classnames(
+                styles.field,
+                size,
+                this.props.className && styles[this.props.className],
                 this.props.showError ? styles.error : ""
-              }`}
+              )}
               value={this.props.value}
               type={this.getRawInputType(this.props.type)}
               maxLength={this.props.maxLength}

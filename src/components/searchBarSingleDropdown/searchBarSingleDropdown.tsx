@@ -62,6 +62,7 @@ export class SearchSingleDropdown extends React.Component<
               type={InputType.Text}
               value={this.props.inputText}
               placeholder={this.props.inputPlaceholder}
+              className={"searchField"}
               maxLength={this.props.inputMaxlength || 100}
               onChange={e => {
                 this.props.handleInputChange(e.target.value);

@@ -31,6 +31,10 @@ $input-focus-border: solid 1px $lavender-indigo;
     color: $text-color-2;
   }
 
+  .searchField {
+    border-radius: 0px;
+  }
+
   .errorField {
     border-color: $support-red;
   }
