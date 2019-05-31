@@ -5,6 +5,10 @@
   height: 100%;
 }
 
+.popperContainerClassName {
+  z-index: $z-index-9;
+}
+
 .customInput {
   display: flex;
   align-items: center;
