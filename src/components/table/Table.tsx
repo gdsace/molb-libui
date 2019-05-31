@@ -109,7 +109,9 @@ export class Table extends React.Component<ITableProps, ITableState> {
 
     const toExpandableItem = () => (
       <tr>
-        <td colSpan={columns.length + 1}>{this.props.expandableRowTemplate}</td>
+        <td className={styles.expandableTd} colSpan={columns.length + 1}>
+          {this.props.expandableRowTemplate}
+        </td>
       </tr>
     );
 
@@ -147,7 +149,7 @@ export class Table extends React.Component<ITableProps, ITableState> {
               <td
                 onClick={() => {
                   handleRowClick(index);
-                  this.props.onArrowClick(index);
+                  this.props.onDropdownClick(index);
                 }}
               >
                 <Icon

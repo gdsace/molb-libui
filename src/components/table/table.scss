@@ -121,6 +121,33 @@ $title-margin: $space-2;
     }
   }
 
+  table.expandable {
+    thead {
+      background-color: $ui-color;
+    }
+
+    tbody tr {
+      box-sizing: border-box;
+      background-color: $ui-color;
+    }
+
+    .expandableTd {
+      background: $porcelain;
+    }
+
+    td,
+    th {
+      &:first-child {
+        padding-left: $space-4;
+      }
+
+      &:last-child {
+        padding-right: $space-4;
+      }
+      text-align: left;
+    }
+  }
+
   .alignRight {
     text-align: right;
   }
