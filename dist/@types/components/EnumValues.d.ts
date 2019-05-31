@@ -3,7 +3,6 @@ export declare enum Theme {
     Ghost = "ghost",
     Primary = "primary",
     Secondary = "secondary",
-    Flat = "flat",
     Grey = "grey"
 }
 export declare enum PanelType {

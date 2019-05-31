@@ -87,21 +87,6 @@
   }
 }
 
-.flat {
-  color: $primary-color;
-  background-color: transparent;
-  border: none;
-
-  &:focus {
-    background-color: transparent;
-  }
-
-  &:hover {
-    color: $lavender-indigo;
-    background-color: $porcelain;
-  }
-}
-
 .grey {
   color: $text-color;
   background-color: $primary-color-2;

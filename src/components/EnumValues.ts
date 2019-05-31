@@ -3,7 +3,6 @@ export enum Theme {
   Ghost = "ghost",
   Primary = "primary",
   Secondary = "secondary",
-  Flat = "flat",
   Grey = "grey"
 }
 
