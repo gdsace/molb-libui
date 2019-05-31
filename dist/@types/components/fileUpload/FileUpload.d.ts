@@ -13,6 +13,7 @@ export interface IFileUploadProps extends DropzoneProps {
     onSuccess?: (event: any) => any;
     subjectId: string;
     token: string;
+    validateFile?: (file: File, documentTypeCode: string) => any;
 }
 export interface IFileUploadState {
     fileInfo?: Partial<IDocument>;

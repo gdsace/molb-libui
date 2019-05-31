@@ -1,0 +1,18 @@
+@import "../../components/styles/utils.scss";
+
+%spacer {
+  margin-bottom: 1em;
+  border: 1px solid $lavender-indigo;
+  height: 110px;
+  padding: 25px 0;
+}
+
+.default {
+  @extend %spacer;
+}
+
+.main {
+  @extend %spacer;
+
+  background-color: $ui-color-1;
+}

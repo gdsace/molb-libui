@@ -18,6 +18,7 @@ export interface IDataSource {
 }
 
 export interface ITableProps {
+  onChangePage?: (action: string) => any;
   dataSource: IDataSource[];
   columns: IColumn[];
   tableCls?: string;
@@ -30,6 +31,7 @@ export interface ITableProps {
   expandableRowTemplate?: React.ReactChild;
   onDropdownClick?: (itemIndex: number) => void;
   disableDropdownClick?: boolean;
+  showPagination?: boolean;
 }
 
 export interface ITableState {
@@ -53,7 +55,8 @@ export class Table extends React.Component<ITableProps, ITableState> {
     size: TableSize.Small,
     theme: TableTheme.Basic,
     tableCls: "",
-    showNoDataAvailableMessage: true
+    showNoDataAvailableMessage: true,
+    showPagination: false
   };
 
   public constructor(props: ITableProps) {
@@ -101,7 +104,8 @@ export class Table extends React.Component<ITableProps, ITableState> {
         key={`td-${column.key}`}
         className={cx({
           alignRight: column.textAlignRight,
-          hiddenInlineTitle: column.hiddenInlineTitle
+          hiddenInlineTitle: column.hiddenInlineTitle,
+          emptyContent: !data[column.key]
         })}
       >
         <div className={cx("contentData")}>{data[column.key]}</div>
@@ -130,6 +134,14 @@ export class Table extends React.Component<ITableProps, ITableState> {
       </tr>
     ];
 
+    const detailRows = dataSource.map(rowData => (
+      <tr
+        key={`tr-${rowData.key}`}
+        className={rowData.withoutBorder ? styles.withoutBorder : ""}
+      >
+        {columns.map(column => toItem(column, rowData))}
+      </tr>
+    ));
     const handleRowClick = (rowId: number) => {
       const currentExpandedRow = this.state.expandedRow;
 

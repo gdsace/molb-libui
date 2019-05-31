@@ -11,6 +11,8 @@ export interface ISearchSingleDropdownProps {
     handleInputChange: (inputText: string) => any;
     inputPlaceholder?: string;
     inputMaxlength?: number;
+    showError?: boolean;
+    errorMsg?: string;
     buttonLabel: string;
     handleButtonClick: (inputText: string, selectedDropdown: IDropdownOptionType) => any;
     errorMsg?: string;

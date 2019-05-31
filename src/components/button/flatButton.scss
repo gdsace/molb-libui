@@ -1,0 +1,29 @@
+@import "../styles/utils";
+
+.rootContainer {
+  cursor: pointer;
+  color: $indigo;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $medium;
+  font-weight: $weight-semibold;
+  line-height: $line-height-large;
+
+  .icon {
+    margin-right: $space-1;
+  }
+
+  .label {
+    white-space: pre;
+  }
+
+  &:hover {
+    color: $lavender-indigo;
+  }
+
+  &.disabled {
+    color: $field-color-2;
+    cursor: default;
+  }
+}

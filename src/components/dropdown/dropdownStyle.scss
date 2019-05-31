@@ -1,5 +1,5 @@
-// We cannot split this file up because importing styles from another file will
-// create duplicates
+// // We cannot split this file up because importing styles from another file will
+// // create duplicates
 
 @import "../styles/utils.scss";
 
@@ -7,19 +7,15 @@
   width: 32px; /* Fix for IE11, Safari icon not showing */
 }
 
+.dropdown {
+  height: 48px !important;
+}
+
 .dropdownControl {
   height: 100% !important;
   border: 0 !important;
   box-shadow: none !important;
   user-select: none;
-
-  &:hover {
-    .addressLabel,
-    .dropdownIndicator {
-      transition: none !important;
-      color: $indigo !important;
-    }
-  }
 }
 
 .errorMessage {
@@ -34,6 +30,10 @@
 .label {
   font-weight: $weight-medium;
   margin-bottom: $space-0;
+}
+
+.disabledLabel {
+  color: $text-color-5;
 }
 
 .small {
@@ -74,6 +74,7 @@
     margin: 0 0 0 $space-2 !important;
     width: 100% !important;
     border: none !important;
+    font-size: $medium;
 
     &:focus {
       border: none !important;
@@ -91,6 +92,8 @@
     overflow: hidden;
     width: 100%;
     user-select: none;
+    color: $text-color;
+    font-size: $medium;
   }
 }
 
@@ -138,7 +141,7 @@
     // This is bugged because the mobile breakpoint is too narrow
     // On more narrow widths this will create a scrollbar
     // To confirm with UX team
-    max-width: 560px;
+    max-width: 320px;
 
     // prevent svg from appearing on top of this
     z-index: $z-index-3 !important;
@@ -207,8 +210,25 @@
   }
 
   .placeholder {
-    font-size: $x-large !important;
+    font-size: $large !important;
     font-weight: $weight-semibold;
     user-select: none;
+    line-height: 1.5;
+    color: $text-color-2;
   }
+
+  // stylelint-disable
+  .dropdownControl {
+    &:hover {
+      .addressLabel,
+      .placeholder,
+      .premiseLabel,
+      .addressText,
+      .dropdownIndicator {
+        transition: none !important;
+        color: $indigo !important;
+      }
+    }
+  }
+  // stylelint-enable
 }

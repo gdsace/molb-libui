@@ -3,7 +3,7 @@ export enum Theme {
   Ghost = "ghost",
   Primary = "primary",
   Secondary = "secondary",
-  Flat = "flat"
+  Grey = "grey"
 }
 
 export enum PanelType {
@@ -29,7 +29,8 @@ export enum Size {
   Small = "small",
   Medium = "medium",
   Large = "large",
-  XLarge = "xlarge"
+  XLarge = "xlarge",
+  Square = "square"
 }
 
 export enum LinkStatus {
@@ -157,4 +158,9 @@ export enum AccordionTheme {
 export enum ExpandablePanelTheme {
   Standard = "standard",
   Large = "large"
+}
+
+export enum HeaderType {
+  Demo = "storyBookDemo",
+  Main = "main"
 }
