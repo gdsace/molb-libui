@@ -17,6 +17,13 @@ export enum ModalTheme {
   Large,
   Full
 }
+export enum ModalIndex {
+  Low,
+  Normal,
+  Middle,
+  High,
+  Higher
+}
 
 export interface IModalProps {
   onClose: (event: any) => void;
@@ -27,12 +34,14 @@ export interface IModalProps {
   theme?: ModalTheme;
   footer?: React.ReactNode;
   onScrollBottomCallback?: () => any;
+  zIndex?: ModalIndex;
 }
 
 export class Modal extends React.Component<IModalProps, {}> {
   public static defaultProps: Partial<IModalProps> = {
     show: false,
-    theme: ModalTheme.Basic
+    theme: ModalTheme.Basic,
+    zIndex: ModalIndex.High
   };
   public debouncedScrollHandler: ((e: any) => void) & _.Cancelable;
   private readonly el: HTMLElement;
@@ -85,9 +94,13 @@ export class Modal extends React.Component<IModalProps, {}> {
       [styles.block]: this.props.show,
       [styles.none]: !this.props.show,
       [styles.largeTheme]: this.props.theme === ModalTheme.Large,
-      [styles.fullTheme]: this.props.theme === ModalTheme.Full
+      [styles.fullTheme]: this.props.theme === ModalTheme.Full,
+      [styles.LowIndex]: this.props.zIndex === ModalIndex.Low,
+      [styles.normalIndex]: this.props.zIndex === ModalIndex.Normal,
+      [styles.middleIndex]: this.props.zIndex === ModalIndex.Middle,
+      [styles.highIndex]: this.props.zIndex === ModalIndex.High,
+      [styles.higherIndex]: this.props.zIndex === ModalIndex.Higher
     });
-
     const modalContent = (
       <div className={modalStyle} onClick={this.onClickAway}>
         <section
