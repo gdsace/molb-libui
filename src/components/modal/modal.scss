@@ -178,18 +178,23 @@
 .none {
   display: none;
 }
-.LowIndex{
+
+.LowIndex {
   z-index: $z-index-1;
 }
-.normalIndex{
-  z-index:$z-index-2 ;
+
+.normalIndex {
+  z-index: $z-index-2;
 }
-.middleIndex{
+
+.middleIndex {
   z-index: $z-index-3;
 }
-.highIndex{
+
+.highIndex {
   z-index: $z-index-9;
 }
-.higherIndex{
+
+.higherIndex {
   z-index: $z-index-10;
 }
