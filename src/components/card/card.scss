@@ -112,10 +112,11 @@ $content-space-padding: 32px;
 
   &:hover {
     transform: translate(0, -1px);
-    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.03),
-    0 7px 25px 0 rgba(0, 0, 0, 0.03),
-    0 0 0 1px rgba(0, 0, 0, 0.03),
-    0 4px 25px 0 rgba(0, 0, 0, 0.1);
+    box-shadow:
+      0 4px 12px 0 rgba(0, 0, 0, 0.03),
+      0 7px 25px 0 rgba(0, 0, 0, 0.03),
+      0 0 0 1px rgba(0, 0, 0, 0.03),
+      0 4px 25px 0 rgba(0, 0, 0, 0.1);
   }
 
   .actionField {
@@ -158,9 +159,10 @@ $content-space-padding: 32px;
 .clickable {
   &:hover {
     transform: translate(0, -1px);
-    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.03),
-    0 7px 25px 0 rgba(0, 0, 0, 0.03),
-    0 0 0 1px rgba(0, 0, 0, 0.03),
-    0 4px 25px 0 rgba(0, 0, 0, 0.1);
+    box-shadow:
+      0 4px 12px 0 rgba(0, 0, 0, 0.03),
+      0 7px 25px 0 rgba(0, 0, 0, 0.03),
+      0 0 0 1px rgba(0, 0, 0, 0.03),
+      0 4px 25px 0 rgba(0, 0, 0, 0.1);
   }
 }
