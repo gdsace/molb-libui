@@ -6,6 +6,7 @@ import { Tag } from "../tag";
 const styles = require("./card.scss");
 
 export interface ICardProps {
+  header?: React.ReactNode;
   title: string;
   titleIcon?: React.ReactNode;
   subtitle: string;
@@ -40,7 +41,10 @@ export class Card extends React.Component<ICardProps> {
 
     return (
       <div className={cardClass} onClick={this.handleOnClick}>
-        <div className={styles.header}>
+        {this.props.header && (
+          <div className={styles.headerWrapper}>{this.props.header}</div>
+        )}
+        <div className={styles.titleWithSupportingText}>
           <div className={titleWrapperClass}>
             <h6 className={styles.title}>{this.props.title}</h6>
             {this.props.titleIcon}

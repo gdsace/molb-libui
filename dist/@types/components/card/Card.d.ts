@@ -1,6 +1,7 @@
 import * as React from "react";
 import { CardTheme, TagTheme } from "../EnumValues";
 export interface ICardProps {
+    header?: React.ReactNode;
     title: string;
     titleIcon?: React.ReactNode;
     subtitle: string;
