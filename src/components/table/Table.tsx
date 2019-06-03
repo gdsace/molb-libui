@@ -1,6 +1,6 @@
 import classNames from "classnames/bind";
 import * as React from "react";
-import { Icon } from "..";
+import { Icon } from "../icons";
 const styles = require("./table.scss");
 const cx = classNames.bind(styles).default || classNames.bind(styles);
 const NO_DATA_IN_TABLE = "No data available in table";
@@ -27,15 +27,14 @@ export interface ITableProps {
   size?: TableSize;
   theme?: TableTheme;
   showNoDataAvailableMessage?: boolean;
-  selectedItemIndex?: number;
   expandableRowTemplate?: React.ReactChild;
-  onDropdownClick: (itemIndex: number) => void;
-  disableDropdownClick?: boolean;
+  onExpandButtonClick: (itemIndex: number) => void;
+  disableExpandButtonClick?: boolean;
   showPagination?: boolean;
 }
 
 export interface ITableState {
-  expandedRow: number;
+  expandedRowIndex: number;
 }
 
 export enum TableSize {
@@ -62,7 +61,7 @@ export class Table extends React.Component<ITableProps, ITableState> {
   public constructor(props: ITableProps) {
     super(props);
     this.state = {
-      expandedRow: -1
+      expandedRowIndex: -1
     };
   }
 
@@ -135,7 +134,7 @@ export class Table extends React.Component<ITableProps, ITableState> {
     ];
 
     const detailRows = dataSource.map((rowData, index) => {
-      const expandedRow = this.state.expandedRow;
+      const expandedRow = this.state.expandedRowIndex;
       return (
         <>
           <tr
@@ -148,9 +147,9 @@ export class Table extends React.Component<ITableProps, ITableState> {
             {this.props.expandable ? (
               <td
                 onClick={() => {
-                  if (!this.props.disableDropdownClick) {
+                  if (!this.props.disableExpandButtonClick) {
                     handleRowClick(index);
-                    this.props.onDropdownClick(index);
+                    this.props.onExpandButtonClick(index);
                   }
                 }}
               >
@@ -167,10 +166,10 @@ export class Table extends React.Component<ITableProps, ITableState> {
     });
 
     const handleRowClick = (rowId: number) => {
-      const currentExpandedRow = this.state.expandedRow;
+      const currentExpandedRowIndex = this.state.expandedRowIndex;
 
       this.setState({
-        expandedRow: rowId === currentExpandedRow ? -1 : rowId
+        expandedRowIndex: rowId === currentExpandedRowIndex ? -1 : rowId
       });
     };
 
