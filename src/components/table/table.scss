@@ -13,8 +13,12 @@ $title-margin: $space-2;
   font-weight: $weight-bold;
 }
 
-.tableDropdownButton {
+.tableExpandButton {
   cursor: pointer;
+}
+
+.tableExpandButtonClickNotAllowed {
+  cursor: not-allowed;
 }
 
 .tableContainer {

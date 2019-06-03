@@ -29,7 +29,7 @@ export interface ITableProps {
   showNoDataAvailableMessage?: boolean;
   expandableRowTemplate?: React.ReactChild;
   onExpandButtonClick: (itemIndex: number) => void;
-  disableExpandButtonClick?: boolean;
+  ignoreExpandButtonClick?: boolean;
   showPagination?: boolean;
 }
 
@@ -55,7 +55,8 @@ export class Table extends React.Component<ITableProps, ITableState> {
     theme: TableTheme.Basic,
     tableCls: "",
     showNoDataAvailableMessage: true,
-    showPagination: false
+    showPagination: false,
+    ignoreExpandButtonClick: false
   };
 
   public constructor(props: ITableProps) {
@@ -147,14 +148,18 @@ export class Table extends React.Component<ITableProps, ITableState> {
             {this.props.expandable ? (
               <td
                 onClick={() => {
-                  if (!this.props.disableExpandButtonClick) {
+                  if (!this.props.ignoreExpandButtonClick) {
                     handleRowClick(index);
                     this.props.onExpandButtonClick(index);
                   }
                 }}
               >
                 <Icon
-                  className={styles.tableDropdownButton}
+                  className={
+                    this.props.ignoreExpandButtonClick
+                      ? styles.tableExpandButtonClickNotAllowed
+                      : styles.tableExpandButton
+                  }
                   type={expandedRow === index ? "up" : "dropdown"}
                 />
               </td>

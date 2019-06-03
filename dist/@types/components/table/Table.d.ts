@@ -21,7 +21,7 @@ export interface ITableProps {
     showNoDataAvailableMessage?: boolean;
     expandableRowTemplate?: React.ReactChild;
     onExpandButtonClick: (itemIndex: number) => void;
-    disableExpandButtonClick?: boolean;
+    ignoreExpandButtonClick?: boolean;
     showPagination?: boolean;
 }
 export interface ITableState {
