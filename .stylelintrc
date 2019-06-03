@@ -3,7 +3,6 @@
     "stylelint-config-standard"
   ],
   "rules": {
-    "no-descending-specificity": null,
     "at-rule-no-vendor-prefix": true,
     "media-feature-name-no-vendor-prefix": true,
     "property-no-vendor-prefix": true,
