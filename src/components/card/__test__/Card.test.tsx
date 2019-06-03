@@ -1,3 +1,4 @@
+import { noop } from "@babel/types";
 import { mount } from "enzyme";
 import * as React from "react";
 import { CardTheme, TagTheme } from "../../EnumValues";
@@ -69,5 +70,18 @@ describe("Card", () => {
       />
     );
     expect(wrapper.find(Tag)).toHaveLength(1);
+  });
+
+  it("should render headerWrapper when have header in props", () => {
+    const wrapper = mount(
+      <Card
+        header={<p>header</p>}
+        title={title}
+        subtitle={subtitle}
+        statusTheme={TagTheme.Green}
+        onClick={noop}
+      />
+    );
+    expect(wrapper.find(".headerWrapper")).toHaveLength(1);
   });
 });

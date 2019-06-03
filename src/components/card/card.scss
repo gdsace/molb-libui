@@ -19,7 +19,11 @@ $content-space-padding: 32px;
   background-color: $primary-color-2;
   overflow: hidden;
 
-  .header {
+  .headerWrapper {
+    margin-bottom: $space-2;
+  }
+
+  .titleWithSupportingText {
     display: flex;
     justify-content: space-between;
     line-height: $line-height-medium;
@@ -108,18 +112,17 @@ $content-space-padding: 32px;
 
   &:hover {
     transform: translate(0, -1px);
-    box-shadow:
-      0 4px 12px 0 rgba(0, 0, 0, 0.03),
-      0 7px 25px 0 rgba(0, 0, 0, 0.03),
-      0 0 0 1px rgba(0, 0, 0, 0.03),
-      0 4px 25px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.03),
+    0 7px 25px 0 rgba(0, 0, 0, 0.03),
+    0 0 0 1px rgba(0, 0, 0, 0.03),
+    0 4px 25px 0 rgba(0, 0, 0, 0.1);
   }
 
   .actionField {
     color: $support-yellow;
   }
 
-  .header .title {
+  .titleWithSupportingText .title {
     color: $marigold;
   }
 }
@@ -138,7 +141,7 @@ $content-space-padding: 32px;
   background-color: $selago-light;
   border: solid 1px $selago;
 
-  .header .title {
+  .titleWithSupportingText .title {
     color: $indigo;
   }
 }
@@ -147,7 +150,7 @@ $content-space-padding: 32px;
   background-color: $panache;
   border: solid 1px $zanah;
 
-  .header .title {
+  .titleWithSupportingText .title {
     color: $support-green;
   }
 }
@@ -155,10 +158,9 @@ $content-space-padding: 32px;
 .clickable {
   &:hover {
     transform: translate(0, -1px);
-    box-shadow:
-      0 4px 12px 0 rgba(0, 0, 0, 0.03),
-      0 7px 25px 0 rgba(0, 0, 0, 0.03),
-      0 0 0 1px rgba(0, 0, 0, 0.03),
-      0 4px 25px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.03),
+    0 7px 25px 0 rgba(0, 0, 0, 0.03),
+    0 0 0 1px rgba(0, 0, 0, 0.03),
+    0 4px 25px 0 rgba(0, 0, 0, 0.1);
   }
 }
