@@ -1,6 +1,6 @@
 import classNames from "classnames/bind";
 import * as React from "react";
-
+import { Icon } from "../icons";
 const styles = require("./table.scss");
 const cx = classNames.bind(styles).default || classNames.bind(styles);
 const NO_DATA_IN_TABLE = "No data available in table";
@@ -23,10 +23,18 @@ export interface ITableProps {
   columns: IColumn[];
   tableCls?: string;
   bordered?: boolean;
+  expandable?: boolean;
   size?: TableSize;
   theme?: TableTheme;
   showNoDataAvailableMessage?: boolean;
+  expandableRowTemplate?: React.ReactChild;
+  onExpandButtonClick: (itemIndex: number) => void;
+  ignoreExpandButtonClick?: boolean;
   showPagination?: boolean;
+}
+
+export interface ITableState {
+  expandedRowIndex: number;
 }
 
 export enum TableSize {
@@ -36,18 +44,27 @@ export enum TableSize {
 
 export enum TableTheme {
   Striped = "striped",
+  Expandable = "expandable",
   Basic = "basic"
 }
 
-export class Table extends React.Component<ITableProps, {}> {
+export class Table extends React.Component<ITableProps, ITableState> {
   public static defaultProps: Partial<ITableProps> = {
     bordered: false,
     size: TableSize.Small,
     theme: TableTheme.Basic,
     tableCls: "",
     showNoDataAvailableMessage: true,
-    showPagination: false
+    showPagination: false,
+    ignoreExpandButtonClick: false
   };
+
+  public constructor(props: ITableProps) {
+    super(props);
+    this.state = {
+      expandedRowIndex: -1
+    };
+  }
 
   public render() {
     const {
@@ -95,6 +112,14 @@ export class Table extends React.Component<ITableProps, {}> {
       </td>
     );
 
+    const toExpandableItem = () => (
+      <tr>
+        <td className={styles.expandableTd} colSpan={columns.length + 1}>
+          {this.props.expandableRowTemplate}
+        </td>
+      </tr>
+    );
+
     const emptyRows = [
       <tr key={`tr-NO_DATA`}>
         <td
@@ -109,14 +134,49 @@ export class Table extends React.Component<ITableProps, {}> {
       </tr>
     ];
 
-    const detailRows = dataSource.map(rowData => (
-      <tr
-        key={`tr-${rowData.key}`}
-        className={rowData.withoutBorder ? styles.withoutBorder : ""}
-      >
-        {columns.map(column => toItem(column, rowData))}
-      </tr>
-    ));
+    const detailRows = dataSource.map((rowData, index) => {
+      const expandedRow = this.state.expandedRowIndex;
+      return (
+        <>
+          <tr
+            key={`tr-${rowData.key}`}
+            className={rowData.withoutBorder ? styles.withoutBorder : ""}
+          >
+            {columns.map(column => {
+              return toItem(column, rowData);
+            })}
+            {this.props.expandable ? (
+              <td
+                onClick={() => {
+                  if (!this.props.ignoreExpandButtonClick) {
+                    handleRowClick(index);
+                    this.props.onExpandButtonClick(index);
+                  }
+                }}
+              >
+                <Icon
+                  className={
+                    this.props.ignoreExpandButtonClick
+                      ? styles.tableExpandButtonClickNotAllowed
+                      : styles.tableExpandButton
+                  }
+                  type={expandedRow === index ? "up" : "dropdown"}
+                />
+              </td>
+            ) : null}
+          </tr>
+          {expandedRow === index ? toExpandableItem() : null}
+        </>
+      );
+    });
+
+    const handleRowClick = (rowId: number) => {
+      const currentExpandedRowIndex = this.state.expandedRowIndex;
+
+      this.setState({
+        expandedRowIndex: rowId === currentExpandedRowIndex ? -1 : rowId
+      });
+    };
 
     return (
       <tbody>
@@ -142,7 +202,10 @@ export class Table extends React.Component<ITableProps, {}> {
 
     return (
       <thead>
-        <tr>{columns.map(toItem)}</tr>
+        <tr>
+          {columns.map(toItem)}
+          {this.props.expandable ? <th /> : null}
+        </tr>
       </thead>
     );
   }

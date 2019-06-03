@@ -13,6 +13,14 @@ $title-margin: $space-2;
   font-weight: $weight-bold;
 }
 
+.tableExpandButton {
+  cursor: pointer;
+}
+
+.tableExpandButtonClickNotAllowed {
+  cursor: not-allowed;
+}
+
 .tableContainer {
   table {
     width: 100%;
@@ -86,21 +94,19 @@ $title-margin: $space-2;
     }
   }
 
-  table.striped {
+  table.expandable {
     thead {
       background-color: $ui-color;
     }
 
     tbody tr {
+      border-top: 1px solid $ui-color-2;
       box-sizing: border-box;
+      background-color: $ui-color;
+    }
 
-      &:nth-child(2n+1) {
-        background-color: $ui-color-1;
-      }
-
-      &:nth-child(2n) {
-        background-color: $ui-color;
-      }
+    .expandableTd {
+      background: $porcelain;
     }
 
     td,
@@ -117,6 +123,37 @@ $title-margin: $space-2;
     }
   }
 
+  table.striped {
+    thead {
+      background-color: $ui-color;
+    }
+
+    tbody tr {
+      box-sizing: border-box;
+
+      &:nth-child(2n+1) {
+        background-color: $ui-color-1;
+      }
+
+      &:nth-child(2n) {
+        background-color: $ui-color;
+      }
+    }
+/* stylelint-disable */
+    td,
+    th {
+      &:first-child {
+        padding-left: $space-4;
+      }
+
+      &:last-child {
+        padding-right: $space-4;
+      }
+
+      text-align: left;
+    }
+  }
+/* stylelint-enable */
   .alignRight {
     text-align: right;
   }
