@@ -31,6 +31,8 @@ export interface ITableProps {
   onExpandButtonClick: (itemIndex: number) => void;
   ignoreExpandButtonClick?: boolean;
   showPagination?: boolean;
+  clickableRow?: boolean;
+  onRowclickHandler?: () => void;
 }
 
 export interface ITableState {
@@ -56,7 +58,8 @@ export class Table extends React.Component<ITableProps, ITableState> {
     tableCls: "",
     showNoDataAvailableMessage: true,
     showPagination: false,
-    ignoreExpandButtonClick: false
+    ignoreExpandButtonClick: false,
+    clickableRow: false
   };
 
   public constructor(props: ITableProps) {
@@ -74,7 +77,7 @@ export class Table extends React.Component<ITableProps, ITableState> {
       bordered,
       size,
       theme,
-      showNoDataAvailableMessage
+      showNoDataAvailableMessage,
     } = this.props;
     const theadComponent: React.ReactNode = this.getHeadComponent(columns);
     const tbodyComponent: React.ReactNode = this.getBodyComponent(
@@ -136,15 +139,20 @@ export class Table extends React.Component<ITableProps, ITableState> {
 
     const detailRows = dataSource.map((rowData, index) => {
       const expandedRow = this.state.expandedRowIndex;
+
+      const modifier = {
+        ...(this.props.clickableRow
+          ? { onClick: rowData.onRowclickHandler }
+          : {})
+      };
       return (
         <>
           <tr
             key={`tr-${rowData.key}`}
             className={rowData.withoutBorder ? styles.withoutBorder : ""}
+            {...modifier}
           >
-            {columns.map(column => {
-              return toItem(column, rowData);
-            })}
+            {columns.map(column => toItem(column, rowData))}
             {this.props.expandable ? (
               <td
                 onClick={() => {

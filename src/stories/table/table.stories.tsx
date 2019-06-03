@@ -84,11 +84,32 @@ export const dataSource = [
   }
 ];
 
+export const dataSource2 = [
+  {
+    key: "1",
+    name: "Joe Black",
+    age: 32,
+    address: "Sidney No. 1 Lake Park",
+    tags: activeTag,
+    onRowclickHandler: () => alert("You've clicked on a table row")
+  }
+];
+
 (storiesOf(CategoryName.Table, module) as any).addWithJSX(
   "Table",
   wInfo(``)(() => (
     <div className={styles.rootContainer}>
       <h6 className={styles.groupHeader}>Table type: themes</h6>
+      <div className={styles.box}>
+        <p className={styles.notes}>RFA Search Table</p>
+        <Table
+          columns={tableColumns}
+          dataSource={dataSource2}
+          theme={TableTheme.Basic}
+          clickableRow={true}
+        />
+      </div>
+
       <div className={styles.itemsContainer}>
         <div className={styles.box}>
           <p className={styles.notes}>Showing "No data available":</p>
