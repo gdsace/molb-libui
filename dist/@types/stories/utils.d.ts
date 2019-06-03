@@ -35,6 +35,7 @@ export declare enum CategoryName {
     Tags = "Tags",
     Tiles = "Tiles",
     TimePicker = "TimePicker",
+    DatePicker = "DatePicker",
     Tooltips = "Tooltips",
     SelectionControls = "Selection-Controls",
     Accordion = "Accordion",

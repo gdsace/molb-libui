@@ -16,7 +16,7 @@ export interface IButtonProps {
   theme?: Theme;
   type?: ButtonType;
   icon?: string;
-  iconAlign?: "left" | "right";
+  iconAlign?: "left" | "right" | "center";
   children?: React.ReactNode;
   loading?: boolean;
 }
@@ -36,7 +36,11 @@ export class Button extends React.Component<IButtonProps, {}> {
     const buttonClassName = classNames(
       styles.button,
       styles[`${this.props.size}`],
-      this.props.disabled ? styles.disabled : styles[`${this.props.theme}`],
+      this.props.disabled
+        ? this.props.theme === Theme.Grey
+          ? styles.disabledGrey
+          : styles.disabled
+        : styles[`${this.props.theme}`],
       this.props.className
     );
 
@@ -54,7 +58,14 @@ export class Button extends React.Component<IButtonProps, {}> {
 
   private renderContent() {
     const isLeftIcon = this.props.iconAlign === "left";
-    const iconSize = this.props.size === Size.Small ? "16" : "24";
+    const isRightIcon = this.props.iconAlign === "right";
+    const isCenterIcon = this.props.iconAlign === "center";
+    const iconSize =
+      this.props.size === Size.Small
+        ? "16"
+        : this.props.size === Size.Square
+        ? "16"
+        : "24";
 
     return this.props.loading ? (
       <span className={styles.buttonContent}>
@@ -71,12 +82,15 @@ export class Button extends React.Component<IButtonProps, {}> {
           />
         )}
         <span>{this.props.label}</span>
-        {this.props.icon && !isLeftIcon && (
+        {this.props.icon && isRightIcon && (
           <Icon
             className={styles.rightIcon}
             type={this.props.icon}
             size={iconSize}
           />
+        )}
+        {this.props.icon && isCenterIcon && (
+          <Icon type={this.props.icon} size={iconSize} />
         )}
       </span>
     );

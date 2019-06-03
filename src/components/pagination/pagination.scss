@@ -1,0 +1,48 @@
+@import "../styles/utils.scss";
+
+.paginationContainer {
+  width: 100%;
+  height: 48px;
+  margin-top: $space-2;
+  margin-bottom: $space-2;
+  display: flex;
+  align-items: center;
+
+  .countContainer {
+    max-width: 300px;
+    color: $text-color-3;
+    font-size: $x-large;
+    font-weight: $weight-semibold;
+    justify-content: flex-start;
+  }
+
+  .pageRangeContainer {
+    margin-left: auto;
+    width: $space-9;
+    text-align: right;
+    color: $text-color-2;
+    font-size: $medium;
+  }
+
+  .ofCountContainer {
+    margin-left: $space-2;
+    margin-right: $space-2;
+    color: $text-color-2;
+    font-size: $medium;
+  }
+}
+
+.prevButton {
+  margin-left: auto;
+  border-radius: 3px 0 0 3px;
+  border-width: 1px 0.5px 1px 1px;
+}
+
+.nextButton {
+  margin-left: 0;
+  border-radius: 0 3px 3px 0;
+}
+
+.paginationRow {
+  justify-content: space-between;
+}

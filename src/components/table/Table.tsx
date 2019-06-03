@@ -18,6 +18,7 @@ export interface IDataSource {
 }
 
 export interface ITableProps {
+  onChangePage?: (action: string) => any;
   dataSource: IDataSource[];
   columns: IColumn[];
   tableCls?: string;
@@ -25,6 +26,7 @@ export interface ITableProps {
   size?: TableSize;
   theme?: TableTheme;
   showNoDataAvailableMessage?: boolean;
+  showPagination?: boolean;
 }
 
 export enum TableSize {
@@ -43,7 +45,8 @@ export class Table extends React.Component<ITableProps, {}> {
     size: TableSize.Small,
     theme: TableTheme.Basic,
     tableCls: "",
-    showNoDataAvailableMessage: true
+    showNoDataAvailableMessage: true,
+    showPagination: false
   };
 
   public render() {

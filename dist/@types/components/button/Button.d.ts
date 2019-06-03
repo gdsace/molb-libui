@@ -10,7 +10,7 @@ export interface IButtonProps {
     theme?: Theme;
     type?: ButtonType;
     icon?: string;
-    iconAlign?: "left" | "right";
+    iconAlign?: "left" | "right" | "center";
     children?: React.ReactNode;
     loading?: boolean;
 }

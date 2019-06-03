@@ -10,6 +10,7 @@ export interface IDataSource {
     [key: string]: any;
 }
 export interface ITableProps {
+    onChangePage?: (action: string) => any;
     dataSource: IDataSource[];
     columns: IColumn[];
     tableCls?: string;
@@ -17,6 +18,7 @@ export interface ITableProps {
     size?: TableSize;
     theme?: TableTheme;
     showNoDataAvailableMessage?: boolean;
+    showPagination?: boolean;
 }
 export declare enum TableSize {
     Small = "small",

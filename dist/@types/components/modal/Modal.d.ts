@@ -44,5 +44,5 @@ export declare class Modal extends React.Component<IModalProps, {}> {
     private enableBodyScroll;
     private onClickAway;
     private isClickedElementInModalBox;
-    private isClickedOnFloatOrAbsuluteElement;
+    private isClickedOnFloatOrAbsoluteElement;
 }

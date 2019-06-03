@@ -4,6 +4,7 @@ import DatePicker from "react-datepicker";
 import { isEmpty } from "lodash";
 import moment from "moment";
 import "react-datepicker/dist/react-datepicker.css";
+import { Portal } from "react-overlays";
 import { addLocatedErrorClassname } from "../utils";
 import { CustomInput } from "./CustomInput";
 import "./datePicker.css";
@@ -22,6 +23,10 @@ export interface IG2BDatePickerProps {
   errorMsg?: string;
   customInput?: React.ReactNode;
 }
+
+const CalendarContainer = ({ children }: { children: React.ReactNode[] }) => {
+  return <Portal container={document.body}>{children}</Portal>;
+};
 
 export class G2BDatePicker extends React.Component<
   IG2BDatePickerProps,
@@ -56,6 +61,8 @@ export class G2BDatePicker extends React.Component<
           placeholderText={"DD/MM/YYYY"}
           onClickOutside={this.handleClickOutside}
           onInputClick={this.handleFocus}
+          popperContainer={CalendarContainer}
+          popperClassName={styles.popperContainerClassName}
         />
         {this.props.errorMsg && (
           <p className={addLocatedErrorClassname(styles.errorMsg)}>

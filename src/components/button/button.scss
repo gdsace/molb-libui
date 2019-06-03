@@ -87,19 +87,19 @@
   }
 }
 
-.flat {
-  color: $primary-color;
-  background-color: transparent;
-  border: none;
-
-  &:focus {
-    background-color: transparent;
-  }
+.grey {
+  color: $text-color;
+  background-color: $primary-color-2;
+  border: 1px solid $ui-color-2;
 
   &:hover {
-    color: $lavender-indigo;
-    background-color: $porcelain;
+    border: 1px solid $lavender-indigo;
   }
+}
+
+.disabledGrey {
+  color: $porcelain;
+  border: 1px solid $porcelain;
 }
 
 .disabled {
@@ -116,6 +116,12 @@
   @include for-phone-only {
     min-width: 70px;
   }
+}
+
+.square {
+  height: 48px;
+  font-size: $small;
+  min-width: 48px;
 }
 
 .medium {

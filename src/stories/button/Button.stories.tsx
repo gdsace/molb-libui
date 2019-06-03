@@ -2,7 +2,7 @@ import React from "react";
 
 import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
-import { Button, Size, Theme } from "../../components";
+import { Button, FlatButton, Size, Theme } from "../../components";
 import { CategoryName, wInfo } from "../utils";
 
 const styles = require("./button.stories.scss");
@@ -46,10 +46,25 @@ const styles = require("./button.stories.scss");
             size={Size.Large}
           />
         </div>
+        <div className={styles.box}>
+          <Button
+            label="square"
+            onClick={action("button-click")}
+            size={Size.Square}
+          />
+        </div>
       </div>
 
       <h6 className={styles.groupHeader}>Different Theme</h6>
       <div className={styles.itemsContainer}>
+        <div className={styles.box}>
+          <p className={styles.notes}>grey</p>
+          <Button
+            label="grey"
+            onClick={action("button-click")}
+            theme={Theme.Grey}
+          />
+        </div>
         <div className={styles.box}>
           <p className={styles.notes}>ghost</p>
           <Button
@@ -133,14 +148,25 @@ const styles = require("./button.stories.scss");
             icon="add"
           />
         </div>
+      </div>
+
+      <h6 className={styles.groupHeader}>Flat Button(s)</h6>
+      <div className={styles.itemsContainer}>
         <div className={styles.box}>
-          <p className={styles.notes}>Flat Button</p>
-          <Button
-            label="flat-button"
+          <p className={styles.notes}>Enabled</p>
+          <FlatButton
+            label="Flat button"
             onClick={action("button-click")}
-            theme={Theme.Flat}
-            size={Size.Large}
-            icon="add"
+            iconType="add"
+          />
+        </div>
+        <div className={styles.box}>
+          <p className={styles.notes}>Disabled</p>
+          <FlatButton
+            label="Flat button"
+            onClick={action("button-click")}
+            iconType="add"
+            disabled={true}
           />
         </div>
       </div>
