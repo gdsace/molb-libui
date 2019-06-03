@@ -19,7 +19,11 @@ $content-space-padding: 32px;
   background-color: $primary-color-2;
   overflow: hidden;
 
-  .header {
+  .headerWrapper {
+    margin-bottom: $space-2;
+  }
+
+  .titleWithSupportingText {
     display: flex;
     justify-content: space-between;
     line-height: $line-height-medium;
@@ -119,7 +123,7 @@ $content-space-padding: 32px;
     color: $support-yellow;
   }
 
-  .header .title {
+  .titleWithSupportingText .title {
     color: $marigold;
   }
 }
@@ -138,7 +142,7 @@ $content-space-padding: 32px;
   background-color: $selago-light;
   border: solid 1px $selago;
 
-  .header .title {
+  .titleWithSupportingText .title {
     color: $indigo;
   }
 }
@@ -147,7 +151,7 @@ $content-space-padding: 32px;
   background-color: $panache;
   border: solid 1px $zanah;
 
-  .header .title {
+  .titleWithSupportingText .title {
     color: $support-green;
   }
 }
