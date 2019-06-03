@@ -5,6 +5,13 @@ export declare enum ModalTheme {
     Large = 1,
     Full = 2
 }
+export declare enum ModalIndex {
+    Low = 0,
+    Normal = 1,
+    Middle = 2,
+    High = 3,
+    Higher = 4
+}
 export interface IModalProps {
     onClose: (event: any) => void;
     show: boolean;
@@ -14,6 +21,7 @@ export interface IModalProps {
     theme?: ModalTheme;
     footer?: React.ReactNode;
     onScrollBottomCallback?: () => any;
+    zIndex?: ModalIndex;
 }
 export declare class Modal extends React.Component<IModalProps, {}> {
     static defaultProps: Partial<IModalProps>;
