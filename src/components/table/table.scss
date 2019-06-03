@@ -94,6 +94,35 @@ $title-margin: $space-2;
     }
   }
 
+  table.expandable {
+    thead {
+      background-color: $ui-color;
+    }
+
+    tbody tr {
+      border-top: 1px solid $ui-color-2;
+      box-sizing: border-box;
+      background-color: $ui-color;
+    }
+
+    .expandableTd {
+      background: $porcelain;
+    }
+
+    td,
+    th {
+      &:first-child {
+        padding-left: $space-4;
+      }
+
+      &:last-child {
+        padding-right: $space-4;
+      }
+
+      text-align: left;
+    }
+  }
+
   table.striped {
     thead {
       background-color: $ui-color;
@@ -121,34 +150,6 @@ $title-margin: $space-2;
         padding-right: $space-4;
       }
 
-      text-align: left;
-    }
-  }
-
-  table.expandable {
-    thead {
-      background-color: $ui-color;
-    }
-
-    tbody tr {
-      border-top:1px solid $ui-color-2;
-      box-sizing: border-box;
-      background-color: $ui-color;
-    }
-
-    .expandableTd {
-      background: $porcelain;
-    }
-
-    td,
-    th {
-      &:first-child {
-        padding-left: $space-4;
-      }
-
-      &:last-child {
-        padding-right: $space-4;
-      }
       text-align: left;
     }
   }
