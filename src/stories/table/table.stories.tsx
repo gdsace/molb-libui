@@ -84,7 +84,7 @@ export const dataSource = [
   }
 ];
 
-export const dataSource2 = [
+export const rfaDataSource = [
   {
     key: "1",
     name: "Joe Black",
@@ -99,17 +99,17 @@ export const dataSource2 = [
   "Table",
   wInfo(``)(() => (
     <div className={styles.rootContainer}>
-      <h6 className={styles.groupHeader}>Table type: themes</h6>
-      <div className={styles.box}>
-        <p className={styles.notes}>RFA Search Table</p>
+      <section className={styles.section}>
+        <h6>RFA Search Table</h6>
         <Table
           columns={tableColumns}
-          dataSource={dataSource2}
+          dataSource={rfaDataSource}
           theme={TableTheme.Basic}
           clickableRow={true}
         />
-      </div>
+      </section>
 
+      <h6 className={styles.groupHeader}>Table type: themes</h6>
       <div className={styles.itemsContainer}>
         <div className={styles.box}>
           <p className={styles.notes}>Showing "No data available":</p>
