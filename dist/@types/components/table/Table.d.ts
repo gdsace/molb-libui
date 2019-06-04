@@ -43,5 +43,6 @@ export declare class Table extends React.Component<ITableProps, ITableState> {
     constructor(props: ITableProps);
     render(): JSX.Element;
     private getBodyComponent;
+    private handleRowClick;
     private getHeadComponent;
 }
