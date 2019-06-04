@@ -87,12 +87,12 @@ export class Table extends React.Component<ITableProps, ITableState> {
     );
 
     return (
-      <div className={styles.tableContainer}>
-        <table className={cx({ bordered }, size, theme, tableCls)}>
-          {theadComponent}
-          {tbodyComponent}
-        </table>
-      </div>
+      <table className={cx({ bordered }, size, theme, tableCls)}>
+        {theadComponent}
+        {tbodyComponent}
+      </table>
+      // <div className={styles.tableContainer}>
+      // </div>
     );
   }
 
@@ -103,8 +103,8 @@ export class Table extends React.Component<ITableProps, ITableState> {
   ): React.ReactNode {
     const toItem = (column: IColumn, data: IDataSource) => (
       <td
+        key={`row-item-${column.key}`}
         data-title={column.title}
-        key={`td-${column.key}`}
         className={cx({
           alignRight: column.textAlignRight,
           hiddenInlineTitle: column.hiddenInlineTitle,
@@ -115,54 +115,35 @@ export class Table extends React.Component<ITableProps, ITableState> {
       </td>
     );
 
-    const toExpandableItem = () => (
-      <tr>
-        <td className={styles.expandableTd} colSpan={columns.length + 1}>
-          {this.props.expandableRowTemplate}
-        </td>
-      </tr>
-    );
-
-    const emptyRows = [
-      <tr key={`tr-NO_DATA`}>
-        <td
-          key={`td-NO_DATA`}
-          colSpan={columns.length}
-          className={styles.noDatRow}
-        >
-          <div className={cx("contentData")}>
-            <span>{NO_DATA_IN_TABLE}</span>
-          </div>
-        </td>
-      </tr>
-    ];
-
     const detailRows = dataSource.map((rowData, index) => {
       const expandedRow = this.state.expandedRowIndex;
-
       const modifier = {
         ...(this.props.clickableRow
           ? { onClick: rowData.onRowClickHandler }
           : {})
       };
       return (
-        <>
+        <React.Fragment key={`fragment-${index}`}>
           <tr
-            key={`tr-${rowData.key}`}
+            key={`tr-details-${index}`}
             className={rowData.withoutBorder ? styles.withoutBorder : ""}
             {...modifier}
           >
             {columns.map(column => toItem(column, rowData))}
             {this.props.expandable ? (
               <td
+                key={`td-expandable-${index}`}
                 onClick={() => {
                   if (!this.props.ignoreExpandButtonClick) {
-                    handleRowClick(index);
-                    this.props.onExpandButtonClick(index);
+                    this.handleRowClick(index);
+                    if (this.props.onExpandButtonClick) {
+                      this.props.onExpandButtonClick(index);
+                    }
                   }
                 }}
               >
                 <Icon
+                  key={`td-expandable-icon-${index}`}
                   className={
                     this.props.ignoreExpandButtonClick
                       ? styles.tableExpandButtonClickNotAllowed
@@ -173,48 +154,76 @@ export class Table extends React.Component<ITableProps, ITableState> {
               </td>
             ) : null}
           </tr>
-          {expandedRow === index ? toExpandableItem() : null}
-        </>
+          {expandedRow === index
+            ? toExpandableItem(this.props, columns, index)
+            : null}
+        </React.Fragment>
       );
     });
-
-    const handleRowClick = (rowId: number) => {
-      const currentExpandedRowIndex = this.state.expandedRowIndex;
-
-      this.setState({
-        expandedRowIndex: rowId === currentExpandedRowIndex ? -1 : rowId
-      });
-    };
 
     return (
       <tbody>
         {dataSource.length <= 0 && showNoDataAvailableMessage
-          ? emptyRows
+          ? emptyRows(columns)
           : detailRows}
       </tbody>
     );
   }
 
-  private getHeadComponent(columns: IColumn[]): React.ReactNode {
-    const toItem = (column: IColumn) => (
-      <th
-        key={column.key}
-        style={column.width ? { width: column.width } : {}}
-        className={cx({
-          alignRight: column.textAlignRight
-        })}
-      >
-        <span dangerouslySetInnerHTML={{ __html: column.title || "" }} />
-      </th>
-    );
+  private handleRowClick(rowId: number) {
+    const currentExpandedRowIndex = this.state.expandedRowIndex;
 
+    this.setState({
+      expandedRowIndex: rowId === currentExpandedRowIndex ? -1 : rowId
+    });
+  }
+
+  private getHeadComponent(columns: IColumn[]): React.ReactNode {
     return (
       <thead>
         <tr>
-          {columns.map(toItem)}
+          {columns.map(toHeaderItem)}
           {this.props.expandable ? <th /> : null}
         </tr>
       </thead>
     );
   }
 }
+
+// ----- Header Items -----
+
+const toHeaderItem = (column: IColumn) => (
+  <th
+    key={`theader-${column.key}`}
+    style={column.width ? { width: column.width } : {}}
+    className={cx({
+      alignRight: column.textAlignRight
+    })}
+  >
+    <span dangerouslySetInnerHTML={{ __html: column.title || "" }} />
+  </th>
+);
+
+// ----- Body Items ------
+
+const toExpandableItem = (
+  props: ITableProps,
+  columns: IColumn[],
+  index: number
+) => (
+  <tr key={`tr-expandable-${index}`}>
+    <td className={styles.expandableTd} colSpan={columns.length + 1}>
+      {props.expandableRowTemplate}
+    </td>
+  </tr>
+);
+
+const emptyRows = (columns: IColumn[]) => [
+  <tr key={`tr-NO_DATA`}>
+    <td key={`td-NO_DATA`} colSpan={columns.length} className={styles.noDatRow}>
+      <div className={cx("contentData")}>
+        <span>{NO_DATA_IN_TABLE}</span>
+      </div>
+    </td>
+  </tr>
+];

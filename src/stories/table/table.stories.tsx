@@ -109,7 +109,7 @@ export const rfaDataSource = [
         />
       </section>
 
-      <h6 className={styles.groupHeader}>Table type: themes</h6>
+      {/* <h6 className={styles.groupHeader}>Table type: themes</h6>
       <div className={styles.itemsContainer}>
         <div className={styles.box}>
           <p className={styles.notes}>Showing "No data available":</p>
@@ -146,7 +146,7 @@ export const rfaDataSource = [
             expandableRowTemplate={<div>TEST</div>}
           />
         </div>
-      </div>
+      </div> */}
     </div>
   ))
 );
