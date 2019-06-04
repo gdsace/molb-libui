@@ -1,5 +1,11 @@
 @import "../styles/utils";
 
+.rootWrapper {
+  // make the component width fit-to-content,
+  // don't use inline-block, since it will add extra vertical margin.
+  display: table;
+}
+
 .rootContainer {
   cursor: pointer;
   color: $indigo;
