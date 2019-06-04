@@ -23,6 +23,8 @@ export interface ITableProps {
     onExpandButtonClick: (itemIndex: number) => void;
     ignoreExpandButtonClick?: boolean;
     showPagination?: boolean;
+    clickableRow?: boolean;
+    onRowclickHandler?: () => void;
 }
 export interface ITableState {
     expandedRowIndex: number;

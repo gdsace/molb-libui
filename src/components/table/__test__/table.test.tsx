@@ -55,6 +55,7 @@ describe("Table", () => {
       const wrapper = Enzyme.shallow(
         <Table
           columns={tableColumns}
+          // @ts-ignore
           dataSource={rfaDataSource}
           clickableRow={true}
         />
