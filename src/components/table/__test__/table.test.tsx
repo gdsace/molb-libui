@@ -46,7 +46,7 @@ describe("Table", () => {
           name: "Joe Black",
           age: 32,
           address: "Sidney No. 1 Lake Park",
-          onRowclickHandler: jest.fn()
+          onRowClickHandler: jest.fn()
         }
       ];
     });
@@ -67,7 +67,7 @@ describe("Table", () => {
         .simulate("click");
 
       // @ts-ignore
-      expect(rfaDataSource[0].onRowclickHandler).toHaveBeenCalledTimes(1);
+      expect(rfaDataSource[0].onRowClickHandler).toHaveBeenCalledTimes(1);
     });
 
     it("else it should not be clickable", () => {
@@ -86,7 +86,7 @@ describe("Table", () => {
         .simulate("click");
 
       // @ts-ignore
-      expect(rfaDataSource[0].onRowclickHandler).toHaveBeenCalledTimes(0);
+      expect(rfaDataSource[0].onRowClickHandler).toHaveBeenCalledTimes(0);
     });
   });
 });

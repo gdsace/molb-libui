@@ -32,7 +32,7 @@ export interface ITableProps {
   ignoreExpandButtonClick?: boolean;
   showPagination?: boolean;
   clickableRow?: boolean;
-  onRowclickHandler?: () => void;
+  onRowClickHandler?: () => void;
 }
 
 export interface ITableState {
@@ -142,7 +142,7 @@ export class Table extends React.Component<ITableProps, ITableState> {
 
       const modifier = {
         ...(this.props.clickableRow
-          ? { onClick: rowData.onRowclickHandler }
+          ? { onClick: rowData.onRowClickHandler }
           : {})
       };
       return (
