@@ -7,6 +7,8 @@ import { Button } from "../../components/button";
 import { G2BDatePicker } from "../../components/g2bDatePicker";
 import { CategoryName, wInfo } from "../utils";
 
+const styles = require("./g2bDatePicker.stories.scss");
+
 const store = new Store({
   errorMsg: undefined,
   selectedDate: undefined
@@ -16,21 +18,24 @@ const store = new Store({
   "G2BDatePicker",
   wInfo(``)(() => {
     return (
-      <div>
-        <div
-          style={{ display: "inline-block", width: "328px", height: "48px" }}
-        >
-          <State store={store}>
-            <G2BDatePicker
-              selectedDate={store.get("selectedDate")}
-              onChange={(dateString: string) =>
-                store.set({ selectedDate: dateString })
-              }
-              dateFormat="dd/MM/yyyy"
-              placeholderText={"DD/MM/YYYY"}
-              errorMsg="this is error Msg."
-            />
-            <div style={{ display: "inline-block", marginTop: "50px" }}>
+      <div className={styles.rootContainer}>
+        <div>
+          <h6>TimePicker: ...</h6>
+        </div>
+        <div className={styles.itemsContainer}>
+          <div className={styles.box}>
+            <p className={styles.notes}>Enabled</p>
+            <State store={store}>
+              <G2BDatePicker
+                selectedDate={store.get("selectedDate")}
+                onDateChange={(dateString: string) =>
+                  store.set({ selectedDate: dateString })
+                }
+                dateFormat="dd/MM/yyyy"
+                placeholderText={"DD/MM/YYYY"}
+                errorMsg="this is error Msg."
+              />
+              <br />
               <Button
                 onClick={() => {
                   !isEmpty(store.get("selectedDate"))
@@ -39,8 +44,22 @@ const store = new Store({
                 }}
                 label="Check"
               />
-            </div>
-          </State>
+            </State>
+          </div>
+          <div className={styles.box}>
+            <p className={styles.notes}>No future date</p>
+            <State store={store}>
+              <G2BDatePicker
+                onChange={(date: Date) =>
+                  store.set({ selectedDate: date.toDateString() })
+                }
+                dateFormat="dd/MM/yyyy"
+                placeholderText={"DD/MM/YYYY"}
+                maxDate={new Date()}
+                monthsShown={1}
+              />
+            </State>
+          </div>
         </div>
       </div>
     );
