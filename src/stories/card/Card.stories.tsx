@@ -3,8 +3,19 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 
 import { action } from "@storybook/addon-actions";
-import { Card, CardTheme, Link, TagTheme } from "../../components";
+import { Card, CardTheme, Icon, Link, TagTheme } from "../../components";
 import { CategoryName, wInfo } from "../utils";
+
+const header = (
+  <div>
+    <Icon type="clock" size="16" /> I'm the header of this card
+  </div>
+);
+const title = "This is title";
+
+const subtitle = "This is subtitle";
+const longSubtitle =
+  "This is loooooooooog loooooooooog loooooooooog loooooooooog loooooooooog loooooooooog subtitle";
 
 const description = (
   <div>
@@ -12,12 +23,6 @@ const description = (
     node into this description patr.{" "}
   </div>
 );
-
-const title = "This is title";
-
-const subtitle = "This is subtitle";
-const longSubtitle =
-  "This is loooooooooog loooooooooog loooooooooog loooooooooog loooooooooog loooooooooog subtitle";
 
 const price = "S$800.00";
 const actionField = (
@@ -106,6 +111,17 @@ const rowStyles = {
         <Card
           title={title}
           subtitle={longSubtitle}
+          description={description}
+          supportingText={price}
+          theme={CardTheme.Normal}
+        />
+      </div>
+      With a specific Header
+      <div style={rowStyles}>
+        <Card
+          header={header}
+          title={title}
+          subtitle={subtitle}
           description={description}
           supportingText={price}
           theme={CardTheme.Normal}

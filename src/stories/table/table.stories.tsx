@@ -115,6 +115,16 @@ export const dataSource = [
             theme={TableTheme.Basic}
           />
         </div>
+        <div className={styles.box}>
+          <p className={styles.notes}>Basic expandable table:</p>
+          <Table
+            columns={tableColumns}
+            dataSource={dataSource}
+            theme={TableTheme.Expandable}
+            expandable={true}
+            expandableRowTemplate={<div>TEST</div>}
+          />
+        </div>
       </div>
     </div>
   ))

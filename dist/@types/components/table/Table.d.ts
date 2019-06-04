@@ -15,10 +15,17 @@ export interface ITableProps {
     columns: IColumn[];
     tableCls?: string;
     bordered?: boolean;
+    expandable?: boolean;
     size?: TableSize;
     theme?: TableTheme;
     showNoDataAvailableMessage?: boolean;
+    expandableRowTemplate?: React.ReactChild;
+    onExpandButtonClick: (itemIndex: number) => void;
+    ignoreExpandButtonClick?: boolean;
     showPagination?: boolean;
+}
+export interface ITableState {
+    expandedRowIndex: number;
 }
 export declare enum TableSize {
     Small = "small",
@@ -26,10 +33,12 @@ export declare enum TableSize {
 }
 export declare enum TableTheme {
     Striped = "striped",
+    Expandable = "expandable",
     Basic = "basic"
 }
-export declare class Table extends React.Component<ITableProps, {}> {
+export declare class Table extends React.Component<ITableProps, ITableState> {
     static defaultProps: Partial<ITableProps>;
+    constructor(props: ITableProps);
     render(): JSX.Element;
     private getBodyComponent;
     private getHeadComponent;

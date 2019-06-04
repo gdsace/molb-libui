@@ -12,7 +12,7 @@ const store = new Store({
   selectedDate: undefined
 });
 
-(storiesOf(CategoryName.TimePicker, module) as any).addWithJSX(
+(storiesOf(CategoryName.DatePicker, module) as any).addWithJSX(
   "G2BDatePicker",
   wInfo(``)(() => {
     return (
