@@ -86,12 +86,32 @@ export const dataSource = [
 
 export const rfaDataSource = [
   {
-    key: "1",
     name: "Joe Black",
     age: 32,
     address: "Sidney No. 1 Lake Park",
     tags: activeTag,
-    onRowclickHandler: () => alert("You've clicked on a table row")
+    onRowClickHandler: () => alert("You've clicked on a table row")
+  },
+  {
+    name: "Joe Black",
+    age: 32,
+    address: "Sidney No. 1 Lake Park",
+    tags: activeTag,
+    onRowClickHandler: () => alert("You've clicked on a table row")
+  },
+  {
+    name: "Joe Black",
+    age: 32,
+    address: "Sidney No. 1 Lake Park",
+    tags: activeTag,
+    onRowClickHandler: () => alert("You've clicked on a table row")
+  },
+  {
+    name: "Joe Black",
+    age: 32,
+    address: "Sidney No. 1 Lake Park",
+    tags: activeTag,
+    onRowClickHandler: () => alert("You've clicked on a table row")
   }
 ];
 
@@ -109,7 +129,7 @@ export const rfaDataSource = [
         />
       </section>
 
-      {/* <h6 className={styles.groupHeader}>Table type: themes</h6>
+      <h6 className={styles.groupHeader}>Table type: themes</h6>
       <div className={styles.itemsContainer}>
         <div className={styles.box}>
           <p className={styles.notes}>Showing "No data available":</p>
@@ -146,7 +166,7 @@ export const rfaDataSource = [
             expandableRowTemplate={<div>TEST</div>}
           />
         </div>
-      </div> */}
+      </div>
     </div>
   ))
 );
