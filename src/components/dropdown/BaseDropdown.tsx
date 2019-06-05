@@ -79,7 +79,6 @@ export interface IBaseDropdownProps<T> extends Props<T> {
   components?: SelectComponentsConfig<T>;
   styles?: any;
   size?: Size;
-  state?: any;
 }
 
 export class BaseDropdown<T> extends React.Component<
