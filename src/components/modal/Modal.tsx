@@ -86,6 +86,12 @@ export class Modal extends React.Component<IModalProps, {}> {
     }
   }
 
+  public componentDidUpdate(prevProps: IModalProps) {
+    if (this.props.show && this.props.show !== prevProps.show) {
+      this.onScrollBottom();
+    }
+  }
+
   public componentWillUnmount() {
     clearAllBodyScrollLocks();
     if (!!this.props.onScrollBottomCallback && !!this.modalNode) {
