@@ -79,6 +79,7 @@ export interface IBaseDropdownProps<T> extends Props<T> {
   components?: SelectComponentsConfig<T>;
   styles?: any;
   size?: Size;
+  state?: any;
 }
 
 export class BaseDropdown<T> extends React.Component<
@@ -94,7 +95,6 @@ export class BaseDropdown<T> extends React.Component<
       ...baseComponents,
       ...this.props.components
     };
-
     return (
       <Select
         className={classNames(
@@ -102,11 +102,12 @@ export class BaseDropdown<T> extends React.Component<
           this.props.size,
           this.props.className
         )}
-        menuPortalTarget={document.body}
         classNamePrefix="dropdown"
         components={customComponents}
         styles={this.props.styles || {}}
         isSearchable={this.props.isSearchable || false}
+        captureMenuScroll
+        closeMenuOnScroll
         {...this.props}
       />
     );

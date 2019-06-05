@@ -36,7 +36,7 @@ export declare class Modal extends React.Component<IModalProps, {}> {
     componentWillReceiveProps(nextProps: IModalProps): void;
     componentDidMount(): void;
     componentWillUnmount(): void;
-    render(): React.ReactPortal;
+    render(): React.ReactPortal | null;
     private onScrollBottom;
     private onClose;
     private controlBodyScrollable;

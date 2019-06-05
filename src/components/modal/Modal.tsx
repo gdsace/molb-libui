@@ -12,6 +12,13 @@ import { Icon } from "../icons";
 
 const styles = require("./modal.scss");
 
+const htmlElement = document.getElementsByTagName("html")[0];
+const isIosDevice =
+  typeof window !== "undefined" &&
+  window.navigator &&
+  window.navigator.platform &&
+  /iP(ad|hone|od)/.test(window.navigator.platform);
+
 export enum ModalTheme {
   Basic,
   Large,
@@ -90,6 +97,9 @@ export class Modal extends React.Component<IModalProps, {}> {
   }
 
   public render() {
+    if (!this.props.show) {
+      return null;
+    }
     const modalStyle = classNames(styles.modal, {
       [styles.block]: this.props.show,
       [styles.none]: !this.props.show,
@@ -121,7 +131,6 @@ export class Modal extends React.Component<IModalProps, {}> {
         )}
       </div>
     );
-
     return createPortal(modalContent, this.el);
   }
 
@@ -153,11 +162,19 @@ export class Modal extends React.Component<IModalProps, {}> {
   };
 
   private disableBodyScroll = () => {
-    disableBodyScroll(document.body);
+    if (isIosDevice) {
+      disableBodyScroll(document.body);
+    } else {
+      htmlElement.style.overflow = "hidden";
+    }
   };
 
   private enableBodyScroll = () => {
-    enableBodyScroll(document.body);
+    if (isIosDevice) {
+      enableBodyScroll(document.body);
+    } else {
+      htmlElement.style.overflow = "auto";
+    }
   };
 
   private onClickAway = (e: any) => {
