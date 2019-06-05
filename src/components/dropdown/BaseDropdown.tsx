@@ -105,8 +105,6 @@ export class BaseDropdown<T> extends React.Component<
         components={customComponents}
         styles={this.props.styles || {}}
         isSearchable={this.props.isSearchable || false}
-        captureMenuScroll
-        closeMenuOnScroll
         {...this.props}
       />
     );
