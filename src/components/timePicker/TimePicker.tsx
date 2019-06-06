@@ -14,10 +14,6 @@ function noop() {
   return;
 }
 
-// function refFn(field: any, component: any) {
-//   this[field] = component;
-// }
-
 interface ITimePickerProps {
   prefixCls?: string;
   clearText?: string;
