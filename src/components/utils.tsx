@@ -46,3 +46,9 @@ export function getFilenameByContentDisposition(
     return matches[1];
   }
 }
+
+export const isIOSDevice =
+  typeof window !== "undefined" &&
+  window.navigator &&
+  window.navigator.platform &&
+  /iP(ad|hone|od)/.test(window.navigator.platform);
