@@ -9,15 +9,11 @@ import {
 import classNames from "classnames";
 import _ from "lodash";
 import { Icon } from "../icons";
+import { isIOSDevice } from "../utils";
 
 const styles = require("./modal.scss");
 
 const htmlElement = document.getElementsByTagName("html")[0];
-const isIosDevice =
-  typeof window !== "undefined" &&
-  window.navigator &&
-  window.navigator.platform &&
-  /iP(ad|hone|od)/.test(window.navigator.platform);
 
 export enum ModalTheme {
   Basic,
@@ -168,7 +164,7 @@ export class Modal extends React.Component<IModalProps, {}> {
   };
 
   private disableBodyScroll = () => {
-    if (isIosDevice) {
+    if (isIOSDevice) {
       disableBodyScroll(document.body);
     } else {
       htmlElement.style.overflow = "hidden";
@@ -176,7 +172,7 @@ export class Modal extends React.Component<IModalProps, {}> {
   };
 
   private enableBodyScroll = () => {
-    if (isIosDevice) {
+    if (isIOSDevice) {
       enableBodyScroll(document.body);
     } else {
       htmlElement.style.overflow = "auto";
