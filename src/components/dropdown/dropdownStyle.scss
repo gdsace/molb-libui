@@ -81,7 +81,7 @@
     }
 
     @include target-ie11 {
-      flex: 1; // IE11 vertical center fix
+      flex: 1 1 auto; // IE11 vertical center fix
     }
   }
 
@@ -173,7 +173,7 @@
     transform: none !important;
 
     @include target-ie11 {
-      flex: 1; // IE11 vertical center fix
+      flex: 1 1 auto; // IE11 vertical center fix
     }
 
     @include for-phone-only {
