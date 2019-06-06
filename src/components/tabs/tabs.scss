@@ -25,6 +25,17 @@
     flex-direction: column;
     justify-content: center;
   }
+}
+
+.tab {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  width: 100%;
+
+  .tabsBarContainer {
+    border-bottom: 1px solid $ui-color-2;
+  }
 
   .leftComponent {
     height: $display-x-large;

@@ -59,7 +59,6 @@ export class ActionSection extends React.Component<IActionSectionProps, {}> {
           )}
           {this.props.showNext && (
             <Button
-              className={styles.nextButton}
               label={this.props.onNextLabel ? this.props.onNextLabel : NEXT}
               size={Size.Medium}
               theme={Theme.Primary}
