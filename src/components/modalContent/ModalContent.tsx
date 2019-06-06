@@ -48,9 +48,9 @@ export class ModalContent extends React.Component<IModalContentProps, {}> {
   }
   private getSubheader(subheader: string | JSX.Element): React.ReactNode {
     if (typeof subheader === "string") {
-      return <p>{subheader}</p>;
+      return <p className={styles.subheader}>{subheader}</p>;
     } else {
-      return <div>{subheader}</div>;
+      return <div className={styles.subheader}>{subheader}</div>;
     }
   }
 }
