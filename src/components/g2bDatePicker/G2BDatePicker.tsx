@@ -19,7 +19,6 @@ interface IG2BDatePickerState {
 export interface IG2BDatePickerProps extends Partial<ReactDatePickerProps> {
   // For-Approach-B: handling date as string
   selectedDate?: string;
-  // For-Approach-B: handling date as string
   onDateChange?: (date: string, event?: React.SyntheticEvent<any>) => void;
   errorMsg?: string;
 }
