@@ -35,6 +35,7 @@ $large-tile-width-mobile: 100%;
   padding: $space-3;
   color: $text-color-2;
   overflow: visible;
+  width: 100%;
 
   span {
     div {
@@ -79,6 +80,7 @@ $large-tile-width-mobile: 100%;
       font-weight: $weight-semibold;
       line-height: $line-height-large;
       word-break: break-word;
+      width: 100%;
     }
 
     .tileDescription {
