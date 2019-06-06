@@ -123,41 +123,24 @@ const shopTypesIcons = [
         );
       })}
       <h6 className={styles.header}>Shop Types Icons</h6>
-      <div className={styles.shopTypeIconsNote}>
-        <p>
-          Food shop type icons are dual colours, and defaulted to black and
-          purple.
-        </p>
-        <p>
-          To change, give the Icon a className and edit the css-style '--color1'
-          and '--color2'.
-        </p>
-        <p>Please refer to Icon.stories.tsx</p>
-      </div>
 
       <table className={styles.foodShopIconsTable}>
-        <tr>
-          <th>icon type</th>
-          <th>default color</th>
-          <th>custom color</th>
-        </tr>
-        {shopTypesIcons.map((icon, index) => {
-          return (
-            <tr key={index}>
-              <td>{icon.type}</td>
-              <td>
-                <Icon category={"shoptypes"} type={icon.type} />
-              </td>
-              <td>
-                <Icon
-                  category={"shoptypes"}
-                  type={icon.type}
-                  className={styles.dualColorTheme}
-                />
-              </td>
-            </tr>
-          );
-        })}
+        <tbody>
+          <tr>
+            <th>icon type</th>
+            <th>default color</th>
+          </tr>
+          {shopTypesIcons.map((icon, index) => {
+            return (
+              <tr key={index}>
+                <td>{icon.type}</td>
+                <td>
+                  <Icon category={"shoptypes"} type={icon.type} />
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
       </table>
     </div>
   ))
