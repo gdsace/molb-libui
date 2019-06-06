@@ -189,7 +189,10 @@ const detailRows = (rowProps: IDetailRowProps) => {
       <React.Fragment key={`fragment-${index}`}>
         <tr
           key={`tr-details-${index}`}
-          className={rowData.withoutBorder ? styles.withoutBorder : ""}
+          className={cx(
+            rowData.withoutBorder && styles.withoutBorder,
+            props.clickableRow && styles.clickableRow
+          )}
           {...modifier}
         >
           {columns.map(column => toBodyItem(column, rowData))}
