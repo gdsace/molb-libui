@@ -30,12 +30,14 @@ export class FlatButton extends React.Component<IFlatButtonProps, {}> {
     );
 
     return (
-      <div
-        className={buttonClassName}
-        onClick={() => this.handleOnClick(onClick)}
-      >
-        <Icon type={iconType} size={"24"} className={styles.icon} />
-        <span className={styles.label}>{this.props.label}</span>
+      <div className={styles.rootWrapper}>
+        <div
+          className={buttonClassName}
+          onClick={() => this.handleOnClick(onClick)}
+        >
+          <Icon type={iconType} size={"24"} className={styles.icon} />
+          <span className={styles.label}>{this.props.label}</span>
+        </div>
       </div>
     );
   }
