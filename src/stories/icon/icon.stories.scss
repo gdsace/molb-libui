@@ -14,12 +14,6 @@
   margin: $space-2;
 }
 
-.shopTypeIconsNote {
-  color: $ui-color-5;
-  line-height: $line-height-large;
-  margin: $space-2;
-}
-
 table,
 th,
 td {
@@ -31,9 +25,4 @@ td {
   margin: $space-2;
   width: 500px;
   text-align: center;
-
-  .dualColorTheme {
-    --color1: red;
-    --color2: green;
-  }
 }
