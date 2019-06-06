@@ -143,7 +143,6 @@ export class Table extends React.Component<ITableProps, ITableState> {
                 }}
               >
                 <Icon
-                  key={`td-expandable-icon-${index}`}
                   className={
                     this.props.ignoreExpandButtonClick
                       ? styles.tableExpandButtonClickNotAllowed
