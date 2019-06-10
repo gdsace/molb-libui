@@ -36,7 +36,7 @@ describe("Table", () => {
     expect(tBodyText).toEqual("Joe Black32Joe Black33");
   });
 
-  describe("when configured to be row clickable", () => {
+  describe("when configured to [clickable === true]", () => {
     let rfaDataSource: {};
 
     beforeEach(() => {

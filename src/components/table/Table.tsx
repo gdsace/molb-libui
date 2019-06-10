@@ -129,7 +129,21 @@ const toHeaderItem = (column: IColumn) => (
 );
 
 // ----- Body Items ------
-const toExpandableItem = (
+const toBodyCell = (column: IColumn, data: IDataSource) => (
+  <td
+    key={`td-cell-${column.key}`}
+    data-title={column.title}
+    className={cx({
+      alignRight: column.textAlignRight,
+      hiddenInlineTitle: column.hiddenInlineTitle,
+      emptyContent: !data[column.key]
+    })}
+  >
+    <div className={cx("contentData")}>{data[column.key]}</div>
+  </td>
+);
+
+const toExpandableRow = (
   props: ITableProps,
   columns: IColumn[],
   index: number
@@ -150,20 +164,6 @@ const emptyRows = (columns: IColumn[]) => [
     </td>
   </tr>
 ];
-
-const toBodyItem = (column: IColumn, data: IDataSource) => (
-  <td
-    key={`td-cell-${column.key}`}
-    data-title={column.title}
-    className={cx({
-      alignRight: column.textAlignRight,
-      hiddenInlineTitle: column.hiddenInlineTitle,
-      emptyContent: !data[column.key]
-    })}
-  >
-    <div className={cx("contentData")}>{data[column.key]}</div>
-  </td>
-);
 
 interface IDetailRowProps {
   dataSource: IDataSource[];
@@ -193,7 +193,7 @@ const detailRows = ({
           )}
           {...modifier}
         >
-          {columns.map(column => toBodyItem(column, rowData))}
+          {columns.map(column => toBodyCell(column, rowData))}
           {!props.expandable ? null : (
             <td
               key={`td-expandable-${index}`}
@@ -218,7 +218,7 @@ const detailRows = ({
           )}
         </tr>
         {expandedRowIndex === index
-          ? toExpandableItem(props, columns, index)
+          ? toExpandableRow(props, columns, index)
           : null}
       </React.Fragment>
     );
