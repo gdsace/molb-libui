@@ -76,6 +76,7 @@ export class Table extends React.Component<ITableProps, ITableState> {
       theme,
       showNoDataAvailableMessage
     } = this.props;
+
     const theadComponent: React.ReactNode = this.getHeadComponent(columns);
     const tbodyComponent: React.ReactNode = this.getBodyComponent(
       columns,
