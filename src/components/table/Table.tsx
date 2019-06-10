@@ -93,7 +93,7 @@ export class Table extends React.Component<ITableProps, ITableState> {
           <tbody>
             {dataSource.length <= 0 && showNoDataAvailableMessage
               ? emptyRows(columns)
-              : detailRows({
+              : generateRows({
                   dataSource,
                   columns,
                   props: this.props,
@@ -172,7 +172,7 @@ interface IDetailRowProps {
   expandedRowIndex: number;
   nativeExpandRowHandler: (rowId: number) => void;
 }
-const detailRows = ({
+export const generateRows = ({
   dataSource,
   columns,
   props,

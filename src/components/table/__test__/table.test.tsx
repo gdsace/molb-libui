@@ -36,11 +36,17 @@ describe("Table", () => {
     expect(tBodyText).toEqual("Joe Black32Joe Black33");
   });
 
+  // describe("generateRows()", () => {
+  //   it("should", () => {
+
+  //   });
+  // });
+
   describe("when configured to [clickable === true]", () => {
-    let rfaDataSource: {};
+    let rowClickableDataSource: {};
 
     beforeEach(() => {
-      rfaDataSource = [
+      rowClickableDataSource = [
         {
           key: "1",
           name: "Joe Black",
@@ -56,7 +62,7 @@ describe("Table", () => {
         <Table
           columns={tableColumns}
           // @ts-ignore
-          dataSource={rfaDataSource}
+          dataSource={rowClickableDataSource}
           clickableRow={true}
         />
       );
@@ -67,7 +73,7 @@ describe("Table", () => {
         .simulate("click");
 
       // @ts-ignore
-      expect(rfaDataSource[0].onRowClickHandler).toHaveBeenCalledTimes(1);
+      expect(rowClickableDataSource[0].onRowClickHandler).toHaveBeenCalledTimes(1);
     });
 
     it("else it should not be clickable", () => {
@@ -75,7 +81,7 @@ describe("Table", () => {
         <Table
           columns={tableColumns}
           // @ts-ignore
-          dataSource={rfaDataSource}
+          dataSource={rowClickableDataSource}
           clickableRow={false}
         />
       );
@@ -86,7 +92,7 @@ describe("Table", () => {
         .simulate("click");
 
       // @ts-ignore
-      expect(rfaDataSource[0].onRowClickHandler).toHaveBeenCalledTimes(0);
+      expect(rowClickableDataSource[0].onRowClickHandler).toHaveBeenCalledTimes(0);
     });
   });
 });
