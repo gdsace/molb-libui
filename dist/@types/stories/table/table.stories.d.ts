@@ -22,10 +22,9 @@ export declare const dataSource: ({
     tags: JSX.Element;
 })[];
 export declare const rfaDataSource: {
-    key: string;
     name: string;
     age: number;
     address: string;
     tags: JSX.Element;
-    onRowclickHandler: () => void;
+    onRowClickHandler: () => void;
 }[];

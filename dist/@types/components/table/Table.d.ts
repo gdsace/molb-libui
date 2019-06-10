@@ -42,7 +42,5 @@ export declare class Table extends React.Component<ITableProps, ITableState> {
     static defaultProps: Partial<ITableProps>;
     constructor(props: ITableProps);
     render(): JSX.Element;
-    private getBodyComponent;
     private handleRowClick;
-    private getHeadComponent;
 }

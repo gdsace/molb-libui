@@ -116,7 +116,7 @@ export class Table extends React.Component<ITableProps, ITableState> {
     );
 
     const detailRows = dataSource.map((rowData, index) => {
-      const expandedRowIndex = this.state.expandedRowIndex;
+      const expandedRow = this.state.expandedRowIndex;
       const modifier = {
         ...(this.props.clickableRow
           ? { onClick: rowData.onRowClickHandler }
@@ -135,7 +135,7 @@ export class Table extends React.Component<ITableProps, ITableState> {
                 key={`td-expandable-${index}`}
                 onClick={() => {
                   if (!this.props.ignoreExpandButtonClick) {
-                    this.handleRowClick(index);
+                    handleRowClick(index);
                     if (this.props.onExpandButtonClick) {
                       this.props.onExpandButtonClick(index);
                     }
@@ -153,9 +153,7 @@ export class Table extends React.Component<ITableProps, ITableState> {
               </td>
             ) : null}
           </tr>
-          {expandedRowIndex === index
-            ? toExpandableItem(this.props, columns, index)
-            : null}
+          {expandedRowIndex === index ? toExpandableItem() : null}
         </React.Fragment>
       );
     });
