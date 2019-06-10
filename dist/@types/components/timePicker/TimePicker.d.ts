@@ -55,6 +55,10 @@ interface ITimePickerState {
     value?: moment.Moment;
     open?: boolean;
 }
+/**
+ * when TimePicker use in modalBox, need to use getPopupContainer to pass a element that needs to be mounted
+ * example: OperatingHoursComponent.tst in molb-web
+ */
 export declare class TimePicker extends React.Component<ITimePickerProps, ITimePickerState> {
     static defaultProps: {
         clearText: string;

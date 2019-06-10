@@ -28,7 +28,7 @@ export interface ITableProps {
   theme?: TableTheme;
   showNoDataAvailableMessage?: boolean;
   expandableRowTemplate?: React.ReactChild;
-  onExpandButtonClick: (itemIndex: number) => void;
+  onExpandButtonClick?: (itemIndex: number) => void;
   ignoreExpandButtonClick?: boolean;
   showPagination?: boolean;
   clickableRow?: boolean;
@@ -123,7 +123,7 @@ export class Table extends React.Component<ITableProps, ITableState> {
           : {})
       };
       return (
-        <React.Fragment key={`fragment-${index}`}>
+        <React.Fragment key={`tr-fragment-${index}`}>
           <tr
             key={`tr-details-${index}`}
             className={rowData.withoutBorder ? styles.withoutBorder : ""}
@@ -135,7 +135,7 @@ export class Table extends React.Component<ITableProps, ITableState> {
                 key={`td-expandable-${index}`}
                 onClick={() => {
                   if (!this.props.ignoreExpandButtonClick) {
-                    this.handleRowClick(index);
+                    handleRowClick(index);
                     if (this.props.onExpandButtonClick) {
                       this.props.onExpandButtonClick(index);
                     }
@@ -148,14 +148,12 @@ export class Table extends React.Component<ITableProps, ITableState> {
                       ? styles.tableExpandButtonClickNotAllowed
                       : styles.tableExpandButton
                   }
-                  type={expandedRow === index ? "up" : "dropdown"}
+                  type={expandedRowIndex === index ? "up" : "dropdown"}
                 />
               </td>
             ) : null}
           </tr>
-          {expandedRow === index
-            ? toExpandableItem(this.props, columns, index)
-            : null}
+          {expandedRowIndex === index ? toExpandableItem() : null}
         </React.Fragment>
       );
     });

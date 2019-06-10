@@ -163,6 +163,7 @@ export const rfaDataSource = [
             dataSource={dataSource}
             theme={TableTheme.Expandable}
             expandable={true}
+            onExpandButtonClick={() => true}
             expandableRowTemplate={<div>TEST</div>}
           />
         </div>
