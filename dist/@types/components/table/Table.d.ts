@@ -44,12 +44,3 @@ export declare class Table extends React.Component<ITableProps, ITableState> {
     render(): JSX.Element;
     private nativeExpandRowHandler;
 }
-interface IDetailRowProps {
-    dataSource: IDataSource[];
-    columns: IColumn[];
-    props: ITableProps;
-    expandedRowIndex: number;
-    nativeExpandRowHandler: (rowId: number) => void;
-}
-export declare const generateRows: ({ dataSource, columns, props, expandedRowIndex, nativeExpandRowHandler }: IDetailRowProps) => JSX.Element[];
-export {};
