@@ -76,6 +76,7 @@ export class Table extends React.Component<ITableProps, ITableState> {
       theme,
       showNoDataAvailableMessage
     } = this.props;
+
     const theadComponent: React.ReactNode = this.getHeadComponent(columns);
     const tbodyComponent: React.ReactNode = this.getBodyComponent(
       columns,
@@ -85,10 +86,12 @@ export class Table extends React.Component<ITableProps, ITableState> {
 
     return (
       <div className={styles.tableContainer}>
-        <table className={cx({ bordered }, size, theme, tableCls)}>
-          {theadComponent}
-          {tbodyComponent}
-        </table>
+        <div className={cx({ bordered })}>
+          <table className={cx(size, theme, tableCls)}>
+            {theadComponent}
+            {tbodyComponent}
+          </table>
+        </div>
       </div>
     );
   }

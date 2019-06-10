@@ -22,11 +22,6 @@ $title-margin: $space-2;
 }
 
 .tableContainer {
-  border-radius: 5px;
-  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.03), 0 7px 25px 0 rgba(0, 0, 0, 0.03), 0 0 0 1px rgba(0, 0, 0, 0.03);
-  border-collapse: collapse;
-  border-spacing: 0;
-
   table {
     width: 100%;
     margin: 0;
@@ -68,6 +63,13 @@ $title-margin: $space-2;
     }
 
     text-align: left;
+  }
+
+  .bordered {
+    border-radius: 5px;
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.03), 0 7px 25px 0 rgba(0, 0, 0, 0.03), 0 0 0 1px rgba(0, 0, 0, 0.03);
+    border-collapse: collapse;
+    border-spacing: 0;
   }
 
   table.basic {
