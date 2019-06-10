@@ -64,7 +64,7 @@ export class Table extends React.Component<ITableProps, ITableState> {
 
   public constructor(props: ITableProps) {
     super(props);
-    this.handleRowClick = this.handleRowClick.bind(this);
+    this.nativeExpandRowHandler = this.nativeExpandRowHandler.bind(this);
     this.state = {
       expandedRowIndex: -1
     };
@@ -98,7 +98,7 @@ export class Table extends React.Component<ITableProps, ITableState> {
                   columns,
                   props: this.props,
                   expandedRowIndex: this.state.expandedRowIndex,
-                  handleRowClick: this.handleRowClick
+                  nativeExpandRowHandler: this.nativeExpandRowHandler
                 })}
           </tbody>
         </table>
@@ -106,7 +106,7 @@ export class Table extends React.Component<ITableProps, ITableState> {
     );
   }
 
-  private handleRowClick(rowId: number) {
+  private nativeExpandRowHandler(rowId: number) {
     const currentExpandedRowIndex = this.state.expandedRowIndex;
 
     this.setState({
@@ -118,7 +118,7 @@ export class Table extends React.Component<ITableProps, ITableState> {
 // ----- Header Items -----
 const toHeaderItem = (column: IColumn) => (
   <th
-    key={`theader-${column.key}`}
+    key={`th-${column.key}`}
     style={column.width ? { width: column.width } : {}}
     className={cx({
       alignRight: column.textAlignRight
@@ -153,7 +153,7 @@ const emptyRows = (columns: IColumn[]) => [
 
 const toBodyItem = (column: IColumn, data: IDataSource) => (
   <td
-    key={`row-item-${column.key}`}
+    key={`td-cell-${column.key}`}
     data-title={column.title}
     className={cx({
       alignRight: column.textAlignRight,
@@ -170,23 +170,21 @@ interface IDetailRowProps {
   columns: IColumn[];
   props: ITableProps;
   expandedRowIndex: number;
-  handleRowClick: (rowId: number) => void;
+  nativeExpandRowHandler: (rowId: number) => void;
 }
-const detailRows = (rowProps: IDetailRowProps) => {
-  const {
-    dataSource,
-    columns,
-    props,
-    expandedRowIndex,
-    handleRowClick
-  } = rowProps;
-
+const detailRows = ({
+  dataSource,
+  columns,
+  props,
+  expandedRowIndex,
+  nativeExpandRowHandler
+}: IDetailRowProps) => {
   return dataSource.map((rowData, index) => {
     const modifier = {
       ...(props.clickableRow ? { onClick: rowData.onRowClickHandler } : {})
     };
     return (
-      <React.Fragment key={`fragment-${index}`}>
+      <React.Fragment key={`tr-fragment-${index}`}>
         <tr
           key={`tr-details-${index}`}
           className={cx(
@@ -201,7 +199,7 @@ const detailRows = (rowProps: IDetailRowProps) => {
               key={`td-expandable-${index}`}
               onClick={() => {
                 if (!props.ignoreExpandButtonClick) {
-                  handleRowClick(index);
+                  nativeExpandRowHandler(index);
                   if (props.onExpandButtonClick) {
                     props.onExpandButtonClick(index);
                   }
