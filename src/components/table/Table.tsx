@@ -85,10 +85,12 @@ export class Table extends React.Component<ITableProps, ITableState> {
 
     return (
       <div className={styles.tableContainer}>
-        <table className={cx({ bordered }, size, theme, tableCls)}>
-          {theadComponent}
-          {tbodyComponent}
-        </table>
+        <div className={cx({ bordered })}>
+          <table className={cx(size, theme, tableCls)}>
+            {theadComponent}
+            {tbodyComponent}
+          </table>
+        </div>
       </div>
     );
   }
