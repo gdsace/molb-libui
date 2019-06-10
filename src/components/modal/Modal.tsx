@@ -9,11 +9,12 @@ import {
 import classNames from "classnames";
 import _ from "lodash";
 import { Icon } from "../icons";
-import { isIOSDevice } from "../utils";
+import { isIEDevice, isIOSDevice } from "../utils";
 
 const styles = require("./modal.scss");
 
 const htmlElement = document.getElementsByTagName("html")[0];
+const modalHideXY = "XY";
 
 export enum ModalTheme {
   Basic,
@@ -38,6 +39,7 @@ export interface IModalProps {
   footer?: React.ReactNode;
   onScrollBottomCallback?: () => any;
   zIndex?: ModalIndex;
+  modalHideDirection?: string;
 }
 
 export class Modal extends React.Component<IModalProps, {}> {
@@ -111,7 +113,8 @@ export class Modal extends React.Component<IModalProps, {}> {
       [styles.normalIndex]: this.props.zIndex === ModalIndex.Normal,
       [styles.middleIndex]: this.props.zIndex === ModalIndex.Middle,
       [styles.highIndex]: this.props.zIndex === ModalIndex.High,
-      [styles.higherIndex]: this.props.zIndex === ModalIndex.Higher
+      [styles.higherIndex]: this.props.zIndex === ModalIndex.Higher,
+      [styles.modalHiddenXY]: this.props.modalHideDirection === modalHideXY
     });
     const modalContent = (
       <div className={modalStyle} onClick={this.onClickAway}>
@@ -164,7 +167,7 @@ export class Modal extends React.Component<IModalProps, {}> {
   };
 
   private disableBodyScroll = () => {
-    if (isIOSDevice) {
+    if (isIOSDevice || isIEDevice()) {
       disableBodyScroll(document.body);
     } else {
       htmlElement.style.overflow = "hidden";
@@ -172,7 +175,7 @@ export class Modal extends React.Component<IModalProps, {}> {
   };
 
   private enableBodyScroll = () => {
-    if (isIOSDevice) {
+    if (isIOSDevice || isIEDevice()) {
       enableBodyScroll(document.body);
     } else {
       htmlElement.style.overflow = "auto";
