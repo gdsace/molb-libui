@@ -36,12 +36,6 @@ describe("Table", () => {
     expect(tBodyText).toEqual("Joe Black32Joe Black33");
   });
 
-  // describe("generateRows()", () => {
-  //   it("should", () => {
-
-  //   });
-  // });
-
   describe("when configured to [clickable === true]", () => {
     let rowClickableDataSource: {};
 

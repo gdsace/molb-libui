@@ -172,7 +172,7 @@ interface IDetailRowProps {
   expandedRowIndex: number;
   nativeExpandRowHandler: (rowId: number) => void;
 }
-export const generateRows = ({
+const generateRows = ({
   dataSource,
   columns,
   props,
