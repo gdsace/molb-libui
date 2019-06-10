@@ -14,6 +14,7 @@ import { isIEDevice, isIOSDevice } from "../utils";
 const styles = require("./modal.scss");
 
 const htmlElement = document.getElementsByTagName("html")[0];
+const modalHideXY = "XY";
 
 export enum ModalTheme {
   Basic,
@@ -113,7 +114,7 @@ export class Modal extends React.Component<IModalProps, {}> {
       [styles.middleIndex]: this.props.zIndex === ModalIndex.Middle,
       [styles.highIndex]: this.props.zIndex === ModalIndex.High,
       [styles.higherIndex]: this.props.zIndex === ModalIndex.Higher,
-      [styles.modalHiddenXY]: this.props.modalHideDirection === "XY"
+      [styles.modalHiddenXY]: this.props.modalHideDirection === modalHideXY
     });
     const modalContent = (
       <div className={modalStyle} onClick={this.onClickAway}>

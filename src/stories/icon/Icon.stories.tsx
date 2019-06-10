@@ -27,6 +27,7 @@ const icons = [
   { type: "help" },
   { type: "information" },
   { type: "informational" },
+  { type: "lock" },
   { type: "logout" },
   { type: "new-card" },
   { type: "notification-checkmark" },

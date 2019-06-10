@@ -16,16 +16,17 @@
   @include target-ie11 {
     overflow-x: hidden;
   }
-  
+
   @include target-edge {
     overflow-x: hidden;
   }
 
-  &.modalHiddenXY{
-    @include target-ie11{
+  &.modalHiddenXY {
+    @include target-ie11 {
       overflow: hidden;
     }
-    @include target-edge{
+
+    @include target-edge {
       overflow: hidden;
     }
   }
