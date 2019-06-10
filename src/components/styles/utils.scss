@@ -6,3 +6,9 @@
     @content;
   }
 }
+
+@mixin target-edge {
+  @supports (-ms-ime-align: auto) {
+    @content;
+  }
+}
