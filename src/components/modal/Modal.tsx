@@ -101,9 +101,6 @@ export class Modal extends React.Component<IModalProps, {}> {
   }
 
   public render() {
-    if (!this.props.show) {
-      return null;
-    }
     const modalStyle = classNames(styles.modal, {
       [styles.block]: this.props.show,
       [styles.none]: !this.props.show,
