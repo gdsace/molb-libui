@@ -16,7 +16,7 @@ export interface ITextAreaPros extends HTMLTextareaProps {
   onIconMouseClick?: () => any;
   onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => any;
   id?: string;
-  isFullyDisplay?: boolean;
+  displayContentWithoutScroll?: boolean;
   title?: string;
   helperText?: string;
   overwrite?: boolean;
@@ -25,13 +25,20 @@ export interface ITextAreaPros extends HTMLTextareaProps {
   showError?: boolean;
 }
 
-export class TextArea extends React.Component<ITextAreaPros, any> {
+export interface ITextAreaState {
+  characterCount?: number;
+  isOverwrite?: boolean;
+  height?: number;
+}
+
+export class TextArea extends React.Component<ITextAreaPros, ITextAreaState> {
   public static defaultProps: Partial<ITextAreaPros> = {
     title: "",
     helperText: "",
     overwrite: false,
     iconType: "",
-    showError: false
+    showError: false,
+    displayContentWithoutScroll: false
   };
 
   constructor(props: any) {
@@ -47,7 +54,7 @@ export class TextArea extends React.Component<ITextAreaPros, any> {
   }
 
   public componentDidMount(): void {
-    if (this.props.isFullyDisplay && this.props.id) {
+    if (this.props.displayContentWithoutScroll && this.props.id) {
       const textAreaEle = document.getElementById(this.props.id);
       const heightWithOutScrollBar = textAreaEle!!.scrollHeight + 5;
       this.setState({ height: heightWithOutScrollBar });

@@ -25,21 +25,19 @@ describe("TextArea", () => {
   });
 
   it("should update the height to contain all content with out scroll bar", async () => {
+    const props = {
+      title: "Description",
+      id: "test",
+      isFullyDisplay: true,
+      value: "fdsfsdd\nfdsfs\ndfdsfds\nsdfdsfdsfdsf\ndsfdsfs\nsfdsn",
+      disabled: true
+    };
     document.getElementById = jest
       .spyOn(document, "getElementById")
       .mockReturnValue({ scrollHeight: 32 });
 
-    const wrapper = await Enzyme.mount(
-      <TextArea
-        title="Description"
-        id="test"
-        isFullyDisplay
-        value={"fdsfsdd\nfdsfs\ndfdsfds\nsdfdsfdsfdsf\ndsfdsfs\nsfdsn"}
-        disabled
-        overwrite
-      />
-    );
+    const wrapper = await Enzyme.mount(<TextArea {...props} />);
 
-    expect(wrapper.state().height).toEqual(37);
+    expect(wrapper.find(TextArea).state().height).toEqual(37);
   });
 });
