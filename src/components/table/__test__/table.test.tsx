@@ -1,6 +1,6 @@
 import * as Enzyme from "enzyme";
 import * as React from "react";
-import { Table } from "../Table";
+import { Table } from "../index";
 import { dataSource, tableColumns } from "./__mocks__";
 
 describe("Table", () => {

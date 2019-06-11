@@ -50,7 +50,7 @@ export enum TableTheme {
   Basic = "basic"
 }
 
-export class Table extends React.Component<ITableProps, ITableState> {
+class Table extends React.Component<ITableProps, ITableState> {
   public static defaultProps: Partial<ITableProps> = {
     bordered: false,
     size: TableSize.Small,
@@ -86,7 +86,7 @@ export class Table extends React.Component<ITableProps, ITableState> {
         <table className={cx({ bordered }, size, theme, tableCls)}>
           <thead>
             <tr>
-              {columns.map(toHeaderItem)}
+              {columns.map(toHeaderCells)}
               {this.props.expandable ? <th /> : null}
             </tr>
           </thead>
@@ -116,7 +116,7 @@ export class Table extends React.Component<ITableProps, ITableState> {
 }
 
 // ----- Header Items -----
-const toHeaderItem = (column: IColumn) => (
+const toHeaderCells = (column: IColumn) => (
   <th
     key={`th-${column.key}`}
     style={column.width ? { width: column.width } : {}}
@@ -129,7 +129,7 @@ const toHeaderItem = (column: IColumn) => (
 );
 
 // ----- Body Items ------
-const toBodyCell = (column: IColumn, data: IDataSource) => (
+const toBodyCells = (column: IColumn, data: IDataSource) => (
   <td
     key={`td-cell-${column.key}`}
     data-title={column.title}
@@ -193,7 +193,7 @@ const generateRows = ({
           )}
           {...modifier}
         >
-          {columns.map(column => toBodyCell(column, rowData))}
+          {columns.map(column => toBodyCells(column, rowData))}
           {!props.expandable ? null : (
             <td
               key={`td-expandable-${index}`}
@@ -223,4 +223,17 @@ const generateRows = ({
       </React.Fragment>
     );
   });
+};
+
+export default {
+  Table,
+  ...(process.env.NODE_ENV === "development"
+    ? {
+        toHeaderCells,
+        toBodyCells,
+        toExpandableRow,
+        emptyRows,
+        generateRows
+      }
+    : {})
 };
