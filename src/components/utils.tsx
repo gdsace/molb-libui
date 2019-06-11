@@ -52,3 +52,17 @@ export const isIOSDevice =
   window.navigator &&
   window.navigator.platform &&
   /iP(ad|hone|od)/.test(window.navigator.platform);
+
+export const isIEDevice = () => {
+  const userAgent = navigator.userAgent;
+  const isIE =
+    userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1; // IE<11
+  const isEdge = userAgent.indexOf("Edge") > -1 && !isIE; // Edge
+  const isIE11 =
+    userAgent.indexOf("Trident") > -1 && userAgent.indexOf("rv:11.0") > -1;
+  if (isIE || isEdge || isIE11) {
+    return true;
+  } else {
+    return false;
+  }
+};
