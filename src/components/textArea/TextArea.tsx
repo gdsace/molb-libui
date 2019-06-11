@@ -15,6 +15,8 @@ export interface ITextAreaPros extends HTMLTextareaProps {
   onIconMouseOut?: () => any;
   onIconMouseClick?: () => any;
   onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => any;
+  id?: string;
+  isFullyDisplay?: boolean;
   title?: string;
   helperText?: string;
   overwrite?: boolean;
@@ -42,6 +44,14 @@ export class TextArea extends React.Component<ITextAreaPros, any> {
       characterCount: (this.props.value || "").toString().length,
       isOverwrite: false
     };
+  }
+
+  public componentDidMount(): void {
+    if (this.props.isFullyDisplay && this.props.id) {
+      const textAreaEle = document.getElementById(this.props.id);
+      const heightWithOutScrollBar = textAreaEle!!.scrollHeight + 5;
+      this.setState({ height: heightWithOutScrollBar });
+    }
   }
 
   public render() {
@@ -87,6 +97,7 @@ export class TextArea extends React.Component<ITextAreaPros, any> {
         </div>
         <div className={styles.content}>
           <textarea
+            style={this.getStyle()}
             {...otherProps}
             className={styles.input}
             placeholder={this.props.placeholder}
@@ -107,6 +118,10 @@ export class TextArea extends React.Component<ITextAreaPros, any> {
         </div>
       </div>
     );
+  }
+
+  private getStyle() {
+    return this.state.height ? { height: this.state.height } : {};
   }
 
   private handleTextareaChange(e: React.ChangeEvent<HTMLTextAreaElement>) {

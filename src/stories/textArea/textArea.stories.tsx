@@ -25,6 +25,20 @@ const styles = require("./textArea.stories.scss");
             />
           </div>
           <div className={styles.box}>
+            <p className={styles.notes}>
+              Disabled: display all content without scroll bar
+            </p>
+            <TextArea
+              title="Description"
+              id={"test"}
+              isFullyDisplay={true}
+              value={"fdsfsdd\nfdsfs\ndfdsfds\nsdfdsfdsfdsf\ndsfdsfs\nsfdsn"}
+              maxLength={300}
+              disabled={true}
+              overwrite={true}
+            />
+          </div>
+          <div className={styles.box}>
             <p className={styles.notes}>Enabled: With Icon</p>
             <TextArea
               title="Description"
