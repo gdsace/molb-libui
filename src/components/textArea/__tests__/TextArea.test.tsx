@@ -28,7 +28,7 @@ describe("TextArea", () => {
     const props = {
       title: "Description",
       id: "test",
-      isFullyDisplay: true,
+      displayContentWithoutScroll: true,
       value: "fdsfsdd\nfdsfs\ndfdsfds\nsdfdsfdsfdsf\ndsfdsfs\nsfdsn",
       disabled: true
     };
