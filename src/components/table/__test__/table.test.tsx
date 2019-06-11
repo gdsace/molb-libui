@@ -1,6 +1,6 @@
 import * as Enzyme from "enzyme";
 import * as React from "react";
-import { Table } from "../Table";
+import { Table } from "../index";
 import { dataSource, tableColumns } from "./__mocks__";
 
 describe("Table", () => {
@@ -34,5 +34,61 @@ describe("Table", () => {
 
     const tBodyText = wrapper.find("tbody").text();
     expect(tBodyText).toEqual("Joe Black32Joe Black33");
+  });
+
+  describe("when configured to [clickable === true]", () => {
+    let rowClickableDataSource: {};
+
+    beforeEach(() => {
+      rowClickableDataSource = [
+        {
+          key: "1",
+          name: "Joe Black",
+          age: 32,
+          address: "Sidney No. 1 Lake Park",
+          onRowClickHandler: jest.fn()
+        }
+      ];
+    });
+
+    it("should allow its row to be clickable if [clickableRow] is set to true", () => {
+      const wrapper = Enzyme.shallow(
+        <Table
+          columns={tableColumns}
+          // @ts-ignore
+          dataSource={rowClickableDataSource}
+          clickableRow={true}
+        />
+      );
+
+      wrapper
+        .find("tbody")
+        .find("tr")
+        .simulate("click");
+
+      // @ts-ignore
+      expect(rowClickableDataSource[0].onRowClickHandler)
+        .toHaveBeenCalledTimes(1); // tslint:disable-line:prettier
+    });
+
+    it("else it should not be clickable", () => {
+      const wrapper = Enzyme.shallow(
+        <Table
+          columns={tableColumns}
+          // @ts-ignore
+          dataSource={rowClickableDataSource}
+          clickableRow={false}
+        />
+      );
+
+      wrapper
+        .find("tbody")
+        .find("tr")
+        .simulate("click");
+
+      // @ts-ignore
+      expect(rowClickableDataSource[0].onRowClickHandler)
+        .toHaveBeenCalledTimes(0); // tslint:disable-line:prettier
+    });
   });
 });
