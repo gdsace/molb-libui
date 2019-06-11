@@ -50,7 +50,7 @@ export enum TableTheme {
   Basic = "basic"
 }
 
-class Table extends React.Component<ITableProps, ITableState> {
+export class Table extends React.Component<ITableProps, ITableState> {
   public static defaultProps: Partial<ITableProps> = {
     bordered: false,
     size: TableSize.Small,
@@ -225,15 +225,6 @@ const generateRows = ({
   });
 };
 
-export default {
-  Table,
-  ...(process.env.NODE_ENV === "development"
-    ? {
-        toHeaderCells,
-        toBodyCells,
-        toExpandableRow,
-        emptyRows,
-        generateRows
-      }
-    : {})
+export const toTest = {
+  ...(process.env.NODE_ENV === "development" ? { generateRows } : {})
 };

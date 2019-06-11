@@ -67,7 +67,8 @@ describe("Table", () => {
         .simulate("click");
 
       // @ts-ignore
-      expect(rowClickableDataSource[0].onRowClickHandler).toHaveBeenCalledTimes(1);
+      expect(rowClickableDataSource[0].onRowClickHandler)
+        .toHaveBeenCalledTimes(1); // tslint:disable-line:prettier
     });
 
     it("else it should not be clickable", () => {
@@ -86,7 +87,8 @@ describe("Table", () => {
         .simulate("click");
 
       // @ts-ignore
-      expect(rowClickableDataSource[0].onRowClickHandler).toHaveBeenCalledTimes(0);
+      expect(rowClickableDataSource[0].onRowClickHandler)
+        .toHaveBeenCalledTimes(0); // tslint:disable-line:prettier
     });
   });
 });

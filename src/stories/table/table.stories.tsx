@@ -1,7 +1,7 @@
 import React from "react";
 
 import { storiesOf } from "@storybook/react";
-import { Table, TableTheme } from "../../components";
+import { Table, TableTheme } from "../../components/index";
 import { CategoryName, wInfo } from "../utils";
 
 const styles = require("./table.stories.scss");

@@ -44,3 +44,4 @@ export declare class Table extends React.Component<ITableProps, ITableState> {
     render(): JSX.Element;
     private nativeExpandRowHandler;
 }
+export declare const toTest: {};
