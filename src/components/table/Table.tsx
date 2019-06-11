@@ -224,7 +224,3 @@ const generateRows = ({
     );
   });
 };
-
-export const toTest = {
-  ...(process.env.NODE_ENV === "development" ? { generateRows } : {})
-};
