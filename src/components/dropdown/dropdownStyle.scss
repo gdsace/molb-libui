@@ -116,6 +116,12 @@
     width: 100%;
   }
 
+  .menu {
+    @include target-ie11 {
+      width: 482px !important;
+    }
+  }
+
   .option {
     padding: unset !important;
   }
