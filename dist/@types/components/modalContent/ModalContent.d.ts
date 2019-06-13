@@ -10,4 +10,6 @@ export interface IModalContentProps {
 export declare class ModalContent extends React.Component<IModalContentProps, {}> {
     render(): JSX.Element;
     private getSubheader;
+    private leftButtonOnClick;
+    private rightButtonOnClick;
 }
