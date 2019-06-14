@@ -110,6 +110,7 @@
 
   @include target-ie11 {
     flex-grow: 1; // IE11 flexbox not growing fix
+    min-width: 280px; // make IE11 more consistent with chrome
   }
 
   @include for-phone-only {
@@ -174,6 +175,7 @@
 
     @include target-ie11 {
       flex: 1 1 auto; // IE11 vertical center fix
+      margin-right: 0 !important; // too much space for IE11 to breathe, needs some saffocation
     }
 
     @include for-phone-only {
