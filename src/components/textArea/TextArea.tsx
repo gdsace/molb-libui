@@ -1,4 +1,3 @@
-import _ from "lodash";
 import * as React from "react";
 
 import classnames from "classnames";
@@ -72,18 +71,6 @@ export class TextArea extends React.Component<ITextAreaPros, ITextAreaState> {
       ? addLocatedErrorClassname(styles.helperMsg)
       : styles.helperMsg;
     const maxLength = this.props.overwrite ? undefined : this.props.maxLength;
-    const props = this.props;
-    const otherProps = _.omit(props, [
-      "title",
-      "helperText",
-      "overwrite",
-      "iconType",
-      "errorMsg",
-      "showError",
-      "onIconMouseOver",
-      "onIconMouseOut",
-      "onIconMouseClick"
-    ]);
     const iconSize = "16";
     return (
       <div className={rootContainerClassname} data-scrollpoint={true}>
@@ -104,8 +91,8 @@ export class TextArea extends React.Component<ITextAreaPros, ITextAreaState> {
         </div>
         <div className={styles.content}>
           <textarea
+            id={this.props.id}
             style={this.getStyle()}
-            {...otherProps}
             className={styles.input}
             placeholder={this.props.placeholder}
             maxLength={maxLength}
