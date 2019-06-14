@@ -53,6 +53,7 @@ const licenceIcons = [
   { type: "customs-account" },
   { type: "fire-safety" },
   { type: "food-shop" },
+  { type: "food-stall" },
   { type: "halal" },
   { type: "import" },
   { type: "liquor" },
