@@ -209,6 +209,10 @@
     @include for-phone-only {
       max-width: calc(100vw - 60px) !important;
     }
+
+    @include target-ie11 {
+      width: 560px !important; // force IE11 to expand to max width
+    }
   }
 
   .placeholder {
