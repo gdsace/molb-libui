@@ -28,7 +28,7 @@ export class ModalContent extends React.Component<IModalContentProps, {}> {
             <Button
               className={styles.modalButton}
               label={this.props.leftButtonLabel}
-              onClick={this.leftButtonOnClick}
+              onClick={this.props.leftButtonOnClick}
               size={Size.Large}
               theme={Theme.Ghost}
             />
@@ -37,7 +37,7 @@ export class ModalContent extends React.Component<IModalContentProps, {}> {
             <Button
               className={styles.modalButton}
               label={this.props.rightButtonLabel}
-              onClick={this.rightButtonOnClick}
+              onClick={this.props.rightButtonOnClick}
               size={Size.Large}
               theme={Theme.Primary}
             />
@@ -53,12 +53,4 @@ export class ModalContent extends React.Component<IModalContentProps, {}> {
       return <div className={styles.subheader}>{subheader}</div>;
     }
   }
-
-  private leftButtonOnClick = (e: any) => {
-    this.props.leftButtonOnClick(e);
-  };
-
-  private rightButtonOnClick = (e: any) => {
-    this.props.rightButtonOnClick(e);
-  };
 }
