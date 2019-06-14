@@ -83,25 +83,27 @@ export class Table extends React.Component<ITableProps, ITableState> {
 
     return (
       <div className={styles.tableContainer}>
-        <table className={cx({ bordered }, size, theme, tableCls)}>
-          <thead>
-            <tr>
-              {columns.map(toHeaderCells)}
-              {this.props.expandable ? <th /> : null}
-            </tr>
-          </thead>
-          <tbody>
-            {dataSource.length <= 0 && showNoDataAvailableMessage
-              ? emptyRows(columns)
-              : generateRows({
-                  dataSource,
-                  columns,
-                  props: this.props,
-                  expandedRowIndex: this.state.expandedRowIndex,
-                  nativeExpandRowHandler: this.nativeExpandRowHandler
-                })}
-          </tbody>
-        </table>
+        <div className={cx({ bordered })}>
+          <table className={cx(size, theme, tableCls)}>
+            <thead>
+              <tr>
+                {columns.map(toHeaderCells)}
+                {this.props.expandable ? <th /> : null}
+              </tr>
+            </thead>
+            <tbody>
+              {dataSource.length <= 0 && showNoDataAvailableMessage
+                ? emptyRows(columns)
+                : generateRows({
+                    dataSource,
+                    columns,
+                    props: this.props,
+                    expandedRowIndex: this.state.expandedRowIndex,
+                    nativeExpandRowHandler: this.nativeExpandRowHandler
+                  })}
+            </tbody>
+          </table>
+        </div>
       </div>
     );
   }
