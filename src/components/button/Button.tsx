@@ -49,7 +49,7 @@ export class Button extends React.Component<IButtonProps, {}> {
         type={this.props.type}
         disabled={this.props.disabled}
         className={buttonClassName}
-        onClick={(event: any) => this.handleOnClick(this.props.onClick(event))}
+        onClick={(event: any) => this.handleOnClick(event)}
       >
         {this.renderContent()}
       </button>
@@ -96,9 +96,9 @@ export class Button extends React.Component<IButtonProps, {}> {
     );
   }
 
-  private handleOnClick = (onClick: (event: any) => any) => {
+  private handleOnClick = (event: any) => {
     if (!this.props.disabled && !this.props.loading) {
-      onClick(event);
+      this.props.onClick(event);
     }
   };
 }
