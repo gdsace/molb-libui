@@ -8,7 +8,7 @@ const styles = require("./button.scss");
 type ButtonType = "submit" | "reset" | "button";
 
 export interface IButtonProps {
-  onClick: (event?: React.FormEvent<HTMLButtonElement>) => any;
+  onClick: (event?: React.MouseEvent<HTMLButtonElement>) => any;
   label: string;
   disabled?: boolean;
   className?: string;
@@ -96,7 +96,7 @@ export class Button extends React.Component<IButtonProps, {}> {
     );
   }
 
-  private handleOnClick = (event: React.FormEvent<HTMLButtonElement>) => {
+  private handleOnClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     if (!this.props.disabled && !this.props.loading) {
       this.props.onClick(event);
     }
