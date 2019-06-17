@@ -165,6 +165,7 @@ export const rfaDataSource = [
             expandable={true}
             onExpandButtonClick={() => true}
             expandableRowTemplate={<div>TEST</div>}
+            closeExpandedRow={true}
           />
         </div>
       </div>
