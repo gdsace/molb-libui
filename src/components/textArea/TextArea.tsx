@@ -22,6 +22,7 @@ export interface ITextAreaPros extends HTMLTextareaProps {
   iconType?: string;
   errorMsg?: string;
   showError?: boolean;
+  textareaInputClassName?: string;
 }
 
 export interface ITextAreaState {
@@ -93,7 +94,11 @@ export class TextArea extends React.Component<ITextAreaPros, ITextAreaState> {
           <textarea
             id={this.props.id}
             style={this.getStyle()}
-            className={styles.input}
+            className={classnames(
+              styles.input,
+              this.props.textareaInputClassName
+            )}
+            value={this.props.value}
             placeholder={this.props.placeholder}
             maxLength={maxLength}
             onChange={this.handleTextareaChange}
