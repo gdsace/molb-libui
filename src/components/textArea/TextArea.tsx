@@ -98,6 +98,7 @@ export class TextArea extends React.Component<ITextAreaPros, ITextAreaState> {
             maxLength={maxLength}
             onChange={this.handleTextareaChange}
             disabled={!!this.props.disabled}
+            value={this.props.value}
           />
         </div>
         <div className={styles.bottomSection}>
