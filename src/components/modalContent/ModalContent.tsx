@@ -28,9 +28,7 @@ export class ModalContent extends React.Component<IModalContentProps, {}> {
             <Button
               className={styles.modalButton}
               label={this.props.leftButtonLabel}
-              onClick={(event: any) => {
-                this.props.leftButtonOnClick(event);
-              }}
+              onClick={this.props.leftButtonOnClick}
               size={Size.Large}
               theme={Theme.Ghost}
             />
@@ -39,9 +37,7 @@ export class ModalContent extends React.Component<IModalContentProps, {}> {
             <Button
               className={styles.modalButton}
               label={this.props.rightButtonLabel}
-              onClick={(event: any) => {
-                this.props.rightButtonOnClick(event);
-              }}
+              onClick={this.props.rightButtonOnClick}
               size={Size.Large}
               theme={Theme.Primary}
             />
