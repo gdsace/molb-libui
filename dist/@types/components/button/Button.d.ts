@@ -2,7 +2,7 @@ import * as React from "react";
 import { Size, Theme } from "../EnumValues";
 declare type ButtonType = "submit" | "reset" | "button";
 export interface IButtonProps {
-    onClick: () => any;
+    onClick: (event?: any) => any;
     label: string;
     disabled?: boolean;
     className?: string;
