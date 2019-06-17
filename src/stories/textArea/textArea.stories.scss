@@ -19,10 +19,6 @@
   width: 320px;
 }
 
-.textareaInputHeight {
-  height: 300px;
-}
-
 .notes {
   color: #bcc4cd;
 }
@@ -39,4 +35,8 @@
 
 .styles {
   margin: 36px;
+}
+
+.textareaClass textarea {
+  height: 300px;
 }

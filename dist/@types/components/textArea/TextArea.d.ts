@@ -13,7 +13,6 @@ export interface ITextAreaPros extends HTMLTextareaProps {
     iconType?: string;
     errorMsg?: string;
     showError?: boolean;
-    textareaInputClassName?: string;
 }
 export interface ITextAreaState {
     characterCount?: number;

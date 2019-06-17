@@ -116,14 +116,14 @@ const styles = require("./textArea.stories.scss");
           </div>
           <div className={styles.box}>
             <p className={styles.notes}>
-              textareaInputClassName: control textarea input by class
+              className: control textarea input by class
             </p>
             <TextArea
               title="Description"
               placeholder="What is your brand concept? What kind of food do you sell?"
               maxLength={300}
               overwrite={true}
-              textareaInputClassName={styles.textareaInputHeight}
+              className={styles.textareaClass}
             />
           </div>
         </div>
