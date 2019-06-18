@@ -30,7 +30,8 @@ export enum Size {
   Medium = "medium",
   Large = "large",
   XLarge = "xlarge",
-  Square = "square"
+  Square = "square",
+  SSquare = "ssquare"
 }
 
 export enum LinkStatus {

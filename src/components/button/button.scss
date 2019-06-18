@@ -94,6 +94,8 @@
 
   &:hover {
     border: 1px solid $lavender-indigo;
+    position: relative;
+    z-index: 99;
   }
 }
 
@@ -122,6 +124,12 @@
   height: 48px;
   font-size: $small;
   min-width: 48px;
+}
+
+.ssquare {
+  height: 40px;
+  font-size: $small;
+  min-width: 40px;
 }
 
 .medium {

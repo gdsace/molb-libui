@@ -63,7 +63,7 @@ export class Button extends React.Component<IButtonProps, {}> {
     const iconSize =
       this.props.size === Size.Small
         ? "16"
-        : this.props.size === Size.Square
+        : this.props.size === Size.Square || this.props.size === Size.SSquare
         ? "16"
         : "24";
 
