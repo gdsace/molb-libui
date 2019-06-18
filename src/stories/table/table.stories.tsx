@@ -1,7 +1,7 @@
 import React from "react";
 
 import { storiesOf } from "@storybook/react";
-import { Table, TableTheme } from "../../components";
+import { Table, TableTheme } from "../../components/index";
 import { CategoryName, wInfo } from "../utils";
 
 const styles = require("./table.stories.scss");
@@ -84,10 +84,51 @@ export const dataSource = [
   }
 ];
 
+export const rfaDataSource = [
+  {
+    name: "Joe Black",
+    age: 32,
+    address: "Sidney No. 1 Lake Park",
+    tags: activeTag,
+    onRowClickHandler: () => alert("You've clicked on a table row")
+  },
+  {
+    name: "Joe Black",
+    age: 32,
+    address: "Sidney No. 1 Lake Park",
+    tags: activeTag,
+    onRowClickHandler: () => alert("You've clicked on a table row")
+  },
+  {
+    name: "Joe Black",
+    age: 32,
+    address: "Sidney No. 1 Lake Park",
+    tags: activeTag,
+    onRowClickHandler: () => alert("You've clicked on a table row")
+  },
+  {
+    name: "Joe Black",
+    age: 32,
+    address: "Sidney No. 1 Lake Park",
+    tags: activeTag,
+    onRowClickHandler: () => alert("You've clicked on a table row")
+  }
+];
+
 (storiesOf(CategoryName.Table, module) as any).addWithJSX(
   "Table",
   wInfo(``)(() => (
     <div className={styles.rootContainer}>
+      <section className={styles.section}>
+        <h6>RFA Search Table</h6>
+        <Table
+          columns={tableColumns}
+          dataSource={rfaDataSource}
+          theme={TableTheme.Basic}
+          clickableRow={true}
+        />
+      </section>
+
       <h6 className={styles.groupHeader}>Table type: themes</h6>
       <div className={styles.itemsContainer}>
         <div className={styles.box}>
