@@ -15,8 +15,8 @@ export interface INumberPickerProps {
     className?: string;
 }
 export declare class NumberPicker extends React.Component<INumberPickerProps, INumberPickerStates> {
-    constructor(props: INumberPickerProps);
     static defaultProps: Partial<INumberPickerProps>;
+    constructor(props: INumberPickerProps);
     DecreaseItem: () => void;
     IncrementItem: () => void;
     onInputChange: (value: any) => void;

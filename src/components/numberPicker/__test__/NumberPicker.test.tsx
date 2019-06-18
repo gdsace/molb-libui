@@ -117,9 +117,9 @@ describe("NumberPicker Section", () => {
 
     expect(
       wrapper
-        .find('input')
+        .find("input")
         .at(0)
-        .hasClass('inputError')
+        .hasClass("inputError")
     ).toEqual(true);
   });
 });
