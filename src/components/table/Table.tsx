@@ -103,12 +103,12 @@ export class Table extends React.Component<ITableProps, ITableState> {
               {dataSource.length <= 0 && showNoDataAvailableMessage
                 ? emptyRows(columns)
                 : generateRows({
-                  dataSource,
-                  columns,
-                  props: this.props,
-                  expandedRowIndex: this.state.expandedRowIndex,
-                  nativeExpandRowHandler: this.nativeExpandRowHandler
-                })}
+                    dataSource,
+                    columns,
+                    props: this.props,
+                    expandedRowIndex: this.state.expandedRowIndex,
+                    nativeExpandRowHandler: this.nativeExpandRowHandler
+                  })}
             </tbody>
           </table>
         </div>
@@ -160,12 +160,12 @@ const toExpandableRow = (
   columns: IColumn[],
   index: number
 ) => (
-    <tr key={`tr-expandable-${index}`}>
-      <td className={styles.expandableTd} colSpan={columns.length + 1}>
-        {props.expandableRowTemplate}
-      </td>
-    </tr>
-  );
+  <tr key={`tr-expandable-${index}`}>
+    <td className={styles.expandableTd} colSpan={columns.length + 1}>
+      {props.expandableRowTemplate}
+    </td>
+  </tr>
+);
 
 const emptyRows = (columns: IColumn[]) => [
   <tr key={`tr-NO_DATA`}>
