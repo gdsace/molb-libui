@@ -114,6 +114,18 @@ const styles = require("./textArea.stories.scss");
               Other following contents (Input error msg should float on this)
             </p>
           </div>
+          <div className={styles.box}>
+            <p className={styles.notes}>
+              className: control textarea input by class
+            </p>
+            <TextArea
+              title="Description"
+              placeholder="What is your brand concept? What kind of food do you sell?"
+              maxLength={300}
+              overwrite={true}
+              className={styles.textareaClass}
+            />
+          </div>
         </div>
       </div>
     );

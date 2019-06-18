@@ -73,7 +73,10 @@ export class TextArea extends React.Component<ITextAreaPros, ITextAreaState> {
     const maxLength = this.props.overwrite ? undefined : this.props.maxLength;
     const iconSize = "16";
     return (
-      <div className={rootContainerClassname} data-scrollpoint={true}>
+      <div
+        className={classnames(rootContainerClassname, this.props.className)}
+        data-scrollpoint={true}
+      >
         <div className={styles.headerSection}>
           <label className={styles.title}>{this.props.title}</label>
           <div
@@ -94,11 +97,11 @@ export class TextArea extends React.Component<ITextAreaPros, ITextAreaState> {
             id={this.props.id}
             style={this.getStyle()}
             className={styles.input}
+            value={this.props.value}
             placeholder={this.props.placeholder}
             maxLength={maxLength}
             onChange={this.handleTextareaChange}
             disabled={!!this.props.disabled}
-            value={this.props.value}
           />
         </div>
         <div className={styles.bottomSection}>

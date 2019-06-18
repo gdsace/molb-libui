@@ -25,6 +25,7 @@ export interface ITableProps {
     showPagination?: boolean;
     clickableRow?: boolean;
     onRowClickHandler?: () => void;
+    closeExpandedRow?: boolean;
 }
 export interface ITableState {
     expandedRowIndex: number;
@@ -40,6 +41,9 @@ export declare enum TableTheme {
 }
 export declare class Table extends React.Component<ITableProps, ITableState> {
     static defaultProps: Partial<ITableProps>;
+    static getDerivedStateFromProps(nextProps: ITableProps): {
+        expandedRowIndex: number;
+    } | null;
     constructor(props: ITableProps);
     render(): JSX.Element;
     private nativeExpandRowHandler;
