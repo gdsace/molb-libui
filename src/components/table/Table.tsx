@@ -64,10 +64,7 @@ export class Table extends React.Component<ITableProps, ITableState> {
   };
 
   public static getDerivedStateFromProps(nextProps: ITableProps) {
-    if (nextProps.closeExpandedRow) {
-      return { expandedRowIndex: -1 };
-    }
-    return null;
+    return nextProps.closeExpandedRow ? { expandedRowIndex: -1 } : null;
   }
 
   public constructor(props: ITableProps) {
