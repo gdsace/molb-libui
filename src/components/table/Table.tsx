@@ -33,6 +33,7 @@ export interface ITableProps {
   showPagination?: boolean;
   clickableRow?: boolean;
   onRowClickHandler?: () => void;
+  closeExpandedRow?: boolean;
 }
 
 export interface ITableState {
@@ -61,6 +62,10 @@ export class Table extends React.Component<ITableProps, ITableState> {
     ignoreExpandButtonClick: false,
     clickableRow: false
   };
+
+  public static getDerivedStateFromProps(nextProps: ITableProps) {
+    return nextProps.closeExpandedRow ? { expandedRowIndex: -1 } : null;
+  }
 
   public constructor(props: ITableProps) {
     super(props);
@@ -110,9 +115,11 @@ export class Table extends React.Component<ITableProps, ITableState> {
 
   private nativeExpandRowHandler(rowId: number) {
     const currentExpandedRowIndex = this.state.expandedRowIndex;
+    const closeExpandedRow = this.props.closeExpandedRow;
 
     this.setState({
-      expandedRowIndex: rowId === currentExpandedRowIndex ? -1 : rowId
+      expandedRowIndex:
+        rowId === currentExpandedRowIndex || closeExpandedRow ? -1 : rowId
     });
   }
 }
