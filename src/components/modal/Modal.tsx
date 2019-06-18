@@ -171,6 +171,7 @@ export class Modal extends React.Component<IModalProps, {}> {
       disableBodyScroll(document.body);
     } else {
       htmlElement.style.overflow = "hidden";
+      document.body.style.overflow = "hidden";
     }
   };
 
@@ -179,6 +180,7 @@ export class Modal extends React.Component<IModalProps, {}> {
       enableBodyScroll(document.body);
     } else {
       htmlElement.style.overflow = "auto";
+      document.body.style.overflow = "auto";
     }
   };
 
