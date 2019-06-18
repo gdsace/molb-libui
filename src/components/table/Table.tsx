@@ -63,18 +63,19 @@ export class Table extends React.Component<ITableProps, ITableState> {
     clickableRow: false
   };
 
+  public static getDerivedStateFromProps(nextProps: ITableProps) {
+    if (nextProps.closeExpandedRow) {
+      return { expandedRowIndex: -1 };
+    }
+    return null;
+  }
+
   public constructor(props: ITableProps) {
     super(props);
     this.nativeExpandRowHandler = this.nativeExpandRowHandler.bind(this);
     this.state = {
       expandedRowIndex: -1
     };
-  }
-
-  public componentWillReceiveProps(nextProps: ITableProps) {
-    if (nextProps.closeExpandedRow) {
-      this.setState({ expandedRowIndex: -1 });
-    }
   }
 
   public render() {
@@ -102,12 +103,12 @@ export class Table extends React.Component<ITableProps, ITableState> {
               {dataSource.length <= 0 && showNoDataAvailableMessage
                 ? emptyRows(columns)
                 : generateRows({
-                    dataSource,
-                    columns,
-                    props: this.props,
-                    expandedRowIndex: this.state.expandedRowIndex,
-                    nativeExpandRowHandler: this.nativeExpandRowHandler
-                  })}
+                  dataSource,
+                  columns,
+                  props: this.props,
+                  expandedRowIndex: this.state.expandedRowIndex,
+                  nativeExpandRowHandler: this.nativeExpandRowHandler
+                })}
             </tbody>
           </table>
         </div>
@@ -159,12 +160,12 @@ const toExpandableRow = (
   columns: IColumn[],
   index: number
 ) => (
-  <tr key={`tr-expandable-${index}`}>
-    <td className={styles.expandableTd} colSpan={columns.length + 1}>
-      {props.expandableRowTemplate}
-    </td>
-  </tr>
-);
+    <tr key={`tr-expandable-${index}`}>
+      <td className={styles.expandableTd} colSpan={columns.length + 1}>
+        {props.expandableRowTemplate}
+      </td>
+    </tr>
+  );
 
 const emptyRows = (columns: IColumn[]) => [
   <tr key={`tr-NO_DATA`}>

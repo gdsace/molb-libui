@@ -41,8 +41,10 @@ export declare enum TableTheme {
 }
 export declare class Table extends React.Component<ITableProps, ITableState> {
     static defaultProps: Partial<ITableProps>;
+    static getDerivedStateFromProps(nextProps: ITableProps): {
+        expandedRowIndex: number;
+    } | null;
     constructor(props: ITableProps);
-    componentWillReceiveProps(nextProps: ITableProps): void;
     render(): JSX.Element;
     private nativeExpandRowHandler;
 }
