@@ -119,16 +119,18 @@ export class NumberPicker extends React.Component<
             })
           }
         />
-        <Input
-          maxLength={3}
-          value={quantity || 0}
-          className={`${styles.numInput} ${inputError} ${
-            quantity === 0 ? styles.minValue : ""
-          }`}
-          disabled={disableInput || false}
-          type={InputType.DigitsOnly}
-          onChange={event => this.onInputChange(event.target.value)}
-        />
+        <div className={styles.inputContainer}>
+          <Input
+            maxLength={3}
+            value={quantity || 0}
+            className={`${styles.numInput} ${inputError} ${
+              quantity === 0 ? styles.minValue : ""
+            }`}
+            disabled={disableInput || false}
+            type={InputType.DigitsOnly}
+            onChange={event => this.onInputChange(event.target.value)}
+          />
+        </div>
         <Button
           className={styles.nextButton}
           size={Size.SmallSquare}
