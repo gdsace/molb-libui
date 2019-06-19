@@ -125,7 +125,7 @@ export class Input extends React.Component<IInputProps, any> {
               disabled={this.props.disabled}
               className={`${styles.field} ${size} ${this.props.className} ${
                 this.props.showError ? styles.error : ""
-              }`}
+              } ${this.iconOverlapFix()}`}
               value={this.props.value}
               type={this.getRawInputType(this.props.type)}
               maxLength={this.props.maxLength}
@@ -244,6 +244,15 @@ export class Input extends React.Component<IInputProps, any> {
     }
 
     return <div className={styles.rightInlineElementContainer}>{element}</div>;
+  }
+
+  private iconOverlapFix() {
+    const { showError, suffix, iconSignifier, loading } = this.props;
+
+    if(showError || suffix || iconSignifier || loading) {
+      return styles.preventIconOverlap;
+    }
+    return ""
   }
 
   private getRawInputType = (type?: InputType) => {

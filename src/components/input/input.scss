@@ -187,6 +187,10 @@ $input-focus-border: solid 1px $lavender-indigo;
   height: 22px;
   font-size: $small;
   min-width: 90px;
+
+  &.preventIconOverlap { //preventing overlap of icon if present
+    padding: 5px 37px 5px 3%;
+  }
 }
 
 .medium {
@@ -199,6 +203,10 @@ $input-focus-border: solid 1px $lavender-indigo;
     height: $space-4;
     font-size: $large;
   }
+
+  &.preventIconOverlap { //preventing overlap of icon if present
+    padding: $space-1 37px $space-1 $x-small;
+  }
 }
 
 .large {
@@ -207,6 +215,10 @@ $input-focus-border: solid 1px $lavender-indigo;
   height: $space-6;
   font-size: $large;
   min-width: 90px;
+
+  &.preventIconOverlap { //preventing overlap of icon if present
+    padding: $space-1 37px $space-1 $space-2;
+  }
 }
 
 .square {
