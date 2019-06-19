@@ -27,7 +27,7 @@ export declare enum Size {
     Large = "large",
     XLarge = "xlarge",
     Square = "square",
-    SSquare = "ssquare"
+    SmallSquare = "smallsquare"
 }
 export declare enum LinkStatus {
     Normal = "normal",

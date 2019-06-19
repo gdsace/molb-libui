@@ -107,7 +107,7 @@ export class NumberPicker extends React.Component<
       <div className={`${styles.mainWrapper} ${wrapperClassName}`}>
         <Button
           className={styles.prevButton}
-          size={Size.SSquare}
+          size={Size.SmallSquare}
           theme={Theme.Grey}
           icon={"minus"}
           iconAlign="center"
@@ -129,7 +129,7 @@ export class NumberPicker extends React.Component<
         />
         <Button
           className={styles.nextButton}
-          size={Size.SSquare}
+          size={Size.SmallSquare}
           theme={Theme.Grey}
           icon={"plus"}
           iconAlign="center"
