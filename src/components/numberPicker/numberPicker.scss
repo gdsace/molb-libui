@@ -1,0 +1,62 @@
+@import "../styles/utils";
+
+.mainWrapper {
+  display: flex;
+  height: 40px;
+  min-width: 128px;
+
+  @include for-phone-only {
+    width: 100%;
+  }
+}
+
+.prevButton {
+  margin-left: auto;
+  border-radius: 3px 0 0 3px;
+  border-width: 1px 0 1px 1px;
+  margin-right: -2px;
+  color: $indigo;
+}
+
+.prevButton:disabled {
+  color: $porcelain;
+  background-color: inherit;
+}
+
+.nextButton {
+  border-radius: 0 3px 3px 0;
+  border-width: 1px 1px 1px 0;
+  margin-left: -2px;
+  color: $indigo;
+}
+
+.nextButton:disabled {
+  color: $porcelain;
+  background-color: inherit;
+}
+
+.numInput {
+  border-radius: 0 !important;
+  border: 1px solid $ui-color-2 !important;
+  min-height: 40px;
+  max-width: 50px;
+  text-align: center;
+  padding: 0;
+  color: $text-color-2;
+
+  @include for-phone-only {
+    max-width: 100%;
+  }
+}
+
+.numInput:hover {
+  border: 1px solid $text-color !important;
+}
+
+.numInput:focus {
+  border: 1px solid $lavender-indigo !important;
+}
+
+.inputError {
+  border: 1px solid $support-red !important;
+}
