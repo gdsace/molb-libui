@@ -22,6 +22,10 @@
     padding-left: $space-specific-150;
     margin: 0 auto;
     max-width: 1440px;
+
+    @include for-phone-only {
+      padding: 12px $space-3;
+    }
   }
 
   &.center {
