@@ -3,7 +3,8 @@ export declare enum Theme {
     Ghost = "ghost",
     Primary = "primary",
     Secondary = "secondary",
-    Grey = "grey"
+    Grey = "grey",
+    DarkGrey = "darkGrey"
 }
 export declare enum PanelType {
     Onepage = "onepagePanel",

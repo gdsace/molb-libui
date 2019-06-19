@@ -108,7 +108,7 @@ export class NumberPicker extends React.Component<
         <Button
           className={styles.prevButton}
           size={Size.SmallSquare}
-          theme={Theme.Grey}
+          theme={Theme.DarkGrey}
           icon={"minus"}
           iconAlign="center"
           disabled={!_.isNil(disablePrev) ? disablePrev : quantity <= min}
@@ -122,7 +122,9 @@ export class NumberPicker extends React.Component<
         <Input
           maxLength={3}
           value={quantity || 0}
-          className={`${styles.numInput} ${inputError}`}
+          className={`${styles.numInput} ${inputError} ${
+            quantity === 0 ? styles.minValue : ""
+          }`}
           disabled={disableInput || false}
           type={InputType.DigitsOnly}
           onChange={event => this.onInputChange(event.target.value)}
@@ -130,7 +132,7 @@ export class NumberPicker extends React.Component<
         <Button
           className={styles.nextButton}
           size={Size.SmallSquare}
-          theme={Theme.Grey}
+          theme={Theme.DarkGrey}
           icon={"plus"}
           iconAlign="center"
           disabled={!_.isNil(disableNext) ? disableNext : quantity >= max}

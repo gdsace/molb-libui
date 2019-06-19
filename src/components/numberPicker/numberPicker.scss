@@ -13,26 +13,22 @@
 .prevButton {
   margin-left: auto;
   border-radius: 3px 0 0 3px;
-  border-width: 1px 0 1px 1px;
   margin-right: -2px;
   color: $indigo;
-}
 
-.prevButton:disabled {
-  color: $porcelain;
-  background-color: inherit;
+  &:disabled {
+    color: $text-color-5;
+  }
 }
 
 .nextButton {
   border-radius: 0 3px 3px 0;
-  border-width: 1px 1px 1px 0;
   margin-left: -2px;
   color: $indigo;
-}
 
-.nextButton:disabled {
-  color: $porcelain;
-  background-color: inherit;
+  &:disabled {
+    color: $text-color-5;
+  }
 }
 
 .numInput {
@@ -47,16 +43,20 @@
   @include for-phone-only {
     max-width: 100%;
   }
-}
 
-.numInput:hover {
-  border: 1px solid $text-color !important;
-}
+  &:hover {
+    border: 1px solid $text-color !important;
+  }
 
-.numInput:focus {
-  border: 1px solid $lavender-indigo !important;
+  &:focus {
+    border: 1px solid $lavender-indigo !important;
+  }
 }
 
 .inputError {
   border: 1px solid $support-red !important;
+}
+
+.minValue {
+  color: $text-color-5 !important;
 }
