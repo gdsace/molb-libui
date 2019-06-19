@@ -31,6 +31,10 @@
   }
 }
 
+.inputContainer {
+  width: inherit;
+}
+
 .numInput {
   border-radius: 0 !important;
   border: 1px solid $ui-color-2 !important;
