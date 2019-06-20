@@ -9,11 +9,9 @@ import {
 import classNames from "classnames";
 import _ from "lodash";
 import { Icon } from "../icons";
-import { isIEDevice, isIOSDevice } from "../utils";
 
 const styles = require("./modal.scss");
 
-const htmlElement = document.getElementsByTagName("html")[0];
 const modalHideXY = "XY";
 
 export enum ModalTheme {
@@ -164,21 +162,11 @@ export class Modal extends React.Component<IModalProps, {}> {
   };
 
   private disableBodyScroll = () => {
-    if (isIOSDevice || isIEDevice()) {
-      disableBodyScroll(document.body);
-    } else {
-      htmlElement.style.overflow = "hidden";
-      document.body.style.overflow = "hidden";
-    }
+    disableBodyScroll(document.body);
   };
 
   private enableBodyScroll = () => {
-    if (isIOSDevice || isIEDevice()) {
-      enableBodyScroll(document.body);
-    } else {
-      htmlElement.style.overflow = "auto";
-      document.body.style.overflow = "auto";
-    }
+    enableBodyScroll(document.body);
   };
 
   private onClickAway = (e: any) => {
