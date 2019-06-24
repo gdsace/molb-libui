@@ -27,7 +27,8 @@ const radioProps: IRadioProps = {
   disabled: false,
   showError: true,
   errorMsg: "This field is required.",
-  radioLabelLineBreak: false
+  radioLabelLineBreak: false,
+  showTooltip: true
 };
 
 const valueChangeHandler2 = (value: string) => {
