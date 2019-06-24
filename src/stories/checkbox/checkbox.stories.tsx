@@ -2,7 +2,7 @@ import React from "react";
 
 import { State, Store } from "@sambego/storybook-state";
 import { storiesOf } from "@storybook/react";
-import { Checkbox } from "../../components";
+import { Checkbox, CheckboxTheme } from "../../components";
 import { CategoryName, wInfo } from "../utils";
 
 const styles = require("./checkbox.stories.scss");
@@ -69,6 +69,23 @@ const onCheckboxClick = (value: string) => {
             />
           </div>
         </div>
+        <h6 className={styles.groupHeader}>Different Theme : ...</h6>
+        <State store={store}>
+          <p className={styles.notes}>orange:</p>
+          <Checkbox
+            checked={store.state.checked}
+            disabled={false}
+            onCheckboxClick={onCheckboxClick}
+            theme={CheckboxTheme.ORANGE}
+          />
+          <p className={styles.notes}>purple:</p>
+          <Checkbox
+            checked={store.state.checked}
+            disabled={false}
+            onCheckboxClick={onCheckboxClick}
+            theme={CheckboxTheme.PURPLE}
+          />
+        </State>
       </div>
     );
   })
