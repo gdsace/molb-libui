@@ -22,6 +22,7 @@ export const Icon = (props: IIconProps) => {
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
       className={`dib v-mid ${props.className || ""}`}
+      style={{ pointerEvents: "none" }}
       width={props.size || "24"}
       height={props.size || "24"}
       viewBox={props.viewBox || `0 0 24 24`}
