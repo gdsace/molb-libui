@@ -166,3 +166,8 @@ export enum HeaderType {
   Demo = "storyBookDemo",
   Main = "main"
 }
+
+export enum CheckboxTheme {
+  ORANGE = "orange",
+  PURPLE = "purple"
+}
