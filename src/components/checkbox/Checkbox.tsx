@@ -1,4 +1,6 @@
+import classNames from "classnames";
 import * as React from "react";
+import { CheckboxTheme } from "../EnumValues";
 
 const styles = require("./checkbox.scss");
 
@@ -7,6 +9,7 @@ export interface ICheckboxProps {
   checked: boolean;
   disabled: boolean;
   clickableElement?: JSX.Element | string;
+  theme?: CheckboxTheme;
 }
 
 interface ICheckboxState {
@@ -16,7 +19,8 @@ interface ICheckboxState {
 export class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
   public static defaultProps: Partial<ICheckboxProps> = {
     checked: false,
-    disabled: false
+    disabled: false,
+    theme: CheckboxTheme.PURPLE
   };
 
   public static getDerivedStateFromProps = (
@@ -31,6 +35,18 @@ export class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
 
   public render() {
     const { checked, disabled } = this.props;
+
+    const checkboxInnerClass = classNames(
+      styles.inner,
+      this.props.theme === CheckboxTheme.ORANGE ? styles.orange : styles.purple
+    );
+    const checkboxInputClass = classNames(
+      styles.checkboxInput,
+      this.props.theme === CheckboxTheme.ORANGE
+        ? styles.orangeCheckBox
+        : styles.purpleCheckBox
+    );
+
     return (
       <div className={styles.checkboxWrapper} data-scrollpoint={true}>
         <span className={styles.checkbox}>
@@ -38,10 +54,10 @@ export class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
             type="checkbox"
             checked={checked}
             disabled={disabled}
-            className={styles.checkboxInput}
+            className={checkboxInputClass}
             onChange={this.onCheckboxClick}
           />
-          <span className={styles.inner} />
+          <span className={checkboxInnerClass} />
         </span>
         {this.props.clickableElement && (
           <span

@@ -21,20 +21,14 @@ $position-top: ($checkbox-size - $checkbox-inner-tick-height) / 2 - 1.5 * ($chec
     width: $checkbox-size;
     height: $checkbox-size;
     margin: 0;
-    border: $ui-color-2 solid 1px;
     border-radius: 3px;
     position: absolute;
     outline: none;
     background-color: $ui-color;
-
-    &:hover {
-      border-color: $lavender-indigo;
-    }
   }
 
   .inner {
     display: none;
-    background: $lavender-indigo;
     width: $checkbox-size;
     height: $checkbox-size;
     left: 0;
@@ -88,4 +82,29 @@ $position-top: ($checkbox-size - $checkbox-inner-tick-height) / 2 - 1.5 * ($chec
     font-weight: $weight-regular;
     cursor: default;
   }
+
+  .orange{
+    background: $vivid-orange;
+  }
+
+  .purple{
+    background: $lavender-indigo;
+
+  }
+  .orangeCheckBox{
+    border: $vivid-orange solid 1px;
+
+    &:hover {
+      border-color: $vivid-orange;
+    }
+  }
+
+  .purpleCheckBox{
+    border: $ui-color-2 solid 1px;
+
+    &:hover {
+      border-color: $lavender-indigo;
+    }
+  }
 }
+
