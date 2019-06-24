@@ -33,5 +33,6 @@ export declare class Input extends React.Component<IInputProps, any> {
     render(): JSX.Element;
     handleOnChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
     private getRightInlineElement;
+    private iconOverlapFix;
     private getRawInputType;
 }

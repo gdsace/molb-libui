@@ -249,10 +249,10 @@ export class Input extends React.Component<IInputProps, any> {
   private iconOverlapFix() {
     const { showError, suffix, iconSignifier, loading } = this.props;
 
-    if(showError || suffix || iconSignifier || loading) {
+    if (showError || suffix || iconSignifier || loading) {
       return styles.preventIconOverlap;
     }
-    return ""
+    return "";
   }
 
   private getRawInputType = (type?: InputType) => {
