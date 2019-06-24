@@ -83,15 +83,15 @@ $position-top: ($checkbox-size - $checkbox-inner-tick-height) / 2 - 1.5 * ($chec
     cursor: default;
   }
 
-  .orange{
+  .orange {
     background: $vivid-orange;
   }
 
-  .purple{
+  .purple {
     background: $lavender-indigo;
-
   }
-  .orangeCheckBox{
+
+  .orangeCheckBox {
     border: $vivid-orange solid 1px;
 
     &:hover {
@@ -99,7 +99,7 @@ $position-top: ($checkbox-size - $checkbox-inner-tick-height) / 2 - 1.5 * ($chec
     }
   }
 
-  .purpleCheckBox{
+  .purpleCheckBox {
     border: $ui-color-2 solid 1px;
 
     &:hover {
@@ -107,4 +107,3 @@ $position-top: ($checkbox-size - $checkbox-inner-tick-height) / 2 - 1.5 * ($chec
     }
   }
 }
-
