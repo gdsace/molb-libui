@@ -3,7 +3,6 @@ import * as React from "react";
 import { TooltipsLocationTheme } from "../EnumValues";
 import { Icon } from "../icons";
 import { Tooltips } from "../tooltips";
-import { addLocatedErrorClassname } from "../utils";
 
 const styles = require("./radio.scss");
 const ICON_SIZE = "16";
@@ -139,12 +138,10 @@ export const Radio = (props: IRadioProps) => {
           </Tooltips>
         )}
       </div>
-      <div className={radioLabelClass}>{optionComponents}</div>
       {props.showError && (
-        <div className={addLocatedErrorClassname(styles.errorMsg)}>
-          {props.errorMsg}
-        </div>
+        <div className={styles.errorMsg}>{props.errorMsg} </div>
       )}
+      <div className={radioLabelClass}>{optionComponents}</div>
     </div>
   );
 };
