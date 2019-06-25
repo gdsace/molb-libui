@@ -139,5 +139,5 @@
 }
 
 .react-datepicker-popper[data-placement^="top-start"] .react-datepicker {
-  top: 3px
+  top: 3px;
 }
