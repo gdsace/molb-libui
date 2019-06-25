@@ -1,0 +1,3 @@
+.pointerEvent {
+  pointer-events: none; // svg seems to absorb event listeners pre EDGE 44
+}
