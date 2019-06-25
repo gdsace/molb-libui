@@ -133,3 +133,11 @@
     padding: 16px;
   }
 }
+
+.react-datepicker-popper[data-placement^="top-start"] {
+  margin-bottom: 0;
+}
+
+.react-datepicker-popper[data-placement^="top-start"] .react-datepicker {
+  top: 3px;
+}
