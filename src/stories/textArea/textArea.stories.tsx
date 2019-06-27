@@ -25,6 +25,16 @@ const styles = require("./textArea.stories.scss");
             />
           </div>
           <div className={styles.box}>
+            <p className={styles.notes}>show warning message</p>
+            <TextArea
+              title="Description"
+              placeholder="What is your brand concept? What kind of food do you sell?"
+              maxLength={300}
+              overwrite={true}
+              warningMsg="warning message"
+            />
+          </div>
+          <div className={styles.box}>
             <p className={styles.notes}>
               Disabled: display all content without scroll bar
             </p>

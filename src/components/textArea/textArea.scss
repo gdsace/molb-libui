@@ -69,6 +69,19 @@
     }
   }
 
+  .warningMsg {
+    display: flex;
+    word-break: break-word;
+    margin-right: $space-0;
+    line-height: $line-height-medium;
+    font-size: $small;
+    color: $vivid-orange;
+
+    p {
+      margin-left: $space-0;
+    }
+  }
+
   .helperMsg {
     word-break: break-word;
     margin-right: $space-0;
@@ -132,5 +145,6 @@
       cursor: default;
     }
   }
+
   /* stylelint-enable */
 }
