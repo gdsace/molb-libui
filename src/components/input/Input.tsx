@@ -14,7 +14,8 @@ const defaultChangesFilterRegexDict: any = {
   [InputType.NonZeroLeadingDigits]: /^([1-9]{1}\d*|)$/,
   [InputType.DigitsOnly]: /^(\d*)$/,
   [InputType.DecimalText]: /^-?([0-9]*|[0-9]+\.[0-9]*)$/,
-  [InputType.PositiveDecimalText]: /^([0-9]*|[0-9]+\.[0-9]*)$/
+  [InputType.PositiveDecimalText]: /^([0-9]*|[0-9]+\.[0-9]*)$/,
+  [InputType.AlphaNumeric]: /^[a-zA-Z0-9]*$/
 };
 
 export interface IInputProps {
