@@ -49,7 +49,7 @@ export class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
     );
 
     return (
-      <React.Fragment>
+      <div>
         <div className={styles.checkboxWrapper} data-scrollpoint={true}>
           <span className={styles.checkbox}>
             <input
@@ -73,7 +73,7 @@ export class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
         {this.props.addonBelow && (
           <div className={styles.addonBelow}>{this.props.addonBelow}</div>
         )}
-      </React.Fragment>
+      </div>
     );
   }
 
