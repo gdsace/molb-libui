@@ -79,7 +79,13 @@ export enum InputType {
    * Only positive integer/decimal allowed. EG.: 0, 1, 1.1
    * No `scientific-notation`
    * */
-  PositiveDecimalText = "positiveDecimalText"
+  PositiveDecimalText = "positiveDecimalText",
+
+  /* @AlphaNumeric:
+   * Only alphabetic characters and numbers allower. EG.: 0, 1, A, B, C
+   * No `scientific-notation`
+   * */
+  AlphaNumeric = "alphaNumeric"
 }
 
 export enum CardTheme {

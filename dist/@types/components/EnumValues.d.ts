@@ -44,7 +44,8 @@ export declare enum InputType {
     DigitsOnly = "digitOnly",
     NonZeroLeadingDigits = "nonZeroLeadingDigits",
     DecimalText = "decimalText",
-    PositiveDecimalText = "positiveDecimalText"
+    PositiveDecimalText = "positiveDecimalText",
+    AlphaNumeric = "alphaNumeric"
 }
 export declare enum CardTheme {
     Normal = "normal",
