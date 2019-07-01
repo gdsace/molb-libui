@@ -93,7 +93,9 @@ const onCheckboxClick = (value: string) => {
             checked={store.state.checked}
             disabled={false}
             onCheckboxClick={onCheckboxClick}
-            addonBelow={<span style={{ color: "orange" }} >edited by applicant</span>}
+            addonBelow={
+              <span style={{ color: "orange" }}>edited by applicant</span>
+            }
           />
         </State>
       </div>
