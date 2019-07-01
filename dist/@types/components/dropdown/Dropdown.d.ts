@@ -9,6 +9,7 @@ export interface IDropdownProps<T> extends Props<T> {
     maxLength?: number;
     onTextInputChange?: (event: React.ChangeEvent<HTMLInputElement>) => any;
     textInputValue?: string;
+    addonBelow?: string | React.ReactNode;
 }
 export declare const dropdownCustomStyles: {
     container: (base: any, state: any) => any;

@@ -33,7 +33,7 @@ export interface IInputProps {
   size?: Size;
   errorMsg?: string;
   showHelper?: boolean;
-  helperMsg?: string;
+  helperMsg?: string | React.ReactNode;
   showTooltip?: boolean;
   inlineElement?: JSX.Element | string;
   iconSignifier?: JSX.Element;
