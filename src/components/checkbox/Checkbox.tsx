@@ -10,6 +10,7 @@ export interface ICheckboxProps {
   disabled: boolean;
   clickableElement?: JSX.Element | string;
   theme?: CheckboxTheme;
+  addonBelow?: React.ReactNode;
 }
 
 interface ICheckboxState {
@@ -48,24 +49,29 @@ export class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
     );
 
     return (
-      <div className={styles.checkboxWrapper} data-scrollpoint={true}>
-        <span className={styles.checkbox}>
-          <input
-            type="checkbox"
-            checked={checked}
-            disabled={disabled}
-            className={checkboxInputClass}
-            onChange={this.onCheckboxClick}
-          />
-          <span className={checkboxInnerClass} />
-        </span>
-        {this.props.clickableElement && (
-          <span
-            className={styles.clickableElement}
-            onClick={this.onClickableElementClick}
-          >
-            {this.props.clickableElement}
+      <div>
+        <div className={styles.checkboxWrapper} data-scrollpoint={true}>
+          <span className={styles.checkbox}>
+            <input
+              type="checkbox"
+              checked={checked}
+              disabled={disabled}
+              className={checkboxInputClass}
+              onChange={this.onCheckboxClick}
+            />
+            <span className={checkboxInnerClass} />
           </span>
+          {this.props.clickableElement && (
+            <span
+              className={styles.clickableElement}
+              onClick={this.onClickableElementClick}
+            >
+              {this.props.clickableElement}
+            </span>
+          )}
+        </div>
+        {this.props.addonBelow && (
+          <div className={styles.addonBelow}>{this.props.addonBelow}</div>
         )}
       </div>
     );

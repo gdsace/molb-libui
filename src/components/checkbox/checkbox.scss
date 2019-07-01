@@ -107,3 +107,10 @@ $position-top: ($checkbox-size - $checkbox-inner-tick-height) / 2 - 1.5 * ($chec
     }
   }
 }
+
+.addonBelow {
+  margin-top: $space-1;
+  font-size: $small;
+  font-weight: $weight-regular;
+  position: absolute;
+}
