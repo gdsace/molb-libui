@@ -81,7 +81,7 @@ export class Dropdown<T> extends React.Component<IDropdownProps<T>, {}> {
             {this.props.error}
           </p>
         ) : (
-          this.props.addonBelow
+          <div className={styles.addonBelow}>{this.props.addonBelow}</div>
         )}
       </div>
     );

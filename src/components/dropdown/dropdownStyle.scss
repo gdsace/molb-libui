@@ -18,6 +18,13 @@
   user-select: none;
 }
 
+.addonBelow {
+  margin-top: $space-1;
+  font-size: $small;
+  font-weight: $weight-regular;
+  position: absolute;
+}
+
 .errorMessage {
   margin-top: $space-1;
   font-size: $small;
