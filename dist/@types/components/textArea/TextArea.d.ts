@@ -12,7 +12,7 @@ export interface ITextAreaPros extends HTMLTextareaProps {
     overwrite?: boolean;
     iconType?: string;
     errorMsg?: string;
-    warningMsg?: string;
+    warningMsg?: string | React.ReactNode;
     showError?: boolean;
 }
 export interface ITextAreaState {
