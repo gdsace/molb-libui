@@ -63,6 +63,13 @@ const rowStyles = {
           tooltipContent="this is the grey theme"
         />
       </div>
+      <div style={rowStyles}>
+        <Tag
+          tagSize={TagSize.Large}
+          label="there is a helperMsg"
+          helperMsg="this is helperMsg"
+        />
+      </div>
     </div>
   ))
 );
