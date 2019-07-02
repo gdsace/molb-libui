@@ -27,6 +27,17 @@
   }
 }
 
+.colored {
+  @extend .standard;
+  .panelHeader {
+    color: $lavender-indigo;
+    .collapseIcon {
+      color: $lavender-indigo;
+      size: 25px;
+    }
+  }
+}
+
 .standard {
   .panelHeader {
     padding: $space-2 0;
@@ -66,4 +77,13 @@
   .panelContent {
     padding: 0 $space-3 $space-2 $space-3;
   }
+}
+
+.subHeader {
+  font-size: $medium;
+}
+
+.subHeaderWithIcon {
+  display: flex;
+  align-items: center;
 }

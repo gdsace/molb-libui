@@ -152,7 +152,8 @@ export enum TooltipsLocationTheme {
 export enum AccordionTheme {
   Standard = "standard",
   Large = "large",
-  Wrapped = "wrapped"
+  Wrapped = "wrapped",
+  Colored = "colored"
 }
 
 export enum ExpandablePanelTheme {
