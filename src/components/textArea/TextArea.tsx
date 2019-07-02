@@ -21,7 +21,7 @@ export interface ITextAreaPros extends HTMLTextareaProps {
   overwrite?: boolean;
   iconType?: string;
   errorMsg?: string;
-  warningMsg?: string;
+  warningMsg?: string | React.ReactNode;
   showError?: boolean;
 }
 
@@ -130,12 +130,7 @@ export class TextArea extends React.Component<ITextAreaPros, ITextAreaState> {
   }
 
   private renderWarningMsg() {
-    return (
-      <>
-        <Icon type="alert" size="12" />
-        <p>{this.props.warningMsg}</p>
-      </>
-    );
+    return <>{this.props.warningMsg}</>;
   }
 
   private getStyle() {

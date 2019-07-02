@@ -25,17 +25,31 @@ describe("TextArea", () => {
     const wrapper = Enzyme.shallow(
       <TextArea helperText="help" warningMsg="this is warning" />
     );
-    const span = wrapper.find("p").text();
 
-    expect(span).toEqual("this is warning");
+    expect(wrapper.find(".warningMsg").length).toEqual(1);
+    expect(wrapper.find(".warningMsg").text()).toEqual("this is warning");
+  });
+
+  it("should show warning message which is react node when there is no error", () => {
+    const warningMsgWithIcon = (
+      <>
+        <Icon type="alert" size="12" />
+        <p>this is warning</p>
+      </>
+    );
+    const wrapper = Enzyme.shallow(
+      <TextArea helperText="help" warningMsg={warningMsgWithIcon} />
+    );
+
     expect(wrapper.find(Icon).length).toEqual(1);
     expect(wrapper.find(".warningMsg").length).toEqual(1);
+    expect(wrapper.find("p").text()).toEqual("this is warning");
   });
 
   it("should display error message when show error is true", () => {
     const wrapper = Enzyme.shallow(
       <TextArea
-        showError={true}
+        showError
         helperText="help"
         warningMsg="this is warning"
         errorMsg="error"
