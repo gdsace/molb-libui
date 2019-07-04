@@ -14,7 +14,7 @@ export interface ITagProps {
   toolTipsPosition: TooltipsLocationTheme;
   tagSize: TagSize;
   helperMsg?: string | React.ReactNode;
-  specializedPosition?: boolean;
+  toolTipsSpecializedPosition?: boolean;
 }
 
 export class Tag extends React.Component<ITagProps, {}> {
@@ -23,7 +23,7 @@ export class Tag extends React.Component<ITagProps, {}> {
     theme: TagTheme.Blue,
     tagSize: TagSize.Small,
     toolTipsPosition: TooltipsLocationTheme.BottomLeft,
-    specializedPosition: false
+    toolTipsSpecializedPosition: false
   };
 
   public render() {
@@ -51,7 +51,7 @@ export class Tag extends React.Component<ITagProps, {}> {
                   overrideTrigger
                   width={250}
                   position={this.props.toolTipsPosition}
-                  specializedPosition={this.props.specializedPosition}
+                  specializedPosition={this.props.toolTipsSpecializedPosition}
                 >
                   <div>{this.props.tooltipContent}</div>
                 </Tooltips>
