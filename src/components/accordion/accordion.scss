@@ -29,8 +29,10 @@
 
 .colored {
   @extend .standard;
+
   .panelHeader {
     color: $lavender-indigo;
+
     .collapseIcon {
       color: $lavender-indigo;
       size: 25px;
