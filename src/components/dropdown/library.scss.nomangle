@@ -10,6 +10,15 @@
 }
 
 .dropdown__menu {
+  ::-webkit-scrollbar{
+    -webkit-appearance: none;
+    width: 7px;
+  }
+  ::-webkit-scrollbar-thumb:vertical {
+    border-radius: 4px;
+    background-color: rgba(193,193,193,1);
+  }
+
   .dropdown__menu-list {
     .dropdown__option.dropdown__option--is-selected {
       color: $indigo !important;

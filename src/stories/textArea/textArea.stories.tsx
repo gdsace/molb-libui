@@ -1,7 +1,7 @@
 import React from "react";
 
 import { storiesOf } from "@storybook/react";
-import { TextArea } from "../../components";
+import { Icon, TextArea } from "../../components";
 import { CategoryName, wInfo } from "../utils";
 
 const styles = require("./textArea.stories.scss");
@@ -9,6 +9,12 @@ const styles = require("./textArea.stories.scss");
 (storiesOf(CategoryName.TextFields, module) as any).addWithJSX(
   "TextArea",
   wInfo(``)(() => {
+    const warningMsgWithIcon = (
+      <>
+        <Icon type="alert" size="12" />
+        <p>{"warning with Icon"}</p>
+      </>
+    );
     return (
       <div className={styles.rootContainer}>
         <div>
@@ -21,6 +27,40 @@ const styles = require("./textArea.stories.scss");
               title="Description"
               placeholder="What is your brand concept? What kind of food do you sell?"
               maxLength={300}
+              overwrite={true}
+            />
+          </div>
+          <div className={styles.box}>
+            <p className={styles.notes}>show warning message</p>
+            <TextArea
+              title="Description"
+              placeholder="What is your brand concept? What kind of food do you sell?"
+              maxLength={300}
+              overwrite={true}
+              warningMsg="warning message"
+            />
+          </div>
+          <div className={styles.box}>
+            <p className={styles.notes}>show warning message with icon</p>
+            <TextArea
+              title="Description"
+              placeholder="What is your brand concept? What kind of food do you sell?"
+              maxLength={300}
+              overwrite={true}
+              warningMsg={warningMsgWithIcon}
+            />
+          </div>
+          <div className={styles.box}>
+            <p className={styles.notes}>
+              Disabled: display all content without scroll bar
+            </p>
+            <TextArea
+              title="Description"
+              id={"test"}
+              displayContentWithoutScroll={true}
+              value={"fdsfsdd\nfdsfs\ndfdsfds\nsdfdsfdsfdsf\ndsfdsfs\nsfdsn"}
+              maxLength={300}
+              disabled={true}
               overwrite={true}
             />
           </div>
@@ -99,6 +139,18 @@ const styles = require("./textArea.stories.scss");
             <p className={styles.content}>
               Other following contents (Input error msg should float on this)
             </p>
+          </div>
+          <div className={styles.box}>
+            <p className={styles.notes}>
+              className: control textarea input by class
+            </p>
+            <TextArea
+              title="Description"
+              placeholder="What is your brand concept? What kind of food do you sell?"
+              maxLength={300}
+              overwrite={true}
+              className={styles.textareaClass}
+            />
           </div>
         </div>
       </div>

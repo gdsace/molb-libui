@@ -17,6 +17,7 @@ export interface IDropdownProps<T> extends Props<T> {
   maxLength?: number;
   onTextInputChange?: (event: React.ChangeEvent<HTMLInputElement>) => any;
   textInputValue?: string;
+  addonBelow?: string | React.ReactNode;
 }
 
 // This Dropdown has outlining, a label and an error field over BaseDropdown
@@ -75,10 +76,12 @@ export class Dropdown<T> extends React.Component<IDropdownProps<T>, {}> {
           styles={dropdownCustomStyles}
           {...this.props}
         />
-        {this.props.error && (
+        {this.props.error ? (
           <p className={addLocatedErrorClassname(styles.errorMessage)}>
             {this.props.error}
           </p>
+        ) : (
+          <div className={styles.addonBelow}>{this.props.addonBelow}</div>
         )}
       </div>
     );
@@ -90,6 +93,7 @@ export class Dropdown<T> extends React.Component<IDropdownProps<T>, {}> {
         disabled={this.props.isDisabled}
         errorMsg={`${this.props.error}`}
         showError={!!this.props.error}
+        helperMsg={this.props.addonBelow}
         maxLength={this.props.maxLength}
         onChange={event => {
           if (this.props.onTextInputChange) {

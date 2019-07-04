@@ -3,7 +3,8 @@ export declare enum Theme {
     Ghost = "ghost",
     Primary = "primary",
     Secondary = "secondary",
-    Grey = "grey"
+    Grey = "grey",
+    DarkGrey = "darkGrey"
 }
 export declare enum PanelType {
     Onepage = "onepagePanel",
@@ -26,7 +27,8 @@ export declare enum Size {
     Medium = "medium",
     Large = "large",
     XLarge = "xlarge",
-    Square = "square"
+    Square = "square",
+    SmallSquare = "smallsquare"
 }
 export declare enum LinkStatus {
     Normal = "normal",
@@ -42,7 +44,8 @@ export declare enum InputType {
     DigitsOnly = "digitOnly",
     NonZeroLeadingDigits = "nonZeroLeadingDigits",
     DecimalText = "decimalText",
-    PositiveDecimalText = "positiveDecimalText"
+    PositiveDecimalText = "positiveDecimalText",
+    AlphaNumeric = "alphaNumeric"
 }
 export declare enum CardTheme {
     Normal = "normal",
@@ -115,4 +118,8 @@ export declare enum ExpandablePanelTheme {
 export declare enum HeaderType {
     Demo = "storyBookDemo",
     Main = "main"
+}
+export declare enum CheckboxTheme {
+    ORANGE = "orange",
+    PURPLE = "purple"
 }

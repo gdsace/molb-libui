@@ -161,6 +161,13 @@ $title-margin: $space-2;
   .withoutBorder {
     border: 0 !important;
   }
+
+  .clickableRow {
+    &:hover {
+      background-color: $ui-color-1;
+      cursor: pointer;
+    }
+  }
 }
 
 @include for-phone-only {

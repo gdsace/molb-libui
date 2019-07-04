@@ -25,6 +25,7 @@ export * from "./modal";
 export * from "./modalContent";
 export * from "./navItem";
 export * from "./notification";
+export * from "./numberPicker";
 export * from "./panel";
 export * from "./pagination";
 export * from "./radio";

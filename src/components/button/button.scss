@@ -94,12 +94,30 @@
 
   &:hover {
     border: 1px solid $lavender-indigo;
+    position: relative;
+    z-index: 99;
   }
 }
 
 .disabledGrey {
   color: $porcelain;
   border: 1px solid $porcelain;
+}
+
+.darkGrey {
+  color: $text-color;
+  background-color: $primary-color-2;
+  border: 1px solid $ui-color-2;
+
+  &:hover {
+    border: 1px solid $lavender-indigo;
+    z-index: 99;
+  }
+}
+
+.disabledDarkGrey {
+  color: $text-color-5;
+  border: 1px solid $ui-color-2;
 }
 
 .disabled {
@@ -122,6 +140,12 @@
   height: 48px;
   font-size: $small;
   min-width: 48px;
+}
+
+.smallsquare {
+  height: 40px;
+  font-size: $small;
+  min-width: 40px;
 }
 
 .medium {

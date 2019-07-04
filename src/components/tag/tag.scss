@@ -29,8 +29,8 @@
 }
 
 .orange {
-  background-color: $ui-color-7;
-  color: $marigold;
+  background-color: $ui-color-8;
+  color: $text-color-8;
 }
 
 .red {
@@ -62,4 +62,10 @@
   margin-left: 4px;
   position: relative;
   top: -2px;
+}
+
+.helperMsgContainer {
+  margin-top: $space-1;
+  width: 100%;
+  position: absolute;
 }

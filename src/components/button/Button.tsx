@@ -8,7 +8,7 @@ const styles = require("./button.scss");
 type ButtonType = "submit" | "reset" | "button";
 
 export interface IButtonProps {
-  onClick: () => any;
+  onClick: (event?: React.MouseEvent<HTMLButtonElement>) => any;
   label: string;
   disabled?: boolean;
   className?: string;
@@ -39,6 +39,8 @@ export class Button extends React.Component<IButtonProps, {}> {
       this.props.disabled
         ? this.props.theme === Theme.Grey
           ? styles.disabledGrey
+          : this.props.theme === Theme.DarkGrey
+          ? styles.disabledDarkGrey
           : styles.disabled
         : styles[`${this.props.theme}`],
       this.props.className
@@ -49,7 +51,7 @@ export class Button extends React.Component<IButtonProps, {}> {
         type={this.props.type}
         disabled={this.props.disabled}
         className={buttonClassName}
-        onClick={() => this.handleOnClick(this.props.onClick)}
+        onClick={this.handleOnClick}
       >
         {this.renderContent()}
       </button>
@@ -63,7 +65,8 @@ export class Button extends React.Component<IButtonProps, {}> {
     const iconSize =
       this.props.size === Size.Small
         ? "16"
-        : this.props.size === Size.Square
+        : this.props.size === Size.Square ||
+          this.props.size === Size.SmallSquare
         ? "16"
         : "24";
 
@@ -96,9 +99,9 @@ export class Button extends React.Component<IButtonProps, {}> {
     );
   }
 
-  private handleOnClick = (onClick: () => any) => {
+  private handleOnClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     if (!this.props.disabled && !this.props.loading) {
-      onClick();
+      this.props.onClick(event);
     }
   };
 }
