@@ -2,6 +2,7 @@ import { mount, shallow } from "enzyme";
 import * as React from "react";
 import { Tooltips } from "../../tooltips";
 import { SubFormSection } from "../SubFormSection";
+import { Tag } from "../../tag";
 
 describe("Form Section", () => {
   it("render complete section", () => {
@@ -106,5 +107,48 @@ describe("Form Section", () => {
     expect(children).toHaveLength(0);
     expect(optional).toHaveLength(0);
     expect(wrapper.find(Tooltips).length).toBe(1);
+  });
+
+  it("does not renders any warning if not provided", () => {
+    const wrapper = mount(
+      <SubFormSection
+        title="This is title"
+        subTitle="This is subTitle"
+        optional={true}
+      >
+        <p>Hello Form Section</p>
+      </SubFormSection>
+    );
+    expect(wrapper.find(".warningMessageChildren")).toHaveLength(0);
+  });
+
+  it("renders string warning if provided", () => {
+    const wrapper = mount(
+      <SubFormSection
+        title="This is title"
+        subTitle="This is subTitle"
+        optional={true}
+        warningMessageChildren={"hello"}
+      >
+        <p>Hello Form Section</p>
+      </SubFormSection>
+    );
+    const warning = wrapper.find(".warningMessageChildren");
+    expect(warning.text()).toEqual("hello");
+  });
+
+  it("renders react node warning if provided", () => {
+    const wrapper = mount(
+      <SubFormSection
+        title="This is title"
+        subTitle="This is subTitle"
+        optional={true}
+        warningMessageChildren={<a>COFFEE</a>}
+      >
+        <p>Hello Form Section</p>
+      </SubFormSection>
+    );
+    const warning = wrapper.find("a");
+    expect(warning.text()).toEqual("COFFEE");
   });
 });
