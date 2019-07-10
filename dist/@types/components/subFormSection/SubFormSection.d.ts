@@ -6,6 +6,7 @@ export interface ISubFormSectionProps {
     subTitle?: string;
     optional?: boolean;
     children?: React.ReactNode;
+    warningMessageChildren?: React.ReactNode | string;
     theme?: SubFormSectionTheme;
     isCollapsible?: boolean;
     tooltip?: string;
