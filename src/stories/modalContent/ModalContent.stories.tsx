@@ -55,6 +55,13 @@ const styles = require("./modalContent.stories.scss");
           rightButtonOnClick={action("right-button-click")}
         />
       </div>
+      <div className={styles.box}>
+        <ModalContent
+          notification="This is very long notification. This is very long notification. This is very long notification. important things need to repeat at least 3 times. And this is just description with a new font size 20px."
+          rightButtonLabel="Right Button"
+          rightButtonOnClick={action("right-button-click")}
+        />
+      </div>
     </div>
   ))
 );

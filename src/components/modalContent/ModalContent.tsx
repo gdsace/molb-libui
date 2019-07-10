@@ -7,6 +7,7 @@ const styles = require("./modalContent.scss");
 export interface IModalContentProps {
   header?: string;
   subheader?: string | JSX.Element;
+  notification?: string | JSX.Element;
   leftButtonLabel?: string;
   leftButtonOnClick?: any;
   rightButtonLabel?: string;
@@ -19,6 +20,8 @@ export class ModalContent extends React.Component<IModalContentProps, {}> {
       <div className={styles.notice}>
         {this.props.header && <header>{this.props.header}</header>}
         {this.props.subheader && this.getSubheader(this.props.subheader)}
+        {this.props.notification &&
+          this.getNotification(this.props.notification)}
         <div
           className={`${styles.modalFooter} ${
             this.props.rightButtonLabel ? styles.twoBtnFooter : ""
@@ -46,11 +49,20 @@ export class ModalContent extends React.Component<IModalContentProps, {}> {
       </div>
     );
   }
+
   private getSubheader(subheader: string | JSX.Element): React.ReactNode {
     if (typeof subheader === "string") {
       return <p className={styles.subheader}>{subheader}</p>;
     } else {
       return <div className={styles.subheader}>{subheader}</div>;
+    }
+  }
+
+  private getNotification(notification: string | JSX.Element): React.ReactNode {
+    if (typeof notification === "string") {
+      return <p className={styles.notification}>{notification}</p>;
+    } else {
+      return <div className={styles.notification}>{notification}</div>;
     }
   }
 }
