@@ -39,6 +39,8 @@ export class Button extends React.Component<IButtonProps, {}> {
       this.props.disabled
         ? this.props.theme === Theme.Grey
           ? styles.disabledGrey
+          : this.props.theme === Theme.DarkGrey
+          ? styles.disabledDarkGrey
           : styles.disabled
         : styles[`${this.props.theme}`],
       this.props.className
@@ -63,7 +65,8 @@ export class Button extends React.Component<IButtonProps, {}> {
     const iconSize =
       this.props.size === Size.Small
         ? "16"
-        : this.props.size === Size.Square
+        : this.props.size === Size.Square ||
+          this.props.size === Size.SmallSquare
         ? "16"
         : "24";
 

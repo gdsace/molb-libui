@@ -13,6 +13,8 @@ export interface ITagProps {
   tooltipContent?: JSX.Element | string;
   toolTipsPosition: TooltipsLocationTheme;
   tagSize: TagSize;
+  helperMsg?: string | React.ReactNode;
+  toolTipsSpecializedPosition?: boolean;
 }
 
 export class Tag extends React.Component<ITagProps, {}> {
@@ -20,7 +22,8 @@ export class Tag extends React.Component<ITagProps, {}> {
     showTooltip: false,
     theme: TagTheme.Blue,
     tagSize: TagSize.Small,
-    toolTipsPosition: TooltipsLocationTheme.BottomLeft
+    toolTipsPosition: TooltipsLocationTheme.BottomLeft,
+    toolTipsSpecializedPosition: false
   };
 
   public render() {
@@ -31,30 +34,33 @@ export class Tag extends React.Component<ITagProps, {}> {
         : styles[`${this.props.theme}`]
     );
     return (
-      <div className={tagClass}>
-        <span>
-          {this.props.label}
-          {this.props.showTooltip && (
-            <div className={styles.tooltip}>
-              <Tooltips
-                trigger={(show: ITooltipsState) => (
-                  <Icon
-                    type="help"
-                    size="16"
-                    className={show ? styles.purpleIcon : styles.helpIcon}
-                  />
-                )}
-                overrideTrigger
-                width={250}
-                position={this.props.toolTipsPosition}
-                specializedPosition={false}
-              >
-                <div>{this.props.tooltipContent}</div>
-              </Tooltips>
-            </div>
-          )}
-        </span>
-      </div>
+      <section>
+        <div className={tagClass}>
+          <span>
+            {this.props.label}
+            {this.props.showTooltip && (
+              <div className={styles.tooltip}>
+                <Tooltips
+                  trigger={(show: ITooltipsState) => (
+                    <Icon
+                      type="help"
+                      size="16"
+                      className={show ? styles.purpleIcon : styles.helpIcon}
+                    />
+                  )}
+                  overrideTrigger
+                  width={250}
+                  position={this.props.toolTipsPosition}
+                  specializedPosition={this.props.toolTipsSpecializedPosition}
+                >
+                  <div>{this.props.tooltipContent}</div>
+                </Tooltips>
+              </div>
+            )}
+          </span>
+        </div>
+        <div className={styles.helperMsgContainer}>{this.props.helperMsg}</div>
+      </section>
     );
   }
 }

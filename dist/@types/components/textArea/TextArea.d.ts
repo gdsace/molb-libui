@@ -12,6 +12,7 @@ export interface ITextAreaPros extends HTMLTextareaProps {
     overwrite?: boolean;
     iconType?: string;
     errorMsg?: string;
+    warningMsg?: string | React.ReactNode;
     showError?: boolean;
 }
 export interface ITextAreaState {
@@ -24,6 +25,8 @@ export declare class TextArea extends React.Component<ITextAreaPros, ITextAreaSt
     constructor(props: any);
     componentDidMount(): void;
     render(): JSX.Element;
+    private renderHelperText;
+    private renderWarningMsg;
     private getStyle;
     private handleTextareaChange;
     private handleIconMouseOver;

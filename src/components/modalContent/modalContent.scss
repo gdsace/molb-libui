@@ -32,6 +32,13 @@
     width: 100%;
   }
 
+  .notification {
+    width: 100%;
+    font-size: $x-large;
+    font-weight: $weight-semibold;
+    line-height: $line-height-medium;
+  }
+
   .modalFooter {
     display: flex;
     justify-content: center;

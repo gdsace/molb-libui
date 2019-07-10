@@ -1,7 +1,7 @@
 import React from "react";
 
 import { storiesOf } from "@storybook/react";
-import { TextArea } from "../../components";
+import { Icon, TextArea } from "../../components";
 import { CategoryName, wInfo } from "../utils";
 
 const styles = require("./textArea.stories.scss");
@@ -9,6 +9,12 @@ const styles = require("./textArea.stories.scss");
 (storiesOf(CategoryName.TextFields, module) as any).addWithJSX(
   "TextArea",
   wInfo(``)(() => {
+    const warningMsgWithIcon = (
+      <>
+        <Icon type="alert" size="12" />
+        <p>{"warning with Icon"}</p>
+      </>
+    );
     return (
       <div className={styles.rootContainer}>
         <div>
@@ -22,6 +28,26 @@ const styles = require("./textArea.stories.scss");
               placeholder="What is your brand concept? What kind of food do you sell?"
               maxLength={300}
               overwrite={true}
+            />
+          </div>
+          <div className={styles.box}>
+            <p className={styles.notes}>show warning message</p>
+            <TextArea
+              title="Description"
+              placeholder="What is your brand concept? What kind of food do you sell?"
+              maxLength={300}
+              overwrite={true}
+              warningMsg="warning message"
+            />
+          </div>
+          <div className={styles.box}>
+            <p className={styles.notes}>show warning message with icon</p>
+            <TextArea
+              title="Description"
+              placeholder="What is your brand concept? What kind of food do you sell?"
+              maxLength={300}
+              overwrite={true}
+              warningMsg={warningMsgWithIcon}
             />
           </div>
           <div className={styles.box}>

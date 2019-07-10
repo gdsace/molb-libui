@@ -21,6 +21,7 @@ export interface ITextAreaPros extends HTMLTextareaProps {
   overwrite?: boolean;
   iconType?: string;
   errorMsg?: string;
+  warningMsg?: string | React.ReactNode;
   showError?: boolean;
 }
 
@@ -67,8 +68,10 @@ export class TextArea extends React.Component<ITextAreaPros, ITextAreaState> {
       [styles[`disabled`]]: this.props.disabled,
       [styles[`validation`]]: textareaValidation
     });
-    const helperMsgClassname = textareaValidation
+    const leftSideMessageClass = textareaValidation
       ? addLocatedErrorClassname(styles.helperMsg)
+      : this.props.warningMsg
+      ? styles.warningMsg
       : styles.helperMsg;
     const maxLength = this.props.overwrite ? undefined : this.props.maxLength;
     const iconSize = "16";
@@ -105,8 +108,12 @@ export class TextArea extends React.Component<ITextAreaPros, ITextAreaState> {
           />
         </div>
         <div className={styles.bottomSection}>
-          <div className={helperMsgClassname}>
-            {textareaValidation ? this.props.errorMsg : this.props.helperText}
+          <div className={leftSideMessageClass}>
+            {textareaValidation
+              ? this.props.errorMsg
+              : this.props.warningMsg
+              ? this.renderWarningMsg()
+              : this.props.helperText && this.renderHelperText()}
           </div>
           {this.props.maxLength && (
             <div className={styles.countMsg}>
@@ -116,6 +123,14 @@ export class TextArea extends React.Component<ITextAreaPros, ITextAreaState> {
         </div>
       </div>
     );
+  }
+
+  private renderHelperText() {
+    return <p>{this.props.helperText}</p>;
+  }
+
+  private renderWarningMsg() {
+    return <>{this.props.warningMsg}</>;
   }
 
   private getStyle() {

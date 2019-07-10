@@ -33,6 +33,16 @@ import { CategoryName, wInfo } from "../utils";
           header={"Accordion Header"}
         />
       </div>
+      <h6>Colored Accordion</h6>
+      <div>
+        <Accordion
+          theme={AccordionTheme.Colored}
+          content={<div>this is a content div</div>}
+          header="Colored Header"
+          subHeader={["First", "second"]}
+          defaultCollapsed
+        />
+      </div>
     </div>
   ))
 );

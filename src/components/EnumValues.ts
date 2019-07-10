@@ -3,7 +3,8 @@ export enum Theme {
   Ghost = "ghost",
   Primary = "primary",
   Secondary = "secondary",
-  Grey = "grey"
+  Grey = "grey",
+  DarkGrey = "darkGrey"
 }
 
 export enum PanelType {
@@ -30,7 +31,8 @@ export enum Size {
   Medium = "medium",
   Large = "large",
   XLarge = "xlarge",
-  Square = "square"
+  Square = "square",
+  SmallSquare = "smallsquare"
 }
 
 export enum LinkStatus {
@@ -77,7 +79,13 @@ export enum InputType {
    * Only positive integer/decimal allowed. EG.: 0, 1, 1.1
    * No `scientific-notation`
    * */
-  PositiveDecimalText = "positiveDecimalText"
+  PositiveDecimalText = "positiveDecimalText",
+
+  /* @AlphaNumeric:
+   * Only alphabetic characters and numbers allower. EG.: 0, 1, A, B, C
+   * No `scientific-notation`
+   * */
+  AlphaNumeric = "alphaNumeric"
 }
 
 export enum CardTheme {
@@ -152,7 +160,8 @@ export enum TooltipsLocationTheme {
 export enum AccordionTheme {
   Standard = "standard",
   Large = "large",
-  Wrapped = "wrapped"
+  Wrapped = "wrapped",
+  Colored = "colored"
 }
 
 export enum ExpandablePanelTheme {
@@ -163,4 +172,9 @@ export enum ExpandablePanelTheme {
 export enum HeaderType {
   Demo = "storyBookDemo",
   Main = "main"
+}
+
+export enum CheckboxTheme {
+  ORANGE = "orange",
+  PURPLE = "purple"
 }
