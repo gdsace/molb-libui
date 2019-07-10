@@ -73,3 +73,16 @@
   display: inline-block;
   margin-left: $space-0;
 }
+
+.warningMessageChildren {
+  display: flex;
+  word-break: break-word;
+  margin-right: $space-0;
+  line-height: $line-height-medium;
+  font-size: $small;
+  color: $vivid-orange;
+
+  p {
+    margin-left: $space-0;
+  }
+}

@@ -12,6 +12,7 @@ export interface ISubFormSectionProps {
   subTitle?: string;
   optional?: boolean;
   children?: React.ReactNode;
+  warningMessageChildren?: React.ReactNode;
   theme?: SubFormSectionTheme;
   isCollapsible?: boolean;
   tooltip?: string;
@@ -76,6 +77,11 @@ export class SubFormSection extends React.Component<
               {this.props.subTitle && (
                 <h6 className={styles.subTitle}>{this.props.subTitle}</h6>
               )}
+              {this.props.warningMessageChildren ? (
+                <div className={styles.warningMessageChildren}>
+                  {this.props.warningMessageChildren}
+                </div>
+              ) : null}
             </div>
             {this.props.isCollapsible && (
               <div
