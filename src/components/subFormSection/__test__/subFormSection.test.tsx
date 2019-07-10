@@ -2,7 +2,6 @@ import { mount, shallow } from "enzyme";
 import * as React from "react";
 import { Tooltips } from "../../tooltips";
 import { SubFormSection } from "../SubFormSection";
-import { Tag } from "../../tag";
 
 describe("Form Section", () => {
   it("render complete section", () => {
