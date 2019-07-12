@@ -1,5 +1,5 @@
 @import "../styles/utils.scss";
-$checkbox-size: 24px;
+$checkbox-size: 20px;
 $checkbox-inner-tick-width: $checkbox-size / 14 * 4;
 $checkbox-inner-tick-height: $checkbox-size / 14 * 7;
 $position-left: ($checkbox-size - $checkbox-inner-tick-width) / 2;
@@ -14,6 +14,7 @@ $position-top: ($checkbox-size - $checkbox-inner-tick-height) / 2 - 1.5 * ($chec
     position: relative;
     width: $checkbox-size;
     height: $checkbox-size;
+    padding: 2px;
   }
 
   .checkboxInput {
