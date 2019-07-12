@@ -27,19 +27,6 @@
   }
 }
 
-.colored {
-  @extend .standard;
-
-  .panelHeader {
-    color: $lavender-indigo;
-
-    .collapseIcon {
-      color: $lavender-indigo;
-      size: 25px;
-    }
-  }
-}
-
 .standard {
   .panelHeader {
     padding: $space-2 0;
@@ -88,4 +75,34 @@
 .subHeaderWithIcon {
   display: flex;
   align-items: center;
+}
+
+.colored {
+  @extend .standard;
+
+  padding: $space-4 0;
+
+  .panelHeader {
+    color: $indigo;
+
+    .collapseIcon {
+      color: $indigo;
+      size: 25px;
+    }
+  }
+
+  .subHeader {
+    display: block;
+
+    @include for-phone-only {
+      display: none;
+    }
+  }
+
+  border-top: 1px solid $ui-color-2;
+  border-bottom: none;
+
+  &:last-child {
+    padding-bottom: 0;
+  }
 }
