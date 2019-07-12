@@ -102,6 +102,7 @@
 .disabledGrey {
   color: $porcelain;
   border: 1px solid $porcelain;
+  background-color: $primary-color-2;
 }
 
 .darkGrey {
@@ -118,6 +119,7 @@
 .disabledDarkGrey {
   color: $text-color-5;
   border: 1px solid $ui-color-2;
+  background-color: $primary-color-2;
 }
 
 .disabled {
