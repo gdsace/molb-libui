@@ -46,7 +46,11 @@ const icons = [
   { type: "uen" },
   { type: "upload" },
   { type: "verify" },
-  { type: "warning" }
+  { type: "warning" },
+  { type: "process" },
+  { type: "speech" },
+  { type: "steps" },
+  { type: "arrowDown" }
 ];
 
 const licenceIcons = [
