@@ -35,12 +35,13 @@
 .prevButton {
   margin-left: auto;
   border-radius: 3px 0 0 3px;
-  border-width: 1px 0.5px 1px 1px;
+  border-width: 1px 1px 1px 1px;
 }
 
 .nextButton {
-  margin-left: 0;
+  margin-left: -1px;
   border-radius: 0 3px 3px 0;
+  border-width: 1px 1px 1px 1px;
 }
 
 .paginationRow {
