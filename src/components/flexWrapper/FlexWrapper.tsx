@@ -2,15 +2,15 @@ import classnames from "classnames";
 import * as React from "react";
 import { FlexDirectionType } from "../EnumValues";
 
-const styles = require("./flex.scss");
+const styles = require("./flexWrapper.scss");
 
-export interface IFlexProps {
+export interface IFlexWrapperProps {
   flexDirection: FlexDirectionType;
   children: React.ReactNode;
 }
 
-export class Flex extends React.Component<IFlexProps, {}> {
-  public static defaultProps: Partial<IFlexProps> = {
+export class FlexWrapper extends React.Component<IFlexWrapperProps, {}> {
+  public static defaultProps: Partial<IFlexWrapperProps> = {
     flexDirection: FlexDirectionType.ROW
   };
 

@@ -1,15 +1,15 @@
 import { mount } from "enzyme";
 import * as React from "react";
 import { FlexDirectionType } from "../../EnumValues";
-import { Flex } from "../Flex";
+import { FlexWrapper } from "../FlexWrapper";
 
-describe("Flex", () => {
+describe("FlexWrapper", () => {
   it("renders flexbox with flex direction row by default", () => {
     const wrapper = mount(
-      <Flex>
+      <FlexWrapper>
         <h2>child 1</h2>
         <h2>child 1</h2>
-      </Flex>
+      </FlexWrapper>
     );
 
     expect(wrapper.props().flexDirection).toEqual("row");
@@ -18,10 +18,10 @@ describe("Flex", () => {
 
   it("renders flexbox with flex direction column when value column is specified in flexDirection prop", () => {
     const wrapper = mount(
-      <Flex flexDirection={FlexDirectionType.COLUMN}>
+      <FlexWrapper flexDirection={FlexDirectionType.COLUMN}>
         <h2>child 1</h2>
         <h2>child 1</h2>
-      </Flex>
+      </FlexWrapper>
     );
 
     expect(wrapper.props().flexDirection).toEqual("column");

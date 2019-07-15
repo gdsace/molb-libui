@@ -1,30 +1,30 @@
 import React from "react";
 
 import { storiesOf } from "@storybook/react";
-import { Flex, FlexDirectionType } from "../../components";
+import { FlexDirectionType, FlexWrapper } from "../../components";
 import { CategoryName, wInfo } from "../utils";
-const styles = require("./flex.stories.scss");
+const styles = require("./flexWrapper.stories.scss");
 
-(storiesOf(CategoryName.Flex, module) as any)
+(storiesOf(CategoryName.FlexWrapper, module) as any)
   .addWithJSX(
-    "Flex Row",
+    "FlexWrapper Row",
     wInfo(``)(() => (
       <div>
-        <Flex>
+        <FlexWrapper>
           <div className={styles.child}>1st child</div>
           <div className={styles.child}>2nd child</div>
-        </Flex>
+        </FlexWrapper>
       </div>
     ))
   )
   .addWithJSX(
-    "Flex Column",
+    "FlexWrapper Column",
     wInfo(``)(() => (
       <div>
-        <Flex flexDirection={FlexDirectionType.COLUMN}>
+        <FlexWrapper flexDirection={FlexDirectionType.COLUMN}>
           <div className={styles.child}>1st child</div>
           <div className={styles.child}>2nd child</div>
-        </Flex>
+        </FlexWrapper>
       </div>
     ))
   );
