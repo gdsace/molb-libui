@@ -1,0 +1,17 @@
+@import "../styles/utils.scss";
+
+.flex {
+  display: flex;
+}
+
+.row {
+  flex-direction: row;
+
+  @include for-phone-only {
+    flex-direction: column;
+  }
+}
+
+.column {
+  flex-direction: column;
+}
