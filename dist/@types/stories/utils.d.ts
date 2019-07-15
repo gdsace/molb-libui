@@ -25,6 +25,7 @@ export declare enum CategoryName {
     Buttons = "Buttons",
     Cards = "Cards",
     Dropdown = "Dropdown",
+    Flex = "Flex",
     Icons = "Icons",
     TextFields = "Text-Fields",
     Links = "Links",
