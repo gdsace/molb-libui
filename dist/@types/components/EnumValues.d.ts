@@ -123,3 +123,7 @@ export declare enum CheckboxTheme {
     ORANGE = "orange",
     PURPLE = "purple"
 }
+export declare enum FlexDirectionType {
+    ROW = "row",
+    COLUMN = "column"
+}

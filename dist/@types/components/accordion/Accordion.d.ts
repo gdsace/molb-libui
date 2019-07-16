@@ -8,6 +8,7 @@ export interface IAccordionProps {
     content?: string | React.ReactNode;
     theme: AccordionTheme;
     defaultCollapsed?: boolean;
+    displayMode?: boolean;
 }
 export interface IAccordionState {
     collapsed: boolean;
@@ -15,6 +16,7 @@ export interface IAccordionState {
 export declare class Accordion extends React.Component<IAccordionProps, IAccordionState> {
     constructor(props: IAccordionProps);
     render(): JSX.Element;
+    private getCollapsedStatus;
     private renderSubHeader;
     private onPanelClick;
 }
