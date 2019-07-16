@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="43px" height="43px" viewBox="0 0 43 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>icon_process</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="0%" y1="37.5%" x2="100%" y2="62.5%" id="linearGradient-1">
+            <stop stop-color="#440088" offset="0%"></stop>
+            <stop stop-color="#6600FF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Min" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="01_Level1-landing-d" transform="translate(-936.000000, -1358.000000)">
+            <g id="G2B" transform="translate(148.000000, 1043.000000)">
+                <g id="G2B-benefits" transform="translate(2.000000, 306.000000)">
+                    <g id="icon_process" transform="translate(777.000000, 0.000000)">
+                        <rect id="bound" x="0" y="0" width="60" height="60"></rect>
+                        <g id="Group-10" transform="translate(8.000000, 8.000000)" stroke-linecap="square" stroke-width="2">
+                            <path d="M11.6393443,6.63934426 L32.8828133,6.63934426 C35.6442371,6.63934426 37.8828133,8.87792051 37.8828133,11.6393443 L37.8828133,32.8828133 C37.8828133,35.6442371 35.6442371,37.8828133 32.8828133,37.8828133 L11.6393443,37.8828133 C8.87792051,37.8828133 6.63934426,35.6442371 6.63934426,32.8828133 L6.63934426,11.6393443 C6.63934426,8.87792051 8.87792051,6.63934426 11.6393443,6.63934426 Z" id="Rectangle" stroke="#313840" transform="translate(22.261079, 22.261079) rotate(-45.000000) translate(-22.261079, -22.261079) "></path>
+                            <polyline id="Path" stroke="url(#linearGradient-1)" points="12.9803935 23.6888948 22.2611973 32.9696986 31.5420011 23.6888948"></polyline>
+                            <polyline id="Path" stroke="url(#linearGradient-1)" points="12.9803935 16.5498149 22.2611973 25.8306187 31.5420011 16.5498149"></polyline>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
