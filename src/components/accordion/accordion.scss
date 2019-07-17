@@ -80,10 +80,18 @@
 .colored {
   @extend .standard;
 
-  padding: $space-4 0;
+  padding: $space-5 0;
+
+  @include for-phone-only {
+    padding: $space-3 0;
+  }
 
   .panelHeader {
     color: $indigo;
+
+    @include for-phone-only {
+      padding: 0;
+    }
 
     .collapseIcon {
       color: $indigo;
