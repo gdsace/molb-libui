@@ -66,6 +66,14 @@ const styles = require("./button.stories.scss");
           />
         </div>
         <div className={styles.box}>
+          <p className={styles.notes}>outline</p>
+          <Button
+            label="outline"
+            onClick={action("button-click")}
+            theme={Theme.Outline}
+          />
+        </div>
+        <div className={styles.box}>
           <p className={styles.notes}>ghost</p>
           <Button
             label="ghost"
@@ -115,6 +123,15 @@ const styles = require("./button.stories.scss");
             loading={true}
           />
         </div>
+        <div className={styles.box}>
+          <p className={styles.notes}>outline: loading</p>
+          <Button
+            label="outline"
+            onClick={action("button-click")}
+            theme={Theme.Outline}
+            loading={true}
+          />
+        </div>
       </div>
 
       <h6 className={styles.groupHeader}>With Icon</h6>
@@ -125,6 +142,16 @@ const styles = require("./button.stories.scss");
             label="ghost"
             onClick={action("button-click")}
             theme={Theme.Ghost}
+            icon="arrowNext"
+            iconAlign="right"
+          />
+        </div>
+        <div className={styles.box}>
+          <p className={styles.notes}>outline</p>
+          <Button
+            label="outline"
+            onClick={action("button-click")}
+            theme={Theme.Outline}
             icon="arrowNext"
             iconAlign="right"
           />

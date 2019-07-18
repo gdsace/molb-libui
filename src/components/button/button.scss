@@ -87,6 +87,32 @@
   }
 }
 
+.outline {
+  color: $primary-color-2;
+  background-color: transparent;
+  border: solid 1px $primary-color-2;
+
+  &:focus {
+    border: none;
+    color: $indigo;
+    background-color: $primary-color-2;
+  }
+
+  &:hover {
+    border: none;
+    color: $lavender-indigo;
+    background-color: $primary-color-2;
+  }
+
+  .loading {
+    color: $indigo;
+  }
+}
+
+.disabledOutline {
+  color: $primary-color-2;
+}
+
 .grey {
   color: $text-color;
   background-color: $primary-color-2;
