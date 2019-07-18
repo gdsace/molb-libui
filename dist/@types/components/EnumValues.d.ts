@@ -4,7 +4,8 @@ export declare enum Theme {
     Primary = "primary",
     Secondary = "secondary",
     Grey = "grey",
-    DarkGrey = "darkGrey"
+    DarkGrey = "darkGrey",
+    Outline = "outline"
 }
 export declare enum PanelType {
     Onepage = "onepagePanel",
