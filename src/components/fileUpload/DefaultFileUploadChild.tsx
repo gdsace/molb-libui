@@ -60,6 +60,7 @@ export interface IFileUploadChildProps
     | "onProgressIconClick"
     | "baseUrl"
     | "token"
+    | "linkDescription"
   > {
   uploadState?: FileUploadState;
 }
@@ -184,7 +185,7 @@ export const DefaultFileUploadChild = (props: IFileUploadChildProps) => {
               downloadTemplateFile(props);
             }}
           >
-            Download mandatory template
+            {props.linkDescription}
           </a>
         </div>
       )}
