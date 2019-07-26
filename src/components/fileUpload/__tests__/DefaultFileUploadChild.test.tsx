@@ -86,12 +86,13 @@ describe("DefaultFileUploadChild", () => {
     );
   });
 
-  it("shows download link if template file is present", () => {
+  it("shows download link if template file is present and given mandatory linkDescription", () => {
     const wrapper = mount(
       <DefaultFileUploadChild
         documentType={documentTypes.required}
         baseUrl=""
         token=""
+        linkDescription="Download mandatory template"
       />
     );
     expect(
@@ -100,6 +101,24 @@ describe("DefaultFileUploadChild", () => {
         .at(0)
         .text()
     ).toEqual("Download mandatory template");
+  });
+
+  it("shows download link if template file is present and given sample linkDescription", () => {
+    const linkDescription = "Download sample";
+    const wrapper = mount(
+      <DefaultFileUploadChild
+        documentType={documentTypes.required}
+        baseUrl=""
+        token=""
+        linkDescription={linkDescription}
+      />
+    );
+    expect(
+      wrapper
+        .find(".downloadLink")
+        .at(0)
+        .text()
+    ).toEqual(linkDescription);
   });
 
   it("not shows download link if template file is not existed", () => {
