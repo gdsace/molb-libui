@@ -1,6 +1,6 @@
 /// <reference types="react" />
 import { FileUploadState, IFileUploadProps } from ".";
-export interface IFileUploadChildProps extends Pick<IFileUploadProps, "document" | "documentType" | "error" | "onCompleteIconClick" | "onDefaultIconClick" | "onProgressIconClick" | "baseUrl" | "token"> {
+export interface IFileUploadChildProps extends Pick<IFileUploadProps, "document" | "documentType" | "error" | "onCompleteIconClick" | "onDefaultIconClick" | "onProgressIconClick" | "baseUrl" | "token" | "linkDescription"> {
     uploadState?: FileUploadState;
 }
 export declare const formatBytes: (bytes: number) => string;

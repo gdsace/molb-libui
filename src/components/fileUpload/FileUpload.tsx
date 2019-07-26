@@ -25,6 +25,7 @@ export interface IFileUploadProps extends DropzoneProps {
   subjectId: string;
   token: string;
   validateFile?: (file: File, documentTypeCode: string) => any;
+  linkDescription?: string;
 }
 
 export interface IFileUploadState {
@@ -108,6 +109,7 @@ export class FileUpload extends React.Component<
       onDefaultIconClick,
       children,
       validateFile,
+      linkDescription,
       ...forDropzone
     } = this.props;
 

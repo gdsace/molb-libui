@@ -12,6 +12,7 @@ describe("FileUpload", () => {
         subjectId=""
         token=""
         documentType={documentTypes.required}
+        linkDescription="Download mandatory template"
       />
     );
 
