@@ -7,6 +7,10 @@ export declare enum Theme {
     DarkGrey = "darkGrey",
     Outline = "outline"
 }
+export declare enum FlatButtonTheme {
+    Primary = "primary",
+    Secondary = "secondary"
+}
 export declare enum PanelType {
     Onepage = "onepagePanel",
     Sidebar = "sidebarPanel"
