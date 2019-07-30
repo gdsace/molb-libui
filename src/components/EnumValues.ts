@@ -8,6 +8,11 @@ export enum Theme {
   Outline = "outline"
 }
 
+export enum FlatButtonTheme {
+  Primary = "primary",
+  Secondary = "secondary"
+}
+
 export enum PanelType {
   Onepage = "onepagePanel",
   Sidebar = "sidebarPanel"
