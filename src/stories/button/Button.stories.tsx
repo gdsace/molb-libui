@@ -2,7 +2,13 @@ import React from "react";
 
 import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
-import { Button, FlatButton, Size, Theme } from "../../components";
+import {
+  Button,
+  FlatButton,
+  FlatButtonTheme,
+  Size,
+  Theme
+} from "../../components";
 import { CategoryName, wInfo } from "../utils";
 
 const styles = require("./button.stories.scss");
@@ -185,6 +191,15 @@ const styles = require("./button.stories.scss");
             label="Flat button"
             onClick={action("button-click")}
             iconType="add"
+          />
+        </div>
+        <div className={styles.box}>
+          <p className={styles.notes}>Grey Theme</p>
+          <FlatButton
+            label="Flat button"
+            onClick={action("button-click")}
+            iconType="delete"
+            theme={FlatButtonTheme.Secondary}
           />
         </div>
         <div className={styles.box}>

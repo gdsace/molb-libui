@@ -22,6 +22,11 @@
 
   .label {
     white-space: pre;
+    vertical-align: middle;
+    font-size: $medium;
+    font-weight: $weight-medium;
+    height: 24px;
+    line-height: 24px;
   }
 
   &:hover {
@@ -31,5 +36,13 @@
   &.disabled {
     color: $field-color-2;
     cursor: default;
+  }
+
+  &.secondary {
+    color: $ui-color-5;
+
+    &:hover {
+      color: $lavender-indigo;
+    }
   }
 }
