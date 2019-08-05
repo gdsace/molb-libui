@@ -1,7 +1,8 @@
 import classNames from "classnames";
 import * as React from "react";
-import { TooltipsLocationTheme } from "../EnumValues";
+import { NotificationTheme, TooltipsLocationTheme } from "../EnumValues";
 import { Icon } from "../icons";
+import { InlineNotification } from "../inlineNotification";
 import { Tooltips } from "../tooltips";
 
 const styles = require("./radio.scss");
@@ -25,6 +26,13 @@ export interface IRadioProps {
   showTooltip?: boolean;
   toolTipsContent?: JSX.Element | string;
   toolTipsPosition?: TooltipsLocationTheme;
+  label?: string;
+  promptMessage?: IPromptMessage;
+}
+
+interface IPromptMessage {
+  display: boolean;
+  message: string;
 }
 
 export interface IOptionValue {
@@ -109,8 +117,17 @@ export const Radio = (props: IRadioProps) => {
     props.showTooltip ? styles.radioWithToolTip : ""
   );
 
+  const radioPanelClass = classNames(
+    props.text || props.text ? styles.panel : ""
+  );
+
   return (
     <div id={props.id} className={radioClass}>
+      <div className={radioPanelClass}>
+        {props.label && (
+          <div className={styles.questionLabel}>{props.label}</div>
+        )}
+      </div>
       <div className={radioHeaderClass}>
         {props.text && <div className={radioTextClass}>{props.text}</div>}
         {props.showTooltip && (
@@ -138,6 +155,14 @@ export const Radio = (props: IRadioProps) => {
           </Tooltips>
         )}
       </div>
+      {props.promptMessage && props.promptMessage.display && (
+        <div className={styles.notification}>
+          <InlineNotification
+            text={props.promptMessage.message}
+            theme={NotificationTheme.Informational}
+          />
+        </div>
+      )}
       {props.showError && (
         <div className={styles.errorMsg}>{props.errorMsg} </div>
       )}

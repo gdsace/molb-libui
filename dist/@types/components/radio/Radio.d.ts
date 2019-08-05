@@ -18,6 +18,12 @@ export interface IRadioProps {
     showTooltip?: boolean;
     toolTipsContent?: JSX.Element | string;
     toolTipsPosition?: TooltipsLocationTheme;
+    label?: string;
+    promptMessage?: IPromptMessage;
+}
+interface IPromptMessage {
+    display: boolean;
+    message: string;
 }
 export interface IOptionValue {
     value: string;
@@ -25,3 +31,4 @@ export interface IOptionValue {
     disabled?: boolean;
 }
 export declare const Radio: (props: IRadioProps) => JSX.Element;
+export {};

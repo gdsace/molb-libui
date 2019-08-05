@@ -136,6 +136,19 @@ const radioProps5: IRadioProps = {
   toolTipsContent: "This is the content you want to show on tooltip"
 };
 
+const radioProps6: IRadioProps = {
+  text: "6. radio button with label and prompt message",
+  optionList: optionValueArray5,
+  onChange: valueChangeHandler5,
+  disabled: false,
+  radioLabelLineBreak: false,
+  label: "LIQUOR",
+  promptMessage: {
+    display: true,
+    message: "this is the prompt message"
+  }
+};
+
 /**
  * Here define store, we can define our state here.
  * If we define store here, the same property in props won't work.
@@ -155,6 +168,10 @@ const store4 = new Store({
 });
 
 const store5 = new Store({
+  value: ""
+});
+
+const store6 = new Store({
   value: ""
 });
 
@@ -181,6 +198,9 @@ const store5 = new Store({
       </State>
       <State store={store5}>
         <Radio {...radioProps5} />
+      </State>
+      <State store={store6}>
+        <Radio {...radioProps6} />
       </State>
     </div>
   ))

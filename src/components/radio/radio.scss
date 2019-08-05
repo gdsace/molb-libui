@@ -17,7 +17,6 @@
 
     .labelIcon {
       padding: $space-0;
-      margin-top: $space-8;
       margin-left: $space-0;
       cursor: pointer;
       color: $text-color;
@@ -32,7 +31,6 @@
     font-weight: $weight-semibold;
     font-size: $x-large;
     display: inline-block;
-    margin-top: $space-8;
   }
 
   .radioLabel {
@@ -57,7 +55,11 @@
   }
 
   .checkBoxIcon {
-    width: 16.7%;
+    width: 26%;
+
+    @include for-phone-only {
+      width: 80%;
+    }
 
     &.widthDisabled {
       width: 100%;
@@ -107,4 +109,19 @@
   .checkBoxIcon {
     width: auto;
   }
+}
+
+.questionLabel {
+  font-weight: $weight-bold;
+  font-size: $small;
+  color: $text-color-9;
+  margin-bottom: $space-4;
+}
+
+.panel {
+  margin-top: $space-8;
+}
+
+.notification {
+  margin-top: $space-3;
 }
