@@ -59,7 +59,6 @@ export class Tag extends React.Component<ITagProps, {}> {
             )}
           </span>
         </div>
-        <div className={styles.helperMsgContainer}>{this.props.helperMsg}</div>
       </div>
     );
   }
