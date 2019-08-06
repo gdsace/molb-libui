@@ -34,7 +34,7 @@ export class Tag extends React.Component<ITagProps, {}> {
         : styles[`${this.props.theme}`]
     );
     return (
-      <div>
+      <section>
         <div className={tagClass}>
           <span>
             {this.props.label}
@@ -64,7 +64,7 @@ export class Tag extends React.Component<ITagProps, {}> {
             {this.props.helperMsg}
           </div>
         )}
-      </div>
+      </section>
     );
   }
 }
