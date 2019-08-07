@@ -1,7 +1,8 @@
 import React from "react";
+import { Props } from "react-select/lib/Select";
 import { ValueType } from "react-select/lib/types";
 import { Size } from "../EnumValues";
-interface IMultiSelectProps<T> {
+interface IMultiSelectProps<T> extends Props<T> {
     size?: Size;
     error?: string;
     placeholder?: string;

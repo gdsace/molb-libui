@@ -14,7 +14,7 @@ const store = new Store({
   value: [
     {
       value: "Mon",
-      label: "Mon"
+      label: "Mon-label"
     }
   ]
 });
@@ -70,6 +70,7 @@ const onDataChange = (dataArray: any) => {
         <div className={styles.multiSelectBox}>
           <State store={store}>
             <MultiSelect
+              formatOptionLabel={o => o.label}
               error={store.state.error}
               options={mockOptionsForDays}
               onChange={onDataChange}

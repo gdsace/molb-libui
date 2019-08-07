@@ -1,7 +1,7 @@
 import classnames from "classnames";
-import _ from "lodash";
 import React from "react";
 import { components } from "react-select";
+import { Props } from "react-select/lib/Select";
 import { ValueType } from "react-select/lib/types";
 import { Size } from "../EnumValues";
 import { Icon } from "../icons";
@@ -11,7 +11,7 @@ import { dropdownCustomStyles } from "./Dropdown";
 
 const styles = require("./dropdownStyle.scss");
 
-interface IMultiSelectProps<T> {
+interface IMultiSelectProps<T> extends Props<T> {
   size?: Size;
   error?: string;
   placeholder?: string;

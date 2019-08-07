@@ -31,31 +31,31 @@ export const mockOptions = [
 
 export const mockOptionsForDays = [
   {
-    label: "Mon",
+    label: "Mon-label",
     value: "Mon"
   },
   {
-    label: "Tue",
+    label: "Tue-label",
     value: "Tue"
   },
   {
-    label: "Wed",
+    label: "Wed-label",
     value: "Wed"
   },
   {
-    label: "Thu",
+    label: "Thu-label",
     value: "Thu"
   },
   {
-    label: "Fri",
+    label: "Fri-label",
     value: "Fri"
   },
   {
-    label: "Sat",
+    label: "Sat-label",
     value: "Sat"
   },
   {
-    label: "Sun",
+    label: "Sun-label",
     value: "Sun"
   }
 ];
