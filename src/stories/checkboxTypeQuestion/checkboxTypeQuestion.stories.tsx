@@ -45,6 +45,16 @@ const questionDescription = "This is question description";
           questionDescription={questionDescription}
           questionLabel={questionLabel}
         />
+
+        <CheckboxTypeQuestion
+          checked={false}
+          disabled={true}
+          onCheckboxClick={onCheckboxClick}
+          questionDescription={questionDescription}
+          questionLabel={questionLabel}
+          errorMsg={"This is an error message."}
+        />
+
         <div>Below is a hidden checkboxTypeQuestion.</div>
         <CheckboxTypeQuestion
           checked={true}

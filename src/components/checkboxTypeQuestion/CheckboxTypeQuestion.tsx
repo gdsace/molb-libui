@@ -14,6 +14,7 @@ export interface ICheckboxTypeQuestion {
   questionDescription?: string;
   tooltip?: string;
   hidden?: boolean;
+  errorMsg?: string;
 }
 
 interface ICheckboxTypeQuestionState {
@@ -36,7 +37,8 @@ export class CheckboxTypeQuestion extends React.Component<
       questionLabel,
       questionDescription,
       tooltip,
-      hidden
+      hidden,
+      errorMsg
     } = this.props;
     if (hidden) {
       return <></>;
@@ -81,6 +83,12 @@ export class CheckboxTypeQuestion extends React.Component<
           <span className={styles.description} onClick={this.onTextClick}>
             {questionDescription}
           </span>
+          {errorMsg && (
+            <span className={styles.errorContainer}>
+              <Icon type={"notification-error"} size="14" />
+              <span className={styles.errorMsg}>{errorMsg}</span>
+            </span>
+          )}
         </div>
       </div>
     );
