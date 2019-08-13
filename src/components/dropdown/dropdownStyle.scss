@@ -55,6 +55,12 @@
 
   .dropdownControl {
     min-height: 46px;
+
+    & > div > div {
+      @include for-phone-only {
+        max-width: 240px !important;
+      }
+    }
   }
 }
 
