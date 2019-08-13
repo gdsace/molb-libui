@@ -5,6 +5,7 @@ interface IAppAlertProps {
     textToBold?: string;
     theme: AppAlertTheme;
     alignment?: AppAlertAlignmentTheme;
+    showIcon?: boolean;
 }
 export declare class AppAlert extends React.Component<IAppAlertProps, {}> {
     static defaultProps: Partial<IAppAlertProps>;
