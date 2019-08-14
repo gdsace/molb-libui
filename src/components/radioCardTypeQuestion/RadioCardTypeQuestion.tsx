@@ -59,7 +59,6 @@ export class RadioCardTypeQuestion extends React.Component<
               key={option.value}
               theme={TileTheme.MediumTile}
               icon={""}
-              failValidation={this.props.failValidation}
               content={option.label}
               description={option.description}
               value={option.value}

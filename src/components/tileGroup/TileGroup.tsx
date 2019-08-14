@@ -9,6 +9,7 @@ interface ITileGroupProps {
   value?: string;
   className?: string;
   deselectable?: boolean;
+  failValidation?: boolean;
 }
 
 interface ITileGroupState {
@@ -79,7 +80,9 @@ export class TileGroup extends React.Component<
             ...child.props,
             deselectable: this.props.deselectable,
             onChange: this.onSelectionChanged,
-            checked: child.props.value === this.state.value
+            checked:
+              child.props.value === this.state.value &&
+              !this.props.failValidation
           });
         }
       });

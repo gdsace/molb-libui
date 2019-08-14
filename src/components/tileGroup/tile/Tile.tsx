@@ -24,7 +24,6 @@ export interface ITileProps {
   imgSrc?: string;
   imgAlt?: string;
   validationToolTip?: string;
-  failValidation?: boolean;
 }
 
 export const Tile = (props: ITileProps) => {
@@ -34,7 +33,7 @@ export const Tile = (props: ITileProps) => {
     styles[`${props.theme}`]
   );
   const tileContentClass = classNames(styles.tileContent, {
-    [styles.tileContentChecked]: props.checked && !props.failValidation,
+    [styles.tileContentChecked]: props.checked,
     [styles.tileContentDisabled]: props.disabled
   });
   let selectionIcon;
