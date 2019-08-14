@@ -74,6 +74,7 @@ export const Tile = (props: ITileProps) => {
             onClick={props.deselectable ? props.onChange : noop}
             checked={props.checked}
             disabled={props.disabled}
+            style={{ height: "0px", width: "0px", border: "0px" }}
           />
         </span>
         <div className={`${styles.itemsContent}`}>
