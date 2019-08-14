@@ -53,7 +53,7 @@ export const Tile = (props: ITileProps) => {
       <Tooltips
         trigger={selectionIcon}
         position={TooltipsLocationTheme.BottomCenter}
-        specializedPosition={true}
+        specializedPosition
         width={256}
         height={69}
       >
@@ -73,7 +73,10 @@ export const Tile = (props: ITileProps) => {
             value={props.value}
             onChange={!props.deselectable ? props.onChange : noop}
             onClick={props.deselectable ? props.onChange : noop}
-            checked={props.checked && (isEmpty(props.passValidation)? true: props.passValidation)}
+            checked={
+              props.checked &&
+              (isEmpty(props.passValidation) ? true : props.passValidation)
+            }
             disabled={props.disabled}
           />
         </span>
