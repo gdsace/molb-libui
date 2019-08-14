@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { isEmpty, noop } from "lodash";
+import { noop } from "lodash";
 import * as React from "react";
 import { TileTheme, TooltipsLocationTheme } from "../../EnumValues";
 import { Icon, IIconCategory } from "../../icons/index";
@@ -24,7 +24,7 @@ export interface ITileProps {
   imgSrc?: string;
   imgAlt?: string;
   validationToolTip?: string;
-  passValidation?: boolean;
+  failValidation?: boolean;
 }
 
 export const Tile = (props: ITileProps) => {
@@ -34,7 +34,7 @@ export const Tile = (props: ITileProps) => {
     styles[`${props.theme}`]
   );
   const tileContentClass = classNames(styles.tileContent, {
-    [styles.tileContentChecked]: props.checked,
+    [styles.tileContentChecked]: props.checked && !props.failValidation,
     [styles.tileContentDisabled]: props.disabled
   });
   let selectionIcon;
@@ -73,10 +73,7 @@ export const Tile = (props: ITileProps) => {
             value={props.value}
             onChange={!props.deselectable ? props.onChange : noop}
             onClick={props.deselectable ? props.onChange : noop}
-            checked={
-              props.checked &&
-              (isEmpty(props.passValidation) ? true : props.passValidation)
-            }
+            checked={props.checked}
             disabled={props.disabled}
           />
         </span>
