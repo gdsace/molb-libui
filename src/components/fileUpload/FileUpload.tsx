@@ -186,14 +186,15 @@ export class FileUpload extends React.Component<
       this.setState({ uploadState: FileUploadState.Error });
       return;
     }
-    const queryString = qs.stringify(
-      {
-        documentTypeCode: documentType.code,
-        subjectId,
-        subjectType: SubjectType.Premise // Always premise, backend will handle this
-      },
-      { arrayFormat: "repeat" }
-    );
+    const query: { [key: string]: any } = {
+      documentTypeCode: documentType.code,
+      subjectId,
+      subjectType: SubjectType.Premise // Always premise, backend will handle this
+    };
+
+    query[`belongsToJourneyTaskIds`] = documentType.belongsToJourneyTaskIds;
+
+    const queryString = qs.stringify(query, { arrayFormat: "repeat" });
 
     const formdata = new FormData();
     formdata.append("file", file);
@@ -214,6 +215,7 @@ export class FileUpload extends React.Component<
       // `any` is pending backend response shape
       .then((res: any) => {
         if (onSuccess) {
+          res.belongsToJourneyTaskIds = this.props.documentType.belongsToJourneyTaskIds;
           onSuccess(res);
         }
         this.setState({
