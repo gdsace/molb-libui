@@ -12,6 +12,7 @@ const styles = require("./radioCardTypeQuestion.scss");
 
 export interface IRadioCardTypeQuestionProps {
   question: string;
+  passValidation?: boolean;
   options: IOption[];
   onChange: (value: string) => any;
   selectedAnswer: string;
@@ -58,6 +59,7 @@ export class RadioCardTypeQuestion extends React.Component<
               key={option.value}
               theme={TileTheme.MediumTile}
               icon={""}
+              passValidation={this.props.passValidation}
               content={option.label}
               description={option.description}
               value={option.value}

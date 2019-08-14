@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import _ from "lodash";
+import { isEmpty, noop } from "lodash";
 import * as React from "react";
 import { TileTheme, TooltipsLocationTheme } from "../../EnumValues";
 import { Icon, IIconCategory } from "../../icons/index";
@@ -24,6 +24,7 @@ export interface ITileProps {
   imgSrc?: string;
   imgAlt?: string;
   validationToolTip?: string;
+  passValidation?: boolean;
 }
 
 export const Tile = (props: ITileProps) => {
@@ -70,9 +71,9 @@ export const Tile = (props: ITileProps) => {
           <input
             type="radio"
             value={props.value}
-            onChange={!props.deselectable ? props.onChange : _.noop}
-            onClick={props.deselectable ? props.onChange : _.noop}
-            checked={props.checked}
+            onChange={!props.deselectable ? props.onChange : noop}
+            onClick={props.deselectable ? props.onChange : noop}
+            checked={props.checked && (isEmpty(props.passValidation)? true: props.passValidation)}
             disabled={props.disabled}
           />
         </span>
