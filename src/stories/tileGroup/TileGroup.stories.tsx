@@ -48,14 +48,31 @@ const creditCarOptions = [
 /**
  * Here define store, we can define our state here.
  */
-const store = new Store({
-  value: selectedTileValue
+const store1 = new Store({
+  value: "BAR-PUB-NIGHTCLUB"
 });
 
 const valueChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
   tileOptions.map(item => {
     if (item.key === event.target.value) {
-      store.set({
+      store1.set({
+        value: item.key,
+        premiseTypeSelected: item,
+        showEmptySelectionError: false
+      });
+    }
+  });
+};
+
+const store2 = new Store({
+  value: "BAR-PUB-NIGHTCLUB"
+});
+
+const valueChangeHandler2 = (event: React.ChangeEvent<HTMLInputElement>) => {
+  tileOptions.map(item => {
+    if (item.key === event.target.value) {
+      store2.set({
+        value: item.key,
         premiseTypeSelected: item,
         showEmptySelectionError: false
       });
@@ -75,10 +92,10 @@ const valueChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
       <div className={styles.itemsContainer}>
         <div className={styles.box}>
           <p className={styles.notes}>SmallTile:</p>
-          <State store={store}>
+          <State store={store1}>
             <TileGroup
               onChange={valueChangeHandler}
-              value={selectedTileValue.key}
+              value={store1.get("value")}
             >
               {tileOptions.map((item, index) => {
                 return (
@@ -98,11 +115,10 @@ const valueChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
           </State>
         </div>
         <div className={styles.box}>
-          <p className={styles.notes}>BasicTile:</p>
-          <TileGroup
-            onChange={valueChangeHandler}
-            value={selectedTileValue.key}
-          >
+          <p className={styles.notes}>
+            BasicTile: (here shows Uncontrolled component)
+          </p>
+          <TileGroup>
             {tileOptions.map((item, index) => {
               return (
                 <Tile
@@ -121,32 +137,33 @@ const valueChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
         </div>
         <div className={styles.box}>
           <p className={styles.notes}>MediumTile:</p>
-          <TileGroup
-            onChange={valueChangeHandler}
-            value={selectedTileValue.key}
-          >
-            {tileOptions.map((item, index) => {
-              return (
-                <Tile
-                  key={index}
-                  icon="store"
-                  content={item.name}
-                  description={item.description}
-                  value={item.key}
-                  theme={TileTheme.MediumTile}
-                  containerStyle={styles.tileContainerStyle}
-                  error={item.error}
-                />
-              );
-            })}
-          </TileGroup>
+          <State store={store2}>
+            <TileGroup
+              onChange={valueChangeHandler2}
+              value={selectedTileValue.key}
+            >
+              {tileOptions.map((item, index) => {
+                return (
+                  <Tile
+                    key={index}
+                    icon="store"
+                    content={item.name}
+                    description={item.description}
+                    value={item.key}
+                    theme={TileTheme.MediumTile}
+                    containerStyle={styles.tileContainerStyle}
+                    error={item.error}
+                  />
+                );
+              })}
+            </TileGroup>
+          </State>
         </div>
         <div className={styles.box}>
-          <p className={styles.notes}>LargeTile:</p>
-          <TileGroup
-            onChange={valueChangeHandler}
-            value={selectedTileValue.key}
-          >
+          <p className={styles.notes}>
+            LargeTile: (here shows Uncontrolled component)
+          </p>
+          <TileGroup>
             {tileOptions.map((item, index) => {
               return (
                 <Tile
@@ -166,11 +183,7 @@ const valueChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
 
         <div className={styles.box}>
           <p className={styles.notes}>Unselectable tileGroup:</p>
-          <TileGroup
-            onChange={valueChangeHandler}
-            deselectable={true}
-            value={selectedTileValue.key}
-          >
+          <TileGroup deselectable={true}>
             {tileOptions.map((item, index) => {
               return (
                 <Tile
@@ -189,12 +202,10 @@ const valueChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
         </div>
 
         <div className={styles.box}>
-          <p className={styles.notes}>Image source tileGroup:</p>
-          <TileGroup
-            onChange={valueChangeHandler}
-            deselectable={true}
-            value={selectedTileValue.key}
-          >
+          <p className={styles.notes}>
+            Image source tileGroup: (here shows Uncontrolled component)
+          </p>
+          <TileGroup deselectable={true}>
             {creditCarOptions.map((item, index) => {
               return (
                 <Tile

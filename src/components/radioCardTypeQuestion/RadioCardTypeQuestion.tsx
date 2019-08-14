@@ -12,7 +12,6 @@ const styles = require("./radioCardTypeQuestion.scss");
 
 export interface IRadioCardTypeQuestionProps {
   question: string;
-  failValidation?: boolean;
   options: IOption[];
   onChange: (value: string) => any;
   selectedAnswer: string;
@@ -52,7 +51,6 @@ export class RadioCardTypeQuestion extends React.Component<
         <TileGroup
           onChange={this.onChange}
           className={styles.tileGroupWrapper}
-          failValidation={this.props.failValidation}
           value={selectedAnswer}
         >
           {map(options, option => (

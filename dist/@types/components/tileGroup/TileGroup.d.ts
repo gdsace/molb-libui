@@ -5,7 +5,6 @@ interface ITileGroupProps {
     value?: string;
     className?: string;
     deselectable?: boolean;
-    failValidation?: boolean;
 }
 interface ITileGroupState {
     value: any;

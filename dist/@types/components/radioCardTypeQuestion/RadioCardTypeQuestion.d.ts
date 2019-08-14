@@ -1,7 +1,6 @@
 import * as React from "react";
 export interface IRadioCardTypeQuestionProps {
     question: string;
-    failValidation?: boolean;
     options: IOption[];
     onChange: (value: string) => any;
     selectedAnswer: string;
