@@ -52,6 +52,7 @@ export class RadioCardTypeQuestion extends React.Component<
         <TileGroup
           onChange={this.onChange}
           className={styles.tileGroupWrapper}
+          failValidation={this.props.failValidation}
           value={selectedAnswer}
         >
           {map(options, option => (
