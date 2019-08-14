@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import _ from "lodash";
+import { noop } from "lodash";
 import * as React from "react";
 import { TileTheme, TooltipsLocationTheme } from "../../EnumValues";
 import { Icon, IIconCategory } from "../../icons/index";
@@ -52,7 +52,7 @@ export const Tile = (props: ITileProps) => {
       <Tooltips
         trigger={selectionIcon}
         position={TooltipsLocationTheme.BottomCenter}
-        specializedPosition={true}
+        specializedPosition
         width={256}
         height={69}
       >
@@ -70,10 +70,11 @@ export const Tile = (props: ITileProps) => {
           <input
             type="radio"
             value={props.value}
-            onChange={!props.deselectable ? props.onChange : _.noop}
-            onClick={props.deselectable ? props.onChange : _.noop}
+            onChange={!props.deselectable ? props.onChange : noop}
+            onClick={props.deselectable ? props.onChange : noop}
             checked={props.checked}
             disabled={props.disabled}
+            style={{ height: "0px", width: "0px", border: "0px" }}
           />
         </span>
         <div className={`${styles.itemsContent}`}>
