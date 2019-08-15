@@ -52,21 +52,27 @@ export class TileGroup extends React.Component<
   }
 
   public onSelectionChanged = (ev: React.ChangeEvent<HTMLInputElement>) => {
-    const lastValue = this.state.value;
-    const value = ev.target.value;
-
-    if (this.props.deselectable && lastValue === value) {
-      this.setState({ value: "" });
+    if ("value" in this.props) {
       if (this.props.onChange) {
         this.props.onChange(ev);
       }
-    }
-    if (lastValue !== value) {
-      this.setState({
-        value
-      });
-      if (this.props.onChange) {
-        this.props.onChange(ev);
+    } else {
+      const newValue = ev.target.value;
+      const lastValue = this.state.value;
+
+      if (this.props.deselectable && lastValue === newValue) {
+        this.setState({ value: "" });
+        if (this.props.onChange) {
+          this.props.onChange(ev);
+        }
+      }
+      if (lastValue !== newValue) {
+        this.setState({
+          value: newValue
+        });
+        if (this.props.onChange) {
+          this.props.onChange(ev);
+        }
       }
     }
   };

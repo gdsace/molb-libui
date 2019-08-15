@@ -15,7 +15,7 @@
   display: flex;
   flex-direction: column;
   flex: 0 1;
-  margin: 24px 24px 0 0;
+  margin: $space-6 $space-3 0 0;
 }
 
 .boxSmall {
@@ -31,9 +31,9 @@
 }
 
 .styles {
-  margin: 36px;
+  margin: $space-5;
 }
 
 .tileContainerStyle {
-  margin: 12px 15px;
+  margin: $space-1 $space-2;
 }
