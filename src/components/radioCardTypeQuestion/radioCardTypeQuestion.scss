@@ -3,6 +3,10 @@
 .questionWrapper {
   position: relative;
   width: 100%;
+
+  .header {
+    display: flex;
+  }
 }
 
 .tileWrapper {
