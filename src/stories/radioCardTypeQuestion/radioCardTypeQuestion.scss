@@ -1,0 +1,16 @@
+.radioCardTypeQuestionStyle {
+  margin-bottom: 60px;
+  margin-left: 30px;
+}
+
+.tooltipsStyle {
+  margin-bottom: 24px;
+  margin-left: 8px;
+  display: flex;
+  align-items: center;
+  color: grey;
+
+  &:hover {
+    color: indigo;
+  }
+}

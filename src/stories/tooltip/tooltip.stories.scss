@@ -45,3 +45,11 @@
 .styles {
   margin: 36px;
 }
+
+.tooltipsColor {
+  color: grey;
+
+  &:hover {
+    color: $lavender-indigo;
+  }
+}

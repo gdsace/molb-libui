@@ -18,6 +18,7 @@ export interface IRadioCardTypeQuestionProps {
   showError?: boolean;
   errorMsg?: string;
   id?: string;
+  questionTooltip?: React.ReactNode;
 }
 
 export interface IOption {
@@ -39,7 +40,10 @@ export class RadioCardTypeQuestion extends React.Component<
     const { question, options, selectedAnswer } = this.props;
     return (
       <div id={this.props.id} className={styles.questionWrapper}>
-        <H7>{question}</H7>
+        <div className={styles.header}>
+          <H7>{question}</H7>
+          {this.props.questionTooltip}
+        </div>
         {this.props.showError && this.props.errorMsg && (
           <div className={styles.errorMsg}>
             <InlineNotification
