@@ -10,7 +10,7 @@ import {
 import { Tooltips } from "../../components/tooltips";
 import { CategoryName, wInfo } from "../utils";
 
-const styles = require("./radioCardTypeQuestion.scss");
+const styles = require("./radioCardTypeQuestion.stories.scss");
 
 const question = "This is question";
 const options: IOption[] = [
