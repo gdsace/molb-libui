@@ -62,6 +62,34 @@ import { CategoryName, wInfo } from "../utils";
             alignment={AppAlertAlignmentTheme.CENTER}
           />
         </div>
+        <br />
+        <h5>showIcon: false</h5>
+        <div>
+          <AppAlert
+            text="Normal Notification"
+            theme={AppAlertTheme.Informational}
+            alignment={AppAlertAlignmentTheme.CENTER}
+            showIcon={false}
+          />
+          <AppAlert
+            text="Warning Notification"
+            theme={AppAlertTheme.Warning}
+            alignment={AppAlertAlignmentTheme.CENTER}
+            showIcon={false}
+          />
+          <AppAlert
+            text="Error Notification"
+            theme={AppAlertTheme.Error}
+            alignment={AppAlertAlignmentTheme.CENTER}
+            showIcon={false}
+          />
+          <AppAlert
+            text="Normal Notification with a very very very very very very very very long text."
+            theme={AppAlertTheme.Informational}
+            alignment={AppAlertAlignmentTheme.CENTER}
+            showIcon={false}
+          />
+        </div>
       </div>
     );
   })
