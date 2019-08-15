@@ -35,6 +35,7 @@ const questionTooltip = (
     className={styles.tooltipsStyle}
     trigger={<Icon type="information" size="14" />}
     position={TooltipsLocationTheme.BottomLeft}
+    specializedPosition={true}
   />
 );
 

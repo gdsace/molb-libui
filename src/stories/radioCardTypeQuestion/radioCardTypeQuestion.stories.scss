@@ -1,11 +1,13 @@
+@import "../../components/styles/utils.scss";
+
 .radioCardTypeQuestionStyle {
-  margin-bottom: 60px;
-  margin-left: 30px;
+  margin-bottom: $space-8;
+  margin-left: $space-4;
 }
 
 .tooltipsStyle {
-  margin-bottom: 24px;
-  margin-left: 8px;
+  margin-bottom: $space-3;
+  margin-left: $space-1;
   display: flex;
   align-items: center;
   color: grey;
