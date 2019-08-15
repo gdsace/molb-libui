@@ -40,13 +40,13 @@ export class AppAlert extends React.Component<IAppAlertProps, {}> {
     return (
       <div className={style[`${theme}`]}>
         <div className={appAlertClassName}>
-          {showIcon ? (
+          {showIcon && (
             <Icon
               className={style.appAlertIcon}
               type={iconType[theme]}
               size="24"
             />
-          ) : null}
+          )}
           {this.renderText(text, textToBold)}
         </div>
       </div>
