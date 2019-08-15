@@ -16,7 +16,7 @@ export interface IFileUploadProps extends DropzoneProps {
   error?: string;
   onCompleteIconClick?: (
     event: React.MouseEvent,
-    documentTypeCode: string
+    document: Partial<IDocument>
   ) => any;
   onDefaultIconClick?: (event: React.MouseEvent) => any;
   onError?: (event: any) => any;
@@ -112,7 +112,6 @@ export class FileUpload extends React.Component<
       linkDescription,
       ...forDropzone
     } = this.props;
-
     const { uploadState, fileInfo } = this.state;
 
     const dropzoneClassName = classNames(styles.default, {
@@ -155,8 +154,8 @@ export class FileUpload extends React.Component<
                 uploadState: FileUploadState.Unstarted
               });
 
-              if (onCompleteIconClick && documentType && documentType.code) {
-                onCompleteIconClick(e, documentType.code);
+              if (onCompleteIconClick && document) {
+                onCompleteIconClick(e, document);
               }
             }}
           />
@@ -193,7 +192,6 @@ export class FileUpload extends React.Component<
     };
 
     query[`belongsToJourneyTaskIds`] = documentType.belongsToJourneyTaskIds;
-
     const queryString = qs.stringify(query, { arrayFormat: "repeat" });
 
     const formdata = new FormData();
