@@ -96,7 +96,6 @@ export class BaseDropdown<T> extends React.Component<
     };
     return (
       <Select
-        menuIsOpen={true}
         className={classNames(
           styles.dropdown,
           this.props.size,
