@@ -1,0 +1,18 @@
+@import "../../components/styles/utils.scss";
+
+.radioCardTypeQuestionStyle {
+  margin-bottom: $space-8;
+  margin-left: $space-4;
+}
+
+.tooltipsStyle {
+  margin-bottom: $space-3;
+  margin-left: $space-1;
+  display: flex;
+  align-items: center;
+  color: grey;
+
+  &:hover {
+    color: indigo;
+  }
+}
