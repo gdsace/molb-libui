@@ -6,7 +6,7 @@ export interface IFileUploadProps extends DropzoneProps {
     document?: Partial<IDocument>;
     documentType: IDocumentType;
     error?: string;
-    onCompleteIconClick?: (event: React.MouseEvent, documentTypeCode: string) => any;
+    onCompleteIconClick?: (event: React.MouseEvent, document: Partial<IDocument>) => any;
     onDefaultIconClick?: (event: React.MouseEvent) => any;
     onError?: (event: any) => any;
     onProgressIconClick?: (event: React.MouseEvent) => any;
