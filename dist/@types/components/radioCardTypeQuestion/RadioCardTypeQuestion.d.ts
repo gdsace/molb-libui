@@ -7,6 +7,7 @@ export interface IRadioCardTypeQuestionProps {
     showError?: boolean;
     errorMsg?: string;
     id?: string;
+    questionTooltip?: React.ReactNode;
 }
 export interface IOption {
     label: string;

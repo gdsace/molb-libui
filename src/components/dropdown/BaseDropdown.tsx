@@ -101,6 +101,7 @@ export class BaseDropdown<T> extends React.Component<
           this.props.size,
           this.props.className
         )}
+        isOptionDisabled={this.props.isOptionDisabled}
         classNamePrefix="dropdown"
         components={customComponents}
         styles={this.props.styles || {}}

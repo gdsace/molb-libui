@@ -37,6 +37,10 @@
   line-height: $line-height-large;
 }
 
+.dropdown__option--is-disabled {
+  color: $text-color-5 !important;
+}
+
 .dropdown__value-container {
   display: flex;
   align-items: center;

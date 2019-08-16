@@ -11,15 +11,17 @@ interface IAppAlertProps {
   textToBold?: string;
   theme: AppAlertTheme;
   alignment?: AppAlertAlignmentTheme;
+  showIcon?: boolean;
 }
 
 export class AppAlert extends React.Component<IAppAlertProps, {}> {
   public static defaultProps: Partial<IAppAlertProps> = {
-    alignment: AppAlertAlignmentTheme.LEFT
+    alignment: AppAlertAlignmentTheme.LEFT,
+    showIcon: true
   };
 
   public render() {
-    const { theme, text, textToBold, alignment } = this.props;
+    const { theme, text, textToBold, alignment, showIcon } = this.props;
 
     const iconType = {
       [AppAlertTheme.Error]: "notification-error",
@@ -38,11 +40,13 @@ export class AppAlert extends React.Component<IAppAlertProps, {}> {
     return (
       <div className={style[`${theme}`]}>
         <div className={appAlertClassName}>
-          <Icon
-            className={style.appAlertIcon}
-            type={iconType[theme]}
-            size="24"
-          />
+          {showIcon && (
+            <Icon
+              className={style.appAlertIcon}
+              type={iconType[theme]}
+              size="24"
+            />
+          )}
           {this.renderText(text, textToBold)}
         </div>
       </div>
@@ -65,8 +69,7 @@ export class AppAlert extends React.Component<IAppAlertProps, {}> {
           )}
         </div>
       );
-    } else {
-      return <div className={style.appAlertText}>{mainText}</div>;
     }
+    return <div className={style.appAlertText}>{mainText}</div>;
   }
 }

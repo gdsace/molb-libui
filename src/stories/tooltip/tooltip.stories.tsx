@@ -15,6 +15,21 @@ const styles = require("./tooltip.stories.scss");
         <div className={styles.box}>
           <p className={styles.notes}>Position: BottomLeft</p>
           <Tooltips
+            className={styles.tooltipsColor}
+            trigger={<Icon type={"help"} size={"16"} />}
+            position={TooltipsLocationTheme.BottomLeft}
+            specializedPosition={true}
+          >
+            <div>
+              When use specializedPosition, component will just the arrow
+              position
+            </div>
+          </Tooltips>
+        </div>
+
+        <div className={styles.box}>
+          <p className={styles.notes}>Position: BottomLeft</p>
+          <Tooltips
             trigger={<Icon type={"help"} size={"16"} />}
             position={TooltipsLocationTheme.BottomLeft}
             specializedPosition={true}

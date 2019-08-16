@@ -54,6 +54,7 @@ export class Tooltips extends React.Component<ITooltipsProps, ITooltipsState> {
 
   public render() {
     const {
+      className,
       trigger,
       height,
       width,
@@ -100,7 +101,7 @@ export class Tooltips extends React.Component<ITooltipsProps, ITooltipsState> {
     return (
       <div
         ref={this.state.tooltipRef}
-        className={styles.tooltipsContainer}
+        className={classnames(styles.tooltipsContainer, className)}
         onClick={show ? () => this.closePopup() : () => this.openPopup()}
       >
         <Popup
