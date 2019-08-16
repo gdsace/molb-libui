@@ -11,7 +11,7 @@ const styles = require("./defaultChild.scss");
 const getIcon = (
   state?: FileUploadState,
   onProgressIconClick?: (e: React.MouseEvent) => any,
-  onCompleteIconClick?: (e: React.MouseEvent, documentTypeCode: string) => any,
+  onCompleteIconClick?: (e: React.MouseEvent) => any,
   onDefaultIconClick?: (e: React.MouseEvent) => any
 ) => {
   const noop = (e: React.MouseEvent) => {
@@ -55,7 +55,6 @@ export interface IFileUploadChildProps
     | "document"
     | "documentType"
     | "error"
-    | "onCompleteIconClick"
     | "onDefaultIconClick"
     | "onProgressIconClick"
     | "baseUrl"
@@ -63,6 +62,7 @@ export interface IFileUploadChildProps
     | "linkDescription"
   > {
   uploadState?: FileUploadState;
+  onCompleteIconClick?: (event: React.MouseEvent) => any;
 }
 
 export const formatBytes = (bytes: number): string => {

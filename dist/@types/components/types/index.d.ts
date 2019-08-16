@@ -13,6 +13,9 @@ export interface IDocument {
 export interface IDocumentType {
     citedBy: number;
     code: string;
+    shared: boolean;
+    multipleInstanceName?: string;
+    belongsToJourneyTaskIds: number[];
     description: string;
     entityWide: boolean;
     name: string;
