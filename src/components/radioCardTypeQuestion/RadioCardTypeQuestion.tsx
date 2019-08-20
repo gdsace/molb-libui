@@ -60,7 +60,7 @@ export class RadioCardTypeQuestion extends React.Component<
           {map(options, option => (
             <Tile
               key={option.value}
-              theme={TileTheme.MediumTile}
+              theme={TileTheme.LargeTile}
               icon={""}
               content={option.label}
               description={option.description}
