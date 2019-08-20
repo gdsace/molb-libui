@@ -17,6 +17,10 @@ $large-tile-height: 246px;
 $large-tile-width: 290px;
 $large-tile-width-mobile: 100%;
 
+$wide-tile-height: 160px;
+$wide-tile-width: 370px;
+$wide-tile-width-mobile: 100%;
+
 .tileWrapper {
   display: flex;
   border-radius: 5px;
@@ -195,17 +199,19 @@ $large-tile-width-mobile: 100%;
 }
 
 .mediumTile {
-  max-height: $medium-tile-height-max;
   width: $medium-tile-width;
 
   @include for-phone-only {
-    height: $medium-tile-height-mobile;
     width: $medium-tile-width-mobile;
   }
 
   .tileContent {
     .tileHeader {
       margin-top: 0;
+
+      @include for-phone-only {
+        margin-top: $space-1;
+      }
     }
   }
 
