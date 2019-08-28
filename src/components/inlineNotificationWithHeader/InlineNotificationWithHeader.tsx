@@ -10,12 +10,13 @@ interface IInlineNotificationWithHeaderProps {
   header: string;
   text: string;
   theme: NotificationTheme;
+  childNode?: string | React.ReactNode;
 }
 
 export const InlineNotificationWithHeader = (
   props: IInlineNotificationWithHeaderProps
 ) => {
-  const { theme, text } = props;
+  const { theme, text, childNode } = props;
 
   const headerStyle = classNames(
     style.inlineNotificationHeader,
@@ -29,6 +30,7 @@ export const InlineNotificationWithHeader = (
     [NotificationTheme.Success]: "notification-checkmark",
     [NotificationTheme.Error]: "notification-error",
     [NotificationTheme.Warning]: "warning",
+    [NotificationTheme.SeriousWarning]: "warning",
     [NotificationTheme.Informational]: "informational"
   };
 
@@ -49,6 +51,7 @@ export const InlineNotificationWithHeader = (
         <h5 className={headerStyle}>{props.header}</h5>
         <p className={style.inlineNotificationText}>{text}</p>
       </div>
+      {childNode && childNode}
     </div>
   );
 };

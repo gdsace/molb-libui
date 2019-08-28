@@ -5,6 +5,7 @@
   align-items: center;
   border-radius: 5px;
   min-height: 55px;
+  padding-right: $space-2;
 
   &.success {
     background-color: $panache;
@@ -28,6 +29,11 @@
     background-color: $ui-color-7;
     border: 1px solid $support-yellow-20;
     color: $support-yellow;
+  }
+
+  &.seriousWarning {
+    background-color: $ui-color-8;
+    color: $vivid-orange;
   }
 
   .inlineNotificationIcon {
@@ -57,6 +63,10 @@
 
     &.error {
       color: $support-red;
+    }
+
+    &.seriousWarning {
+      color: $text-color-8;
     }
   }
 

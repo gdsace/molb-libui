@@ -87,6 +87,20 @@
   }
 }
 
+.orange {
+  color: $primary-color-2;
+  background-color: $vivid-orange;
+  border: solid 1px $vivid-orange;
+
+  &:focus {
+    border-color: $marigold;
+  }
+
+  &:hover {
+    color: $salomie;
+  }
+}
+
 .outline {
   color: $primary-color-2;
   background-color: transparent;
