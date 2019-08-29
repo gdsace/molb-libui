@@ -68,7 +68,7 @@ const lorem =
             header="Warning Header"
             text="Bleh"
             theme={NotificationTheme.Warning}
-            childNode={<Button theme={Theme.Orange}>test</Button>}
+            childNode={<Button theme={Theme.Orange} label="button" />}
           />
         </div>
       </div>

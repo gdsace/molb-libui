@@ -10,7 +10,7 @@ interface IInlineNotificationWithHeaderProps {
   header: string;
   text: string;
   theme: NotificationTheme;
-  childNode?: string | React.ReactNode;
+  childNode?: React.ReactNode;
 }
 
 export const InlineNotificationWithHeader = (

@@ -88,16 +88,16 @@
 }
 
 .orange {
-  color: $primary-color-2;
+  color: white;
   background-color: $vivid-orange;
   border: solid 1px $vivid-orange;
 
   &:focus {
-    border-color: $marigold;
+    background-color: $deep-orange;
   }
 
   &:hover {
-    color: $salomie;
+    background-color: $light-orange;
   }
 }
 
