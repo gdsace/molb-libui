@@ -1,8 +1,7 @@
+import { storiesOf } from "@storybook/react";
 import React from "react";
 
-import { storiesOf } from "@storybook/react";
-
-import { NotificationTheme } from "../../components";
+import { Button, NotificationTheme, Theme } from "../../components";
 import { InlineNotificationWithHeader } from "../../components/inlineNotificationWithHeader";
 import { CategoryName, wInfo } from "../utils";
 
@@ -62,6 +61,22 @@ const lorem =
             header="Error Header"
             text={"Bleh"}
             theme={NotificationTheme.Error}
+          />
+          <br />
+          <h5>With ChildNode</h5>
+          <InlineNotificationWithHeader
+            header="Warning Header"
+            text="Bleh"
+            theme={NotificationTheme.Warning}
+            childNode={<Button theme={Theme.Orange} label="button" />}
+          />
+          <br />
+          <h5>foodShop-filled icon</h5>
+          <InlineNotificationWithHeader
+            header="foodShop-filled icon Header"
+            text="Bleh"
+            theme={NotificationTheme.Success}
+            icon="foodshop-filled"
           />
         </div>
       </div>

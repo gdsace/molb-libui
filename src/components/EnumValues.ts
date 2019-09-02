@@ -5,7 +5,8 @@ export enum Theme {
   Secondary = "secondary",
   Grey = "grey",
   DarkGrey = "darkGrey",
-  Outline = "outline"
+  Outline = "outline",
+  Orange = "orange"
 }
 
 export enum FlatButtonTheme {
@@ -143,7 +144,8 @@ export enum NotificationTheme {
   Success = "success",
   Error = "error",
   Informational = "informational",
-  Warning = "warning"
+  Warning = "warning",
+  SeriousWarning = "seriousWarning"
 }
 
 export enum AppAlertTheme {

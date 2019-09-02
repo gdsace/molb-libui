@@ -43,6 +43,7 @@ const getContent = (
     [NotificationTheme.Success]: "notification-checkmark",
     [NotificationTheme.Error]: "notification-error",
     [NotificationTheme.Warning]: "warning",
+    [NotificationTheme.SeriousWarning]: "warning",
     [NotificationTheme.Informational]: "informational"
   };
 

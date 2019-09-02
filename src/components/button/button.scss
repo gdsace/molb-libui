@@ -87,6 +87,20 @@
   }
 }
 
+.orange {
+  color: white;
+  background-color: $vivid-orange;
+  border: solid 1px $vivid-orange;
+
+  &:focus {
+    background-color: $deep-orange;
+  }
+
+  &:hover {
+    background-color: $light-orange;
+  }
+}
+
 .outline {
   color: $primary-color-2;
   background-color: transparent;
