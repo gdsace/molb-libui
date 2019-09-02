@@ -70,6 +70,14 @@ const lorem =
             theme={NotificationTheme.Warning}
             childNode={<Button theme={Theme.Orange} label="button" />}
           />
+          <br />
+          <h5>foodShop-filled icon</h5>
+          <InlineNotificationWithHeader
+            header="foodShop-filled icon Header"
+            text="Bleh"
+            theme={NotificationTheme.Success}
+            icon="foodshop-filled"
+          />
         </div>
       </div>
     );

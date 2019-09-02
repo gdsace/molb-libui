@@ -11,6 +11,7 @@ interface IInlineNotificationWithHeaderProps {
   text: string;
   theme: NotificationTheme;
   childNode?: React.ReactNode;
+  icon?: string;
 }
 
 export const InlineNotificationWithHeader = (
@@ -26,12 +27,14 @@ export const InlineNotificationWithHeader = (
     }
   );
 
+  const getIcon = (defaultIcon: string) => props.icon || defaultIcon;
+
   const iconType = {
-    [NotificationTheme.Success]: "notification-checkmark",
-    [NotificationTheme.Error]: "notification-error",
-    [NotificationTheme.Warning]: "warning",
-    [NotificationTheme.SeriousWarning]: "warning",
-    [NotificationTheme.Informational]: "informational"
+    [NotificationTheme.Success]: getIcon("notification-checkmark"),
+    [NotificationTheme.Error]: getIcon("notification-error"),
+    [NotificationTheme.Warning]: getIcon("warning"),
+    [NotificationTheme.SeriousWarning]: getIcon("warning"),
+    [NotificationTheme.Informational]: getIcon("informational")
   };
 
   const inlineNotificationClassName = classNames(

@@ -50,7 +50,8 @@ const icons = [
   { type: "process" },
   { type: "speech" },
   { type: "steps" },
-  { type: "arrowDown" }
+  { type: "arrowDown" },
+  { type: "foodshop-filled" }
 ];
 
 const licenceIcons = [
