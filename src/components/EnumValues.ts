@@ -6,7 +6,8 @@ export enum Theme {
   Grey = "grey",
   DarkGrey = "darkGrey",
   Outline = "outline",
-  Orange = "orange"
+  Orange = "orange",
+  Green = "green"
 }
 
 export enum FlatButtonTheme {

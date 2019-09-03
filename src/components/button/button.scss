@@ -101,6 +101,16 @@
   }
 }
 
+.green {
+  color: white;
+  background-color: $support-green;
+  border: solid 1px $support-green;
+
+  &:hover {
+    background-color: $support-green-70;
+  }
+}
+
 .outline {
   color: $primary-color-2;
   background-color: transparent;
