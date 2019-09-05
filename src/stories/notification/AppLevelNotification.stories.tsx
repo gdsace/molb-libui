@@ -7,10 +7,10 @@ import { CategoryName } from "../utils";
 
 const AppAlertAlignmentThemeList: AppAlertAlignmentTheme[] = Object.keys(
   AppAlertAlignmentTheme
-).map(k => AppAlertAlignmentTheme[k as any] as AppAlertAlignmentTheme);
+).map(k => AppAlertAlignmentTheme[k as keyof typeof AppAlertAlignmentTheme]);
 
 const AppAlertThemeList: AppAlertTheme[] = Object.keys(AppAlertTheme).map(
-  k => AppAlertTheme[k as any] as AppAlertTheme
+  k => AppAlertTheme[k as keyof typeof AppAlertTheme]
 );
 
 (storiesOf(CategoryName.Notification, module) as any).addWithJSX(

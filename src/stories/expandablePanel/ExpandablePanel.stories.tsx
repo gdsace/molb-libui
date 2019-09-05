@@ -6,7 +6,7 @@ import { ExpandablePanel } from "../../components/expandablePanel/ExpandablePane
 import { CategoryName } from "../utils";
 
 const ThemeList: ExpandablePanelTheme[] = Object.keys(ExpandablePanelTheme).map(
-  k => ExpandablePanelTheme[k as any] as ExpandablePanelTheme
+  k => ExpandablePanelTheme[k as keyof typeof ExpandablePanelTheme]
 );
 
 (storiesOf(CategoryName.Accordion, module) as any)

@@ -9,7 +9,7 @@ const lorem =
   "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam natus doloribus aperiam ipsum consectetur, accusamus laborum nam dolor error consequatur beatae quaerat doloremque placeat impedit illo cumque. Provident, eos aperiam.";
 
 const ThemeList: NotificationTheme[] = Object.keys(NotificationTheme).map(
-  k => NotificationTheme[k as any] as NotificationTheme
+  k => NotificationTheme[k as keyof typeof NotificationTheme]
 );
 
 (storiesOf(CategoryName.Notification, module) as any).addWithJSX(

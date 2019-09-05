@@ -5,7 +5,7 @@ import { InlineNotification, NotificationTheme } from "../../components";
 import { CategoryName } from "../utils";
 
 const ThemeList: NotificationTheme[] = Object.keys(NotificationTheme).map(
-  k => NotificationTheme[k as any] as NotificationTheme
+  k => NotificationTheme[k as keyof typeof NotificationTheme]
 );
 
 (storiesOf(CategoryName.Notification, module) as any).addWithJSX(

@@ -6,7 +6,7 @@ import { Accordion } from "../../components/accordion/Accordion";
 import { CategoryName } from "../utils";
 
 const ThemeList: AccordionTheme[] = Object.keys(AccordionTheme).map(
-  k => AccordionTheme[k as any] as AccordionTheme
+  k => AccordionTheme[k as keyof typeof AccordionTheme]
 );
 
 (storiesOf(CategoryName.Accordion, module) as any)
