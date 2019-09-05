@@ -22,12 +22,6 @@ const config = {
         use: ["style-loader", "css-loader"]
       },
       {
-        test: /\.scss.nomangle$/,
-        include: path.resolve(__dirname, "src"),
-        loaders: ["style-loader", "css-loader", "sass-loader"]
-      },
-      // PostCSS
-      {
         test: /\.scss$/,
         exclude: /node_modules/,
         include: [path.resolve(__dirname, "src")],

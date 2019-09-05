@@ -1,8 +1,8 @@
 /// <reference types="react" />
 import { NotificationTheme } from "../EnumValues";
-interface IInlineNotificationProps {
+declare type InlineNotificationProps = {
     text: string;
     theme: NotificationTheme;
-}
-export declare const InlineNotification: (props: IInlineNotificationProps) => JSX.Element;
+};
+export declare const InlineNotification: (props: InlineNotificationProps) => JSX.Element;
 export {};

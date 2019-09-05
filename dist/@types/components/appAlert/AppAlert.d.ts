@@ -1,15 +1,17 @@
-import * as React from "react";
+/// <reference types="react" />
 import { AppAlertAlignmentTheme, AppAlertTheme } from "../EnumValues";
-interface IAppAlertProps {
+declare type AppAlertProps = {
     text: string;
     textToBold?: string;
     theme: AppAlertTheme;
     alignment?: AppAlertAlignmentTheme;
     showIcon?: boolean;
-}
-export declare class AppAlert extends React.Component<IAppAlertProps, {}> {
-    static defaultProps: Partial<IAppAlertProps>;
-    render(): JSX.Element;
-    private renderText;
-}
+};
+export declare const AppAlert: {
+    (props: AppAlertProps): JSX.Element;
+    defaultProps: {
+        alignment: AppAlertAlignmentTheme;
+        showIcon: boolean;
+    };
+};
 export {};

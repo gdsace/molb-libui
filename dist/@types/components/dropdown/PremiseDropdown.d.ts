@@ -1,5 +1,3 @@
-import React from "react";
+/// <reference types="react" />
 import { Props } from "react-select/lib/Select";
-export declare class PremiseDropdown<T> extends React.Component<Props<T>, {}> {
-    render(): JSX.Element;
-}
+export declare const PremiseDropdown: <T extends any>(props: Props<T>) => JSX.Element;

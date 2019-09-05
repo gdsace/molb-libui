@@ -1,31 +1,29 @@
 import classnames from "classnames";
-import _ from "lodash";
-import React from "react";
+import { get } from "lodash";
+import React, { ChangeEvent, ReactNode } from "react";
 import { Props } from "react-select/lib/Select";
 import { Size } from "../EnumValues";
 import { Input } from "../input";
 import { addLocatedErrorClassname } from "../utils";
 import { baseComponents, BaseDropdown } from "./BaseDropdown";
+import styles from "./dropdown.scss";
 
-const styles = require("./dropdownStyle.scss");
-
-export interface IDropdownProps<T> extends Props<T> {
+export type DropdownProps<T> = Props<T> & {
   error?: string | boolean;
   label?: string;
   editable?: boolean;
   size?: Size;
   maxLength?: number;
-  onTextInputChange?: (event: React.ChangeEvent<HTMLInputElement>) => any;
   textInputValue?: string;
-  addonBelow?: string | React.ReactNode;
-}
+  addonBelow?: ReactNode;
+  onTextInputChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+};
 
-// This Dropdown has outlining, a label and an error field over BaseDropdown
 // tslint:disable-next-line:max-classes-per-file
 export const dropdownCustomStyles = {
   container: (base: any, state: any) => {
     let borderColor;
-    if (_.get(state, "selectProps.error")) {
+    if (get(state, "selectProps.error")) {
       borderColor = "1px solid #dc3545";
     } else if (state.isFocused && !state.isDisabled) {
       borderColor = "1px solid #408";
@@ -33,10 +31,6 @@ export const dropdownCustomStyles = {
       borderColor = "1px solid #dbdfe4";
     }
 
-    // We don't have a handle to the "container" component
-    // so we can't set a className on the outermost component
-    // Also, react-select cannot insert --focused classNames
-    // therefore we have to use css-in-js to set the styles for focused
     return {
       ...base,
       boxSizing: "border-box",
@@ -59,65 +53,63 @@ export const dropdownCustomStyles = {
   menuPortal: (base: any) => ({ ...base, zIndex: 9999 })
 };
 
-export class Dropdown<T> extends React.Component<IDropdownProps<T>, {}> {
-  public render() {
-    const dropdownClassName = classnames(
-      styles.field,
-      styles.dropdownField,
-      styles[this.props.size || Size.Large]
-    );
+export const Dropdown = <T extends any>(props: DropdownProps<T>) => {
+  const dropdownClassName = classnames(
+    styles.field,
+    styles.dropdownField,
+    styles[props.size || Size.Large]
+  );
 
-    const dropdown = (
-      <div className={dropdownClassName}>
-        <BaseDropdown<T>
-          components={{
-            ...baseComponents
-          }}
-          styles={dropdownCustomStyles}
-          {...this.props}
-        />
-        {this.props.error ? (
-          <p className={addLocatedErrorClassname(styles.errorMessage)}>
-            {this.props.error}
-          </p>
-        ) : (
-          <div className={styles.addonBelow}>{this.props.addonBelow}</div>
-        )}
-      </div>
-    );
+  const errorClassName = addLocatedErrorClassname(styles.errorMessage);
 
-    const input = (
-      <Input
-        value={this.props.textInputValue || ""}
-        size={Size.Large}
-        disabled={this.props.isDisabled}
-        errorMsg={`${this.props.error}`}
-        showError={!!this.props.error}
-        helperMsg={this.props.addonBelow}
-        maxLength={this.props.maxLength}
-        onChange={event => {
-          if (this.props.onTextInputChange) {
-            this.props.onTextInputChange(event);
-          }
-        }}
+  const dropdown = (
+    <div className={dropdownClassName}>
+      <BaseDropdown<T>
+        components={{ ...baseComponents }}
+        styles={dropdownCustomStyles}
+        {...props}
       />
-    );
+      {props.error ? (
+        <p className={errorClassName}>{props.error}</p>
+      ) : (
+        <div className={styles.addonBelow}>{props.addonBelow}</div>
+      )}
+    </div>
+  );
 
-    // Wrap select in label for accessibility
-    // Todo: use a common Label component
-    if (this.props.label) {
-      const labelClass = classnames(
-        styles.label,
-        this.props.isDisabled ? styles.disabledLabel : undefined
-      );
-      return (
-        <label data-scrollpoint={true}>
-          <div className={labelClass}>{this.props.label}</div>
-          {this.props.editable ? input : dropdown}
-        </label>
-      );
+  const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (props.onTextInputChange) {
+      event.persist();
+      props.onTextInputChange(event);
     }
+  };
 
-    return dropdown;
+  const input = (
+    <Input
+      value={props.textInputValue || ""}
+      size={Size.Large}
+      disabled={props.isDisabled}
+      errorMsg={`${props.error}`}
+      showError={!!props.error}
+      helperMsg={props.addonBelow}
+      maxLength={props.maxLength}
+      onChange={onInputChange}
+    />
+  );
+
+  // Wrap select in label for accessibility
+  if (props.label) {
+    const labelClass = classnames(
+      styles.label,
+      props.isDisabled ? styles.disabledLabel : ""
+    );
+    return (
+      <label data-scrollpoint={true}>
+        <div className={labelClass}>{props.label}</div>
+        {props.editable ? input : dropdown}
+      </label>
+    );
   }
-}
+
+  return dropdown;
+};

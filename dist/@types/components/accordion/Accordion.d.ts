@@ -1,22 +1,24 @@
-import React from "react";
+import { Component, ReactNode } from "react";
 import { AccordionTheme } from "../EnumValues";
-export interface IAccordionProps {
-    collapsed?: boolean;
-    onPanelClick?: (collapsed: boolean) => any;
-    header?: string | React.ReactNode;
-    subHeader?: string[];
-    content?: string | React.ReactNode;
+export declare type AccordionProps = {
     theme: AccordionTheme;
+    collapsed?: boolean;
+    header?: ReactNode;
+    subHeader?: string[];
+    content?: ReactNode;
     defaultCollapsed?: boolean;
     displayMode?: boolean;
-}
-export interface IAccordionState {
+    onPanelClick?: (collapsed: boolean) => void;
+};
+export declare type AccordionState = {
     collapsed: boolean;
-}
-export declare class Accordion extends React.Component<IAccordionProps, IAccordionState> {
-    constructor(props: IAccordionProps);
+};
+export declare class Accordion extends Component<AccordionProps, AccordionState> {
+    state: {
+        collapsed: boolean;
+    };
     render(): JSX.Element;
-    private getCollapsedStatus;
-    private renderSubHeader;
-    private onPanelClick;
+    getCollapsedStatus: () => boolean;
+    renderSubHeader: (subHeader: string[] | undefined, collapsed: boolean) => JSX.Element;
+    onPanelClick: () => void;
 }
