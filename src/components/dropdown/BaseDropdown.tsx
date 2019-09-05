@@ -5,7 +5,7 @@ import { SelectComponentsConfig } from "react-select/lib/components";
 import { Props } from "react-select/lib/Select";
 import { Size } from "../EnumValues";
 import { Icon } from "../icons/Icon";
-import styles from "./dropdown.scss";
+import styles from "./dropdownStyle.scss";
 import "./library.scss";
 
 const Menu = (props: any) => (

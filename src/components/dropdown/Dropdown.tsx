@@ -6,7 +6,7 @@ import { Size } from "../EnumValues";
 import { Input } from "../input";
 import { addLocatedErrorClassname } from "../utils";
 import { baseComponents, BaseDropdown } from "./BaseDropdown";
-import styles from "./dropdown.scss";
+import styles from "./dropdownStyle.scss";
 
 export type DropdownProps<T> = Props<T> & {
   error?: string | boolean;

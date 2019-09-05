@@ -3,7 +3,7 @@ import React from "react";
 import { components } from "react-select";
 import { Props } from "react-select/lib/Select";
 import { baseComponents, BaseDropdown } from "./BaseDropdown";
-import styles from "./dropdown.scss";
+import styles from "./dropdownStyle.scss";
 
 const PremiseAutoLabel = (props: any) => {
   const postalCode = get(props, "data.value.address.postalCode");

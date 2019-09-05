@@ -8,7 +8,7 @@ import { Icon } from "../icons";
 import { addLocatedErrorClassname } from "../utils";
 import { baseComponents, BaseDropdown } from "./BaseDropdown";
 import { dropdownCustomStyles } from "./Dropdown";
-import styles from "./dropdown.scss";
+import styles from "./dropdownStyle.scss";
 
 type MultiSelectProps<T> = Props<T> & {
   label?: string;
