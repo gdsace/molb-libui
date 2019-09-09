@@ -107,7 +107,13 @@
   border: solid 1px $support-green;
 
   &:hover {
-    background-color: $support-green-70;
+    background-color: $support-green-hover;
+    border: solid 1px $support-green-hover;
+  }
+
+  &:focus {
+    background-color: $support-green-focus;
+    border: solid 1px $support-green-focus;
   }
 }
 
