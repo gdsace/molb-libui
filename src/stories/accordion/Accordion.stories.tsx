@@ -1,48 +1,56 @@
+import { boolean, select, text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import React from "react";
-
 import { AccordionTheme } from "../../components";
 import { Accordion } from "../../components/accordion/Accordion";
-import { CategoryName, wInfo } from "../utils";
+import { CategoryName } from "../utils";
 
-(storiesOf(CategoryName.Accordion, module) as any).addWithJSX(
-  "Accordion",
-  wInfo(``)(() => (
-    <div>
+const ThemeList: AccordionTheme[] = Object.keys(AccordionTheme).map(
+  k => AccordionTheme[k as keyof typeof AccordionTheme]
+);
+
+(storiesOf(CategoryName.Accordion, module) as any)
+  .addWithJSX("Accordion", () => (
+    <>
       <h6>Standard Accordion</h6>
       <div>
         <Accordion
-          theme={AccordionTheme.Standard}
-          content={<div>this is a content div</div>}
-          header={"Accordion Header"}
+          displayMode={boolean("displayMode", false)}
+          theme={select("theme", ThemeList, AccordionTheme.Standard)}
+          header={text("header", "Accordion Header Text")}
+          subHeader={[
+            text("subHeader[0]", "Collapse"),
+            text("subHeader[1]", "Expand")
+          ]}
+          content={<div>this is a content div, content is a render-props</div>}
+          onPanelClick={() => {
+            alert("onPanelClick!");
+          }}
         />
       </div>
-      <h6>Large Accordion</h6>
-      <div>
-        <Accordion
-          theme={AccordionTheme.Large}
-          content={<div>this is a content div</div>}
-          header={"Accordion Header"}
-        />
-      </div>
-      <h6>Wrapped Accordion</h6>
-      <div>
-        <Accordion
-          theme={AccordionTheme.Wrapped}
-          content={<div>this is a content div</div>}
-          header={"Accordion Header"}
-        />
-      </div>
-      <h6>Colored Accordion</h6>
-      <div>
-        <Accordion
-          theme={AccordionTheme.Colored}
-          content={<div>this is a content div</div>}
-          header="Colored Header"
-          subHeader={["First", "second"]}
-          defaultCollapsed
-        />
-      </div>
-    </div>
+    </>
   ))
-);
+  .addWithJSX("Accordion collapsed", () => (
+    <>
+      <h6>Fixed collapsed/expanded Accordion</h6>
+      <div>
+        <Accordion
+          collapsed={boolean("collapsed", false)}
+          theme={select("theme", ThemeList, AccordionTheme.Standard)}
+          header={text("header", "Accordion Header Text")}
+          subHeader={[
+            text("subHeader[0]", "Collapse"),
+            text("subHeader[1]", "Expand")
+          ]}
+          content={
+            <div>
+              The expand icon is not clickable if pass the collapsed props
+            </div>
+          }
+          onPanelClick={() => {
+            alert("onPanelClick!");
+          }}
+        />
+      </div>
+    </>
+  ));

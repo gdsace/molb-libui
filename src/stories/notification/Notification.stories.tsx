@@ -1,17 +1,16 @@
-import React from "react";
-
+import { text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
-
+import React from "react";
 import { Button, NotificationTheme } from "../../components";
 import { notification, ToastContainer } from "../../components/notification";
-import { CategoryName, wInfo } from "../utils";
+import { CategoryName } from "../utils";
 
 (storiesOf(CategoryName.Notification, module) as any).addWithJSX(
   "Notification",
-  wInfo(``)(() => {
+  () => {
     const option = {
-      header: "Notification header",
-      text: "Notification text"
+      header: text("header", "Notification header"),
+      text: text("text", "Notification text")
     };
 
     const successOption = {
@@ -34,7 +33,15 @@ import { CategoryName, wInfo } from "../utils";
     return (
       <div>
         <h1>Notification</h1>
-        <div style={{ padding: "10px" }}>
+        <div
+          style={{
+            padding: "10px",
+            display: "flex",
+            flexDirection: "column",
+            height: "200px",
+            justifyContent: "space-around"
+          }}
+        >
           <Button
             label={"success"}
             onClick={() => notification(successOption)}
@@ -48,10 +55,9 @@ import { CategoryName, wInfo } from "../utils";
             label={"warning"}
             onClick={() => notification(warningOption)}
           />
-          {/* Important: in one page, ToastContainer can only have one component */}
           <ToastContainer newestOnTop />
         </div>
       </div>
     );
-  })
+  }
 );

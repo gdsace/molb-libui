@@ -8,10 +8,10 @@ import { Icon } from "../icons";
 import { addLocatedErrorClassname } from "../utils";
 import { baseComponents, BaseDropdown } from "./BaseDropdown";
 import { dropdownCustomStyles } from "./Dropdown";
+import styles from "./dropdownStyle.scss";
 
-const styles = require("./dropdownStyle.scss");
-
-interface IMultiSelectProps<T> extends Props<T> {
+type MultiSelectProps<T> = Props<T> & {
+  label?: string;
   size?: Size;
   error?: string;
   placeholder?: string;
@@ -19,37 +19,13 @@ interface IMultiSelectProps<T> extends Props<T> {
   options: T[];
   onChange?: (data: ValueType<T>) => void;
   onFocus?: () => void;
-}
-
-const ClearIndicator = () => {
-  return <></>;
-};
-const MultiValueRemove = (props: any) => {
-  return (
-    <components.MultiValueRemove {...props}>
-      <Icon type="close" size="12" />
-    </components.MultiValueRemove>
-  );
-};
-const MultiValueContainer = (props: any) => {
-  return <components.MultiValueContainer {...props} />;
 };
 
-const ValueContainer = (props: any) => {
-  return (
-    <components.ValueContainer {...props}>
-      {props.children}
-    </components.ValueContainer>
-  );
-};
-
-const multiSelectCustomComponents = {
-  ...baseComponents,
-  ClearIndicator,
-  MultiValueRemove,
-  MultiValueContainer,
-  ValueContainer
-};
+const MultiValueRemove = (props: any) => (
+  <components.MultiValueRemove {...props}>
+    <Icon type="close" size="12" />
+  </components.MultiValueRemove>
+);
 
 const multiSelectCustomStyles = {
   ...dropdownCustomStyles,
@@ -74,40 +50,38 @@ const multiSelectCustomStyles = {
     fontFamily: "HK Nova",
     fontSize: "14px",
     color: "#647283 "
-  })
+  }),
+  clearIndicator: () => ({ display: "none" })
 };
 
-export class MultiSelect<T> extends React.Component<IMultiSelectProps<T>, {}> {
-  public static defaultProps = {
-    selectedValue: []
-  };
+export const MultiSelect = <T extends {}>(props: MultiSelectProps<T>) => {
+  const multiSelectClassName = classnames(
+    styles.field,
+    styles.multiSelectField,
+    styles[props.size || Size.Large]
+  );
 
-  public render() {
-    const multiSelectClassName = classnames(
-      styles.field,
-      styles.multiSelectField,
-      styles[this.props.size || Size.Large]
-    );
-    return (
-      <div className={multiSelectClassName}>
-        <BaseDropdown<T>
-          isMulti
-          styles={multiSelectCustomStyles}
-          closeMenuOnSelect={false}
-          onChange={this.props.onChange}
-          onFocus={this.props.onFocus}
-          components={multiSelectCustomComponents}
-          value={this.props.selectedValue}
-          options={this.props.options}
-          placeholder={this.props.placeholder}
-          {...this.props}
-        />
-        {this.props.error && (
-          <p className={addLocatedErrorClassname(styles.errorMessage)}>
-            {this.props.error}
-          </p>
-        )}
-      </div>
-    );
-  }
-}
+  const errorClassName = addLocatedErrorClassname(styles.errorMessage);
+
+  return (
+    <div className={multiSelectClassName}>
+      <BaseDropdown<T>
+        isMulti
+        styles={multiSelectCustomStyles}
+        closeMenuOnSelect={false}
+        onChange={props.onChange}
+        onFocus={props.onFocus}
+        components={{ ...baseComponents, MultiValueRemove }}
+        value={props.selectedValue}
+        options={props.options}
+        placeholder={props.placeholder}
+        {...props}
+      />
+      {props.error && <p className={errorClassName}>{props.error}</p>}
+    </div>
+  );
+};
+
+MultiSelect.defaultProps = {
+  selectedValue: []
+};

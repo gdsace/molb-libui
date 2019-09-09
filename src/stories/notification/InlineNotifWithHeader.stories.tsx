@@ -1,85 +1,26 @@
+import { select, text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import React from "react";
-
 import { Button, NotificationTheme, Theme } from "../../components";
 import { InlineNotificationWithHeader } from "../../components/inlineNotificationWithHeader";
-import { CategoryName, wInfo } from "../utils";
+import { CategoryName } from "../utils";
 
 const lorem =
   "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam natus doloribus aperiam ipsum consectetur, accusamus laborum nam dolor error consequatur beatae quaerat doloremque placeat impedit illo cumque. Provident, eos aperiam.";
 
+const ThemeList: NotificationTheme[] = Object.keys(NotificationTheme).map(
+  k => NotificationTheme[k as keyof typeof NotificationTheme]
+);
+
 (storiesOf(CategoryName.Notification, module) as any).addWithJSX(
   "InlineNotificationWithHeader",
-  wInfo(``)(() => {
-    return (
-      <div>
-        <h1>InlineNotificationWithHeader</h1>
-        <p>
-          Essentially the same component as <code>InlineNotification</code>, but
-          with an extra header
-        </p>
-        <br />
-        <h5>Informational Type</h5>
-        <div style={{ padding: "10px" }}>
-          <InlineNotificationWithHeader
-            header="Normal Header"
-            text={"Very infomational thanks"}
-            theme={NotificationTheme.Informational}
-          />
-          <InlineNotificationWithHeader
-            header="Normal Header"
-            text={lorem}
-            theme={NotificationTheme.Informational}
-          />
-          <InlineNotificationWithHeader
-            header="Normal Header"
-            text={lorem + lorem}
-            theme={NotificationTheme.Informational}
-          />
-          <InlineNotificationWithHeader
-            header="A very very very very very very very very long header"
-            text={lorem}
-            theme={NotificationTheme.Informational}
-          />
-          <br />
-          <h5>Success Type</h5>
-          <InlineNotificationWithHeader
-            header="Success Header"
-            text={"Bleh"}
-            theme={NotificationTheme.Success}
-          />
-          <br />
-          <h5>Warning Type</h5>
-          <InlineNotificationWithHeader
-            header="Warning Header"
-            text={"Bleh"}
-            theme={NotificationTheme.Warning}
-          />
-          <br />
-          <h5>Error Type</h5>
-          <InlineNotificationWithHeader
-            header="Error Header"
-            text={"Bleh"}
-            theme={NotificationTheme.Error}
-          />
-          <br />
-          <h5>With ChildNode</h5>
-          <InlineNotificationWithHeader
-            header="Warning Header"
-            text="Bleh"
-            theme={NotificationTheme.Warning}
-            childNode={<Button theme={Theme.Orange} label="button" />}
-          />
-          <br />
-          <h5>foodShop-filled icon</h5>
-          <InlineNotificationWithHeader
-            header="foodShop-filled icon Header"
-            text="Bleh"
-            theme={NotificationTheme.Success}
-            icon="foodshop-filled"
-          />
-        </div>
-      </div>
-    );
-  })
+  () => (
+    <InlineNotificationWithHeader
+      header={text("header", "Normal Header")}
+      text={text("text", lorem)}
+      theme={select("theme", ThemeList, NotificationTheme.Informational)}
+      childNode={<Button theme={Theme.Orange} label="button" />}
+      icon="foodshop-filled"
+    />
+  )
 );

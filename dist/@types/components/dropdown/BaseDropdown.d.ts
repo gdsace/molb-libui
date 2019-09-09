@@ -1,15 +1,12 @@
-import React from "react";
+/// <reference types="react" />
 import { SelectComponentsConfig } from "react-select/lib/components";
 import { Props } from "react-select/lib/Select";
 import { Size } from "../EnumValues";
-import "./library.scss.nomangle";
+import "./library.scss";
 export declare const baseComponents: SelectComponentsConfig<any>;
-export interface IBaseDropdownProps<T> extends Props<T> {
+export declare type BaseDropdownProps<T> = Props<T> & {
     components?: SelectComponentsConfig<T>;
     styles?: any;
     size?: Size;
-}
-export declare class BaseDropdown<T> extends React.Component<IBaseDropdownProps<T>, {}> {
-    static defaultProps: Partial<IBaseDropdownProps<any>>;
-    render(): JSX.Element;
-}
+};
+export declare const BaseDropdown: <T extends {}>(props: BaseDropdownProps<T>) => JSX.Element;

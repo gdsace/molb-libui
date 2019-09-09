@@ -1,5 +1,4 @@
 import classnames from "classnames";
-import _ from "lodash";
 import { LocatedError } from "./constants";
 
 function getMediaQuery(mediaQueryPattern: string): boolean {

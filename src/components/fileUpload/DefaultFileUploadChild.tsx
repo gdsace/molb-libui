@@ -1,69 +1,67 @@
 import classNames from "classnames";
-import * as React from "react";
-
-import _ from "lodash";
-import { FileUploadState, IFileUploadProps } from ".";
+import React from "react";
 import { Icon } from "../icons";
 import { addLocatedErrorClassname, getFilenameByHttpHeaders } from "../utils";
+import styles from "./defaultChild.scss";
+import { FileUploadStatus, IFileUploadProps } from "./FileUpload";
 
-const styles = require("./defaultChild.scss");
+type UploadHandler = React.EventHandler<React.MouseEvent>;
 
 const getIcon = (
-  state?: FileUploadState,
-  onProgressIconClick?: (e: React.MouseEvent) => any,
-  onCompleteIconClick?: (e: React.MouseEvent) => any,
-  onDefaultIconClick?: (e: React.MouseEvent) => any
+  state?: FileUploadStatus,
+  onProgressIconClick?: UploadHandler,
+  onCompleteIconClick?: UploadHandler,
+  onDefaultIconClick?: UploadHandler
 ) => {
   const noop = (e: React.MouseEvent) => {
     e.preventDefault();
   };
 
-  const icons: { [k in FileUploadState]: string } = {
-    [FileUploadState.Uploading]: "progress",
-    [FileUploadState.Complete]: "delete",
-    [FileUploadState.Unstarted]: "upload",
-    [FileUploadState.Error]: "upload"
+  const icons: { [k in FileUploadStatus]: string } = {
+    [FileUploadStatus.Uploading]: "progress",
+    [FileUploadStatus.Complete]: "delete",
+    [FileUploadStatus.Unstarted]: "upload",
+    [FileUploadStatus.Error]: "upload"
   };
 
-  const onIconClickMap: { [k in FileUploadState]: any } = {
-    [FileUploadState.Uploading]: onProgressIconClick || noop,
-    [FileUploadState.Complete]: onCompleteIconClick || noop,
-    [FileUploadState.Unstarted]: onDefaultIconClick || noop,
-    [FileUploadState.Error]: onDefaultIconClick || noop
+  const onIconClickMap: { [k in FileUploadStatus]: UploadHandler } = {
+    [FileUploadStatus.Uploading]: onProgressIconClick || noop,
+    [FileUploadStatus.Complete]: onCompleteIconClick || noop,
+    [FileUploadStatus.Unstarted]: onDefaultIconClick || noop,
+    [FileUploadStatus.Error]: onDefaultIconClick || noop
   };
 
-  const onIconClick = onIconClickMap[state || FileUploadState.Unstarted];
+  const onIconClick = onIconClickMap[state || FileUploadStatus.Unstarted];
 
   return (
     <div onClick={onIconClick}>
       <Icon
         className={classNames(styles.icon, {
-          [styles.iconError]: state === FileUploadState.Error,
-          [styles.iconUploading]: state === FileUploadState.Uploading,
-          [styles.iconDelete]: state === FileUploadState.Complete,
+          [styles.iconError]: state === FileUploadStatus.Error,
+          [styles.iconUploading]: state === FileUploadStatus.Uploading,
+          [styles.iconDelete]: state === FileUploadStatus.Complete,
           [styles.iconClickThrough]: onIconClick === noop
         })}
-        type={icons[state || FileUploadState.Unstarted]}
+        type={icons[state || FileUploadStatus.Unstarted]}
       />
     </div>
   );
 };
 
-export interface IFileUploadChildProps
-  extends Pick<
-    IFileUploadProps,
-    | "document"
-    | "documentType"
-    | "error"
-    | "onDefaultIconClick"
-    | "onProgressIconClick"
-    | "baseUrl"
-    | "token"
-    | "linkDescription"
-  > {
-  uploadState?: FileUploadState;
+export type FileUploadChildProps = Pick<
+  IFileUploadProps,
+  | "document"
+  | "documentType"
+  | "error"
+  | "onDefaultIconClick"
+  | "onProgressIconClick"
+  | "baseUrl"
+  | "token"
+  | "linkDescription"
+> & {
+  uploadState?: FileUploadStatus;
   onCompleteIconClick?: (event: React.MouseEvent) => any;
-}
+};
 
 export const formatBytes = (bytes: number): string => {
   if (bytes < 1024) {
@@ -75,7 +73,7 @@ export const formatBytes = (bytes: number): string => {
   }
 };
 
-const downloadTemplateFile = (props: IFileUploadChildProps) => {
+const downloadTemplateFile = (props: FileUploadChildProps) => {
   const { documentType, baseUrl, token } = props;
 
   fetch(`${baseUrl}/api/document-types/${documentType!.code}/template`, {
@@ -116,20 +114,20 @@ const downloadTemplateFile = (props: IFileUploadChildProps) => {
 // * icon rotates
 // * drag and drop styling
 // * icon has a different onClick for each file upload states
-export const DefaultFileUploadChild = (props: IFileUploadChildProps) => {
+export const DefaultFileUploadChild = (props: FileUploadChildProps) => {
   const showDescription = !(
-    props.uploadState === FileUploadState.Complete && props.document
+    props.uploadState === FileUploadStatus.Complete && props.document
   );
-  const showError = props.uploadState === FileUploadState.Error && props.error;
+  const showError = props.uploadState === FileUploadStatus.Error && props.error;
 
   return (
     <div
       className={classNames(styles.root, {
         [styles.hasFile]:
-          props.uploadState === FileUploadState.Complete ||
-          props.uploadState === FileUploadState.Uploading,
-        [styles.hasError]: props.uploadState === FileUploadState.Error,
-        [styles.uploading]: props.uploadState === FileUploadState.Uploading
+          props.uploadState === FileUploadStatus.Complete ||
+          props.uploadState === FileUploadStatus.Uploading,
+        [styles.hasError]: props.uploadState === FileUploadStatus.Error,
+        [styles.uploading]: props.uploadState === FileUploadStatus.Uploading
       })}
       data-scrollpoint={true}
     >

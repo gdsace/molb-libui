@@ -1,19 +1,21 @@
-import React from "react";
+import { Component, ReactNode, ReactNodeArray } from "react";
 import { ExpandablePanelTheme } from "../EnumValues";
-export interface IExpandablePanelProps {
-    collapsed?: boolean;
-    onPanelClick?: (collapsed: boolean) => any;
-    title?: string | React.ReactNode;
+export declare type ExpandablePanelProps = {
     theme: ExpandablePanelTheme;
-    defaultDisplay?: number;
-    subTitle?: string | React.ReactNode;
-    children?: React.ReactNodeArray | React.ReactNode;
-}
-export interface IExpandablePanelState {
+    defaultDisplay: number;
+    collapsed?: boolean;
+    title?: ReactNode;
+    subTitle?: ReactNode;
+    children?: ReactNodeArray;
+    onPanelClick?: (collapsed: boolean) => void;
+};
+export declare type ExpandablePanelState = {
     collapsed: boolean;
-}
-export declare class ExpandablePanel extends React.Component<IExpandablePanelProps, IExpandablePanelState> {
-    constructor(props: IExpandablePanelProps);
+};
+export declare class ExpandablePanel extends Component<ExpandablePanelProps, ExpandablePanelState> {
+    state: {
+        collapsed: boolean;
+    };
     render(): JSX.Element;
-    private onPanelClick;
+    onPanelClick: () => void;
 }

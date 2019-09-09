@@ -2,7 +2,7 @@ import { mount } from "enzyme";
 import * as React from "react";
 
 import { DefaultFileUploadChild, formatBytes } from "../DefaultFileUploadChild";
-import { FileUploadState } from "../FileUpload";
+import { FileUploadStatus } from "../FileUpload";
 import { documentTypes } from "./__mocks__/documentTypes";
 
 describe("DefaultFileUploadChild", () => {
@@ -32,7 +32,7 @@ describe("DefaultFileUploadChild", () => {
     const wrapper = mount(
       <DefaultFileUploadChild
         documentType={documentTypes.required}
-        uploadState={FileUploadState.Complete}
+        uploadState={FileUploadStatus.Complete}
         document={{ name: "bar", fileSize: 100 }}
         baseUrl=""
         token=""
@@ -64,7 +64,7 @@ describe("DefaultFileUploadChild", () => {
     const wrapper = mount(
       <DefaultFileUploadChild
         documentType={documentTypes.optional}
-        uploadState={FileUploadState.Error}
+        uploadState={FileUploadStatus.Error}
         error="something wrong"
         baseUrl=""
         token=""

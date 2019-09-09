@@ -1,9 +1,8 @@
 import "react-toastify/dist/ReactToastify.css";
 import { NotificationTheme } from "../EnumValues";
-export { ToastContainer } from "react-toastify";
-export interface INotificationProps {
+export declare type NotificationProps = {
     header: string;
-    theme: NotificationTheme;
     text: string;
-}
-export declare const notification: (option: INotificationProps) => void;
+    theme: NotificationTheme;
+};
+export declare const notification: (options: NotificationProps) => void;

@@ -73,7 +73,7 @@ module.exports = {
   moduleNameMapper: {
     "@cfg/(.*)": "<rootDir>/config/$1",
     "@test/(.*)": "<rootDir>/test/$1",
-    "\\.(scss|sass|css|less|nomangle)$": "identity-obj-proxy"
+    "\\.(scss|sass|css|less)$": "identity-obj-proxy"
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader

@@ -1,77 +1,66 @@
 import ClassNames from "classnames/bind";
-import { isUndefined, map } from "lodash";
-import React from "react";
-
+import React, { Component, ReactNode, ReactNodeArray } from "react";
 import { ExpandablePanelTheme } from "../EnumValues";
 import { Icon } from "../icons";
+import styles from "./ExpandablePanel.scss";
 
-const styles = require("./ExpandablePanel.scss");
 const cx = ClassNames.bind(styles).default || ClassNames.bind(styles);
 
-export interface IExpandablePanelProps {
-  collapsed?: boolean;
-  onPanelClick?: (collapsed: boolean) => any;
-  title?: string | React.ReactNode;
+export type ExpandablePanelProps = {
   theme: ExpandablePanelTheme;
-  defaultDisplay?: number;
-  subTitle?: string | React.ReactNode;
-  children?: React.ReactNodeArray | React.ReactNode;
-}
-
-export interface IExpandablePanelState {
-  collapsed: boolean;
-}
-
-const themeClassMapper = {
-  [ExpandablePanelTheme.Standard]: "standard",
-  [ExpandablePanelTheme.Large]: "large"
+  defaultDisplay: number;
+  collapsed?: boolean;
+  title?: ReactNode;
+  subTitle?: ReactNode;
+  children?: ReactNodeArray;
+  onPanelClick?: (collapsed: boolean) => void;
 };
 
-export class ExpandablePanel extends React.Component<
-  IExpandablePanelProps,
-  IExpandablePanelState
+export type ExpandablePanelState = {
+  collapsed: boolean;
+};
+export class ExpandablePanel extends Component<
+  ExpandablePanelProps,
+  ExpandablePanelState
 > {
-  public constructor(props: IExpandablePanelProps) {
-    super(props);
-    this.state = {
-      collapsed: true
-    };
-  }
+  state = {
+    collapsed: true
+  };
 
-  public render() {
-    const collapsed = isUndefined(this.props.collapsed)
-      ? this.state.collapsed
-      : this.props.collapsed;
+  render() {
     const { title, theme, subTitle, defaultDisplay } = this.props;
+    const collapsed =
+      this.props.collapsed === undefined
+        ? this.state.collapsed
+        : this.props.collapsed;
     const children = React.Children.toArray(this.props.children);
+    const iconType = collapsed ? "dropdown" : "up";
+    const isShowSubTitle =
+      defaultDisplay && children && children.length > defaultDisplay;
+    const isShowChildren = defaultDisplay && collapsed && children;
+
     return (
-      <div className={cx("expandablePanel", themeClassMapper[theme])}>
+      <div className={cx("expandablePanel", theme)}>
         <div className={cx("panelHeader")}>
           <div className={cx("panelTitle")}>{title}</div>
-          {defaultDisplay && children && children.length > defaultDisplay && (
+          {isShowSubTitle && (
             <div className={cx("subTitle")} onClick={this.onPanelClick}>
               <span>{subTitle}</span>
-              <Icon
-                type={collapsed ? "dropdown" : "up"}
-                className={cx("collapseIcon")}
-                size="20"
-              />
+              <Icon type={iconType} className={cx("collapseIcon")} size="20" />
             </div>
           )}
         </div>
-        {collapsed &&
-          children &&
-          defaultDisplay &&
-          map(children, (item: any, index: number) =>
-            index < defaultDisplay ? item : null
+        {isShowChildren &&
+          children.map((item, index: number) =>
+            defaultDisplay && index < defaultDisplay ? item : null
           )}
         {!collapsed && this.props.children}
       </div>
     );
   }
 
-  private onPanelClick = () => {
-    if (isUndefined(this.props.collapsed)) {
+  onPanelClick = () => {
+    if (this.props.collapsed === undefined) {
       this.setState({
         collapsed: !this.state.collapsed
       });

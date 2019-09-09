@@ -5,23 +5,15 @@ import { SelectComponentsConfig } from "react-select/lib/components";
 import { Props } from "react-select/lib/Select";
 import { Size } from "../EnumValues";
 import { Icon } from "../icons/Icon";
+import styles from "./dropdownStyle.scss";
+import "./library.scss";
 
-import "./library.scss.nomangle";
-
-const styles = require("./dropdownStyle.scss");
-
-// Use custom components so we can assign our own styles via CSS modules
-// Ignore usages of any since we're just doing thin wrappers over react-select
 const Menu = (props: any) => (
-  <components.Menu className={styles.menu} {...props}>
-    {props.children}
-  </components.Menu>
+  <components.Menu className={styles.menu} {...props} />
 );
 
 const Control = (props: any) => (
-  <components.Control className={styles.dropdownControl} {...props}>
-    {props.children}
-  </components.Control>
+  <components.Control className={styles.dropdownControl} {...props} />
 );
 
 const DropdownIndicator = (props: any) =>
@@ -35,33 +27,23 @@ const DropdownIndicator = (props: any) =>
   );
 
 const MenuList = (props: any) => (
-  <components.MenuList className={styles.menuList} {...props}>
-    {props.children}
-  </components.MenuList>
+  <components.MenuList className={styles.menuList} {...props} />
 );
 
 const Option = (props: any) => (
-  <components.Option className={styles.option} {...props}>
-    {props.children}
-  </components.Option>
+  <components.Option className={styles.option} {...props} />
 );
 
 const Placeholder = (props: any) => (
-  <components.Placeholder className={styles.placeholder} {...props}>
-    {props.children}
-  </components.Placeholder>
+  <components.Placeholder className={styles.placeholder} {...props} />
 );
 
 const ValueContainer = (props: any) => (
-  <components.ValueContainer className={styles.valueContainer} {...props}>
-    {props.children}
-  </components.ValueContainer>
+  <components.ValueContainer className={styles.valueContainer} {...props} />
 );
 
 const SingleValue = (props: any) => (
-  <components.SingleValue className={styles.singleValue} {...props}>
-    {props.children}
-  </components.SingleValue>
+  <components.SingleValue className={styles.singleValue} {...props} />
 );
 
 export const baseComponents: SelectComponentsConfig<any> = {
@@ -75,39 +57,20 @@ export const baseComponents: SelectComponentsConfig<any> = {
   ValueContainer
 };
 
-export interface IBaseDropdownProps<T> extends Props<T> {
+export type BaseDropdownProps<T> = Props<T> & {
   components?: SelectComponentsConfig<T>;
   styles?: any;
   size?: Size;
-}
+};
 
-export class BaseDropdown<T> extends React.Component<
-  IBaseDropdownProps<T>,
-  {}
-> {
-  public static defaultProps: Partial<IBaseDropdownProps<any>> = {
-    components: {}
-  };
-
-  public render() {
-    const customComponents = {
-      ...baseComponents,
-      ...this.props.components
-    };
-    return (
-      <Select
-        className={classNames(
-          styles.dropdown,
-          this.props.size,
-          this.props.className
-        )}
-        isOptionDisabled={this.props.isOptionDisabled}
-        classNamePrefix="dropdown"
-        components={customComponents}
-        styles={this.props.styles || {}}
-        isSearchable={this.props.isSearchable || false}
-        {...this.props}
-      />
-    );
-  }
-}
+export const BaseDropdown = <T extends {}>(props: BaseDropdownProps<T>) => (
+  <Select
+    className={classNames(styles.dropdown, props.size, props.className)}
+    isOptionDisabled={props.isOptionDisabled}
+    classNamePrefix="dropdown"
+    components={{ ...baseComponents, ...components }}
+    styles={props.styles || {}}
+    isSearchable={props.isSearchable || false}
+    {...props}
+  />
+);
