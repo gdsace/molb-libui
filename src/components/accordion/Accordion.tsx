@@ -1,61 +1,43 @@
-import ClassNames from "classnames/bind";
-import { isUndefined } from "lodash";
-import React from "react";
-
+import ClassNames from "classnames/bind"; // TODO Consider Styled-Component as replacement
+import React, { Component, ReactNode } from "react";
 import { AccordionTheme } from "../EnumValues";
 import { Icon } from "../icons";
+import styles from "./accordion.scss";
 
-const styles = require("./accordion.scss");
 const cx = ClassNames.bind(styles).default || ClassNames.bind(styles);
-
-export interface IAccordionProps {
-  collapsed?: boolean;
-  onPanelClick?: (collapsed: boolean) => any;
-  header?: string | React.ReactNode;
-  subHeader?: string[];
-  content?: string | React.ReactNode;
+export type AccordionProps = {
   theme: AccordionTheme;
+  collapsed?: boolean;
+  header?: ReactNode;
+  subHeader?: string[];
+  content?: ReactNode;
   defaultCollapsed?: boolean;
   displayMode?: boolean;
-}
-
-export interface IAccordionState {
-  collapsed: boolean;
-}
-
-const themeClassMapper = {
-  [AccordionTheme.Standard]: "standard",
-  [AccordionTheme.Large]: "large",
-  [AccordionTheme.Wrapped]: "wrapped",
-  [AccordionTheme.Colored]: "colored"
+  onPanelClick?: (collapsed: boolean) => void;
 };
 
-export class Accordion extends React.Component<
-  IAccordionProps,
-  IAccordionState
-> {
-  public constructor(props: IAccordionProps) {
-    super(props);
-    this.state = {
-      collapsed: props.defaultCollapsed ? props.defaultCollapsed : false
-    };
-  }
+export type AccordionState = {
+  collapsed: boolean;
+};
 
-  public render() {
+export class Accordion extends Component<AccordionProps, AccordionState> {
+  state = {
+    collapsed: this.props.defaultCollapsed ? this.props.defaultCollapsed : false
+  };
+
+  render() {
     const collapsed = this.getCollapsedStatus();
+    const iconType = collapsed ? "dropdown" : "up";
     const { header, content, theme, subHeader, displayMode } = this.props;
+
     return (
-      <div className={cx("accordion", themeClassMapper[theme])}>
+      <div className={cx("accordion", theme)}>
         <div className={cx("panelHeader")} onClick={this.onPanelClick}>
           <span className={cx("panelTitle")}>{header}</span>
           {!displayMode && (
             <div className={cx("subHeaderWithIcon")}>
               {this.renderSubHeader(subHeader, collapsed)}
-              {collapsed ? (
-                <Icon type={"dropdown"} className={cx("collapseIcon")} />
-              ) : (
-                <Icon type={"up"} className={cx("collapseIcon")} />
-              )}
+              <Icon type={iconType} className={cx("collapseIcon")} />
             </div>
           )}
         </div>
@@ -64,18 +46,18 @@ export class Accordion extends React.Component<
     );
   }
 
-  private getCollapsedStatus = () => {
+  getCollapsedStatus = () => {
     if (this.props.displayMode) {
       return false;
-    } else if (isUndefined(this.props.collapsed)) {
+    } else if (this.props.collapsed === undefined) {
       return this.state.collapsed;
     } else {
       return this.props.collapsed;
     }
   };
 
-  private renderSubHeader = (
-    subHeader: IAccordionProps["subHeader"],
+  renderSubHeader = (
+    subHeader: AccordionProps["subHeader"],
     collapsed: boolean
   ) => (
     <span className={cx("subHeader")}>
@@ -88,8 +70,8 @@ export class Accordion extends React.Component<
     </span>
   );
 
-  private onPanelClick = () => {
-    if (isUndefined(this.props.collapsed)) {
+  onPanelClick = () => {
+    if (this.props.collapsed === undefined) {
       this.setState({
         collapsed: !this.state.collapsed
       });

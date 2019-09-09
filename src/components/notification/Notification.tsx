@@ -1,39 +1,32 @@
 import classnames from "classnames";
-import * as React from "react";
+import React from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { NotificationTheme } from "../EnumValues";
 import { Icon } from "../icons";
 import { forPhoneOnlyMediaQuery } from "../utils";
+import styles from "./notification.scss";
 
-export { ToastContainer } from "react-toastify";
-
-const styles = require("./notification.scss");
-
-export interface INotificationProps {
+export type NotificationProps = {
   header: string;
-  theme: NotificationTheme;
   text: string;
-}
-
-// if we need to custom the close button, we have to pass
-// a component with a closeToast function, which provided
-// by the react-toastify library. so we will miss closeToast
-// in the closebutton props check. So use ts-ignore.
-// @ts-ignore
-const CloseButton = ({ closeToast }) => {
-  return (
-    <div onClick={closeToast} className={styles.close}>
-      <Icon type="close" size={"16"} />
-    </div>
-  );
+  theme: NotificationTheme;
 };
 
-const getContent = (
-  header: string,
-  text: string,
-  theme: NotificationTheme
+type NotifyCloseBtnProps = {
+  closeToast?: (event: React.MouseEvent<HTMLElement>) => void;
+};
+
+const CloseButton = (props: NotifyCloseBtnProps) => (
+  <div onClick={props.closeToast} className={styles.close}>
+    <Icon type="close" size={"16"} />
+  </div>
+);
+
+const notificationContent = (
+  props: NotificationProps
 ): React.ReactElement<any> => {
+  const { header, text, theme } = props;
   const notificationContentContainerClassname = classnames(
     styles.notificationContentContainer,
     styles[`${theme}`]
@@ -60,11 +53,11 @@ const getContent = (
   );
 };
 
-export const notification = (option: INotificationProps) => {
-  const content = getContent(option.header, option.text, option.theme);
+export const notification = (options: NotificationProps) => {
+  const content = notificationContent(options);
   const toastContainerClassname = classnames(
     styles.toastContainer,
-    styles[`${option.theme}`]
+    styles[`${options.theme}`]
   );
   const responsiveForMobile = forPhoneOnlyMediaQuery();
 
@@ -77,8 +70,6 @@ export const notification = (option: INotificationProps) => {
     draggable: true,
     autoClose: 5000,
     className: toastContainerClassname,
-    // the same reason with above.
-    // @ts-ignore
     closeButton: <CloseButton />
   });
 };

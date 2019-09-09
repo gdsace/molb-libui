@@ -1,81 +1,76 @@
-import qs from "qs";
-import * as React from "react";
-
 import classNames from "classnames";
+import qs from "qs";
+import React from "react";
 import Dropzone, { DropzoneProps } from "react-dropzone";
 import { IDocument, IDocumentType } from "../types";
 import { DefaultFileUploadChild } from "./DefaultFileUploadChild";
+import styles from "./styles.scss";
 import { SubjectType } from "./subjectTypes";
 
-const styles = require("./styles.scss");
-
-export interface IFileUploadProps extends DropzoneProps {
+export type IFileUploadProps = DropzoneProps & {
   baseUrl: string;
+  subjectId: string;
+  token: string;
   document?: Partial<IDocument>;
   documentType: IDocumentType;
   error?: string;
+  linkDescription?: string;
+  onSuccess?: (event: any) => any;
+  onError?: (event: any) => any;
   onCompleteIconClick?: (
     event: React.MouseEvent,
     document: Partial<IDocument>
   ) => any;
   onDefaultIconClick?: (event: React.MouseEvent) => any;
-  onError?: (event: any) => any;
   onProgressIconClick?: (event: React.MouseEvent) => any;
-  onSuccess?: (event: any) => any;
-  subjectId: string;
-  token: string;
   validateFile?: (file: File, documentTypeCode: string) => any;
-  linkDescription?: string;
-}
+};
 
-export interface IFileUploadState {
-  // Local document state: incomplete uploads need to show filename as well
+export type FileUploadState = {
   fileInfo?: Partial<IDocument>;
-  uploadState: FileUploadState;
-}
+  uploadState: FileUploadStatus;
+};
 
-export enum FileUploadState {
+export enum FileUploadStatus {
   Complete = "complete",
   Error = "error",
   Unstarted = "unstarted",
   Uploading = "uploading"
 }
 
-export const COMMON_ALLOWED_EXTENSIONS = [".pdf", ".png", ".jpg", ".jpeg"].join(
-  ","
-);
+export const COMMON_ALLOWED_EXTENSIONS = ".pdf,.png,.jpg,.jpeg";
+
+const getInitialState = (props: IFileUploadProps): FileUploadState => {
+  let uploadState = FileUploadStatus.Unstarted;
+  if (props.document && props.document.id != null) {
+    uploadState = FileUploadStatus.Complete;
+  }
+  if (props.error) {
+    uploadState = FileUploadStatus.Error;
+  }
+
+  return {
+    uploadState,
+    fileInfo: props.document
+  };
+};
 
 export class FileUpload extends React.Component<
   IFileUploadProps,
-  IFileUploadState
+  FileUploadState
 > {
-  public constructor(props: IFileUploadProps) {
-    super(props);
+  state = getInitialState(this.props);
 
-    let uploadState = FileUploadState.Unstarted;
-    if (props.document && props.document.id != null) {
-      uploadState = FileUploadState.Complete;
-    }
-    if (props.error) {
-      uploadState = FileUploadState.Error;
-    }
-
-    this.state = {
-      uploadState,
-      fileInfo: props.document
-    };
-  }
-
-  public componentWillReceiveProps(nextProps: IFileUploadProps) {
+  componentWillReceiveProps(nextProps: IFileUploadProps) {
     // if someone clear existing error, reset status
     if (
       this.props.error &&
       !nextProps.error &&
-      this.state.uploadState === FileUploadState.Error
+      this.state.uploadState === FileUploadStatus.Error
     ) {
       this.setState({
         fileInfo: undefined,
-        uploadState: FileUploadState.Unstarted
+        uploadState: FileUploadStatus.Unstarted
       });
     }
 
@@ -84,16 +79,16 @@ export class FileUpload extends React.Component<
     if (
       !this.props.error &&
       nextProps.error &&
-      this.state.uploadState === FileUploadState.Unstarted
+      this.state.uploadState === FileUploadStatus.Unstarted
     ) {
       this.setState({
         fileInfo: undefined,
-        uploadState: FileUploadState.Error
+        uploadState: FileUploadStatus.Error
       });
     }
   }
 
-  public render() {
+  render() {
     const {
       baseUrl,
       documentType,
@@ -115,8 +110,8 @@ export class FileUpload extends React.Component<
     const { uploadState, fileInfo } = this.state;
 
     const dropzoneClassName = classNames(styles.default, {
-      [styles.dropReject]: uploadState === FileUploadState.Error,
-      [styles.uploading]: uploadState === FileUploadState.Uploading
+      [styles.dropReject]: uploadState === FileUploadStatus.Error,
+      [styles.uploading]: uploadState === FileUploadStatus.Uploading
     });
 
     return (
@@ -128,7 +123,7 @@ export class FileUpload extends React.Component<
         onDropAccepted={(files: File[]) => {
           // Does not support multiple files now, takes the last
           files.forEach(f => {
-            this.setState({ uploadState: FileUploadState.Uploading });
+            this.setState({ uploadState: FileUploadStatus.Uploading });
             this.uploadFile(f);
           });
         }}
@@ -136,7 +131,7 @@ export class FileUpload extends React.Component<
           if (onError) {
             onError(err);
           }
-          this.setState({ uploadState: FileUploadState.Error });
+          this.setState({ uploadState: FileUploadStatus.Error });
         }}
         {...forDropzone}
       >
@@ -151,7 +146,7 @@ export class FileUpload extends React.Component<
 
               this.setState({
                 fileInfo: undefined,
-                uploadState: FileUploadState.Unstarted
+                uploadState: FileUploadStatus.Unstarted
               });
 
               if (onCompleteIconClick && document) {
@@ -167,7 +162,7 @@ export class FileUpload extends React.Component<
   // This is kept here so consumers of the file upload component do not have to keep track of
   // file upload state.
   // Has to be replaced with xhr.upload.onprogress if progress is wanted
-  private uploadFile(file: File) {
+  uploadFile(file: File) {
     const {
       documentType,
       subjectId,
@@ -182,7 +177,7 @@ export class FileUpload extends React.Component<
       if (onError) {
         onError({ error: errorMsg });
       }
-      this.setState({ uploadState: FileUploadState.Error });
+      this.setState({ uploadState: FileUploadStatus.Error });
       return;
     }
     const query: { [key: string]: any } = {
@@ -217,7 +212,7 @@ export class FileUpload extends React.Component<
           onSuccess(res);
         }
         this.setState({
-          uploadState: FileUploadState.Complete,
+          uploadState: FileUploadStatus.Complete,
           fileInfo: {
             name: file.name,
             fileSize: file.size
@@ -228,7 +223,7 @@ export class FileUpload extends React.Component<
         if (onError) {
           onError({ error: err });
         }
-        this.setState({ uploadState: FileUploadState.Error });
+        this.setState({ uploadState: FileUploadStatus.Error });
       });
   }
 }

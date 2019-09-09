@@ -1,96 +1,31 @@
-import React from "react";
-
+import { boolean, select, text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
-
+import React from "react";
 import { AppAlertAlignmentTheme, AppAlertTheme } from "../../components";
 import { AppAlert } from "../../components/appAlert";
-import { CategoryName, wInfo } from "../utils";
+import { CategoryName } from "../utils";
+
+const AppAlertAlignmentThemeList: AppAlertAlignmentTheme[] = Object.keys(
+  AppAlertAlignmentTheme
+).map(k => AppAlertAlignmentTheme[k as keyof typeof AppAlertAlignmentTheme]);
+
+const AppAlertThemeList: AppAlertTheme[] = Object.keys(AppAlertTheme).map(
+  k => AppAlertTheme[k as keyof typeof AppAlertTheme]
+);
 
 (storiesOf(CategoryName.Notification, module) as any).addWithJSX(
   "App-level Alert",
-  wInfo(``)(() => {
-    return (
-      <div>
-        <h1>AppAlert</h1>
-        <br />
-        <h5>Alignment: left</h5>
-        <div>
-          <AppAlert
-            text={"Normal Notification"}
-            theme={AppAlertTheme.Informational}
-          />
-          <AppAlert
-            text={"Warning Notification"}
-            theme={AppAlertTheme.Warning}
-          />
-          <AppAlert text={"Error Notification"} theme={AppAlertTheme.Error} />
-          <AppAlert
-            text={
-              "Normal Notification with a very very very very very very very very long text."
-            }
-            theme={AppAlertTheme.Informational}
-          />
-          <AppAlert
-            text={"Warning Notification with a bold text."}
-            textToBold={"bold"}
-            theme={AppAlertTheme.Warning}
-          />
-        </div>
-        <br />
-        <h5>Alignment: center</h5>
-        <div>
-          <AppAlert
-            text={"Normal Notification"}
-            theme={AppAlertTheme.Informational}
-            alignment={AppAlertAlignmentTheme.CENTER}
-          />
-          <AppAlert
-            text={"Warning Notification"}
-            theme={AppAlertTheme.Warning}
-            alignment={AppAlertAlignmentTheme.CENTER}
-          />
-          <AppAlert
-            text={"Error Notification"}
-            theme={AppAlertTheme.Error}
-            alignment={AppAlertAlignmentTheme.CENTER}
-          />
-          <AppAlert
-            text={
-              "Normal Notification with a very very very very very very very very long text."
-            }
-            theme={AppAlertTheme.Informational}
-            alignment={AppAlertAlignmentTheme.CENTER}
-          />
-        </div>
-        <br />
-        <h5>showIcon: false</h5>
-        <div>
-          <AppAlert
-            text="Normal Notification"
-            theme={AppAlertTheme.Informational}
-            alignment={AppAlertAlignmentTheme.CENTER}
-            showIcon={false}
-          />
-          <AppAlert
-            text="Warning Notification"
-            theme={AppAlertTheme.Warning}
-            alignment={AppAlertAlignmentTheme.CENTER}
-            showIcon={false}
-          />
-          <AppAlert
-            text="Error Notification"
-            theme={AppAlertTheme.Error}
-            alignment={AppAlertAlignmentTheme.CENTER}
-            showIcon={false}
-          />
-          <AppAlert
-            text="Normal Notification with a very very very very very very very very long text."
-            theme={AppAlertTheme.Informational}
-            alignment={AppAlertAlignmentTheme.CENTER}
-            showIcon={false}
-          />
-        </div>
-      </div>
-    );
-  })
+  () => (
+    <AppAlert
+      text={text("text", "Notification with a bold text.")}
+      textToBold={text("textToBold", "bold")}
+      theme={select("theme", AppAlertThemeList, AppAlertTheme.Informational)}
+      alignment={select(
+        "alignment",
+        AppAlertAlignmentThemeList,
+        AppAlertAlignmentTheme.LEFT
+      )}
+      showIcon={boolean("showIcon", true)}
+    />
+  )
 );

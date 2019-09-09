@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   configure
 } from "@storybook/react";
@@ -7,9 +8,14 @@ import {
 } from "@storybook/react";
 import JSXAddon from "storybook-addon-jsx";
 import {
-  withKnobs,
-  select
+  withKnobs
 } from "@storybook/addon-knobs/react";
+
+const CenterDecorator = (storyFn) => (
+  <div style={{padding: '20px'}}>{storyFn()}</div>
+);
+
+addDecorator(CenterDecorator);
 addDecorator(withKnobs);
 setAddon(JSXAddon);
 

@@ -1,61 +1,34 @@
 import classNames from "classnames";
-import * as React from "react";
+import React from "react";
 import { AppAlertAlignmentTheme, AppAlertTheme } from "../EnumValues";
 import { Icon } from "../icons";
 import { addLocatedErrorClassname } from "../utils";
+import style from "./appAlert.scss";
 
-const style = require("./appAlert.scss");
-
-interface IAppAlertProps {
+type AppAlertProps = {
   text: string;
   textToBold?: string;
   theme: AppAlertTheme;
   alignment?: AppAlertAlignmentTheme;
   showIcon?: boolean;
-}
+};
 
-export class AppAlert extends React.Component<IAppAlertProps, {}> {
-  public static defaultProps: Partial<IAppAlertProps> = {
-    alignment: AppAlertAlignmentTheme.LEFT,
-    showIcon: true
+export const AppAlert = (props: AppAlertProps) => {
+  const { theme, text, textToBold, alignment, showIcon } = props;
+
+  const iconType = {
+    [AppAlertTheme.Error]: "notification-error",
+    [AppAlertTheme.Warning]: "alert",
+    [AppAlertTheme.Informational]: "informational"
   };
 
-  public render() {
-    const { theme, text, textToBold, alignment, showIcon } = this.props;
+  const appAlertClassName = classNames(style.appAlert, style[`${alignment}`], {
+    [addLocatedErrorClassname("")]: theme === AppAlertTheme.Error
+  });
 
-    const iconType = {
-      [AppAlertTheme.Error]: "notification-error",
-      [AppAlertTheme.Warning]: "alert",
-      [AppAlertTheme.Informational]: "informational"
-    };
-
-    const appAlertClassName = classNames(
-      style.appAlert,
-      style[`${alignment}`],
-      {
-        [addLocatedErrorClassname("")]: theme === AppAlertTheme.Error
-      }
-    );
-
-    return (
-      <div className={style[`${theme}`]}>
-        <div className={appAlertClassName}>
-          {showIcon && (
-            <Icon
-              className={style.appAlertIcon}
-              type={iconType[theme]}
-              size="24"
-            />
-          )}
-          {this.renderText(text, textToBold)}
-        </div>
-      </div>
-    );
-  }
-
-  private renderText(mainText: string, textToBold?: string) {
+  const renderText = () => {
     if (textToBold) {
-      const splitText = mainText.split(new RegExp(`(${textToBold})`, "gi"));
+      const splitText = text.split(new RegExp(`(${textToBold})`, "gi"));
       return (
         <div className={style.appAlertText}>
           {splitText.map((part, i) =>
@@ -70,6 +43,26 @@ export class AppAlert extends React.Component<IAppAlertProps, {}> {
         </div>
       );
     }
-    return <div className={style.appAlertText}>{mainText}</div>;
-  }
-}
+    return <div className={style.appAlertText}>{text}</div>;
+  };
+
+  return (
+    <div className={style[`${theme}`]}>
+      <div className={appAlertClassName}>
+        {showIcon && (
+          <Icon
+            className={style.appAlertIcon}
+            type={iconType[theme]}
+            size="24"
+          />
+        )}
+        {renderText()}
+      </div>
+    </div>
+  );
+};
+
+AppAlert.defaultProps = {
+  alignment: AppAlertAlignmentTheme.LEFT,
+  showIcon: true
+};

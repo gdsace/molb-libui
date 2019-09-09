@@ -1,8 +1,9 @@
-import React from "react";
+/// <reference types="react" />
 import { Props } from "react-select/lib/Select";
 import { ValueType } from "react-select/lib/types";
 import { Size } from "../EnumValues";
-interface IMultiSelectProps<T> extends Props<T> {
+declare type MultiSelectProps<T> = Props<T> & {
+    label?: string;
     size?: Size;
     error?: string;
     placeholder?: string;
@@ -10,11 +11,11 @@ interface IMultiSelectProps<T> extends Props<T> {
     options: T[];
     onChange?: (data: ValueType<T>) => void;
     onFocus?: () => void;
-}
-export declare class MultiSelect<T> extends React.Component<IMultiSelectProps<T>, {}> {
-    static defaultProps: {
+};
+export declare const MultiSelect: {
+    <T extends {}>(props: MultiSelectProps<T>): JSX.Element;
+    defaultProps: {
         selectedValue: never[];
     };
-    render(): JSX.Element;
-}
+};
 export {};

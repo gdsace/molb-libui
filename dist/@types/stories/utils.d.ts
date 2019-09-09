@@ -40,5 +40,6 @@ export declare enum CategoryName {
     Tooltips = "Tooltips",
     SelectionControls = "Selection-Controls",
     Accordion = "Accordion",
+    FileUpload = "FileUpload",
     Others = "Others"
 }

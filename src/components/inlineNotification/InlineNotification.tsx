@@ -6,12 +6,12 @@ import { addLocatedErrorClassname } from "../utils";
 
 const style = require("./inlineNotification.scss");
 
-interface IInlineNotificationProps {
+type InlineNotificationProps = {
   text: string;
   theme: NotificationTheme;
-}
+};
 
-export const InlineNotification = (props: IInlineNotificationProps) => {
+export const InlineNotification = (props: InlineNotificationProps) => {
   const { theme, text } = props;
 
   const iconType = {
