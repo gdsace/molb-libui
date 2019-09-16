@@ -16,6 +16,7 @@ export interface ISubFormSectionProps {
   theme?: SubFormSectionTheme;
   isCollapsible?: boolean;
   tooltip?: string;
+  isLoading?: boolean;
 }
 
 interface ISubFormSectionState {
@@ -70,6 +71,15 @@ export class SubFormSection extends React.Component<
                       >
                         <div>{this.props.tooltip}</div>
                       </Tooltips>
+                    </div>
+                  )}
+                  {!!this.props.isLoading && (
+                    <div className={styles.iconContainer}>
+                      <Icon
+                        className={styles.loading}
+                        type="progress"
+                        size="16"
+                      />
                     </div>
                   )}
                 </div>

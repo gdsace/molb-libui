@@ -10,6 +10,7 @@ export interface ISubFormSectionProps {
     theme?: SubFormSectionTheme;
     isCollapsible?: boolean;
     tooltip?: string;
+    isLoading?: boolean;
 }
 interface ISubFormSectionState {
     isCollapsed: boolean;
