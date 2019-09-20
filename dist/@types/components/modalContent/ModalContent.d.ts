@@ -6,9 +6,11 @@ export interface IModalContentProps {
     notification?: string | JSX.Element;
     leftButtonLabel?: string;
     leftButtonOnClick?: any;
+    isLeftBtnLoading?: boolean;
     leftButtonTheme?: Theme;
     rightButtonLabel?: string;
     rightButtonOnClick?: any;
+    isRightBtnLoading?: boolean;
     rightButtonTheme?: Theme;
 }
 export declare class ModalContent extends React.Component<IModalContentProps, {}> {

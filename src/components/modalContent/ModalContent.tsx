@@ -10,9 +10,11 @@ export interface IModalContentProps {
   notification?: string | JSX.Element;
   leftButtonLabel?: string;
   leftButtonOnClick?: any;
+  isLeftBtnLoading?: boolean;
   leftButtonTheme?: Theme;
   rightButtonLabel?: string;
   rightButtonOnClick?: any;
+  isRightBtnLoading?: boolean;
   rightButtonTheme?: Theme;
 }
 
@@ -37,6 +39,7 @@ export class ModalContent extends React.Component<IModalContentProps, {}> {
                 onClick={this.props.leftButtonOnClick}
                 size={Size.Large}
                 theme={this.props.leftButtonTheme || Theme.Ghost}
+                loading={this.props.isLeftBtnLoading}
               />
             )}
             {this.props.rightButtonLabel && (
@@ -46,6 +49,7 @@ export class ModalContent extends React.Component<IModalContentProps, {}> {
                 onClick={this.props.rightButtonOnClick}
                 size={Size.Large}
                 theme={this.props.rightButtonTheme || Theme.Primary}
+                loading={this.props.isRightBtnLoading}
               />
             )}
           </div>
