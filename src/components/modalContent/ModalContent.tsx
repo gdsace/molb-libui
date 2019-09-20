@@ -11,9 +11,11 @@ export interface IModalContentProps {
   leftButtonLabel?: string;
   leftButtonOnClick?: any;
   isLeftBtnLoading?: boolean;
+  leftButtonTheme?: Theme;
   rightButtonLabel?: string;
   rightButtonOnClick?: any;
   isRightBtnLoading?: boolean;
+  rightButtonTheme?: Theme;
 }
 
 export class ModalContent extends React.Component<IModalContentProps, {}> {
@@ -24,32 +26,34 @@ export class ModalContent extends React.Component<IModalContentProps, {}> {
         {this.props.subheader && this.getSubheader(this.props.subheader)}
         {this.props.notification &&
           this.getNotification(this.props.notification)}
-        <div
-          className={`${styles.modalFooter} ${
-            this.props.rightButtonLabel ? styles.twoBtnFooter : ""
-          }`}
-        >
-          {this.props.leftButtonLabel && (
-            <Button
-              className={styles.modalButton}
-              label={this.props.leftButtonLabel}
-              onClick={this.props.leftButtonOnClick}
-              size={Size.Large}
-              theme={Theme.Ghost}
-              loading={this.props.isLeftBtnLoading}
-            />
-          )}
-          {this.props.rightButtonLabel && (
-            <Button
-              className={styles.modalButton}
-              label={this.props.rightButtonLabel}
-              onClick={this.props.rightButtonOnClick}
-              size={Size.Large}
-              theme={Theme.Primary}
-              loading={this.props.isRightBtnLoading}
-            />
-          )}
-        </div>
+        {(this.props.leftButtonLabel || this.props.rightButtonLabel) && (
+          <div
+            className={`${styles.modalFooter} ${
+              this.props.rightButtonLabel ? styles.twoBtnFooter : ""
+            }`}
+          >
+            {this.props.leftButtonLabel && (
+              <Button
+                className={styles.modalButton}
+                label={this.props.leftButtonLabel}
+                onClick={this.props.leftButtonOnClick}
+                size={Size.Large}
+                theme={this.props.leftButtonTheme || Theme.Ghost}
+                loading={this.props.isLeftBtnLoading}
+              />
+            )}
+            {this.props.rightButtonLabel && (
+              <Button
+                className={styles.modalButton}
+                label={this.props.rightButtonLabel}
+                onClick={this.props.rightButtonOnClick}
+                size={Size.Large}
+                theme={this.props.rightButtonTheme || Theme.Primary}
+                loading={this.props.isRightBtnLoading}
+              />
+            )}
+          </div>
+        )}
       </div>
     );
   }

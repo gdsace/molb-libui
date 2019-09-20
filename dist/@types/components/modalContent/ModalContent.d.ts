@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Theme } from "../EnumValues";
 export interface IModalContentProps {
     header?: string;
     subheader?: string | JSX.Element;
@@ -6,9 +7,11 @@ export interface IModalContentProps {
     leftButtonLabel?: string;
     leftButtonOnClick?: any;
     isLeftBtnLoading?: boolean;
+    leftButtonTheme?: Theme;
     rightButtonLabel?: string;
     rightButtonOnClick?: any;
     isRightBtnLoading?: boolean;
+    rightButtonTheme?: Theme;
 }
 export declare class ModalContent extends React.Component<IModalContentProps, {}> {
     render(): JSX.Element;

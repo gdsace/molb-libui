@@ -3,6 +3,7 @@ import React from "react";
 import { State, Store } from "@sambego/storybook-state";
 import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
+import { Icon } from "../../components";
 import { Button } from "../../components/button";
 import { Modal, ModalTheme } from "../../components/modal";
 import { ModalContent } from "../../components/modalContent";
@@ -26,6 +27,10 @@ const store4 = new Store({
 });
 
 const store5 = new Store({
+  show: false
+});
+
+const store6 = new Store({
   show: false
 });
 
@@ -329,6 +334,30 @@ const store5 = new Store({
           label={"Full Modal With Scrollbottom Callback"}
           onClick={() => store5.set({ show: true })}
           key="modal-button3"
+        />
+      </div>
+
+      <div className={styles.container}>
+        <State store={store6}>
+          <Modal
+            key="modal-6"
+            theme={ModalTheme.Basic}
+            show={!!store6.get("show")}
+            onClose={() => store6.set({ show: false })}
+            customIcon={
+              <Icon type="progress" className={styles.progressIcon} />
+            }
+          >
+            <ModalContent
+              header="This is Header of Modal Content."
+              subheader="This is Sub Header of Modal Content"
+            />
+          </Modal>
+        </State>
+        <Button
+          label="Modal with custom icon"
+          onClick={() => store6.set({ show: true })}
+          key="modal-button1"
         />
       </div>
     </div>
