@@ -38,6 +38,7 @@ export interface IModalProps {
   onScrollBottomCallback?: () => any;
   zIndex?: ModalIndex;
   modalHideDirection?: string;
+  customIcon?: React.ReactNode;
 }
 
 export class Modal extends React.Component<IModalProps, {}> {
@@ -118,8 +119,11 @@ export class Modal extends React.Component<IModalProps, {}> {
           ref={this.setUpModalContentRef}
         >
           {!this.props.hideCloseButton && (
-            <div className={styles.close} onClick={this.onClose}>
-              <Icon type={"close"} />
+            <div
+              className={styles.close}
+              onClick={this.props.customIcon ? () => ({}) : this.onClose}
+            >
+              {this.props.customIcon || <Icon type="close" />}
             </div>
           )}
           <div className={styles.content}>{this.props.children}</div>
