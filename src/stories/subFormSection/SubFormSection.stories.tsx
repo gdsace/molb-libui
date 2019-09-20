@@ -50,16 +50,6 @@ const styles = require("./subFormSection.stories.scss");
             <p>Theme: Normal, Some sample content</p>
           </SubFormSection>
         </div>
-        <div className={styles.box}>
-          <SubFormSection
-            id="operatingHoursSubSection"
-            title="This is sub-section with loading"
-            theme={SubFormSectionTheme.Normal}
-            isLoading={true}
-          >
-            <p>Theme: Normal, Some sample content</p>
-          </SubFormSection>
-        </div>
       </div>
     );
   })

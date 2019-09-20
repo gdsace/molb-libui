@@ -23,6 +23,7 @@ export interface IModalProps {
     onScrollBottomCallback?: () => any;
     zIndex?: ModalIndex;
     modalHideDirection?: string;
+    customIcon?: React.ReactNode;
 }
 export declare class Modal extends React.Component<IModalProps, {}> {
     static defaultProps: Partial<IModalProps>;

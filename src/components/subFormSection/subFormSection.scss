@@ -86,22 +86,3 @@
     margin-left: $space-0;
   }
 }
-
-.iconContainer {
-  font-size: 0;
-  margin-left: $space-1;
-
-  @keyframes rotate {
-    from {
-      transform: rotateZ(0deg);
-    }
-
-    to {
-      transform: rotateZ(360deg);
-    }
-  }
-
-  .loading {
-    animation: rotate 2s linear infinite;
-  }
-}

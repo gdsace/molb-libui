@@ -1,4 +1,20 @@
+@import "../../components/styles/utils.scss";
 
 .container {
   margin: 30px;
+}
+
+.progressIcon {
+  animation: rotate 2s linear infinite;
+  color: $primary-color;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotateZ(0deg);
+  }
+
+  to {
+    transform: rotateZ(360deg);
+  }
 }
