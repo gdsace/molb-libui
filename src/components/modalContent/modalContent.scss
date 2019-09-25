@@ -50,6 +50,13 @@
       display: block;
     }
 
+    .customRightBtn {
+      &:hover {
+        color: $lavender-indigo;
+        background-color: $primary-color-2;
+      }
+    }
+
     .modalButton {
       width: 200px;
       height: 46px;

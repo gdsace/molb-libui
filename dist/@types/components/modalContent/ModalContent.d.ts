@@ -12,6 +12,7 @@ export interface IModalContentProps {
     rightButtonOnClick?: any;
     isRightBtnLoading?: boolean;
     rightButtonTheme?: Theme;
+    isCustomRightBtn?: boolean;
 }
 export declare class ModalContent extends React.Component<IModalContentProps, {}> {
     render(): JSX.Element;

@@ -16,6 +16,7 @@ export interface IModalContentProps {
   rightButtonOnClick?: any;
   isRightBtnLoading?: boolean;
   rightButtonTheme?: Theme;
+  isCustomRightBtn?: boolean;
 }
 
 export class ModalContent extends React.Component<IModalContentProps, {}> {
@@ -44,7 +45,8 @@ export class ModalContent extends React.Component<IModalContentProps, {}> {
             )}
             {this.props.rightButtonLabel && (
               <Button
-                className={styles.modalButton}
+                className={`${this.props.isCustomRightBtn &&
+                  styles.customRightBtn} ${styles.modalButton}`}
                 label={this.props.rightButtonLabel}
                 onClick={this.props.rightButtonOnClick}
                 size={Size.Large}
