@@ -45,7 +45,8 @@ export class ModalContent extends React.Component<IModalContentProps, {}> {
             )}
             {this.props.rightButtonLabel && (
               <Button
-                className={`${this.props.isCustomRightBtn && styles.customRightBtn} ${styles.modalButton}`}
+                className={`${this.props.isCustomRightBtn &&
+                  styles.customRightBtn} ${styles.modalButton}`}
                 label={this.props.rightButtonLabel}
                 onClick={this.props.rightButtonOnClick}
                 size={Size.Large}
