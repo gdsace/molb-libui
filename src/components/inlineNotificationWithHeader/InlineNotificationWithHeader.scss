@@ -3,9 +3,14 @@
 .inlineNotification {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   border-radius: 5px;
   min-height: 55px;
-  padding-right: $space-2;
+  padding: $space-2;
+
+  @include for-phone-only {
+    flex-direction: column;
+  }
 
   &.success {
     background-color: $panache;
@@ -36,8 +41,12 @@
     color: $vivid-orange;
   }
 
+  .inlineNotificationTextPart {
+    display: flex;
+    align-items: center;
+  }
+
   .inlineNotificationIcon {
-    margin: $space-2 0 $space-2 $space-2;
     align-self: stretch;
   }
 
@@ -71,7 +80,7 @@
   }
 
   .content {
-    padding: $space-2 $space-2 $space-2 $space-1;
+    padding: 0 $space-2 0 $space-1;
     display: flex;
     flex-direction: column;
     width: 100%;
