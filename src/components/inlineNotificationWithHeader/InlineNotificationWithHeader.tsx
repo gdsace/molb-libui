@@ -3,8 +3,7 @@ import * as React from "react";
 import { NotificationTheme } from "../EnumValues";
 import { Icon } from "../icons";
 import { addLocatedErrorClassname } from "../utils";
-
-const style = require("./InlineNotificationWithHeader.scss");
+import styles from "./InlineNotificationWithHeader.scss";
 
 interface IInlineNotificationWithHeaderProps {
   header: string;
@@ -20,8 +19,8 @@ export const InlineNotificationWithHeader = (
   const { theme, text, childNode } = props;
 
   const headerStyle = classNames(
-    style.inlineNotificationHeader,
-    style[`${theme}`],
+    styles.inlineNotificationHeader,
+    styles[`${theme}`],
     {
       [addLocatedErrorClassname("")]: theme === NotificationTheme.Error
     }
@@ -38,8 +37,8 @@ export const InlineNotificationWithHeader = (
   };
 
   const inlineNotificationClassName = classNames(
-    style.inlineNotification,
-    style[`${theme}`],
+    styles.inlineNotification,
+    styles[`${theme}`],
     {
       [addLocatedErrorClassname("")]: theme === NotificationTheme.Error
     }
@@ -47,12 +46,14 @@ export const InlineNotificationWithHeader = (
 
   return (
     <div className={inlineNotificationClassName} data-scrollpoint>
-      <div className={style.inlineNotificationIcon}>
-        <Icon type={iconType[theme]} size="24" />
-      </div>
-      <div className={style.content}>
-        <h5 className={headerStyle}>{props.header}</h5>
-        <p className={style.inlineNotificationText}>{text}</p>
+      <div className={styles.inlineNotificationTextPart}>
+        <div className={styles.inlineNotificationIcon}>
+          <Icon type={iconType[theme]} size="24" />
+        </div>
+        <div className={styles.content}>
+          <h5 className={headerStyle}>{props.header}</h5>
+          <p className={styles.inlineNotificationText}>{text}</p>
+        </div>
       </div>
       {childNode && childNode}
     </div>
