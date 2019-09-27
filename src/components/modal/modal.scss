@@ -111,6 +111,12 @@
         transform: translate(-50%, -50%);
       }
     }
+
+    .modalContentFooter {
+      text-align: center;
+      border-top: 1px solid $ui-color-2;
+      padding: $space-3 0;
+    }
   }
 }
 

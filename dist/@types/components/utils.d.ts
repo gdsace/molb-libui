@@ -11,3 +11,4 @@ export declare function getFilenameByHttpHeaders(headers: Headers): string | und
 export declare function getFilenameByContentDisposition(contentDisposition: string | null): string | undefined;
 export declare const isIOSDevice: boolean | "";
 export declare const isIEDevice: () => boolean;
+export declare const isMobile: () => boolean;

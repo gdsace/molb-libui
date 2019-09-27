@@ -9,8 +9,8 @@ import {
 import classNames from "classnames";
 import _ from "lodash";
 import { Icon } from "../icons";
-
-const styles = require("./modal.scss");
+import { isMobile } from "../utils";
+import styles from "./modal.scss";
 
 const modalHideXY = "XY";
 
@@ -35,6 +35,7 @@ export interface IModalProps {
   children?: React.ReactNode;
   theme?: ModalTheme;
   footer?: React.ReactNode;
+  modalContentFooter?: React.ReactNode;
   onScrollBottomCallback?: () => any;
   zIndex?: ModalIndex;
   modalHideDirection?: string;
@@ -127,10 +128,20 @@ export class Modal extends React.Component<IModalProps, {}> {
             </div>
           )}
           <div className={styles.content}>{this.props.children}</div>
+          {!isMobile() && this.props.modalContentFooter && (
+            <div className={styles.modalContentFooter}>
+              {this.props.modalContentFooter}
+            </div>
+          )}
         </section>
         {this.props.footer && (
           <section ref={this.setFooter} className={styles.footer}>
             {this.props.footer}
+          </section>
+        )}
+        {isMobile() && this.props.modalContentFooter && (
+          <section ref={this.setFooter} className={styles.footer}>
+            {this.props.modalContentFooter}
           </section>
         )}
       </div>
