@@ -22,6 +22,7 @@
 .textarea {
   width: 100%;
   position: relative;
+  white-space: pre-line;
 
   .title {
     font-size: $medium;
