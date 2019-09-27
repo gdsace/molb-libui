@@ -20,6 +20,7 @@ export interface IModalProps {
     children?: React.ReactNode;
     theme?: ModalTheme;
     footer?: React.ReactNode;
+    modalContentFooter?: React.ReactNode;
     onScrollBottomCallback?: () => any;
     zIndex?: ModalIndex;
     modalHideDirection?: string;

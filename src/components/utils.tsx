@@ -65,3 +65,9 @@ export const isIEDevice = () => {
     return false;
   }
 };
+
+// isMobileDevice from react select does not match scss for-phone-only definition
+// this width is the same used for for-phone-only
+export const isMobile = () => {
+  return window.innerWidth <= 600;
+};
