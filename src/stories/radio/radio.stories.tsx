@@ -150,13 +150,13 @@ const radioProps6: IRadioProps = {
 };
 
 const radioProps7: IRadioProps = {
-  text: "7. radio button with label and addon bellow label",
+  text: "7. radio button with label and addon below label",
   optionList: optionValueArray5,
   onChange: valueChangeHandler5,
   disabled: false,
   radioLabelLineBreak: false,
   label: "LIQUOR",
-  addonBelowText: <div> ------------ </div>
+  addOnBelowText: <div> ------------ </div>
 };
 
 /**

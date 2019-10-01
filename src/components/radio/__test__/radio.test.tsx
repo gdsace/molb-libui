@@ -65,15 +65,15 @@ describe("Radio", () => {
     expect(wrapper.find(InlineNotification)).toHaveLength(0);
   });
 
-  it("should render component bellow title given the addonBelowText in props", () => {
-    const subText = "component display bellow title";
-    const component = <div className="addonBellowTitle">{subText}</div>;
+  it("should render component below title given the addOnBelowText in props", () => {
+    const subText = "component display below title";
+    const component = <div className="addOnBelowTitle">{subText}</div>;
 
-    const wrapper = mount(<Radio {...mockProps} addonBelowText={component} />);
+    const wrapper = mount(<Radio {...mockProps} addOnBelowText={component} />);
     expect(
       wrapper
         .find(Radio)
-        .find(".addonBellowTitle")
+        .find(".addOnBelowTitle")
         .text()
     ).toBe(subText);
   });
