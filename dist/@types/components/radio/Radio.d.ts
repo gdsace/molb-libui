@@ -20,6 +20,7 @@ export interface IRadioProps {
     toolTipsPosition?: TooltipsLocationTheme;
     label?: string;
     promptMessage?: IPromptMessage;
+    addOnBelowText?: React.ReactNode | string;
 }
 interface IPromptMessage {
     display: boolean;
