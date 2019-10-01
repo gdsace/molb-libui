@@ -149,6 +149,16 @@ const radioProps6: IRadioProps = {
   }
 };
 
+const radioProps7: IRadioProps = {
+  text: "7. radio button with label and addon bellow label",
+  optionList: optionValueArray5,
+  onChange: valueChangeHandler5,
+  disabled: false,
+  radioLabelLineBreak: false,
+  label: "LIQUOR",
+  addonBelowText: <div> ------------ </div>
+};
+
 /**
  * Here define store, we can define our state here.
  * If we define store here, the same property in props won't work.
@@ -172,6 +182,10 @@ const store5 = new Store({
 });
 
 const store6 = new Store({
+  value: ""
+});
+
+const store7 = new Store({
   value: ""
 });
 
@@ -201,6 +215,9 @@ const store6 = new Store({
       </State>
       <State store={store6}>
         <Radio {...radioProps6} />
+      </State>
+      <State store={store7}>
+        <Radio {...radioProps7} />
       </State>
     </div>
   ))

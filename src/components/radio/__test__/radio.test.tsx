@@ -4,7 +4,7 @@ import * as React from "react";
 import { InlineNotification } from "../../inlineNotification";
 import { IOptionValue, IRadioProps, Radio } from "../Radio";
 
-describe.only("Radio", () => {
+describe("Radio", () => {
   const optionValueArray: IOptionValue[] = [
     {
       value: "value1",
@@ -63,5 +63,18 @@ describe.only("Radio", () => {
     });
     const wrapper = shallow(<Radio {...newMockProps} />);
     expect(wrapper.find(InlineNotification)).toHaveLength(0);
+  });
+
+  it("should render component bellow title given the addonBelowText in props", () => {
+    const subText = "component display bellow title";
+    const component = <div className="addonBellowTitle">{subText}</div>;
+
+    const wrapper = mount(<Radio {...mockProps} addonBelowText={component} />);
+    expect(
+      wrapper
+        .find(Radio)
+        .find(".addonBellowTitle")
+        .text()
+    ).toBe(subText);
   });
 });

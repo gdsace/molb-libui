@@ -28,6 +28,7 @@ export interface IRadioProps {
   toolTipsPosition?: TooltipsLocationTheme;
   label?: string;
   promptMessage?: IPromptMessage;
+  addonBelowText?: React.ReactNode;
 }
 
 interface IPromptMessage {
@@ -130,6 +131,7 @@ export const Radio = (props: IRadioProps) => {
       </div>
       <div className={radioHeaderClass}>
         {props.text && <div className={radioTextClass}>{props.text}</div>}
+        {props.addonBelowText && <div>{props.addonBelowText}</div>}
         {props.showTooltip && (
           <Tooltips
             trigger={(open: boolean) => (
