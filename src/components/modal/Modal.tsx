@@ -40,6 +40,7 @@ export interface IModalProps {
   zIndex?: ModalIndex;
   modalHideDirection?: string;
   customIcon?: React.ReactNode;
+  isSubModal?: boolean;
 }
 
 export class Modal extends React.Component<IModalProps, {}> {
@@ -163,8 +164,12 @@ export class Modal extends React.Component<IModalProps, {}> {
   }
 
   private onClose = (event: any) => {
-    clearAllBodyScrollLocks();
-    document.body.style.overflow = "auto";
+    if (this.props.isSubModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      clearAllBodyScrollLocks();
+      document.body.style.overflow = "auto";
+    }
     this.props.onClose(event);
   };
 
