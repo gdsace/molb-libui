@@ -25,6 +25,7 @@ export interface IModalProps {
     zIndex?: ModalIndex;
     modalHideDirection?: string;
     customIcon?: React.ReactNode;
+    isSubModal?: boolean;
 }
 export declare class Modal extends React.Component<IModalProps, {}> {
     static defaultProps: Partial<IModalProps>;
