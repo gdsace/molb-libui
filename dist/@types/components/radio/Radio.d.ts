@@ -13,14 +13,14 @@ export interface IRadioProps {
     disableWidth?: boolean;
     radioTextStyleOverride?: string;
     labelStyleOverride?: string;
-    subsequentQuestion?: React.ReactNode | string;
+    subsequentQuestion?: React.ReactNode;
     radioLabelLineBreak?: boolean;
     showTooltip?: boolean;
     toolTipsContent?: JSX.Element | string;
     toolTipsPosition?: TooltipsLocationTheme;
     label?: string;
     promptMessage?: IPromptMessage;
-    addOnBelowText?: React.ReactNode | string;
+    addOnBelowText?: React.ReactNode;
 }
 interface IPromptMessage {
     display: boolean;
