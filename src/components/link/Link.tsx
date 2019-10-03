@@ -22,6 +22,7 @@ export interface ILinkProps {
   status?: LinkStatus;
   link?: string;
   target?: LinkTarget;
+  isNested?: boolean;
 }
 
 export class Link extends React.Component<ILinkProps, {}> {
@@ -63,6 +64,10 @@ export class Link extends React.Component<ILinkProps, {}> {
 
     if (this.props.onClick) {
       this.props.onClick();
+    }
+
+    if (this.props.isNested) {
+      e.stopPropagation();
     }
   };
 }
