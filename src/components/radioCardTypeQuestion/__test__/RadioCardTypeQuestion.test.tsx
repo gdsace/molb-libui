@@ -4,7 +4,7 @@ import { H7 } from "../../h7";
 import { Tile } from "../../tileGroup/tile";
 import { IOption, RadioCardTypeQuestion } from "../RadioCardTypeQuestion";
 
-describe.only("RadioCardTypeQuestion", () => {
+describe("RadioCardTypeQuestion", () => {
   const mockOptions: IOption[] = [
     {
       label: "label",

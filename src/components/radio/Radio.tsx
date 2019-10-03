@@ -21,13 +21,14 @@ export interface IRadioProps {
   disableWidth?: boolean;
   radioTextStyleOverride?: string;
   labelStyleOverride?: string;
-  subsequentQuestion?: React.ReactNode | string;
+  subsequentQuestion?: React.ReactNode;
   radioLabelLineBreak?: boolean;
   showTooltip?: boolean;
   toolTipsContent?: JSX.Element | string;
   toolTipsPosition?: TooltipsLocationTheme;
   label?: string;
   promptMessage?: IPromptMessage;
+  addOnBelowText?: React.ReactNode;
 }
 
 interface IPromptMessage {
@@ -130,6 +131,7 @@ export const Radio = (props: IRadioProps) => {
       </div>
       <div className={radioHeaderClass}>
         {props.text && <div className={radioTextClass}>{props.text}</div>}
+        {props.addOnBelowText && <div>{props.addOnBelowText}</div>}
         {props.showTooltip && (
           <Tooltips
             trigger={(open: boolean) => (
