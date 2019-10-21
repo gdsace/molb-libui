@@ -1,11 +1,12 @@
 import * as React from "react";
-import { Icon } from "../icons";
+import { Icon, IIconCategory } from "../icons";
 
 const styles = require("./navItem.scss");
 
 export interface INavItem {
   type: string;
   label: string;
+  category?: IIconCategory;
   onClick?: () => void;
 }
 
@@ -13,7 +14,7 @@ export class NavItem extends React.Component<INavItem, {}> {
   public render() {
     return (
       <div className={styles.navLabel} onClick={this.onItemClick}>
-        <Icon type={this.props.type} />
+        <Icon category={this.props.category} type={this.props.type} />
         <label>{this.props.label}</label>
       </div>
     );
