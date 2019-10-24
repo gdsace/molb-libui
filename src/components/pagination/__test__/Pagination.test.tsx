@@ -1,8 +1,8 @@
-import {mount, shallow} from "enzyme";
-import {noop} from "lodash";
+import { mount, shallow } from "enzyme";
+import { noop } from "lodash";
 import * as React from "react";
-import {Pagination} from "../Pagination";
-import {Dropdown} from "../../dropdown";
+import { Pagination } from "../Pagination";
+import { Dropdown } from "../../dropdown";
 
 describe("Pagination Section", () => {
   it("should have only next button on first page", () => {
@@ -84,6 +84,7 @@ describe("Pagination Section", () => {
   });
 
   it("should show dropdown of page ranges, when canJumpToPages is true", () => {
+    const onPageChange = jest.fn();
     const wrapper = shallow(
       <Pagination
         totalResultsCount={20}
@@ -91,16 +92,19 @@ describe("Pagination Section", () => {
         currentPage={1}
         showTotalResultsAvailable={true}
         history={noop}
-        onPageChange={noop}
+        onPageChange={onPageChange}
         canJumpToPages={true}
       />
     );
 
+    const options = [{ label: "1-10", value: 0 }, { label: "11-20", value: 1 }];
     const dropDown = wrapper.find(Dropdown);
+
     expect(dropDown.length).toEqual(1);
-    expect(dropDown.props().options).toEqual([
-      { label: "1-10", value: 0 },
-      { label: "11-20", value: 1 }
-    ]);
+    expect(dropDown.props().value).toEqual(options[1]);
+    expect(dropDown.props().options).toEqual(options);
+
+    dropDown.props().onChange({ label: "1-10", value: 0 });
+    expect(onPageChange).toHaveBeenCalledWith(0);
   });
 });
