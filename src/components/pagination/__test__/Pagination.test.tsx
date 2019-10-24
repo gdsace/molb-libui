@@ -1,7 +1,8 @@
-import { mount } from "enzyme";
-import { noop } from "lodash";
+import {mount, shallow} from "enzyme";
+import {noop} from "lodash";
 import * as React from "react";
-import { Pagination } from "../Pagination";
+import {Pagination} from "../Pagination";
+import {Dropdown} from "../../dropdown";
 
 describe("Pagination Section", () => {
   it("should have only next button on first page", () => {
@@ -80,5 +81,26 @@ describe("Pagination Section", () => {
         .at(1)
         .props().disabled
     ).toEqual(false);
+  });
+
+  it("should show dropdown of page ranges, when canJumpToPages is true", () => {
+    const wrapper = shallow(
+      <Pagination
+        totalResultsCount={20}
+        rowsPerPage={10}
+        currentPage={1}
+        showTotalResultsAvailable={true}
+        history={noop}
+        onPageChange={noop}
+        canJumpToPages={true}
+      />
+    );
+
+    const dropDown = wrapper.find(Dropdown);
+    expect(dropDown.length).toEqual(1);
+    expect(dropDown.props().options).toEqual([
+      { label: "1-10", value: 0 },
+      { label: "11-20", value: 1 }
+    ]);
   });
 });

@@ -2,6 +2,7 @@ import classNames from "classnames";
 import _ from "lodash";
 import React from "react";
 import { Button } from "../button";
+import { Dropdown } from "../dropdown";
 import { Size, Theme } from "../EnumValues";
 import { IDataSource } from "../table/Table";
 
@@ -15,6 +16,7 @@ export interface IPaginationProps {
   className?: string;
   dataSource?: IDataSource[];
   showTotalResultsAvailable?: boolean;
+  canJumpToPages?: boolean;
   totalResultsCount: number;
   rowsPerPage: number;
   currentPage: number;
@@ -64,11 +66,9 @@ export class Pagination extends React.Component<IPaginationProps, {}> {
       totalResultsCount > 1
         ? `${totalResultsCount} ${Results.IsMultiple}`
         : `${totalResultsCount} ${Results.IsOneOrLess}`;
-    const currentPageRange: React.ReactNode = this.getPageRange(
-      totalResultsCount,
-      rowsPerPage,
-      currentPage
-    );
+    const currentPageRange: React.ReactNode = this.props.canJumpToPages
+      ? this.getPageRangesDropdown(totalResultsCount, rowsPerPage, currentPage)
+      : this.getPageRange(totalResultsCount, rowsPerPage, currentPage);
 
     const lastItemIndex = (currentPage + 1) * rowsPerPage;
 
@@ -127,7 +127,7 @@ export class Pagination extends React.Component<IPaginationProps, {}> {
     totalResultsCount: number,
     rowsPerPage: number,
     currentPage: number
-  ): React.ReactNode {
+  ): string {
     if (totalResultsCount < 1) {
       return `0`;
     }
@@ -137,5 +137,18 @@ export class Pagination extends React.Component<IPaginationProps, {}> {
     const secondNumber = Math.min(lastItemIndex, totalResultsCount);
 
     return `${firstNumber}-${secondNumber}`;
+  }
+
+  private getPageRangesDropdown(
+    totalResultsCount: number,
+    rowsPerPage: number,
+    currentPage: number
+  ): React.ReactNode {
+    const lastPageNumber = totalResultsCount / rowsPerPage;
+    const pageRanges = _.range(lastPageNumber).map(page => ({
+      label: this.getPageRange(totalResultsCount, rowsPerPage, page),
+      value: page
+    }));
+    return <Dropdown options={pageRanges} />;
   }
 }
