@@ -6,6 +6,7 @@
   margin-top: $space-2;
   margin-bottom: $space-2;
   display: flex;
+  justify-content: space-between;
   align-items: center;
 
   .countContainer {
@@ -16,7 +17,19 @@
     justify-content: flex-start;
   }
 
-  .pageRangeContainer {
+  .ofCountContainer {
+    margin-left: $space-2;
+    margin-right: $space-2;
+    color: $text-color-2;
+    font-size: $medium;
+  }
+}
+
+.paginationDetails {
+  display: flex;
+  align-items: center;
+
+  .pageRangeLabel {
     margin-left: auto;
     width: $space-9;
     text-align: right;
@@ -24,9 +37,9 @@
     font-size: $medium;
   }
 
-  .ofCountContainer {
-    margin-left: $space-2;
-    margin-right: $space-2;
+  .pageRangeDropdown {
+    margin-left: auto;
+    width: $space-specific-135;
     color: $text-color-2;
     font-size: $medium;
   }

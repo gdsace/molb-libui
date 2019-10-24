@@ -70,7 +70,7 @@ export class Pagination extends React.Component<IPaginationProps, {}> {
         : `${totalResultsCount} ${Results.IsOneOrLess}`;
     const currentPageRange: React.ReactNode = this.props.canJumpToPages
       ? this.getPageRangesDropdown(totalResultsCount, rowsPerPage, currentPage)
-      : this.getPageRange(totalResultsCount, rowsPerPage, currentPage);
+      : this.getPageRangeLabel(totalResultsCount, rowsPerPage, currentPage);
 
     const lastItemIndex = (currentPage + 1) * rowsPerPage;
 
@@ -80,48 +80,64 @@ export class Pagination extends React.Component<IPaginationProps, {}> {
           <div className={styles.countContainer}>
             {showTotalResultsAvailable ? resultsAvailable : ""}
           </div>
-          <div className={styles.pageRangeContainer}>{currentPageRange}</div>
-          <div className={styles.ofCountContainer}>of {totalResultsCount}</div>
-          <div>
-            <Button
-              className={styles.prevButton}
-              size={Size.Square}
-              theme={Theme.Grey}
-              icon={"left"}
-              iconAlign="center"
-              disabled={
-                !_.isNil(disablePrev)
-                  ? disablePrev
-                  : currentPage === 0 || totalResultsCount === 0
-              }
-              onClick={
-                this.onChangePrevPage ||
-                (() => {
-                  /* noop */
-                })
-              }
-            />
-            <Button
-              className={styles.nextButton}
-              size={Size.Square}
-              theme={Theme.Grey}
-              icon={"right"}
-              iconAlign="center"
-              disabled={
-                !_.isNil(disableNext)
-                  ? disableNext
-                  : lastItemIndex >= totalResultsCount
-              }
-              onClick={
-                this.onChangeNextPage ||
-                (() => {
-                  /* noop */
-                })
-              }
-            />
+          <div className={styles.paginationDetails}>
+            {currentPageRange}
+            <div className={styles.ofCountContainer}>
+              of {totalResultsCount}
+            </div>
+            <div>
+              <Button
+                className={styles.prevButton}
+                size={Size.Square}
+                theme={Theme.Grey}
+                icon={"left"}
+                iconAlign="center"
+                disabled={
+                  !_.isNil(disablePrev)
+                    ? disablePrev
+                    : currentPage === 0 || totalResultsCount === 0
+                }
+                onClick={
+                  this.onChangePrevPage ||
+                  (() => {
+                    /* noop */
+                  })
+                }
+              />
+              <Button
+                className={styles.nextButton}
+                size={Size.Square}
+                theme={Theme.Grey}
+                icon={"right"}
+                iconAlign="center"
+                disabled={
+                  !_.isNil(disableNext)
+                    ? disableNext
+                    : lastItemIndex >= totalResultsCount
+                }
+                onClick={
+                  this.onChangeNextPage ||
+                  (() => {
+                    /* noop */
+                  })
+                }
+              />
+            </div>
           </div>
         </div>
       </section>
+    );
+  }
+
+  private getPageRangeLabel(
+    totalResultsCount: number,
+    rowsPerPage: number,
+    currentPage: number
+  ) {
+    return (
+      <div className={styles.pageRangeLabel}>
+        {this.getPageRange(totalResultsCount, rowsPerPage, currentPage)}
+      </div>
     );
   }
 
@@ -153,7 +169,7 @@ export class Pagination extends React.Component<IPaginationProps, {}> {
     }));
     return (
       <Dropdown
-        className={styles.paginationDropdown}
+        className={styles.pageRangeDropdown}
         options={pageRanges}
         onChange={(optionValue: any) =>
           optionValue && this.props.onPageChange(optionValue.value)
