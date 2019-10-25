@@ -1,7 +1,9 @@
 import classNames from "classnames";
 import _ from "lodash";
 import React from "react";
+
 import { Button } from "../button";
+import { Dropdown } from "../dropdown";
 import { Size, Theme } from "../EnumValues";
 import { IDataSource } from "../table/Table";
 
@@ -15,6 +17,7 @@ export interface IPaginationProps {
   className?: string;
   dataSource?: IDataSource[];
   showTotalResultsAvailable?: boolean;
+  canJumpToPages?: boolean;
   totalResultsCount: number;
   rowsPerPage: number;
   currentPage: number;
@@ -64,11 +67,9 @@ export class Pagination extends React.Component<IPaginationProps, {}> {
       totalResultsCount > 1
         ? `${totalResultsCount} ${Results.IsMultiple}`
         : `${totalResultsCount} ${Results.IsOneOrLess}`;
-    const currentPageRange: React.ReactNode = this.getPageRange(
-      totalResultsCount,
-      rowsPerPage,
-      currentPage
-    );
+    const currentPageRange: React.ReactNode = this.props.canJumpToPages
+      ? this.getPageRangesDropdown(totalResultsCount, rowsPerPage, currentPage)
+      : this.getPageRangeLabel(totalResultsCount, rowsPerPage, currentPage);
 
     const lastItemIndex = (currentPage + 1) * rowsPerPage;
 
@@ -78,48 +79,64 @@ export class Pagination extends React.Component<IPaginationProps, {}> {
           <div className={styles.countContainer}>
             {showTotalResultsAvailable ? resultsAvailable : ""}
           </div>
-          <div className={styles.pageRangeContainer}>{currentPageRange}</div>
-          <div className={styles.ofCountContainer}>of {totalResultsCount}</div>
-          <div>
-            <Button
-              className={styles.prevButton}
-              size={Size.Square}
-              theme={Theme.Grey}
-              icon={"left"}
-              iconAlign="center"
-              disabled={
-                !_.isNil(disablePrev)
-                  ? disablePrev
-                  : currentPage === 0 || totalResultsCount === 0
-              }
-              onClick={
-                this.onChangePrevPage ||
-                (() => {
-                  /* noop */
-                })
-              }
-            />
-            <Button
-              className={styles.nextButton}
-              size={Size.Square}
-              theme={Theme.Grey}
-              icon={"right"}
-              iconAlign="center"
-              disabled={
-                !_.isNil(disableNext)
-                  ? disableNext
-                  : lastItemIndex >= totalResultsCount
-              }
-              onClick={
-                this.onChangeNextPage ||
-                (() => {
-                  /* noop */
-                })
-              }
-            />
+          <div className={styles.paginationDetails}>
+            {currentPageRange}
+            <div className={styles.ofCountContainer}>
+              of {totalResultsCount}
+            </div>
+            <div>
+              <Button
+                className={styles.prevButton}
+                size={Size.Square}
+                theme={Theme.Grey}
+                icon={"left"}
+                iconAlign="center"
+                disabled={
+                  !_.isNil(disablePrev)
+                    ? disablePrev
+                    : currentPage === 0 || totalResultsCount === 0
+                }
+                onClick={
+                  this.onChangePrevPage ||
+                  (() => {
+                    /* noop */
+                  })
+                }
+              />
+              <Button
+                className={styles.nextButton}
+                size={Size.Square}
+                theme={Theme.Grey}
+                icon={"right"}
+                iconAlign="center"
+                disabled={
+                  !_.isNil(disableNext)
+                    ? disableNext
+                    : lastItemIndex >= totalResultsCount
+                }
+                onClick={
+                  this.onChangeNextPage ||
+                  (() => {
+                    /* noop */
+                  })
+                }
+              />
+            </div>
           </div>
         </div>
       </section>
+    );
+  }
+
+  private getPageRangeLabel(
+    totalResultsCount: number,
+    rowsPerPage: number,
+    currentPage: number
+  ) {
+    return (
+      <div className={styles.pageRangeLabel}>
+        {this.getPageRange(totalResultsCount, rowsPerPage, currentPage)}
+      </div>
     );
   }
 
@@ -127,7 +144,7 @@ export class Pagination extends React.Component<IPaginationProps, {}> {
     totalResultsCount: number,
     rowsPerPage: number,
     currentPage: number
-  ): React.ReactNode {
+  ): string {
     if (totalResultsCount < 1) {
       return `0`;
     }
@@ -137,5 +154,27 @@ export class Pagination extends React.Component<IPaginationProps, {}> {
     const secondNumber = Math.min(lastItemIndex, totalResultsCount);
 
     return `${firstNumber}-${secondNumber}`;
+  }
+
+  private getPageRangesDropdown(
+    totalResultsCount: number,
+    rowsPerPage: number,
+    currentPage: number
+  ): React.ReactNode {
+    const lastPageNumber = totalResultsCount / rowsPerPage;
+    const pageRanges = _.range(lastPageNumber).map(page => ({
+      label: this.getPageRange(totalResultsCount, rowsPerPage, page),
+      value: page
+    }));
+    return (
+      <Dropdown
+        className={styles.pageRangeDropdown}
+        options={pageRanges}
+        onChange={(optionValue: any) =>
+          optionValue && this.props.onPageChange(optionValue.value)
+        }
+        value={pageRanges.find(elem => elem.value === currentPage)}
+      />
+    );
   }
 }
