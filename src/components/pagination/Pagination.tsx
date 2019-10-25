@@ -2,7 +2,6 @@ import classNames from "classnames";
 import _ from "lodash";
 import React from "react";
 
-import { OptionsType, ValueType } from "react-select/lib/types";
 import { Button } from "../button";
 import { Dropdown } from "../dropdown";
 import { Size, Theme } from "../EnumValues";

@@ -1,8 +1,8 @@
 import { mount, shallow } from "enzyme";
 import { noop } from "lodash";
 import * as React from "react";
-import { Pagination } from "../Pagination";
 import { Dropdown } from "../../dropdown";
+import { Pagination } from "../Pagination";
 
 describe("Pagination Section", () => {
   it("should have only next button on first page", () => {
