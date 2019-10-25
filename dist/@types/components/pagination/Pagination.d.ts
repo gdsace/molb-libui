@@ -8,6 +8,7 @@ export interface IPaginationProps {
     className?: string;
     dataSource?: IDataSource[];
     showTotalResultsAvailable?: boolean;
+    canJumpToPages?: boolean;
     totalResultsCount: number;
     rowsPerPage: number;
     currentPage: number;
@@ -21,5 +22,7 @@ export declare class Pagination extends React.Component<IPaginationProps, {}> {
     onChangePrevPage: () => void;
     onChangeNextPage: () => void;
     render(): JSX.Element;
+    private getPageRangeLabel;
     private getPageRange;
+    private getPageRangesDropdown;
 }
