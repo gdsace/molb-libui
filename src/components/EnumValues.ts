@@ -43,13 +43,6 @@ export enum Size {
   SmallSquare = "smallsquare"
 }
 
-export enum LinkStatus {
-  Normal = "normal",
-  Warning = "warning",
-  Error = "error",
-  Success = "success"
-}
-
 export enum InputType {
   Text = "text",
   Email = "email",
