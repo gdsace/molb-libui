@@ -12,6 +12,7 @@ export interface ILinkProps {
     disabled?: boolean;
     className?: string;
     size?: Size;
+    inline?: boolean;
     icon?: string;
     status?: LinkStatus;
     link?: string;
