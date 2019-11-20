@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import * as React from "react";
-import { LinkStatus, Size } from "../EnumValues";
+import { Size } from "../EnumValues";
 import { Icon } from "../icons";
 
 const styles = require("./link.scss");
@@ -18,8 +18,8 @@ export interface ILinkProps {
   disabled?: boolean;
   className?: string;
   size?: Size;
+  inline?: boolean;
   icon?: string;
-  status?: LinkStatus;
   link?: string;
   target?: LinkTarget;
   isNested?: boolean;
@@ -30,7 +30,7 @@ export class Link extends React.Component<ILinkProps, {}> {
     className: "",
     disabled: false,
     size: Size.Small,
-    status: LinkStatus.Normal,
+    inline: false,
     target: LinkTarget.Self,
     link: "#"
   };
@@ -40,8 +40,8 @@ export class Link extends React.Component<ILinkProps, {}> {
       styles.link,
       styles[`${this.props.size}`],
       this.props.className,
-      this.props.disabled ? styles.disabled : styles.enable,
-      styles[`${this.props.status}`]
+      this.props.disabled ? styles.disabled : styles.enabled,
+      this.props.inline ? styles.inline : styles.floating
     );
 
     return (

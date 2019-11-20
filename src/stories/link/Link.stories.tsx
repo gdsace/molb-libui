@@ -46,6 +46,11 @@ const rowStyles = {
           link="https://www.google.com"
         />
       </div>
+      Is Inline
+      <div style={rowStyles}>
+        <Link label="Inline enabled" inline={true} />
+        <Link label="Inline disabled" inline={true} disabled={true} />
+      </div>
     </div>
   ))
 );

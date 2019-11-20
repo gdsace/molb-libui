@@ -1,7 +1,6 @@
 @import "../styles/utils";
 
 .link {
-  font-weight: $weight-semibold;
   line-height: $line-height-large;
   cursor: pointer;
 
@@ -16,15 +15,11 @@
 
 .disabled {
   a {
-    color: $ui-color-2;
+    color: $ui-color-2 !important;
   }
 }
 
-.enable {
-  a {
-    color: $primary-color;
-  }
-
+.enabled {
   &:focus {
     a {
       text-decoration-line: underline;
@@ -36,6 +31,21 @@
       color: $secondary-color;
       text-decoration-line: underline;
     }
+  }
+}
+
+.floating {
+  /* stylelint-disable no-descending-specificity */
+  a {
+    color: $primary-color;
+    font-weight: $weight-semibold;
+  }
+}
+
+.inline {
+  a {
+    color: $secondary-color;
+    font-weight: $weight-regular;
   }
 }
 
@@ -53,43 +63,4 @@
 
 .large {
   font-size: $large;
-}
-
-.warning {
-  /* stylelint-disable no-descending-specificity */
-  a {
-    color: $support-yellow;
-  }
-  /* stylelint-enable */
-  &:hover {
-    a {
-      color: $support-yellow-70;
-    }
-  }
-}
-
-.error {
-  /* stylelint-disable no-descending-specificity */
-  a {
-    color: $support-red;
-  }
-  /* stylelint-enable */
-  &:hover {
-    a {
-      color: $support-red-70;
-    }
-  }
-}
-
-.success {
-  /* stylelint-disable no-descending-specificity */
-  a {
-    color: $support-green;
-  }
-  /* stylelint-enable */
-  &:hover {
-    a {
-      color: $support-green-70;
-    }
-  }
 }

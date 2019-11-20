@@ -37,12 +37,6 @@ export declare enum Size {
     Square = "square",
     SmallSquare = "smallsquare"
 }
-export declare enum LinkStatus {
-    Normal = "normal",
-    Warning = "warning",
-    Error = "error",
-    Success = "success"
-}
 export declare enum InputType {
     Text = "text",
     Email = "email",

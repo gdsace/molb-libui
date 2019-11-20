@@ -1,5 +1,5 @@
 import * as React from "react";
-import { LinkStatus, Size } from "../EnumValues";
+import { Size } from "../EnumValues";
 export declare enum LinkTarget {
     Self = "_self",
     Blank = "_blank",
@@ -12,8 +12,8 @@ export interface ILinkProps {
     disabled?: boolean;
     className?: string;
     size?: Size;
+    inline?: boolean;
     icon?: string;
-    status?: LinkStatus;
     link?: string;
     target?: LinkTarget;
     isNested?: boolean;
