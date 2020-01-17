@@ -18,4 +18,6 @@ export interface ISearchSingleDropdownProps {
 }
 export declare class SearchSingleDropdown extends React.Component<ISearchSingleDropdownProps, {}> {
     render(): JSX.Element;
+    private handleOnChangeInputText;
+    private trimAndSearch;
 }
