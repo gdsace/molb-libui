@@ -63,9 +63,8 @@ export class SearchSingleDropdown extends React.Component<
               value={this.props.inputText}
               placeholder={this.props.inputPlaceholder}
               maxLength={this.props.inputMaxlength || 100}
-              onChange={e => {
-                this.props.handleInputChange(e.target.value);
-              }}
+              helperMsg="Only alphabets, numbers, and spaces are allowed."
+              onChange={e => this.handleOnChangeInputText(e.target.value)}
               iconSignifier={
                 <Icon
                   size="16"
@@ -77,10 +76,7 @@ export class SearchSingleDropdown extends React.Component<
               errorMsg={this.props.errorMsg || ""}
               onKeyPress={e => {
                 if (e.key === "Enter") {
-                  this.props.handleButtonClick(
-                    this.props.inputText,
-                    this.props.selectedDropdown
-                  );
+                  this.trimAndSearch();
                 }
               }}
             />
@@ -92,14 +88,30 @@ export class SearchSingleDropdown extends React.Component<
             theme={Theme.Primary}
             type="button"
             onClick={() => {
-              this.props.handleButtonClick(
-                this.props.inputText,
-                this.props.selectedDropdown
-              );
+              this.trimAndSearch();
             }}
           />
         </div>
       </div>
     );
+  }
+
+  private handleOnChangeInputText(inputText: string) {
+    if (!/^[a-zA-Z0-9\s]*$/g.test(inputText)) {
+      inputText = inputText.replace(/[^a-zA-Z0-9\s]/g, "");
+    }
+    this.props.handleInputChange(inputText);
+  }
+
+  private trimAndSearch() {
+    const {
+      handleInputChange,
+      inputText,
+      handleButtonClick,
+      selectedDropdown
+    } = this.props;
+    const trimmedInputText = inputText.trim();
+    handleInputChange(trimmedInputText);
+    handleButtonClick(trimmedInputText, selectedDropdown);
   }
 }
