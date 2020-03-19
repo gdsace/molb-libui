@@ -18,12 +18,21 @@
   }
 
   .ofCountContainer {
-    margin-left: $space-2;
+    display: flex;
+    margin-left: $space-0;
     margin-right: $space-2;
     color: $text-color-2;
     font-size: $medium;
+
+    .totalResultsCount {
+      margin-left: $space-0;
+      margin-right: $space-0;
+      font-weight: bold;
+    }
   }
 }
+
+
 
 .paginationDetails {
   display: flex;
@@ -35,6 +44,7 @@
     text-align: right;
     color: $text-color-2;
     font-size: $medium;
+    font-weight: bold;
   }
 
   .pageRangeDropdown {

@@ -26,6 +26,9 @@ export interface IInputProps {
     toolTipsContent?: JSX.Element | string;
     toolTipsPosition?: TooltipsLocationTheme;
     customizedChangesFilterRegex?: RegExp;
+    onMaxAttemptsReached?: () => any;
+    maxAttempts?: Number;
+    currentAttemps?: Number;
 }
 export declare class Input extends React.Component<IInputProps, any> {
     static defaultProps: Partial<IInputProps>;

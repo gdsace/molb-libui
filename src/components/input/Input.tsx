@@ -50,6 +50,9 @@ export interface IInputProps {
    * Note: Accepting `newValue` change does not mean this `newValue` is valid.
    * */
   customizedChangesFilterRegex?: RegExp;
+  onMaxAttemptsReached?: () => any;
+  maxAttempts?: Number;
+  currentAttemps?: Number;
 }
 
 export class Input extends React.Component<IInputProps, any> {
@@ -84,6 +87,13 @@ export class Input extends React.Component<IInputProps, any> {
       this.props.showError ||
       this.props.helperMsg ||
       this.props.showCharacterCount;
+
+    if (
+      this.props.currentAttemps === this.props.maxAttempts &&
+      this.props.onMaxAttemptsReached
+    ) {
+      this.props.onMaxAttemptsReached();
+    }
     return (
       <div
         className={rootContainerClassname}
