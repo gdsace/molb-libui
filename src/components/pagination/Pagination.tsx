@@ -1,4 +1,3 @@
-import classNames from "classnames";
 import _ from "lodash";
 import React from "react";
 
@@ -50,10 +49,6 @@ export class Pagination extends React.Component<IPaginationProps, {}> {
   };
 
   public render() {
-    const sectionClassName = classNames(
-      this.props.className ? this.props.className : ""
-    );
-
     const {
       totalResultsCount,
       rowsPerPage,
@@ -74,57 +69,57 @@ export class Pagination extends React.Component<IPaginationProps, {}> {
     const lastItemIndex = (currentPage + 1) * rowsPerPage;
 
     return (
-      <section className={`${sectionClassName}`}>
-        <div className={styles.paginationContainer}>
-          <div className={styles.countContainer}>
-            {showTotalResultsAvailable ? resultsAvailable : ""}
+      <div className={styles.paginationContainer}>
+        <div className={styles.countContainer}>
+          {showTotalResultsAvailable ? resultsAvailable : ""}
+        </div>
+        <div className={styles.paginationDetails}>
+          {currentPageRange}
+          <div className={styles.ofCountContainer}>
+            of{" "}
+            <div className={styles.totalResultsCount}>{totalResultsCount}</div>{" "}
+            items
           </div>
-          <div className={styles.paginationDetails}>
-            {currentPageRange}
-            <div className={styles.ofCountContainer}>
-              of {totalResultsCount}
-            </div>
-            <div>
-              <Button
-                className={styles.prevButton}
-                size={Size.Square}
-                theme={Theme.Grey}
-                icon={"left"}
-                iconAlign="center"
-                disabled={
-                  !_.isNil(disablePrev)
-                    ? disablePrev
-                    : currentPage === 0 || totalResultsCount === 0
-                }
-                onClick={
-                  this.onChangePrevPage ||
-                  (() => {
-                    /* noop */
-                  })
-                }
-              />
-              <Button
-                className={styles.nextButton}
-                size={Size.Square}
-                theme={Theme.Grey}
-                icon={"right"}
-                iconAlign="center"
-                disabled={
-                  !_.isNil(disableNext)
-                    ? disableNext
-                    : lastItemIndex >= totalResultsCount
-                }
-                onClick={
-                  this.onChangeNextPage ||
-                  (() => {
-                    /* noop */
-                  })
-                }
-              />
-            </div>
+          <div>
+            <Button
+              className={styles.prevButton}
+              size={Size.Square}
+              theme={Theme.Grey}
+              icon={"left"}
+              iconAlign="center"
+              disabled={
+                !_.isNil(disablePrev)
+                  ? disablePrev
+                  : currentPage === 0 || totalResultsCount === 0
+              }
+              onClick={
+                this.onChangePrevPage ||
+                (() => {
+                  /* noop */
+                })
+              }
+            />
+            <Button
+              className={styles.nextButton}
+              size={Size.Square}
+              theme={Theme.Grey}
+              icon={"right"}
+              iconAlign="center"
+              disabled={
+                !_.isNil(disableNext)
+                  ? disableNext
+                  : lastItemIndex >= totalResultsCount
+              }
+              onClick={
+                this.onChangeNextPage ||
+                (() => {
+                  /* noop */
+                })
+              }
+            />
           </div>
         </div>
-      </section>
+      </div>
     );
   }
 

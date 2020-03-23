@@ -25,6 +25,7 @@ export class TextView extends React.Component<ITextViewProps, any> {
     super(props);
     this.textViewDivRef = React.createRef<HTMLDivElement>();
     this.debouncedScrollHanlder = _.debounce(
+      // tslint:disable-next-line: unnecessary-bind
       this.onScrollHandler.bind(this),
       50
     );
