@@ -15,7 +15,7 @@ export declare class Select extends Component<ISelectProps, ISelectState> {
     constructor(props: ISelectProps);
     componentDidMount(): void;
     componentDidUpdate(prevProps: ISelectProps): void;
-    onItemSelect: (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => void;
+    onItemSelect: (event: React.MouseEvent<HTMLLIElement>) => void;
     getOptions(): JSX.Element[];
     scrollToSelected(duration: any): void;
     handleMouseEnter: (e: any) => void;
