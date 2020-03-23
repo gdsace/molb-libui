@@ -50,10 +50,6 @@ export class Pagination extends React.Component<IPaginationProps, {}> {
   };
 
   public render() {
-    const sectionClassName = classNames(
-      this.props.className ? this.props.className : ""
-    );
-
     const {
       totalResultsCount,
       rowsPerPage,
