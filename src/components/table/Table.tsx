@@ -161,7 +161,11 @@ const toExpandableRow = (
     <tr key={`tr-expandable-${index}`}>
       <td className={styles.expandableTd} colSpan={columns.length + 1}>
         {props.expandableRowTemplate &&
-          props.expandableRowTemplate({ columns, index })}
+          props.expandableRowTemplate({
+            index,
+            columns,
+            data: props.dataSource[index]
+          })}
       </td>
     </tr>
   );
