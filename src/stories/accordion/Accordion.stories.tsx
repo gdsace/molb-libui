@@ -46,7 +46,8 @@ const ThemeList: AccordionTheme[] = Object.keys(AccordionTheme).map(
           ]}
           content={
             <div style={{ backgroundColor: "lightgrey", padding: "1em" }}>
-              Likewise this content div has it's own padding and background color
+              Likewise this content div has it's own padding and background
+              color
             </div>
           }
           onPanelClick={() => {
