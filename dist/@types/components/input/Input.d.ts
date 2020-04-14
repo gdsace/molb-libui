@@ -5,6 +5,7 @@ export interface IInputProps {
     onBlur?: () => any;
     onKeyPress?: (event: React.KeyboardEvent<HTMLInputElement>) => any;
     value: any;
+    name?: string;
     type?: InputType;
     minLength?: number;
     maxLength?: number;
