@@ -14,6 +14,7 @@ export interface ITextAreaPros extends HTMLTextareaProps {
     errorMsg?: string;
     warningMsg?: string | React.ReactNode;
     showError?: boolean;
+    name?: string;
 }
 export interface ITextAreaState {
     characterCount?: number;
