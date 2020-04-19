@@ -11,6 +11,7 @@ export interface ICheckboxProps {
   clickableElement?: JSX.Element | string;
   theme?: CheckboxTheme;
   addonBelow?: React.ReactNode;
+  fieldName?: string;
 }
 
 interface ICheckboxState {
@@ -53,6 +54,7 @@ export class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
         <div className={styles.checkboxWrapper} data-scrollpoint={true}>
           <span className={styles.checkbox}>
             <input
+              name={this.props.fieldName}
               type="checkbox"
               checked={checked}
               disabled={disabled}

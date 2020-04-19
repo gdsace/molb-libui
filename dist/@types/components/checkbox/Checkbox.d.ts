@@ -7,6 +7,7 @@ export interface ICheckboxProps {
     clickableElement?: JSX.Element | string;
     theme?: CheckboxTheme;
     addonBelow?: React.ReactNode;
+    fieldName?: string;
 }
 interface ICheckboxState {
     checked: boolean;
