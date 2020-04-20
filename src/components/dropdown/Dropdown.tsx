@@ -11,6 +11,7 @@ import styles from "./dropdownStyle.scss";
 export type DropdownProps<T> = Props<T> & {
   error?: string | boolean;
   label?: string;
+  name?: string;
   editable?: boolean;
   size?: Size;
   maxLength?: number;
@@ -72,8 +73,8 @@ export const Dropdown = <T extends any>(props: DropdownProps<T>) => {
       {props.error ? (
         <p className={errorClassName}>{props.error}</p>
       ) : (
-        <div className={styles.addonBelow}>{props.addonBelow}</div>
-      )}
+          <div className={styles.addonBelow}>{props.addonBelow}</div>
+        )}
     </div>
   );
 

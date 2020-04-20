@@ -4,6 +4,7 @@ import { Size } from "../EnumValues";
 export declare type DropdownProps<T> = Props<T> & {
     error?: string | boolean;
     label?: string;
+    name?: string;
     editable?: boolean;
     size?: Size;
     maxLength?: number;

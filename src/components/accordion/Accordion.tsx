@@ -29,7 +29,6 @@ export class Accordion extends Component<AccordionProps, AccordionState> {
     const collapsed = this.getCollapsedStatus();
     const iconType = collapsed ? "dropdown" : "up";
     const { header, content, theme, subHeader, displayMode } = this.props;
-
     return (
       <div className={cx("accordion", theme)}>
         <div className={cx("panelHeader")} onClick={this.onPanelClick}>

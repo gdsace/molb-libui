@@ -28,6 +28,33 @@ const ThemeList: AccordionTheme[] = Object.keys(AccordionTheme).map(
           }}
         />
       </div>
+      <br />
+      <br />
+      <h6>Wrapped Accordion With Allowed FreeStyling</h6>
+      <div>
+        <Accordion
+          displayMode={boolean("displayMode", false)}
+          theme={select("theme", ThemeList, AccordionTheme.WrappedFreeStyle)}
+          header={
+            <div style={{ padding: "1em" }}>
+              Accordion header div has its own padding
+            </div>
+          }
+          subHeader={[
+            text("subHeader[0]", "Collapse"),
+            text("subHeader[1]", "Expand")
+          ]}
+          content={
+            <div style={{ backgroundColor: "lightgrey", padding: "1em" }}>
+              Likewise this content div has it's own padding and background
+              color
+            </div>
+          }
+          onPanelClick={() => {
+            alert("onPanelClick!");
+          }}
+        />
+      </div>
     </>
   ))
   .addWithJSX("Accordion collapsed", () => (

@@ -163,6 +163,7 @@ export enum AccordionTheme {
   Standard = "standard",
   Large = "large",
   Wrapped = "wrapped",
+  WrappedFreeStyle = "wrappedFreeStyle",
   Colored = "colored"
 }
 

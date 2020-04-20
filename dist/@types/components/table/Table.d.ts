@@ -19,7 +19,9 @@ export interface ITableProps {
     size?: TableSize;
     theme?: TableTheme;
     showNoDataAvailableMessage?: boolean;
-    expandableRowTemplate?: React.ReactChild;
+    expandableRowTemplate?: (subProps: {
+        [k: string]: any;
+    }) => React.ReactChild | JSX.Element;
     onExpandButtonClick?: (itemIndex: number) => void;
     ignoreExpandButtonClick?: boolean;
     showPagination?: boolean;

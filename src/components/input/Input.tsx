@@ -23,6 +23,7 @@ export interface IInputProps {
   onBlur?: () => any;
   onKeyPress?: (event: React.KeyboardEvent<HTMLInputElement>) => any;
   value: any;
+  name?: string;
   type?: InputType;
   minLength?: number;
   maxLength?: number;
@@ -123,10 +124,11 @@ export class Input extends React.Component<IInputProps, any> {
         <div className={styles.inlineWrapper}>
           <div className={styles.inline}>
             <input
+              name={this.props.name}
               disabled={this.props.disabled}
               className={`${styles.field} ${size} ${this.props.className} ${
                 this.props.showError ? styles.error : ""
-              }`}
+                }`}
               value={this.props.value}
               type={this.getRawInputType(this.props.type)}
               maxLength={this.props.maxLength}
@@ -154,7 +156,7 @@ export class Input extends React.Component<IInputProps, any> {
                 this.props.showError
                   ? addLocatedErrorClassname(styles.redMsg)
                   : styles.helperMsg
-              } ${styles.isEmpty}`}
+                } ${styles.isEmpty}`}
             >
               {this.props.showError
                 ? this.props.errorMsg

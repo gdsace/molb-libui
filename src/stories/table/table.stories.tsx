@@ -164,7 +164,10 @@ export const rfaDataSource = [
             theme={TableTheme.Expandable}
             expandable={true}
             onExpandButtonClick={() => true}
-            expandableRowTemplate={<div>TEST</div>}
+            // @ts-ignore
+            expandableRowTemplate={(props: { index: number }) => (
+              <div>TEST with index:{props.index}</div>
+            )}
           />
         </div>
       </div>
