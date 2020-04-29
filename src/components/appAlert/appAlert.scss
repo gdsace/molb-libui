@@ -32,6 +32,11 @@
     justify-content: center;
   }
 
+  &.justify {
+    justify-content: center;
+    text-align: justify;
+  }
+
   .appAlertIcon {
     align-self: stretch;
     color: $primary-color-2;
