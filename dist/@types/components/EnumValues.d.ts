@@ -100,7 +100,8 @@ export declare enum AppAlertTheme {
 }
 export declare enum AppAlertAlignmentTheme {
     LEFT = "left",
-    CENTER = "center"
+    CENTER = "center",
+    JUSTIFY = "justify"
 }
 export declare enum TooltipsLocationTheme {
     BottomLeft = "bottom left",
