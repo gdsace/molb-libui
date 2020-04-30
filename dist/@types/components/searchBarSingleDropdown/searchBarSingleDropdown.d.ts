@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Theme } from "../../components";
 export interface IDropdownOptionType {
     value: string;
     label: string;
@@ -15,8 +16,10 @@ export interface ISearchSingleDropdownProps {
     errorMsg?: string;
     buttonLabel: string;
     handleButtonClick: (inputText: string, selectedDropdown: IDropdownOptionType) => any;
+    buttonTheme?: Theme;
 }
 export declare class SearchSingleDropdown extends React.Component<ISearchSingleDropdownProps, {}> {
+    static defaultProps: Partial<ISearchSingleDropdownProps>;
     render(): JSX.Element;
     private handleOnChangeInputText;
     private trimAndSearch;

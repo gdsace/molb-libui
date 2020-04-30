@@ -2,7 +2,7 @@ import React from "react";
 
 import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
-import { SearchSingleDropdown } from "../../components";
+import { SearchSingleDropdown, Theme } from "../../components";
 import { CategoryName, wInfo } from "../utils";
 
 const styles = require("./searchBarSingleDropdown.stories.scss");
@@ -64,6 +64,7 @@ const errorMsg = "Validation error message, blah blah blah...";
           inputPlaceholder={placeholder}
           inputMaxlength={100}
           buttonLabel={buttonLabel}
+          buttonTheme={Theme.Secondary}
           handleButtonClick={action("search")}
           showError={true}
           errorMsg={errorMsg}

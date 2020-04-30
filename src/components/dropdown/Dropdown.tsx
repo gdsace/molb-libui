@@ -73,8 +73,8 @@ export const Dropdown = <T extends any>(props: DropdownProps<T>) => {
       {props.error ? (
         <p className={errorClassName}>{props.error}</p>
       ) : (
-          <div className={styles.addonBelow}>{props.addonBelow}</div>
-        )}
+        <div className={styles.addonBelow}>{props.addonBelow}</div>
+      )}
     </div>
   );
 
