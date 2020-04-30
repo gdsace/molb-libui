@@ -97,11 +97,6 @@
   font-size: $medium;
 }
 
-.subHeaderWithIcon {
-  display: flex;
-  align-items: center;
-}
-
 .colored {
   @extend .standard;
 
