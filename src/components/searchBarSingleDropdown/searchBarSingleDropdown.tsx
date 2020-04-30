@@ -36,14 +36,13 @@ export interface ISearchSingleDropdownProps {
     inputText: string,
     selectedDropdown: IDropdownOptionType
   ) => any;
-  buttonTheme: Theme;
+  buttonTheme?: Theme;
 }
 
 export class SearchSingleDropdown extends React.Component<
   ISearchSingleDropdownProps,
   {}
 > {
-  
   public static defaultProps: Partial<ISearchSingleDropdownProps> = {
     buttonTheme: Theme.Primary
   };

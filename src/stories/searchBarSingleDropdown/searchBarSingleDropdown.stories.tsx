@@ -10,24 +10,24 @@ const styles = require("./searchBarSingleDropdown.stories.scss");
 export const SEARCH_CRITERIAS = [
   {
     value: "UEN",
-    label: "UEN",
+    label: "UEN"
   },
   {
     value: "CompanyName",
-    label: "Company Name",
+    label: "Company Name"
   },
   {
     value: "ApplicationNumber",
-    label: "Application No.",
+    label: "Application No."
   },
   {
     value: "SubmissionNumber",
-    label: "Submission No.",
+    label: "Submission No."
   },
   {
     value: "NRIC",
-    label: "ID No.",
-  },
+    label: "ID No."
+  }
 ];
 
 const placeholder = "Search here...";
