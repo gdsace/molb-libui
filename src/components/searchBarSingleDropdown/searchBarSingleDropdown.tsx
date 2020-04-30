@@ -36,12 +36,18 @@ export interface ISearchSingleDropdownProps {
     inputText: string,
     selectedDropdown: IDropdownOptionType
   ) => any;
+  buttonTheme: Theme;
 }
 
 export class SearchSingleDropdown extends React.Component<
   ISearchSingleDropdownProps,
   {}
 > {
+  
+  public static defaultProps: Partial<ISearchSingleDropdownProps> = {
+    buttonTheme: Theme.Primary
+  };
+
   public render() {
     return (
       <div className={styles.wrapper}>
@@ -85,7 +91,7 @@ export class SearchSingleDropdown extends React.Component<
             className={styles.searchButton}
             label={this.props.buttonLabel}
             size={Size.Medium}
-            theme={Theme.Primary}
+            theme={this.props.buttonTheme}
             type="button"
             onClick={() => {
               this.trimAndSearch();
