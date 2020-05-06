@@ -12,6 +12,9 @@
   -webkit-overflow-scrolling: touch;
   overflow-y: auto;
   user-select: none;
+  display: flex;
+  justify-content: center;
+  
 
   @include target-ie11 {
     overflow-x: hidden;
@@ -51,16 +54,23 @@
     }
   }
 
+  .centerContent {
+    height: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .modalContent {
     z-index: $z-index-9;
-    position: absolute;
+    // position: absolute;
     background: white;
     width: 720px;
     max-width: 100vw;
-    height: auto;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -80%);
+    height: max-content;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -80%);
     border-radius: 5px;
 
     .close {

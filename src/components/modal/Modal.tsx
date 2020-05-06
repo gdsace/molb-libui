@@ -116,35 +116,37 @@ export class Modal extends React.Component<IModalProps, {}> {
     });
     const modalContent = (
       <div className={modalStyle} onClick={this.onClickAway}>
-        <section
-          className={styles.modalContent}
-          ref={this.setUpModalContentRef}
-        >
-          {!this.props.hideCloseButton && (
-            <div
-              className={styles.close}
-              onClick={this.props.customIcon ? () => ({}) : this.onClose}
-            >
-              {this.props.customIcon || <Icon type="close" />}
-            </div>
+        <div className={styles.centerContent}>
+          <section
+            className={styles.modalContent}
+            ref={this.setUpModalContentRef}
+          >
+            {!this.props.hideCloseButton && (
+              <div
+                className={styles.close}
+                onClick={this.props.customIcon ? () => ({}) : this.onClose}
+              >
+                {this.props.customIcon || <Icon type="close" />}
+              </div>
+            )}
+            <div className={styles.content}>{this.props.children}</div>
+            {!isMobile() && this.props.modalContentFooter && (
+              <div className={styles.modalContentFooter}>
+                {this.props.modalContentFooter}
+              </div>
+            )}
+          </section>
+          {this.props.footer && (
+            <section ref={this.setFooter} className={styles.footer}>
+              {this.props.footer}
+            </section>
           )}
-          <div className={styles.content}>{this.props.children}</div>
-          {!isMobile() && this.props.modalContentFooter && (
-            <div className={styles.modalContentFooter}>
+          {isMobile() && this.props.modalContentFooter && (
+            <section ref={this.setFooter} className={styles.footer}>
               {this.props.modalContentFooter}
-            </div>
+            </section>
           )}
-        </section>
-        {this.props.footer && (
-          <section ref={this.setFooter} className={styles.footer}>
-            {this.props.footer}
-          </section>
-        )}
-        {isMobile() && this.props.modalContentFooter && (
-          <section ref={this.setFooter} className={styles.footer}>
-            {this.props.modalContentFooter}
-          </section>
-        )}
+        </div>
       </div>
     );
     return createPortal(modalContent, this.el);
