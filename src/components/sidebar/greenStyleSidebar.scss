@@ -1,0 +1,59 @@
+@import "../styles/utils.scss";
+
+@mixin activeItem {
+  .item {
+    background-color: #ecf5f5;
+    color: #037e8a;
+  }
+}
+
+$indicator-border-color: rgba(219, 223, 228, 0.5);
+
+.sidebar {
+  ul {
+    list-style: none;
+    height: 100%;
+
+    li {
+      a:link {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .item {
+    font-size: $medium;
+    color: $text-color-2;
+    display: flex;
+    padding: 20px $space-4;
+
+    &.clickable {
+      cursor: pointer;
+    }
+  }
+
+  .indicatorItem {
+    border-bottom: 1px solid $indicator-border-color;
+  }
+
+  .menuItem:hover {
+    background-color: #f9fafa;
+    color: #037e8a;
+  }
+
+  .activeItem {
+    @include activeItem;
+
+    position: relative;
+
+    &::before {
+      content: "";
+      left: 0;
+      position: absolute;
+      width: 8px;
+      height: 100%;
+      background-color: #037e8a;
+      top: 0;
+    }
+  }
+}

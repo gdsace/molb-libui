@@ -68,6 +68,15 @@
   }
 }
 
+.subHeader {
+  font-size: $medium;
+}
+
+.subHeaderWithIcon {
+  display: flex;
+  align-items: center;
+}
+
 .wrappedFreeStyle {
   border: 1px solid $ui-color-2;
   border-radius: 5px;
@@ -83,7 +92,7 @@
   }
 
   .panelContent {
-    padding:0 ;
+    padding: 0;
   }
 
   .subHeaderWithIcon {
@@ -91,15 +100,6 @@
     align-items: center;
     margin-right: 1em;
   }
-}
-
-.subHeader {
-  font-size: $medium;
-}
-
-.subHeaderWithIcon {
-  display: flex;
-  align-items: center;
 }
 
 .colored {

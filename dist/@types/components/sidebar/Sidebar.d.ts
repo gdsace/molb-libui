@@ -8,6 +8,7 @@ export interface ISidebarProps {
     selectedIndex?: number;
     onItemClick?: any;
     type?: "menu" | "indicator";
+    greenStyling?: boolean;
 }
 export declare class Sidebar extends React.Component<ISidebarProps, {}> {
     static defaultProps: Partial<ISidebarProps>;

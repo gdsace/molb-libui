@@ -8,7 +8,7 @@ const styles = require("./textArea.scss");
 
 export type HTMLTextareaProps = React.TextareaHTMLAttributes<
   HTMLTextAreaElement
-  >;
+>;
 export interface ITextAreaPros extends HTMLTextareaProps {
   onIconMouseOver?: () => any;
   onIconMouseOut?: () => any;
@@ -72,8 +72,8 @@ export class TextArea extends React.Component<ITextAreaPros, ITextAreaState> {
     const leftSideMessageClass = textareaValidation
       ? addLocatedErrorClassname(styles.helperMsg)
       : this.props.warningMsg
-        ? styles.warningMsg
-        : styles.helperMsg;
+      ? styles.warningMsg
+      : styles.helperMsg;
     const maxLength = this.props.overwrite ? undefined : this.props.maxLength;
     const iconSize = "16";
     return (
@@ -92,8 +92,8 @@ export class TextArea extends React.Component<ITextAreaPros, ITextAreaState> {
             {this.props.iconType ? (
               <Icon type={this.props.iconType} size={iconSize} />
             ) : (
-                ""
-              )}
+              ""
+            )}
           </div>
         </div>
         <div className={styles.content}>
@@ -114,8 +114,8 @@ export class TextArea extends React.Component<ITextAreaPros, ITextAreaState> {
             {textareaValidation
               ? this.props.errorMsg
               : this.props.warningMsg
-                ? this.renderWarningMsg()
-                : this.props.helperText && this.renderHelperText()}
+              ? this.renderWarningMsg()
+              : this.props.helperText && this.renderHelperText()}
           </div>
           {this.props.maxLength && (
             <div className={styles.countMsg}>
