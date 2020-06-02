@@ -128,7 +128,7 @@ export class Input extends React.Component<IInputProps, any> {
               disabled={this.props.disabled}
               className={`${styles.field} ${size} ${this.props.className} ${
                 this.props.showError ? styles.error : ""
-                }`}
+              }`}
               value={this.props.value}
               type={this.getRawInputType(this.props.type)}
               maxLength={this.props.maxLength}
@@ -156,7 +156,7 @@ export class Input extends React.Component<IInputProps, any> {
                 this.props.showError
                   ? addLocatedErrorClassname(styles.redMsg)
                   : styles.helperMsg
-                } ${styles.isEmpty}`}
+              } ${styles.isEmpty}`}
             >
               {this.props.showError
                 ? this.props.errorMsg

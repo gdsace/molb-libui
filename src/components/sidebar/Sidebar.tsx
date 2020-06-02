@@ -23,7 +23,9 @@ export class Sidebar extends React.Component<ISidebarProps, {}> {
 
   public render() {
     const { list, selectedIndex } = this.props;
-    if (this.props.alternativeStyle) styles = require("./greenStyleSidebar.scss")
+    if (this.props.alternativeStyle) {
+      styles = require("./greenStyleSidebar.scss");
+    }
     const typeClass = styles[`${this.props.type}Item`];
     const itemClassName = `${styles.item} ${typeClass}${
       this.props.onItemClick ? " " + styles.clickable : ""
