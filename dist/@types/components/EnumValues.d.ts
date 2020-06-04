@@ -125,7 +125,8 @@ export declare enum HeaderType {
 }
 export declare enum CheckboxTheme {
     ORANGE = "orange",
-    PURPLE = "purple"
+    PURPLE = "purple",
+    GREEN = "green"
 }
 export declare enum FlexDirectionType {
     ROW = "row",

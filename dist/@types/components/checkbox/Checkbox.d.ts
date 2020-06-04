@@ -8,6 +8,7 @@ export interface ICheckboxProps {
     theme?: CheckboxTheme;
     addonBelow?: React.ReactNode;
     fieldName?: string;
+    minusSign?: boolean;
 }
 interface ICheckboxState {
     checked: boolean;
