@@ -3,7 +3,7 @@
 @mixin activeItem {
   .item {
     background-color: #ecf5f5;
-    color: #037e8a;
+    color: $ga-teal;
   }
 }
 
@@ -38,7 +38,7 @@ $indicator-border-color: rgba(219, 223, 228, 0.5);
 
   .menuItem:hover {
     background-color: #f9fafa;
-    color: #037e8a;
+    color: $ga-teal;
   }
 
   .activeItem {
@@ -52,7 +52,7 @@ $indicator-border-color: rgba(219, 223, 228, 0.5);
       position: absolute;
       width: 8px;
       height: 100%;
-      background-color: #037e8a;
+      background-color: $ga-teal;
       top: 0;
     }
   }

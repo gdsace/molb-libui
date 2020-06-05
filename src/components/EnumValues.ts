@@ -180,7 +180,8 @@ export enum HeaderType {
 
 export enum CheckboxTheme {
   ORANGE = "orange",
-  PURPLE = "purple"
+  PURPLE = "purple",
+  GREEN = "green"
 }
 
 export enum FlexDirectionType {

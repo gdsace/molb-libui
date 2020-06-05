@@ -12,6 +12,7 @@ export interface ICheckboxProps {
   theme?: CheckboxTheme;
   addonBelow?: React.ReactNode;
   fieldName?: string;
+  minusSign?: boolean;
 }
 
 interface ICheckboxState {
@@ -36,17 +37,16 @@ export class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
   }
 
   public render() {
-    const { checked, disabled } = this.props;
+    const { checked, disabled, theme, minusSign } = this.props;
 
     const checkboxInnerClass = classNames(
+      minusSign ? styles.innerMinus : styles.innerDefault,
       styles.inner,
-      this.props.theme === CheckboxTheme.ORANGE ? styles.orange : styles.purple
+      styles[`${theme}`]
     );
     const checkboxInputClass = classNames(
       styles.checkboxInput,
-      this.props.theme === CheckboxTheme.ORANGE
-        ? styles.orangeCheckBox
-        : styles.purpleCheckBox
+      styles[`${theme}CheckBox`]
     );
 
     return (
@@ -60,6 +60,7 @@ export class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
               disabled={disabled}
               className={checkboxInputClass}
               onChange={this.onCheckboxClick}
+              onClick={event => event.stopPropagation()}
             />
             <span className={checkboxInnerClass} />
           </span>
