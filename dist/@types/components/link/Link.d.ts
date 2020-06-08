@@ -17,6 +17,7 @@ export interface ILinkProps {
     link?: string;
     target?: LinkTarget;
     isNested?: boolean;
+    greenStyling?: boolean;
 }
 export declare class Link extends React.Component<ILinkProps, {}> {
     static defaultProps: Partial<ILinkProps>;
