@@ -23,6 +23,7 @@ export interface ILinkProps {
   link?: string;
   target?: LinkTarget;
   isNested?: boolean;
+  greenStyling?: boolean;
 }
 
 export class Link extends React.Component<ILinkProps, {}> {
@@ -36,21 +37,37 @@ export class Link extends React.Component<ILinkProps, {}> {
   };
 
   public render() {
+    let theme = "";
+
+    const {
+      greenStyling,
+      size,
+      link,
+      label,
+      icon,
+      target,
+      className,
+      disabled,
+      inline
+    } = this.props;
+
+    if (greenStyling) {
+      theme = "Green";
+    }
+
     const linkClassName = classNames(
       styles.link,
-      styles[`${this.props.size}`],
-      this.props.className,
-      this.props.disabled ? styles.disabled : styles.enabled,
-      this.props.inline ? styles.inline : styles.floating
+      styles[`${size}`],
+      className,
+      disabled ? styles.disabled : styles[`enabled${theme}`],
+      inline ? styles[`inline${theme}`] : styles[`floating${theme}`]
     );
 
     return (
       <span className={linkClassName} onClick={this.handleOnClick}>
-        <a href={this.props.link} target={this.props.target}>
-          <span>{this.props.label}</span>
-          {this.props.icon && (
-            <Icon className={styles.icon} type={this.props.icon} size={"16"} />
-          )}
+        <a href={link} target={target}>
+          <span>{label}</span>
+          {icon && <Icon className={styles.icon} type={icon} size={"16"} />}
         </a>
       </span>
     );

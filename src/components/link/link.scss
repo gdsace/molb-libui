@@ -34,6 +34,21 @@
   }
 }
 
+.enabledGreen {
+  &:focus {
+    a {
+      text-decoration-line: underline;
+    }
+  }
+
+  &:hover {
+    a {
+      color: $ga-light-sea-green;
+      text-decoration-line: underline;
+    }
+  }
+}
+
 .floating {
   /* stylelint-disable no-descending-specificity */
   a {
@@ -42,9 +57,23 @@
   }
 }
 
+.floatingGreen {
+  a {
+    color: $ga-teal;
+    font-weight: $weight-semibold;
+  }
+}
+
 .inline {
   a {
     color: $secondary-color;
+    font-weight: $weight-regular;
+  }
+}
+
+.inlineGreen {
+  a {
+    color: $ga-light-sea-green;
     font-weight: $weight-regular;
   }
 }

@@ -117,6 +117,19 @@
   }
 }
 
+.gaGreen {
+  color: white;
+  background-color: $ga-teal;
+
+  &:hover {
+    background-color: $ga-mosque;
+  }
+
+  &:focus {
+    background-color: $ga-mosque;
+  }
+}
+
 .outline {
   color: $primary-color-2;
   background-color: transparent;
