@@ -20,6 +20,8 @@ export interface IPaginationProps {
   totalResultsCount: number;
   rowsPerPage: number;
   currentPage: number;
+  titleOverride?: React.ReactElement<any>;
+  buttonTheme?: keyof typeof Theme;
 }
 
 export enum Results {
@@ -55,7 +57,9 @@ export class Pagination extends React.Component<IPaginationProps, {}> {
       currentPage,
       disablePrev,
       disableNext,
-      showTotalResultsAvailable
+      showTotalResultsAvailable,
+      titleOverride,
+      buttonTheme
     } = this.props;
 
     const resultsAvailable =
@@ -66,12 +70,14 @@ export class Pagination extends React.Component<IPaginationProps, {}> {
       ? this.getPageRangesDropdown(totalResultsCount, rowsPerPage, currentPage)
       : this.getPageRangeLabel(totalResultsCount, rowsPerPage, currentPage);
 
+    const title = titleOverride || "";
+
     const lastItemIndex = (currentPage + 1) * rowsPerPage;
 
     return (
       <div className={styles.paginationContainer}>
         <div className={styles.countContainer}>
-          {showTotalResultsAvailable ? resultsAvailable : ""}
+          {showTotalResultsAvailable ? resultsAvailable : title}
         </div>
         <div className={styles.paginationDetails}>
           {currentPageRange}
@@ -84,7 +90,7 @@ export class Pagination extends React.Component<IPaginationProps, {}> {
             <Button
               className={styles.prevButton}
               size={Size.Square}
-              theme={Theme.Grey}
+              theme={buttonTheme ? Theme[buttonTheme] : Theme.Grey}
               icon={"left"}
               iconAlign="center"
               disabled={
@@ -102,7 +108,7 @@ export class Pagination extends React.Component<IPaginationProps, {}> {
             <Button
               className={styles.nextButton}
               size={Size.Square}
-              theme={Theme.Grey}
+              theme={buttonTheme ? Theme[buttonTheme] : Theme.Grey}
               icon={"right"}
               iconAlign="center"
               disabled={

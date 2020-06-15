@@ -1,4 +1,5 @@
 import React from "react";
+import { Theme } from "../EnumValues";
 import { IDataSource } from "../table/Table";
 export interface IPaginationProps {
     onPageChange: (newPage: number) => any;
@@ -12,6 +13,8 @@ export interface IPaginationProps {
     totalResultsCount: number;
     rowsPerPage: number;
     currentPage: number;
+    titleOverride?: React.ReactElement<any>;
+    buttonTheme?: keyof typeof Theme;
 }
 export declare enum Results {
     IsOneOrLess = "result available",
