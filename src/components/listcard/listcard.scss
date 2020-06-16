@@ -51,6 +51,14 @@
     flex-direction: column;
   }
 
+  .leftContainer {
+    display: flex;
+
+    @include gridWidth(9);
+
+    flex-direction: column;
+  }
+
   .tagContainer {
     display: flex;
 

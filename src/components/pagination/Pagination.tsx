@@ -21,7 +21,7 @@ export interface IPaginationProps {
   rowsPerPage: number;
   currentPage: number;
   titleOverride?: React.ReactElement<any>;
-  buttonTheme?: keyof typeof Theme;
+  buttonTheme?: Theme;
 }
 
 export enum Results {
@@ -90,7 +90,7 @@ export class Pagination extends React.Component<IPaginationProps, {}> {
             <Button
               className={styles.prevButton}
               size={Size.Square}
-              theme={buttonTheme ? Theme[buttonTheme] : Theme.Grey}
+              theme={buttonTheme ? buttonTheme : Theme.Grey}
               icon={"left"}
               iconAlign="center"
               disabled={
@@ -108,7 +108,7 @@ export class Pagination extends React.Component<IPaginationProps, {}> {
             <Button
               className={styles.nextButton}
               size={Size.Square}
-              theme={buttonTheme ? Theme[buttonTheme] : Theme.Grey}
+              theme={buttonTheme ? buttonTheme : Theme.Grey}
               icon={"right"}
               iconAlign="center"
               disabled={

@@ -14,7 +14,7 @@ export interface IPaginationProps {
     rowsPerPage: number;
     currentPage: number;
     titleOverride?: React.ReactElement<any>;
-    buttonTheme?: keyof typeof Theme;
+    buttonTheme?: Theme;
 }
 export declare enum Results {
     IsOneOrLess = "result available",

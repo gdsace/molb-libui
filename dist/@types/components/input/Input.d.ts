@@ -26,6 +26,7 @@ export interface IInputProps {
     showCharacterCount?: boolean;
     toolTipsContent?: JSX.Element | string;
     toolTipsPosition?: TooltipsLocationTheme;
+    gaGreenStyling?: boolean;
     customizedChangesFilterRegex?: RegExp;
 }
 export declare class Input extends React.Component<IInputProps, any> {
