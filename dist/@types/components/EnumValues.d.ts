@@ -9,7 +9,8 @@ export declare enum Theme {
     Orange = "orange",
     Green = "green",
     GAGreen = "gaGreen",
-    GAGrey = "gaGrey"
+    GAGrey = "gaGrey",
+    GAGhost = "gaGhost"
 }
 export declare enum FlatButtonTheme {
     Primary = "primary",

@@ -80,7 +80,11 @@ export class Listcard extends React.Component<IListcardPros, any> {
             </div>
           </>
         )}
-        <div className={styles.buttonContainer}>
+        <div
+          className={
+            twoContainers ? styles.rightContainer : styles.buttonContainer
+          }
+        >
           {buttonText && (
             <Button
               className={`${styles.button} ${dispear}`}
