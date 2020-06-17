@@ -100,7 +100,7 @@ export class Button extends React.Component<IButtonProps, {}> {
   }
 
   private handleOnClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    if (!this.props.disabled && !this.props.loading) {
+    if (!this.props.disabled && !this.props.loading && this.props.onClick) {
       this.props.onClick(event);
     }
   };
