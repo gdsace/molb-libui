@@ -8,7 +8,8 @@ export enum Theme {
   Outline = "outline",
   Orange = "orange",
   Green = "green",
-  GAGreen = "gaGreen"
+  GAGreen = "gaGreen",
+  GAGrey = "gaGrey"
 }
 
 export enum FlatButtonTheme {

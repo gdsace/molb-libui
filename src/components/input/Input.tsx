@@ -44,6 +44,7 @@ export interface IInputProps {
   showCharacterCount?: boolean;
   toolTipsContent?: JSX.Element | string;
   toolTipsPosition?: TooltipsLocationTheme;
+  gaGreenStyling?: boolean;
   /*
    * This regex is to filter/reject the unexpected newValue changes (typed/pasted/...)
    * it's different from `Result-Value-Validating`.
@@ -128,6 +129,10 @@ export class Input extends React.Component<IInputProps, any> {
               disabled={this.props.disabled}
               className={`${styles.field} ${size} ${this.props.className} ${
                 this.props.showError ? styles.error : ""
+              } ${
+                this.props.gaGreenStyling
+                  ? styles.gaGreenStyling
+                  : styles.defaultInput
               }`}
               value={this.props.value}
               type={this.getRawInputType(this.props.type)}

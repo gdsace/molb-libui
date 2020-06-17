@@ -57,7 +57,11 @@ $input-focus-border: solid 1px $lavender-indigo;
     border: $input-hover-border;
   }
 
-  input:focus {
+  .gaGreenStyling:focus {
+    border: solid 1px $ga-light-sea-green;
+  }
+
+  .defaultInput:focus {
     border: $input-focus-border;
   }
 
