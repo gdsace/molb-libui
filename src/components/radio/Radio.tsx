@@ -13,7 +13,7 @@ export interface IRadioProps {
   text?: string;
   optionList: IOptionValue[];
   value?: string;
-  onChange: (e: string) => void;
+  onChange?: (e: string) => void;
   disabled?: boolean;
   showError?: boolean;
   errorMsg?: string;
@@ -29,6 +29,9 @@ export interface IRadioProps {
   label?: string;
   promptMessage?: IPromptMessage;
   addOnBelowText?: React.ReactNode;
+  uncontrolled?: boolean;
+  register?: React.RefObject<any> | ((ref: Element | null) => void);
+  name?: string;
 }
 
 interface IPromptMessage {
@@ -58,7 +61,7 @@ const getOptionComponents = (props: IRadioProps) => {
     props.labelStyleOverride || "",
     styles.optionText
   );
-  const optionComponents = props.optionList.map(optionValue => {
+  const optionComponents = props.optionList.map((optionValue, idx: number) => {
     const isDisabled = props.disabled || optionValue.disabled;
     const isSelected = optionValue.value === props.value;
     const radioClassString = classNames(styles.checkBoxIcon, {
@@ -76,21 +79,44 @@ const getOptionComponents = (props: IRadioProps) => {
       if (isDisabled || props.value === event.currentTarget.value) {
         return;
       }
-      props.onChange(event.currentTarget.value);
+      if (props.onChange) {
+        props.onChange(event.currentTarget.value);
+      }
     };
 
     return (
-      <React.Fragment key={optionValue.value.toString()}>
-        <label className={radioClassString}>
-          <span>{optionIcon}</span>
-          <input
-            type="radio"
-            value={optionValue.value}
-            disabled={isDisabled}
-            onClick={onRadioClick}
-          />
-          <span className={radioTextClass}>{optionValue.label}</span>
-        </label>
+      <React.Fragment key={`option[${idx}][${optionValue.label}]`}>
+        {props.uncontrolled === true ? (
+          <label
+            htmlFor={`option[${idx}][${props.name}]`}
+            className={radioClassString}
+          >
+            <span>{optionIcon}</span>
+            <input
+              type="radio"
+              id={`option[${idx}][${props.name}]`}
+              name={props.name}
+              value={optionValue.value}
+              ref={props.register}
+              disabled={isDisabled}
+              onClick={onRadioClick}
+              defaultChecked={optionValue.value === props.value}
+            />
+            <span className={radioTextClass}>{optionValue.label}</span>
+          </label>
+        ) : (
+          <label className={radioClassString}>
+            <span>{optionIcon}</span>
+            <input
+              type="radio"
+              value={optionValue.value}
+              disabled={isDisabled}
+              onClick={onRadioClick}
+            />
+            <span className={radioTextClass}>{optionValue.label}</span>
+          </label>
+        )}
+
         {isSelected && props.subsequentQuestion}
       </React.Fragment>
     );

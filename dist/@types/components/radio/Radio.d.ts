@@ -5,7 +5,7 @@ export interface IRadioProps {
     text?: string;
     optionList: IOptionValue[];
     value?: string;
-    onChange: (e: string) => void;
+    onChange?: (e: string) => void;
     disabled?: boolean;
     showError?: boolean;
     errorMsg?: string;
@@ -21,6 +21,9 @@ export interface IRadioProps {
     label?: string;
     promptMessage?: IPromptMessage;
     addOnBelowText?: React.ReactNode;
+    uncontrolled?: boolean;
+    register?: React.RefObject<any> | ((ref: Element | null) => void);
+    name?: string;
 }
 interface IPromptMessage {
     display: boolean;
