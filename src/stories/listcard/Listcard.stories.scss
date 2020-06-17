@@ -1,0 +1,32 @@
+@import "../../components/styles/utils.scss";
+
+.listCardTitle {
+  font-weight: $weight-semibold;
+  font-size: $large;
+  line-height: $line-height-medium;
+}
+
+.listCardSubtitle {
+  font-weight: $weight-regular;
+  font-size: $small;
+  line-height: $line-height-medium;
+}
+
+
+.cardColumn {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.columnTitle {
+  font-weight: $weight-bold;
+  font-size: $small;
+  line-height: $line-height-medium;
+  color: #999;
+}
+
+.columnValue {
+  font-weight: $weight-medium;
+  font-size: $medium;
+  line-height: $line-height-large;
+}
