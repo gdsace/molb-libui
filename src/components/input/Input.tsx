@@ -140,6 +140,11 @@ export class Input extends React.Component<IInputProps, any> {
                 }`}
                 type={this.getRawInputType(this.props.type)}
                 maxLength={this.props.maxLength}
+                onChange={event => {
+                  if (this.props.onChange) {
+                    this.props.onChange(event);
+                  }
+                }}
                 onBlur={() => {
                   if (this.props.onBlur) {
                     this.props.onBlur();
