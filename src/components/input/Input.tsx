@@ -46,7 +46,7 @@ export interface IInputProps {
   toolTipsPosition?: TooltipsLocationTheme;
   gaGreenStyling?: boolean;
   uncontrolled?: boolean;
-  register?: React.RefObject<any> | ((ref: Element | null) => void); // <-- For react-hook-form's [register]
+  register?: React.RefObject<any> | ((ref: any) => void); // <-- For react-hook-form's [register]
   /*
    * This regex is to filter/reject the unexpected newValue changes (typed/pasted/...)
    * it's different from `Result-Value-Validating`.
