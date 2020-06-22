@@ -138,6 +138,63 @@ const styles = require("./button.stories.scss");
             loading={true}
           />
         </div>
+        <div className={styles.box}>
+          <p className={styles.notes}>dark grey</p>
+          <Button
+            label="dark grey"
+            onClick={action("button-click")}
+            theme={Theme.DarkGrey}
+          />
+        </div>
+        <div className={styles.box}>
+          <p className={styles.notes}>orange</p>
+          <Button
+            label="orange"
+            onClick={action("button-click")}
+            theme={Theme.Orange}
+          />
+        </div>
+        <div className={styles.box}>
+          <p className={styles.notes}>green</p>
+          <Button
+            label="green"
+            onClick={action("button-click")}
+            theme={Theme.Green}
+          />
+        </div>
+        <div className={styles.box}>
+          <p className={styles.notes}>ga green</p>
+          <Button
+            label="ga green"
+            onClick={action("button-click")}
+            theme={Theme.GAGreen}
+          />
+        </div>
+        <div className={styles.box}>
+          <p className={styles.notes}>ga green:loading</p>
+          <Button
+            label="ga green"
+            onClick={action("button-click")}
+            theme={Theme.GAGreen}
+            loading={true}
+          />
+        </div>
+        <div className={styles.box}>
+          <p className={styles.notes}>ga grey</p>
+          <Button
+            label="ga grey"
+            onClick={action("button-click")}
+            theme={Theme.GAGrey}
+          />
+        </div>
+        <div className={styles.box}>
+          <p className={styles.notes}>ga ghost</p>
+          <Button
+            label="ga ghost"
+            onClick={action("button-click")}
+            theme={Theme.GAGhost}
+          />
+        </div>
       </div>
 
       <h6 className={styles.groupHeader}>With Icon</h6>

@@ -87,6 +87,21 @@
   }
 }
 
+.gaGhost {
+  color: $ga-primary-color;
+  background-color: $primary-color-2;
+  border: solid 1px $ga-primary-color;
+
+  &:focus {
+    background-color: $primary-color-2;
+  }
+
+  &:hover {
+    color: $primary-color-2;
+    background-color: $ga-primary-color;
+  }
+}
+
 .orange {
   color: white;
   background-color: $vivid-orange;
@@ -119,14 +134,14 @@
 
 .gaGreen {
   color: white;
-  background-color: $ga-teal;
+  background-color: $ga-primary-color;
 
   &:hover {
-    background-color: $ga-mosque;
+    background-color: $ga-secondary-color;
   }
 
   &:focus {
-    background-color: $ga-mosque;
+    background-color: $ga-secondary-color;
   }
 }
 
@@ -174,7 +189,7 @@
   border: 1px solid $ui-color-2;
 
   &:hover {
-    border: 1px solid $ga-light-sea-green;
+    border: 1px solid $ga-secondary-color;
     position: relative;
     z-index: 99;
   }
