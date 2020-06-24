@@ -44,6 +44,13 @@ export const InlineNotificationWithHeader = (
     }
   );
 
+  const processedText = text.split("\n").map((str, index) => (
+    <React.Fragment key={`inline-notif-with-header-text-chunk-${index}`}>
+      {str}
+      <br />
+    </React.Fragment>
+  ));
+
   return (
     <div className={inlineNotificationClassName} data-scrollpoint>
       <div className={styles.inlineNotificationTextPart}>
@@ -52,7 +59,7 @@ export const InlineNotificationWithHeader = (
         </div>
         <div className={styles.content}>
           <h5 className={headerStyle}>{props.header}</h5>
-          <p className={styles.inlineNotificationText}>{text}</p>
+          <p className={styles.inlineNotificationText}>{processedText}</p>
         </div>
       </div>
       {childNode && childNode}

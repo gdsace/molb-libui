@@ -29,7 +29,7 @@ describe("Inline notification", () => {
   it("should render error notification success", () => {
     const testThis = {
       header: "Another Header Lah",
-      text: "this is error text"
+      text: "this is error text line 1\nthis is error text line 2"
     };
 
     const wrapper = shallow(
@@ -39,9 +39,10 @@ describe("Inline notification", () => {
         theme={NotificationTheme.Error}
       />
     );
-
     expect(wrapper.find("h5").text()).toEqual(testThis.header);
-    expect(wrapper.find("p").text()).toEqual(testThis.text);
+    expect(wrapper.find("p").html()).toContain(
+      "this is error text line 1<br/>this is error text line 2<br/>"
+    );
     expect(wrapper.find(".error")).toHaveLength(2);
     expect(wrapper.find(Icon).prop("type")).toEqual("notification-error");
   });

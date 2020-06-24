@@ -6,7 +6,7 @@ import { InlineNotificationWithHeader } from "../../components/inlineNotificatio
 import { CategoryName } from "../utils";
 
 const lorem =
-  "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam natus doloribus aperiam ipsum consectetur, accusamus laborum nam dolor error consequatur beatae quaerat doloremque placeat impedit illo cumque. Provident, eos aperiam.";
+  "Lorem, ipsum dolor sit amet consectetur adipisicing elit.\nLaboriosam natus doloribus aperiam ipsum consectetur, accusamus laborum nam dolor error consequatur beatae quaerat doloremque placeat impedit illo cumque. Provident, eos aperiam.";
 
 const ThemeList: NotificationTheme[] = Object.keys(NotificationTheme).map(
   k => NotificationTheme[k as keyof typeof NotificationTheme]
