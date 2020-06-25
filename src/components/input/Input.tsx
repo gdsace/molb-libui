@@ -45,6 +45,8 @@ export interface IInputProps {
   toolTipsContent?: JSX.Element | string;
   toolTipsPosition?: TooltipsLocationTheme;
   gaGreenStyling?: boolean;
+  uncontrolled?: boolean;
+  register?: React.RefObject<any> | ((ref: any) => void); // <-- For react-hook-form's [register]
   /*
    * This regex is to filter/reject the unexpected newValue changes (typed/pasted/...)
    * it's different from `Result-Value-Validating`.
@@ -124,32 +126,66 @@ export class Input extends React.Component<IInputProps, any> {
         )}
         <div className={styles.inlineWrapper}>
           <div className={styles.inline}>
-            <input
-              name={this.props.name}
-              disabled={this.props.disabled}
-              className={`${styles.field} ${size} ${this.props.className} ${
-                this.props.showError ? styles.error : ""
-              } ${
-                this.props.gaGreenStyling
-                  ? styles.gaGreenStyling
-                  : styles.defaultInput
-              }`}
-              value={this.props.value}
-              type={this.getRawInputType(this.props.type)}
-              maxLength={this.props.maxLength}
-              onChange={this.handleOnChange}
-              onBlur={() => {
-                if (this.props.onBlur) {
-                  this.props.onBlur();
-                }
-              }}
-              onKeyPress={event => {
-                if (this.props.onKeyPress) {
-                  this.props.onKeyPress(event);
-                }
-              }}
-              placeholder={this.props.placeholder}
-            />
+            {this.props.uncontrolled === true ? (
+              <input
+                name={this.props.name}
+                ref={this.props.register}
+                disabled={this.props.disabled}
+                className={`${styles.field} ${size} ${this.props.className} ${
+                  this.props.showError ? styles.error : ""
+                } ${
+                  this.props.gaGreenStyling
+                    ? styles.gaGreenStyling
+                    : styles.defaultInput
+                }`}
+                type={this.getRawInputType(this.props.type)}
+                maxLength={this.props.maxLength}
+                onChange={event => {
+                  if (this.props.onChange) {
+                    this.props.onChange(event);
+                  }
+                }}
+                onBlur={() => {
+                  if (this.props.onBlur) {
+                    this.props.onBlur();
+                  }
+                }}
+                onKeyPress={event => {
+                  if (this.props.onKeyPress) {
+                    this.props.onKeyPress(event);
+                  }
+                }}
+                placeholder={this.props.placeholder}
+              />
+            ) : (
+              <input
+                name={this.props.name}
+                disabled={this.props.disabled}
+                className={`${styles.field} ${size} ${this.props.className} ${
+                  this.props.showError ? styles.error : ""
+                } ${
+                  this.props.gaGreenStyling
+                    ? styles.gaGreenStyling
+                    : styles.defaultInput
+                }`}
+                value={this.props.value}
+                type={this.getRawInputType(this.props.type)}
+                maxLength={this.props.maxLength}
+                onChange={this.handleOnChange}
+                onBlur={() => {
+                  if (this.props.onBlur) {
+                    this.props.onBlur();
+                  }
+                }}
+                onKeyPress={event => {
+                  if (this.props.onKeyPress) {
+                    this.props.onKeyPress(event);
+                  }
+                }}
+                placeholder={this.props.placeholder}
+              />
+            )}
+
             {this.getRightInlineElement()}
           </div>
           {this.props.inlineElement}
