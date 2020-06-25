@@ -45,8 +45,9 @@ export interface IInputProps {
   toolTipsContent?: JSX.Element | string;
   toolTipsPosition?: TooltipsLocationTheme;
   gaGreenStyling?: boolean;
-  uncontrolled?: boolean;
-  register?: React.RefObject<any> | ((ref: any) => void); // <-- For react-hook-form's [register]
+  isUncontrolled?: boolean;
+  uncontrolledRef?: React.RefObject<any> | ((ref: any) => void); // <-- For react-hook-form's [register]
+  uncontrolledDefaultValue?: any; // <-- For react-hook-form
   /*
    * This regex is to filter/reject the unexpected newValue changes (typed/pasted/...)
    * it's different from `Result-Value-Validating`.
@@ -126,11 +127,12 @@ export class Input extends React.Component<IInputProps, any> {
         )}
         <div className={styles.inlineWrapper}>
           <div className={styles.inline}>
-            {this.props.uncontrolled === true ? (
+            {this.props.isUncontrolled === true ? (
               <input
                 name={this.props.name}
-                ref={this.props.register}
+                ref={this.props.uncontrolledRef}
                 disabled={this.props.disabled}
+                defaultValue={this.props.uncontrolledDefaultValue}
                 className={`${styles.field} ${size} ${this.props.className} ${
                   this.props.showError ? styles.error : ""
                 } ${
