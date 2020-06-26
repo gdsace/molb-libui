@@ -45,9 +45,6 @@ export interface IInputProps {
   toolTipsContent?: JSX.Element | string;
   toolTipsPosition?: TooltipsLocationTheme;
   gaGreenStyling?: boolean;
-  isUncontrolled?: boolean;
-  uncontrolledRef?: React.RefObject<any> | ((ref: any) => void); // <-- For react-hook-form's [register]
-  uncontrolledDefaultValue?: any; // <-- For react-hook-form
   /*
    * This regex is to filter/reject the unexpected newValue changes (typed/pasted/...)
    * it's different from `Result-Value-Validating`.
@@ -55,6 +52,21 @@ export interface IInputProps {
    * Note: Accepting `newValue` change does not mean this `newValue` is valid.
    * */
   customizedChangesFilterRegex?: RegExp;
+
+  /* Props for Uncontrolled Version:
+    [isUncontrolled]:
+      * Only `true` will toggle component to uncontrolled mode
+
+    [uncontrolledRef]: 
+      * If you are using react-hook-form, this is where you pass `register` in. For more info on `register`, see https://react-hook-form.com/api#register
+      * Otherwise, this is where you can obtain a ref to the component
+
+    [uncontrolledDefaultValue]:
+      * The usual react's default value https://reactjs.org/docs/uncontrolled-components.html#default-values
+  */
+  isUncontrolled?: boolean;
+  uncontrolledRef?: React.RefObject<any> | ((ref: any) => void);
+  uncontrolledDefaultValue?: any;
 }
 
 export class Input extends React.Component<IInputProps, any> {
