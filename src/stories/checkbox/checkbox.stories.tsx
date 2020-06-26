@@ -85,6 +85,13 @@ const onCheckboxClick = (value: string) => {
             onCheckboxClick={onCheckboxClick}
             theme={CheckboxTheme.PURPLE}
           />
+          <p className={styles.notes}>green:</p>
+          <Checkbox
+            checked={store.state.checked}
+            disabled={false}
+            onCheckboxClick={onCheckboxClick}
+            theme={CheckboxTheme.GREEN}
+          />
         </State>
 
         <h6 className={styles.groupHeader}>Checkbox with addon below : ...</h6>
