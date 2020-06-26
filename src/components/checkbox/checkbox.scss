@@ -106,7 +106,7 @@ $position-top: ($checkbox-size - $checkbox-inner-tick-height) / 2 - 1.5 * ($chec
   }
 
   .green {
-    background: $ga-light-sea-green;
+    background: $ga-teal;
   }
 
   .orangeCheckBox {
@@ -129,7 +129,7 @@ $position-top: ($checkbox-size - $checkbox-inner-tick-height) / 2 - 1.5 * ($chec
     border: $ui-color-2 solid 1px;
 
     &:hover {
-      border-color: $ga-light-sea-green;
+      border-color: $ga-teal;
     }
   }
 }
