@@ -16,7 +16,7 @@ RUN apk add --no-cache git \
 
 ARG NODE_ENV=production
 COPY . /usr/src/app
-RUN git status --porcelain
+RUN echo "dist/index.js.map" >> .gitignore
 
 # Check that it builds and that there are no uncommitted changes after building
 RUN yarn build:check
