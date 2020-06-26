@@ -27,9 +27,11 @@ export interface IInputProps {
     toolTipsContent?: JSX.Element | string;
     toolTipsPosition?: TooltipsLocationTheme;
     gaGreenStyling?: boolean;
-    uncontrolled?: boolean;
-    register?: React.RefObject<any> | ((ref: any) => void);
     customizedChangesFilterRegex?: RegExp;
+    isUncontrolled?: boolean;
+    uncontrolledRef?: React.RefObject<any> | ((ref: any) => void);
+    uncontrolledDefaultValue?: any;
+    fooBar: void;
 }
 export declare class Input extends React.Component<IInputProps, any> {
     static defaultProps: Partial<IInputProps>;

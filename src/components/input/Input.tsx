@@ -45,8 +45,6 @@ export interface IInputProps {
   toolTipsContent?: JSX.Element | string;
   toolTipsPosition?: TooltipsLocationTheme;
   gaGreenStyling?: boolean;
-  uncontrolled?: boolean;
-  register?: React.RefObject<any> | ((ref: any) => void); // <-- For react-hook-form's [register]
   /*
    * This regex is to filter/reject the unexpected newValue changes (typed/pasted/...)
    * it's different from `Result-Value-Validating`.
@@ -54,6 +52,22 @@ export interface IInputProps {
    * Note: Accepting `newValue` change does not mean this `newValue` is valid.
    * */
   customizedChangesFilterRegex?: RegExp;
+
+  /* Props for Uncontrolled Version:
+    [isUncontrolled]:
+      * Only `true` will toggle component to uncontrolled mode
+
+    [uncontrolledRef]: 
+      * If you are using react-hook-form, this is where you pass `register` in. For more info on `register`, see https://react-hook-form.com/api#register
+      * Otherwise, this is where you can obtain a ref to the component
+
+    [uncontrolledDefaultValue]:
+      * The usual react's default value https://reactjs.org/docs/uncontrolled-components.html#default-values
+  */
+  isUncontrolled?: boolean;
+  uncontrolledRef?: React.RefObject<any> | ((ref: any) => void);
+  uncontrolledDefaultValue?: any;
+  fooBar: void;
 }
 
 export class Input extends React.Component<IInputProps, any> {
@@ -126,11 +140,12 @@ export class Input extends React.Component<IInputProps, any> {
         )}
         <div className={styles.inlineWrapper}>
           <div className={styles.inline}>
-            {this.props.uncontrolled === true ? (
+            {this.props.isUncontrolled === true ? (
               <input
                 name={this.props.name}
-                ref={this.props.register}
+                ref={this.props.uncontrolledRef}
                 disabled={this.props.disabled}
+                defaultValue={this.props.uncontrolledDefaultValue}
                 className={`${styles.field} ${size} ${this.props.className} ${
                   this.props.showError ? styles.error : ""
                 } ${
