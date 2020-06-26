@@ -7,7 +7,9 @@ RUN apk update \
 WORKDIR /usr/src/app
 
 COPY package.json yarn.lock /usr/src/app/
-RUN yarn install --frozen-lockfile \
+RUN apk add --no-cache git \
+    && yarn set version 1.22.4 \
+    && yarn install --frozen-lockfile \
     && yarn check --integrity \
     && yarn cache clean
 
