@@ -4,9 +4,7 @@ import { InputType, Size, TooltipsLocationTheme } from "../EnumValues";
 import { Icon } from "../icons";
 import { Tooltips } from "../tooltips";
 import { addLocatedErrorClassname } from "../utils";
-
 const styles = require("./input.scss");
-
 const ICON_SIZE = "16";
 const DEFAULT_MAX_LENGTH = 30;
 const defaultChangesFilterRegexDict: any = {
@@ -17,7 +15,6 @@ const defaultChangesFilterRegexDict: any = {
   [InputType.PositiveDecimalText]: /^([0-9]*|[0-9]+\.[0-9]*)$/,
   [InputType.AlphaNumeric]: /^[a-zA-Z0-9]*$/
 };
-
 export interface IInputProps {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => any;
   onBlur?: () => any;
@@ -45,8 +42,6 @@ export interface IInputProps {
   toolTipsContent?: JSX.Element | string;
   toolTipsPosition?: TooltipsLocationTheme;
   gaGreenStyling?: boolean;
-  uncontrolled?: boolean;
-  register?: React.RefObject<any> | ((ref: any) => void); // <-- For react-hook-form's [register]
   /*
    * This regex is to filter/reject the unexpected newValue changes (typed/pasted/...)
    * it's different from `Result-Value-Validating`.
@@ -54,8 +49,19 @@ export interface IInputProps {
    * Note: Accepting `newValue` change does not mean this `newValue` is valid.
    * */
   customizedChangesFilterRegex?: RegExp;
+  /* Props for Uncontrolled Version:
+    [isUncontrolled]:
+      * Only `true` will toggle component to uncontrolled mode
+    [uncontrolledRef]: 
+      * If you are using react-hook-form, this is where you pass `register` in. For more info on `register`, see https://react-hook-form.com/api#register
+      * Otherwise, this is where you can obtain a ref to the component
+    [uncontrolledDefaultValue]:
+      * The usual react's default value https://reactjs.org/docs/uncontrolled-components.html#default-values
+  */
+  isUncontrolled?: boolean;
+  uncontrolledRef?: React.RefObject<any> | ((ref: any) => void);
+  uncontrolledDefaultValue?: any;
 }
-
 export class Input extends React.Component<IInputProps, any> {
   public static defaultProps: Partial<IInputProps> = {
     className: "",
@@ -69,7 +75,6 @@ export class Input extends React.Component<IInputProps, any> {
     showTooltip: false,
     inlineElement: ""
   };
-
   constructor(props: any) {
     super(props);
     this.state = {
@@ -77,7 +82,6 @@ export class Input extends React.Component<IInputProps, any> {
       previousValue: ""
     };
   }
-
   public render() {
     const size = styles[`${this.props.size}`];
     const rootContainerClassname = classnames(styles.rootContainer, {
@@ -126,11 +130,12 @@ export class Input extends React.Component<IInputProps, any> {
         )}
         <div className={styles.inlineWrapper}>
           <div className={styles.inline}>
-            {this.props.uncontrolled === true ? (
+            {this.props.isUncontrolled === true ? (
               <input
                 name={this.props.name}
-                ref={this.props.register}
+                ref={this.props.uncontrolledRef}
                 disabled={this.props.disabled}
+                defaultValue={this.props.uncontrolledDefaultValue}
                 className={`${styles.field} ${size} ${this.props.className} ${
                   this.props.showError ? styles.error : ""
                 } ${
@@ -185,7 +190,6 @@ export class Input extends React.Component<IInputProps, any> {
                 placeholder={this.props.placeholder}
               />
             )}
-
             {this.getRightInlineElement()}
           </div>
           {this.props.inlineElement}
@@ -213,13 +217,11 @@ export class Input extends React.Component<IInputProps, any> {
       </div>
     );
   }
-
   public handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { type, customizedChangesFilterRegex } = this.props;
     const newValue = event.target.value;
     const defaultChangesFilterRegex =
       type && defaultChangesFilterRegexDict[type];
-
     // first check defaultChangesFilterRegex,
     // then check customizedChangesFilterRegex after.
     if (
@@ -231,16 +233,13 @@ export class Input extends React.Component<IInputProps, any> {
       // remember cursor position
       const caretStart = event.target.selectionStart || 0;
       const caretEnd = event.target.selectionEnd || 0;
-
       event.target.value = this.state.previousValue;
-
       // set cursor back to the previous position
       if (typeof event.target.setSelectionRange === "function") {
         event.target.setSelectionRange(caretStart - 1, caretEnd - 1);
       }
       return;
     }
-
     if (
       this.props.disabled ||
       newValue.length > (this.props.maxLength || DEFAULT_MAX_LENGTH)
@@ -248,7 +247,6 @@ export class Input extends React.Component<IInputProps, any> {
       event.target.value = this.state.previousValue;
       return;
     }
-
     this.props.onChange(event);
     const targetValue = event.target.value;
     setTimeout(() => {
@@ -258,38 +256,30 @@ export class Input extends React.Component<IInputProps, any> {
       });
     }, 500);
   };
-
   private getRightInlineElement() {
     let element: JSX.Element = <></>;
     const { showError, suffix, iconSignifier, loading } = this.props;
-
     if (!(showError || suffix || iconSignifier || loading)) {
       return <></>;
     }
-
     if (iconSignifier) {
       element = iconSignifier;
     }
-
     if (suffix) {
       element = <span className={styles.suffix}>{suffix}</span>;
     }
-
     if (loading) {
       element = (
         <Icon className={styles.loading} type="progress" size={ICON_SIZE} />
       );
     }
-
     if (showError) {
       element = (
         <Icon className={styles.errorIcon} size={ICON_SIZE} type="error" />
       );
     }
-
     return <div className={styles.rightInlineElementContainer}>{element}</div>;
   }
-
   private getRawInputType = (type?: InputType) => {
     if (type === InputType.Email) {
       return "email";
