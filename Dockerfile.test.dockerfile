@@ -6,6 +6,7 @@ RUN apk update \
 
 WORKDIR /usr/src/app
 
+
 COPY package.json yarn.lock /usr/src/app/
 RUN apk add --no-cache git \
     && yarn policies set-version 1.22.4 \
@@ -15,6 +16,7 @@ RUN apk add --no-cache git \
 
 ARG NODE_ENV=production
 COPY . /usr/src/app
+RUN git status --porcelain
 
 # Check that it builds and that there are no uncommitted changes after building
 RUN yarn build:check
