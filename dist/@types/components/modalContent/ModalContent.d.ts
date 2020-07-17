@@ -4,10 +4,12 @@ export interface IModalContentProps {
     header?: string;
     subheader?: string | JSX.Element;
     notification?: string | JSX.Element;
+    leftButtonDisabled?: boolean;
     leftButtonLabel?: string;
     leftButtonOnClick?: any;
     isLeftBtnLoading?: boolean;
     leftButtonTheme?: Theme;
+    rightButtonDisabled?: boolean;
     rightButtonLabel?: string;
     rightButtonOnClick?: any;
     isRightBtnLoading?: boolean;
