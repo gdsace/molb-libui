@@ -30,12 +30,19 @@ export const InlineNotification = (props: InlineNotificationProps) => {
     }
   );
 
+  const processedText = text.split("\n").map((str, index) => (
+    <React.Fragment key={`inline-notif-text-chunk-${index}`}>
+      {str}
+      <br />
+    </React.Fragment>
+  ));
+
   return (
     <div className={inlineNotificationClassName} data-scrollpoint>
       <div className={style.inlineNotificationIcon}>
         <Icon type={iconType[theme]} size="24" />
       </div>
-      <p className={style.inlineNotificationText}>{text}</p>
+      <p className={style.inlineNotificationText}>{processedText}</p>
     </div>
   );
 };

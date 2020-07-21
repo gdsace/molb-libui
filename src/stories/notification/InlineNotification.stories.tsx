@@ -12,7 +12,7 @@ const ThemeList: NotificationTheme[] = Object.keys(NotificationTheme).map(
   "InlineNotification",
   () => (
     <InlineNotification
-      text={text("text", "Normal Notification")}
+      text={text("text", "Lorem, ipsum dolor sit amet consectetur adipisicing elit.\nLaboriosam natus doloribus aperiam ipsum consectetur, accusamus laborum nam dolor error consequatur beatae quaerat doloremque placeat impedit illo cumque. Provident, eos aperiam.")}
       theme={select("theme", ThemeList, NotificationTheme.Informational)}
     />
   )
