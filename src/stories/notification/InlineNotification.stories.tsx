@@ -9,14 +9,24 @@ const ThemeList: NotificationTheme[] = Object.keys(NotificationTheme).map(
 );
 
 const lorem =
-  "Lorem, ipsum dolor sit amet consectetur adipisicing elit.\nLaboriosam natus doloribus aperiam ipsum consectetur, accusamus laborum nam dolor error consequatur beatae quaerat doloremque placeat impedit illo cumque. Provident, eos aperiam.";
+  "Multiple lines: Use \\n to linebreak.\nLorem, ipsum dolor sit amet consectetur adipisicing elit.\nLaboriosam natus doloribus aperiam ipsum consectetur, accusamus laborum nam dolor error consequatur beatae quaerat doloremque placeat impedit illo cumque. Provident, eos aperiam.\nLorem, ipsum dolor sit amet consectetur adipisicing elit.";
+
+const single =
+  "Single line: You can see this seems slightly off-center, feel free to improve this if you have any elegant solutions";
 
 (storiesOf(CategoryName.Notification, module) as any).addWithJSX(
   "InlineNotification",
   () => (
-    <InlineNotification
-      text={text("text", lorem)}
-      theme={select("theme", ThemeList, NotificationTheme.Informational)}
-    />
+    <>
+      <InlineNotification
+        text={text("text", lorem)}
+        theme={select("theme", ThemeList, NotificationTheme.Informational)}
+      />
+      <br />
+      <InlineNotification
+        text={text("text", single)}
+        theme={select("theme", ThemeList, NotificationTheme.Informational)}
+      />
+    </>
   )
 );
