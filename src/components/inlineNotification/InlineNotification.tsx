@@ -40,7 +40,7 @@ export const InlineNotification = (props: InlineNotificationProps) => {
   return (
     <div className={inlineNotificationClassName} data-scrollpoint>
       <div className={style.inlineNotificationIcon}>
-        <Icon type={iconType[theme]} size="24" />
+        <Icon type={iconType[theme]} size="20" />
       </div>
       <p className={style.inlineNotificationText}>{processedText}</p>
     </div>
