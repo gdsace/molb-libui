@@ -8,43 +8,26 @@ import { Icon } from "../icons/Icon";
 import styles from "./dropdownStyle.scss";
 import "./library.scss";
 
-const Menu = (props: any) => (
-  <components.Menu className={styles.menu} {...props} />
-);
+const Menu = (props: any) => <components.Menu className={styles.menu} {...props} />;
 
-const Control = (props: any) => (
-  <components.Control className={styles.dropdownControl} {...props} />
-);
+const Control = (props: any) => <components.Control className={styles.dropdownControl} {...props} />;
 
 const DropdownIndicator = (props: any) =>
   components.DropdownIndicator && (
-    <components.DropdownIndicator
-      className={styles.dropdownIndicator}
-      {...props}
-    >
+    <components.DropdownIndicator className={styles.dropdownIndicator} {...props}>
       <Icon type="dropdown" className={styles.dropdownIcon} />
     </components.DropdownIndicator>
   );
 
-const MenuList = (props: any) => (
-  <components.MenuList className={styles.menuList} {...props} />
-);
+const MenuList = (props: any) => <components.MenuList className={styles.menuList} {...props} />;
 
-const Option = (props: any) => (
-  <components.Option className={styles.option} {...props} />
-);
+const Option = (props: any) => <components.Option className={styles.option} {...props} />;
 
-const Placeholder = (props: any) => (
-  <components.Placeholder className={styles.placeholder} {...props} />
-);
+const Placeholder = (props: any) => <components.Placeholder className={styles.placeholder} {...props} />;
 
-const ValueContainer = (props: any) => (
-  <components.ValueContainer className={styles.valueContainer} {...props} />
-);
+const ValueContainer = (props: any) => <components.ValueContainer className={styles.valueContainer} {...props} />;
 
-const SingleValue = (props: any) => (
-  <components.SingleValue className={styles.singleValue} {...props} />
-);
+const SingleValue = (props: any) => <components.SingleValue className={styles.singleValue} {...props} />;
 
 export const baseComponents: SelectComponentsConfig<any> = {
   Menu,

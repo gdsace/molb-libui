@@ -27,33 +27,22 @@ export class Card extends React.Component<ICardProps> {
   };
 
   public render() {
-    const cardClass = classnames(
-      styles.card,
-      styles[`${this.props.theme}`],
-      this.props.className,
-      {
-        [styles.cursorClick]: !!this.props.onClick
-      }
-    );
+    const cardClass = classnames(styles.card, styles[`${this.props.theme}`], this.props.className, {
+      [styles.cursorClick]: !!this.props.onClick
+    });
     const titleWrapperClass = classnames(styles.titleWrapper, {
       [styles.noSupportingText]: !this.props.supportingText
     });
 
     return (
       <div className={cardClass} onClick={this.handleOnClick}>
-        {this.props.header && (
-          <div className={styles.headerWrapper}>{this.props.header}</div>
-        )}
+        {this.props.header && <div className={styles.headerWrapper}>{this.props.header}</div>}
         <div className={styles.titleWithSupportingText}>
           <div className={titleWrapperClass}>
             <h6 className={styles.title}>{this.props.title}</h6>
             {this.props.titleIcon}
           </div>
-          {this.props.supportingText && (
-            <h6 className={styles.supportingText}>
-              {this.props.supportingText}
-            </h6>
-          )}
+          {this.props.supportingText && <h6 className={styles.supportingText}>{this.props.supportingText}</h6>}
         </div>
         <p className={styles.subtitle}>{this.props.subtitle}</p>
         <div className={styles.description}>{this.props.description}</div>
@@ -67,14 +56,12 @@ export class Card extends React.Component<ICardProps> {
             <Tag label={this.props.status} theme={this.props.statusTheme} />
           </div>
         )}
-        {this.props.actionField && (
-          <div className={styles.actionField}>{this.props.actionField}</div>
-        )}
+        {this.props.actionField && <div className={styles.actionField}>{this.props.actionField}</div>}
       </div>
     );
   }
 
-  private handleOnClick = (e: React.MouseEvent) => {
+  private handleOnClick = () => {
     if (this.props.onClick) {
       this.props.onClick();
     }

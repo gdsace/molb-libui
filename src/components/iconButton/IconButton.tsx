@@ -21,36 +21,14 @@ export class IconButton extends React.Component<IIconButtonProps, {}> {
   };
 
   public render() {
-    const {
-      className,
-      disabled,
-      type,
-      iconClassName,
-      category,
-      size,
-      viewBox,
-      onClick
-    } = this.props;
-    const iconButtonClassName = classNames(
-      styles.iconButtonContainer,
-      className,
-      {
-        [styles.disabled]: disabled
-      }
-    );
+    const { className, disabled, type, iconClassName, category, size, viewBox, onClick } = this.props;
+    const iconButtonClassName = classNames(styles.iconButtonContainer, className, {
+      [styles.disabled]: disabled
+    });
 
     return (
-      <div
-        className={iconButtonClassName}
-        onClick={() => this.handleOnClick(onClick)}
-      >
-        <Icon
-          className={iconClassName}
-          category={category}
-          type={type}
-          size={size}
-          viewBox={viewBox}
-        />
+      <div className={iconButtonClassName} onClick={() => this.handleOnClick(onClick)}>
+        <Icon className={iconClassName} category={category} type={type} size={size} viewBox={viewBox} />
       </div>
     );
   }

@@ -29,9 +29,7 @@ const PremiseAutoLabel = (props: any) => {
   );
 };
 
-const PremiseSingleValue = (props: any) => (
-  <PremiseAutoLabel className={styles.value} {...props} />
-);
+const PremiseSingleValue = (props: any) => <PremiseAutoLabel className={styles.value} {...props} />;
 
 export const PremiseDropdown = <T extends any>(props: Props<T>) => (
   <div className={styles.premise}>

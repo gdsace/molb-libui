@@ -8,30 +8,21 @@ import { CategoryName, wInfo } from "../utils";
 
 const header = (
   <div>
-    <Icon type="clock" size="16" /> I'm the header of this card
+    <Icon type="clock" size="16" /> I&apos;m the header of this card
   </div>
 );
 const title = "This is title";
 
 const subtitle = "This is subtitle";
-const longSubtitle =
-  "This is loooooooooog loooooooooog loooooooooog loooooooooog loooooooooog loooooooooog subtitle";
+const longSubtitle = "This is loooooooooog loooooooooog loooooooooog loooooooooog loooooooooog loooooooooog subtitle";
 
 const description = (
-  <div>
-    This is description for this card. You can inject any content as a react
-    node into this description patr.{" "}
-  </div>
+  <div>This is description for this card. You can inject any content as a react node into this description patr. </div>
 );
 
 const price = "S$800.00";
 const actionField = (
-  <Link
-    label="link button"
-    icon={"arrowNext"}
-    onClick={action("link-click")}
-    link="https://www.google.com"
-  />
+  <Link label="link button" icon={"arrowNext"} onClick={action("link-click")} link="https://www.google.com" />
 );
 const date = "10 Jan 2010 to 10 Jan 2020";
 
@@ -61,18 +52,8 @@ const rowStyles = {
           theme={CardTheme.Warning}
           supportingText={price}
         />
-        <Card
-          title={title}
-          subtitle={subtitle}
-          description={description}
-          theme={CardTheme.Green}
-        />
-        <Card
-          title={title}
-          subtitle={subtitle}
-          description={description}
-          theme={CardTheme.Purple}
-        />
+        <Card title={title} subtitle={subtitle} description={description} theme={CardTheme.Green} />
+        <Card title={title} subtitle={subtitle} description={description} theme={CardTheme.Purple} />
         <Card
           title={title}
           subtitle={subtitle}

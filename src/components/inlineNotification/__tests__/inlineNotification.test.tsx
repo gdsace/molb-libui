@@ -6,12 +6,7 @@ import { InlineNotification } from "../InlineNotification";
 
 describe("Inline notification", () => {
   it("should render warning notification success", () => {
-    const wrapper = shallow(
-      <InlineNotification
-        text="this is warning text"
-        theme={NotificationTheme.Warning}
-      />
-    );
+    const wrapper = shallow(<InlineNotification text="this is warning text" theme={NotificationTheme.Warning} />);
 
     expect(wrapper.find("p").text()).toEqual("this is warning text");
     expect(wrapper.find(".warning")).toHaveLength(1);
@@ -19,12 +14,7 @@ describe("Inline notification", () => {
   });
 
   it("should render error notification success", () => {
-    const wrapper = shallow(
-      <InlineNotification
-        text="this is error text"
-        theme={NotificationTheme.Error}
-      />
-    );
+    const wrapper = shallow(<InlineNotification text="this is error text" theme={NotificationTheme.Error} />);
 
     expect(wrapper.find("p").text()).toEqual("this is error text");
     expect(wrapper.find(".error")).toHaveLength(1);

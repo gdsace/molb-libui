@@ -40,12 +40,7 @@ describe("FileUpload", () => {
 
   it("renders the child when given a child", () => {
     const wrapper = mount(
-      <FileUpload
-        baseUrl=""
-        subjectId=""
-        token=""
-        documentType={documentTypes.required}
-      >
+      <FileUpload baseUrl="" subjectId="" token="" documentType={documentTypes.required}>
         <div>foo</div>
       </FileUpload>
     );
@@ -57,12 +52,7 @@ describe("FileUpload", () => {
 
   it("renders the child when given a child", () => {
     const wrapper = mount(
-      <FileUpload
-        baseUrl=""
-        subjectId=""
-        token=""
-        documentType={documentTypes.required}
-      >
+      <FileUpload baseUrl="" subjectId="" token="" documentType={documentTypes.required}>
         <div>foo</div>
       </FileUpload>
     );
@@ -74,13 +64,7 @@ describe("FileUpload", () => {
 
   it("component will set uploadState to Unstarted after clearing errors", () => {
     const wrapper = shallow(
-      <FileUpload
-        baseUrl=""
-        subjectId=""
-        token=""
-        error="test"
-        documentType={documentTypes.required}
-      />
+      <FileUpload baseUrl="" subjectId="" token="" error="test" documentType={documentTypes.required} />
     );
     const mySetState = jest.fn();
     wrapper.instance().setState = mySetState;
@@ -99,14 +83,7 @@ describe("FileUpload", () => {
   });
 
   it("component will set uploadState to Error after setting errors", () => {
-    const wrapper = shallow(
-      <FileUpload
-        baseUrl=""
-        subjectId=""
-        token=""
-        documentType={documentTypes.required}
-      />
-    );
+    const wrapper = shallow(<FileUpload baseUrl="" subjectId="" token="" documentType={documentTypes.required} />);
     const mySetState = jest.fn();
     wrapper.instance().setState = mySetState;
     wrapper.setState({

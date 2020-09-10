@@ -1,9 +1,19 @@
 {
-  "parser": "babel-eslint",
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020, // Allows for the parsing of modern ECMAScript features
+    "sourceType": "module", // Allows for the use of imports
+    "ecmaFeatures": {
+      "jsx": true // Allows for the parsing of JSX
+    }
+  },
 
   "extends": [
-    "airbnb",
-    "prettier"
+    // "airbnb",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier/@typescript-eslint",
+    "plugin:prettier/recommended"
   ],
 
   "env": {
@@ -11,10 +21,7 @@
     "mocha": true
   },
 
-  "plugins": [
-    "mocha",
-    "prettier"
-  ],
+  "plugins": ["mocha", "prettier"],
 
   "rules": {
     "jsx-a11y/anchor-is-valid": 0,
@@ -25,7 +32,13 @@
     "react/jsx-closing-bracket-location": 0,
     "import/extensions": 0,
     "import/no-extraneous-dependencies": 0,
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/ban-types": "off",
+    "@typescript-eslint/no-var-requires": 0
   },
 
   "settings": {

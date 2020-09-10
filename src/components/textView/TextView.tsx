@@ -37,8 +37,7 @@ export class TextView extends React.Component<ITextViewProps, any> {
     const scrollHeight = this.textViewDiv!.scrollHeight;
     // when we zoom the screen, scrollHeight and scrollTop + clientHeight
     // are not strictly equal. scrollTop will be a decimal not an integer.
-    const didReachBottom =
-      Math.abs(scrollHeight - (scrollTop + clientHeight)) <= 3;
+    const didReachBottom = Math.abs(scrollHeight - (scrollTop + clientHeight)) <= 3;
     if (didReachBottom) {
       this.props.callbackAfterReachBottom!();
     }
@@ -48,8 +47,7 @@ export class TextView extends React.Component<ITextViewProps, any> {
     if (!html) {
       return;
     }
-    const htmlString: string =
-      typeof html !== "string" ? html.toString() : html;
+    const htmlString: string = typeof html !== "string" ? html.toString() : html;
     return { __html: htmlString };
   }
 
@@ -69,10 +67,7 @@ export class TextView extends React.Component<ITextViewProps, any> {
 
   public componentWillUnmount() {
     if (this.props.callbackAfterReachBottom) {
-      this.textViewDiv!.removeEventListener(
-        "scroll",
-        this.debouncedScrollHanlder
-      );
+      this.textViewDiv!.removeEventListener("scroll", this.debouncedScrollHanlder);
       window.removeEventListener("resize", this.debouncedScrollHanlder);
     }
   }
@@ -93,14 +88,9 @@ export class TextView extends React.Component<ITextViewProps, any> {
       </div>
     );
 
-    const renderComponent = shouldRenderWithHTMLString
-      ? renderWithInnerHTMLComponent
-      : renderWithReactComponent;
+    const renderComponent = shouldRenderWithHTMLString ? renderWithInnerHTMLComponent : renderWithReactComponent;
 
-    const containerClassName = classnames(
-      styles.textViewContainer,
-      this.props.className
-    );
+    const containerClassName = classnames(styles.textViewContainer, this.props.className);
     return <div className={containerClassName}>{renderComponent}</div>;
   }
 }

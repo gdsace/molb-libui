@@ -17,10 +17,7 @@ export type IFileUploadProps = DropzoneProps & {
   linkDescription?: string;
   onSuccess?: (event: any) => any;
   onError?: (event: any) => any;
-  onCompleteIconClick?: (
-    event: React.MouseEvent,
-    document: Partial<IDocument>
-  ) => any;
+  onCompleteIconClick?: (event: React.MouseEvent, document: Partial<IDocument>) => any;
   onDefaultIconClick?: (event: React.MouseEvent) => any;
   onProgressIconClick?: (event: React.MouseEvent) => any;
   validateFile?: (file: File, documentTypeCode: string) => any;
@@ -55,19 +52,12 @@ const getInitialState = (props: IFileUploadProps): FileUploadState => {
   };
 };
 
-export class FileUpload extends React.Component<
-  IFileUploadProps,
-  FileUploadState
-> {
+export class FileUpload extends React.Component<IFileUploadProps, FileUploadState> {
   state = getInitialState(this.props);
 
-  componentWillReceiveProps(nextProps: IFileUploadProps) {
+  UNSAFE_componentWillReceiveProps(nextProps: IFileUploadProps) {
     // if someone clear existing error, reset status
-    if (
-      this.props.error &&
-      !nextProps.error &&
-      this.state.uploadState === FileUploadStatus.Error
-    ) {
+    if (this.props.error && !nextProps.error && this.state.uploadState === FileUploadStatus.Error) {
       this.setState({
         fileInfo: undefined,
         uploadState: FileUploadStatus.Unstarted
@@ -76,11 +66,7 @@ export class FileUpload extends React.Component<
 
     // after existing being cleared, errors
     // should set when error comes next time(in nextProps)
-    if (
-      !this.props.error &&
-      nextProps.error &&
-      this.state.uploadState === FileUploadStatus.Unstarted
-    ) {
+    if (!this.props.error && nextProps.error && this.state.uploadState === FileUploadStatus.Unstarted) {
       this.setState({
         fileInfo: undefined,
         uploadState: FileUploadStatus.Error
@@ -89,24 +75,7 @@ export class FileUpload extends React.Component<
   }
 
   render() {
-    const {
-      baseUrl,
-      documentType,
-      document,
-      token,
-      error,
-      value,
-      subjectId,
-      onSuccess,
-      onError,
-      onProgressIconClick,
-      onCompleteIconClick,
-      onDefaultIconClick,
-      children,
-      validateFile,
-      linkDescription,
-      ...forDropzone
-    } = this.props;
+    const { document, onError, onCompleteIconClick, children, ...forDropzone } = this.props;
     const { uploadState, fileInfo } = this.state;
 
     const dropzoneClassName = classNames(styles.default, {
@@ -163,15 +132,7 @@ export class FileUpload extends React.Component<
   // file upload state.
   // Has to be replaced with xhr.upload.onprogress if progress is wanted
   uploadFile(file: File) {
-    const {
-      documentType,
-      subjectId,
-      baseUrl,
-      token,
-      onSuccess,
-      onError,
-      validateFile
-    } = this.props;
+    const { documentType, subjectId, baseUrl, token, onSuccess, onError, validateFile } = this.props;
     const errorMsg = validateFile && validateFile(file, documentType.code);
     if (!!errorMsg) {
       if (onError) {

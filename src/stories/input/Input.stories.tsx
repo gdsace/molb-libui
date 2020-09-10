@@ -15,17 +15,10 @@ const errorMsg = "Validation error message, blah blah blah...";
   "Input",
   wInfo(``)(() => (
     <div className={styles.rootContainer}>
-      <h6 className={styles.groupHeader}>
-        Below are different sizes: Large, Medium, Small
-      </h6>
+      <h6 className={styles.groupHeader}>Below are different sizes: Large, Medium, Small</h6>
       <div className={styles.itemsContainer}>
         <div className={styles.box}>
-          <Input
-            onChange={action("value")}
-            type={InputType.Text}
-            label={"Large"}
-            size={Size.Large}
-          />
+          <Input onChange={action("value")} type={InputType.Text} label={"Large"} size={Size.Large} />
         </div>
         <div className={styles.box}>
           <Input
@@ -47,9 +40,7 @@ const errorMsg = "Validation error message, blah blah blah...";
         </div>
       </div>
 
-      <h6 className={styles.groupHeader}>
-        Below are different types: Number, Text, Email
-      </h6>
+      <h6 className={styles.groupHeader}>Below are different types: Number, Text, Email</h6>
       <div className={styles.itemsContainer}>
         <div className={styles.box}>
           <Input
@@ -81,8 +72,7 @@ const errorMsg = "Validation error message, blah blah blah...";
       </div>
 
       <h6 className={styles.groupHeader}>
-        Below are different looks: Normal, Error, Disable, WithHelper,
-        WithToolTip, WithSuffix
+        Below are different looks: Normal, Error, Disable, WithHelper, WithToolTip, WithSuffix
       </h6>
       <div className={styles.itemsContainer}>
         <div className={styles.box}>
@@ -195,9 +185,7 @@ const errorMsg = "Validation error message, blah blah blah...";
             errorMsg={errorMsg}
             showCharacterCount={true}
           />
-          <p className={styles.content}>
-            Other following contents (Input error msg should float on this)
-          </p>
+          <p className={styles.content}>Other following contents (Input error msg should float on this)</p>
         </div>
         <div className={styles.box}>
           <Input
@@ -206,13 +194,7 @@ const errorMsg = "Validation error message, blah blah blah...";
             label={"iconSignifier"}
             size={Size.Large}
             value="Text input with error"
-            iconSignifier={
-              <Icon
-                size="16"
-                className={styles.iconSignifier}
-                type={"search"}
-              />
-            }
+            iconSignifier={<Icon size="16" className={styles.iconSignifier} type={"search"} />}
             onKeyPress={action("value")}
           />
         </div>
@@ -260,9 +242,7 @@ const errorMsg = "Validation error message, blah blah blah...";
         </div>
       </div>
 
-      <h6 className={styles.groupHeader}>
-        Below are some length limits for input
-      </h6>
+      <h6 className={styles.groupHeader}>Below are some length limits for input</h6>
       <div className={styles.itemsContainer}>
         <div className={styles.box}>
           <Input
@@ -287,9 +267,7 @@ const errorMsg = "Validation error message, blah blah blah...";
         </div>
       </div>
 
-      <h6 className={styles.groupHeader}>
-        Numbers Input: Typing filter(s) samples, Integer/Decimal:
-      </h6>
+      <h6 className={styles.groupHeader}>Numbers Input: Typing filter(s) samples, Integer/Decimal:</h6>
       <div className={styles.itemsContainer}>
         <div className={styles.box}>
           <Input

@@ -54,10 +54,7 @@ const getOptionIcon = (optionValue: IOptionValue, props: IRadioProps) => {
 };
 
 const getOptionComponents = (props: IRadioProps) => {
-  const radioTextClass = classNames(
-    props.labelStyleOverride || "",
-    styles.optionText
-  );
+  const radioTextClass = classNames(props.labelStyleOverride || "", styles.optionText);
   const optionComponents = props.optionList.map(optionValue => {
     const isDisabled = props.disabled || optionValue.disabled;
     const isSelected = optionValue.value === props.value;
@@ -83,12 +80,7 @@ const getOptionComponents = (props: IRadioProps) => {
       <React.Fragment key={optionValue.value.toString()}>
         <label className={radioClassString}>
           <span>{optionIcon}</span>
-          <input
-            type="radio"
-            value={optionValue.value}
-            disabled={isDisabled}
-            onClick={onRadioClick}
-          />
+          <input type="radio" value={optionValue.value} disabled={isDisabled} onClick={onRadioClick} />
           <span className={radioTextClass}>{optionValue.label}</span>
         </label>
         {isSelected && props.subsequentQuestion}
@@ -100,10 +92,7 @@ const getOptionComponents = (props: IRadioProps) => {
 
 export const Radio = (props: IRadioProps) => {
   const optionComponents = getOptionComponents(props);
-  const radioClass = classNames(
-    props.className ? props.className : "",
-    styles.radioWrapper
-  );
+  const radioClass = classNames(props.className ? props.className : "", styles.radioWrapper);
   const radioTextClass = classNames(
     props.disabled ? styles.radioContentDisabled : "",
     props.radioTextStyleOverride || "",
@@ -114,60 +103,34 @@ export const Radio = (props: IRadioProps) => {
     styles.radioLabel
   );
 
-  const radioHeaderClass = classNames(
-    props.showTooltip ? styles.radioWithToolTip : ""
-  );
+  const radioHeaderClass = classNames(props.showTooltip ? styles.radioWithToolTip : "");
 
-  const radioPanelClass = classNames(
-    props.text || props.text ? styles.panel : ""
-  );
+  const radioPanelClass = classNames(props.text || props.text ? styles.panel : "");
 
   return (
     <div id={props.id} className={radioClass}>
-      <div className={radioPanelClass}>
-        {props.label && (
-          <div className={styles.questionLabel}>{props.label}</div>
-        )}
-      </div>
+      <div className={radioPanelClass}>{props.label && <div className={styles.questionLabel}>{props.label}</div>}</div>
       <div className={radioHeaderClass}>
         {props.text && <div className={radioTextClass}>{props.text}</div>}
         {props.addOnBelowText && <div>{props.addOnBelowText}</div>}
         {props.showTooltip && (
           <Tooltips
             trigger={(open: boolean) => (
-              <Icon
-                type="help"
-                size={ICON_SIZE}
-                className={classNames(
-                  styles.labelIcon,
-                  open && styles.openTooltip
-                )}
-              />
+              <Icon type="help" size={ICON_SIZE} className={classNames(styles.labelIcon, open && styles.openTooltip)} />
             )}
-            position={
-              props.toolTipsPosition
-                ? props.toolTipsPosition
-                : TooltipsLocationTheme.BottomCenter
-            }
+            position={props.toolTipsPosition ? props.toolTipsPosition : TooltipsLocationTheme.BottomCenter}
             specializedPosition={true}
           >
-            <div className={styles.toolTipsContent}>
-              {props.toolTipsContent}
-            </div>
+            <div className={styles.toolTipsContent}>{props.toolTipsContent}</div>
           </Tooltips>
         )}
       </div>
       {props.promptMessage && props.promptMessage.display && (
         <div className={styles.notification}>
-          <InlineNotification
-            text={props.promptMessage.message}
-            theme={NotificationTheme.Informational}
-          />
+          <InlineNotification text={props.promptMessage.message} theme={NotificationTheme.Informational} />
         </div>
       )}
-      {props.showError && (
-        <div className={styles.errorMsg}>{props.errorMsg} </div>
-      )}
+      {props.showError && <div className={styles.errorMsg}>{props.errorMsg} </div>}
       <div className={radioLabelClass}>{optionComponents}</div>
     </div>
   );

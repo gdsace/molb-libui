@@ -25,18 +25,14 @@ function getCheckedValue(children: React.ReactNode) {
   return value;
 }
 
-export class TileGroup extends React.Component<
-  ITileGroupProps,
-  ITileGroupState
-> {
+export class TileGroup extends React.Component<ITileGroupProps, ITileGroupState> {
   public static defaultProps: Partial<ITileGroupProps> = {
     deselectable: false
   };
 
   constructor(props: ITileGroupProps) {
     super(props);
-    const value =
-      "value" in props ? props.value : getCheckedValue(props.children);
+    const value = "value" in props ? props.value : getCheckedValue(props.children);
     this.state = {
       value
     };
@@ -91,13 +87,7 @@ export class TileGroup extends React.Component<
       });
     };
     return (
-      <div
-        className={`${style.tileGroup} ${
-          this.props.className ? this.props.className : ""
-        }`}
-      >
-        {renderChildren()}
-      </div>
+      <div className={`${style.tileGroup} ${this.props.className ? this.props.className : ""}`}>{renderChildren()}</div>
     );
   }
 }

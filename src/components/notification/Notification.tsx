@@ -23,14 +23,9 @@ const CloseButton = (props: NotifyCloseBtnProps) => (
   </div>
 );
 
-const notificationContent = (
-  props: NotificationProps
-): React.ReactElement<any> => {
+const notificationContent = (props: NotificationProps): React.ReactElement<any> => {
   const { header, text, theme } = props;
-  const notificationContentContainerClassname = classnames(
-    styles.notificationContentContainer,
-    styles[`${theme}`]
-  );
+  const notificationContentContainerClassname = classnames(styles.notificationContentContainer, styles[`${theme}`]);
 
   const iconType = {
     [NotificationTheme.Success]: "notification-checkmark",
@@ -55,10 +50,7 @@ const notificationContent = (
 
 export const notification = (options: NotificationProps) => {
   const content = notificationContent(options);
-  const toastContainerClassname = classnames(
-    styles.toastContainer,
-    styles[`${options.theme}`]
-  );
+  const toastContainerClassname = classnames(styles.toastContainer, styles[`${options.theme}`]);
   const responsiveForMobile = forPhoneOnlyMediaQuery();
 
   const position = responsiveForMobile ? "top-center" : "top-right";

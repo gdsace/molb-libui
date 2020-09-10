@@ -19,9 +19,7 @@ describe("TextView", () => {
   });
 
   it("renders the children string", () => {
-    const wrapper = mount(
-      <TextView shouldRenderWithHTMLString={true}>{textMockString}</TextView>
-    );
+    const wrapper = mount(<TextView shouldRenderWithHTMLString={true}>{textMockString}</TextView>);
     expect(wrapper.html()).toContain(textMockString);
   });
 });

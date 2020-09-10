@@ -13,18 +13,12 @@ interface IInlineNotificationWithHeaderProps {
   icon?: string;
 }
 
-export const InlineNotificationWithHeader = (
-  props: IInlineNotificationWithHeaderProps
-) => {
+export const InlineNotificationWithHeader = (props: IInlineNotificationWithHeaderProps) => {
   const { theme, text, childNode } = props;
 
-  const headerStyle = classNames(
-    styles.inlineNotificationHeader,
-    styles[`${theme}`],
-    {
-      [addLocatedErrorClassname("")]: theme === NotificationTheme.Error
-    }
-  );
+  const headerStyle = classNames(styles.inlineNotificationHeader, styles[`${theme}`], {
+    [addLocatedErrorClassname("")]: theme === NotificationTheme.Error
+  });
 
   const getIcon = (defaultIcon: string) => props.icon || defaultIcon;
 
@@ -36,13 +30,9 @@ export const InlineNotificationWithHeader = (
     [NotificationTheme.Informational]: getIcon("informational")
   };
 
-  const inlineNotificationClassName = classNames(
-    styles.inlineNotification,
-    styles[`${theme}`],
-    {
-      [addLocatedErrorClassname("")]: theme === NotificationTheme.Error
-    }
-  );
+  const inlineNotificationClassName = classNames(styles.inlineNotification, styles[`${theme}`], {
+    [addLocatedErrorClassname("")]: theme === NotificationTheme.Error
+  });
 
   const processedText = text.split("\n").map((str, index) => (
     <React.Fragment key={`inline-notif-with-header-text-chunk-${index}`}>

@@ -32,17 +32,15 @@ export const AppAlert = (props: AppAlertProps) => {
         <div className={style.appAlertText}>
           {text.split("\n").map((textvalue, index) => (
             <React.Fragment key={`${textvalue}-${index}`}>
-              {textvalue
-                .split(new RegExp(`(${textToBold})`, "gi"))
-                .map((part, i) =>
-                  part.toLowerCase() === textToBold.toLowerCase() ? (
-                    <span className={style.appAlertTextBold} key={i}>
-                      {part}
-                    </span>
-                  ) : (
-                    part
-                  )
-                )}
+              {textvalue.split(new RegExp(`(${textToBold})`, "gi")).map((part, i) =>
+                part.toLowerCase() === textToBold.toLowerCase() ? (
+                  <span className={style.appAlertTextBold} key={i}>
+                    {part}
+                  </span>
+                ) : (
+                  part
+                )
+              )}
               <br />
             </React.Fragment>
           ))}
@@ -64,13 +62,7 @@ export const AppAlert = (props: AppAlertProps) => {
   return (
     <div className={style[`${theme}`]}>
       <div className={appAlertClassName}>
-        {showIcon && (
-          <Icon
-            className={style.appAlertIcon}
-            type={iconType[theme]}
-            size="24"
-          />
-        )}
+        {showIcon && <Icon className={style.appAlertIcon} type={iconType[theme]} size="24" />}
         {renderText()}
       </div>
     </div>

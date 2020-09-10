@@ -14,41 +14,25 @@ const styles = require("./panel.stories.scss");
       <div className={styles.itemsContainer}>
         <div className={styles.box}>
           <p className={styles.notes}>Normal</p>
-          <Panel
-            containerStyle={styles.containerStyle}
-            type={PanelType.Onepage}
-            theme={PanelTheme.Normal}
-          >
+          <Panel containerStyle={styles.containerStyle} type={PanelType.Onepage} theme={PanelTheme.Normal}>
             <p className={styles.content}>Sample Content</p>
           </Panel>
         </div>
         <div className={styles.box}>
           <p className={styles.notes}>Bottomless</p>
-          <Panel
-            containerStyle={styles.containerStyle}
-            type={PanelType.Onepage}
-            theme={PanelTheme.Bottomless}
-          >
+          <Panel containerStyle={styles.containerStyle} type={PanelType.Onepage} theme={PanelTheme.Bottomless}>
             <p className={styles.content}>Sample Content</p>
           </Panel>
         </div>
         <div className={styles.box}>
           <p className={styles.notes}>Topless</p>
-          <Panel
-            containerStyle={styles.containerStyle}
-            type={PanelType.Onepage}
-            theme={PanelTheme.Topless}
-          >
+          <Panel containerStyle={styles.containerStyle} type={PanelType.Onepage} theme={PanelTheme.Topless}>
             <p className={styles.content}>Sample Content</p>
           </Panel>
         </div>
         <div className={styles.box}>
           <p className={styles.notes}>Holing</p>
-          <Panel
-            containerStyle={styles.containerStyle}
-            type={PanelType.Onepage}
-            theme={PanelTheme.Holing}
-          >
+          <Panel containerStyle={styles.containerStyle} type={PanelType.Onepage} theme={PanelTheme.Holing}>
             <p className={styles.content}>Sample Content</p>
           </Panel>
         </div>
@@ -58,41 +42,25 @@ const styles = require("./panel.stories.scss");
       <div className={styles.itemsContainer}>
         <div className={styles.box}>
           <p className={styles.notes}>Normal</p>
-          <Panel
-            containerStyle={styles.containerStyle}
-            type={PanelType.Sidebar}
-            theme={PanelTheme.Normal}
-          >
+          <Panel containerStyle={styles.containerStyle} type={PanelType.Sidebar} theme={PanelTheme.Normal}>
             <p className={styles.content}>Sample Content</p>
           </Panel>
         </div>
         <div className={styles.box}>
           <p className={styles.notes}>Bottomless</p>
-          <Panel
-            containerStyle={styles.containerStyle}
-            type={PanelType.Sidebar}
-            theme={PanelTheme.Bottomless}
-          >
+          <Panel containerStyle={styles.containerStyle} type={PanelType.Sidebar} theme={PanelTheme.Bottomless}>
             <p className={styles.content}>Sample Content</p>
           </Panel>
         </div>
         <div className={styles.box}>
           <p className={styles.notes}>Topless</p>
-          <Panel
-            containerStyle={styles.containerStyle}
-            type={PanelType.Sidebar}
-            theme={PanelTheme.Topless}
-          >
+          <Panel containerStyle={styles.containerStyle} type={PanelType.Sidebar} theme={PanelTheme.Topless}>
             <p className={styles.content}>Sample Content</p>
           </Panel>
         </div>
         <div className={styles.box}>
           <p className={styles.notes}>Holing</p>
-          <Panel
-            containerStyle={styles.containerStyle}
-            type={PanelType.Sidebar}
-            theme={PanelTheme.Holing}
-          >
+          <Panel containerStyle={styles.containerStyle} type={PanelType.Sidebar} theme={PanelTheme.Holing}>
             <p className={styles.content}>Sample Content</p>
           </Panel>
         </div>

@@ -22,10 +22,7 @@ interface ISubFormSectionState {
   isCollapsed: boolean;
 }
 
-export class SubFormSection extends React.Component<
-  ISubFormSectionProps,
-  ISubFormSectionState
-> {
+export class SubFormSection extends React.Component<ISubFormSectionProps, ISubFormSectionState> {
   public static defaultProps: Partial<ISubFormSectionProps> = {
     theme: SubFormSectionTheme.Zero
   };
@@ -38,11 +35,9 @@ export class SubFormSection extends React.Component<
   }
 
   public render() {
-    const rootContainerClassName = classNames(
-      styles.rootContainer,
-      styles[this.props.theme!],
-      { [`${styles.collapsible}`]: this.props.isCollapsible }
-    );
+    const rootContainerClassName = classNames(styles.rootContainer, styles[this.props.theme!], {
+      [`${styles.collapsible}`]: this.props.isCollapsible
+    });
     return (
       <section id={this.props.id} className={rootContainerClassName}>
         {(this.props.title || this.props.subTitle) && (
@@ -51,19 +46,11 @@ export class SubFormSection extends React.Component<
               {this.props.title && (
                 <div className={styles.titleContainer}>
                   <span className={styles.title}>{this.props.title}</span>
-                  {this.props.optional && (
-                    <span className={styles.optional}>(Optional)</span>
-                  )}
+                  {this.props.optional && <span className={styles.optional}>(Optional)</span>}
                   {!!this.props.tooltip && (
                     <div className={styles.tooltip}>
                       <Tooltips
-                        trigger={
-                          <Icon
-                            type={"help"}
-                            size={"16"}
-                            className={styles.helpIcon}
-                          />
-                        }
+                        trigger={<Icon type={"help"} size={"16"} className={styles.helpIcon} />}
                         width={250}
                         position={TooltipsLocationTheme.BottomLeft}
                         specializedPosition={true}
@@ -74,27 +61,16 @@ export class SubFormSection extends React.Component<
                   )}
                 </div>
               )}
-              {this.props.subTitle && (
-                <h6 className={styles.subTitle}>{this.props.subTitle}</h6>
-              )}
+              {this.props.subTitle && <h6 className={styles.subTitle}>{this.props.subTitle}</h6>}
               {this.props.warningMessageChildren ? (
-                <div className={styles.warningMessageChildren}>
-                  {this.props.warningMessageChildren}
-                </div>
+                <div className={styles.warningMessageChildren}>{this.props.warningMessageChildren}</div>
               ) : null}
             </div>
             {this.props.isCollapsible && (
-              <div
-                className={styles.collapsibleButton}
-                onClick={this.onClickHandler}
-              >
+              <div className={styles.collapsibleButton} onClick={this.onClickHandler}>
                 <Icon
                   type="dropdown"
-                  className={
-                    this.state.isCollapsed
-                      ? styles.dropdownIconCollapsed
-                      : styles.dropdownIcon
-                  }
+                  className={this.state.isCollapsed ? styles.dropdownIconCollapsed : styles.dropdownIcon}
                 />
               </div>
             )}

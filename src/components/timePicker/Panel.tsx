@@ -8,19 +8,10 @@ function noop() {
   return;
 }
 
-function generateOptions(
-  length: any,
-  disabledOptions: any,
-  hideDisabledOptions: any,
-  step = 1
-) {
+function generateOptions(length: any, disabledOptions: any, hideDisabledOptions: any, step = 1) {
   const arr = [];
   for (let value = 0; value < length; value += step) {
-    if (
-      !disabledOptions ||
-      disabledOptions.indexOf(value) < 0 ||
-      !hideDisabledOptions
-    ) {
+    if (!disabledOptions || disabledOptions.indexOf(value) < 0 || !hideDisabledOptions) {
       arr.push(value);
     }
   }
@@ -89,7 +80,7 @@ export class Panel extends Component<IPanelProps, IPanelState> {
       selectionRange: []
     };
   }
-  public componentWillReceiveProps(nextProps: IPanelProps) {
+  public UNSAFE_componentWillReceiveProps(nextProps: IPanelProps) {
     const value = nextProps.value;
     if (value) {
       this.setState({
@@ -122,9 +113,7 @@ export class Panel extends Component<IPanelProps, IPanelState> {
     let disabledOptions = disabledHours();
     if (use12Hours && Array.isArray(disabledOptions)) {
       if (this.isAM()) {
-        disabledOptions = disabledOptions
-          .filter(h => h < 12)
-          .map(h => (h === 0 ? 12 : h));
+        disabledOptions = disabledOptions.filter(h => h < 12).map(h => (h === 0 ? 12 : h));
       } else {
         disabledOptions = disabledOptions.map(h => (h === 12 ? 12 : h - 12));
       }
@@ -166,28 +155,10 @@ export class Panel extends Component<IPanelProps, IPanelState> {
     const { value, currentSelectPanel } = this.state;
     const disabledHourOptions = this.disabledHours();
     const disabledMinuteOptions = disabledMinutes(value ? value.hour() : null);
-    const disabledSecondOptions = disabledSeconds(
-      value ? value.hour() : null,
-      value ? value.minute() : null
-    );
-    const hourOptions = generateOptions(
-      24,
-      disabledHourOptions,
-      hideDisabledOptions,
-      hourStep
-    );
-    const minuteOptions = generateOptions(
-      60,
-      disabledMinuteOptions,
-      hideDisabledOptions,
-      minuteStep
-    );
-    const secondOptions = generateOptions(
-      60,
-      disabledSecondOptions,
-      hideDisabledOptions,
-      secondStep
-    );
+    const disabledSecondOptions = disabledSeconds(value ? value.hour() : null, value ? value.minute() : null);
+    const hourOptions = generateOptions(24, disabledHourOptions, hideDisabledOptions, hourStep);
+    const minuteOptions = generateOptions(60, disabledMinuteOptions, hideDisabledOptions, minuteStep);
+    const secondOptions = generateOptions(60, disabledSecondOptions, hideDisabledOptions, secondStep);
     return (
       <div
         className={classNames({

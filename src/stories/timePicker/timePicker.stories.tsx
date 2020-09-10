@@ -37,7 +37,7 @@ const disabledSeconds = (h: any, m: any) => {
   return [h + (m % 60)];
 };
 
-const onValueChange = (value: moment.Moment) => {
+const onValueChange = () => {
   return;
 };
 
@@ -73,9 +73,7 @@ const onValueChange = (value: moment.Moment) => {
             />
           </div>
           <div className={styles.box}>
-            <p className={styles.notes}>
-              Enabled: Minute steps, & default-value
-            </p>
+            <p className={styles.notes}>Enabled: Minute steps, & default-value</p>
             <TimePicker
               title="Time Picker Label"
               showSecond={false}
@@ -131,17 +129,11 @@ const onValueChange = (value: moment.Moment) => {
           </div>
           <div className={styles.box}>
             <p className={styles.notes}>Selected</p>
-            <TimePicker
-              title="Time Picker Label"
-              defaultValue={moment("13:30:56", "HH:mm:ss")}
-            />
+            <TimePicker title="Time Picker Label" defaultValue={moment("13:30:56", "HH:mm:ss")} />
           </div>
           <div className={styles.box}>
             <p className={styles.notes}>Hover</p>
-            <TimePicker
-              title="Time Picker Label"
-              defaultValue={moment("13:30:56", "HH:mm:ss")}
-            />
+            <TimePicker title="Time Picker Label" defaultValue={moment("13:30:56", "HH:mm:ss")} />
           </div>
           <div className={styles.box}>
             <p className={styles.notes}>Validation: with Error</p>
@@ -152,9 +144,7 @@ const onValueChange = (value: moment.Moment) => {
               showError={true}
               // errorMsg="Some validation message"
             />
-            <p className={styles.content}>
-              Other following contents (Input error msg should float on this)
-            </p>
+            <p className={styles.content}>Other following contents (Input error msg should float on this)</p>
           </div>
         </div>
       </div>

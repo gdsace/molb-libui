@@ -13,11 +13,7 @@ const styles = require("./actionSection.stories.scss");
     <div>
       <h6>Action Section with only default Next Button</h6>
       <div className={styles.box}>
-        <ActionSection
-          showPrevious={false}
-          showNext={true}
-          onNextClick={action("next-button-click")}
-        />
+        <ActionSection showPrevious={false} showNext={true} onNextClick={action("next-button-click")} />
       </div>
       <h6>Action Section with default Previous and Next Button</h6>
       <div className={styles.box}>

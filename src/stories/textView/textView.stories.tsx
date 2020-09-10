@@ -31,10 +31,7 @@ const styles = {
         </div>
       </div>
       <div style={styles}>
-        <h6>
-          You can pass html into the TextView with props
-          shouldRenderWithHTMLString = true
-        </h6>
+        <h6>You can pass html into the TextView with props shouldRenderWithHTMLString = true</h6>
         <div style={textViewStyle}>
           <TextView shouldRenderWithHTMLString={true}>{mockLongText}</TextView>
         </div>
@@ -42,10 +39,7 @@ const styles = {
       <div style={styles}>
         <h6>when you scoll to the bottom, it will file a action</h6>
         <div style={textViewStyle}>
-          <TextView
-            shouldRenderWithHTMLString={true}
-            callbackAfterReachBottom={action("reach to the bottom")}
-          >
+          <TextView shouldRenderWithHTMLString={true} callbackAfterReachBottom={action("reach to the bottom")}>
             {mockLongText}
           </TextView>
         </div>

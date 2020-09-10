@@ -26,8 +26,7 @@ const tileOptions = [
     icon: "big-icon",
     name: "Food Court",
     description: "Primarily for sale of food, single operator etc.",
-    error:
-      "XXXXX is not compatible with XXXXXX. Return to the previous step to edit."
+    error: "XXXXX is not compatible with XXXXXX. Return to the previous step to edit."
   }
 ];
 const selectedTileValue = tileOptions[1];
@@ -38,8 +37,7 @@ const creditCarOptions = [
     content: "cardholer name ",
     subContent: "xxxx xxxx xxxx 333",
     description: "Expiry date.",
-    imgSrc:
-      "https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox",
+    imgSrc: "https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox",
     imgAlt: "Visa",
     error: "xxxxx is not compatible with xxxxxx."
   }
@@ -93,10 +91,7 @@ const valueChangeHandler2 = (event: React.ChangeEvent<HTMLInputElement>) => {
         <div className={styles.box}>
           <p className={styles.notes}>SmallTile:</p>
           <State store={store1}>
-            <TileGroup
-              onChange={valueChangeHandler}
-              value={store1.get("value")}
-            >
+            <TileGroup onChange={valueChangeHandler} value={store1.get("value")}>
               {tileOptions.map((item, index) => {
                 return (
                   <Tile
@@ -115,9 +110,7 @@ const valueChangeHandler2 = (event: React.ChangeEvent<HTMLInputElement>) => {
           </State>
         </div>
         <div className={styles.box}>
-          <p className={styles.notes}>
-            BasicTile: (here shows Uncontrolled component)
-          </p>
+          <p className={styles.notes}>BasicTile: (here shows Uncontrolled component)</p>
           <TileGroup>
             {tileOptions.map((item, index) => {
               return (
@@ -138,10 +131,7 @@ const valueChangeHandler2 = (event: React.ChangeEvent<HTMLInputElement>) => {
         <div className={styles.box}>
           <p className={styles.notes}>MediumTile:</p>
           <State store={store2}>
-            <TileGroup
-              onChange={valueChangeHandler2}
-              value={selectedTileValue.key}
-            >
+            <TileGroup onChange={valueChangeHandler2} value={selectedTileValue.key}>
               {tileOptions.map((item, index) => {
                 return (
                   <Tile
@@ -160,9 +150,7 @@ const valueChangeHandler2 = (event: React.ChangeEvent<HTMLInputElement>) => {
           </State>
         </div>
         <div className={styles.box}>
-          <p className={styles.notes}>
-            LargeTile: (here shows Uncontrolled component)
-          </p>
+          <p className={styles.notes}>LargeTile: (here shows Uncontrolled component)</p>
           <TileGroup>
             {tileOptions.map((item, index) => {
               return (
@@ -202,9 +190,7 @@ const valueChangeHandler2 = (event: React.ChangeEvent<HTMLInputElement>) => {
         </div>
 
         <div className={styles.box}>
-          <p className={styles.notes}>
-            Image source tileGroup: (here shows Uncontrolled component)
-          </p>
+          <p className={styles.notes}>Image source tileGroup: (here shows Uncontrolled component)</p>
           <TileGroup deselectable={true}>
             {creditCarOptions.map((item, index) => {
               return (

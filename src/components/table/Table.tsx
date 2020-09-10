@@ -27,9 +27,7 @@ export interface ITableProps {
   size?: TableSize;
   theme?: TableTheme;
   showNoDataAvailableMessage?: boolean;
-  expandableRowTemplate?: (
-    subProps: { [k: string]: any }
-  ) => React.ReactChild | JSX.Element;
+  expandableRowTemplate?: (subProps: { [k: string]: any }) => React.ReactChild | JSX.Element;
   onExpandButtonClick?: (itemIndex: number) => void;
   ignoreExpandButtonClick?: boolean;
   showPagination?: boolean;
@@ -78,15 +76,7 @@ export class Table extends React.Component<ITableProps, ITableState> {
   }
 
   public render() {
-    const {
-      columns,
-      dataSource,
-      tableCls,
-      bordered,
-      size,
-      theme,
-      showNoDataAvailableMessage
-    } = this.props;
+    const { columns, dataSource, tableCls, bordered, size, theme, showNoDataAvailableMessage } = this.props;
 
     return (
       <div className={styles.tableContainer}>
@@ -120,8 +110,7 @@ export class Table extends React.Component<ITableProps, ITableState> {
     const closeExpandedRow = this.props.closeExpandedRow;
 
     this.setState({
-      expandedRowIndex:
-        rowId === currentExpandedRowIndex || closeExpandedRow ? -1 : rowId
+      expandedRowIndex: rowId === currentExpandedRowIndex || closeExpandedRow ? -1 : rowId
     });
   }
 }
@@ -154,11 +143,7 @@ const toBodyCells = (column: IColumn, data: IDataSource) => (
   </td>
 );
 
-const toExpandableRow = (
-  props: ITableProps,
-  columns: IColumn[],
-  index: number
-) => {
+const toExpandableRow = (props: ITableProps, columns: IColumn[], index: number) => {
   return (
     <tr key={`tr-expandable-${index}`}>
       <td className={styles.expandableTd} colSpan={columns.length + 1}>
@@ -190,13 +175,7 @@ interface IDetailRowProps {
   expandedRowIndex: number;
   nativeExpandRowHandler: (rowId: number) => void;
 }
-const generateRows = ({
-  dataSource,
-  columns,
-  props,
-  expandedRowIndex,
-  nativeExpandRowHandler
-}: IDetailRowProps) => {
+const generateRows = ({ dataSource, columns, props, expandedRowIndex, nativeExpandRowHandler }: IDetailRowProps) => {
   return dataSource.map((rowData, index) => {
     const modifier = {
       ...(props.clickableRow ? { onClick: rowData.onRowClickHandler } : {})
@@ -205,10 +184,7 @@ const generateRows = ({
       <React.Fragment key={`tr-fragment-${index}`}>
         <tr
           key={`tr-details-${index}`}
-          className={cx(
-            rowData.withoutBorder && styles.withoutBorder,
-            props.clickableRow && styles.clickableRow
-          )}
+          className={cx(rowData.withoutBorder && styles.withoutBorder, props.clickableRow && styles.clickableRow)}
           {...modifier}
         >
           {columns.map(column => toBodyCells(column, rowData))}
@@ -226,18 +202,14 @@ const generateRows = ({
             >
               <Icon
                 className={
-                  props.ignoreExpandButtonClick
-                    ? styles.tableExpandButtonClickNotAllowed
-                    : styles.tableExpandButton
+                  props.ignoreExpandButtonClick ? styles.tableExpandButtonClickNotAllowed : styles.tableExpandButton
                 }
                 type={expandedRowIndex === index ? "up" : "dropdown"}
               />
             </td>
           )}
         </tr>
-        {expandedRowIndex === index
-          ? toExpandableRow(props, columns, index)
-          : null}
+        {expandedRowIndex === index ? toExpandableRow(props, columns, index) : null}
       </React.Fragment>
     );
   });

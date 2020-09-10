@@ -91,10 +91,7 @@ const downloadTemplateFile = (props: FileUploadChildProps) => {
         const link = document.createElement("a");
         link.style.display = "none";
         link.href = url;
-        link.setAttribute(
-          "download",
-          `${getFilenameByHttpHeaders(response.headers)}`
-        );
+        link.setAttribute("download", `${getFilenameByHttpHeaders(response.headers)}`);
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
@@ -102,9 +99,7 @@ const downloadTemplateFile = (props: FileUploadChildProps) => {
       });
     })
     .catch((error: Error) => {
-      throw new Error(
-        `There has been a problem with your fetch operation: ${error.message}`
-      );
+      throw new Error(`There has been a problem with your fetch operation: ${error.message}`);
     });
 };
 
@@ -115,17 +110,14 @@ const downloadTemplateFile = (props: FileUploadChildProps) => {
 // * drag and drop styling
 // * icon has a different onClick for each file upload states
 export const DefaultFileUploadChild = (props: FileUploadChildProps) => {
-  const showDescription = !(
-    props.uploadState === FileUploadStatus.Complete && props.document
-  );
+  const showDescription = !(props.uploadState === FileUploadStatus.Complete && props.document);
   const showError = props.uploadState === FileUploadStatus.Error && props.error;
 
   return (
     <div
       className={classNames(styles.root, {
         [styles.hasFile]:
-          props.uploadState === FileUploadStatus.Complete ||
-          props.uploadState === FileUploadStatus.Uploading,
+          props.uploadState === FileUploadStatus.Complete || props.uploadState === FileUploadStatus.Uploading,
         [styles.hasError]: props.uploadState === FileUploadStatus.Error,
         [styles.uploading]: props.uploadState === FileUploadStatus.Uploading
       })}
@@ -137,19 +129,12 @@ export const DefaultFileUploadChild = (props: FileUploadChildProps) => {
           {props.documentType && props.documentType.additionalRemark && (
             <>
               {" "}
-              <span className={styles.textOptional}>
-                ({props.documentType.additionalRemark})
-              </span>
+              <span className={styles.textOptional}>({props.documentType.additionalRemark})</span>
             </>
           )}
         </div>
 
-        {getIcon(
-          props.uploadState,
-          props.onProgressIconClick,
-          props.onCompleteIconClick,
-          props.onDefaultIconClick
-        )}
+        {getIcon(props.uploadState, props.onProgressIconClick, props.onCompleteIconClick, props.onDefaultIconClick)}
       </div>
 
       {showDescription ? (
@@ -163,17 +148,11 @@ export const DefaultFileUploadChild = (props: FileUploadChildProps) => {
               <div>{props.document.name}</div>
             </div>
 
-            <div className={styles.textFilesize}>
-              {formatBytes(props.document.fileSize || 0)}
-            </div>
+            <div className={styles.textFilesize}>{formatBytes(props.document.fileSize || 0)}</div>
           </>
         )
       )}
-      {showError && (
-        <div className={addLocatedErrorClassname(styles.textError)}>
-          {props.error}
-        </div>
-      )}
+      {showError && <div className={addLocatedErrorClassname(styles.textError)}>{props.error}</div>}
       {props.documentType.hasTemplateFile && (
         <div className={styles.downloadLink}>
           <a

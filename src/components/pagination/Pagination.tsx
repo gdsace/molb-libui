@@ -76,15 +76,11 @@ export class Pagination extends React.Component<IPaginationProps, {}> {
 
     return (
       <div className={styles.paginationContainer}>
-        <div className={styles.countContainer}>
-          {showTotalResultsAvailable ? resultsAvailable : title}
-        </div>
+        <div className={styles.countContainer}>{showTotalResultsAvailable ? resultsAvailable : title}</div>
         <div className={styles.paginationDetails}>
           {currentPageRange}
           <div className={styles.ofCountContainer}>
-            of{" "}
-            <div className={styles.totalResultsCount}>{totalResultsCount}</div>{" "}
-            items
+            of <div className={styles.totalResultsCount}>{totalResultsCount}</div> items
           </div>
           <div>
             <Button
@@ -93,11 +89,7 @@ export class Pagination extends React.Component<IPaginationProps, {}> {
               theme={buttonTheme ? buttonTheme : Theme.Grey}
               icon={"left"}
               iconAlign="center"
-              disabled={
-                !_.isNil(disablePrev)
-                  ? disablePrev
-                  : currentPage === 0 || totalResultsCount === 0
-              }
+              disabled={!_.isNil(disablePrev) ? disablePrev : currentPage === 0 || totalResultsCount === 0}
               onClick={
                 this.onChangePrevPage ||
                 (() => {
@@ -111,11 +103,7 @@ export class Pagination extends React.Component<IPaginationProps, {}> {
               theme={buttonTheme ? buttonTheme : Theme.Grey}
               icon={"right"}
               iconAlign="center"
-              disabled={
-                !_.isNil(disableNext)
-                  ? disableNext
-                  : lastItemIndex >= totalResultsCount
-              }
+              disabled={!_.isNil(disableNext) ? disableNext : lastItemIndex >= totalResultsCount}
               onClick={
                 this.onChangeNextPage ||
                 (() => {
@@ -129,23 +117,13 @@ export class Pagination extends React.Component<IPaginationProps, {}> {
     );
   }
 
-  private getPageRangeLabel(
-    totalResultsCount: number,
-    rowsPerPage: number,
-    currentPage: number
-  ) {
+  private getPageRangeLabel(totalResultsCount: number, rowsPerPage: number, currentPage: number) {
     return (
-      <div className={styles.pageRangeLabel}>
-        {this.getPageRange(totalResultsCount, rowsPerPage, currentPage)}
-      </div>
+      <div className={styles.pageRangeLabel}>{this.getPageRange(totalResultsCount, rowsPerPage, currentPage)}</div>
     );
   }
 
-  private getPageRange(
-    totalResultsCount: number,
-    rowsPerPage: number,
-    currentPage: number
-  ): string {
+  private getPageRange(totalResultsCount: number, rowsPerPage: number, currentPage: number): string {
     if (totalResultsCount < 1) {
       return `0`;
     }
@@ -157,11 +135,7 @@ export class Pagination extends React.Component<IPaginationProps, {}> {
     return `${firstNumber}-${secondNumber}`;
   }
 
-  private getPageRangesDropdown(
-    totalResultsCount: number,
-    rowsPerPage: number,
-    currentPage: number
-  ): React.ReactNode {
+  private getPageRangesDropdown(totalResultsCount: number, rowsPerPage: number, currentPage: number): React.ReactNode {
     const lastPageNumber = totalResultsCount / rowsPerPage;
     const pageRanges = _.range(lastPageNumber).map(page => ({
       label: this.getPageRange(totalResultsCount, rowsPerPage, page),
@@ -171,9 +145,7 @@ export class Pagination extends React.Component<IPaginationProps, {}> {
       <Dropdown
         className={styles.pageRangeDropdown}
         options={pageRanges}
-        onChange={(optionValue: any) =>
-          optionValue && this.props.onPageChange(optionValue.value)
-        }
+        onChange={(optionValue: any) => optionValue && this.props.onPageChange(optionValue.value)}
         value={pageRanges.find(elem => elem.value === currentPage)}
       />
     );

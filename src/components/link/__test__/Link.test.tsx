@@ -31,14 +31,7 @@ describe("Link", () => {
   });
 
   it("render the a tag with target", () => {
-    const wrapper = mount(
-      <Link
-        label="test"
-        onClick={noop}
-        icon="close"
-        link="https://www.google.com"
-      />
-    );
+    const wrapper = mount(<Link label="test" onClick={noop} icon="close" link="https://www.google.com" />);
 
     expect(wrapper.find("a").length).toBe(1);
     expect(wrapper.find("a").props().href).toBe("https://www.google.com");

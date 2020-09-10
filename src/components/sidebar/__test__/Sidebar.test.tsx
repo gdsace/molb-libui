@@ -10,9 +10,7 @@ describe("Sidebar", () => {
         title: "title 1"
       }
     ];
-    const wrapper = Enzyme.shallow(
-      <Sidebar list={list} onItemClick={onItemClickMock} />
-    );
+    const wrapper = Enzyme.shallow(<Sidebar list={list} onItemClick={onItemClickMock} />);
     wrapper
       .find("ul li")
       .at(0)
