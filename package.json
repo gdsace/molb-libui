@@ -5,8 +5,8 @@
   "types": "dist/@types/components/index.d.ts",
   "scripts": {
     "start": "start-storybook -p 6006 -c .storybook",
-    "build": "npm run build-lib && build-storybook",
-    "build-lib": "tsc && npm run copy-css-to-lib",
+    "build": "yarn build-lib && build-storybook",
+    "build-lib": "tsc && yarn copy-css-to-lib",
     "build-storybook": "build-storybook",
     "clean": "rm -rf dist",
     "copy-css-to-lib": "cpx \"./src/**/*.css\" ./build/lib",
@@ -23,7 +23,7 @@
     "test": "jest",
     "tsc:check": "tsc --noEmit --skipLibCheck",
     "ck": "yarn test && yarn lint",
-    "export": "npm run build-lib && build-storybook -c .storybook -o .out",
+    "export": "yarn build-lib && build-storybook -c .storybook -o .out",
     "build:type": "tsc --module es6 --declaration --emitDeclarationOnly --outDir dist/@types",
     "build:production": "rm -rf ./dist && cross-env NODE_ENV=production webpack --config webpack.config.js --mode production && yarn build:type",
     "build:check": "yarn build:production && [ -z \"$(git status --porcelain)\" ] || { echo \"Please run 'yarn build:production' and commit the changes\" >&2 && exit 1; }"
