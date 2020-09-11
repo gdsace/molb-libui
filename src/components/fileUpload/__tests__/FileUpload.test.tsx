@@ -38,30 +38,6 @@ describe("FileUpload", () => {
     ).toEqual("Download mandatory template");
   });
 
-  it("renders the child when given a child", () => {
-    const wrapper = mount(
-      <FileUpload baseUrl="" subjectId="" token="" documentType={documentTypes.required}>
-        <div>foo</div>
-      </FileUpload>
-    );
-
-    const child = wrapper.find(DefaultFileUploadChild);
-    expect(child).toHaveLength(0);
-    expect(wrapper.text()).toEqual("foo");
-  });
-
-  it("renders the child when given a child", () => {
-    const wrapper = mount(
-      <FileUpload baseUrl="" subjectId="" token="" documentType={documentTypes.required}>
-        <div>foo</div>
-      </FileUpload>
-    );
-
-    const child = wrapper.find(DefaultFileUploadChild);
-    expect(child).toHaveLength(0);
-    expect(wrapper.text()).toEqual("foo");
-  });
-
   it("component will set uploadState to Unstarted after clearing errors", () => {
     const wrapper = shallow(
       <FileUpload baseUrl="" subjectId="" token="" error="test" documentType={documentTypes.required} />

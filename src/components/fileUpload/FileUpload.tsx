@@ -1,13 +1,11 @@
-import classNames from "classnames";
 import qs from "qs";
 import React from "react";
 import Dropzone, { DropzoneProps } from "react-dropzone";
 import { IDocument, IDocumentType } from "../types";
 import { DefaultFileUploadChild } from "./DefaultFileUploadChild";
-import styles from "./styles.scss";
 import { SubjectType } from "./subjectTypes";
 
-export type IFileUploadProps = DropzoneProps & {
+export type IFileUploadProps = Omit<DropzoneProps, "children"> & {
   baseUrl: string;
   subjectId: string;
   token: string;
@@ -15,6 +13,7 @@ export type IFileUploadProps = DropzoneProps & {
   documentType: IDocumentType;
   error?: string;
   linkDescription?: string;
+  className?: string;
   onSuccess?: (event: any) => any;
   onError?: (event: any) => any;
   onCompleteIconClick?: (event: React.MouseEvent, document: Partial<IDocument>) => any;
@@ -75,20 +74,11 @@ export class FileUpload extends React.Component<IFileUploadProps, FileUploadStat
   }
 
   render() {
-    const { document, onError, onCompleteIconClick, children, ...forDropzone } = this.props;
+    const { document, onError, onCompleteIconClick, className, ...forDropzone } = this.props;
     const { uploadState, fileInfo } = this.state;
-
-    const dropzoneClassName = classNames(styles.default, {
-      [styles.dropReject]: uploadState === FileUploadStatus.Error,
-      [styles.uploading]: uploadState === FileUploadStatus.Uploading
-    });
 
     return (
       <Dropzone
-        className={dropzoneClassName}
-        acceptClassName={styles.hover}
-        activeClassName={styles.hover}
-        rejectClassName={styles.dropReject}
         onDropAccepted={(files: File[]) => {
           // Does not support multiple files now, takes the last
           files.forEach(f => {
@@ -104,25 +94,30 @@ export class FileUpload extends React.Component<IFileUploadProps, FileUploadStat
         }}
         {...forDropzone}
       >
-        {children || (
-          <DefaultFileUploadChild
-            {...this.props}
-            uploadState={uploadState}
-            document={fileInfo}
-            onCompleteIconClick={(e: React.MouseEvent) => {
-              e.preventDefault();
-              e.stopPropagation();
+        {({ getInputProps, getRootProps }) => (
+          <div {...getRootProps()} className={className} style={{ outline: "none" }}>
+            <input {...getInputProps()} />
+            {
+              <DefaultFileUploadChild
+                {...this.props}
+                uploadState={uploadState}
+                document={fileInfo}
+                onCompleteIconClick={(e: React.MouseEvent) => {
+                  e.preventDefault();
+                  e.stopPropagation();
 
-              this.setState({
-                fileInfo: undefined,
-                uploadState: FileUploadStatus.Unstarted
-              });
+                  this.setState({
+                    fileInfo: undefined,
+                    uploadState: FileUploadStatus.Unstarted
+                  });
 
-              if (onCompleteIconClick && document) {
-                onCompleteIconClick(e, document);
-              }
-            }}
-          />
+                  if (onCompleteIconClick && document) {
+                    onCompleteIconClick(e, document);
+                  }
+                }}
+              />
+            }
+          </div>
         )}
       </Dropzone>
     );

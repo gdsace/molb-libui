@@ -9,7 +9,6 @@
   },
 
   "extends": [
-    // "airbnb",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "prettier/@typescript-eslint",
@@ -30,6 +29,7 @@
     "react/jsx-indent": 0,
     "react/jsx-indent-props": 0,
     "react/jsx-closing-bracket-location": 0,
+    "react/prop-types": "off",
     "import/extensions": 0,
     "import/no-extraneous-dependencies": 0,
     "prettier/prettier": "error",
@@ -42,6 +42,9 @@
   },
 
   "settings": {
-    "import/resolver": "webpack"
+    "import/resolver": "webpack",
+    "react": {
+      "version": "detect"
+    }
   }
 }

@@ -59,6 +59,7 @@ export type FileUploadChildProps = Pick<
   | "token"
   | "linkDescription"
 > & {
+  className?: string;
   uploadState?: FileUploadStatus;
   onCompleteIconClick?: (event: React.MouseEvent) => any;
 };
@@ -133,7 +134,6 @@ export const DefaultFileUploadChild = (props: FileUploadChildProps) => {
             </>
           )}
         </div>
-
         {getIcon(props.uploadState, props.onProgressIconClick, props.onCompleteIconClick, props.onDefaultIconClick)}
       </div>
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { DropzoneProps } from "react-dropzone";
 import { IDocument, IDocumentType } from "../types";
-export declare type IFileUploadProps = DropzoneProps & {
+export declare type IFileUploadProps = Omit<DropzoneProps, "children"> & {
     baseUrl: string;
     subjectId: string;
     token: string;
@@ -9,6 +9,7 @@ export declare type IFileUploadProps = DropzoneProps & {
     documentType: IDocumentType;
     error?: string;
     linkDescription?: string;
+    className?: string;
     onSuccess?: (event: any) => any;
     onError?: (event: any) => any;
     onCompleteIconClick?: (event: React.MouseEvent, document: Partial<IDocument>) => any;
@@ -29,7 +30,7 @@ export declare enum FileUploadStatus {
 export declare const COMMON_ALLOWED_EXTENSIONS = ".pdf,.png,.jpg,.jpeg";
 export declare class FileUpload extends React.Component<IFileUploadProps, FileUploadState> {
     state: FileUploadState;
-    componentWillReceiveProps(nextProps: IFileUploadProps): void;
+    UNSAFE_componentWillReceiveProps(nextProps: IFileUploadProps): void;
     render(): JSX.Element;
     uploadFile(file: File): void;
 }
