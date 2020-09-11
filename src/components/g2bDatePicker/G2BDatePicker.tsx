@@ -49,14 +49,6 @@ export class G2BDatePicker extends React.Component<
       <div className={styles.datePicker}>
         <ReactDatePicker
           {...this.props}
-          customInput={
-            this.props.customInput || (
-              <CustomInput
-                showError={!!this.props.errorMsg}
-                selected={this.state.focusedOnInput}
-              />
-            )
-          }
           selected={this.convertStringToDate(selectedDate)}
           onChange={this.handleChange}
           onClickOutside={this.handleClickOutside}
