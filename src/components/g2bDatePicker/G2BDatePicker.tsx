@@ -7,7 +7,6 @@ import moment from "moment";
 import "react-datepicker/dist/react-datepicker.css";
 import { Portal } from "react-overlays";
 import { addLocatedErrorClassname } from "../utils";
-import { CustomInput } from "./CustomInput";
 import "./datePicker.css";
 
 const styles = require("./g2bDatePicker.scss");
