@@ -10,47 +10,38 @@
 }
 
 .customInput {
-  display: flex;
-  align-items: center;
-  min-width: 160px;
-  width: 100%;
-  min-height: 48px;
-  height: 100%;
-  font-size: $medium;
-  border-radius: $border-radius-3;
-  border: solid 1px $ui-color-2;
-  background-color: $field-color;
-  color: $text-color-2;
-  position: relative;
-  padding: 0 $space-2;
-  box-sizing: border-box;
-  outline: none;
-  font-weight: $weight-regular;
-
-  .calendarIcon {
-    position: absolute;
-    right: 13px;
-  }
+  border: solid 1px $ui-color-2 !important;
+  background-color: $field-color !important;
+  color: $text-color-2 !important;
+  padding-right: 45px !important;
 }
 
-.selected {
-  border: $lavender-indigo 1px solid;
-
-  .calendarIcon {
-    color: $lavender-indigo !important;
-  }
+.calendarIcon {
+  position: absolute;
+  padding: 16px;
+  z-index: 1;
+  color: $text-color-7;
+  right: 0;
 }
 
-.customInput .calendarIcon:hover {
-  color: $lavender-indigo;
+.calendarIcon:hover {
+  color: $lavender-indigo !important;
+}
+
+.selectedInput {
+  border: $lavender-indigo 1px solid !important;
+}
+
+.selectedCalendarIcon {
+  color: $lavender-indigo !important;
 }
 
 .placeholderColor {
-  color: $text-color-7;
+  color: $text-color-7 !important;
 }
 
 .errorInput {
-  border-color: $support-red;
+  border-color: $support-red !important;
 }
 
 .errorMsg {

@@ -17,6 +17,8 @@ export declare class G2BDatePicker extends React.Component<IG2BDatePickerProps, 
     private convertStringToDate;
     private convertDateToString;
     private handleChange;
+    private getIconClassNames;
+    private getInputClassNames;
     private handleClickOutside;
     private handleFocus;
 }
