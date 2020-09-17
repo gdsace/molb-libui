@@ -72,11 +72,7 @@ const indicatorList2 = [
     <div style={{ padding: "10px" }}>
       <h6 style={{ color: "grey" }}>This is indicator Sidebar</h6>
       <State store={store1}>
-        <Sidebar
-          list={indicatorList1}
-          type="indicator"
-          selectedIndex={store1.activeIndex - 1}
-        />
+        <Sidebar list={indicatorList1} type="indicator" selectedIndex={store1.activeIndex - 1} />
       </State>
       <br />
 

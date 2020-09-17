@@ -27,14 +27,9 @@ export class ModalContent extends React.Component<IModalContentProps, {}> {
       <div className={styles.notice}>
         {this.props.header && <header>{this.props.header}</header>}
         {this.props.subheader && this.getSubheader(this.props.subheader)}
-        {this.props.notification &&
-          this.getNotification(this.props.notification)}
+        {this.props.notification && this.getNotification(this.props.notification)}
         {(this.props.leftButtonLabel || this.props.rightButtonLabel) && (
-          <div
-            className={`${styles.modalFooter} ${
-              this.props.rightButtonLabel ? styles.twoBtnFooter : ""
-            }`}
-          >
+          <div className={`${styles.modalFooter} ${this.props.rightButtonLabel ? styles.twoBtnFooter : ""}`}>
             {this.props.leftButtonLabel && (
               <Button
                 className={styles.modalButton}
@@ -48,8 +43,7 @@ export class ModalContent extends React.Component<IModalContentProps, {}> {
             )}
             {this.props.rightButtonLabel && (
               <Button
-                className={`${this.props.isCustomRightBtn &&
-                  styles.customRightBtn} ${styles.modalButton}`}
+                className={`${this.props.isCustomRightBtn && styles.customRightBtn} ${styles.modalButton}`}
                 label={this.props.rightButtonLabel}
                 onClick={this.props.rightButtonOnClick}
                 size={Size.Large}

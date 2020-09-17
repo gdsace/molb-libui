@@ -23,10 +23,7 @@ export interface INumberPickerProps {
   className?: string;
 }
 
-export class NumberPicker extends React.Component<
-  INumberPickerProps,
-  INumberPickerStates
-> {
+export class NumberPicker extends React.Component<INumberPickerProps, INumberPickerStates> {
   public static defaultProps: Partial<INumberPickerProps> = {
     quantity: 0,
     max: 50,
@@ -89,19 +86,9 @@ export class NumberPicker extends React.Component<
   };
 
   public render() {
-    const {
-      className,
-      disablePrev,
-      disableNext,
-      disableInput,
-      quantity,
-      min,
-      max
-    } = this.props;
+    const { className, disablePrev, disableNext, disableInput, quantity, min, max } = this.props;
     const wrapperClassName = classNames(className ? className : "");
-    const inputError = classNames(
-      this.state.inputError ? styles.inputError : ""
-    );
+    const inputError = classNames(this.state.inputError ? styles.inputError : "");
 
     return (
       <div className={`${styles.mainWrapper} ${wrapperClassName}`}>
@@ -123,9 +110,7 @@ export class NumberPicker extends React.Component<
           <Input
             maxLength={3}
             value={quantity || 0}
-            className={`${styles.numInput} ${inputError} ${
-              quantity === 0 ? styles.minValue : ""
-            }`}
+            className={`${styles.numInput} ${inputError} ${quantity === 0 ? styles.minValue : ""}`}
             disabled={disableInput || false}
             type={InputType.DigitsOnly}
             onChange={event => this.onInputChange(event.target.value)}

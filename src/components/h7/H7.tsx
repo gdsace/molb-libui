@@ -6,6 +6,4 @@ interface IH7Props {
   children: React.ReactNode;
 }
 
-export const H7 = (props: IH7Props) => (
-  <h6 className={styles.h7}>{props.children}</h6>
-);
+export const H7 = (props: IH7Props) => <h6 className={styles.h7}>{props.children}</h6>;

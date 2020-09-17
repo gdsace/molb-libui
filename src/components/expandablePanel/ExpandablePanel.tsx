@@ -19,24 +19,17 @@ export type ExpandablePanelProps = {
 export type ExpandablePanelState = {
   collapsed: boolean;
 };
-export class ExpandablePanel extends Component<
-  ExpandablePanelProps,
-  ExpandablePanelState
-> {
+export class ExpandablePanel extends Component<ExpandablePanelProps, ExpandablePanelState> {
   state = {
     collapsed: true
   };
 
   render() {
     const { title, theme, subTitle, defaultDisplay } = this.props;
-    const collapsed =
-      this.props.collapsed === undefined
-        ? this.state.collapsed
-        : this.props.collapsed;
+    const collapsed = this.props.collapsed === undefined ? this.state.collapsed : this.props.collapsed;
     const children = React.Children.toArray(this.props.children);
     const iconType = collapsed ? "dropdown" : "up";
-    const isShowSubTitle =
-      defaultDisplay && children && children.length > defaultDisplay;
+    const isShowSubTitle = defaultDisplay && children && children.length > defaultDisplay;
     const isShowChildren = defaultDisplay && collapsed && children;
 
     return (
@@ -51,9 +44,7 @@ export class ExpandablePanel extends Component<
           )}
         </div>
         {isShowChildren &&
-          children.map((item, index: number) =>
-            defaultDisplay && index < defaultDisplay ? item : null
-          )}
+          children.map((item, index: number) => (defaultDisplay && index < defaultDisplay ? item : null))}
         {!collapsed && this.props.children}
       </div>
     );

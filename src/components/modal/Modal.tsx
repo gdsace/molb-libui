@@ -1,11 +1,7 @@
 import * as React from "react";
 import { createPortal } from "react-dom";
 
-import {
-  clearAllBodyScrollLocks,
-  disableBodyScroll,
-  enableBodyScroll
-} from "body-scroll-lock";
+import { clearAllBodyScrollLocks, disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import classNames from "classnames";
 import _ from "lodash";
 import { Icon } from "../icons";
@@ -61,16 +57,12 @@ export class Modal extends React.Component<IModalProps, {}> {
     super(props);
     this.el = document.createElement("div");
     this.modalRoot = document.body as HTMLElement;
-    this.setUpModalContentRef = (element: HTMLElement) =>
-      (this.modalNode = element);
+    this.setUpModalContentRef = (element: HTMLElement) => (this.modalNode = element);
     this.setFooter = (element: HTMLElement) => (this.footer = element);
-    this.debouncedScrollHandler = _.debounce(
-      this.onScrollBottom.bind(this),
-      50
-    );
+    this.debouncedScrollHandler = _.debounce(this.onScrollBottom.bind(this), 50);
   }
 
-  public componentWillReceiveProps(nextProps: IModalProps) {
+  public UNSAFE_componentWillReceiveProps(nextProps: IModalProps) {
     if (this.props.show !== nextProps.show) {
       this.controlBodyScrollable(nextProps.show);
     }
@@ -116,23 +108,15 @@ export class Modal extends React.Component<IModalProps, {}> {
     });
     const modalContent = (
       <div className={modalStyle} onClick={this.onClickAway}>
-        <section
-          className={styles.modalContent}
-          ref={this.setUpModalContentRef}
-        >
+        <section className={styles.modalContent} ref={this.setUpModalContentRef}>
           {!this.props.hideCloseButton && (
-            <div
-              className={styles.close}
-              onClick={this.props.customIcon ? () => ({}) : this.onClose}
-            >
+            <div className={styles.close} onClick={this.props.customIcon ? () => ({}) : this.onClose}>
               {this.props.customIcon || <Icon type="close" />}
             </div>
           )}
           <div className={styles.content}>{this.props.children}</div>
           {!isMobile() && this.props.modalContentFooter && (
-            <div className={styles.modalContentFooter}>
-              {this.props.modalContentFooter}
-            </div>
+            <div className={styles.modalContentFooter}>{this.props.modalContentFooter}</div>
           )}
         </section>
         {this.props.footer && (
@@ -156,8 +140,7 @@ export class Modal extends React.Component<IModalProps, {}> {
     const scrollHeight = this.modalNode!.scrollHeight;
     // when we zoom the screen, scrollHeight and scrollTop + clientHeight
     // are not strictly equal. scrollTop will be a decimal not an integer.
-    const didReachBottom =
-      Math.abs(scrollHeight - (scrollTop + clientHeight)) <= 1;
+    const didReachBottom = Math.abs(scrollHeight - (scrollTop + clientHeight)) <= 1;
     if (didReachBottom && !!this.props.onScrollBottomCallback) {
       this.props.onScrollBottomCallback!();
     }

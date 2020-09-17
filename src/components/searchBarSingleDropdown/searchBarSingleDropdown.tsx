@@ -1,13 +1,5 @@
 import * as React from "react";
-import {
-  Button,
-  Dropdown,
-  Icon,
-  Input,
-  InputType,
-  Size,
-  Theme
-} from "../../components";
+import { Button, Dropdown, Icon, Input, InputType, Size, Theme } from "../../components";
 
 const styles = require("./searchBarSingleDropdown.scss");
 
@@ -32,16 +24,10 @@ export interface ISearchSingleDropdownProps {
 
   // button props
   buttonLabel: string;
-  handleButtonClick: (
-    inputText: string,
-    selectedDropdown: IDropdownOptionType
-  ) => any;
+  handleButtonClick: (inputText: string, selectedDropdown: IDropdownOptionType) => any;
 }
 
-export class SearchSingleDropdown extends React.Component<
-  ISearchSingleDropdownProps,
-  {}
-> {
+export class SearchSingleDropdown extends React.Component<ISearchSingleDropdownProps, {}> {
   public render() {
     return (
       <div className={styles.wrapper}>
@@ -65,13 +51,7 @@ export class SearchSingleDropdown extends React.Component<
               maxLength={this.props.inputMaxlength || 100}
               helperMsg="Only alphabets, numbers, and spaces are allowed."
               onChange={e => this.handleOnChangeInputText(e.target.value)}
-              iconSignifier={
-                <Icon
-                  size="16"
-                  className={styles.iconSignifier}
-                  type={"search"}
-                />
-              }
+              iconSignifier={<Icon size="16" className={styles.iconSignifier} type={"search"} />}
               showError={this.props.showError || false}
               errorMsg={this.props.errorMsg || ""}
               onKeyPress={e => {
@@ -104,12 +84,7 @@ export class SearchSingleDropdown extends React.Component<
   }
 
   private trimAndSearch() {
-    const {
-      handleInputChange,
-      inputText,
-      handleButtonClick,
-      selectedDropdown
-    } = this.props;
+    const { handleInputChange, inputText, handleButtonClick, selectedDropdown } = this.props;
     const trimmedInputText = inputText.trim();
     handleInputChange(trimmedInputText);
     handleButtonClick(trimmedInputText, selectedDropdown);

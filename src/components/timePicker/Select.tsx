@@ -5,8 +5,8 @@ import ReactDom from "react-dom";
 const scrollTo = (element: any, to: any, duration: any) => {
   const requestAnimationFrame =
     window.requestAnimationFrame ||
-    function requestAnimationFrameTimeout() {
-      return setTimeout(arguments[0], 10);
+    function requestAnimationFrameTimeout(callback: () => void) {
+      return setTimeout(callback, 10);
     };
   // jump to target if duration zero
   if (duration <= 0) {
@@ -96,6 +96,7 @@ export class Select extends Component<ISelectProps, ISelectState> {
 
   public scrollToSelected(duration: any) {
     // move to selected item
+    // eslint-disable-next-line react/no-find-dom-node
     const select = ReactDom.findDOMNode(this);
     const list = this.saveListRef.current;
     if (!list) {
@@ -132,11 +133,7 @@ export class Select extends Component<ISelectProps, ISelectState> {
       [`${prefixCls}-select-active`]: this.state.active
     });
     return (
-      <div
-        className={cls}
-        onMouseEnter={this.handleMouseEnter}
-        onMouseLeave={this.handleMouseLeave}
-      >
+      <div className={cls} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
         <ul ref={this.saveListRef}>{this.getOptions()}</ul>
       </div>
     );

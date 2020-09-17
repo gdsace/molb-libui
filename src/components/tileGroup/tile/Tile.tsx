@@ -27,20 +27,14 @@ export interface ITileProps {
 }
 
 export const Tile = (props: ITileProps) => {
-  const tileWrapperClass = classNames(
-    props.containerStyle || "",
-    styles.tileWrapper,
-    styles[`${props.theme}`]
-  );
+  const tileWrapperClass = classNames(props.containerStyle || "", styles.tileWrapper, styles[`${props.theme}`]);
   const tileContentClass = classNames(styles.tileContent, {
     [styles.tileContentChecked]: props.checked,
     [styles.tileContentDisabled]: props.disabled
   });
   let selectionIcon;
   if (props.disabled && props.validationToolTip) {
-    selectionIcon = (
-      <Icon className={styles.disabledCheckIcon} type="error" size="20" />
-    );
+    selectionIcon = <Icon className={styles.disabledCheckIcon} type="error" size="20" />;
   } else if (props.checked) {
     selectionIcon = <Icon type="checkmark" size="20" />;
   } else {
@@ -80,31 +74,14 @@ export const Tile = (props: ITileProps) => {
         <div className={`${styles.itemsContent}`}>
           {props.theme !== TileTheme.BasicTile &&
             (props.icon && (
-              <Icon
-                className={styles.tileIcon}
-                category={props.iconCategory}
-                type={props.icon}
-                size="48"
-              />
+              <Icon className={styles.tileIcon} category={props.iconCategory} type={props.icon} size="48" />
             ))}
           {props.theme !== TileTheme.BasicTile &&
-            (props.imgSrc && (
-              <img
-                className={styles.imgWrapper}
-                src={props.imgSrc}
-                alt={props.imgAlt}
-              />
-            ))}
-          {props.theme !== TileTheme.BasicTile && (
-            <span className={styles.tileHeader}>{props.content}</span>
-          )}
+            (props.imgSrc && <img className={styles.imgWrapper} src={props.imgSrc} alt={props.imgAlt} />)}
+          {props.theme !== TileTheme.BasicTile && <span className={styles.tileHeader}>{props.content}</span>}
           {props.theme !== TileTheme.BasicTile &&
-            (props.subContent && (
-              <span className={styles.subContent}>{props.subContent}</span>
-            ))}
-          {props.theme !== TileTheme.SmallTile && (
-            <span className={styles.tileDescription}>{props.description}</span>
-          )}
+            (props.subContent && <span className={styles.subContent}>{props.subContent}</span>)}
+          {props.theme !== TileTheme.SmallTile && <span className={styles.tileDescription}>{props.description}</span>}
           {props.theme === TileTheme.LargeTile && props.error && (
             <div className={styles.errorContent}>
               <Icon className={styles.errorIcon} type="error" />

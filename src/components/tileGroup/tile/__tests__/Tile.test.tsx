@@ -39,9 +39,7 @@ describe("Tile", () => {
   });
 
   it("should render tile which status is checked and disabled", () => {
-    const wrapper = shallow(
-      <Tile icon="store" checked content="Restaurant" disabled />
-    );
+    const wrapper = shallow(<Tile icon="store" checked content="Restaurant" disabled />);
 
     expect(wrapper.find(Icon)).toHaveLength(2);
     expect(
@@ -55,14 +53,7 @@ describe("Tile", () => {
   });
 
   it("should render tile which status is disabled with tooltip", () => {
-    const wrapper = shallow(
-      <Tile
-        icon="store"
-        validationToolTip="test"
-        content="Restaurant"
-        disabled
-      />
-    );
+    const wrapper = shallow(<Tile icon="store" validationToolTip="test" content="Restaurant" disabled />);
 
     expect(wrapper.find(Icon)).toHaveLength(1);
     expect(wrapper.find(Tooltips)).toHaveLength(1);
@@ -77,12 +68,7 @@ describe("Tile", () => {
 
   it("should render small-tile (smallTile)", () => {
     const wrapper = shallow(
-      <Tile
-        icon="store"
-        content="Restaurant"
-        description="Some description"
-        theme={TileTheme.SmallTile}
-      />
+      <Tile icon="store" content="Restaurant" description="Some description" theme={TileTheme.SmallTile} />
     );
 
     expect(wrapper.find(".tileIcon")).toHaveLength(1);
@@ -92,12 +78,7 @@ describe("Tile", () => {
 
   it("should render medium-tile (mediumTile)", () => {
     const wrapper = shallow(
-      <Tile
-        imgSrc={"http:xxxxx"}
-        content="Restaurant"
-        description="Some description"
-        theme={TileTheme.MediumTile}
-      />
+      <Tile imgSrc={"http:xxxxx"} content="Restaurant" description="Some description" theme={TileTheme.MediumTile} />
     );
 
     expect(wrapper.find(".imgWrapper")).toHaveLength(1);
@@ -107,12 +88,7 @@ describe("Tile", () => {
 
   it("should render large-tile (largeTile)", () => {
     const wrapper = shallow(
-      <Tile
-        icon="store"
-        content="Restaurant"
-        description="Some description"
-        theme={TileTheme.LargeTile}
-      />
+      <Tile icon="store" content="Restaurant" description="Some description" theme={TileTheme.LargeTile} />
     );
 
     expect(wrapper.find(".tileIcon")).toHaveLength(1);

@@ -94,7 +94,7 @@ export declare class TimePicker extends React.Component<ITimePickerProps, ITimeP
     private readonly saveInputRef;
     private readonly savePanelRef;
     constructor(props: ITimePickerProps);
-    componentWillReceiveProps(nextProps: ITimePickerProps): void;
+    UNSAFE_componentWillReceiveProps(nextProps: ITimePickerProps): void;
     onPanelChange: (value: any) => void;
     onPanelClear: () => void;
     onVisibleChange: (open: any) => void;

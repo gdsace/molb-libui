@@ -78,13 +78,7 @@ export class Combobox extends Component<IComboboxProps, {}> {
   };
 
   public getHourSelect(hour: any) {
-    const {
-      prefixCls,
-      hourOptions,
-      disabledHours,
-      showHour,
-      use12Hours
-    } = this.props;
+    const { prefixCls, hourOptions, disabledHours, showHour, use12Hours } = this.props;
     if (!showHour) {
       return null;
     }
@@ -101,9 +95,7 @@ export class Combobox extends Component<IComboboxProps, {}> {
     return (
       <Select
         prefixCls={prefixCls}
-        options={hourOptionsAdj.map(option =>
-          formatOption(option, disabledOptions)
-        )}
+        options={hourOptionsAdj.map(option => formatOption(option, disabledOptions))}
         selectedIndex={hourOptionsAdj.indexOf(hourAdj)}
         type="hour"
         onSelect={this.onItemChange}
@@ -113,13 +105,7 @@ export class Combobox extends Component<IComboboxProps, {}> {
   }
 
   public getMinuteSelect(minute: any) {
-    const {
-      prefixCls,
-      minuteOptions,
-      disabledMinutes,
-      defaultOpenValue,
-      showMinute
-    } = this.props;
+    const { prefixCls, minuteOptions, disabledMinutes, defaultOpenValue, showMinute } = this.props;
     if (!showMinute) {
       return null;
     }
@@ -128,9 +114,7 @@ export class Combobox extends Component<IComboboxProps, {}> {
     return (
       <Select
         prefixCls={prefixCls}
-        options={minuteOptions.map(option =>
-          formatOption(option, disabledOptions)
-        )}
+        options={minuteOptions.map(option => formatOption(option, disabledOptions))}
         selectedIndex={minuteOptions.indexOf(minute)}
         type="minute"
         onSelect={this.onItemChange}
@@ -140,25 +124,16 @@ export class Combobox extends Component<IComboboxProps, {}> {
   }
 
   public getSecondSelect(second: any) {
-    const {
-      prefixCls,
-      secondOptions,
-      disabledSeconds,
-      showSecond,
-      defaultOpenValue
-    } = this.props;
+    const { prefixCls, secondOptions, disabledSeconds, showSecond, defaultOpenValue } = this.props;
     if (!showSecond) {
       return null;
     }
     const value = this.props.value || defaultOpenValue;
-    const disabledOptions =
-      disabledSeconds && disabledSeconds(value.hour(), value.minute());
+    const disabledOptions = disabledSeconds && disabledSeconds(value.hour(), value.minute());
     return (
       <Select
         prefixCls={prefixCls}
-        options={secondOptions.map(option =>
-          formatOption(option, disabledOptions)
-        )}
+        options={secondOptions.map(option => formatOption(option, disabledOptions))}
         selectedIndex={secondOptions.indexOf(second)}
         type="second"
         onSelect={this.onItemChange}

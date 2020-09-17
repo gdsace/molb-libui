@@ -30,10 +30,7 @@ const leftNodeStyles = {
 };
 
 const leftNode: React.ReactNode = (
-  <div style={leftNodeStyles}>
-    You can define your left component here; And define the left and right
-    padding
-  </div>
+  <div style={leftNodeStyles}>You can define your left component here; And define the left and right padding</div>
 );
 
 const mockOptions = [
@@ -80,9 +77,7 @@ const leftNode2: React.ReactNode = <PremiseDropdown options={mockOptions} />;
           <Tabs list={list} />
         </div>
         <div className={styles.box}>
-          <p className={styles.notes}>
-            Normal: with customized tabsBarContentStyle
-          </p>
+          <p className={styles.notes}>Normal: with customized tabsBarContentStyle</p>
           <Tabs list={list} tabsBarContentStyle={styles.tabsBarContentStyle} />
         </div>
         <div className={styles.box}>

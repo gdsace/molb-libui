@@ -29,9 +29,7 @@ export class Tag extends React.Component<ITagProps, {}> {
   public render() {
     const tagClass = classnames(
       styles[`${this.props.tagSize}`],
-      this.props.tagSize === TagSize.Large
-        ? styles.grey
-        : styles[`${this.props.theme}`]
+      this.props.tagSize === TagSize.Large ? styles.grey : styles[`${this.props.theme}`]
     );
     return (
       <section>
@@ -42,11 +40,7 @@ export class Tag extends React.Component<ITagProps, {}> {
               <div className={styles.tooltip}>
                 <Tooltips
                   trigger={(show: ITooltipsState) => (
-                    <Icon
-                      type="help"
-                      size="16"
-                      className={show ? styles.purpleIcon : styles.helpIcon}
-                    />
+                    <Icon type="help" size="16" className={show ? styles.purpleIcon : styles.helpIcon} />
                   )}
                   overrideTrigger
                   width={250}
@@ -59,11 +53,7 @@ export class Tag extends React.Component<ITagProps, {}> {
             )}
           </span>
         </div>
-        {this.props.helperMsg && (
-          <div className={styles.helperMsgContainer}>
-            {this.props.helperMsg}
-          </div>
-        )}
+        {this.props.helperMsg && <div className={styles.helperMsgContainer}>{this.props.helperMsg}</div>}
       </section>
     );
   }

@@ -18,9 +18,7 @@ describe("Input", () => {
     const event = {
       target: { value: "changed" }
     };
-    const component = Enzyme.shallow(
-      <Input value="initial" onChange={onChangeMock} />
-    );
+    const component = Enzyme.shallow(<Input value="initial" onChange={onChangeMock} />);
     const input = component.find("input");
     input.simulate("change", event);
     expect(onChangeMock).toBeCalledWith({
@@ -34,9 +32,7 @@ describe("Input", () => {
     const event = {
       target: { value: "12345678" }
     };
-    const component = Enzyme.shallow(
-      <Input value="initial" onChange={onChangeMock} maxLength={maxLength} />
-    );
+    const component = Enzyme.shallow(<Input value="initial" onChange={onChangeMock} maxLength={maxLength} />);
     const input = component.find("input");
     input.simulate("change", event);
     expect(onChangeMock).not.toHaveBeenCalled();
@@ -52,13 +48,7 @@ describe("Input", () => {
       "RF = Roof\n" +
       "B1 = Basement 1";
     const component = Enzyme.shallow(
-      <Input
-        value="initial"
-        onChange={jest.fn()}
-        label="label"
-        showTooltip
-        toolTipsContent={toolTipsContent}
-      />
+      <Input value="initial" onChange={jest.fn()} label="label" showTooltip toolTipsContent={toolTipsContent} />
     );
     const result = component
       .find("Tooltips")
@@ -70,13 +60,7 @@ describe("Input", () => {
   it("should render toolTipsContent as a element when toolTipsContent is JSX Element", () => {
     const toolTipsContent = <div>I am a JSX.Element</div>;
     const component = Enzyme.shallow(
-      <Input
-        value="initial"
-        onChange={jest.fn()}
-        label="label"
-        showTooltip
-        toolTipsContent={toolTipsContent}
-      />
+      <Input value="initial" onChange={jest.fn()} label="label" showTooltip toolTipsContent={toolTipsContent} />
     );
     const result = component
       .find("Tooltips")
@@ -87,41 +71,27 @@ describe("Input", () => {
   });
 
   it("should set type attribute to text when type prop is Text", () => {
-    const component = Enzyme.shallow(
-      <Input value="initial" onChange={jest.fn()} type={InputType.Text} />
-    );
+    const component = Enzyme.shallow(<Input value="initial" onChange={jest.fn()} type={InputType.Text} />);
     expect(component.find("input").prop("type")).toEqual("text");
   });
 
   it("should set type attribute to email when type prop is Email", () => {
-    const component = Enzyme.shallow(
-      <Input value="initial" onChange={jest.fn()} type={InputType.Email} />
-    );
+    const component = Enzyme.shallow(<Input value="initial" onChange={jest.fn()} type={InputType.Email} />);
     expect(component.find("input").prop("type")).toEqual("email");
   });
 
   it("should set type attribute to tel when type prop is PositiveIntegerText", () => {
-    const component = Enzyme.shallow(
-      <Input value="initial" onChange={jest.fn()} type={InputType.DigitsOnly} />
-    );
+    const component = Enzyme.shallow(<Input value="initial" onChange={jest.fn()} type={InputType.DigitsOnly} />);
     expect(component.find("input").prop("type")).toEqual("tel");
   });
 
   it("should set type attribute to text when type prop is not specified", () => {
-    const component = Enzyme.shallow(
-      <Input value="initial" onChange={jest.fn()} />
-    );
+    const component = Enzyme.shallow(<Input value="initial" onChange={jest.fn()} />);
     expect(component.find("input").prop("type")).toEqual("text");
   });
 
   it("should set type attribute to text when type prop is specified but not Email or PositiveIntegerText", () => {
-    const component = Enzyme.shallow(
-      <Input
-        value="initial"
-        onChange={jest.fn()}
-        type={InputType.DecimalText}
-      />
-    );
+    const component = Enzyme.shallow(<Input value="initial" onChange={jest.fn()} type={InputType.DecimalText} />);
     expect(component.find("input").prop("type")).toEqual("text");
   });
 

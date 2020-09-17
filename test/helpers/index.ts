@@ -15,16 +15,14 @@ export interface IGlobal {
   navigator: any;
 }
 
-declare var global: IGlobal;
+declare let global: IGlobal;
 
 // TODO use jest-fetch-mock to make mock more flexable
 // @ts-ignore
 // global.fetch = require("jest-fetch-mock");
 global.fetch = () => new Promise(() => null);
 
-const jsdom = new JSDOM(
-  '<!doctype html><html><div id="root"></div><div id="modal-root"></div></html>'
-);
+const jsdom = new JSDOM('<!doctype html><html><div id="root"></div><div id="modal-root"></div></html>');
 const { window } = jsdom;
 
 function copyProps(src: any, target: any) {

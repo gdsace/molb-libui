@@ -20,10 +20,7 @@ const styles = require("./tooltip.stories.scss");
             position={TooltipsLocationTheme.BottomLeft}
             specializedPosition={true}
           >
-            <div>
-              When use specializedPosition, component will just the arrow
-              position
-            </div>
+            <div>When use specializedPosition, component will just the arrow position</div>
           </Tooltips>
         </div>
 
@@ -34,10 +31,7 @@ const styles = require("./tooltip.stories.scss");
             position={TooltipsLocationTheme.BottomLeft}
             specializedPosition={true}
           >
-            <div>
-              When use specializedPosition, component will just the arrow
-              position
-            </div>
+            <div>When use specializedPosition, component will just the arrow position</div>
           </Tooltips>
         </div>
 
@@ -48,7 +42,7 @@ const styles = require("./tooltip.stories.scss");
             position={TooltipsLocationTheme.BottomCenter}
             specializedPosition={true}
           >
-            <div>center position won't change</div>
+            <div>center position won&apos;t change</div>
           </Tooltips>
         </div>
 
@@ -59,17 +53,12 @@ const styles = require("./tooltip.stories.scss");
             position={TooltipsLocationTheme.BottomRight}
             specializedPosition={true}
           >
-            <div>
-              When use specializedPosition, component will just the arrow
-              position
-            </div>
+            <div>When use specializedPosition, component will just the arrow position</div>
           </Tooltips>
         </div>
 
         <div className={styles.box}>
-          <p className={styles.notes}>
-            Position: BottomLeft, customized size+icon
-          </p>
+          <p className={styles.notes}>Position: BottomLeft, customized size+icon</p>
           <Tooltips
             trigger={<Icon type={"payment"} size={"16"} />}
             position={TooltipsLocationTheme.BottomLeft}

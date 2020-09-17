@@ -1,7 +1,7 @@
 # Prerequisites
-* Node version: 10.15.3
-* Yarn version: 1.15.2
 
+- Node version: 10.15.3
+- Yarn version: 1.15.2
 
 # molb-libui
 
@@ -14,6 +14,7 @@ yarn install
 ```
 
 after changing source code, run build again
+
 ```
 yarn build:production
 ```
@@ -28,7 +29,6 @@ In the storybook, you can create introduction for the UI Component.
 
 ```bash
 yarn start
-npm run start
 ```
 
 You can also build your design system for publishing to private npm or your own github instance:
@@ -40,9 +40,11 @@ yarn build:production
 ## Common Issues
 
 #### I've ran `yarn build:production` but travis is failing with the following error:
+
 `Please run 'yarn build:production' and commit the changes error Command failed with exit code 1.`
 
 Try:
+
 1. Remove `dist` folder
 2. Remove `node_modules`
 3. run `yarn`

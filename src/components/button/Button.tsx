@@ -65,8 +65,7 @@ export class Button extends React.Component<IButtonProps, {}> {
     const iconSize =
       this.props.size === Size.Small
         ? "16"
-        : this.props.size === Size.Square ||
-          this.props.size === Size.SmallSquare
+        : this.props.size === Size.Square || this.props.size === Size.SmallSquare
         ? "16"
         : "24";
 
@@ -77,24 +76,10 @@ export class Button extends React.Component<IButtonProps, {}> {
     ) : (
       <span className={styles.buttonContent}>
         {this.props.children}
-        {this.props.icon && isLeftIcon && (
-          <Icon
-            className={styles.leftIcon}
-            type={this.props.icon}
-            size={iconSize}
-          />
-        )}
+        {this.props.icon && isLeftIcon && <Icon className={styles.leftIcon} type={this.props.icon} size={iconSize} />}
         <span>{this.props.label}</span>
-        {this.props.icon && isRightIcon && (
-          <Icon
-            className={styles.rightIcon}
-            type={this.props.icon}
-            size={iconSize}
-          />
-        )}
-        {this.props.icon && isCenterIcon && (
-          <Icon type={this.props.icon} size={iconSize} />
-        )}
+        {this.props.icon && isRightIcon && <Icon className={styles.rightIcon} type={this.props.icon} size={iconSize} />}
+        {this.props.icon && isCenterIcon && <Icon type={this.props.icon} size={iconSize} />}
       </span>
     );
   }

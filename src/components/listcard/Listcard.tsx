@@ -55,11 +55,7 @@ export class Listcard extends React.Component<IListcardPros, any> {
     const dispear = buttonText ? "" : classnames(styles[`dispear`]);
     return (
       <div className={styles.container}>
-        <div
-          className={
-            twoContainers ? styles.leftContainer : styles.titleContainer
-          }
-        >
+        <div className={twoContainers ? styles.leftContainer : styles.titleContainer}>
           <div className={styles.title}>{title}</div>
           <div className={styles.subTitle}>{subTitle}</div>
           <div className={styles.description}>{description}</div>
@@ -69,9 +65,7 @@ export class Listcard extends React.Component<IListcardPros, any> {
             <div className={styles.tagContainer}>
               <div className={styles.label}>STATUS</div>
               <div className={styles.tag}>
-                <span className={`${styles.tagText} ${statusClassnames}`}>
-                  {tag}
-                </span>
+                <span className={`${styles.tagText} ${statusClassnames}`}>{tag}</span>
               </div>
             </div>
             <div className={styles.labelContainer}>
@@ -80,11 +74,7 @@ export class Listcard extends React.Component<IListcardPros, any> {
             </div>
           </>
         )}
-        <div
-          className={
-            twoContainers ? styles.rightContainer : styles.buttonContainer
-          }
-        >
+        <div className={twoContainers ? styles.rightContainer : styles.buttonContainer}>
           {buttonText && (
             <Button
               className={`${styles.button} ${dispear}`}

@@ -55,11 +55,7 @@ const multiSelectCustomStyles = {
 };
 
 export const MultiSelect = <T extends {}>(props: MultiSelectProps<T>) => {
-  const multiSelectClassName = classnames(
-    styles.field,
-    styles.multiSelectField,
-    styles[props.size || Size.Large]
-  );
+  const multiSelectClassName = classnames(styles.field, styles.multiSelectField, styles[props.size || Size.Large]);
 
   const errorClassName = addLocatedErrorClassname(styles.errorMessage);
 

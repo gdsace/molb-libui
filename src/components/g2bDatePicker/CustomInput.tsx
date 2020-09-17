@@ -11,26 +11,16 @@ export class CustomInput extends React.Component<any, any> {
       ? classnames(styles.customInput, styles.selected)
       : classnames(styles.customInput);
 
-    const errorClassName = this.props.showError
-      ? classnames(styles.errorInput)
-      : "";
+    const errorClassName = this.props.showError ? classnames(styles.errorInput) : "";
 
-    const textColorClassName = this.props.value
-      ? ""
-      : classnames(styles.placeholderColor);
+    const textColorClassName = this.props.value ? "" : classnames(styles.placeholderColor);
 
     return (
       <div
-        className={classnames(
-          customInputClassName,
-          errorClassName,
-          textColorClassName
-        )}
+        className={classnames(customInputClassName, errorClassName, textColorClassName)}
         onClick={this.props.onClick}
       >
-        {!_.isEmpty(this.props.value)
-          ? this.props.value
-          : this.props.placeholder}
+        {!_.isEmpty(this.props.value) ? this.props.value : this.props.placeholder}
         <Icon className={styles.calendarIcon} size="16" type="calendar" />
       </div>
     );

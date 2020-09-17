@@ -39,17 +39,7 @@ export class Link extends React.Component<ILinkProps, {}> {
   public render() {
     let theme = "";
 
-    const {
-      greenStyling,
-      size,
-      link,
-      label,
-      icon,
-      target,
-      className,
-      disabled,
-      inline
-    } = this.props;
+    const { greenStyling, size, link, label, icon, target, className, disabled, inline } = this.props;
 
     if (greenStyling) {
       theme = "Green";

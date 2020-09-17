@@ -5,22 +5,14 @@ import { Listcard, ListcardStatus, Size, Theme } from "../../components";
 import { CategoryName, wInfo } from "../utils";
 const styles = require("./Listcard.stories.scss");
 
-const listCardTitle = (text: string) => (
-  <p className={styles.listCardTitle}>{text}</p>
-);
-const listCardSubtitle = (text: string) => (
-  <p className={styles.listCardSubtitle}>{text}</p>
-);
+const listCardTitle = (text: string) => <p className={styles.listCardTitle}>{text}</p>;
+const listCardSubtitle = (text: string) => <p className={styles.listCardSubtitle}>{text}</p>;
 (storiesOf(CategoryName.Cards, module) as any).addWithJSX(
   "Listcard",
   wInfo(`default`)(() => (
     <div style={{ margin: "20px" }}>
       <Listcard buttonText="Action Button" status={ListcardStatus.Normal} />
-      <Listcard
-        buttonText="Action Button"
-        tag={"Expires on 8 Oct 2018"}
-        status={ListcardStatus.Expries}
-      />
+      <Listcard buttonText="Action Button" tag={"Expires on 8 Oct 2018"} status={ListcardStatus.Expries} />
       <Listcard
         title={listCardTitle("Custom styled component")}
         subTitle={listCardSubtitle(`Custom styled quotation no. 12345`)}

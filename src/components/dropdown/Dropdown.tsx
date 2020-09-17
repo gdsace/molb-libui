@@ -55,21 +55,13 @@ export const dropdownCustomStyles = {
 };
 
 export const Dropdown = <T extends any>(props: DropdownProps<T>) => {
-  const dropdownClassName = classnames(
-    styles.field,
-    styles.dropdownField,
-    styles[props.size || Size.Large]
-  );
+  const dropdownClassName = classnames(styles.field, styles.dropdownField, styles[props.size || Size.Large]);
 
   const errorClassName = addLocatedErrorClassname(styles.errorMessage);
 
   const dropdown = (
     <div className={dropdownClassName}>
-      <BaseDropdown<T>
-        components={{ ...baseComponents }}
-        styles={dropdownCustomStyles}
-        {...props}
-      />
+      <BaseDropdown<T> components={{ ...baseComponents }} styles={dropdownCustomStyles} {...props} />
       {props.error ? (
         <p className={errorClassName}>{props.error}</p>
       ) : (
@@ -100,10 +92,7 @@ export const Dropdown = <T extends any>(props: DropdownProps<T>) => {
 
   // Wrap select in label for accessibility
   if (props.label) {
-    const labelClass = classnames(
-      styles.label,
-      props.isDisabled ? styles.disabledLabel : ""
-    );
+    const labelClass = classnames(styles.label, props.isDisabled ? styles.disabledLabel : "");
     return (
       <label data-scrollpoint={true}>
         <div className={labelClass}>{props.label}</div>

@@ -33,16 +33,10 @@ describe("Inline notification", () => {
     };
 
     const wrapper = shallow(
-      <InlineNotificationWithHeader
-        header={testThis.header}
-        text={testThis.text}
-        theme={NotificationTheme.Error}
-      />
+      <InlineNotificationWithHeader header={testThis.header} text={testThis.text} theme={NotificationTheme.Error} />
     );
     expect(wrapper.find("h5").text()).toEqual(testThis.header);
-    expect(wrapper.find("p").html()).toContain(
-      "this is error text line 1<br/>this is error text line 2<br/>"
-    );
+    expect(wrapper.find("p").html()).toContain("this is error text line 1<br/>this is error text line 2<br/>");
     expect(wrapper.find(".error")).toHaveLength(2);
     expect(wrapper.find(Icon).prop("type")).toEqual("notification-error");
   });

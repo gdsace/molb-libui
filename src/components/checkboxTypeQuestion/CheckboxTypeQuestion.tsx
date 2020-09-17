@@ -21,41 +21,24 @@ interface ICheckboxTypeQuestionState {
   checked: boolean;
 }
 
-export class CheckboxTypeQuestion extends React.Component<
-  ICheckboxTypeQuestion,
-  ICheckboxTypeQuestionState
-> {
+export class CheckboxTypeQuestion extends React.Component<ICheckboxTypeQuestion, ICheckboxTypeQuestionState> {
   constructor(props: ICheckboxTypeQuestion) {
     super(props);
     this.state = { checked: props.checked };
   }
 
   public render() {
-    const {
-      checked,
-      disabled,
-      questionLabel,
-      questionDescription,
-      tooltip,
-      hidden,
-      errorMsg
-    } = this.props;
+    const { checked, disabled, questionLabel, questionDescription, tooltip, hidden, errorMsg } = this.props;
     if (hidden) {
       return <></>;
     }
     return (
       <div className={styles.wrapper}>
         <div className={styles.checkboxWrapper}>
-          <Checkbox
-            disabled={disabled}
-            checked={checked}
-            onCheckboxClick={this.onCheckedValueChange}
-          />
+          <Checkbox disabled={disabled} checked={checked} onCheckboxClick={this.onCheckedValueChange} />
         </div>
 
-        <div
-          className={`${styles.textWrapper} ${disabled ? styles.disabled : ""}`}
-        >
+        <div className={`${styles.textWrapper} ${disabled ? styles.disabled : ""}`}>
           <span className={styles.question}>
             <div className={styles.label} onClick={this.onTextClick}>
               {questionLabel}
@@ -63,13 +46,7 @@ export class CheckboxTypeQuestion extends React.Component<
             {!!tooltip && (
               <div className={styles.tooltip}>
                 <Tooltips
-                  trigger={
-                    <Icon
-                      type={"help"}
-                      size={"16"}
-                      className={styles.helpIcon}
-                    />
-                  }
+                  trigger={<Icon type={"help"} size={"16"} className={styles.helpIcon} />}
                   width={250}
                   position={TooltipsLocationTheme.BottomRight}
                   specializedPosition={true}

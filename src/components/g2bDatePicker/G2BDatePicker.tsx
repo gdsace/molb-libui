@@ -27,10 +27,7 @@ const CalendarContainer = ({ children }: { children: React.ReactNode[] }) => {
   return <Portal container={document.body}>{children}</Portal>;
 };
 
-export class G2BDatePicker extends React.Component<
-  IG2BDatePickerProps,
-  IG2BDatePickerState
-> {
+export class G2BDatePicker extends React.Component<IG2BDatePickerProps, IG2BDatePickerState> {
   public static defaultProps: Partial<IG2BDatePickerProps> = {
     selectedDate: undefined,
     dateFormat: "dd/MM/yyyy",
@@ -51,10 +48,7 @@ export class G2BDatePicker extends React.Component<
           {...this.props}
           customInput={
             this.props.customInput || (
-              <CustomInput
-                showError={!!this.props.errorMsg}
-                selected={this.state.focusedOnInput}
-              />
+              <CustomInput showError={!!this.props.errorMsg} selected={this.state.focusedOnInput} />
             )
           }
           selected={this.convertStringToDate(selectedDate)}
@@ -62,30 +56,18 @@ export class G2BDatePicker extends React.Component<
           onClickOutside={this.handleClickOutside}
           onInputClick={this.handleFocus}
           popperContainer={CalendarContainer}
-          popperClassName={classnames(
-            styles.popperContainerClassName,
-            popperClassName
-          )}
+          popperClassName={classnames(styles.popperContainerClassName, popperClassName)}
         />
-        {this.props.errorMsg && (
-          <p className={addLocatedErrorClassname(styles.errorMsg)}>
-            {this.props.errorMsg}
-          </p>
-        )}
+        {this.props.errorMsg && <p className={addLocatedErrorClassname(styles.errorMsg)}>{this.props.errorMsg}</p>}
       </div>
     );
   }
 
-  private convertStringToDate = (dateString?: string) =>
-    isEmpty(dateString) ? null : new Date(dateString!);
+  private convertStringToDate = (dateString?: string) => (isEmpty(dateString) ? null : new Date(dateString!));
 
-  private convertDateToString = (date: Date | null) =>
-    date ? moment(date).format("YYYY-MM-DD") : "";
+  private convertDateToString = (date: Date | null) => (date ? moment(date).format("YYYY-MM-DD") : "");
 
-  private handleChange = (
-    selectedDate: Date,
-    event: React.SyntheticEvent<any> | undefined
-  ) => {
+  private handleChange = (selectedDate: Date, event: React.SyntheticEvent<any> | undefined) => {
     this.setState({ focusedOnInput: false });
     if (this.props.onDateChange) {
       this.props.onDateChange(this.convertDateToString(selectedDate));

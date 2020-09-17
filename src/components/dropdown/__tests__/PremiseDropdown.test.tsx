@@ -15,9 +15,7 @@ describe("PremiseDropdown", () => {
       }
     ];
 
-    const wrapper = mount(
-      <PremiseDropdown options={premiseOptions} value={premiseOptions[0]} />
-    );
+    const wrapper = mount(<PremiseDropdown options={premiseOptions} value={premiseOptions[0]} />);
 
     const dropdown = wrapper.find(PremiseDropdown);
     expect(dropdown).toHaveLength(1);
@@ -36,9 +34,7 @@ describe("PremiseDropdown", () => {
       }
     ];
 
-    const wrapper = mount(
-      <PremiseDropdown options={normalOptions} value={normalOptions[0]} />
-    );
+    const wrapper = mount(<PremiseDropdown options={normalOptions} value={normalOptions[0]} />);
 
     const dropdown = wrapper.find(PremiseDropdown);
     expect(dropdown).toHaveLength(1);

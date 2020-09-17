@@ -10,34 +10,26 @@ const store = new Store({
   error: "something wrong"
 });
 
-(storiesOf(CategoryName.FileUpload, module) as any).addWithJSX(
-  "FileUploader",
-  () => (
-    <State store={store}>
-      <FileUpload
-        baseUrl=""
-        subjectId="1"
-        token=""
-        documentType={documentTypes.required}
-        onSuccess={action("ok")}
-        error={store.error}
-        // @ts-ignore
-        onError={(res: { error: any }) => {
-          action("error");
-          store.set({
-            error: res.error
-          });
-        }}
-        validateFile={(file: File, documentTypeCode: string) => {
-          return "duplicate name";
-        }}
-      />
-      <Button
-        label="clear error"
-        onClick={() => store.set({ error: undefined })}
-        size={Size.Small}
-        key="button"
-      />
-    </State>
-  )
-);
+(storiesOf(CategoryName.FileUpload, module) as any).addWithJSX("FileUploader", () => (
+  <State store={store}>
+    <FileUpload
+      baseUrl=""
+      subjectId="1"
+      token=""
+      documentType={documentTypes.required}
+      onSuccess={action("ok")}
+      error={store.error}
+      // @ts-ignore
+      onError={(res: { error: any }) => {
+        action("error");
+        store.set({
+          error: res.error
+        });
+      }}
+      validateFile={() => {
+        return "duplicate name";
+      }}
+    />
+    <Button label="clear error" onClick={() => store.set({ error: undefined })} size={Size.Small} key="button" />
+  </State>
+));

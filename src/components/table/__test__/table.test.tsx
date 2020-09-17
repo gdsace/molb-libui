@@ -5,9 +5,7 @@ import { dataSource, tableColumns } from "./__mocks__";
 
 describe("Table", () => {
   it("should show table header", () => {
-    const wrapper = Enzyme.shallow(
-      <Table columns={tableColumns} dataSource={dataSource} />
-    );
+    const wrapper = Enzyme.shallow(<Table columns={tableColumns} dataSource={dataSource} />);
 
     const tHeaderText = wrapper
       .find("thead")
@@ -17,20 +15,14 @@ describe("Table", () => {
   });
 
   it("should show table header with html-tag allowed", () => {
-    const wrapper = Enzyme.shallow(
-      <Table columns={tableColumns} dataSource={dataSource} />
-    );
+    const wrapper = Enzyme.shallow(<Table columns={tableColumns} dataSource={dataSource} />);
 
     const tHeaderCell = wrapper.find("thead tr th").at(2);
-    expect(tHeaderCell.html()).toEqual(
-      '<th class=""><span>Address<BR/></span></th>'
-    );
+    expect(tHeaderCell.html()).toEqual('<th class=""><span>Address<BR/></span></th>');
   });
 
   it("should show table body", () => {
-    const wrapper = Enzyme.shallow(
-      <Table columns={tableColumns} dataSource={dataSource} />
-    );
+    const wrapper = Enzyme.shallow(<Table columns={tableColumns} dataSource={dataSource} />);
 
     const tBodyText = wrapper.find("tbody").text();
     expect(tBodyText).toEqual("Joe Black32Joe Black33");
@@ -67,8 +59,7 @@ describe("Table", () => {
         .simulate("click");
 
       // @ts-ignore
-      expect(rowClickableDataSource[0].onRowClickHandler)
-        .toHaveBeenCalledTimes(1); // tslint:disable-line:prettier
+      expect(rowClickableDataSource[0].onRowClickHandler).toHaveBeenCalledTimes(1); // tslint:disable-line:prettier
     });
 
     it("else it should not be clickable", () => {
@@ -87,8 +78,7 @@ describe("Table", () => {
         .simulate("click");
 
       // @ts-ignore
-      expect(rowClickableDataSource[0].onRowClickHandler)
-        .toHaveBeenCalledTimes(0); // tslint:disable-line:prettier
+      expect(rowClickableDataSource[0].onRowClickHandler).toHaveBeenCalledTimes(0); // tslint:disable-line:prettier
     });
   });
 });

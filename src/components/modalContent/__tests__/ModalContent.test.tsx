@@ -27,12 +27,7 @@ describe("ModalContent", () => {
   });
 
   it("render only right button", () => {
-    const wrapper = mount(
-      <ModalContent
-        rightButtonLabel="right button test"
-        rightButtonOnClick={noop}
-      />
-    );
+    const wrapper = mount(<ModalContent rightButtonLabel="right button test" rightButtonOnClick={noop} />);
     const button = wrapper.find("Button");
     expect(button).toHaveLength(1);
   });

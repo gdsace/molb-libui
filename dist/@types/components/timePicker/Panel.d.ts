@@ -52,7 +52,7 @@ export declare class Panel extends Component<IPanelProps, IPanelState> {
         showHeader: boolean;
     };
     constructor(props: IPanelProps);
-    componentWillReceiveProps(nextProps: IPanelProps): void;
+    UNSAFE_componentWillReceiveProps(nextProps: IPanelProps): void;
     onChange: (newValue: any) => void;
     onCurrentSelectPanelChange: (currentSelectPanel: string) => void;
     close(): void;

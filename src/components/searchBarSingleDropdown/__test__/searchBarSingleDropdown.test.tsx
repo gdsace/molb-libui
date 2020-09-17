@@ -1,10 +1,7 @@
 import { mount } from "enzyme";
 import * as React from "react";
 import { Button, Dropdown, Input } from "../../../components";
-import {
-  ISearchSingleDropdownProps,
-  SearchSingleDropdown
-} from "../searchBarSingleDropdown";
+import { ISearchSingleDropdownProps, SearchSingleDropdown } from "../searchBarSingleDropdown";
 
 export const SEARCH_CRITERIAS = [
   {
@@ -112,9 +109,6 @@ describe("Search Bar with single dropdown", () => {
     // @ts-ignore
     instance.trimAndSearch();
     expect(props.handleInputChange).toHaveBeenCalledWith("test");
-    expect(props.handleButtonClick).toHaveBeenCalledWith(
-      "test",
-      props.selectedDropdown
-    );
+    expect(props.handleButtonClick).toHaveBeenCalledWith("test", props.selectedDropdown);
   });
 });

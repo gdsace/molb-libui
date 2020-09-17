@@ -37,12 +37,7 @@ export class Tabs extends React.Component<ITabProps, ITabState> {
     return (
       <div className={styles.tab}>
         <div className={styles.tabsBarContainer}>
-          <div
-            className={classnames(
-              styles.tabsBarContent,
-              this.props.tabsBarContentStyle
-            )}
-          >
+          <div className={classnames(styles.tabsBarContent, this.props.tabsBarContentStyle)}>
             {leftNode ? this.getLeftComponent(leftNode) : null}
             <div className={styles.tabItems}>
               {list.map((item, index) =>
@@ -55,9 +50,7 @@ export class Tabs extends React.Component<ITabProps, ITabState> {
                   <div
                     key={index}
                     onClick={this.tabItemClick(index)}
-                    className={`${
-                      currentIndex === index ? styles.activeItem : ""
-                    } ${styles.item}`}
+                    className={`${currentIndex === index ? styles.activeItem : ""} ${styles.item}`}
                   >
                     <label>{item.label}</label>
                   </div>

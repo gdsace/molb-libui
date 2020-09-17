@@ -26,10 +26,8 @@ export class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
     theme: CheckboxTheme.PURPLE
   };
 
-  public static getDerivedStateFromProps = (
-    props: ICheckboxProps,
-    state: ICheckboxState
-  ) => (state.checked === props.checked ? null : { checked: props.checked });
+  public static getDerivedStateFromProps = (props: ICheckboxProps, state: ICheckboxState) =>
+    state.checked === props.checked ? null : { checked: props.checked };
 
   constructor(props: ICheckboxProps) {
     super(props);
@@ -44,10 +42,7 @@ export class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
       styles.inner,
       styles[`${theme}`]
     );
-    const checkboxInputClass = classNames(
-      styles.checkboxInput,
-      styles[`${theme}CheckBox`]
-    );
+    const checkboxInputClass = classNames(styles.checkboxInput, styles[`${theme}CheckBox`]);
 
     return (
       <div>
@@ -65,17 +60,12 @@ export class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
             <span className={checkboxInnerClass} />
           </span>
           {this.props.clickableElement && (
-            <span
-              className={styles.clickableElement}
-              onClick={this.onClickableElementClick}
-            >
+            <span className={styles.clickableElement} onClick={this.onClickableElementClick}>
               {this.props.clickableElement}
             </span>
           )}
         </div>
-        {this.props.addonBelow && (
-          <div className={styles.addonBelow}>{this.props.addonBelow}</div>
-        )}
+        {this.props.addonBelow && <div className={styles.addonBelow}>{this.props.addonBelow}</div>}
       </div>
     );
   }

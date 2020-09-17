@@ -51,8 +51,7 @@ export class Header extends Component<IHeaderProps, IHeaderState> {
   public componentDidMount() {
     if (this.props.focusOnOpen) {
       // Wait one frame for the panel to be positioned before focusing
-      const requestAnimationFrame =
-        window.requestAnimationFrame || window.setTimeout;
+      const requestAnimationFrame = window.requestAnimationFrame || window.setTimeout;
       requestAnimationFrame(() => {
         if (this.inputRef.current) {
           this.inputRef.current.focus();
@@ -62,7 +61,7 @@ export class Header extends Component<IHeaderProps, IHeaderState> {
     }
   }
 
-  public componentWillReceiveProps(nextProps: IHeaderProps) {
+  public UNSAFE_componentWillReceiveProps(nextProps: IHeaderProps) {
     const { value, format } = nextProps;
     this.setState({
       str: (value && value.format(format)) || "",
@@ -113,17 +112,12 @@ export class Header extends Component<IHeaderProps, IHeaderState> {
       }
       // if time value is disabled, response warning.
       const disabledHourOptions = disabledHours && disabledHours();
-      const disabledMinuteOptions =
-        disabledMinutes && disabledMinutes(value.hour());
-      const disabledSecondOptions =
-        disabledSeconds && disabledSeconds(value.hour(), value.minute());
+      const disabledMinuteOptions = disabledMinutes && disabledMinutes(value.hour());
+      const disabledSecondOptions = disabledSeconds && disabledSeconds(value.hour(), value.minute());
       if (
-        (disabledHourOptions &&
-          disabledHourOptions.indexOf(value.hour()) >= 0) ||
-        (disabledMinuteOptions &&
-          disabledMinuteOptions.indexOf(value.minute()) >= 0) ||
-        (disabledSecondOptions &&
-          disabledSecondOptions.indexOf(value.second()) >= 0)
+        (disabledHourOptions && disabledHourOptions.indexOf(value.hour()) >= 0) ||
+        (disabledMinuteOptions && disabledMinuteOptions.indexOf(value.minute()) >= 0) ||
+        (disabledSecondOptions && disabledSecondOptions.indexOf(value.second()) >= 0)
       ) {
         this.setState({
           invalid: true
@@ -190,12 +184,7 @@ export class Header extends Component<IHeaderProps, IHeaderState> {
       return null;
     }
     return (
-      <a
-        role="button"
-        className={`${prefixCls}-clear-btn`}
-        title={this.props.clearText}
-        onMouseDown={this.onClear}
-      >
+      <a role="button" className={`${prefixCls}-clear-btn`} title={this.props.clearText} onMouseDown={this.onClear}>
         {clearIcon || <i className={`${prefixCls}-clear-btn-icon`} />}
       </a>
     );

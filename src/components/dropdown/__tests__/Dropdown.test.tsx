@@ -11,9 +11,7 @@ describe("Dropdown", () => {
   ];
 
   it("renders", () => {
-    const wrapper = mount(
-      <Dropdown options={mockOptions} value={mockOptions[0]} />
-    );
+    const wrapper = mount(<Dropdown options={mockOptions} value={mockOptions[0]} />);
 
     const dropdown = wrapper.find(Dropdown);
     expect(dropdown).toHaveLength(1);
@@ -21,9 +19,7 @@ describe("Dropdown", () => {
   });
 
   it("renders an error message when error prop is set", () => {
-    const wrapper = mount(
-      <Dropdown options={mockOptions} value={mockOptions[0]} error="error!" />
-    );
+    const wrapper = mount(<Dropdown options={mockOptions} value={mockOptions[0]} error="error!" />);
 
     const error = wrapper.find(".errorMessage");
     expect(error).toHaveLength(1);

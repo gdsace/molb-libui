@@ -22,9 +22,7 @@ describe("TextArea", () => {
   });
 
   it("should show warning message when there is no error", () => {
-    const wrapper = Enzyme.shallow(
-      <TextArea helperText="help" warningMsg="this is warning" />
-    );
+    const wrapper = Enzyme.shallow(<TextArea helperText="help" warningMsg="this is warning" />);
 
     expect(wrapper.find(".warningMsg").length).toEqual(1);
     expect(wrapper.find(".warningMsg").text()).toEqual("this is warning");
@@ -37,9 +35,7 @@ describe("TextArea", () => {
         <p>this is warning</p>
       </>
     );
-    const wrapper = Enzyme.shallow(
-      <TextArea helperText="help" warningMsg={warningMsgWithIcon} />
-    );
+    const wrapper = Enzyme.shallow(<TextArea helperText="help" warningMsg={warningMsgWithIcon} />);
 
     expect(wrapper.find(Icon).length).toEqual(1);
     expect(wrapper.find(".warningMsg").length).toEqual(1);
@@ -48,12 +44,7 @@ describe("TextArea", () => {
 
   it("should display error message when show error is true", () => {
     const wrapper = Enzyme.shallow(
-      <TextArea
-        showError
-        helperText="help"
-        warningMsg="this is warning"
-        errorMsg="error"
-      />
+      <TextArea showError helperText="help" warningMsg="this is warning" errorMsg="error" />
     );
     expect(wrapper.find(".locatedError").text()).toEqual("error");
   });
@@ -72,9 +63,7 @@ describe("TextArea", () => {
       value: "fdsfsdd\nfdsfs\ndfdsfds\nsdfdsfdsfdsf\ndsfdsfs\nsfdsn",
       disabled: true
     };
-    document.getElementById = jest
-      .spyOn(document, "getElementById")
-      .mockReturnValue({ scrollHeight: 32 });
+    document.getElementById = jest.spyOn(document, "getElementById").mockReturnValue({ scrollHeight: 32 });
 
     const wrapper = await Enzyme.mount(<TextArea {...props} />);
 

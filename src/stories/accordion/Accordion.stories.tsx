@@ -18,10 +18,7 @@ const ThemeList: AccordionTheme[] = Object.keys(AccordionTheme).map(
           displayMode={boolean("displayMode", false)}
           theme={select("theme", ThemeList, AccordionTheme.Standard)}
           header={text("header", "Accordion Header Text")}
-          subHeader={[
-            text("subHeader[0]", "Collapse"),
-            text("subHeader[1]", "Expand")
-          ]}
+          subHeader={[text("subHeader[0]", "Collapse"), text("subHeader[1]", "Expand")]}
           content={<div>this is a content div, content is a render-props</div>}
           onPanelClick={() => {
             alert("onPanelClick!");
@@ -35,19 +32,11 @@ const ThemeList: AccordionTheme[] = Object.keys(AccordionTheme).map(
         <Accordion
           displayMode={boolean("displayMode", false)}
           theme={select("theme", ThemeList, AccordionTheme.WrappedFreeStyle)}
-          header={
-            <div style={{ padding: "1em" }}>
-              Accordion header div has its own padding
-            </div>
-          }
-          subHeader={[
-            text("subHeader[0]", "Collapse"),
-            text("subHeader[1]", "Expand")
-          ]}
+          header={<div style={{ padding: "1em" }}>Accordion header div has its own padding</div>}
+          subHeader={[text("subHeader[0]", "Collapse"), text("subHeader[1]", "Expand")]}
           content={
             <div style={{ backgroundColor: "lightgrey", padding: "1em" }}>
-              Likewise this content div has it's own padding and background
-              color
+              Likewise this content div has it&apos;s own padding and background color
             </div>
           }
           onPanelClick={() => {
@@ -65,15 +54,8 @@ const ThemeList: AccordionTheme[] = Object.keys(AccordionTheme).map(
           collapsed={boolean("collapsed", false)}
           theme={select("theme", ThemeList, AccordionTheme.Standard)}
           header={text("header", "Accordion Header Text")}
-          subHeader={[
-            text("subHeader[0]", "Collapse"),
-            text("subHeader[1]", "Expand")
-          ]}
-          content={
-            <div>
-              The expand icon is not clickable if pass the collapsed props
-            </div>
-          }
+          subHeader={[text("subHeader[0]", "Collapse"), text("subHeader[1]", "Expand")]}
+          content={<div>The expand icon is not clickable if pass the collapsed props</div>}
           onPanelClick={() => {
             alert("onPanelClick!");
           }}

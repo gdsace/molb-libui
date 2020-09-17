@@ -73,10 +73,7 @@ interface ITimePickerState {
  * when TimePicker use in modalBox, need to use getPopupContainer to pass a element that needs to be mounted
  * example: OperatingHoursComponent.tst in molb-web
  */
-export class TimePicker extends React.Component<
-  ITimePickerProps,
-  ITimePickerState
-> {
+export class TimePicker extends React.Component<ITimePickerProps, ITimePickerState> {
   public static defaultProps = {
     clearText: "clear",
     prefixCls: "rc-time-picker",
@@ -117,19 +114,14 @@ export class TimePicker extends React.Component<
     super(props);
     this.saveInputRef = React.createRef(); // refFn.bind(this, "picker");
     this.savePanelRef = React.createRef(); // refFn.bind(this, "panelInstance");
-    const {
-      defaultOpen,
-      defaultValue,
-      open = defaultOpen,
-      value = defaultValue
-    } = props;
+    const { defaultOpen, defaultValue, open = defaultOpen, value = defaultValue } = props;
     this.state = {
       open,
       value
     };
   }
 
-  public componentWillReceiveProps(nextProps: ITimePickerProps) {
+  public UNSAFE_componentWillReceiveProps(nextProps: ITimePickerProps) {
     const { value, open } = nextProps;
     if ("value" in nextProps) {
       this.setState({
@@ -183,22 +175,12 @@ export class TimePicker extends React.Component<
       return format;
     }
     if (use12Hours) {
-      const fmtString = [
-        showHour ? "h" : "",
-        showMinute ? "mm" : "",
-        showSecond ? "ss" : ""
-      ]
+      const fmtString = [showHour ? "h" : "", showMinute ? "mm" : "", showSecond ? "ss" : ""]
         .filter(item => !!item)
         .join(":");
       return fmtString.concat(" a");
     }
-    return [
-      showHour ? "HH" : "",
-      showMinute ? "mm" : "",
-      showSecond ? "ss" : ""
-    ]
-      .filter(item => !!item)
-      .join(":");
+    return [showHour ? "HH" : "", showMinute ? "mm" : "", showSecond ? "ss" : ""].filter(item => !!item).join(":");
   }
 
   public getPanelElement() {
@@ -260,13 +242,7 @@ export class TimePicker extends React.Component<
   }
 
   public getPopupClassName() {
-    const {
-      showHour,
-      showMinute,
-      showSecond,
-      use12Hours,
-      prefixCls
-    } = this.props;
+    const { showHour, showMinute, showSecond, use12Hours, prefixCls } = this.props;
     let popupClassName = this.props.popupClassName;
     // Keep it for old compatibility
     // if ((!showHour || !showMinute || !showSecond) && !use12Hours) {
@@ -350,10 +326,7 @@ export class TimePicker extends React.Component<
     return (
       <div className={`${prefixCls}-root-container`}>
         {title && (
-          <div
-            className={`${prefixCls}-header-section`}
-            data-scrollpoint={true}
-          >
+          <div className={`${prefixCls}-header-section`} data-scrollpoint={true}>
             <label className={`${prefixCls}-title`}>{title}</label>
           </div>
         )}
@@ -389,21 +362,11 @@ export class TimePicker extends React.Component<
               readOnly={inputReadOnly}
               id={id}
             />
-            {inputIcon || (
-              <Icon
-                type="time"
-                size="16"
-                className={`${prefixCls}-input-icon`}
-              />
-            )}
+            {inputIcon || <Icon type="time" size="16" className={`${prefixCls}-input-icon`} />}
           </span>
         </Trigger>
         {showError && (
-          <div
-            className={`${addLocatedErrorClassname(
-              `${prefixCls}-footer-section`
-            )}`}
-          >
+          <div className={`${addLocatedErrorClassname(`${prefixCls}-footer-section`)}`}>
             <div className={`${prefixCls}-footer-message`}>{errorMsg}</div>
           </div>
         )}

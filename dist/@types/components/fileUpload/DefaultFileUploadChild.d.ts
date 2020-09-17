@@ -1,6 +1,7 @@
 import React from "react";
 import { FileUploadStatus, IFileUploadProps } from "./FileUpload";
 export declare type FileUploadChildProps = Pick<IFileUploadProps, "document" | "documentType" | "error" | "onDefaultIconClick" | "onProgressIconClick" | "baseUrl" | "token" | "linkDescription"> & {
+    className?: string;
     uploadState?: FileUploadStatus;
     onCompleteIconClick?: (event: React.MouseEvent) => any;
 };

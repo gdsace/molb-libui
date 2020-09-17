@@ -12,15 +12,12 @@ const ThemeList: NotificationTheme[] = Object.keys(NotificationTheme).map(
   k => NotificationTheme[k as keyof typeof NotificationTheme]
 );
 
-(storiesOf(CategoryName.Notification, module) as any).addWithJSX(
-  "InlineNotificationWithHeader",
-  () => (
-    <InlineNotificationWithHeader
-      header={text("header", "Normal Header")}
-      text={text("text", lorem)}
-      theme={select("theme", ThemeList, NotificationTheme.Informational)}
-      childNode={<Button theme={Theme.Orange} label="button" />}
-      icon="foodshop-filled"
-    />
-  )
-);
+(storiesOf(CategoryName.Notification, module) as any).addWithJSX("InlineNotificationWithHeader", () => (
+  <InlineNotificationWithHeader
+    header={text("header", "Normal Header")}
+    text={text("text", lorem)}
+    theme={select("theme", ThemeList, NotificationTheme.Informational)}
+    childNode={<Button theme={Theme.Orange} label="button" />}
+    icon="foodshop-filled"
+  />
+));
