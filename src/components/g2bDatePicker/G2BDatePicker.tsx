@@ -6,8 +6,8 @@ import { isEmpty } from "lodash";
 import moment from "moment";
 import "react-datepicker/dist/react-datepicker.css";
 import { Portal } from "react-overlays";
+import { Icon } from "../icons";
 import { addLocatedErrorClassname } from "../utils";
-import { CustomInput } from "./CustomInput";
 import "./datePicker.css";
 
 const styles = require("./g2bDatePicker.scss");
@@ -44,13 +44,10 @@ export class G2BDatePicker extends React.Component<IG2BDatePickerProps, IG2BDate
     const { selectedDate, popperClassName } = this.props;
     return (
       <div className={styles.datePicker}>
+        <Icon className={this.getIconClassNames()} size="16" type="calendar" />
         <ReactDatePicker
           {...this.props}
-          customInput={
-            this.props.customInput || (
-              <CustomInput showError={!!this.props.errorMsg} selected={this.state.focusedOnInput} />
-            )
-          }
+          className={this.getInputClassNames()}
           selected={this.convertStringToDate(selectedDate)}
           onChange={this.handleChange}
           onClickOutside={this.handleClickOutside}
@@ -75,6 +72,24 @@ export class G2BDatePicker extends React.Component<IG2BDatePickerProps, IG2BDate
     if (this.props.onChange) {
       this.props.onChange(selectedDate, event);
     }
+  };
+
+  private getIconClassNames = () => {
+    return this.state.focusedOnInput
+      ? classnames(styles.calendarIcon, styles.selectedCalendarIcon)
+      : styles.calendarIcon;
+  };
+
+  private getInputClassNames = () => {
+    const customInputClassName = this.state.focusedOnInput
+      ? classnames(styles.customInput, styles.selectedInput)
+      : styles.customInput;
+
+    const errorClassName = !!this.props.errorMsg ? classnames(styles.errorInput) : "";
+
+    const textColorClassName = this.props.value ? "" : classnames(styles.placeholderColor);
+
+    return classnames(customInputClassName, errorClassName, textColorClassName);
   };
 
   private handleClickOutside = () => {
