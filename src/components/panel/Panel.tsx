@@ -20,13 +20,7 @@ export class Panel extends React.Component<IPanelProps, {}> {
 
   public render() {
     return (
-      <div
-        className={classnames(
-          styles.panelContainer,
-          styles[`${this.props.theme}`],
-          this.props.containerStyle
-        )}
-      >
+      <div className={classnames(styles.panelContainer, styles[`${this.props.theme}`], this.props.containerStyle)}>
         <div
           className={classnames(
             {

@@ -21,11 +21,7 @@ describe("TimePicker", () => {
 
   it("should show error message", () => {
     const wrapper = Enzyme.shallow(
-      <TimePicker
-        title="time picker"
-        errorMsg="Validation error message"
-        showError={true}
-      />
+      <TimePicker title="time picker" errorMsg="Validation error message" showError={true} />
     );
     const message = wrapper
       .find(`.${TimePicker.defaultProps.prefixCls}-footer-message`)
@@ -35,16 +31,8 @@ describe("TimePicker", () => {
   });
 
   it("should show footer-message", () => {
-    const wrapper = Enzyme.shallow(
-      <TimePicker
-        title="time picker"
-        showError={true}
-        errorMsg="field required"
-      />
-    );
-    const span = wrapper
-      .find(`.${TimePicker.defaultProps.prefixCls}-footer-section`)
-      .text();
+    const wrapper = Enzyme.shallow(<TimePicker title="time picker" showError={true} errorMsg="field required" />);
+    const span = wrapper.find(`.${TimePicker.defaultProps.prefixCls}-footer-section`).text();
     expect(span).toEqual("field required");
   });
 });

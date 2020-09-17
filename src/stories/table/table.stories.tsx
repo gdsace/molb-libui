@@ -57,13 +57,11 @@ const activeTag = (
 export const dataSource = [
   {
     key: "1",
-    name:
-      "John Brown is a long text.John Brown is a long text.John Brown is a long text.",
+    name: "John Brown is a long text.John Brown is a long text.John Brown is a long text.",
     age: 32,
     address: (
       <span style={style.textStyle2}>
-        "New York No. 1 Lake Park.New York No. 1 Lake Park.New York No. 1 Lake
-        Park.New York No. 1 Lake Park"
+        &quot;New York No. 1 Lake Park.New York No. 1 Lake Park.New York No. 1 Lake Park.New York No. 1 Lake Park&quot;
       </span>
     ),
     tags: activeTag
@@ -121,40 +119,22 @@ export const rfaDataSource = [
     <div className={styles.rootContainer}>
       <section className={styles.section}>
         <h6>RFA Search Table</h6>
-        <Table
-          columns={tableColumns}
-          dataSource={rfaDataSource}
-          theme={TableTheme.Basic}
-          clickableRow={true}
-        />
+        <Table columns={tableColumns} dataSource={rfaDataSource} theme={TableTheme.Basic} clickableRow={true} />
       </section>
 
       <h6 className={styles.groupHeader}>Table type: themes</h6>
       <div className={styles.itemsContainer}>
         <div className={styles.box}>
-          <p className={styles.notes}>Showing "No data available":</p>
-          <Table
-            columns={tableColumns}
-            dataSource={[]}
-            theme={TableTheme.Basic}
-          />
+          <p className={styles.notes}>Showing &quot;No data available&quot;:</p>
+          <Table columns={tableColumns} dataSource={[]} theme={TableTheme.Basic} />
         </div>
         <div className={styles.box}>
           <p className={styles.notes}>Striped table with border:</p>
-          <Table
-            columns={tableColumns}
-            dataSource={dataSource}
-            bordered={true}
-            theme={TableTheme.Striped}
-          />
+          <Table columns={tableColumns} dataSource={dataSource} bordered={true} theme={TableTheme.Striped} />
         </div>
         <div className={styles.box}>
           <p className={styles.notes}>Basic table:</p>
-          <Table
-            columns={tableColumns}
-            dataSource={dataSource}
-            theme={TableTheme.Basic}
-          />
+          <Table columns={tableColumns} dataSource={dataSource} theme={TableTheme.Basic} />
         </div>
         <div className={styles.box}>
           <p className={styles.notes}>Basic expandable table:</p>
@@ -165,9 +145,7 @@ export const rfaDataSource = [
             expandable={true}
             onExpandButtonClick={() => true}
             // @ts-ignore
-            expandableRowTemplate={(props: { index: number }) => (
-              <div>TEST with index:{props.index}</div>
-            )}
+            expandableRowTemplate={(props: { index: number }) => <div>TEST with index:{props.index}</div>}
           />
         </div>
       </div>

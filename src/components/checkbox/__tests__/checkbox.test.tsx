@@ -11,13 +11,7 @@ describe("Checkbox", () => {
         checked: false
       }
     };
-    const wrapper = mount(
-      <Checkbox
-        onCheckboxClick={onCheckboxClickMock}
-        disabled={false}
-        checked={true}
-      />
-    );
+    const wrapper = mount(<Checkbox onCheckboxClick={onCheckboxClickMock} disabled={false} checked={true} />);
     const checkbox = wrapper.find("input");
     checkbox.simulate("change", event);
     expect(onCheckboxClickMock).toBeCalledWith(false);

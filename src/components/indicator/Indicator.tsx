@@ -13,11 +13,7 @@ export class Indicator extends React.Component<IIndicator, {}> {
     const isActive = this.props.activeIndex === this.props.index;
     const isDisabled = this.props.activeIndex < this.props.index;
 
-    const navStatusClass = isActive
-      ? styles.active
-      : isDisabled
-      ? styles.disabled
-      : styles.enabled;
+    const navStatusClass = isActive ? styles.active : isDisabled ? styles.disabled : styles.enabled;
 
     return (
       <div className={`${styles.navLabel} ${navStatusClass}`}>

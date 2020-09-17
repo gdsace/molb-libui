@@ -25,23 +25,11 @@ export class FormSection extends React.Component<IFormSectionProps, {}> {
     );
     return (
       <section id={this.props.id} className={styles.section}>
-        {this.props.caption && (
-          <div className={styles.caption}>{this.props.caption}</div>
-        )}
+        {this.props.caption && <div className={styles.caption}>{this.props.caption}</div>}
 
-        <div
-          className={
-            this.props.header || this.props.subheader
-              ? headerSectionClassName
-              : ""
-          }
-        >
-          {this.props.header && (
-            <h3 className={styles.header}>{this.props.header}</h3>
-          )}
-          {this.props.subheader && (
-            <h6 className={styles.subheader}>{this.props.subheader}</h6>
-          )}
+        <div className={this.props.header || this.props.subheader ? headerSectionClassName : ""}>
+          {this.props.header && <h3 className={styles.header}>{this.props.header}</h3>}
+          {this.props.subheader && <h6 className={styles.subheader}>{this.props.subheader}</h6>}
         </div>
         {this.props.children}
       </section>

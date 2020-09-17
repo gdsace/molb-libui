@@ -9,10 +9,6 @@ export interface IHeaderProps {
 
 export class Header extends React.Component<IHeaderProps, {}> {
   public render() {
-    return (
-      <div className={`${styles.header} ${this.props.className}`}>
-        {this.props.children}
-      </div>
-    );
+    return <div className={`${styles.header} ${this.props.className}`}>{this.props.children}</div>;
   }
 }

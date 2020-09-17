@@ -6,9 +6,7 @@ import { addLocatedErrorClassname } from "../utils";
 
 const styles = require("./textArea.scss");
 
-export type HTMLTextareaProps = React.TextareaHTMLAttributes<
-  HTMLTextAreaElement
->;
+export type HTMLTextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 export interface ITextAreaPros extends HTMLTextareaProps {
   onIconMouseOver?: () => any;
   onIconMouseOut?: () => any;
@@ -57,14 +55,13 @@ export class TextArea extends React.Component<ITextAreaPros, ITextAreaState> {
   public componentDidMount(): void {
     if (this.props.displayContentWithoutScroll && this.props.id) {
       const textAreaEle = document.getElementById(this.props.id);
-      const heightWithOutScrollBar = textAreaEle!!.scrollHeight + 5;
+      const heightWithOutScrollBar = textAreaEle!.scrollHeight + 5;
       this.setState({ height: heightWithOutScrollBar });
     }
   }
 
   public render() {
-    const textareaValidation =
-      (this.props.overwrite && this.state.isOverwrite) || this.props.showError;
+    const textareaValidation = (this.props.overwrite && this.state.isOverwrite) || this.props.showError;
     const rootContainerClassname = classnames(styles.textarea, {
       [styles[`disabled`]]: this.props.disabled,
       [styles[`validation`]]: textareaValidation
@@ -77,10 +74,7 @@ export class TextArea extends React.Component<ITextAreaPros, ITextAreaState> {
     const maxLength = this.props.overwrite ? undefined : this.props.maxLength;
     const iconSize = "16";
     return (
-      <div
-        className={classnames(rootContainerClassname, this.props.className)}
-        data-scrollpoint={true}
-      >
+      <div className={classnames(rootContainerClassname, this.props.className)} data-scrollpoint={true}>
         <div className={styles.headerSection}>
           <label className={styles.title}>{this.props.title}</label>
           <div
@@ -89,11 +83,7 @@ export class TextArea extends React.Component<ITextAreaPros, ITextAreaState> {
             onMouseOut={this.handleIconMouseOut}
             onClick={this.handleIconClick}
           >
-            {this.props.iconType ? (
-              <Icon type={this.props.iconType} size={iconSize} />
-            ) : (
-              ""
-            )}
+            {this.props.iconType ? <Icon type={this.props.iconType} size={iconSize} /> : ""}
           </div>
         </div>
         <div className={styles.content}>
@@ -118,9 +108,7 @@ export class TextArea extends React.Component<ITextAreaPros, ITextAreaState> {
               : this.props.helperText && this.renderHelperText()}
           </div>
           {this.props.maxLength && (
-            <div className={styles.countMsg}>
-              {`${this.state.characterCount}/${this.props.maxLength}`}
-            </div>
+            <div className={styles.countMsg}>{`${this.state.characterCount}/${this.props.maxLength}`}</div>
           )}
         </div>
       </div>
@@ -150,18 +138,18 @@ export class TextArea extends React.Component<ITextAreaPros, ITextAreaState> {
     });
   }
 
-  private handleIconMouseOver(event: React.MouseEvent) {
+  private handleIconMouseOver() {
     if (this.props.onIconMouseOver) {
       this.props.onIconMouseOver();
     }
   }
-  private handleIconMouseOut(event: React.MouseEvent) {
+  private handleIconMouseOut() {
     if (this.props.onIconMouseOut) {
       this.props.onIconMouseOut();
     }
   }
 
-  private handleIconClick(event: React.MouseEvent) {
+  private handleIconClick() {
     if (this.props.onIconMouseClick) {
       this.props.onIconMouseClick();
     }

@@ -33,19 +33,13 @@ export class ActionSection extends React.Component<IActionSectionProps, {}> {
       [styles.onlyPrevious]: this.props.showPrevious && !this.props.showNext,
       [styles.onlyNext]: !this.props.showPrevious && this.props.showNext
     });
-    const sectionClassName = classNames(
-      this.props.className ? this.props.className : ""
-    );
+    const sectionClassName = classNames(this.props.className ? this.props.className : "");
     return (
       <section className={`${styles.section} ${sectionClassName}`}>
         <div className={rowStyle}>
           {this.props.showPrevious && (
             <Button
-              label={
-                this.props.onPreviousLabel
-                  ? this.props.onPreviousLabel
-                  : PREVIOUS
-              }
+              label={this.props.onPreviousLabel ? this.props.onPreviousLabel : PREVIOUS}
               size={Size.Medium}
               theme={Theme.Secondary}
               icon={this.props.showPreviousIcon ? "arrowPrev" : ""}

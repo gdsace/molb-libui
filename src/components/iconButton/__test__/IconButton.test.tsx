@@ -18,9 +18,7 @@ describe("IconButton", () => {
     const wrapper = shallow(<IconButton onClick={callbackFunc} />);
     wrapper.simulate("click");
     expect(callbackFunc).toHaveBeenCalled();
-    const disabledWrapper = shallow(
-      <IconButton disabled={true} onClick={disabledCallbackFunc} />
-    );
+    const disabledWrapper = shallow(<IconButton disabled={true} onClick={disabledCallbackFunc} />);
     disabledWrapper.simulate("click");
     expect(disabledCallbackFunc).toHaveBeenCalledTimes(0);
   });

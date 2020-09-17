@@ -25,11 +25,7 @@ const onCheckboxClick = (value: string) => {
           <div className={styles.box}>
             <p className={styles.notes}>Normal:</p>
             <State store={store}>
-              <Checkbox
-                checked={store.state.checked}
-                disabled={false}
-                onCheckboxClick={onCheckboxClick}
-              />
+              <Checkbox checked={store.state.checked} disabled={false} onCheckboxClick={onCheckboxClick} />
             </State>
           </div>
           <div className={styles.box}>
@@ -45,11 +41,7 @@ const onCheckboxClick = (value: string) => {
           </div>
           <div className={styles.box}>
             <p className={styles.notes}>Disabled:</p>
-            <Checkbox
-              checked={false}
-              disabled={true}
-              onCheckboxClick={onCheckboxClick}
-            />
+            <Checkbox checked={false} disabled={true} onCheckboxClick={onCheckboxClick} />
           </div>
           <div className={styles.box}>
             <p className={styles.notes}>Disabled with clickable element:</p>
@@ -62,11 +54,7 @@ const onCheckboxClick = (value: string) => {
           </div>
           <div className={styles.box}>
             <p className={styles.notes}>Disabled and checked:</p>
-            <Checkbox
-              checked={true}
-              disabled={true}
-              onCheckboxClick={onCheckboxClick}
-            />
+            <Checkbox checked={true} disabled={true} onCheckboxClick={onCheckboxClick} />
           </div>
         </div>
         <h6 className={styles.groupHeader}>Different Theme : ...</h6>
@@ -100,9 +88,7 @@ const onCheckboxClick = (value: string) => {
             checked={store.state.checked}
             disabled={false}
             onCheckboxClick={onCheckboxClick}
-            addonBelow={
-              <span style={{ color: "orange" }}>edited by applicant</span>
-            }
+            addonBelow={<span style={{ color: "orange" }}>edited by applicant</span>}
           />
         </State>
       </div>

@@ -68,8 +68,7 @@ export class Tooltips extends React.Component<ITooltipsProps, ITooltipsState> {
       border: "none",
       zIndex: "300",
       borderRadius: 5,
-      boxShadow:
-        "0 4px 12px 0 rgba(0, 0, 0, 0.03), 0 7px 25px 0 rgba(0, 0, 0, 0.03), 0 0 0 1px rgba(0, 0, 0, 0.03)",
+      boxShadow: "0 4px 12px 0 rgba(0, 0, 0, 0.03), 0 7px 25px 0 rgba(0, 0, 0, 0.03), 0 0 0 1px rgba(0, 0, 0, 0.03)",
       width,
       height,
       padding: 0
@@ -108,14 +107,15 @@ export class Tooltips extends React.Component<ITooltipsProps, ITooltipsState> {
           arrowStyle={arrowStyle}
           trigger={overrideTrigger ? trigger(this.state.show) : trigger}
           position={this.getCalculatedPosition()}
-          children={<div className={childrenClassNames}>{tooltipContent}</div>}
           open={show}
           contentStyle={desktopContentStyle}
           overlayStyle={overlayStyle}
           closeOnDocumentClick
           onClose={() => this.closePopup()}
           offsetX={specializedStyle.offsetX}
-        />
+        >
+          <div className={childrenClassNames}>{tooltipContent}</div>
+        </Popup>
       </div>
     );
   }

@@ -37,9 +37,7 @@ const onDataChange = (dataArray: any) => {
       textInputValue={text("textInputValue", "this is value")}
     />
   ))
-  .addWithJSX("PremiseDropdown", () => (
-    <PremiseDropdown options={mockOptions} />
-  ))
+  .addWithJSX("PremiseDropdown", () => <PremiseDropdown options={mockOptions} />)
   .addWithJSX("MultiSelect Dropdown", () => (
     <State store={store}>
       <MultiSelect

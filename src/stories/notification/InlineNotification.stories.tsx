@@ -14,19 +14,16 @@ const lorem =
 const single =
   "Single line: You can see this seems slightly off-center, feel free to improve this if you have any elegant solutions";
 
-(storiesOf(CategoryName.Notification, module) as any).addWithJSX(
-  "InlineNotification",
-  () => (
-    <>
-      <InlineNotification
-        text={text("text", lorem)}
-        theme={select("theme", ThemeList, NotificationTheme.Informational)}
-      />
-      <br />
-      <InlineNotification
-        text={text("text", single)}
-        theme={select("theme", ThemeList, NotificationTheme.Informational)}
-      />
-    </>
-  )
-);
+(storiesOf(CategoryName.Notification, module) as any).addWithJSX("InlineNotification", () => (
+  <>
+    <InlineNotification
+      text={text("text", lorem)}
+      theme={select("theme", ThemeList, NotificationTheme.Informational)}
+    />
+    <br />
+    <InlineNotification
+      text={text("text", single)}
+      theme={select("theme", ThemeList, NotificationTheme.Informational)}
+    />
+  </>
+));

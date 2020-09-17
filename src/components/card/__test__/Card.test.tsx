@@ -8,15 +8,14 @@ import { Card } from "../Card";
 describe("Card", () => {
   const Description = (
     <div>
-      All food and beverage establishments must be licenced in order to operate.
-      Comply with the Code of Practice of Environmental Health (COPEH), and
-      enrol for Food Hygiene training.
+      All food and beverage establishments must be licenced in order to operate. Comply with the Code of Practice of
+      Environmental Health (COPEH), and enrol for Food Hygiene training.
     </div>
   );
   const title = "Normal Card without supportingText";
   const subtitle = "JTC Corporation";
   const price = "S$800.00";
-  const ActionField = <div>View Details -></div>;
+  const ActionField = <div>View Details -&gt;</div>;
 
   it("renders ui", () => {
     const onClickMock = jest.fn();
@@ -43,14 +42,7 @@ describe("Card", () => {
 
   it("Clickable Card can handle click event ", () => {
     const onClickMock = jest.fn();
-    const wrapper = mount(
-      <Card
-        title={title}
-        subtitle={subtitle}
-        theme={CardTheme.Clickable}
-        onClick={onClickMock}
-      />
-    );
+    const wrapper = mount(<Card title={title} subtitle={subtitle} theme={CardTheme.Clickable} onClick={onClickMock} />);
     wrapper.find(".card").simulate("click", {});
 
     expect(wrapper.find(Tag)).toHaveLength(0);
@@ -74,13 +66,7 @@ describe("Card", () => {
 
   it("should render headerWrapper when have header in props", () => {
     const wrapper = mount(
-      <Card
-        header={<p>header</p>}
-        title={title}
-        subtitle={subtitle}
-        statusTheme={TagTheme.Green}
-        onClick={noop}
-      />
+      <Card header={<p>header</p>} title={title} subtitle={subtitle} statusTheme={TagTheme.Green} onClick={noop} />
     );
     expect(wrapper.find(".headerWrapper")).toHaveLength(1);
   });

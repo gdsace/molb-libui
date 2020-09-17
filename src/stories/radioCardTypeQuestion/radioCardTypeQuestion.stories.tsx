@@ -3,10 +3,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { TooltipsLocationTheme } from "../../components";
 import { Icon } from "../../components/icons";
-import {
-  IOption,
-  RadioCardTypeQuestion
-} from "../../components/radioCardTypeQuestion/RadioCardTypeQuestion";
+import { IOption, RadioCardTypeQuestion } from "../../components/radioCardTypeQuestion/RadioCardTypeQuestion";
 import { Tooltips } from "../../components/tooltips";
 import { CategoryName, wInfo } from "../utils";
 

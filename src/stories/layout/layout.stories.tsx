@@ -10,9 +10,7 @@ const styles = require("./layout.stories.scss");
   "Layout",
   wInfo(``)(() => (
     <div className={styles.rootContainer}>
-      <h6 className={styles.groupHeader}>
-        Below are different sizes: Large, Medium, Small
-      </h6>
+      <h6 className={styles.groupHeader}>Below are different sizes: Large, Medium, Small</h6>
       <div className={styles.itemsContainer}>
         <div className={styles.box}>
           <p className={styles.notes}>Normal</p>

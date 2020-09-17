@@ -6,13 +6,7 @@ import { Accordion } from "../Accordion";
 describe("Accordion", () => {
   it("should render title content and apply correct style", () => {
     const child = <div>this is accordion content</div>;
-    const wrapper = shallow(
-      <Accordion
-        theme={AccordionTheme.Standard}
-        header={"title"}
-        content={child}
-      />
-    );
+    const wrapper = shallow(<Accordion theme={AccordionTheme.Standard} header={"title"} content={child} />);
     expect(wrapper.find(".standard").length).toEqual(1);
     expect(wrapper.find(".panelTitle").text()).toEqual("title");
     expect(wrapper.find(".panelContent").contains(child)).toBe(true);
@@ -20,9 +14,7 @@ describe("Accordion", () => {
   });
 
   it("should render with the collapsed state", () => {
-    const wrapper = shallow(
-      <Accordion theme={AccordionTheme.Standard} defaultCollapsed={true} />
-    );
+    const wrapper = shallow(<Accordion theme={AccordionTheme.Standard} defaultCollapsed={true} />);
     expect(wrapper.state("collapsed")).toEqual(true);
     // @ts-ignore
     wrapper.find(".panelHeader").prop("onClick")();
@@ -30,9 +22,7 @@ describe("Accordion", () => {
   });
 
   it("should render without subheader when pass displayMode", () => {
-    const wrapper = shallow(
-      <Accordion theme={AccordionTheme.Standard} displayMode={true} />
-    );
+    const wrapper = shallow(<Accordion theme={AccordionTheme.Standard} displayMode={true} />);
     expect(wrapper.find(".subHeaderWithIcon").length).toEqual(0);
   });
 

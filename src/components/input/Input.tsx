@@ -88,19 +88,11 @@ export class Input extends React.Component<IInputProps, any> {
       [styles[`disabled`]]: this.props.disabled,
       [styles[`validationError`]]: this.props.showError
     });
-    const showFooterSection =
-      this.props.showError ||
-      this.props.helperMsg ||
-      this.props.showCharacterCount;
+    const showFooterSection = this.props.showError || this.props.helperMsg || this.props.showCharacterCount;
     return (
-      <div
-        className={rootContainerClassname}
-        data-scrollpoint={!!this.props.label}
-      >
+      <div className={rootContainerClassname} data-scrollpoint={!!this.props.label}>
         {this.props.label && (
-          <div
-            className={this.props.disabled ? styles.disableLabel : styles.label}
-          >
+          <div className={this.props.disabled ? styles.disableLabel : styles.label}>
             <p>{this.props.label}</p>
             {this.props.showTooltip && (
               <Tooltips
@@ -108,22 +100,13 @@ export class Input extends React.Component<IInputProps, any> {
                   <Icon
                     type="help"
                     size={ICON_SIZE}
-                    className={classnames(
-                      styles.labelIcon,
-                      open && styles.openTooltip
-                    )}
+                    className={classnames(styles.labelIcon, open && styles.openTooltip)}
                   />
                 )}
-                position={
-                  this.props.toolTipsPosition
-                    ? this.props.toolTipsPosition
-                    : TooltipsLocationTheme.BottomLeft
-                }
+                position={this.props.toolTipsPosition ? this.props.toolTipsPosition : TooltipsLocationTheme.BottomLeft}
                 specializedPosition={true}
               >
-                <div className={styles.toolTipsContent}>
-                  {this.props.toolTipsContent}
-                </div>
+                <div className={styles.toolTipsContent}>{this.props.toolTipsContent}</div>
               </Tooltips>
             )}
           </div>
@@ -138,11 +121,7 @@ export class Input extends React.Component<IInputProps, any> {
                 defaultValue={this.props.uncontrolledDefaultValue}
                 className={`${styles.field} ${size} ${this.props.className} ${
                   this.props.showError ? styles.error : ""
-                } ${
-                  this.props.gaGreenStyling
-                    ? styles.gaGreenStyling
-                    : styles.defaultInput
-                }`}
+                } ${this.props.gaGreenStyling ? styles.gaGreenStyling : styles.defaultInput}`}
                 type={this.getRawInputType(this.props.type)}
                 maxLength={this.props.maxLength}
                 onChange={event => {
@@ -168,11 +147,7 @@ export class Input extends React.Component<IInputProps, any> {
                 disabled={this.props.disabled}
                 className={`${styles.field} ${size} ${this.props.className} ${
                   this.props.showError ? styles.error : ""
-                } ${
-                  this.props.gaGreenStyling
-                    ? styles.gaGreenStyling
-                    : styles.defaultInput
-                }`}
+                } ${this.props.gaGreenStyling ? styles.gaGreenStyling : styles.defaultInput}`}
                 value={this.props.value}
                 type={this.getRawInputType(this.props.type)}
                 maxLength={this.props.maxLength}
@@ -197,20 +172,14 @@ export class Input extends React.Component<IInputProps, any> {
         {showFooterSection && (
           <div className={styles.footerSection}>
             <label
-              className={`${
-                this.props.showError
-                  ? addLocatedErrorClassname(styles.redMsg)
-                  : styles.helperMsg
-              } ${styles.isEmpty}`}
+              className={`${this.props.showError ? addLocatedErrorClassname(styles.redMsg) : styles.helperMsg} ${
+                styles.isEmpty
+              }`}
             >
-              {this.props.showError
-                ? this.props.errorMsg
-                : this.props.helperMsg}
+              {this.props.showError ? this.props.errorMsg : this.props.helperMsg}
             </label>
             {this.props.showCharacterCount && (
-              <div className={styles.countMsg}>
-                {`${this.state.characterCount}/${this.props.maxLength}`}
-              </div>
+              <div className={styles.countMsg}>{`${this.state.characterCount}/${this.props.maxLength}`}</div>
             )}
           </div>
         )}
@@ -220,15 +189,12 @@ export class Input extends React.Component<IInputProps, any> {
   public handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { type, customizedChangesFilterRegex } = this.props;
     const newValue = event.target.value;
-    const defaultChangesFilterRegex =
-      type && defaultChangesFilterRegexDict[type];
+    const defaultChangesFilterRegex = type && defaultChangesFilterRegexDict[type];
     // first check defaultChangesFilterRegex,
     // then check customizedChangesFilterRegex after.
     if (
-      (defaultChangesFilterRegex &&
-        !defaultChangesFilterRegex.test(newValue)) ||
-      (customizedChangesFilterRegex &&
-        !customizedChangesFilterRegex.test(newValue))
+      (defaultChangesFilterRegex && !defaultChangesFilterRegex.test(newValue)) ||
+      (customizedChangesFilterRegex && !customizedChangesFilterRegex.test(newValue))
     ) {
       // remember cursor position
       const caretStart = event.target.selectionStart || 0;
@@ -240,10 +206,7 @@ export class Input extends React.Component<IInputProps, any> {
       }
       return;
     }
-    if (
-      this.props.disabled ||
-      newValue.length > (this.props.maxLength || DEFAULT_MAX_LENGTH)
-    ) {
+    if (this.props.disabled || newValue.length > (this.props.maxLength || DEFAULT_MAX_LENGTH)) {
       event.target.value = this.state.previousValue;
       return;
     }
@@ -269,14 +232,10 @@ export class Input extends React.Component<IInputProps, any> {
       element = <span className={styles.suffix}>{suffix}</span>;
     }
     if (loading) {
-      element = (
-        <Icon className={styles.loading} type="progress" size={ICON_SIZE} />
-      );
+      element = <Icon className={styles.loading} type="progress" size={ICON_SIZE} />;
     }
     if (showError) {
-      element = (
-        <Icon className={styles.errorIcon} size={ICON_SIZE} type="error" />
-      );
+      element = <Icon className={styles.errorIcon} size={ICON_SIZE} type="error" />;
     }
     return <div className={styles.rightInlineElementContainer}>{element}</div>;
   }

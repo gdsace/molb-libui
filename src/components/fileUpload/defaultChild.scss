@@ -1,6 +1,7 @@
 @import "../styles/utils.scss";
 
 .root {
+  position: relative;
   font-size: $medium;
   line-height: $line-height-large;
   padding: $space-3;
@@ -13,6 +14,7 @@
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.03), 0 7px 25px 0 rgba(0, 0, 0, 0.03), 0 0 0 1px rgba(0, 0, 0, 0.03);
   display: flex;
   flex-direction: column;
+  outline: none;
 
   &:hover {
     border-style: solid;

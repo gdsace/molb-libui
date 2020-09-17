@@ -22,13 +22,9 @@ export const InlineNotification = (props: InlineNotificationProps) => {
     [NotificationTheme.Informational]: "informational"
   };
 
-  const inlineNotificationClassName = classNames(
-    style.inlineNotification,
-    style[`${theme}`],
-    {
-      [addLocatedErrorClassname("")]: theme === NotificationTheme.Error
-    }
-  );
+  const inlineNotificationClassName = classNames(style.inlineNotification, style[`${theme}`], {
+    [addLocatedErrorClassname("")]: theme === NotificationTheme.Error
+  });
 
   const processedText = text.split("\n").map((str, index) => (
     <React.Fragment key={`inline-notif-text-chunk-${index}`}>

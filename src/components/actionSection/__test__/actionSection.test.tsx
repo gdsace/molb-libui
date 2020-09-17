@@ -6,42 +6,21 @@ import { ActionSection } from "../ActionSection";
 
 describe("Action Section", () => {
   it("next action section", () => {
-    const wrapper = mount(
-      <ActionSection
-        showPrevious={false}
-        showNext={true}
-        onNextClick={noop}
-        history={noop}
-      />
-    );
+    const wrapper = mount(<ActionSection showPrevious={false} showNext={true} onNextClick={noop} history={noop} />);
     const button = wrapper.find("button");
     expect(button).toHaveLength(1);
     expect(button.text()).toEqual("Next");
   });
 
   it("previous action section", () => {
-    const wrapper = mount(
-      <ActionSection
-        showPrevious={true}
-        showNext={false}
-        onNextClick={noop}
-        history={noop}
-      />
-    );
+    const wrapper = mount(<ActionSection showPrevious={true} showNext={false} onNextClick={noop} history={noop} />);
     const button = wrapper.find("button");
     expect(button).toHaveLength(1);
     expect(button.text()).toEqual("Prev");
   });
 
   it("next and previous action section", () => {
-    const wrapper = mount(
-      <ActionSection
-        showPrevious={true}
-        showNext={true}
-        onNextClick={noop}
-        history={noop}
-      />
-    );
+    const wrapper = mount(<ActionSection showPrevious={true} showNext={true} onNextClick={noop} history={noop} />);
     const button = wrapper.find("button");
     expect(button).toHaveLength(2);
   });
@@ -100,27 +79,13 @@ describe("Action Section", () => {
   });
 
   it("should have onlyNext class when only showNext to be true", () => {
-    const wrapper = mount(
-      <ActionSection
-        showPrevious={false}
-        showNext={true}
-        onNextClick={noop}
-        history={noop}
-      />
-    );
+    const wrapper = mount(<ActionSection showPrevious={false} showNext={true} onNextClick={noop} history={noop} />);
 
     expect(wrapper.find(".onlyNext")).toHaveLength(1);
   });
 
   it("should have onlyPrevious class when only showPrevious to be true", () => {
-    const wrapper = mount(
-      <ActionSection
-        showPrevious={true}
-        showNext={false}
-        onNextClick={noop}
-        history={noop}
-      />
-    );
+    const wrapper = mount(<ActionSection showPrevious={true} showNext={false} onNextClick={noop} history={noop} />);
 
     expect(wrapper.find(".onlyPrevious")).toHaveLength(1);
   });

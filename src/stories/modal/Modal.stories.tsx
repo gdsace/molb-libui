@@ -56,11 +56,7 @@ const store6 = new Store({
             />
           </Modal>
         </State>
-        <Button
-          label={"Basic Modal"}
-          onClick={() => store1.set({ show: true })}
-          key="modal-button1"
-        />
+        <Button label={"Basic Modal"} onClick={() => store1.set({ show: true })} key="modal-button1" />
       </div>
 
       <div className={styles.container}>
@@ -122,11 +118,7 @@ const store6 = new Store({
             </div>
           </Modal>
         </State>
-        <Button
-          label={"Large Modal"}
-          onClick={() => store2.set({ show: true })}
-          key="modal-button2"
-        />
+        <Button label={"Large Modal"} onClick={() => store2.set({ show: true })} key="modal-button2" />
       </div>
 
       <div className={styles.container}>
@@ -152,9 +144,8 @@ const store6 = new Store({
             <div>
               <h4>Something need to show </h4>
               <p>
-                abracadabra a long list.....abracadabra abracadabra abracadabra
-                abracadabra abracadabra abracadabra asldfk alskdfjlasdkf
-                asdalsdkfjals asldfkasldfkjalskdfjl alsdkfjalskdj
+                abracadabra a long list.....abracadabra abracadabra abracadabra abracadabra abracadabra abracadabra
+                asldfk alskdfjlasdkf asdalsdkfjals asldfkasldfkjalskdfjl alsdkfjalskdj
               </p>
               <p>abracadabra</p>
               <p>abracadabra</p>
@@ -211,11 +202,7 @@ const store6 = new Store({
             </div>
           </Modal>
         </State>
-        <Button
-          label={"Full Modal"}
-          onClick={() => store3.set({ show: true })}
-          key="modal-button3"
-        />
+        <Button label={"Full Modal"} onClick={() => store3.set({ show: true })} key="modal-button3" />
       </div>
 
       <div className={styles.container}>
@@ -271,9 +258,8 @@ const store6 = new Store({
             <div>
               <h4>Something need to show </h4>
               <p>
-                abracadabra a long list.....abracadabra abracadabra abracadabra
-                abracadabra abracadabra abracadabra asldfk alskdfjlasdkf
-                asdalsdkfjals asldfkasldfkjalskdfjl alsdkfjalskdj
+                abracadabra a long list.....abracadabra abracadabra abracadabra abracadabra abracadabra abracadabra
+                asldfk alskdfjlasdkf asdalsdkfjals asldfkasldfkjalskdfjl alsdkfjalskdj
               </p>
               <p>abracadabra</p>
               <p>abracadabra</p>
@@ -344,21 +330,12 @@ const store6 = new Store({
             theme={ModalTheme.Basic}
             show={!!store6.get("show")}
             onClose={() => store6.set({ show: false })}
-            customIcon={
-              <Icon type="progress" className={styles.progressIcon} />
-            }
+            customIcon={<Icon type="progress" className={styles.progressIcon} />}
           >
-            <ModalContent
-              header="This is Header of Modal Content."
-              subheader="This is Sub Header of Modal Content"
-            />
+            <ModalContent header="This is Header of Modal Content." subheader="This is Sub Header of Modal Content" />
           </Modal>
         </State>
-        <Button
-          label="Modal with custom icon"
-          onClick={() => store6.set({ show: true })}
-          key="modal-button1"
-        />
+        <Button label="Modal with custom icon" onClick={() => store6.set({ show: true })} key="modal-button1" />
       </div>
     </div>
   ))

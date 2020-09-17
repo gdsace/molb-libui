@@ -7,13 +7,7 @@ import { documentTypes } from "./__mocks__/documentTypes";
 
 describe("DefaultFileUploadChild", () => {
   it("shows name and description if no file is present", () => {
-    const wrapper = mount(
-      <DefaultFileUploadChild
-        documentType={documentTypes.required}
-        baseUrl=""
-        token=""
-      />
-    );
+    const wrapper = mount(<DefaultFileUploadChild documentType={documentTypes.required} baseUrl="" token="" />);
     expect(
       wrapper
         .find(".textTitle")
@@ -74,16 +68,8 @@ describe("DefaultFileUploadChild", () => {
   });
 
   it("shows name and optional text if optional", () => {
-    const wrapper = mount(
-      <DefaultFileUploadChild
-        documentType={documentTypes.optional}
-        baseUrl=""
-        token=""
-      />
-    );
-    expect(wrapper.find(".textTitle").text()).toEqual(
-      "optionalname (Optional)"
-    );
+    const wrapper = mount(<DefaultFileUploadChild documentType={documentTypes.optional} baseUrl="" token="" />);
+    expect(wrapper.find(".textTitle").text()).toEqual("optionalname (Optional)");
   });
 
   it("shows download link if template file is present and given mandatory linkDescription", () => {

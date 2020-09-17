@@ -28,10 +28,7 @@ export interface IOption {
   tooltip?: string;
 }
 
-export class RadioCardTypeQuestion extends React.Component<
-  IRadioCardTypeQuestionProps,
-  {}
-> {
+export class RadioCardTypeQuestion extends React.Component<IRadioCardTypeQuestionProps, {}> {
   public static defaultProps: Partial<IRadioCardTypeQuestionProps> = {
     showError: false
   };
@@ -46,17 +43,10 @@ export class RadioCardTypeQuestion extends React.Component<
         </div>
         {this.props.showError && this.props.errorMsg && (
           <div className={styles.errorMsg}>
-            <InlineNotification
-              text={this.props.errorMsg}
-              theme={NotificationTheme.Error}
-            />
+            <InlineNotification text={this.props.errorMsg} theme={NotificationTheme.Error} />
           </div>
         )}
-        <TileGroup
-          onChange={this.onChange}
-          className={styles.tileGroupWrapper}
-          value={selectedAnswer}
-        >
+        <TileGroup onChange={this.onChange} className={styles.tileGroupWrapper} value={selectedAnswer}>
           {map(options, option => (
             <Tile
               key={option.value}

@@ -6,11 +6,7 @@ import { SubFormSection } from "../SubFormSection";
 describe("Form Section", () => {
   it("render complete section", () => {
     const wrapper = mount(
-      <SubFormSection
-        title="This is title"
-        subTitle="This is subTitle"
-        optional={true}
-      >
+      <SubFormSection title="This is title" subTitle="This is subTitle" optional={true}>
         <p>Hello Form Section</p>
       </SubFormSection>
     );
@@ -25,9 +21,7 @@ describe("Form Section", () => {
   });
 
   it("render partial section: without children", () => {
-    const wrapper = mount(
-      <SubFormSection title="This is title" subTitle="This is subTitle" />
-    );
+    const wrapper = mount(<SubFormSection title="This is title" subTitle="This is subTitle" />);
     const title = wrapper.find(".title");
     const optional = wrapper.find(".optional");
     const subTitle = wrapper.find(".subTitle");
@@ -39,9 +33,7 @@ describe("Form Section", () => {
   });
 
   it("render partial section: without title", () => {
-    const wrapper = mount(
-      <SubFormSection title="" subTitle="This is subTitle" />
-    );
+    const wrapper = mount(<SubFormSection title="" subTitle="This is subTitle" />);
     const title = wrapper.find(".title");
     const optional = wrapper.find(".optional");
     const subTitle = wrapper.find(".subTitle");
@@ -94,9 +86,7 @@ describe("Form Section", () => {
   });
 
   it("render complete section with tooltips if there is tooltip", () => {
-    const wrapper = shallow(
-      <SubFormSection title="This is title" tooltip="This is tooltip" />
-    );
+    const wrapper = shallow(<SubFormSection title="This is title" tooltip="This is tooltip" />);
     const title = wrapper.find(".title");
     const optional = wrapper.find(".optional");
     const subTitle = wrapper.find(".subTitle");
@@ -110,11 +100,7 @@ describe("Form Section", () => {
 
   it("does not renders any warning if not provided", () => {
     const wrapper = mount(
-      <SubFormSection
-        title="This is title"
-        subTitle="This is subTitle"
-        optional={true}
-      >
+      <SubFormSection title="This is title" subTitle="This is subTitle" optional={true}>
         <p>Hello Form Section</p>
       </SubFormSection>
     );

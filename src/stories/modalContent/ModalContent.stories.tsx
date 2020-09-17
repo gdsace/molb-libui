@@ -44,7 +44,7 @@ const styles = require("./modalContent.stories.scss");
           subheader={
             <p>
               Modal subheader with link{" "}
-              <a target="_blank" href="http://google.com">
+              <a target="_blank" rel="noreferrer" href="http://google.com">
                 Sub Header
               </a>
             </p>

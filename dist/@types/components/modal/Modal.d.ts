@@ -37,7 +37,7 @@ export declare class Modal extends React.Component<IModalProps, {}> {
     private readonly setFooter;
     private footer;
     constructor(props: IModalProps);
-    componentWillReceiveProps(nextProps: IModalProps): void;
+    UNSAFE_componentWillReceiveProps(nextProps: IModalProps): void;
     componentDidMount(): void;
     componentDidUpdate(prevProps: IModalProps): void;
     componentWillUnmount(): void;

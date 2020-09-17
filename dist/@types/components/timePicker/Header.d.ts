@@ -35,7 +35,7 @@ export declare class Header extends Component<IHeaderProps, IHeaderState> {
     private readonly inputRef;
     constructor(props: IHeaderProps);
     componentDidMount(): void;
-    componentWillReceiveProps(nextProps: IHeaderProps): void;
+    UNSAFE_componentWillReceiveProps(nextProps: IHeaderProps): void;
     onInputChange: (event: any) => void;
     onKeyDown: (e: any) => void;
     onClear: () => void;

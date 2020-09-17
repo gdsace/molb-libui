@@ -55,17 +55,9 @@ export class Accordion extends Component<AccordionProps, AccordionState> {
     }
   };
 
-  renderSubHeader = (
-    subHeader: AccordionProps["subHeader"],
-    collapsed: boolean
-  ) => (
+  renderSubHeader = (subHeader: AccordionProps["subHeader"], collapsed: boolean) => (
     <span className={cx("subHeader")}>
-      {subHeader &&
-        (subHeader.length === 1
-          ? subHeader[0]
-          : collapsed
-          ? subHeader[0]
-          : subHeader[1])}
+      {subHeader && (subHeader.length === 1 ? subHeader[0] : collapsed ? subHeader[0] : subHeader[1])}
     </span>
   );
 

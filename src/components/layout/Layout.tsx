@@ -28,20 +28,9 @@ export class Layout extends React.Component<ILayoutProps, {}> {
         {this.props.header}
         <div className={styles.content}>
           {this.props.showSideBar && (
-            <div
-              className={classnames(styles.sidebar, this.props.sideBarStyle)}
-            >
-              {this.props.sidebar}
-            </div>
+            <div className={classnames(styles.sidebar, this.props.sideBarStyle)}>{this.props.sidebar}</div>
           )}
-          <div
-            className={classnames(
-              styles.mainContent,
-              this.props.mainContentStyle
-            )}
-          >
-            {this.props.mainContent}
-          </div>
+          <div className={classnames(styles.mainContent, this.props.mainContentStyle)}>{this.props.mainContent}</div>
         </div>
         {this.props.footer}
       </div>

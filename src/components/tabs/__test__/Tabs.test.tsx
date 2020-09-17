@@ -85,12 +85,8 @@ describe("Tabs", () => {
         tabPanel: <div />
       }
     ];
-    const customizedComponent = (
-      <div id="customized"> customized component</div>
-    );
-    const wrapper = Enzyme.shallow(
-      <Tabs list={list} customizedTabComponent={customizedComponent} />
-    );
+    const customizedComponent = <div id="customized"> customized component</div>;
+    const wrapper = Enzyme.shallow(<Tabs list={list} customizedTabComponent={customizedComponent} />);
     wrapper
       .find("#customized")
       .at(1)

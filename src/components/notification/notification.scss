@@ -27,6 +27,7 @@
   &.success {
     // the important here is to overwrite the origin css
     // of react-toastify lib.
+
     background-color: $panache !important;
     border: 1px solid $support-green-20;
   }

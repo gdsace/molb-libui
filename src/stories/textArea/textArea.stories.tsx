@@ -51,9 +51,7 @@ const styles = require("./textArea.stories.scss");
             />
           </div>
           <div className={styles.box}>
-            <p className={styles.notes}>
-              Disabled: display all content without scroll bar
-            </p>
+            <p className={styles.notes}>Disabled: display all content without scroll bar</p>
             <TextArea
               title="Description"
               id={"test"}
@@ -103,9 +101,7 @@ const styles = require("./textArea.stories.scss");
               errorMsg="Please reduce the number of characters"
               value={"First line\nSecond line"}
             />
-            <p className={styles.content}>
-              Other following contents (Input error msg should float on this)
-            </p>
+            <p className={styles.content}>Other following contents (Input error msg should float on this)</p>
           </div>
           <div className={styles.box}>
             <p className={styles.notes}>Disabled: shown placeholder</p>
@@ -119,9 +115,7 @@ const styles = require("./textArea.stories.scss");
               helperText="Optional helper text here; if message is more than one line text should wrap (~100 character count maximum)"
               errorMsg="Please reduce the number of characters"
             />
-            <p className={styles.content}>
-              Other following contents (Input error msg should float on this)
-            </p>
+            <p className={styles.content}>Other following contents (Input error msg should float on this)</p>
           </div>
           <div className={styles.box}>
             <p className={styles.notes}>Validation Error:</p>
@@ -136,14 +130,10 @@ const styles = require("./textArea.stories.scss");
               showError={true}
               value={"First line\nSecond line"}
             />
-            <p className={styles.content}>
-              Other following contents (Input error msg should float on this)
-            </p>
+            <p className={styles.content}>Other following contents (Input error msg should float on this)</p>
           </div>
           <div className={styles.box}>
-            <p className={styles.notes}>
-              className: control textarea input by class
-            </p>
+            <p className={styles.notes}>className: control textarea input by class</p>
             <TextArea
               title="Description"
               placeholder="What is your brand concept? What kind of food do you sell?"

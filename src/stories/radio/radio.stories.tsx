@@ -56,9 +56,7 @@ const optionValueArray4: IOptionValue[] = [
   .addWithJSX("Radio showing errors", () => (
     <Radio
       text={text("text", "1. all enable radio buttons")}
-      optionList={optionValueArray.map((opt, index) =>
-        object(`optionItem[${index}]`, opt)
-      )}
+      optionList={optionValueArray.map((opt, index) => object(`optionItem[${index}]`, opt))}
       onChange={valueChangeHandler}
       disabled={boolean("disabled", false)}
       showError={boolean("showError", true)}
@@ -70,9 +68,7 @@ const optionValueArray4: IOptionValue[] = [
   .addWithJSX("Radio Disabled", () => (
     <Radio
       text={text("text", "2. all disabled radio buttons")}
-      optionList={optionValueArray.map((opt, index) =>
-        object(`optionItem[${index}]`, opt)
-      )}
+      optionList={optionValueArray.map((opt, index) => object(`optionItem[${index}]`, opt))}
       onChange={valueChangeHandler}
       disabled={boolean("disabled", true)}
       value={text("value", "value1")}
@@ -84,9 +80,7 @@ const optionValueArray4: IOptionValue[] = [
   .addWithJSX("Radio with enabled and disabled", () => (
     <Radio
       text="3. mixed disabled and enabled radio buttons"
-      optionList={optionValueArray3.map((opt, index) =>
-        object(`optionItem[${index}]`, opt)
-      )}
+      optionList={optionValueArray3.map((opt, index) => object(`optionItem[${index}]`, opt))}
       onChange={valueChangeHandler}
       disabled={boolean("disabled", false)}
       value={text("value", "value1")}
@@ -96,9 +90,7 @@ const optionValueArray4: IOptionValue[] = [
   .addWithJSX("Radio with line break", () => (
     <Radio
       text="4. ensure line break for each radio button"
-      optionList={optionValueArray4.map((opt, index) =>
-        object(`optionItem[${index}]`, opt)
-      )}
+      optionList={optionValueArray4.map((opt, index) => object(`optionItem[${index}]`, opt))}
       onChange={valueChangeHandler}
       disabled={boolean("disabled", false)}
       showError={boolean("showError", true)}
@@ -108,27 +100,20 @@ const optionValueArray4: IOptionValue[] = [
   .addWithJSX("Radio with tooltip", () => (
     <Radio
       text={text("text", "5. radio button with tooltip")}
-      optionList={optionValueArray.map((opt, index) =>
-        object(`optionItem[${index}]`, opt)
-      )}
+      optionList={optionValueArray.map((opt, index) => object(`optionItem[${index}]`, opt))}
       onChange={valueChangeHandler}
       disabled={boolean("disabled", false)}
       showError={boolean("showError", false)}
       errorMsg="This field is required."
       radioLabelLineBreak={boolean("radioLabelLineBreak", false)}
       showTooltip={boolean("showTooltip", true)}
-      toolTipsContent={text(
-        "toolTipsContent",
-        "This is the content you want to show on tooltip"
-      )}
+      toolTipsContent={text("toolTipsContent", "This is the content you want to show on tooltip")}
     />
   ))
   .addWithJSX("Radio with prompt message", () => (
     <Radio
       text={text("text", "6. radio button with label and prompt message")}
-      optionList={optionValueArray.map((opt, index) =>
-        object(`optionItem[${index}]`, opt)
-      )}
+      optionList={optionValueArray.map((opt, index) => object(`optionItem[${index}]`, opt))}
       onChange={valueChangeHandler}
       disabled={boolean("disabled", false)}
       radioLabelLineBreak={boolean("radioLabelLineBreak", false)}
@@ -142,9 +127,7 @@ const optionValueArray4: IOptionValue[] = [
   .addWithJSX("Radio with add below", () => (
     <Radio
       text={text("text", "7. radio button with label and addon below label")}
-      optionList={optionValueArray.map((opt, index) =>
-        object(`optionItem[${index}]`, opt)
-      )}
+      optionList={optionValueArray.map((opt, index) => object(`optionItem[${index}]`, opt))}
       onChange={valueChangeHandler}
       disabled={boolean("disabled", false)}
       radioLabelLineBreak={boolean("radioLabelLineBreak", false)}

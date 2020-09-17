@@ -28,9 +28,7 @@ const store = new Store({
             <State store={store}>
               <G2BDatePicker
                 selectedDate={store.get("selectedDate")}
-                onDateChange={(dateString: string) =>
-                  store.set({ selectedDate: dateString })
-                }
+                onDateChange={(dateString: string) => store.set({ selectedDate: dateString })}
                 dateFormat="dd/MM/yyyy"
                 placeholderText={"DD/MM/YYYY"}
                 errorMsg="this is error Msg."
@@ -50,9 +48,7 @@ const store = new Store({
             <p className={styles.notes}>No future date</p>
             <State store={store}>
               <G2BDatePicker
-                onChange={(date: Date) =>
-                  store.set({ selectedDate: date.toDateString() })
-                }
+                onChange={(date: Date) => store.set({ selectedDate: date.toDateString() })}
                 dateFormat="dd/MM/yyyy"
                 placeholderText={"DD/MM/YYYY"}
                 maxDate={new Date()}

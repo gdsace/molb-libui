@@ -22,51 +22,21 @@ const rowStyles = {
       Single iconButton
       <div style={rowStyles}>
         <IconButton type="profile" onClick={action("button-click")} />
-        <IconButton
-          type="profile"
-          disabled={true}
-          onClick={action("button-click")}
-        />
+        <IconButton type="profile" disabled={true} onClick={action("button-click")} />
       </div>
       iconButton With Ohter Component
       <div style={rowStyles}>
         <div className={styles.wrapper}>
-          <Input
-            onChange={action("value")}
-            type={InputType.Number}
-            label={"Number"}
-            size={Size.Large}
-          />
-          <IconButton
-            type="profile"
-            className={styles.iconButton}
-            onClick={action("button-click")}
-          />
+          <Input onChange={action("value")} type={InputType.Number} label={"Number"} size={Size.Large} />
+          <IconButton type="profile" className={styles.iconButton} onClick={action("button-click")} />
         </div>
         <div className={styles.wrapperWithoutLabel}>
-          <Input
-            onChange={action("value")}
-            type={InputType.Number}
-            size={Size.Large}
-          />
-          <IconButton
-            type="profile"
-            className={styles.iconButton}
-            onClick={action("button-click")}
-          />
+          <Input onChange={action("value")} type={InputType.Number} size={Size.Large} />
+          <IconButton type="profile" className={styles.iconButton} onClick={action("button-click")} />
         </div>
         <div className={styles.wrapperWithoutLabel}>
-          <Input
-            onChange={action("value")}
-            type={InputType.Number}
-            size={Size.Large}
-          />
-          <IconButton
-            type="profile"
-            disabled
-            className={styles.iconButton}
-            onClick={action("button-click")}
-          />
+          <Input onChange={action("value")} type={InputType.Number} size={Size.Large} />
+          <IconButton type="profile" disabled className={styles.iconButton} onClick={action("button-click")} />
         </div>
       </div>
     </div>
