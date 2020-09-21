@@ -74,7 +74,7 @@ yarn lint:fix
 
 In every component folder, we build file like xxx.stoies.tsx. In this story file, we can show how to use this component.
 
-**Button.stoies.tsx**(src/components/button/Button.stoies.tsx) is an example you can view.
+**Button.stories.tsx**(src/components/button/Button.stoies.tsx) is an example you can view.
 
 If you want to use **state** to drive **stateless component**, you can see the example of
 
