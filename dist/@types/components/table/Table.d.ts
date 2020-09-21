@@ -22,6 +22,9 @@ export interface ITableProps {
     expandableRowTemplate?: (subProps: {
         [k: string]: any;
     }) => React.ReactChild | JSX.Element;
+    expandableRowProps?: {
+        tdCls?: string;
+    };
     onExpandButtonClick?: (itemIndex: number) => void;
     ignoreExpandButtonClick?: boolean;
     showPagination?: boolean;
