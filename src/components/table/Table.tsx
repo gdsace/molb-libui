@@ -28,6 +28,9 @@ export interface ITableProps {
   theme?: TableTheme;
   showNoDataAvailableMessage?: boolean;
   expandableRowTemplate?: (subProps: { [k: string]: any }) => React.ReactChild | JSX.Element;
+  expandableRowProps?: {
+    tdCls?: string;
+  };
   onExpandButtonClick?: (itemIndex: number) => void;
   ignoreExpandButtonClick?: boolean;
   showPagination?: boolean;
@@ -144,9 +147,14 @@ const toBodyCells = (column: IColumn, data: IDataSource) => (
 );
 
 const toExpandableRow = (props: ITableProps, columns: IColumn[], index: number) => {
+  let tdCls = "";
+  if (props.expandableRowProps && props.expandableRowProps.tdCls) {
+    tdCls = props.expandableRowProps.tdCls;
+  }
+
   return (
-    <tr key={`tr-expandable-${index}`}>
-      <td className={styles.expandableTd} colSpan={columns.length + 1}>
+    <tr key={`tr-expandable-${index}`} className={cx(tdCls)}>
+      <td className={cx(styles.expandableTd, tdCls)} colSpan={columns.length + 1}>
         {props.expandableRowTemplate &&
           props.expandableRowTemplate({
             index,
