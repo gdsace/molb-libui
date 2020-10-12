@@ -2,7 +2,7 @@ const path = require("path");
 const autoprefixer = require("autoprefixer");
 const DEV = process.env.NODE_ENV === "development";
 
-function getDefaultConfig(baseConfig, defaultConfig) {
+function getDefaultConfig(defaultConfig) {
     // The reason why we use function to export config, can see the document here:
     // https://storybook.js.org/configurations/custom-webpack-config/
     const extraLoader = [// Mostly for tests, but legacy JS in source too
@@ -117,8 +117,8 @@ function getDefaultConfig(baseConfig, defaultConfig) {
 //     return config;
 // }
 
-module.exports = (baseConfig, env, defaultConfig) => {
-    const config = getDefaultConfig(baseConfig, defaultConfig);
-    // if(env === "PRODUCTION") return productionBuild(config);
-    return config;
+module.exports = ({ config, mode }) => {
+    const resolvedConfig = getDefaultConfig(config);
+    // if(mode === "PRODUCTION") return productionBuild(resolvedConfig);
+    return resolvedConfig;
 };
