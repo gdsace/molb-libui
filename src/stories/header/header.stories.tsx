@@ -5,7 +5,7 @@ import { Header, HeaderType } from "../../components";
 import { CategoryName, wInfo } from "../utils";
 const styles = require("./header.stories.scss");
 
-(storiesOf(CategoryName.Others, module) as any).addWithJSX(
+storiesOf(CategoryName.Others, module).add(
   "Header",
   wInfo(``)(() => (
     <div>

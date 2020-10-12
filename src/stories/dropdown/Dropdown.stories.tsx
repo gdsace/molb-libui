@@ -25,8 +25,8 @@ const onDataChange = (dataArray: any) => {
   });
 };
 
-(storiesOf(CategoryName.Dropdown, module) as any)
-  .addWithJSX("Normal Dropdown", () => (
+storiesOf(CategoryName.Dropdown, module)
+  .add("Normal Dropdown", () => (
     <Dropdown
       label={text("label", "Normal Dropdown Label")}
       options={mockOptions}
@@ -37,8 +37,8 @@ const onDataChange = (dataArray: any) => {
       textInputValue={text("textInputValue", "this is value")}
     />
   ))
-  .addWithJSX("PremiseDropdown", () => <PremiseDropdown options={mockOptions} />)
-  .addWithJSX("MultiSelect Dropdown", () => (
+  .add("PremiseDropdown", () => <PremiseDropdown options={mockOptions} />)
+  .add("MultiSelect Dropdown", () => (
     <State store={store}>
       <MultiSelect
         isMulti

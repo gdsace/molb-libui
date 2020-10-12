@@ -83,7 +83,7 @@ const valueChangeHandler2 = (event: React.ChangeEvent<HTMLInputElement>) => {
  * Then the stateless component Dropdown get update
  * from store.get("value")
  */
-(storiesOf(CategoryName.Tiles, module) as any).addWithJSX(
+storiesOf(CategoryName.Tiles, module).add(
   "TileGroup",
   wInfo(``)(() => (
     <div className={styles.rootContainer}>

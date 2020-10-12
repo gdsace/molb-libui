@@ -113,7 +113,7 @@ export const rfaDataSource = [
   }
 ];
 
-(storiesOf(CategoryName.Table, module) as any).addWithJSX(
+storiesOf(CategoryName.Table, module).add(
   "Table",
   wInfo(``)(() => (
     <div className={styles.rootContainer}>

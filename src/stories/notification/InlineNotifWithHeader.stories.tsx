@@ -12,7 +12,7 @@ const ThemeList: NotificationTheme[] = Object.keys(NotificationTheme).map(
   k => NotificationTheme[k as keyof typeof NotificationTheme]
 );
 
-(storiesOf(CategoryName.Notification, module) as any).addWithJSX("InlineNotificationWithHeader", () => (
+storiesOf(CategoryName.Notification, module).add("InlineNotificationWithHeader", () => (
   <InlineNotificationWithHeader
     header={text("header", "Normal Header")}
     text={text("text", lorem)}

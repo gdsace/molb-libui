@@ -6,7 +6,7 @@ import { CategoryName, wInfo } from "../utils";
 
 const styles = require("./tooltip.stories.scss");
 
-(storiesOf(CategoryName.Tooltips, module) as any).addWithJSX(
+storiesOf(CategoryName.Tooltips, module).add(
   "Tooltips",
   wInfo(``)(() => (
     <div className={styles.rootContainer}>

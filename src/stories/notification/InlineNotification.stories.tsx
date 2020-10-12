@@ -14,7 +14,7 @@ const lorem =
 const single =
   "Single line: You can see this seems slightly off-center, feel free to improve this if you have any elegant solutions";
 
-(storiesOf(CategoryName.Notification, module) as any).addWithJSX("InlineNotification", () => (
+storiesOf(CategoryName.Notification, module).add("InlineNotification", () => (
   <>
     <InlineNotification
       text={text("text", lorem)}

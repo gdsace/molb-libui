@@ -11,7 +11,7 @@ const placeholder = "Enter text";
 const helperMsg = "Helper text";
 const errorMsg = "Validation error message, blah blah blah...";
 
-(storiesOf(CategoryName.TextFields, module) as any).addWithJSX(
+storiesOf(CategoryName.TextFields, module).add(
   "Input",
   wInfo(``)(() => (
     <div className={styles.rootContainer}>

@@ -13,7 +13,7 @@ const AppAlertThemeList: AppAlertTheme[] = Object.keys(AppAlertTheme).map(
   k => AppAlertTheme[k as keyof typeof AppAlertTheme]
 );
 
-(storiesOf(CategoryName.Notification, module) as any).addWithJSX("App-level Alert", () => (
+storiesOf(CategoryName.Notification, module).add("App-level Alert", () => (
   <AppAlert
     text={text("text", "Notification with a bold text.")}
     textToBold={text("textToBold", "bold")}

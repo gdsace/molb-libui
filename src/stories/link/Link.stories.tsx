@@ -12,7 +12,7 @@ const rowStyles = {
   alignItems: "center"
 };
 
-(storiesOf(CategoryName.Links, module) as any).addWithJSX(
+storiesOf(CategoryName.Links, module).add(
   "Link",
   wInfo(``)(() => (
     <div style={{ padding: "10px" }}>

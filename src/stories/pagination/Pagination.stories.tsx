@@ -9,8 +9,8 @@ import { CategoryName, wInfo } from "../utils";
 
 const styles = require("./pagination.stories.scss");
 
-(storiesOf(CategoryName.Others, module) as any)
-  .addWithJSX(
+storiesOf(CategoryName.Others, module)
+  .add(
     "Pagination",
     wInfo(``)(() => (
       <div>
@@ -53,7 +53,7 @@ const styles = require("./pagination.stories.scss");
       </div>
     ))
   )
-  .addWithJSX("Pagination with dropdown", () => (
+  .add("Pagination with dropdown", () => (
     <Pagination
       disablePrev={false}
       disableNext={false}

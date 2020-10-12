@@ -5,7 +5,7 @@ import { Button, NotificationTheme } from "../../components";
 import { notification, ToastContainer } from "../../components/notification";
 import { CategoryName } from "../utils";
 
-(storiesOf(CategoryName.Notification, module) as any).addWithJSX("Notification", () => {
+storiesOf(CategoryName.Notification, module).add("Notification", () => {
   const option = {
     header: text("header", "Notification header"),
     text: text("text", "Notification text")

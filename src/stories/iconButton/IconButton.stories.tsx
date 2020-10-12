@@ -15,7 +15,7 @@ const rowStyles = {
   alignItems: "center"
 };
 
-(storiesOf(CategoryName.Buttons, module) as any).addWithJSX(
+storiesOf(CategoryName.Buttons, module).add(
   "IconButton",
   wInfo(``)(() => (
     <div style={{ padding: "10px" }}>

@@ -41,7 +41,7 @@ const onValueChange = () => {
   return;
 };
 
-(storiesOf(CategoryName.TimePicker, module) as any).addWithJSX(
+storiesOf(CategoryName.TimePicker, module).add(
   "TimePicker",
   wInfo(``)(() => {
     return (

@@ -66,7 +66,7 @@ const indicatorList2 = [
   }
 ];
 
-(storiesOf(CategoryName.Others, module) as any).addWithJSX(
+storiesOf(CategoryName.Others, module).add(
   "Sidebar",
   wInfo(``)(() => (
     <div style={{ padding: "10px" }}>

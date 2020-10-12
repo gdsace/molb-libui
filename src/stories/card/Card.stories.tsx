@@ -30,7 +30,7 @@ const rowStyles = {
   padding: "20px 0"
 };
 
-(storiesOf(CategoryName.Cards, module) as any).addWithJSX(
+storiesOf(CategoryName.Cards, module).add(
   "Card",
   wInfo(``)(() => (
     <div style={{ padding: "10px" }}>

@@ -5,8 +5,8 @@ import { FlexDirectionType, FlexWrapper } from "../../components";
 import { CategoryName, wInfo } from "../utils";
 const styles = require("./flexWrapper.stories.scss");
 
-(storiesOf(CategoryName.FlexWrapper, module) as any)
-  .addWithJSX(
+storiesOf(CategoryName.FlexWrapper, module)
+  .add(
     "FlexWrapper Row",
     wInfo(``)(() => (
       <div>
@@ -17,7 +17,7 @@ const styles = require("./flexWrapper.stories.scss");
       </div>
     ))
   )
-  .addWithJSX(
+  .add(
     "FlexWrapper Column",
     wInfo(``)(() => (
       <div>

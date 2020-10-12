@@ -36,7 +36,7 @@ const questionTooltip = (
   />
 );
 
-(storiesOf(CategoryName.SelectionControls, module) as any).addWithJSX(
+storiesOf(CategoryName.SelectionControls, module).add(
   "RadioCardTypeQuestion",
   wInfo(``)(() => (
     <div>

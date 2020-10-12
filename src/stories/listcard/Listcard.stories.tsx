@@ -7,7 +7,7 @@ const styles = require("./Listcard.stories.scss");
 
 const listCardTitle = (text: string) => <p className={styles.listCardTitle}>{text}</p>;
 const listCardSubtitle = (text: string) => <p className={styles.listCardSubtitle}>{text}</p>;
-(storiesOf(CategoryName.Cards, module) as any).addWithJSX(
+storiesOf(CategoryName.Cards, module).add(
   "Listcard",
   wInfo(`default`)(() => (
     <div style={{ margin: "20px" }}>

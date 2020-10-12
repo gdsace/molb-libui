@@ -9,8 +9,8 @@ const ThemeList: AccordionTheme[] = Object.keys(AccordionTheme).map(
   k => AccordionTheme[k as keyof typeof AccordionTheme]
 );
 
-(storiesOf(CategoryName.Accordion, module) as any)
-  .addWithJSX("Accordion", () => (
+storiesOf(CategoryName.Accordion, module)
+  .add("Accordion", () => (
     <>
       <h6>Standard Accordion</h6>
       <div>
@@ -46,7 +46,7 @@ const ThemeList: AccordionTheme[] = Object.keys(AccordionTheme).map(
       </div>
     </>
   ))
-  .addWithJSX("Accordion collapsed", () => (
+  .add("Accordion collapsed", () => (
     <>
       <h6>Fixed collapsed/expanded Accordion</h6>
       <div>

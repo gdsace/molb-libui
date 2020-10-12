@@ -7,7 +7,7 @@ import { CategoryName, wInfo } from "../utils";
 
 const styles = require("./numberPicker.stories.scss");
 
-(storiesOf(CategoryName.Others, module) as any).addWithJSX(
+storiesOf(CategoryName.Others, module).add(
   "NumberPicker",
   wInfo(``)(() => (
     <div>

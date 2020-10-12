@@ -34,7 +34,7 @@ const store6 = new Store({
   show: false
 });
 
-(storiesOf(CategoryName.Modal, module) as any).addWithJSX(
+storiesOf(CategoryName.Modal, module).add(
   "Modal",
   wInfo(``)(() => (
     <div>

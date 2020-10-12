@@ -15,7 +15,7 @@ const styles = {
   margin: "36px"
 };
 
-(storiesOf(CategoryName.TextFields, module) as any).addWithJSX(
+storiesOf(CategoryName.TextFields, module).add(
   "TextView",
   wInfo(``)(() => (
     <div>

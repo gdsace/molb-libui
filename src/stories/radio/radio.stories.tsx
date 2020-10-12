@@ -52,8 +52,8 @@ const optionValueArray4: IOptionValue[] = [
  * Then the stateless component Dropdown get update
  * from store.get("value")
  */
-(storiesOf(CategoryName.SelectionControls, module) as any)
-  .addWithJSX("Radio showing errors", () => (
+storiesOf(CategoryName.SelectionControls, module)
+  .add("Radio showing errors", () => (
     <Radio
       text={text("text", "1. all enable radio buttons")}
       optionList={optionValueArray.map((opt, index) => object(`optionItem[${index}]`, opt))}
@@ -65,7 +65,7 @@ const optionValueArray4: IOptionValue[] = [
       showTooltip={boolean("showTooltip", false)}
     />
   ))
-  .addWithJSX("Radio Disabled", () => (
+  .add("Radio Disabled", () => (
     <Radio
       text={text("text", "2. all disabled radio buttons")}
       optionList={optionValueArray.map((opt, index) => object(`optionItem[${index}]`, opt))}
@@ -77,7 +77,7 @@ const optionValueArray4: IOptionValue[] = [
       radioLabelLineBreak={boolean("radioLabelLineBreak", false)}
     />
   ))
-  .addWithJSX("Radio with enabled and disabled", () => (
+  .add("Radio with enabled and disabled", () => (
     <Radio
       text="3. mixed disabled and enabled radio buttons"
       optionList={optionValueArray3.map((opt, index) => object(`optionItem[${index}]`, opt))}
@@ -87,7 +87,7 @@ const optionValueArray4: IOptionValue[] = [
       radioLabelLineBreak={boolean("radioLabelLineBreak", false)}
     />
   ))
-  .addWithJSX("Radio with line break", () => (
+  .add("Radio with line break", () => (
     <Radio
       text="4. ensure line break for each radio button"
       optionList={optionValueArray4.map((opt, index) => object(`optionItem[${index}]`, opt))}
@@ -97,7 +97,7 @@ const optionValueArray4: IOptionValue[] = [
       radioLabelLineBreak={boolean("radioLabelLineBreak", true)}
     />
   ))
-  .addWithJSX("Radio with tooltip", () => (
+  .add("Radio with tooltip", () => (
     <Radio
       text={text("text", "5. radio button with tooltip")}
       optionList={optionValueArray.map((opt, index) => object(`optionItem[${index}]`, opt))}
@@ -110,7 +110,7 @@ const optionValueArray4: IOptionValue[] = [
       toolTipsContent={text("toolTipsContent", "This is the content you want to show on tooltip")}
     />
   ))
-  .addWithJSX("Radio with prompt message", () => (
+  .add("Radio with prompt message", () => (
     <Radio
       text={text("text", "6. radio button with label and prompt message")}
       optionList={optionValueArray.map((opt, index) => object(`optionItem[${index}]`, opt))}
@@ -124,7 +124,7 @@ const optionValueArray4: IOptionValue[] = [
       }}
     />
   ))
-  .addWithJSX("Radio with add below", () => (
+  .add("Radio with add below", () => (
     <Radio
       text={text("text", "7. radio button with label and addon below label")}
       optionList={optionValueArray.map((opt, index) => object(`optionItem[${index}]`, opt))}

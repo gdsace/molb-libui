@@ -16,7 +16,7 @@ const onCheckboxClick = (value: string) => {
 const questionLabel = "Question label";
 const questionDescription = "This is question description";
 
-(storiesOf(CategoryName.SelectionControls, module) as any).addWithJSX(
+storiesOf(CategoryName.SelectionControls, module).add(
   "CheckboxTypeQuestion",
   wInfo(``)(() => {
     return (

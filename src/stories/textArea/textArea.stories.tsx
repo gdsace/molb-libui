@@ -6,7 +6,7 @@ import { CategoryName, wInfo } from "../utils";
 
 const styles = require("./textArea.stories.scss");
 
-(storiesOf(CategoryName.TextFields, module) as any).addWithJSX(
+storiesOf(CategoryName.TextFields, module).add(
   "TextArea",
   wInfo(``)(() => {
     const warningMsgWithIcon = (

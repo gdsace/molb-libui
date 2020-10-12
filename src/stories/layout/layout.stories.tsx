@@ -6,7 +6,7 @@ import { CategoryName, wInfo } from "../utils";
 
 const styles = require("./layout.stories.scss");
 
-(storiesOf(CategoryName.Others, module) as any).addWithJSX(
+storiesOf(CategoryName.Others, module).add(
   "Layout",
   wInfo(``)(() => (
     <div className={styles.rootContainer}>

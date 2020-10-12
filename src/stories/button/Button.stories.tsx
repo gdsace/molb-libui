@@ -7,7 +7,7 @@ import { CategoryName, wInfo } from "../utils";
 
 const styles = require("./button.stories.scss");
 
-(storiesOf(CategoryName.Buttons, module) as any).addWithJSX(
+storiesOf(CategoryName.Buttons, module).add(
   "Button",
   wInfo(``)(() => (
     <div className={styles.rootContainer}>

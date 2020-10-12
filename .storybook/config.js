@@ -3,10 +3,9 @@ import {
   configure
 } from "@storybook/react";
 import {
-  setAddon,
   addDecorator
 } from "@storybook/react";
-import JSXAddon from "storybook-addon-jsx";
+import { jsxDecorator } from "storybook-addon-jsx";
 import {
   withKnobs
 } from "@storybook/addon-knobs/react";
@@ -17,7 +16,7 @@ const CenterDecorator = (storyFn) => (
 
 addDecorator(CenterDecorator);
 addDecorator(withKnobs);
-setAddon(JSXAddon);
+addDecorator(jsxDecorator);
 
 // Include global CSS and variables
 import "../src/components/styles/root.scss";

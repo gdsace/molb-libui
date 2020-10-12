@@ -34,7 +34,7 @@ const placeholder = "Search here...";
 const buttonLabel = "Search";
 const errorMsg = "Validation error message, blah blah blah...";
 
-(storiesOf(CategoryName.Others, module) as any).addWithJSX(
+storiesOf(CategoryName.Others, module).add(
   "Search bar with single dropdown",
   wInfo(``)(() => (
     <div>

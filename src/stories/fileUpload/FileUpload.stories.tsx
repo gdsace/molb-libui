@@ -10,7 +10,7 @@ const store = new Store({
   error: "something wrong"
 });
 
-(storiesOf(CategoryName.FileUpload, module) as any).addWithJSX("FileUploader", () => (
+storiesOf(CategoryName.FileUpload, module).add("FileUploader", () => (
   <State store={store}>
     <FileUpload
       baseUrl=""

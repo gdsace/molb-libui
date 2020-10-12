@@ -15,7 +15,7 @@ const onCheckboxClick = (value: string) => {
   store.set({ checked: value });
 };
 
-(storiesOf(CategoryName.SelectionControls, module) as any).addWithJSX(
+storiesOf(CategoryName.SelectionControls, module).add(
   "Checkbox",
   wInfo(``)(() => {
     return (

@@ -9,8 +9,8 @@ const ThemeList: ExpandablePanelTheme[] = Object.keys(ExpandablePanelTheme).map(
   k => ExpandablePanelTheme[k as keyof typeof ExpandablePanelTheme]
 );
 
-(storiesOf(CategoryName.Accordion, module) as any)
-  .addWithJSX("ExpandablePanel", () => (
+storiesOf(CategoryName.Accordion, module)
+  .add("ExpandablePanel", () => (
     <ExpandablePanel
       theme={select("theme", ThemeList, ExpandablePanelTheme.Standard)}
       title={text("title", "ExpandablePanel Header")}
@@ -23,7 +23,7 @@ const ThemeList: ExpandablePanelTheme[] = Object.keys(ExpandablePanelTheme).map(
       <p> this is div4</p>
     </ExpandablePanel>
   ))
-  .addWithJSX("ExpandablePanel collapsed", () => (
+  .add("ExpandablePanel collapsed", () => (
     <ExpandablePanel
       collapsed={boolean("collapsed", false)}
       theme={select("theme", ThemeList, ExpandablePanelTheme.Standard)}

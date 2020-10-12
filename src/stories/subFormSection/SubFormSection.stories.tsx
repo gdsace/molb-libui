@@ -6,7 +6,7 @@ import { CategoryName, wInfo } from "../utils";
 
 const styles = require("./subFormSection.stories.scss");
 
-(storiesOf(CategoryName.Others, module) as any).addWithJSX(
+storiesOf(CategoryName.Others, module).add(
   "SubFormSection",
   wInfo(``)(() => {
     return (

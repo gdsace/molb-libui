@@ -9,7 +9,7 @@ const rowStyles = {
   padding: "20px 0",
   marginRight: "10px"
 };
-(storiesOf(CategoryName.Tags, module) as any).addWithJSX(
+storiesOf(CategoryName.Tags, module).add(
   "Tag",
   wInfo(``)(() => (
     <div style={{ padding: "10px" }}>

@@ -7,7 +7,7 @@ import { CategoryName, wInfo } from "../utils";
 
 const styles = require("./modalContent.stories.scss");
 
-(storiesOf(CategoryName.Modal, module) as any).addWithJSX(
+storiesOf(CategoryName.Modal, module).add(
   "ModalContent",
   wInfo(``)(() => (
     <div>

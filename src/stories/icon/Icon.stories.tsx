@@ -100,7 +100,7 @@ const shopTypesIcons = [
   { type: "herbal-tea" }
 ];
 
-(storiesOf(CategoryName.Icons, module) as any).addWithJSX(
+storiesOf(CategoryName.Icons, module).add(
   "Icon",
   wInfo(``)(() => (
     <div>
