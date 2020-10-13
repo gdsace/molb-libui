@@ -2,7 +2,7 @@ import React from "react";
 
 import { storiesOf } from "@storybook/react";
 import { Icon } from "../../components";
-import { CategoryName, wInfo } from "../utils";
+import { CategoryName } from "../utils";
 
 const styles = require("./icon.stories.scss");
 
@@ -100,57 +100,54 @@ const shopTypesIcons = [
   { type: "herbal-tea" }
 ];
 
-storiesOf(CategoryName.Icons, module).add(
-  "Icon",
-  wInfo(``)(() => (
-    <div>
-      <h6 className={styles.header}>Icons</h6>
-      {icons.map((icon, index) => {
-        return (
-          <div key={index} className={styles.iconWrapper}>
-            <div className={styles.icon}>
-              <Icon type={icon.type} />
-            </div>
-            <div>
-              <label>{icon.type}</label>
-            </div>
+storiesOf(CategoryName.Icons, module).add("Icon", () => (
+  <div>
+    <h6 className={styles.header}>Icons</h6>
+    {icons.map((icon, index) => {
+      return (
+        <div key={index} className={styles.iconWrapper}>
+          <div className={styles.icon}>
+            <Icon type={icon.type} />
           </div>
-        );
-      })}
-      <br />
-      <h6 className={styles.header}>Licences Icons</h6>
-      {licenceIcons.map((icon, index) => {
-        return (
-          <div key={index} className={styles.iconWrapper}>
-            <div className={styles.icon}>
-              <Icon category={"licences"} type={icon.type} />
-            </div>
-            <div>
-              <label>{icon.type}</label>
-            </div>
+          <div>
+            <label>{icon.type}</label>
           </div>
-        );
-      })}
-      <h6 className={styles.header}>Shop Types Icons</h6>
+        </div>
+      );
+    })}
+    <br />
+    <h6 className={styles.header}>Licences Icons</h6>
+    {licenceIcons.map((icon, index) => {
+      return (
+        <div key={index} className={styles.iconWrapper}>
+          <div className={styles.icon}>
+            <Icon category={"licences"} type={icon.type} />
+          </div>
+          <div>
+            <label>{icon.type}</label>
+          </div>
+        </div>
+      );
+    })}
+    <h6 className={styles.header}>Shop Types Icons</h6>
 
-      <table className={styles.foodShopIconsTable}>
-        <tbody>
-          <tr>
-            <th>icon type</th>
-            <th>default color</th>
-          </tr>
-          {shopTypesIcons.map((icon, index) => {
-            return (
-              <tr key={index}>
-                <td>{icon.type}</td>
-                <td>
-                  <Icon category={"shoptypes"} type={icon.type} />
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-    </div>
-  ))
-);
+    <table className={styles.foodShopIconsTable}>
+      <tbody>
+        <tr>
+          <th>icon type</th>
+          <th>default color</th>
+        </tr>
+        {shopTypesIcons.map((icon, index) => {
+          return (
+            <tr key={index}>
+              <td>{icon.type}</td>
+              <td>
+                <Icon category={"shoptypes"} type={icon.type} />
+              </td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  </div>
+));

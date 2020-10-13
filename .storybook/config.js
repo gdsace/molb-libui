@@ -1,14 +1,8 @@
 import React from 'react';
-import {
-  configure
-} from "@storybook/react";
-import {
-  addDecorator
-} from "@storybook/react";
+import { configure } from "@storybook/react";
+import { addDecorator } from "@storybook/react";
 import { jsxDecorator } from "storybook-addon-jsx";
-import {
-  withKnobs
-} from "@storybook/addon-knobs/react";
+import { withKnobs } from "@storybook/addon-knobs/react";
 
 const CenterDecorator = (storyFn) => (
   <div style={{padding: '20px'}}>{storyFn()}</div>
