@@ -6,7 +6,9 @@ import { TimePicker } from "../../components";
 const styles = require("./timePicker.stories.scss");
 
 const format = "hh:mm A";
-const now = moment().hour(14).minute(30);
+const now = moment()
+  .hour(14)
+  .minute(30);
 const disabledHours = () => {
   return [0, 1, 2, 3, 4, 5, 6, 7, 8, 22, 23];
 };

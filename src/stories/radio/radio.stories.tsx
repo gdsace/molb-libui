@@ -131,7 +131,7 @@ export const RadioWithAddBelow = () => (
     disabled={boolean("disabled", false)}
     radioLabelLineBreak={boolean("radioLabelLineBreak", false)}
     label={text("label", "LIQUOR")}
-    addOnBelowText={object("addOnBelowText", <div> ------------ </div>)}
+    addOnBelowText={object("addOnBelowText", "------------")}
   />
 );
 

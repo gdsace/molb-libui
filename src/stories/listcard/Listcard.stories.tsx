@@ -39,7 +39,6 @@ export const _Listcard = () => (
   </div>
 );
 
-
 export default {
   title: "Listcard",
   component: Listcard
