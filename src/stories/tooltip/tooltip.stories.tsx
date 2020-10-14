@@ -1,12 +1,10 @@
 import React from "react";
 
-import { storiesOf } from "@storybook/react";
 import { Icon, Tooltips, TooltipsLocationTheme } from "../../components";
-import { CategoryName } from "../utils";
 
 const styles = require("./tooltip.stories.scss");
 
-storiesOf(CategoryName.Tooltips, module).add("Tooltips", () => (
+export const _Tooltips = () => (
   <div className={styles.rootContainer}>
     <h6 className={styles.groupHeader}>Tooltips Themes: ...</h6>
     <div className={styles.itemsContainer}>
@@ -81,4 +79,9 @@ storiesOf(CategoryName.Tooltips, module).add("Tooltips", () => (
       </div>
     </div>
   </div>
-));
+);
+
+export default {
+  title: "Tooltips",
+  component: Tooltips
+};

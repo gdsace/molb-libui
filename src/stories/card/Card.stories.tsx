@@ -1,10 +1,7 @@
 import React from "react";
 
-import { storiesOf } from "@storybook/react";
-
 import { action } from "@storybook/addon-actions";
 import { Card, CardTheme, Icon, Link, TagTheme } from "../../components";
-import { CategoryName } from "../utils";
 
 const header = (
   <div>
@@ -30,7 +27,7 @@ const rowStyles = {
   padding: "20px 0"
 };
 
-storiesOf(CategoryName.Cards, module).add("Card", () => (
+export const _Card = () => (
   <div style={{ padding: "10px" }}>
     Description Cards
     <div style={rowStyles}>
@@ -107,4 +104,9 @@ storiesOf(CategoryName.Cards, module).add("Card", () => (
       />
     </div>
   </div>
-));
+);
+
+export default {
+  title: "Card",
+  component: Card
+};

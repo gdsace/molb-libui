@@ -1,13 +1,12 @@
 import React from "react";
 
-import { storiesOf } from "@storybook/react";
 import { Listcard, ListcardStatus, Size, Theme } from "../../components";
-import { CategoryName } from "../utils";
 const styles = require("./Listcard.stories.scss");
 
 const listCardTitle = (text: string) => <p className={styles.listCardTitle}>{text}</p>;
 const listCardSubtitle = (text: string) => <p className={styles.listCardSubtitle}>{text}</p>;
-storiesOf(CategoryName.Cards, module).add("Listcard", () => (
+
+export const _Listcard = () => (
   <div style={{ margin: "20px" }}>
     <Listcard buttonText="Action Button" status={ListcardStatus.Normal} />
     <Listcard buttonText="Action Button" tag={"Expires on 8 Oct 2018"} status={ListcardStatus.Expries} />
@@ -38,4 +37,10 @@ storiesOf(CategoryName.Cards, module).add("Listcard", () => (
       buttonText="View Details"
     />
   </div>
-));
+);
+
+
+export default {
+  title: "Listcard",
+  component: Listcard
+};

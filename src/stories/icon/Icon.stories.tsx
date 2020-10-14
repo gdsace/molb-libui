@@ -1,8 +1,6 @@
 import React from "react";
 
-import { storiesOf } from "@storybook/react";
 import { Icon } from "../../components";
-import { CategoryName } from "../utils";
 
 const styles = require("./icon.stories.scss");
 
@@ -100,7 +98,7 @@ const shopTypesIcons = [
   { type: "herbal-tea" }
 ];
 
-storiesOf(CategoryName.Icons, module).add("Icon", () => (
+export const _Icon = () => (
   <div>
     <h6 className={styles.header}>Icons</h6>
     {icons.map((icon, index) => {
@@ -150,4 +148,9 @@ storiesOf(CategoryName.Icons, module).add("Icon", () => (
       </tbody>
     </table>
   </div>
-));
+);
+
+export default {
+  title: "Icon",
+  component: Icon
+};

@@ -1,9 +1,7 @@
 import React from "react";
 
 import { action } from "@storybook/addon-actions";
-import { storiesOf } from "@storybook/react";
 import { SearchSingleDropdown } from "../../components";
-import { CategoryName } from "../utils";
 
 const styles = require("./searchBarSingleDropdown.stories.scss");
 
@@ -34,7 +32,7 @@ const placeholder = "Search here...";
 const buttonLabel = "Search";
 const errorMsg = "Validation error message, blah blah blah...";
 
-storiesOf(CategoryName.Others, module).add("Search bar with single dropdown", () => (
+export const SearchBarWithSingleDropdown = () => (
   <div>
     <h6>Search Bar with a single dropdown</h6>
     <p>text field and dropdown box is powered by the store</p>
@@ -68,4 +66,9 @@ storiesOf(CategoryName.Others, module).add("Search bar with single dropdown", ()
       />
     </div>
   </div>
-));
+);
+
+export default {
+  title: "SearchSingleDropdown",
+  component: SearchSingleDropdown
+};

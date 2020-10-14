@@ -1,12 +1,10 @@
 import React from "react";
 
-import { storiesOf } from "@storybook/react";
 import { Layout } from "../../components";
-import { CategoryName } from "../utils";
 
 const styles = require("./layout.stories.scss");
 
-storiesOf(CategoryName.Others, module).add("Layout", () => (
+export const _Layout = () => (
   <div className={styles.rootContainer}>
     <h6 className={styles.groupHeader}>Below are different sizes: Large, Medium, Small</h6>
     <div className={styles.itemsContainer}>
@@ -32,4 +30,9 @@ storiesOf(CategoryName.Others, module).add("Layout", () => (
       </div>
     </div>
   </div>
-));
+);
+
+export default {
+  title: "Layout",
+  component: Layout
+};

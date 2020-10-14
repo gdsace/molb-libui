@@ -1,12 +1,10 @@
 import React from "react";
 
-import { storiesOf } from "@storybook/react";
 import { SubFormSection, SubFormSectionTheme } from "../../components";
-import { CategoryName } from "../utils";
 
 const styles = require("./subFormSection.stories.scss");
 
-storiesOf(CategoryName.Others, module).add("SubFormSection", () => (
+export const _SubFormSection = () => (
   <div>
     <div className={styles.box}>
       <SubFormSection id="operatingHoursSubSection" title="Standard Operating Hours" theme={SubFormSectionTheme.Zero}>
@@ -40,4 +38,9 @@ storiesOf(CategoryName.Others, module).add("SubFormSection", () => (
       </SubFormSection>
     </div>
   </div>
-));
+);
+
+export default {
+  title: "SubFormSection",
+  component: SubFormSection
+};

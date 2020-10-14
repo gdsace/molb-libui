@@ -1,16 +1,12 @@
 import moment from "moment";
 import React from "react";
 
-import { storiesOf } from "@storybook/react";
 import { TimePicker } from "../../components";
-import { CategoryName } from "../utils";
 
 const styles = require("./timePicker.stories.scss");
 
 const format = "hh:mm A";
-const now = moment()
-  .hour(14)
-  .minute(30);
+const now = moment().hour(14).minute(30);
 const disabledHours = () => {
   return [0, 1, 2, 3, 4, 5, 6, 7, 8, 22, 23];
 };
@@ -41,7 +37,7 @@ const onValueChange = () => {
   return;
 };
 
-storiesOf(CategoryName.TimePicker, module).add("TimePicker", () => (
+export const _TimePicker = () => (
   <div className={styles.rootContainer}>
     <div>
       <h6>TimePicker: ...</h6>
@@ -145,4 +141,9 @@ storiesOf(CategoryName.TimePicker, module).add("TimePicker", () => (
       </div>
     </div>
   </div>
-));
+);
+
+export default {
+  title: "TimePicker",
+  component: TimePicker
+};

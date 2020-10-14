@@ -1,9 +1,7 @@
 import React from "react";
 
 import { State, Store } from "@sambego/storybook-state";
-import { storiesOf } from "@storybook/react";
 import { Checkbox, CheckboxTheme } from "../../components";
-import { CategoryName } from "../utils";
 
 const styles = require("./checkbox.stories.scss");
 
@@ -15,7 +13,7 @@ const onCheckboxClick = (value: string) => {
   store.set({ checked: value });
 };
 
-storiesOf(CategoryName.SelectionControls, module).add("Checkbox", () => (
+export const _Checkbox = () => (
   <div className={styles.rootContainer}>
     <h6 className={styles.groupHeader}>Checkbox: ...</h6>
     <div className={styles.itemsContainer}>
@@ -89,4 +87,9 @@ storiesOf(CategoryName.SelectionControls, module).add("Checkbox", () => (
       />
     </State>
   </div>
-));
+);
+
+export default {
+  title: "Checkbox",
+  component: Checkbox
+};

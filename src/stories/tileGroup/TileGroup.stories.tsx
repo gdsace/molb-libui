@@ -1,9 +1,7 @@
 import React from "react";
 
 import { State, Store } from "@sambego/storybook-state";
-import { storiesOf } from "@storybook/react";
 import { Tile, TileGroup, TileTheme } from "../../components";
-import { CategoryName } from "../utils";
 
 const styles = require("./tileGroup.stories.scss");
 
@@ -78,12 +76,7 @@ const valueChangeHandler2 = (event: React.ChangeEvent<HTMLInputElement>) => {
   });
 };
 
-/**
- * State component can use store as a component.
- * Then the stateless component Dropdown get update
- * from store.get("value")
- */
-storiesOf(CategoryName.Tiles, module).add("TileGroup", () => (
+export const _TileGroup = () => (
   <div className={styles.rootContainer}>
     <div className={styles.itemsContainer}>
       <div className={styles.box}>
@@ -210,4 +203,9 @@ storiesOf(CategoryName.Tiles, module).add("TileGroup", () => (
       </div>
     </div>
   </div>
-));
+);
+
+export default {
+  title: "TileGroup",
+  component: TileGroup
+};

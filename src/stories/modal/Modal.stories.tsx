@@ -2,12 +2,10 @@ import React from "react";
 
 import { State, Store } from "@sambego/storybook-state";
 import { action } from "@storybook/addon-actions";
-import { storiesOf } from "@storybook/react";
 import { Icon } from "../../components";
 import { Button } from "../../components/button";
 import { Modal, ModalTheme } from "../../components/modal";
 import { ModalContent } from "../../components/modalContent";
-import { CategoryName } from "../utils";
 
 const styles = require("./modal.stories.scss");
 const store1 = new Store({
@@ -34,7 +32,7 @@ const store6 = new Store({
   show: false
 });
 
-storiesOf(CategoryName.Modal, module).add("Modal", () => (
+export const _Modal = () => (
   <div>
     <div className={styles.container}>
       <State store={store1}>
@@ -332,4 +330,9 @@ storiesOf(CategoryName.Modal, module).add("Modal", () => (
       <Button label="Modal with custom icon" onClick={() => store6.set({ show: true })} key="modal-button1" />
     </div>
   </div>
-));
+);
+
+export default {
+  title: "Modal",
+  component: Modal
+};

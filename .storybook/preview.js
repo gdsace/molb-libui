@@ -14,3 +14,11 @@ addDecorator(jsxDecorator);
 // Include global CSS and variables
 import "../src/components/styles/root.scss";
 import "../src/components/styles/fonts.scss";
+
+export const parameters = {
+  options: {
+    storySort: {
+      order: ["Introduction"]
+    },
+  },
+};

@@ -1,11 +1,9 @@
 import { text } from "@storybook/addon-knobs";
-import { storiesOf } from "@storybook/react";
 import React from "react";
 import { Button, NotificationTheme } from "../../components";
 import { notification, ToastContainer } from "../../components/notification";
-import { CategoryName } from "../utils";
 
-storiesOf(CategoryName.Notification, module).add("Notification", () => {
+export const _Notification = () => {
   const option = {
     header: text("header", "Notification header"),
     text: text("text", "Notification text")
@@ -48,4 +46,9 @@ storiesOf(CategoryName.Notification, module).add("Notification", () => {
       </div>
     </div>
   );
-});
+};
+
+export default {
+  title: "Notification/Notification",
+  component: notification
+};

@@ -2,7 +2,7 @@ import React from "react";
 
 import { storiesOf } from "@storybook/react";
 
-storiesOf("0.Introduction", module).add(
+storiesOf("Introduction", module).add(
   "Terms / Definitions",
   () => (
     <pre>

@@ -1,10 +1,7 @@
 import React from "react";
 
-import { storiesOf } from "@storybook/react";
-
 import { State, Store } from "@sambego/storybook-state";
 import { Indicator, Sidebar } from "../../components";
-import { CategoryName } from "../utils";
 
 const store1 = new Store({
   activeIndex: 1
@@ -66,7 +63,7 @@ const indicatorList2 = [
   }
 ];
 
-storiesOf(CategoryName.Others, module).add("Sidebar", () => (
+export const _Sidebar = () => (
   <div style={{ padding: "10px" }}>
     <h6 style={{ color: "grey" }}>This is indicator Sidebar</h6>
     <State store={store1}>
@@ -84,4 +81,9 @@ storiesOf(CategoryName.Others, module).add("Sidebar", () => (
       />
     </State>
   </div>
-));
+);
+
+export default {
+  title: "Sidebar",
+  component: Sidebar
+};

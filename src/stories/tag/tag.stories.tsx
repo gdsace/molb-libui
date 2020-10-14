@@ -1,15 +1,14 @@
 import React from "react";
 
-import { storiesOf } from "@storybook/react";
 import { Tag, TagSize } from "../../components";
 import { TagTheme } from "../../components/EnumValues";
-import { CategoryName } from "../utils";
 
 const rowStyles = {
   padding: "20px 0",
   marginRight: "10px"
 };
-storiesOf(CategoryName.Tags, module).add("Tag", () => (
+
+export const _Tag = () => (
   <div style={{ padding: "10px" }}>
     Tag Themes
     <br />
@@ -35,4 +34,9 @@ storiesOf(CategoryName.Tags, module).add("Tag", () => (
       <Tag tagSize={TagSize.Large} label="there is a helperMsg" helperMsg="this is helperMsg" />
     </div>
   </div>
-));
+);
+
+export default {
+  title: "Tag",
+  component: Tag
+};

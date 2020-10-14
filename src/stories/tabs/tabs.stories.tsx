@@ -1,8 +1,6 @@
 import React from "react";
 
-import { storiesOf } from "@storybook/react";
 import { PremiseDropdown, Tabs } from "../../components";
-import { CategoryName } from "../utils";
 
 const styles = require("./tabs.stories.scss");
 
@@ -66,7 +64,7 @@ const mockOptions = [
 
 const leftNode2: React.ReactNode = <PremiseDropdown options={mockOptions} />;
 
-storiesOf(CategoryName.Tabs, module).add("Tabs", () => (
+export const _Tabs = () => (
   <div className={styles.rootContainer}>
     <h6 className={styles.groupHeader}>Tabs:...</h6>
     <div className={styles.itemsContainer}>
@@ -88,4 +86,9 @@ storiesOf(CategoryName.Tabs, module).add("Tabs", () => (
       </div>
     </div>
   </div>
-));
+);
+
+export default {
+  title: "Tabs",
+  component: Tabs
+};

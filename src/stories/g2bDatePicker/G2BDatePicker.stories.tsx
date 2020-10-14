@@ -1,11 +1,9 @@
 import React from "react";
 
 import { State, Store } from "@sambego/storybook-state";
-import { storiesOf } from "@storybook/react";
 import { isEmpty } from "lodash";
 import { Button } from "../../components/button";
 import { G2BDatePicker } from "../../components/g2bDatePicker";
-import { CategoryName } from "../utils";
 
 const styles = require("./g2bDatePicker.stories.scss");
 
@@ -14,7 +12,7 @@ const store = new Store({
   selectedDate: undefined
 });
 
-storiesOf(CategoryName.DatePicker, module).add("G2BDatePicker", () => (
+export const _G2BDatePicker = () => (
   <div className={styles.rootContainer}>
     <div>
       <h6>TimePicker: ...</h6>
@@ -55,4 +53,9 @@ storiesOf(CategoryName.DatePicker, module).add("G2BDatePicker", () => (
       </div>
     </div>
   </div>
-));
+);
+
+export default {
+  title: "G2BDatePicker",
+  component: G2BDatePicker
+};

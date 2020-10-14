@@ -1,12 +1,10 @@
 import React from "react";
 
-import { storiesOf } from "@storybook/react";
 import { IconButton, Input, InputType, Size } from "../../components";
-import { CategoryName } from "../utils";
 
 import { action } from "@storybook/addon-actions";
 
-const styles = require("./IconButton.stroies.scss");
+const styles = require("./IconButton.stories.scss");
 
 const rowStyles = {
   padding: "20px 0",
@@ -15,7 +13,7 @@ const rowStyles = {
   alignItems: "center"
 };
 
-storiesOf(CategoryName.Buttons, module).add("IconButton", () => (
+export const _IconButton = () => (
   <div style={{ padding: "10px" }}>
     Single iconButton
     <div style={rowStyles}>
@@ -38,4 +36,9 @@ storiesOf(CategoryName.Buttons, module).add("IconButton", () => (
       </div>
     </div>
   </div>
-));
+);
+
+export default {
+  title: "IconButton",
+  component: IconButton
+};

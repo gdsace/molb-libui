@@ -1,12 +1,10 @@
 import React from "react";
 
-import { storiesOf } from "@storybook/react";
 import { Panel, PanelTheme, PanelType } from "../../components";
-import { CategoryName } from "../utils";
 
 const styles = require("./panel.stories.scss");
 
-storiesOf(CategoryName.Others, module).add("Panel", () => (
+export const _Panel = () => (
   <div className={styles.rootContainer}>
     <h6 className={styles.groupHeader}>Panel type: Onepage,</h6>
     <div className={styles.itemsContainer}>
@@ -64,4 +62,9 @@ storiesOf(CategoryName.Others, module).add("Panel", () => (
       </div>
     </div>
   </div>
-));
+);
+
+export default {
+  title: "Panel",
+  component: Panel
+};

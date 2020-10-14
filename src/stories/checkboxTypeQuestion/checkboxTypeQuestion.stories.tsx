@@ -1,9 +1,7 @@
 import React from "react";
 
 import { State, Store } from "@sambego/storybook-state";
-import { storiesOf } from "@storybook/react";
 import { CheckboxTypeQuestion } from "../../components";
-import { CategoryName } from "../utils";
 
 const store = new Store({
   checked: false
@@ -16,7 +14,7 @@ const onCheckboxClick = (value: string) => {
 const questionLabel = "Question label";
 const questionDescription = "This is question description";
 
-storiesOf(CategoryName.SelectionControls, module).add("CheckboxTypeQuestion", () => (
+export const _CheckboxTypeQuestion = () => (
   <div>
     <State store={store}>
       <CheckboxTypeQuestion
@@ -62,4 +60,13 @@ storiesOf(CategoryName.SelectionControls, module).add("CheckboxTypeQuestion", ()
       hidden={true}
     />
   </div>
-));
+);
+
+_CheckboxTypeQuestion.story = {
+  name: "CheckboxTypeQuestion"
+};
+
+export default {
+  title: "CheckboxTypeQuestion",
+  component: CheckboxTypeQuestion
+};

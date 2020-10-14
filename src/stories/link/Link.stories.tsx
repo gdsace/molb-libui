@@ -1,9 +1,7 @@
 import React from "react";
 
 import { action } from "@storybook/addon-actions";
-import { storiesOf } from "@storybook/react";
 import { Link, LinkTarget } from "../../components";
-import { CategoryName } from "../utils";
 
 const rowStyles = {
   padding: "20px 0",
@@ -12,7 +10,7 @@ const rowStyles = {
   alignItems: "center"
 };
 
-storiesOf(CategoryName.Links, module).add("Link", () => (
+export const _Link = () => (
   <div style={{ padding: "10px" }}>
     Is Disabled
     <div style={rowStyles}>
@@ -30,4 +28,9 @@ storiesOf(CategoryName.Links, module).add("Link", () => (
       <Link label="Inline disabled" inline={true} disabled={true} />
     </div>
   </div>
-));
+);
+
+export default {
+  title: "Link",
+  component: Link
+};

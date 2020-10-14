@@ -1,12 +1,10 @@
 import React from "react";
 
-import { storiesOf } from "@storybook/react";
 import { Icon, TextArea } from "../../components";
-import { CategoryName } from "../utils";
 
 const styles = require("./textArea.stories.scss");
 
-storiesOf(CategoryName.TextFields, module).add("TextArea", () => {
+export const _TextArea = () => {
   const warningMsgWithIcon = (
     <>
       <Icon type="alert" size="12" />
@@ -143,4 +141,9 @@ storiesOf(CategoryName.TextFields, module).add("TextArea", () => {
       </div>
     </div>
   );
-});
+};
+
+export default {
+  title: "TextArea",
+  component: TextArea
+};

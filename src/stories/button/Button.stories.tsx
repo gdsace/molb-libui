@@ -1,13 +1,11 @@
 import React from "react";
 
 import { action } from "@storybook/addon-actions";
-import { storiesOf } from "@storybook/react";
 import { Button, FlatButton, FlatButtonTheme, Size, Theme } from "../../components";
-import { CategoryName } from "../utils";
 
 const styles = require("./button.stories.scss");
 
-storiesOf(CategoryName.Buttons, module).add("Button", () => (
+export const _Button = () => (
   <div className={styles.rootContainer}>
     <h6 className={styles.groupHeader}>Buttons: ...</h6>
     <div className={styles.itemsContainer}>
@@ -158,4 +156,9 @@ storiesOf(CategoryName.Buttons, module).add("Button", () => (
       </div>
     </div>
   </div>
-));
+);
+
+export default {
+  title: "Button",
+  component: Button
+};

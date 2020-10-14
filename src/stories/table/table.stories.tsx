@@ -1,8 +1,6 @@
 import React from "react";
 
-import { storiesOf } from "@storybook/react";
 import { Table, TableTheme } from "../../components/index";
-import { CategoryName } from "../utils";
 
 const styles = require("./table.stories.scss");
 
@@ -113,7 +111,7 @@ export const rfaDataSource = [
   }
 ];
 
-storiesOf(CategoryName.Table, module).add("Table", () => (
+export const _Table = () => (
   <div className={styles.rootContainer}>
     <section className={styles.section}>
       <h6>RFA Search Table</h6>
@@ -148,4 +146,9 @@ storiesOf(CategoryName.Table, module).add("Table", () => (
       </div>
     </div>
   </div>
-));
+);
+
+export default {
+  title: "Table",
+  component: Table
+};

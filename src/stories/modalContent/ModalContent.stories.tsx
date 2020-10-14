@@ -1,13 +1,11 @@
 import React from "react";
 
 import { action } from "@storybook/addon-actions";
-import { storiesOf } from "@storybook/react";
 import { ModalContent } from "../../components";
-import { CategoryName } from "../utils";
 
 const styles = require("./modalContent.stories.scss");
 
-storiesOf(CategoryName.Modal, module).add("ModalContent", () => (
+export const _ModalContent = () => (
   <div>
     <div className={styles.box}>
       <ModalContent
@@ -61,4 +59,9 @@ storiesOf(CategoryName.Modal, module).add("ModalContent", () => (
       />
     </div>
   </div>
-));
+);
+
+export default {
+  title: "ModalContent",
+  component: ModalContent
+};

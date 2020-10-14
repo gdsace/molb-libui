@@ -1,11 +1,9 @@
 import React from "react";
 
-import { storiesOf } from "@storybook/react";
 import { TooltipsLocationTheme } from "../../components";
 import { Icon } from "../../components/icons";
 import { IOption, RadioCardTypeQuestion } from "../../components/radioCardTypeQuestion/RadioCardTypeQuestion";
 import { Tooltips } from "../../components/tooltips";
-import { CategoryName } from "../utils";
 
 const styles = require("./radioCardTypeQuestion.stories.scss");
 
@@ -36,7 +34,7 @@ const questionTooltip = (
   />
 );
 
-storiesOf(CategoryName.SelectionControls, module).add("RadioCardTypeQuestion", () => (
+export const _RadioCardTypeQuestion = () => (
   <div>
     <div className={styles.radioCardTypeQuestionStyle}>
       <RadioCardTypeQuestion
@@ -73,4 +71,9 @@ storiesOf(CategoryName.SelectionControls, module).add("RadioCardTypeQuestion", (
       />
     </div>
   </div>
-));
+);
+
+export default {
+  title: "RadioCardTypeQuestion",
+  component: RadioCardTypeQuestion
+};

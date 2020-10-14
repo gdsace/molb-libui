@@ -1,8 +1,6 @@
 import { select, text } from "@storybook/addon-knobs";
-import { storiesOf } from "@storybook/react";
 import React from "react";
 import { InlineNotification, NotificationTheme } from "../../components";
-import { CategoryName } from "../utils";
 
 const ThemeList: NotificationTheme[] = Object.keys(NotificationTheme).map(
   k => NotificationTheme[k as keyof typeof NotificationTheme]
@@ -14,7 +12,7 @@ const lorem =
 const single =
   "Single line: You can see this seems slightly off-center, feel free to improve this if you have any elegant solutions";
 
-storiesOf(CategoryName.Notification, module).add("InlineNotification", () => (
+export const _InlineNotification = () => (
   <>
     <InlineNotification
       text={text("text", lorem)}
@@ -26,4 +24,9 @@ storiesOf(CategoryName.Notification, module).add("InlineNotification", () => (
       theme={select("theme", ThemeList, NotificationTheme.Informational)}
     />
   </>
-));
+);
+
+export default {
+  title: "Notification/InlineNotification",
+  component: InlineNotification
+};

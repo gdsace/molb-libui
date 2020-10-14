@@ -1,10 +1,8 @@
 import React from "react";
 
 import { action } from "@storybook/addon-actions";
-import { storiesOf } from "@storybook/react";
 import { TextView } from "../../components";
 import { mockLongText } from "../../components/textView/__tests__/mockText";
-import { CategoryName } from "../utils";
 
 const textViewStyle = {
   width: 800,
@@ -15,7 +13,7 @@ const styles = {
   margin: "36px"
 };
 
-storiesOf(CategoryName.TextFields, module).add("TextView", () => (
+export const _TextView = () => (
   <div>
     <div style={styles}>
       <h6>TextView can render use reactNode</h6>
@@ -43,4 +41,9 @@ storiesOf(CategoryName.TextFields, module).add("TextView", () => (
       </div>
     </div>
   </div>
-));
+);
+
+export default {
+  title: "TextView",
+  component: TextView
+};

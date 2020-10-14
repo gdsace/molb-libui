@@ -1,9 +1,7 @@
 import React from "react";
 
 import { action } from "@storybook/addon-actions";
-import { storiesOf } from "@storybook/react";
 import { Icon, IconButton, Input, InputType, Size } from "../../components";
-import { CategoryName } from "../utils";
 
 const styles = require("./input.stories.scss");
 
@@ -11,7 +9,7 @@ const placeholder = "Enter text";
 const helperMsg = "Helper text";
 const errorMsg = "Validation error message, blah blah blah...";
 
-storiesOf(CategoryName.TextFields, module).add("Input", () => (
+export const _Input = () => (
   <div className={styles.rootContainer}>
     <h6 className={styles.groupHeader}>Below are different sizes: Large, Medium, Small</h6>
     <div className={styles.itemsContainer}>
@@ -329,4 +327,9 @@ storiesOf(CategoryName.TextFields, module).add("Input", () => (
       </div>
     </div>
   </div>
-));
+);
+
+export default {
+  title: "Input",
+  component: Input
+};

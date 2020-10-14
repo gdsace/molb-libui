@@ -1,13 +1,11 @@
 import React from "react";
 
 import { action } from "@storybook/addon-actions";
-import { storiesOf } from "@storybook/react";
 import { NumberPicker } from "../../components/numberPicker";
-import { CategoryName } from "../utils";
 
 const styles = require("./numberPicker.stories.scss");
 
-storiesOf(CategoryName.Others, module).add("NumberPicker", () => (
+export const _NumberPicker = () => (
   <div>
     <h6>NumberPicker with previous and next button</h6>
     <div className={styles.box}>
@@ -50,4 +48,9 @@ storiesOf(CategoryName.Others, module).add("NumberPicker", () => (
       />
     </div>
   </div>
-));
+);
+
+export default {
+  title: "NumberPicker",
+  component: NumberPicker
+};
