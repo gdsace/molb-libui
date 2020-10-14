@@ -5,7 +5,7 @@ import { SearchSingleDropdown } from "../../components";
 
 const styles = require("./searchBarSingleDropdown.stories.scss");
 
-export const SEARCH_CRITERIAS = [
+const SEARCH_CRITERIAS = [
   {
     value: "UEN",
     label: "UEN"

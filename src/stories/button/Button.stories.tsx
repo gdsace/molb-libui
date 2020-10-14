@@ -159,6 +159,6 @@ export const _Button = () => (
 );
 
 export default {
-  title: "Button",
+  title: "Buttons/Button",
   component: Button
 };

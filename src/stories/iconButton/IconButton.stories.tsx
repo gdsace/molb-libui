@@ -39,6 +39,6 @@ export const _IconButton = () => (
 );
 
 export default {
-  title: "IconButton",
+  title: "Buttons/IconButton",
   component: IconButton
 };

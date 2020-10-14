@@ -3,7 +3,7 @@ import React from "react";
 import { action } from "@storybook/addon-actions";
 import { boolean, number } from "@storybook/addon-knobs";
 import { Pagination } from "../../components";
-import { dataSource } from "../table/table.stories";
+import { dataSource } from "../../data/tableData";
 
 const styles = require("./pagination.stories.scss");
 
