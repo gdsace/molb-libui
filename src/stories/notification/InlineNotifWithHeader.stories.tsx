@@ -22,5 +22,5 @@ export const _InlineNotificationWithHeader = () => (
 
 export default {
   title: "Notification/InlineNotificationWithHeader",
-  component: InlineNotificationWithHeader
+  component: InlineNotificationWithHeader as any
 };
