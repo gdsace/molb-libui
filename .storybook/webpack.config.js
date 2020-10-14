@@ -1,5 +1,6 @@
 const path = require("path");
 const autoprefixer = require("autoprefixer");
+const createCompiler = require('@storybook/addon-docs/mdx-compiler-plugin');
 const DEV = process.env.NODE_ENV === "development";
 
 function getDefaultConfig(defaultConfig) {
@@ -80,16 +81,47 @@ function getDefaultConfig(defaultConfig) {
         }, {
             test: /\.tsx?$/,
             exclude: /\/node_modules\//,
-            loader: "babel-loader",
-            options: {
-                plugins: [
-                    "@babel/proposal-class-properties",
-                    "@babel/proposal-object-rest-spread",
-                    ...(DEV ? ["react-hot-loader/babel"] : [])
-                ],
-                presets: ["@babel/env", "@babel/typescript", "@babel/react"]
-            }
-        },
+            use: [
+                {
+                    loader: "babel-loader",
+                    options: {
+                        plugins: [
+                            "@babel/proposal-class-properties",
+                            "@babel/proposal-object-rest-spread",
+                            ...(DEV ? ["react-hot-loader/babel"] : [])
+                        ],
+                        presets: ["@babel/env", "@babel/typescript", "@babel/react"]
+                    }
+                },
+                {
+                    loader: "react-docgen-typescript-loader",
+                    options: {
+                        tsconfigPath: path.resolve(__dirname, "../tsconfig.json")
+                    }
+                }
+            ]
+        }, {
+            test: /\.mdx?$/,
+            exclude: /\/node_modules\//,
+            use: [
+                {
+                    loader: "babel-loader",
+                    options: {
+                        plugins: [
+                            "@babel/proposal-class-properties",
+                            "@babel/proposal-object-rest-spread",
+                            ...(DEV ? ["react-hot-loader/babel"] : [])
+                        ],
+                        presets: ["@babel/env", "@babel/typescript", "@babel/react"]
+                    }
+                }, {
+                    loader: '@mdx-js/loader',
+                    options: {
+                        compilers: [createCompiler({})],
+                    },
+                },
+            ]
+        }
         // Vanilla CSS, need to use in notification component.
     ];
 

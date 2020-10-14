@@ -1,7 +1,8 @@
 import React from 'react';
-import { addDecorator } from "@storybook/react";
+import { addDecorator, addParameters } from "@storybook/react";
 import { jsxDecorator } from "storybook-addon-jsx";
 import { withKnobs } from "@storybook/addon-knobs/react";
+import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
 
 const CenterDecorator = (storyFn) => (
   <div style={{padding: '20px'}}>{storyFn()}</div>
@@ -15,10 +16,9 @@ addDecorator(jsxDecorator);
 import "../src/components/styles/root.scss";
 import "../src/components/styles/fonts.scss";
 
-export const parameters = {
-  options: {
-    storySort: {
-      order: ["Introduction"]
-    },
-  },
-};
+addParameters({
+  docs: {
+    container: DocsContainer,
+    page: DocsPage
+  }
+});
