@@ -1,7 +1,6 @@
 import React from 'react';
 import { addDecorator, addParameters } from "@storybook/react";
 import { jsxDecorator } from "storybook-addon-jsx";
-import { withKnobs } from "@storybook/addon-knobs/react";
 import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
 
 const CenterDecorator = (storyFn) => (
@@ -9,7 +8,6 @@ const CenterDecorator = (storyFn) => (
 );
 
 addDecorator(CenterDecorator);
-addDecorator(withKnobs);
 addDecorator(jsxDecorator);
 
 // Include global CSS and variables
@@ -20,5 +18,10 @@ addParameters({
   docs: {
     container: DocsContainer,
     page: DocsPage
+  },
+  options: {
+    storySort: {
+      order: ["Introduction"]
+    }
   }
 });
