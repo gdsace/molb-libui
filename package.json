@@ -109,7 +109,6 @@
     "webpack-shell-plugin": "^0.5.0"
   },
   "dependencies": {
-    "@types/react-overlays": "0.8.2",
     "body-scroll-lock": "^2.6.1",
     "classnames": "^2.2.6",
     "moment": "^2.23.0",
@@ -119,7 +118,6 @@
     "react-datepicker": "^3.3.0",
     "react-dom": "^16.13.1",
     "react-dropzone": "^11.1.0",
-    "react-overlays": "^1.2.0",
     "react-select": "^2.1.2",
     "react-toastify": "^4.4.3"
   }

@@ -25,7 +25,7 @@ export const _G2BDatePicker = () => (
             selectedDate={store.get("selectedDate")}
             onDateChange={(dateString: string) => store.set({ selectedDate: dateString })}
             dateFormat="dd/MM/yyyy"
-            placeholderText={"DD/MM/YYYY"}
+            placeholderText="DD/MM/YYYY"
             errorMsg="this is error Msg."
           />
           <br />
@@ -45,7 +45,7 @@ export const _G2BDatePicker = () => (
           <G2BDatePicker
             onChange={(date: Date) => store.set({ selectedDate: date.toDateString() })}
             dateFormat="dd/MM/yyyy"
-            placeholderText={"DD/MM/YYYY"}
+            placeholderText="DD/MM/YYYY"
             maxDate={new Date()}
             monthsShown={1}
           />
