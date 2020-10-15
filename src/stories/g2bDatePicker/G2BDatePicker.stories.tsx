@@ -55,6 +55,10 @@ export const _G2BDatePicker = () => (
   </div>
 );
 
+_G2BDatePicker.story = {
+  name: "G2BDatePicker"
+};
+
 export default {
   title: "G2BDatePicker",
   component: G2BDatePicker
