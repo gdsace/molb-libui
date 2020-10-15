@@ -5,10 +5,10 @@ import classnames from "classnames";
 import { isEmpty } from "lodash";
 import moment from "moment";
 import "react-datepicker/dist/react-datepicker.css";
-import { Portal } from "react-overlays";
 import { Icon } from "../icons";
 import { addLocatedErrorClassname } from "../utils";
 import "./datePicker.css";
+import ReactDOM from "react-dom";
 
 const styles = require("./g2bDatePicker.scss");
 
@@ -24,7 +24,7 @@ export interface IG2BDatePickerProps extends Partial<ReactDatePickerProps> {
 }
 
 const CalendarContainer = ({ children }: { children: React.ReactNode[] }) => {
-  return <Portal container={document.body}>{children}</Portal>;
+  return ReactDOM.createPortal(children, document.body);
 };
 
 export class G2BDatePicker extends React.Component<IG2BDatePickerProps, IG2BDatePickerState> {
