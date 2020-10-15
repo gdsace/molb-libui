@@ -1,8 +1,6 @@
 import React from "react";
 
-import { storiesOf } from "@storybook/react";
 import { PremiseDropdown, Tabs } from "../../components";
-import { CategoryName, wInfo } from "../utils";
 
 const styles = require("./tabs.stories.scss");
 
@@ -66,29 +64,31 @@ const mockOptions = [
 
 const leftNode2: React.ReactNode = <PremiseDropdown options={mockOptions} />;
 
-(storiesOf(CategoryName.Tabs, module) as any).addWithJSX(
-  "Tabs",
-  wInfo(``)(() => (
-    <div className={styles.rootContainer}>
-      <h6 className={styles.groupHeader}>Tabs:...</h6>
-      <div className={styles.itemsContainer}>
-        <div className={styles.box}>
-          <p className={styles.notes}>Normal</p>
-          <Tabs list={list} />
-        </div>
-        <div className={styles.box}>
-          <p className={styles.notes}>Normal: with customized tabsBarContentStyle</p>
-          <Tabs list={list} tabsBarContentStyle={styles.tabsBarContentStyle} />
-        </div>
-        <div className={styles.box}>
-          <p className={styles.notes}>With left node</p>
-          <Tabs leftNode={leftNode} list={list} />
-        </div>
-        <div className={styles.box}>
-          <p className={styles.notes}>With left-node 2</p>
-          <Tabs leftNode={leftNode2} list={list} />
-        </div>
+export const _Tabs = () => (
+  <div className={styles.rootContainer}>
+    <h6 className={styles.groupHeader}>Tabs:...</h6>
+    <div className={styles.itemsContainer}>
+      <div className={styles.box}>
+        <p className={styles.notes}>Normal</p>
+        <Tabs list={list} />
+      </div>
+      <div className={styles.box}>
+        <p className={styles.notes}>Normal: with customized tabsBarContentStyle</p>
+        <Tabs list={list} tabsBarContentStyle={styles.tabsBarContentStyle} />
+      </div>
+      <div className={styles.box}>
+        <p className={styles.notes}>With left node</p>
+        <Tabs leftNode={leftNode} list={list} />
+      </div>
+      <div className={styles.box}>
+        <p className={styles.notes}>With left-node 2</p>
+        <Tabs leftNode={leftNode2} list={list} />
       </div>
     </div>
-  ))
+  </div>
 );
+
+export default {
+  title: "Tabs",
+  component: Tabs
+};

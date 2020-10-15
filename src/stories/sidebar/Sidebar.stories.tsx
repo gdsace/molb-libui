@@ -1,10 +1,7 @@
 import React from "react";
 
-import { storiesOf } from "@storybook/react";
-
 import { State, Store } from "@sambego/storybook-state";
 import { Indicator, Sidebar } from "../../components";
-import { CategoryName, wInfo } from "../utils";
 
 const store1 = new Store({
   activeIndex: 1
@@ -66,25 +63,27 @@ const indicatorList2 = [
   }
 ];
 
-(storiesOf(CategoryName.Others, module) as any).addWithJSX(
-  "Sidebar",
-  wInfo(``)(() => (
-    <div style={{ padding: "10px" }}>
-      <h6 style={{ color: "grey" }}>This is indicator Sidebar</h6>
-      <State store={store1}>
-        <Sidebar list={indicatorList1} type="indicator" selectedIndex={store1.activeIndex - 1} />
-      </State>
-      <br />
+export const _Sidebar = () => (
+  <div style={{ padding: "10px" }}>
+    <h6 style={{ color: "grey" }}>This is indicator Sidebar</h6>
+    <State store={store1}>
+      <Sidebar list={indicatorList1} type="indicator" selectedIndex={store1.activeIndex - 1} />
+    </State>
+    <br />
 
-      <h6 style={{ color: "grey" }}>This is menu Sidebar</h6>
-      <State store={store2}>
-        <Sidebar
-          list={indicatorList2}
-          type="menu"
-          onItemClick={onSidebarItemClick}
-          selectedIndex={store1.activeIndex - 1}
-        />
-      </State>
-    </div>
-  ))
+    <h6 style={{ color: "grey" }}>This is menu Sidebar</h6>
+    <State store={store2}>
+      <Sidebar
+        list={indicatorList2}
+        type="menu"
+        onItemClick={onSidebarItemClick}
+        selectedIndex={store1.activeIndex - 1}
+      />
+    </State>
+  </div>
 );
+
+export default {
+  title: "Sidebar",
+  component: Sidebar
+};

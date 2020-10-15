@@ -1,10 +1,8 @@
 import { State, Store } from "@sambego/storybook-state";
 import { action } from "@storybook/addon-actions";
 import { boolean, text } from "@storybook/addon-knobs";
-import { storiesOf } from "@storybook/react";
 import React from "react";
 import { Dropdown, MultiSelect, PremiseDropdown } from "../../components";
-import { CategoryName } from "../utils";
 import { mockOptions, mockOptionsForDays } from "./mockDropdownStories";
 
 const store = new Store({
@@ -25,32 +23,46 @@ const onDataChange = (dataArray: any) => {
   });
 };
 
-(storiesOf(CategoryName.Dropdown, module) as any)
-  .addWithJSX("Normal Dropdown", () => (
-    <Dropdown
-      label={text("label", "Normal Dropdown Label")}
-      options={mockOptions}
-      onChange={action("onchangeValue")}
-      isDisabled={boolean("isDisabled", false)}
-      error={text("error", "")}
-      editable={boolean("editable", false)}
-      textInputValue={text("textInputValue", "this is value")}
+export const NormalDropdown = () => (
+  <Dropdown
+    label={text("label", "Normal Dropdown Label")}
+    options={mockOptions}
+    onChange={action("onchangeValue")}
+    isDisabled={boolean("isDisabled", false)}
+    error={text("error", "")}
+    editable={boolean("editable", false)}
+    textInputValue={text("textInputValue", "this is value")}
+  />
+);
+
+export const _PremiseDropdown = () => <PremiseDropdown options={mockOptions} />;
+
+_PremiseDropdown.story = {
+  name: "PremiseDropdown"
+};
+
+export const MultiSelectDropdown = () => (
+  <State store={store}>
+    <MultiSelect
+      isMulti
+      formatOptionLabel={o => o.label}
+      options={mockOptionsForDays}
+      onChange={onDataChange}
+      // selectedValue={store.state.value}
+      value={store.state.value}
+      defaultValue={store.state.value}
+      closeMenuOnSelect={boolean("closeMenuOnSelect", false)}
+      placeholder={text("placeholder", "place holder...")}
+      error={text("error", "error message here")}
     />
-  ))
-  .addWithJSX("PremiseDropdown", () => <PremiseDropdown options={mockOptions} />)
-  .addWithJSX("MultiSelect Dropdown", () => (
-    <State store={store}>
-      <MultiSelect
-        isMulti
-        formatOptionLabel={o => o.label}
-        options={mockOptionsForDays}
-        onChange={onDataChange}
-        // selectedValue={store.state.value}
-        value={store.state.value}
-        defaultValue={store.state.value}
-        closeMenuOnSelect={boolean("closeMenuOnSelect", false)}
-        placeholder={text("placeholder", "place holder...")}
-        error={text("error", "error message here")}
-      />
-    </State>
-  ));
+  </State>
+);
+
+MultiSelectDropdown.story = {
+  name: "MultiSelect Dropdown"
+};
+
+export default {
+  title: "Dropdown",
+  component: Dropdown
+};

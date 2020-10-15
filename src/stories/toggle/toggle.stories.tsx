@@ -1,9 +1,8 @@
 import React from "react";
 
-import { storiesOf } from "@storybook/react";
-import { CategoryName, wInfo } from "../utils";
+export const Toggle = () => <div>Toggle:: To be implemented...</div>;
 
-(storiesOf(CategoryName.SelectionControls, module) as any).addWithJSX(
-  "Toggle",
-  wInfo(``)(() => <div>Toggle:: To be implemented...</div>)
-);
+export default {
+  title: "Toggle",
+  component: Toggle
+};

@@ -1,11 +1,9 @@
 import React from "react";
 
-import { storiesOf } from "@storybook/react";
 import { TooltipsLocationTheme } from "../../components";
 import { Icon } from "../../components/icons";
 import { IOption, RadioCardTypeQuestion } from "../../components/radioCardTypeQuestion/RadioCardTypeQuestion";
 import { Tooltips } from "../../components/tooltips";
-import { CategoryName, wInfo } from "../utils";
 
 const styles = require("./radioCardTypeQuestion.stories.scss");
 
@@ -36,44 +34,46 @@ const questionTooltip = (
   />
 );
 
-(storiesOf(CategoryName.SelectionControls, module) as any).addWithJSX(
-  "RadioCardTypeQuestion",
-  wInfo(``)(() => (
-    <div>
-      <div className={styles.radioCardTypeQuestionStyle}>
-        <RadioCardTypeQuestion
-          options={options}
-          question={question}
-          selectedAnswer={selectedAnswer}
-          showError={false}
-          errorMsg={errorMsg}
-          onChange={onChange}
-          id={"ID1"}
-          questionTooltip={questionTooltip}
-        />
-      </div>
-      <div className={styles.radioCardTypeQuestionStyle}>
-        <RadioCardTypeQuestion
-          options={options}
-          question={question}
-          selectedAnswer={selectedAnswer}
-          showError={false}
-          errorMsg={errorMsg}
-          onChange={onChange}
-          id={"ID1"}
-        />
-      </div>
-      <div className={styles.radioCardTypeQuestionStyle}>
-        <RadioCardTypeQuestion
-          options={options}
-          question={question}
-          selectedAnswer={""}
-          showError={true}
-          errorMsg={errorMsg}
-          onChange={onChange}
-          id={"ID2"}
-        />
-      </div>
+export const _RadioCardTypeQuestion = () => (
+  <div>
+    <div className={styles.radioCardTypeQuestionStyle}>
+      <RadioCardTypeQuestion
+        options={options}
+        question={question}
+        selectedAnswer={selectedAnswer}
+        showError={false}
+        errorMsg={errorMsg}
+        onChange={onChange}
+        id={"ID1"}
+        questionTooltip={questionTooltip}
+      />
     </div>
-  ))
+    <div className={styles.radioCardTypeQuestionStyle}>
+      <RadioCardTypeQuestion
+        options={options}
+        question={question}
+        selectedAnswer={selectedAnswer}
+        showError={false}
+        errorMsg={errorMsg}
+        onChange={onChange}
+        id={"ID1"}
+      />
+    </div>
+    <div className={styles.radioCardTypeQuestionStyle}>
+      <RadioCardTypeQuestion
+        options={options}
+        question={question}
+        selectedAnswer={""}
+        showError={true}
+        errorMsg={errorMsg}
+        onChange={onChange}
+        id={"ID2"}
+      />
+    </div>
+  </div>
 );
+
+export default {
+  title: "RadioCardTypeQuestion",
+  component: RadioCardTypeQuestion
+};
