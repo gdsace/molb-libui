@@ -768,8 +768,6 @@
   version "7.10.4"
   resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-jsx/-/plugin-syntax-jsx-7.10.4.tgz#39abaae3cbf710c4373d8429484e6ba21340166c"
   integrity sha512-KCg9mio9jwiARCB7WAcQ7Y1q+qicILjoK8LP/VkPkEKaf5dkaZZK1EcTe91a3JJlZ3qy6L5s9X52boEYi8DM9g==
-  dependencies:
-    "@babel/helper-plugin-utils" "^7.10.4"
 
 "@babel/plugin-syntax-jsx@^7.0.0":
   version "7.0.0"
@@ -3029,9 +3027,9 @@
     "@types/reactcss" "*"
 
 "@types/react-datepicker@^3.1.1":
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/@types/react-datepicker/-/react-datepicker-3.1.1.tgz#bbb5e4561f657ca8e3d6829dd99b91a98c0bb74c"
-  integrity sha512-vwNrgaIMJThvvwmtnA8jSVVJZ0FNgljQrq1jDA4MtYJIDmVmd9NNrFaXf9u2JqR2nS+8Kvi8OVs/tnAbUqZhHw==
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/@types/react-datepicker/-/react-datepicker-3.1.2.tgz#72c80a16ec2c323e8f51063e08b3c24f41352ed3"
+  integrity sha512-luMH1fUF3GRJwaNFh4cogHV7FSFCJLU8Ai2dZ60Xw0n+MrExvuwOHxcbNkaIkIztPwyuT0H0K8Q4g0RN88LoFQ==
   dependencies:
     "@types/react" "*"
     date-fns "^2.0.1"
