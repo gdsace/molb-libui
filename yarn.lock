@@ -768,8 +768,6 @@
   version "7.10.4"
   resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-jsx/-/plugin-syntax-jsx-7.10.4.tgz#39abaae3cbf710c4373d8429484e6ba21340166c"
   integrity sha512-KCg9mio9jwiARCB7WAcQ7Y1q+qicILjoK8LP/VkPkEKaf5dkaZZK1EcTe91a3JJlZ3qy6L5s9X52boEYi8DM9g==
-  dependencies:
-    "@babel/helper-plugin-utils" "^7.10.4"
 
 "@babel/plugin-syntax-jsx@^7.0.0":
   version "7.0.0"
@@ -3029,9 +3027,9 @@
     "@types/reactcss" "*"
 
 "@types/react-datepicker@^3.1.1":
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/@types/react-datepicker/-/react-datepicker-3.1.1.tgz#bbb5e4561f657ca8e3d6829dd99b91a98c0bb74c"
-  integrity sha512-vwNrgaIMJThvvwmtnA8jSVVJZ0FNgljQrq1jDA4MtYJIDmVmd9NNrFaXf9u2JqR2nS+8Kvi8OVs/tnAbUqZhHw==
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/@types/react-datepicker/-/react-datepicker-3.1.2.tgz#72c80a16ec2c323e8f51063e08b3c24f41352ed3"
+  integrity sha512-luMH1fUF3GRJwaNFh4cogHV7FSFCJLU8Ai2dZ60Xw0n+MrExvuwOHxcbNkaIkIztPwyuT0H0K8Q4g0RN88LoFQ==
   dependencies:
     "@types/react" "*"
     date-fns "^2.0.1"
@@ -11482,9 +11480,10 @@ mkdirp@^1.0.3, mkdirp@^1.0.4:
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
   integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
 
-moment@^2.23.0:
-  version "2.23.0"
-  resolved "https://registry.yarnpkg.com/moment/-/moment-2.23.0.tgz#759ea491ac97d54bac5ad776996e2a58cc1bc225"
+moment@^2.29.1:
+  version "2.29.1"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.1.tgz#b2be769fa31940be9eeea6469c075e35006fa3d3"
+  integrity sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==
 
 moo@^0.4.3:
   version "0.4.3"
