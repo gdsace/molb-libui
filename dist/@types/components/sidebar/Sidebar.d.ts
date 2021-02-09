@@ -1,12 +1,12 @@
 import * as React from "react";
 interface ILabelType {
     title: React.ReactNode;
-    path?: string;
+    isSectionHeader?: boolean;
 }
 export interface ISidebarProps {
     list: ILabelType[];
     selectedIndex?: number;
-    onItemClick?: any;
+    onItemClick?: (index: number) => void;
     type?: "menu" | "indicator";
     greenStyling?: boolean;
 }

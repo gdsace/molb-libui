@@ -1,16 +1,17 @@
+import classNames from "classnames";
 import * as React from "react";
 
 let styles = require("./sidebar.scss");
 
 interface ILabelType {
   title: React.ReactNode;
-  path?: string;
+  isSectionHeader?: boolean;
 }
 
 export interface ISidebarProps {
   list: ILabelType[];
   selectedIndex?: number;
-  onItemClick?: any;
+  onItemClick?: (index: number) => void;
   type?: "menu" | "indicator";
   greenStyling?: boolean;
 }
@@ -27,29 +28,31 @@ export class Sidebar extends React.Component<ISidebarProps, {}> {
       styles = require("./greenStyleSidebar.scss");
     }
     const typeClass = styles[`${this.props.type}Item`];
-    const itemClassName = `${styles.item} ${typeClass}${this.props.onItemClick ? " " + styles.clickable : ""}`;
 
     return (
       <div className={styles.sidebar}>
         <ul>
-          {list.map((item, index) => (
-            <li
-              key={index}
-              className={`${selectedIndex === index ? styles.activeItem : ""}`}
-              onClick={this.onItemClick(index)}
-            >
-              <div className={itemClassName}>{item.title}</div>
-            </li>
-          ))}
+          {list.map((item, index) => {
+            const itemClassName = classNames(styles.item, typeClass, {
+              [styles.clickable]: this.props.onItemClick && !item.isSectionHeader,
+              [styles.activeItem]: selectedIndex === index,
+              [styles.sectionHeader]: item.isSectionHeader
+            });
+
+            return (
+              <li key={index} className={itemClassName} onClick={this.onItemClick(index)}>
+                {item.title}
+              </li>
+            );
+          })}
         </ul>
       </div>
     );
   }
 
   private onItemClick = (index: number) => () => {
-    const { onItemClick } = this.props;
-    if (onItemClick) {
-      onItemClick(index);
+    if (this.props.onItemClick) {
+      this.props.onItemClick(index);
     }
   };
 }
