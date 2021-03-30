@@ -114,13 +114,13 @@ $indicator-border-color: rgba(219, 223, 228, 0.5);
 .blue {
   .menuItem.clickable:hover {
     background-color: $jss-thin-blue;
-    color: $jss-medium-blue;
+    color: $jss-dark-blue;
   }
 
   .activeItem {
     .item {
       background-color: $jss-thin-blue;
-      color: $jss-medium-blue;
+      color: $jss-dark-blue;
     }
 
     position: relative;
