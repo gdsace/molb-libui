@@ -83,7 +83,11 @@ const navList1 = [
     title: <NavItem type={"dashboard"} label="Label 1" />
   },
   {
-    title: <NavItem type={"dashboard"} label="Label 2" />
+    title: "Section Header",
+    isSectionHeader: true
+  },
+  {
+    title: "Label 2"
   }
 ];
 

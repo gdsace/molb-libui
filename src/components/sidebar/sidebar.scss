@@ -87,7 +87,7 @@ $indicator-border-color: rgba(219, 223, 228, 0.5);
 
 .green {
   .menuItem.clickable:hover {
-    background-color: #f9fafa;
+    background-color: #ecf5f5;
     color: $ga-teal;
   }
 
@@ -119,7 +119,7 @@ $indicator-border-color: rgba(219, 223, 228, 0.5);
 
   .activeItem {
     .item {
-      background-color: #ecf5f5;
+      background-color: $jss-thin-blue;
       color: $jss-medium-blue;
     }
 

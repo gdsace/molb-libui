@@ -2,6 +2,7 @@ import * as React from "react";
 import { SidebarTheme } from "../EnumValues";
 interface ILabelType {
     title: React.ReactNode;
+    path?: string;
     isSectionHeader?: boolean;
 }
 export interface ISidebarProps {

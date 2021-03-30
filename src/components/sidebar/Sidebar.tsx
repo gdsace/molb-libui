@@ -6,6 +6,7 @@ let styles = require("./sidebar.scss");
 
 interface ILabelType {
   title: React.ReactNode;
+  path?: string;
   isSectionHeader?: boolean;
 }
 
@@ -31,24 +32,25 @@ export class Sidebar extends React.Component<ISidebarProps, {}> {
       styles = require("./greenStyleSidebar.scss");
     }
     const typeClass = styles[`${this.props.type}Item`];
-    const sidebarStyle = classNames(
-      styles.sidebar,
-      this.props.theme === SidebarTheme.BLUE ? styles.blue : null,
-      this.props.theme === SidebarTheme.GREEN ? styles.green : null
-    );
+    const sidebarStyle = classNames(styles.sidebar, {
+      [styles.blue]: this.props.theme === SidebarTheme.BLUE,
+      [styles.green]: this.props.theme === SidebarTheme.GREEN
+    });
     return (
       <div className={sidebarStyle}>
         <ul>
           {list.map((item, index) => {
             const itemClassName = classNames(styles.item, typeClass, {
-              [styles.clickable]: this.props.onItemClick && !item.isSectionHeader,
+              [styles.clickable]: this.props.onItemClick && !item.isSectionHeader
+            });
+            const listItemClassname = classNames("", {
               [styles.activeItem]: selectedIndex === index,
               [styles.sectionHeader]: item.isSectionHeader
             });
 
             return (
-              <li key={index} className={itemClassName} onClick={this.onItemClick(index)}>
-                {item.title}
+              <li key={index} className={listItemClassname} onClick={this.onItemClick(index)}>
+                <div className={itemClassName}>{item.title}</div>
               </li>
             );
           })}
