@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import * as React from "react";
+import { SidebarTheme } from "../EnumValues";
 
 let styles = require("./sidebar.scss");
 
@@ -14,12 +15,14 @@ export interface ISidebarProps {
   onItemClick?: (index: number) => void;
   type?: "menu" | "indicator";
   greenStyling?: boolean;
+  theme?: SidebarTheme;
 }
 
 export class Sidebar extends React.Component<ISidebarProps, {}> {
   public static defaultProps: Partial<ISidebarProps> = {
     selectedIndex: 0,
-    type: "menu"
+    type: "menu",
+    theme: SidebarTheme.PURPLE
   };
 
   public render() {
@@ -28,9 +31,13 @@ export class Sidebar extends React.Component<ISidebarProps, {}> {
       styles = require("./greenStyleSidebar.scss");
     }
     const typeClass = styles[`${this.props.type}Item`];
-
+    const sidebarStyle = classNames(
+      styles.sidebar,
+      this.props.theme === SidebarTheme.BLUE ? styles.blue : null,
+      this.props.theme === SidebarTheme.GREEN ? styles.green : null
+    );
     return (
-      <div className={styles.sidebar}>
+      <div className={sidebarStyle}>
         <ul>
           {list.map((item, index) => {
             const itemClassName = classNames(styles.item, typeClass, {

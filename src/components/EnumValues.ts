@@ -191,3 +191,9 @@ export enum FlexDirectionType {
   ROW = "row",
   COLUMN = "column"
 }
+
+export enum SidebarTheme {
+  BLUE = "blue",
+  PURPLE = "purple",
+  GREEN = "green"
+}

@@ -1,12 +1,5 @@
 @import "../styles/utils.scss";
 
-@mixin activeItem {
-  .item {
-    background-color: $field-color-1;
-    color: $indigo;
-  }
-}
-
 $indicator-border-color: rgba(219, 223, 228, 0.5);
 
 .sidebar {
@@ -42,7 +35,10 @@ $indicator-border-color: rgba(219, 223, 228, 0.5);
   }
 
   .activeItem {
-    @include activeItem;
+    .item {
+      background-color: $field-color-1;
+      color: $indigo;
+    }
 
     position: relative;
 
@@ -60,5 +56,83 @@ $indicator-border-color: rgba(219, 223, 228, 0.5);
   .sectionHeader {
     font-weight: $weight-bold;
     text-transform: uppercase;
+  }
+}
+
+.purple {
+  .menuItem.clickable:hover {
+    background-color: $field-color-1;
+    color: $indigo;
+  }
+
+  .activeItem {
+    .item {
+      background-color: $field-color-1;
+      color: $indigo;
+    }
+
+    position: relative;
+
+    &::before {
+      content: "";
+      left: 0;
+      position: absolute;
+      width: 8px;
+      height: 100%;
+      background-color: $lavender-indigo;
+      top: 0;
+    }
+  }
+}
+
+.green {
+  .menuItem.clickable:hover {
+    background-color: #f9fafa;
+    color: $ga-teal;
+  }
+
+  .activeItem {
+    .item {
+      background-color: #ecf5f5;
+      color: $ga-teal;
+    }
+
+    position: relative;
+
+    &::before {
+      content: "";
+      left: 0;
+      position: absolute;
+      width: 8px;
+      height: 100%;
+      background-color: $ga-teal;
+      top: 0;
+    }
+  }
+}
+
+.blue {
+  .menuItem.clickable:hover {
+    background-color: $jss-thin-blue;
+    color: $jss-medium-blue;
+  }
+
+  .activeItem {
+    .item {
+      background-color: #ecf5f5;
+      color: $jss-medium-blue;
+    }
+
+    position: relative;
+
+    &::before {
+      content: "";
+      left: 0;
+      position: absolute;
+      width: 8px;
+      height: 100%;
+      background-color: $jss-medium-blue;
+      top: 0;
+    }
   }
 }
