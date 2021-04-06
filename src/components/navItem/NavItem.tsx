@@ -8,6 +8,8 @@ export interface INavItem {
   label: string;
   category?: IIconCategory;
   onClick?: () => void;
+  showBadge?: boolean;
+  badge?: React.ReactNode;
 }
 
 export class NavItem extends React.Component<INavItem, {}> {
@@ -16,6 +18,7 @@ export class NavItem extends React.Component<INavItem, {}> {
       <div className={styles.navLabel} onClick={this.onItemClick}>
         <Icon category={this.props.category} type={this.props.type} />
         <label>{this.props.label}</label>
+        {this.props.showBadge ? this.props.badge : null}
       </div>
     );
   }
