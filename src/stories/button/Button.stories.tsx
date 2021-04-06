@@ -101,6 +101,22 @@ export const _Button = () => (
         <p className={styles.notes}>ga ghost</p>
         <Button label="ga ghost" onClick={action("button-click")} theme={Theme.GAGhost} />
       </div>
+      <div className={styles.box}>
+        <p className={styles.notes}>jss blue</p>
+        <Button label="jss blue" onClick={action("button-click")} theme={Theme.JssBlue} />
+      </div>
+      <div className={styles.box}>
+        <p className={styles.notes}>jss blue:loading</p>
+        <Button label="jss blue" onClick={action("button-click")} theme={Theme.JssBlue} loading={true} />
+      </div>
+      <div className={styles.box}>
+        <p className={styles.notes}>jss grey</p>
+        <Button label="jss grey" onClick={action("button-click")} theme={Theme.JssGrey} />
+      </div>
+      <div className={styles.box}>
+        <p className={styles.notes}>jss ghost</p>
+        <Button label="jss ghost" onClick={action("button-click")} theme={Theme.JssGhost} />
+      </div>
     </div>
 
     <h6 className={styles.groupHeader}>With Icon</h6>

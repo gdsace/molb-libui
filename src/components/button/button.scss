@@ -102,6 +102,21 @@
   }
 }
 
+.jssGhost {
+  color: $jss-dark-blue;
+  background-color: $primary-color-2;
+  border: solid 1px $ga-primary-color;
+
+  &:focus {
+    background-color: $primary-color-2;
+  }
+
+  &:hover {
+    color: $primary-color-2;
+    background-color: $jss-primary-color;
+  }
+}
+
 .orange {
   color: white;
   background-color: $vivid-orange;
@@ -142,6 +157,19 @@
 
   &:focus {
     background-color: $ga-secondary-color;
+  }
+}
+
+.jssBlue {
+  color: white;
+  background-color: $jss-dark-blue;
+
+  &:hover {
+    background-color: $jss-medium-blue;
+  }
+
+  &:focus {
+    background-color: $jss-medium-blue;
   }
 }
 
@@ -190,6 +218,18 @@
 
   &:hover {
     border: 1px solid $ga-secondary-color;
+    position: relative;
+    z-index: 99;
+  }
+}
+
+.jssGrey {
+  color: $text-color;
+  background-color: $primary-color-2;
+  border: 1px solid $ui-color-2;
+
+  &:hover {
+    border: 1px solid $jss-medium-blue;
     position: relative;
     z-index: 99;
   }

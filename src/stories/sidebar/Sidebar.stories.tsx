@@ -100,6 +100,22 @@ const navList2 = [
   }
 ];
 
+const testBadge = <span>NEW</span>;
+const navList3 = [
+  {
+    title: <NavItem type={"dashboard"} label="Label 1" showBadge={true} badge={testBadge} />
+  },
+  {
+    title: <NavItem type={"dashboard"} label="Label 2" showBadge={true} badge={testBadge} />
+  },
+  {
+    title: <NavItem type={"dashboard"} label="Label 3" showBadge={false} badge={testBadge} />
+  },
+  {
+    title: <NavItem type={"dashboard"} label="Label 4" />
+  }
+];
+
 export const _Sidebar = () => (
   <div style={{ padding: "10px" }}>
     <h6 style={{ color: "grey" }}>This is indicator Sidebar</h6>
@@ -140,7 +156,7 @@ export const _Sidebar = () => (
       <State store={store}>
         <Sidebar
           theme={SidebarTheme.BLUE}
-          list={navList2}
+          list={navList3}
           onItemClick={onBlueSidebarItemClick}
           selectedIndex={store.activeBlueNavIndex}
         />
