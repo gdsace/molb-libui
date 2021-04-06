@@ -5,6 +5,8 @@ export interface INavItem {
     label: string;
     category?: IIconCategory;
     onClick?: () => void;
+    showBadge?: boolean;
+    badge?: React.ReactNode;
 }
 export declare class NavItem extends React.Component<INavItem, {}> {
     render(): JSX.Element;
