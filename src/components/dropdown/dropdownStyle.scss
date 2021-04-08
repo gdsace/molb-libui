@@ -254,8 +254,10 @@
 
 //test start
 .buttonDropdown {
+  height: 48px;
+
   .dropdownControl {
-    height: 48px;
+    //height: 48px;
     cursor: pointer;
     padding: 0 $space-3;
 
@@ -271,7 +273,7 @@
     }
   }
   .option {
-    padding: 32px 0 !important;
+    padding: 16px 0 !important;
     text-align: center;
     font-size: 14px;
     font-weight: bold;
@@ -281,6 +283,8 @@
     font-family: $font-family;
     font-weight: $weight-semibold;
     font-size: $large;
+    text-align: center;
+    width: 100%;
   }
   .singleValue {
     color: white;
