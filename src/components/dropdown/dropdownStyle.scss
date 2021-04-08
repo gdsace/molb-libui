@@ -251,3 +251,42 @@
   }
   // stylelint-enable
 }
+
+//test start
+.buttonDropdown {
+  .dropdownControl {
+    height: 48px;
+    cursor: pointer;
+    padding: 0 $space-3;
+
+    color: $primary-color-2;
+    background-color: $primary-color;
+
+    &:focus {
+      background-color: $secondary-color-8;
+    }
+
+    &:hover {
+      background-color: $secondary-color;
+    }
+  }
+  .option {
+    padding: 32px 0 !important;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .placeholder {
+    color: white;
+    font-family: $font-family;
+    font-weight: $weight-semibold;
+    font-size: $large;
+  }
+  .singleValue {
+    color: white;
+    font-family: $font-family;
+    font-weight: $weight-semibold;
+    font-size: $large;
+  }
+}
+//test end
