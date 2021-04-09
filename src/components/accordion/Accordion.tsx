@@ -1,6 +1,6 @@
 import ClassNames from "classnames/bind"; // TODO Consider Styled-Component as replacement
 import React, { Component, ReactNode } from "react";
-import { AccordionTheme } from "../EnumValues";
+import { AccordionTheme, ColourTheme } from "../EnumValues";
 import { Icon } from "../icons";
 import styles from "./accordion.scss";
 
@@ -14,6 +14,7 @@ export type AccordionProps = {
   defaultCollapsed?: boolean;
   displayMode?: boolean;
   onPanelClick?: (collapsed: boolean) => void;
+  colourTheme?: ColourTheme;
 };
 
 export type AccordionState = {
@@ -28,9 +29,9 @@ export class Accordion extends Component<AccordionProps, AccordionState> {
   render() {
     const collapsed = this.getCollapsedStatus();
     const iconType = collapsed ? "dropdown" : "up";
-    const { header, content, theme, subHeader, displayMode } = this.props;
+    const { header, content, theme, subHeader, displayMode, colourTheme } = this.props;
     return (
-      <div className={cx("accordion", theme)}>
+      <div className={cx("accordion", theme, colourTheme)}>
         <div className={cx("panelHeader")} onClick={this.onPanelClick}>
           <span className={cx("panelTitle")}>{header}</span>
           {!displayMode && (
