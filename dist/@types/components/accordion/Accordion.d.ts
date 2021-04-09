@@ -1,5 +1,5 @@
 import { Component, ReactNode } from "react";
-import { AccordionTheme } from "../EnumValues";
+import { AccordionTheme, ColourTheme } from "../EnumValues";
 export declare type AccordionProps = {
     theme: AccordionTheme;
     collapsed?: boolean;
@@ -9,6 +9,7 @@ export declare type AccordionProps = {
     defaultCollapsed?: boolean;
     displayMode?: boolean;
     onPanelClick?: (collapsed: boolean) => void;
+    colourTheme?: ColourTheme;
 };
 export declare type AccordionState = {
     collapsed: boolean;
