@@ -64,13 +64,9 @@ MultiSelectDropdown.story = {
 
 export const _ButtonDropdown = () => (
   <ButtonDropdown
-    label={text("label", "Button Dropdown Label")}
+    placeholder="This is a placeholder"
     options={mockOptions}
     onChange={action("onchangeValue")}
-    isDisabled={boolean("isDisabled", false)}
-    error={text("error", "")}
-    editable={boolean("editable", false)}
-    textInputValue={text("textInputValue", "this is value")}
   />
 );
 
