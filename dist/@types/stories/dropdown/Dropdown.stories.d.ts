@@ -12,14 +12,12 @@ export declare const MultiSelectDropdown: {
         name: string;
     };
 };
-//test start
-export declare const ButtonDropdown: {
+export declare const _ButtonDropdown: {
     (): JSX.Element;
     story: {
         name: string;
     };
 };
-//test end
 declare const _default: {
     title: string;
     component: <T extends any>(props: import("../../components").DropdownProps<T>) => JSX.Element;

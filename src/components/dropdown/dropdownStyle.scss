@@ -252,15 +252,12 @@
   // stylelint-enable
 }
 
-//test start
 .buttonDropdown {
   height: 48px;
 
   .dropdownControl {
-    //height: 48px;
     cursor: pointer;
     padding: 0 $space-3;
-
     color: $primary-color-2;
     background-color: $primary-color;
 
@@ -272,6 +269,7 @@
       background-color: $secondary-color;
     }
   }
+
   .option {
     padding: 16px 0 !important;
     text-align: center;
@@ -279,6 +277,7 @@
     font-weight: bold;
     cursor: pointer;
   }
+
   .placeholder {
     color: white;
     font-family: $font-family;
@@ -287,6 +286,7 @@
     text-align: center;
     width: 100%;
   }
+
   .singleValue {
     color: white;
     font-family: $font-family;
@@ -295,8 +295,8 @@
     text-align: center;
     width: 100%;
   }
+  
   .dropdownIcon {
     color: white;
   }
 }
-//test end
