@@ -5,7 +5,7 @@ import styles from "./dropdownStyle.scss";
 
 export const ButtonDropdown = <T extends any>(props: Props<T>) => {
   const buttonDropdown = (
-      <BaseDropdown<T> className={styles.buttonDropdown} components={{ ...baseComponents }} {...props} />
+    <BaseDropdown<T> className={styles.buttonDropdown} components={{ ...baseComponents }} {...props} />
   );
 
   return buttonDropdown;
