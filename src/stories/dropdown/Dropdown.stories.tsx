@@ -2,7 +2,7 @@ import { State, Store } from "@sambego/storybook-state";
 import { action } from "@storybook/addon-actions";
 import { boolean, text } from "@storybook/addon-knobs";
 import React from "react";
-import { Dropdown, MultiSelect, PremiseDropdown } from "../../components";
+import { ButtonDropdown, Dropdown, MultiSelect, PremiseDropdown } from "../../components";
 import { mockOptions, mockOptionsForDays } from "./mockDropdownStories";
 
 const store = new Store({
@@ -60,6 +60,18 @@ export const MultiSelectDropdown = () => (
 
 MultiSelectDropdown.story = {
   name: "MultiSelect Dropdown"
+};
+
+export const _ButtonDropdown = () => (
+  <ButtonDropdown
+    placeholder="This is a placeholder"
+    options={mockOptions}
+    onChange={action("onchangeValue")}
+  />
+);
+
+_ButtonDropdown.story = {
+  name: "Button Dropdown"
 };
 
 export default {
