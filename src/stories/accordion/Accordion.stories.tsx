@@ -1,6 +1,6 @@
 import { boolean, select, text } from "@storybook/addon-knobs";
 import React from "react";
-import { AccordionTheme } from "../../components";
+import { AccordionTheme, ColourTheme } from "../../components";
 import { Accordion } from "../../components/accordion/Accordion";
 
 const ThemeList: AccordionTheme[] = Object.keys(AccordionTheme).map(
@@ -21,6 +21,22 @@ export const Uncontrolled = () => (
           alert("onPanelClick!");
         }}
       />
+    </div>
+    <div>
+      <h6>Standard Accordion with jss blue theme</h6>
+      <div>
+        <Accordion
+          displayMode={boolean("displayMode", false)}
+          theme={select("theme", ThemeList, AccordionTheme.Standard)}
+          header={text("header", "Accordion Header Text")}
+          subHeader={[text("subHeader[0]", "Expand"), text("subHeader[1]", "Collapse")]}
+          content={<div>this is a content div, content is a render-props</div>}
+          onPanelClick={() => {
+            alert("onPanelClick!");
+          }}
+          colourTheme={ColourTheme.JssBlue}
+        />
+      </div>
     </div>
     <br />
     <br />

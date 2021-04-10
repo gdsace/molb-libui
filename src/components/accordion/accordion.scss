@@ -139,3 +139,16 @@
     padding-bottom: 0;
   }
 }
+
+.jssBlue {
+  .panelHeader {
+    &:hover {
+      color: $jss-medium-blue;
+      cursor: pointer;
+
+      .collapseIcon {
+        color: $jss-medium-blue;
+      }
+    }
+  }
+}
