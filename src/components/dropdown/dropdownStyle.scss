@@ -64,56 +64,6 @@
   }
 }
 
-/* ButtonDropdown field styling */
-.buttonDropdown {
-  height: 48px;
-
-  .dropdownControl {
-    cursor: pointer;
-    padding: 0 $space-3;
-    color: $primary-color-2;
-    background-color: $primary-color;
-
-    &:focus {
-      background-color: $secondary-color-8;
-    }
-
-    &:hover {
-      background-color: $secondary-color;
-    }
-  }
-
-  .option {
-    padding: 16px 0 !important;
-    text-align: center;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-
-  .placeholder {
-    color: white;
-    font-family: $font-family;
-    font-weight: $weight-semibold;
-    font-size: $large;
-    text-align: center;
-    width: 100%;
-  }
-
-  .singleValue {
-    color: white;
-    font-family: $font-family;
-    font-weight: $weight-semibold;
-    font-size: $large;
-    text-align: center;
-    width: 100%;
-  }
-
-  .dropdownIcon {
-    color: white;
-  }
-}
-
 /* Dropdown input field styling */
 .field {
   position: relative;
@@ -300,4 +250,60 @@
     }
   }
   // stylelint-enable
+}
+
+/* ButtonDropdown field styling */
+.buttonDropdown {
+  height: 48px;
+
+  /* stylelint-disable no-descending-specificity*/
+  .dropdownControl {
+    cursor: pointer;
+    padding: 0 $space-3;
+    color: $primary-color-2;
+    background-color: $primary-color;
+
+    &:focus {
+      background-color: $secondary-color-8;
+    }
+
+    &:hover {
+      background-color: $secondary-color;
+    }
+  }
+  /* stylelint-enable no-descending-specificity*/
+
+  .option {
+    padding: 16px 0 !important;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  /* stylelint-disable no-descending-specificity*/
+  .placeholder {
+    color: white;
+    font-family: $font-family;
+    font-weight: $weight-semibold;
+    font-size: $large;
+    text-align: center;
+    width: 100%;
+  }
+  /* stylelint-enable no-descending-specificity*/
+
+  /* stylelint-disable no-descending-specificity*/
+  .singleValue {
+    color: white;
+    font-family: $font-family;
+    font-weight: $weight-semibold;
+    font-size: $large;
+    text-align: center;
+    width: 100%;
+  }
+  /* stylelint-enable no-descending-specificity*/
+
+  .dropdownIcon {
+    color: white;
+  }
 }
