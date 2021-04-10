@@ -63,7 +63,7 @@ MultiSelectDropdown.story = {
 };
 
 export const _ButtonDropdown = () => (
-  <ButtonDropdown placeholder="This is a placeholder" options={mockOptions} onChange={action("onchangeValue")}/>
+  <ButtonDropdown placeholder="This is a placeholder" options={mockOptions} onChange={action("onchangeValue")} />
 );
 
 _ButtonDropdown.story = {
