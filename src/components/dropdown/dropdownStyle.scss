@@ -275,11 +275,11 @@
 
   .option {
     padding: 16px 0 !important;
-    justify-content: center !important;
     text-align: center;
     font-size: 14px;
     font-weight: bold;
     cursor: pointer;
+    display: block !important;
   }
 
   /* stylelint-disable no-descending-specificity */
