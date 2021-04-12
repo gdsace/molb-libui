@@ -273,12 +273,9 @@
   }
   /* stylelint-enable no-descending-specificity */
 
-  .menu {
-    text-align: center;
-  }
-
   .option {
     padding: 16px 0 !important;
+    justify-content: center !important;
     text-align: center;
     font-size: 14px;
     font-weight: bold;
