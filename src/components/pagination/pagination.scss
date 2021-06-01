@@ -30,6 +30,10 @@
       font-weight: bold;
     }
   }
+
+  .btnContainer {
+    display: flex;
+  }
 }
 
 .paginationDetails {
@@ -67,4 +71,18 @@
 
 .paginationRow {
   justify-content: space-between;
+}
+
+.mobilePaginationContainer {
+  flex-direction: column;
+  height: 70px;
+  margin-top: $space-0;
+
+  .countContainer {
+    font-size: $large;
+  }
+
+  .ofCountContainer {
+    margin-right: $space-0;
+  }
 }
