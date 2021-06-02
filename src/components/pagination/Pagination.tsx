@@ -5,6 +5,8 @@ import { Button } from "../button";
 import { Dropdown } from "../dropdown";
 import { Size, Theme } from "../EnumValues";
 import { IDataSource } from "../table/Table";
+import { isMobile } from "../utils";
+import classNames from "classnames";
 
 const styles = require("./pagination.scss");
 
@@ -74,15 +76,21 @@ export class Pagination extends React.Component<IPaginationProps, {}> {
 
     const lastItemIndex = (currentPage + 1) * rowsPerPage;
 
+    const renderMobileView = isMobile();
+
     return (
-      <div className={styles.paginationContainer}>
-        <div className={styles.countContainer}>{showTotalResultsAvailable ? resultsAvailable : title}</div>
+      <div
+        className={classNames(styles.paginationContainer, {
+          [styles.mobilePaginationContainer]: renderMobileView
+        })}
+      >
+        <div className={classNames(styles.countContainer)}>{showTotalResultsAvailable ? resultsAvailable : title}</div>
         <div className={styles.paginationDetails}>
           {currentPageRange}
           <div className={styles.ofCountContainer}>
             of <div className={styles.totalResultsCount}>{totalResultsCount}</div> items
           </div>
-          <div>
+          <div className={styles.btnContainer}>
             <Button
               className={styles.prevButton}
               size={Size.Square}
