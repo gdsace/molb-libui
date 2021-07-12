@@ -4,7 +4,7 @@ import { SidebarTheme } from "../EnumValues";
 
 let styles = require("./sidebar.scss");
 
-interface ILabelType {
+export interface ILabelType {
   title: React.ReactNode;
   path?: string;
   isSectionHeader?: boolean;
