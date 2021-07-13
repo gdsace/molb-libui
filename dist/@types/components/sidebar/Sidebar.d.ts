@@ -1,6 +1,6 @@
 import * as React from "react";
 import { SidebarTheme } from "../EnumValues";
-interface ILabelType {
+export interface ILabelType {
     title: React.ReactNode;
     path?: string;
     isSectionHeader?: boolean;
@@ -18,4 +18,3 @@ export declare class Sidebar extends React.Component<ISidebarProps, {}> {
     render(): JSX.Element;
     private onItemClick;
 }
-export {};
