@@ -138,11 +138,8 @@ export declare enum FlexDirectionType {
     ROW = "row",
     COLUMN = "column"
 }
-export declare enum SidebarTheme {
-    BLUE = "blue",
-    PURPLE = "purple",
-    GREEN = "green"
-}
 export declare enum ColourTheme {
-    JssBlue = "jssBlue"
+    BLUE = "BLUE",
+    PURPLE = "PURPLE",
+    GREEN = "GREEN"
 }

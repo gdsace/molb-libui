@@ -34,7 +34,7 @@ export const Uncontrolled = () => (
           onPanelClick={() => {
             alert("onPanelClick!");
           }}
-          colourTheme={ColourTheme.JssBlue}
+          colourTheme={ColourTheme.BLUE}
         />
       </div>
     </div>

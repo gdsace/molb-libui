@@ -1,5 +1,5 @@
 import * as React from "react";
-import { SidebarTheme } from "../EnumValues";
+import { ColourTheme } from "../EnumValues";
 export interface ILabelType {
     title: React.ReactNode;
     path?: string;
@@ -11,7 +11,7 @@ export interface ISidebarProps {
     onItemClick?: (index: number) => void;
     type?: "menu" | "indicator";
     greenStyling?: boolean;
-    theme?: SidebarTheme;
+    theme?: ColourTheme;
 }
 export declare class Sidebar extends React.Component<ISidebarProps, {}> {
     static defaultProps: Partial<ISidebarProps>;

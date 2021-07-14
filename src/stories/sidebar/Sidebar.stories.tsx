@@ -1,7 +1,7 @@
 import React from "react";
 
 import { State, Store } from "@sambego/storybook-state";
-import { Indicator, NavItem, Sidebar, SidebarTheme } from "../../components";
+import { ColourTheme, Indicator, NavItem, Sidebar } from "../../components";
 
 const store = new Store({
   activeIndex: 1,
@@ -144,7 +144,7 @@ export const _Sidebar = () => (
       <h6 style={{ color: "grey" }}>This is Sidebar with NavItem with green theme</h6>
       <State store={store}>
         <Sidebar
-          theme={SidebarTheme.GREEN}
+          theme={ColourTheme.GREEN}
           list={navList2}
           onItemClick={onGreenSidebarItemClick}
           selectedIndex={store.activeGreenNavIndex}
@@ -155,7 +155,7 @@ export const _Sidebar = () => (
       <h6 style={{ color: "grey" }}>This is Sidebar with NavItem with blue theme</h6>
       <State store={store}>
         <Sidebar
-          theme={SidebarTheme.BLUE}
+          theme={ColourTheme.BLUE}
           list={navList3}
           onItemClick={onBlueSidebarItemClick}
           selectedIndex={store.activeBlueNavIndex}
