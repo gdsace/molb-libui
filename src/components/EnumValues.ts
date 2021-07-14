@@ -202,5 +202,7 @@ export enum SidebarTheme {
 }
 
 export enum ColourTheme {
-  JssBlue = "jssBlue"
+  BLUE = "BLUE",
+  PURPLE = "PURPLE",
+  GREEN = "GREEN"
 }
